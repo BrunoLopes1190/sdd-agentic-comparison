@@ -1,0 +1,17 @@
+# Build output
+build/
+
+# Office lock/temp files
+~$*
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
