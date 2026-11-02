@@ -2,6 +2,8 @@
 
 MSc dissertation repo (see README.md). Comparison of Spec-Driven Development approaches for agentic coding.
 
+Start here: `course-materials/course-overview.md` (what PREPD requires) and `planning/prepd-work-plan.md` (what to produce, by when).
+
 ## Rules
 
 - Everything in English (files, folders, prose, comments). Exception: `course-materials/` content keeps its original language.

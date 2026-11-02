@@ -1,13 +1,20 @@
 # PREPD 2026-27 Context (Bruno Lopes, MEI-ISEP)
 
-Updated on 2026-10-11. Summary of the course documents, the state of the proposal and the decisions taken. This file is self-contained: it allows the work to be continued on any computer.
+Updated on 2026-11-02. Summary of the state of the proposal and the decisions taken. This file is self-contained: it allows the work to be continued on any computer.
+Course synthesis: `course-materials/course-overview.md`. PREPD plan: `planning/prepd-work-plan.md`.
 
 ## 0. Current status and next steps
 
-- **Phase:** proposal approved and submitted on the platform by the professor (6 Oct); supervision shown as accepted (no email notification). Formalisation in preparation.
-- **Done:** complete proposal, Word DissertationProposal-1240441.docx (title, problem, approach, objectives, results, question) sent to the professor on 6 Oct; formalisation texts reviewed on 11 Oct.
-- **Next:** confirm on the platform that the formalisation is editable and correct the title error recorded there; close the 8 formalisation decisions; ask the supervisor to approve the text; submit the formalisation by 13 Oct (deadline 14 Oct); review by 24 Oct.
-- **To be decided later (state of the art):** agents and models, definition of "total cost", final metrics, number of approaches and of repetitions.
+- **Phase:** formalisation submitted on 2026-10-14 (version with citations, `admin/formalization-1240441-citations*.docx`). No reviewer comments so far. The title on the platform is correct. PREPD course work (charter, competencies, SLR, plan) not started.
+- **Reference text:** the submitted formalisation of 14 Oct replaces the Word of 6 Oct (section 2 below is the 6 Oct text; its problem statement was reworded on 14 Oct).
+- **Supervision:** supervisor only; no co-supervisor. The supervisor gave no specific instructions beyond following the classes. GenAI use: no restriction, but it must be declared.
+- **Extended abstract:** the supervisor will review it until 15 Dec; send the draft (target 4 Dec) and ask for a meeting.
+- **Assessment:** 10-minute presentation; exam date to be announced at the end of December.
+- **State of the art:** full SLR (student's decision, 2 Nov).
+- **Resources:** no fixed hours; no token budget; runs (dissertation only) may use the student's personal Claude Pro plan. No employer is linked to the work.
+- **Not yet discussed with the supervisor:** P.PORTO Code art. 10 (ethics review for autonomous AI systems); second reviewer for the SLR. See `planning/prepd-work-plan.md` §6.
+- **Next:** see the products and dates in `planning/prepd-work-plan.md` §4.
+- **Left to the dissertation:** agents and models, definition of "total cost", final metrics, number of approaches and of repetitions, reference project, all runs.
 
 ## 1. Working documents
 
@@ -59,7 +66,8 @@ Main objective: to identify and characterise the existing Spec-Driven Developmen
 | Baseline | Kept (without a structured specification) |
 | Decision guide | Kept (objective 5) |
 | Language | Formal texts in English; emails to the professor in Portuguese |
-| Consistency | The Word, the formalisation and the emails must not diverge; the Word of 6 Oct is the reference text |
+| Consistency | The Word, the formalisation and the emails must not diverge; the submitted formalisation of 14 Oct is the reference text |
+| State of the art | Full SLR (2 Nov) |
 
 How to separate what counts as an SDD "standard": three layers. Method (flow of phases; object of comparison), artefact format (spec.md, delta specs, AGENTS.md; characteristic described), execution tool (CLI, IDE, agent, model; recorded factor). Inclusion criteria: persistent artefacts before the code; repeatable flow; public documentation and a pinnable version; able to carry out the example project.
 
