@@ -20,8 +20,8 @@ Course synthesis: `course-materials/course-overview.md`. PREPD plan: `planning/p
 
 | Document | Where | Content |
 |---|---|---|
-| Dissertation Proposal | https://claude.ai/code/artifact/47a68173-e319-4be2-ba23-57d908f056d6 (copy: admin/proposal.md) | Complete proposal in Portuguese, working notes |
-| PREPD Formalisation: proposed answers | https://claude.ai/code/artifact/f5c489da-f4f2-4f42-a086-8f9f67cfee88 (copy: admin/formalization.md) | Text to paste into each field, open decisions, plan up to submission |
+| Dissertation Proposal | https://claude.ai/code/artifact/47a68173-e319-4be2-ba23-57d908f056d6 | Complete proposal in Portuguese, working notes (historical; local copy removed) |
+| PREPD Formalisation: proposed answers | https://claude.ai/code/artifact/f5c489da-f4f2-4f42-a086-8f9f67cfee88 | Draft answers before submission (historical; local copy removed). Approved text: `admin/formalizacao_1240441.pdf` |
 | DissertationProposal-1240441.docx | Sent to the professor on 6 Oct | Reference text shared with the supervisor |
 | Course materials | `C:\Users\BIMMS-BLopes\Desktop\PREPD` (bimmsport43); `C:\dev\PREPD` (desktop-r8kfvjg) | PDFs, templates, FAQ |
 
@@ -73,7 +73,7 @@ How to separate what counts as an SDD "standard": three layers. Method (flow of 
 
 Characteristics of the example project: neutral briefing; executable by all approaches and agents; verifiable by external acceptance tests via API; new project; 8 to 10 features, repeatable in a few hours; tasks of different types; testable architectural constraints; some deliberately ambiguous requirements; original domain; reproducible.
 
-Open formalisation decisions (see admin/formalization.md): language of the fields, final title, characteristics c2/c3, approaches named in g), metrics in j), public repository or not, co-supervisor, references.
+The formalisation is approved (`admin/formalizacao_1240441.pdf`); its open decisions were closed at submission.
 
 ## 4. Verified literature (abstracts read on 2026-10-02; full papers not yet read)
 
