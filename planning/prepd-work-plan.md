@@ -40,7 +40,7 @@ Each question states the student's current assumption and asks for the superviso
 | 3 Nov | Quality checklist and extraction fields | P3 (draft) | Part of the protocol draft |
 | 4 Nov | Pilot search on Scopus (institutional login): number of hits, 20–30 records inspected, terms added; logged in `slr/search-log.md` | P4 | One paragraph with numbers |
 | 4 Nov | Position on P.PORTO art. 10: no human participants or personal data; agents run on a synthetic project in an isolated folder; proposed answer "no ethics committee review needed", to confirm | P13 (draft) | One paragraph |
-| 4 Nov | Proposed decisions D2a, D3, D4, D5, D7 and the extended abstract outline (§4, "Proposed structure") | §3, §4 | Numbered list of proposals |
+| 4 Nov | Proposed decisions D2a, D4, D5, D7 and the extended abstract outline (§4, "Proposed structure") | §3, §4 | Numbered list of proposals |
 | 4 Nov | Planned dates (§2) | §2 | Short timeline |
 
 The protocol draft is kept in `slr/protocol.md`.
@@ -111,10 +111,10 @@ The extended abstract is the first time the separate products are written as one
 
 | # | Decision | Basis | Status |
 |---|---|---|---|
-| D1 | The submitted formalisation (2026-10-14, with citations) is the reference text for title, problem, objectives and RQ | [S] | Taken |
+| D1 | The approved formalisation (2026-10-14, with citations; `admin/formalizacao_1240441.pdf`) is the reference text for title, problem, objectives and RQ | [S] | Taken |
 | D2 | State of the art = **full SLR** (Kitchenham & Charters 2007): protocol written and frozen before the search, changes logged; reproducible search; IC/EC; formal quality assessment of every included study; extraction form piloted; PRISMA 2020; synthesis by RQ; threats to validity of the review | [S] student's choice; `week-04/systematic-literature-review-v1.md` slides 8, 11–22; formalisation field f | Taken |
 | D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Confirm with the supervisor who the second reviewer is |
-| D3 | arXiv preprints are an SLR source, justified by the field's age. Tool documentation, repositories and practitioner articles are **not** SLR studies: they are analysed separately, with a documented procedure and the 5W matrix, as input to the comparative framework (RQ1) | `week-03/source-evaluation-matrix.docx`; grading question on grey literature | Proposed |
+| D3 | arXiv preprints are an SLR source, justified by the field's age. Tool documentation, repositories and practitioner articles are **not** SLR studies: they are analysed separately, with a documented procedure and the 5W matrix, as input to the comparative framework (RQ1) | `week-03/source-evaluation-matrix.docx`; grading question on grey literature | Taken 2026-11-03 (no need to ask the supervisor; justified in `slr/protocol.md` §3) |
 | D4 | Citation style author-date (Harvard), as in the template and the submitted formalisation; `doc/ieee.csl` to be replaced | `.dotx`; formalisation | Proposed; confirm with the supervisor |
 | D5 | PREPD document follows the template structure (front matter, lists, references) | `.dotx`; grading item "Document structure" | Proposed |
 | D6 | No supervisor-imposed restriction on GenAI; all use is logged in `doc/ai-usage.md` and declared in the document | [S]; `ai-generated-content-guidelines.txt` | Taken |
@@ -126,7 +126,7 @@ The extended abstract is the first time the separate products are written as one
 |---|---|---|---|---|---|
 | P1 | Competency self-diagnosis + hetero-assessment by a colleague; ≥ 3 key competencies with objectives; ≥ 2 actions each, with metrics | Week 5: `competencies.pdf`, `self-assessment.docx`, `assessment.docx` | Schedule (20) | M2 | Not started |
 | P2 | Research design: main RQ (formalisation) + sub-RQs typed by Shaw; Oates process figure (strategies: design and creation + experiment; data: documents, observation, logs; analysis: quantitative + qualitative); validity threats and bias controls | Week 3: `research-methods-t.md`, `research-process-figure.pptx`, TP activity I | Objectives/method (10) | M2 | Not started |
-| P3 | SLR protocol (frozen before the search): review RQs, concept blocks and synonyms, string per database, databases and justification, search cut-off date, IC/EC, quality assessment checklist, extraction form, synthesis plan, second-reviewer procedure (D2a), protocol change log | Week 4: SLR module + mini-SLR tutorial; Kitchenham & Charters (2007) | State of the art (20) | Draft M1; frozen M2 | Not started |
+| P3 | SLR protocol (frozen before the search): review RQs, concept blocks and synonyms, string per database, databases and justification, search cut-off date, IC/EC, quality assessment checklist, extraction form, synthesis plan, second-reviewer procedure (D2a), protocol change log | Week 4: SLR module + mini-SLR tutorial; Kitchenham & Charters (2007) | State of the art (20) | Draft M1; frozen M2 | In progress |
 | P4 | Pilot search on one database (inspect 20–30 results); pilot the extraction form; refine and log changes; then freeze the protocol | Week 4: tutorial slide 20, steps 1–2 | State of the art | Search M1; extraction pilot M2 | Not started |
 | P5 | Final search on all databases; exports; search log (query, date, filters, n); deduplication; title/abstract and full-text screening with reasons; second-reviewer sample and kappa; backward/forward snowballing; PRISMA 2020 diagram | Week 4; Wohlin (2014); Page et al. (2021) | State of the art | M3 | Not started |
 | P6 | Quality assessment of every included study; extraction matrix; critical synthesis by RQ; Evidence → Limitation → Gap → RQ → Contribution chain; threats to validity of the review | Week 4: slides 22–28 | State of the art; Background (10) | M3 | Not started |
@@ -180,12 +180,11 @@ Mapped to the grading items. To confirm against the week 9–13 materials and wi
 Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3.
 
 1. Full SLR (D2): who can act as second reviewer for the sample (D2a)? Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
-2. arXiv preprints in the SLR, with tool documentation analysed separately (D3): acceptable?
-3. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
-4. Citation style and template for the PREPD document (D4, D5); page limit?
-5. Extended abstract format. Assumption [I]: it follows the template's Portuguese extended abstract (resumo alargado), up to 1000 words or 2 A4 pages. Is that right, and in which language?
-6. Experiments limited to a personal Claude Pro plan (D7): acceptable, given that it constrains the agents that can be tested?
-7. Does the supervisor want access to the repository, to follow the work?
+2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
+3. Citation style and template for the PREPD document (D4, D5); page limit?
+4. Extended abstract format. Assumption [I]: it follows the template's Portuguese extended abstract (resumo alargado), up to 1000 words or 2 A4 pages. Is that right, and in which language?
+5. Experiments limited to a personal Claude Pro plan (D7): acceptable, given that it constrains the agents that can be tested?
+6. Does the supervisor want access to the repository, to follow the work?
 
 ## 7. Risks for PREPD
 
@@ -210,3 +209,5 @@ How to track progress: when an item starts or finishes, update its Status above 
 | Date | What was done | Items |
 |---|---|---|
 | 2026-11-02 | Course materials analysed; course overview and this plan written and reviewed with the student, point by point | — |
+| 2026-11-03 | Approved formalisation (`admin/formalizacao_1240441.pdf`) set as the reference text; SLR protocol draft started | P3 |
+| 2026-11-03 | SLR protocol draft written (`slr/protocol.md` §1–8: RQs, strings, sources, IC/EC, quality, extraction, synthesis, cut-off); D3 taken. Pending: per-database strings (pilot), second reviewer (D2a) | P3 |

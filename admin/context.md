@@ -5,8 +5,8 @@ Course synthesis: `course-materials/course-overview.md`. PREPD plan: `planning/p
 
 ## 0. Current status and next steps
 
-- **Phase:** formalisation submitted on 2026-10-14 (version with citations, `admin/formalization-1240441-citations*.docx`). No reviewer comments so far. The title on the platform is correct. PREPD course work (charter, competencies, SLR, plan) not started.
-- **Reference text:** the submitted formalisation of 14 Oct replaces the Word of 6 Oct (section 2 below is the 6 Oct text; its problem statement was reworded on 14 Oct).
+- **Phase:** formalisation submitted on 2026-10-14 and approved; the approved text is `admin/formalizacao_1240441.pdf` (version with citations). All PREPD work starts from it. No reviewer comments so far. The title on the platform is correct. PREPD course work (charter, competencies, SLR, plan) not started.
+- **Reference text:** the approved formalisation (`admin/formalizacao_1240441.pdf`, 14 Oct) replaces the Word of 6 Oct (section 2 below is the 6 Oct text; its problem statement was reworded on 14 Oct).
 - **Supervision:** supervisor only; no co-supervisor. The supervisor gave no specific instructions beyond following the classes. GenAI use: no restriction, but it must be declared.
 - **Extended abstract:** the supervisor will review it until 15 Dec; send the draft (target 4 Dec) and ask for a meeting.
 - **Assessment:** 10-minute presentation; exam date to be announced at the end of December.

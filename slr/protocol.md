@@ -1,0 +1,181 @@
+# SLR protocol (draft)
+
+Status: draft, not frozen. Method: Kitchenham & Charters (2007); PRISMA 2020 (Page et al., 2021).
+Built step by step following the week 4 SLR module (`course-materials/week-04/slr-mini-tutorial.md`).
+Reference text: the approved formalisation (`admin/formalizacao_1240441.pdf`).
+
+## 1. Objective, scope and review questions
+
+**Objective.** Characterise the Spec-Driven Development (SDD) approaches for development with coding agents, and the evidence on how such approaches and coding agents are evaluated and compared.
+
+**Scope.** 2023 to the search cut-off date. Primary and secondary studies. SDD, or structured specifications and related context mechanisms (e.g. AGENTS.md), used by LLM-based coding agents.
+The start year is 2023 because the evaluation of autonomous coding agents starts then (needed for RQ2 and RQ3); SDD for agents only appears in 2025, which the selection criteria handle.
+
+**Unit of analysis.** A study that describes, applies or evaluates an SDD approach with coding agents, or that evaluates or compares coding agents under controlled conditions.
+
+| RQ | Question | Serves |
+|---|---|---|
+| RQ1 | Which SDD approaches for development with agents are described, and what do they prescribe (artefacts, phases, human review points)? | O1, comparative framework |
+| RQ2 | How are the results of SDD approaches and coding agents measured: which cost, quality and human effort metrics are used, and how are they collected? | O2, metrics |
+| RQ3 | How do comparative studies make conditions comparable: reference project or task set, common briefing, acceptance tests, baseline, control of agent, model and operator, repetitions for non-determinism? | O2 and O3, evaluation design |
+| RQ4 | Which results, limitations and gaps are reported on the effect of SDD, and of related context mechanisms, on cost and quality? | Research gap |
+
+RQ3 is not limited to SDD: comparisons of SDD approaches on the same project are almost absent (the gap), so RQ3 draws on comparative evaluations of coding agents in general (benchmarks, controlled experiments, workflow comparisons).
+Related context mechanisms (e.g. Gloaguen et al., 2026) are in scope for RQ2–RQ4 only.
+
+## 2. Concept blocks and search strings
+
+Synonyms are joined with OR inside a block; blocks are joined with AND. Draft lists, to be refined by the pilot search (P4); changes go to the change log.
+
+| Block | Concept | Terms (draft) |
+|---|---|---|
+| A1 | Spec-Driven Development | "spec-driven", "specification-driven", "spec-first", "spec kit", OpenSpec, BMAD, Kiro |
+| A2 | Related context mechanisms | "AGENTS.md", "context file*", "repository-level context", "instruction file*", "rules file*" |
+| B | Coding agents | "coding agent*", "AI coding agent*", "software engineering agent*", "agentic coding", "agentic software", "LLM-based agent*", "AI coding assistant*" |
+| C | Comparative evaluation | benchmark*, "empirical stud*", "controlled experiment*", "comparative evaluation", "comparative study" |
+| D | Cost, quality and effort metrics | "token usage", "token consumption", "inference cost", "API cost", "pass@k", "resolve rate", "task success", "functional correctness", "code quality", maintainability, "technical debt", "human effort", "developer effort", "human intervention" |
+
+| String | Logic | Serves |
+|---|---|---|
+| S1 | (A1 OR A2) AND B | RQ1, RQ2, RQ4 |
+| S2 | B AND (C OR D) | RQ2, RQ3 |
+
+Term choices:
+- "specification" alone is excluded: it retrieves formal-specification work (Z, TLA+) outside scope.
+- Bare "cost", "quality", "accuracy", "usability" are excluded: too frequent in abstracts. "Credits" is excluded: vendor pricing, and it matches acknowledgements.
+- Agent product names (e.g. Claude Code, Cursor, Copilot) are excluded from block B to avoid vendor bias; generic terms cover them.
+- File names such as CONTEXT.md or ARCHITECTURE.md are excluded: databases drop punctuation, so they become "context", "architecture" and retrieve noise. AGENTS.md is kept as an open, multi-vendor convention; the pilot checks how each database handles it.
+- S2 is one string because (B AND C) OR (B AND D) = B AND (C OR D). In the pilot, B AND C and B AND D are also run separately to see what each block adds.
+- A2 studies are eligible for RQ2–RQ4 only (see selection criteria).
+
+## 3. Sources
+
+Chosen before the search, following the week 4 module (slide 8) and the approved formalisation.
+
+| Source | Role | Justification |
+|---|---|---|
+| Scopus | Main | Largest multidisciplinary coverage; named in the formalisation |
+| Web of Science | Main | Multidisciplinary; named in the formalisation |
+| IEEE Xplore | Main | Software engineering venues; named in the formalisation |
+| ACM Digital Library | Main | Computing and SE conferences (ICSE, FSE); named in the formalisation |
+| arXiv | Main (added) | SDD for agents emerged in 2025 and almost no peer-reviewed work exists yet; the evidence base relies on preprints and grey literature (Díaz et al., 2026). Preprints are flagged as not peer-reviewed and this is weighed in the quality assessment |
+| Google Scholar | Snowballing only (backward and forward) | Complementary source, never the only one (week 4, slide 8) |
+
+The formalisation names the four main databases as "main sources", not as the only ones; adding arXiv is a justified extension.
+Access: Scopus works with the institutional login; Web of Science only from the ISEP network or VPN (confirmed 2026-11-03), so the WoS search is run from another computer.
+arXiv advanced search has limited Boolean syntax; strings may be split into several queries and the union logged in the search log.
+
+**Documentary analysis (separate track, not part of the SLR).** Tool documentation and repositories are the object being characterised, not studies, so they do not enter the PRISMA flow, the IC/EC or the quality checklist.
+For each candidate approach (from the SLR and from known approaches): official documentation and repository at a pinned version and access date; assessed with the 5W Information Source Evaluation Matrix (week 3: who, what, where, when, why; 1–5 each); characterised with the same extraction fields as RQ1. Both tracks feed the comparative framework (P7).
+
+## 4. Selection criteria
+
+Applied at title/abstract screening and again at full-text screening. Every exclusion is logged with the code of the criterion; the codes feed the PRISMA exclusion reasons.
+
+**Inclusion (all must hold):**
+
+| Code | Criterion |
+|---|---|
+| IC1 | The study addresses (a) SDD with coding agents [RQ1–RQ4], or (b) related context mechanisms (e.g. AGENTS.md, context files) with coding agents [RQ2–RQ4], or (c) the evaluation or comparison of coding agents on software development tasks [RQ2–RQ3] |
+| IC2 | Published between 2023-01-01 and the search cut-off date |
+| IC3 | Written in English |
+| IC4 | Full text accessible |
+
+**Exclusion (any one is enough):**
+
+| Code | Criterion |
+|---|---|
+| EC1 | Only code completion or single-function generation (HumanEval style), with no agentic behaviour (multi-step, repository-level) |
+| EC2 | "Specification" in the formal-methods or requirements-engineering sense, with no coding agents |
+| EC3 | Editorial, keynote, poster, abstract only, or tutorial |
+| EC4 | Earlier or duplicate version of an included study (the most complete version is kept, e.g. the published version over the arXiv preprint) |
+
+Workshop and short papers are included: in a field this young much work appears there; rigour is handled by the quality assessment.
+Secondary studies (reviews) are included: they are a source of approaches and gaps (RQ1, RQ4) and a starting set for snowballing. In the synthesis, evidence they report is not counted twice when the primary studies they cite are also included.
+
+**Candidate criterion, decided at the pilot (before the protocol is frozen):** exclude group (c) studies whose main contribution is not the evaluation itself (a new agent tested on an existing benchmark). Adopted only if the pilot shows that S2 returns too many records of this kind; the decision and its reason are logged.
+
+**Currency of included reviews.** For each included review: (1) record its own search cut-off date, so that later work it cannot cover is known; (2) forward snowballing (Google Scholar "Cited by") to find later reviews, comments or rebuttals; (3) check for retraction or withdrawal (publisher page, Crossref/Retraction Watch, latest arXiv version); (4) assess it with the DARE criteria recommended for secondary studies by Kitchenham & Charters (2007). Where a later review contradicts an earlier one, both are reported and the difference is discussed.
+
+## 5. Quality assessment
+
+Quality is not a selection criterion: it does not exclude studies, it weighs the evidence in the synthesis (week 4: eligibility is not quality). What each study found goes to the extraction form (§6), not here.
+Answers: Yes = 1, Partly = 0.5, No = 0, N/A when the question does not apply. Score = points / applicable questions (relative score, so conceptual and empirical studies can be compared).
+Secondary studies are assessed with the DARE criteria instead (§4).
+
+| # | Question | Applies to |
+|---|---|---|
+| | **Design** | |
+| Q1 | Are the aims or research questions of the study clear? | All |
+| Q2 | Is the method described in enough detail to be replicated? | All |
+| Q3 | Are the agent, model and tool versions identified? | Empirical |
+| Q4 | Are the tasks, project or benchmark described and available? | Empirical |
+| | **Evaluation** | |
+| Q5 | Is effectiveness measured against an independent criterion (acceptance tests, ground truth, expert review), not only the authors' judgement? | Empirical |
+| Q6 | Are the metrics defined, and do they cover both cost and quality? | Empirical |
+| Q7 | Is there a baseline or an alternative evaluated under the same conditions? | Empirical |
+| Q8 | Is variability handled (repetitions, statistical analysis of differences)? | Empirical |
+| Q9 | Do the conclusions follow from the results, including negative or mixed ones? | All |
+| | **Credibility** | |
+| Q10 | Are threats to validity and limitations discussed? | All |
+| Q11 | Was it peer-reviewed? | All |
+| Q12 | Are the authors independent of the vendor of the tool evaluated? | All |
+| | **Feasibility** | |
+| Q13 | Is the proposed approach feasible to implement in practice: its requirements (tools, compute, cost) are stated and within reach of a typical development team? | Conceptual studies and studies that propose an approach |
+
+Q13 measures practical feasibility, not research rigour: an approach that needs very costly compute may be sound research but is of little use to the target audience of the decision guide (O5). This is stated when the score is used in the synthesis.
+
+## 6. Data extraction form
+
+One row per study. Every field exists because it answers an RQ (week 4, slides 7 and 15). Fields that do not apply are marked N/A. The form is piloted on 2–3 studies before the protocol is frozen (P4).
+
+| Group | Fields | Serves |
+|---|---|---|
+| Identification | ID; reference; year; publication type (journal, conference, workshop, preprint); author affiliation; nature of the study: evaluates / compares / proposes an evaluation method / conceptual / review | All; Q11, Q12 |
+| Approach | Name and version; artefacts prescribed; phases of the flow; human review points; SDD level (spec-first, spec-anchored, spec-as-source; Böckeler, 2025) | RQ1 |
+| Context of application | Task type (new project or existing code base); size; domain; team profile | O5 (decision guide) |
+| Measurement | Cost metrics (tokens, time, money); functional quality metrics (tests, resolve rate); internal quality metrics (maintainability, technical debt); human effort metrics; how they are collected (automatic or manual) | RQ2 |
+| Evaluation (each configuration on its own) | One entry per configuration evaluated, judged on its own and not against the others. A configuration is one approach (or the baseline) run with one agent and one model, e.g. "Spec Kit + Claude Code + Sonnet". For each: success criterion used; metric values; verdict: works / partly / does not work | RQ4 |
+| Comparison: design | Project or tasks; configurations compared; baseline; what is held constant (agent, model, operator, briefing); acceptance tests; number of repetitions; rules for human intervention | RQ3 |
+| Comparison: result | Which configuration is better, on which dimension, by how much; is the difference significant | RQ4 |
+| Comparison: did the method work | Did it distinguish the configurations; was it repeatable; limitations of the comparison method stated by the authors | RQ3 |
+| Conclusions | Limitations and gaps stated by the authors | RQ4 |
+| Quality | Q1–Q13 score, or DARE for reviews (§5) | Synthesis |
+
+Tools and agents supported by each approach are not extracted from studies: they come from the documentary analysis (§3).
+
+## 7. Synthesis plan
+
+Synthesis by RQ, comparing patterns across studies rather than summarising study by study (week 4, slides 16–18). No meta-analysis: designs and metrics are too heterogeneous; narrative and tabular synthesis is used.
+
+| RQ | Synthesis | Output |
+|---|---|---|
+| RQ1 | Table of approach × dimensions (artefacts, phases, review points, SDD level), merging the SLR and the documentary analysis. Starting dimensions: the six of Macedo (2026) and the levels of Böckeler (2025) | Comparative framework (P7) |
+| RQ1, RQ4 | Evidence map: for each approach, number of studies that describe it, evaluate it and compare it; and a matrix of which approaches were compared with which. Frequency shows how much evidence exists, not which approach is better (slide 16) | Where evidence is concentrated or missing |
+| RQ2 | Metrics grouped by category (cost, functional quality, internal quality, human effort) with how they are collected; counted and assessed for adequacy | Candidate metrics for O2 |
+| RQ3 | Table of the design elements of comparative studies (project, baseline, what is held constant, repetitions), the threat each element controls, and whether the method worked | Design principles for the evaluation protocol |
+| RQ4 | Results grouped by approach and dimension; convergent, divergent and mixed results set against each other; then the Evidence → Observation → Limitation → Gap → Opportunity chain (slide 18) | Research gap and contribution |
+
+Cross-cutting rules:
+1. Every claim states how many studies support it and their quality.
+2. Sensitivity analysis: each conclusion is checked again using only studies with a quality score of at least 0.5 (half of the applicable questions met). A conclusion that holds only because of lower-scored studies is reported as weak evidence. The 0.5 threshold is a convention and is stated as such.
+3. A conclusion that rests only on studies that were not peer-reviewed is flagged as such.
+4. Threats to validity of the review are discussed: single reviewer (mitigated by D2a), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access.
+
+## 8. Search cut-off date
+
+The cut-off date is the day of the final search in all databases (planned 16–17 Nov 2026); the exact date is recorded in the search log.
+Snowballing applies the same cut-off. A critical study published after the cut-off may be mentioned in the text as later work, outside the PRISMA flow. The formal search update is done in the dissertation.
+
+## Protocol change log
+
+| Date | Change | Reason |
+|---|---|---|
+| 2026-11-03 | Section 1 agreed with the author | First draft |
+| 2026-11-03 | Section 2 agreed: blocks A1, A2, B, C, D; strings S1, S2 | Metrics block D and the A1/A2 split proposed by the author |
+| 2026-11-03 | Section 3 agreed: four main databases plus arXiv; Google Scholar for snowballing only | Field too recent for peer-reviewed coverage alone |
+| 2026-11-03 | Documentary analysis of tool documentation defined as a separate track (D3) | Documentation is the object, not a study; formalisation requires explicit quality criteria |
+| 2026-11-03 | Section 4 agreed: IC1–IC4, EC1–EC4; reviews and workshop papers included; "main contribution" criterion left to the pilot | Author decided to keep all group (c) studies until the pilot shows the volume |
+| 2026-11-03 | Section 5 agreed: Q1–Q13, relative score, peer review counted in the score | Author asked for a fuller evaluation block (Q5–Q9), vendor independence (Q12) and feasibility of conceptual proposals (Q13) |
+| 2026-11-03 | Section 6 agreed: one row per study; evaluation of each configuration kept apart from comparison; context of application added; supported tools moved to the documentary analysis | Author separated "does the tool work" from "which is better" and "did the comparison method work" |
+| 2026-11-03 | Sections 7 and 8 agreed: synthesis plan with evidence map and sensitivity analysis; cut-off at the final search | Author asked for counts of how often each approach was evaluated and compared |
