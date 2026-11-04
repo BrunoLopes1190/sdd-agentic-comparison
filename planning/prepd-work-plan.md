@@ -18,7 +18,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 
 | # | Date | Milestone | Done when | Status |
 |---|---|---|---|---|
-| M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Not started |
+| M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Done 2026-11-04 |
 | M2 | 2026-11-15 | Email 2: everything up to week 9 done; feedback and meeting requested | P1–P4, P8–P11, P13 done, plus the week 9 class work; SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | Not started |
 | M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
@@ -118,7 +118,7 @@ The extended abstract is the first time the separate products are written as one
 | D4 | Citation style author-date (Harvard), as in the template and the submitted formalisation; `doc/ieee.csl` to be replaced | `.dotx`; formalisation | Proposed; confirm with the supervisor |
 | D5 | PREPD document follows the template structure (front matter, lists, references) | `.dotx`; grading item "Document structure" | Proposed |
 | D6 | No supervisor-imposed restriction on GenAI; all use is logged in `doc/ai-usage.md` and declared in the document | [S]; `ai-generated-content-guidelines.txt` | Taken |
-| D7 | Experimental runs, when they happen (dissertation), may only use the student's personal Claude Pro plan; there is no token budget | [S] | Constraint (see §7) |
+| D7 | Experimental runs, when they happen (dissertation), may only use the student's personal Claude Pro plan; there is no token budget. Proposed 2026-11-04: also open models run locally (e.g. Ollama), limited by the available hardware | [S] | Constraint (see §7); local models proposed in email 1 |
 
 ## 4. Products and the method each one comes from
 
@@ -127,7 +127,7 @@ The extended abstract is the first time the separate products are written as one
 | P1 | Competency self-diagnosis + hetero-assessment by a colleague; ≥ 3 key competencies with objectives; ≥ 2 actions each, with metrics | Week 5: `competencies.pdf`, `self-assessment.docx`, `assessment.docx` | Schedule (20) | M2 | Not started |
 | P2 | Research design: main RQ (formalisation) + sub-RQs typed by Shaw; Oates process figure (strategies: design and creation + experiment; data: documents, observation, logs; analysis: quantitative + qualitative); validity threats and bias controls | Week 3: `research-methods-t.md`, `research-process-figure.pptx`, TP activity I | Objectives/method (10) | M2 | Not started |
 | P3 | SLR protocol (frozen before the search): review RQs, concept blocks and synonyms, string per database, databases and justification, search cut-off date, IC/EC, quality assessment checklist, extraction form, synthesis plan, second-reviewer procedure (D2a), protocol change log | Week 4: SLR module + mini-SLR tutorial; Kitchenham & Charters (2007) | State of the art (20) | Draft M1; frozen M2 | In progress |
-| P4 | Pilot search on one database (inspect 20–30 results); pilot the extraction form; refine and log changes; then freeze the protocol | Week 4: tutorial slide 20, steps 1–2 | State of the art | Search M1; extraction pilot M2 | Not started |
+| P4 | Pilot search on one database (inspect 20–30 results); pilot the extraction form; refine and log changes; then freeze the protocol | Week 4: tutorial slide 20, steps 1–2 | State of the art | Search M1; extraction pilot M2 | In progress |
 | P5 | Final search on all databases; exports; search log (query, date, filters, n); deduplication; title/abstract and full-text screening with reasons; second-reviewer sample and kappa; backward/forward snowballing; PRISMA 2020 diagram | Week 4; Wohlin (2014); Page et al. (2021) | State of the art | M3 | Not started |
 | P6 | Quality assessment of every included study; extraction matrix; critical synthesis by RQ; Evidence → Limitation → Gap → RQ → Contribution chain; threats to validity of the review | Week 4: slides 22–28 | State of the art; Background (10) | M3 | Not started |
 | P7 | Preliminary comparative framework of SDD approaches, from the SLR plus the documented analysis of tool documentation (D3) (RQ1 / O1) | Week 4 synthesis; Macedo (2026) dimensions | State of the art | M3 | Not started |
@@ -136,7 +136,7 @@ The extended abstract is the first time the separate products are written as one
 | P10 | Planning approach (predictive / adaptive / hybrid) with justification | Week 8: `planning-approach-v1.md` | Schedule | M2 | Not started |
 | P11 | WBS by life-cycle phase aligned with the research method, plus WBS dictionary (acceptance and progress criteria) | Week 8: `wbs-concepts-v01.md`, `wbs-template-v01.pptx` | Schedule | M2 | Not started |
 | P12 | Schedule (Gantt) Feb–Jun 2027: durations, milestones, dependencies; cost estimate; risk register; monitoring and control | Weeks 9–12 (pending); grading notes | Schedule | Draft M3; final M6 | Not started |
-| P13 | Ethics: chosen code (one, applied in full); ALLEA principles; position on P.PORTO art. 10; licences and terms of the tools; FAIR data plan; conflicts of interest; GenAI use | Week 6: `t06.md`, `tp06.pdf` | Ethics (10) | M2 | Not started |
+| P13 | Ethics: chosen code (one, applied in full); ALLEA principles; position on P.PORTO art. 10; licences and terms of the tools; FAIR data plan; conflicts of interest; GenAI use | Week 6: `t06.md`, `tp06.pdf` | Ethics (10) | M2 | In progress |
 | P14 | "Use of AI-generated content" section, from `doc/ai-usage.md` | `ai-generated-content-guidelines.txt` | Accuracy; Ethics | M4, M6, M7 | Not started |
 | P15 | Extended abstract | Condensed P2, P6–P8, P12, P13 [I] | Supervisor review | Draft M4; submitted M5 | Not started |
 | P16 | Final PREPD document | All of the above | All document items | Draft M6; final M7 | Not started |
@@ -183,8 +183,8 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
 3. Citation style and template for the PREPD document (D4, D5); page limit?
 4. Extended abstract format. Assumption [I]: it follows the template's Portuguese extended abstract (resumo alargado), up to 1000 words or 2 A4 pages. Is that right, and in which language?
-5. Experiments limited to a personal Claude Pro plan (D7): acceptable, given that it constrains the agents that can be tested?
-6. Does the supervisor want access to the repository, to follow the work?
+5. Experiments limited to a personal Claude Pro plan (D7), plus open models run locally (e.g. Ollama): acceptable, given that it constrains the agents that can be tested?
+6. Does the supervisor want access to the repository, to follow the work? (Not asked in email 1; ask in email 2.)
 7. Scopus: ISEP has no licence, so it was dropped from the SLR sources (IEEE Xplore and ACM DL cover its SE venues; WoS stays). Does the supervisor agree, or know of legitimate access through ISEP?
 
 ## 7. Risks for PREPD
@@ -212,3 +212,6 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-02 | Course materials analysed; course overview and this plan written and reviewed with the student, point by point | — |
 | 2026-11-03 | Approved formalisation (`admin/formalizacao_1240441.pdf`) set as the reference text; SLR protocol draft started | P3 |
 | 2026-11-03 | SLR protocol draft written (`slr/protocol.md` §1–8: RQs, strings, sources, IC/EC, quality, extraction, synthesis, cut-off); D3 taken. Pending: per-database strings (pilot), second reviewer (D2a) | P3 |
+| 2026-11-04 | Pilot search on IEEE Xplore (Scopus not licensed at ISEP; dropped from the sources). Strings v2: "LLM-based agent*" restricted to SE context, "agent manifest*" added; S2 209 → 146. Open: manual inspection of 20–30 records; SE terms restricted to title/abstract at the freeze. Log in `slr/search-log.md` | P3, P4 |
+| 2026-11-04 | Ethics position on P.PORTO art. 10 drafted (no ethics committee review proposed) and sent in email 1 | P13 |
+| 2026-11-04 | Email 1 sent with the protocol draft (PDF), pilot results, ethics position and questions 1–5 and 7 of §6 (text in `planning/emails/`). Not sent: repository access, timeline, meeting request, who the second reviewer is; to raise in email 2 | M1 |
