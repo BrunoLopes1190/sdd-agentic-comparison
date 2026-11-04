@@ -30,8 +30,8 @@ Synonyms are joined with OR inside a block; blocks are joined with AND. Draft li
 | Block | Concept | Terms (draft) |
 |---|---|---|
 | A1 | Spec-Driven Development | "spec-driven", "specification-driven", "spec-first", "spec kit", OpenSpec, BMAD, Kiro |
-| A2 | Related context mechanisms | "AGENTS.md", "context file*", "repository-level context", "instruction file*", "rules file*" |
-| B | Coding agents | "coding agent*", "AI coding agent*", "software engineering agent*", "agentic coding", "agentic software", "LLM-based agent*", "AI coding assistant*" |
+| A2 | Related context mechanisms | "AGENTS.md", "context file*", "repository-level context", "instruction file*", "rules file*", "agent manifest*" |
+| B | Coding agents | "coding agent*", "AI coding agent*", "software engineering agent*", "agentic coding", "agentic software", "AI coding assistant*"; and ("LLM-based agent*" OR "autonomous agent*") only together with ("software engineering" OR "software development" OR "code generation") |
 | C | Comparative evaluation | benchmark*, "empirical stud*", "controlled experiment*", "comparative evaluation", "comparative study" |
 | D | Cost, quality and effort metrics | "token usage", "token consumption", "inference cost", "API cost", "pass@k", "resolve rate", "task success", "functional correctness", "code quality", maintainability, "technical debt", "human effort", "developer effort", "human intervention" |
 
@@ -47,6 +47,9 @@ Term choices:
 - File names such as CONTEXT.md or ARCHITECTURE.md are excluded: databases drop punctuation, so they become "context", "architecture" and retrieve noise. AGENTS.md is kept as an open, multi-vendor convention; the pilot checks how each database handles it.
 - S2 is one string because (B AND C) OR (B AND D) = B AND (C OR D). In the pilot, B AND C and B AND D are also run separately to see what each block adds.
 - A2 studies are eligible for RQ2–RQ4 only (see selection criteria).
+- "LLM-based agent*" and "autonomous agent*" are generic: alone they retrieve agents from other domains (in the pilot, 162 of 207 S2 records, mostly robotics, UAV, networks and healthcare). They count only with a software engineering term.
+- "agentic software engineering" is not added: the phrase "agentic software" already matches it.
+- CLAUDE.md and similar vendor file names are excluded, by the same rule as product names; AGENTS.md is kept (see above). In the pilot, "AGENTS.md" returned only records about the file.
 
 ## 3. Sources
 
@@ -54,15 +57,14 @@ Chosen before the search, following the week 4 module (slide 8) and the approved
 
 | Source | Role | Justification |
 |---|---|---|
-| Scopus | Main | Largest multidisciplinary coverage; named in the formalisation |
 | Web of Science | Main | Multidisciplinary; named in the formalisation |
 | IEEE Xplore | Main | Software engineering venues; named in the formalisation |
 | ACM Digital Library | Main | Computing and SE conferences (ICSE, FSE); named in the formalisation |
 | arXiv | Main (added) | SDD for agents emerged in 2025 and almost no peer-reviewed work exists yet; the evidence base relies on preprints and grey literature (Díaz et al., 2026). Preprints are flagged as not peer-reviewed and this is weighed in the quality assessment |
 | Google Scholar | Snowballing only (backward and forward) | Complementary source, never the only one (week 4, slide 8) |
 
-The formalisation names the four main databases as "main sources", not as the only ones; adding arXiv is a justified extension.
-Access: Scopus works with the institutional login; Web of Science only from the ISEP network or VPN (confirmed 2026-11-03), so the WoS search is run from another computer.
+The formalisation names Scopus, Web of Science, IEEE Xplore and ACM DL as "main sources". Scopus is dropped: ISEP has no Scopus licence (checked 2026-11-04). For software engineering, Scopus mostly indexes IEEE and ACM venues, which are searched directly, and Web of Science covers the multidisciplinary side. This is stated as a limitation of the review. Adding arXiv is a justified extension.
+Access: Web of Science only from the ISEP network or VPN (confirmed 2026-11-03).
 arXiv advanced search has limited Boolean syntax; strings may be split into several queries and the union logged in the search log.
 
 **Documentary analysis (separate track, not part of the SLR).** Tool documentation and repositories are the object being characterised, not studies, so they do not enter the PRISMA flow, the IC/EC or the quality checklist.
@@ -179,3 +181,6 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-03 | Section 5 agreed: Q1–Q13, relative score, peer review counted in the score | Author asked for a fuller evaluation block (Q5–Q9), vendor independence (Q12) and feasibility of conceptual proposals (Q13) |
 | 2026-11-03 | Section 6 agreed: one row per study; evaluation of each configuration kept apart from comparison; context of application added; supported tools moved to the documentary analysis | Author separated "does the tool work" from "which is better" and "did the comparison method work" |
 | 2026-11-03 | Sections 7 and 8 agreed: synthesis plan with evidence map and sensitivity analysis; cut-off at the final search | Author asked for counts of how often each approach was evaluated and compared |
+| 2026-11-04 | Pilot search (P4) run on IEEE Xplore instead of Scopus | Scopus not accessible (eduVPN and b-on tried); the b-on discovery search is not Scopus and is not reproducible as a source |
+| 2026-11-04 | Scopus dropped from the sources (§3) | ISEP has no Scopus licence; IEEE Xplore and ACM DL cover its SE venues; WoS keeps multidisciplinary coverage. Raised with the supervisor in email 1 |
+| 2026-11-04 | Block B: "LLM-based agent*" restricted to a software engineering context, "autonomous agent*" added under the same condition; A2: "agent manifest*" added (strings v2 in `search-log.md`) | Pilot run 1: 162 of 207 S2 records entered only through "LLM-based agent*", mostly outside SE; "agent manifest" found in relevant abstracts |

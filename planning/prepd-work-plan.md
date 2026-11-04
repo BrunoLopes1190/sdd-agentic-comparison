@@ -185,6 +185,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 4. Extended abstract format. Assumption [I]: it follows the template's Portuguese extended abstract (resumo alargado), up to 1000 words or 2 A4 pages. Is that right, and in which language?
 5. Experiments limited to a personal Claude Pro plan (D7): acceptable, given that it constrains the agents that can be tested?
 6. Does the supervisor want access to the repository, to follow the work?
+7. Scopus: ISEP has no licence, so it was dropped from the SLR sources (IEEE Xplore and ACM DL cover its SE venues; WoS stays). Does the supervisor agree, or know of legitimate access through ISEP?
 
 ## 7. Risks for PREPD
 
