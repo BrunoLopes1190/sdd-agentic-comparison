@@ -53,7 +53,7 @@ Module schedule. [F] Labelled "Calendarização Provisória" (intro slide 6). [I
 | Deliverable | Content | Format | Weight |
 |---|---|---|---|
 | Formalisation | Form fields a) to k) (`week-01/formalization-form-en.md`) | Platform | Not graded [I] |
-| Extended abstract | **Not defined in any document.** [S] The supervisor will review it; the student sends it before the 15th and asks for a meeting | Not defined | Not in the grading sheet [I] |
+| Extended abstract | [F] Lets the course head (RUC) check five things: problem formulated and bounded; command of the state of the art; objectives and method coherent and feasible; realistic, structured work plan; ethical, professional and social implications considered. A positive answer justifies scheduling the final exam. Suggested structure (8 sections, about 4–5 pages): provisional title; introduction and problem, with stakeholders (~½ p); main RQ, sub-RQs, objectives, contributions (~⅓ p); systematised state of the art: search method, review questions, keywords, IC/EC, compared perspectives, explicit gap (~1–1.5 p); proposed method (~⅓ p); work plan to the PREPD document and to the thesis, with deliverables (WBS), milestones and a preliminary Gantt or timeline (~½ p); ethical and professional considerations: codes followed, personal data, human participants, confidential information, impacts, professional competencies (~½ p); 10–20 essential references, consistent style (~1 p). `general/extended-abstract-function.txt`, `general/extended-abstract-structure.txt`. [S] The supervisor reviews it until 15 Dec | PDF (format not stated) | Not graded; gate to the final exam [F] |
 | Final document | Report assessed on the 8 document criteria (section 4) | ZIP with two PDFs: report + presentation (`general/dissertation-guidelines.md` p.1) | 75% |
 | Oral exam | Presentation + discussion, online, synchronous | 30 min | 25% |
 
@@ -119,7 +119,7 @@ Weights from `general/prepd-evaluation.xlsx`. Guiding questions summarised from 
 | 1 | Presentation 5 min + 25 debate vs 10 + 20 | intro slide 8 vs `dissertation-guidelines` p.1 | [S] 10 min confirmed |
 | 2 | "100% of the grade" vs 75/25 split | intro slide 8 vs `.xlsx` F29 | [I] Same exam, two components |
 | 3 | Assessment may start 2027-01-04; final document due 2027-01-06 | intro slide 10 | [S] Exam date announced end of December |
-| 4 | Extended abstract content, length and weight undefined | all | [S] Supervisor reviews it |
+| 4 | Extended abstract content, length and weight undefined | all | Resolved 2026-11-04: function and structure in `general/extended-abstract-function.txt`, `general/extended-abstract-structure.txt`; not graded, gate to the final exam. Language still open |
 | 5 | PREPD document length and template not fixed; the `.dotx` is the dissertation template | `.dotx` | [I] Use the template structure |
 | 6 | Template requires Harvard citations; `doc/build.ps1` uses `ieee.csl` | `.dotx` vs repo | Open (see `planning/prepd-work-plan.md`) |
 | 7 | "Two ethics codes indicated at Moodle"; `codes-of-ethics.txt` lists three | `.xlsx` notes vs `codes-of-ethics.txt` | Minor |

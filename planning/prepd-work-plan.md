@@ -22,7 +22,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 | M2 | 2026-11-15 | Email 2: everything up to week 9 done; feedback and meeting requested | P1–P4, P8–P11, P13 done, plus the week 9 class work; SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | Not started |
 | M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
-| M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10) | Not started |
+| M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10). [F] Not graded, but a positive review justifies scheduling the final exam (`general/extended-abstract-function.txt`) | Not started |
 | M6 | 2027-01-02 | Draft of the whole document and slides sent to the supervisor | Full draft of P16 and P17 | Not started |
 | M7 | 2027-01-06 | Everything done: ZIP with two PDFs (report + presentation) submitted | [F] Fixed | Not started |
 | — | 2027-01-04 to 01-09 | Oral exam, 10-min presentation | [F] Fixed; [S] date announced end of December |
@@ -87,7 +87,7 @@ Corpus size is unknown until the pilot search (M1). Fallback: email 3 reports th
 |---|---|
 | 2–6 | Week 12 class work; apply feedback on email 3; finish the SLR if anything is left |
 | 2–8 | Complete the planning: final schedule, cost estimate, risk register, monitoring and control |
-| 7–11 | Week 13 class work; write the extended abstract (problem, objectives and RQs, method, SLR results, plan) |
+| 7–11 | Week 13 class work; write the extended abstract in the published structure (§4, "Extended abstract structure") |
 | 12–13 | Review (sentences under 30 words; every reference exists and was read); send the draft (M4) |
 | 14–15 | Apply supervisor feedback, if any |
 | 16 | Submit (M5) |
@@ -138,11 +138,28 @@ The extended abstract is the first time the separate products are written as one
 | P12 | Schedule (Gantt) Feb–Jun 2027: durations, milestones, dependencies; cost estimate; risk register; monitoring and control | Weeks 9–12 (pending); grading notes | Schedule | Draft M3; final M6 | Not started |
 | P13 | Ethics: chosen code (one, applied in full); ALLEA principles; position on P.PORTO art. 10; licences and terms of the tools; FAIR data plan; conflicts of interest; GenAI use | Week 6: `t06.md`, `tp06.pdf` | Ethics (10) | M2 | In progress |
 | P14 | "Use of AI-generated content" section, from `doc/ai-usage.md` | `ai-generated-content-guidelines.txt` | Accuracy; Ethics | M4, M6, M7 | Not started |
-| P15 | Extended abstract | Condensed P2, P6–P8, P12, P13 [I] | Supervisor review | Draft M4; submitted M5 | Not started |
+| P15 | Extended abstract | `general/extended-abstract-structure.txt`; condensed P1, P2, P6–P9, P11–P13 | Gate to the final exam (`general/extended-abstract-function.txt`) | Draft M4; submitted M5 | Not started |
 | P16 | Final PREPD document | All of the above | All document items | Draft M6; final M7 | Not started |
 | P17 | 10-min slides, paginated, readable; rehearsed with Q&A | Grading sheet "Presentation" | Presentation (25%) | Draft M6; final M7; rehearse before the exam | Not started |
 
 Planning outputs P10–P12 are refined as the week 9–12 materials arrive. Add each new module's method to this table.
+
+### Extended abstract structure [F]
+
+From `general/extended-abstract-structure.txt` (published 2026-11-04). About 4–5 pages. Each section names the products it condenses.
+
+| # | Section | Length | Content | From |
+|---|---|---|---|---|
+| 1 | Provisional title | — | Clearly bounded topic, not generic | Formalisation (D1) |
+| 2 | Introduction and problem | ~½ p | Domain context; relevance; precise bounds; research problem; main stakeholders | P8 |
+| 3 | Research questions and objectives | ~⅓ p | Main RQ and sub-RQs; concrete, verifiable objectives; contributions | P2 |
+| 4 | State of the art (systematised) | ~1–1.5 p | Search process (method, review questions, keywords, IC/EC); main approaches compared, not lists of authors; explicit gap. May come after the method | P3–P7 |
+| 5 | Proposed method | ~⅓ p | Research or engineering strategy; data sources; analysis techniques; feasibility | P2 |
+| 6 | Work plan | ~½ p | Tasks up to the PREPD document; up to the thesis: deliverables (WBS), milestones, preliminary Gantt or timeline | P9–P12 |
+| 7 | Ethical and professional considerations | ~½ p | Codes followed and how; personal data, human participants, confidential information, impacts (or why none); how professional competencies are ensured | P13, P1 |
+| 8 | References | ~1 p | 10–20 essential, current references from the state of the art; scientific papers and books, not web generalities; one consistent style | P6 |
+
+The course head uses it to check five points: problem bounded; command of the state of the art; objectives and method coherent and feasible; realistic work plan; ethical and professional reflection (`general/extended-abstract-function.txt`).
 
 ### Proposed structure of the PREPD document [I]
 
@@ -182,7 +199,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 1. Full SLR (D2): who can act as second reviewer for the sample (D2a)? Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
 3. Citation style and template for the PREPD document (D4, D5); page limit?
-4. Extended abstract format. Assumption [I]: it follows the template's Portuguese extended abstract (resumo alargado), up to 1000 words or 2 A4 pages. Is that right, and in which language?
+4. Extended abstract format. Asked in email 1 with the assumption "up to 1000 words or 2 A4 pages". Structure and length answered by the course on 2026-11-04 (§4, about 4–5 pages). Still open: language.
 5. Experiments limited to a personal Claude Pro plan (D7), plus open models run locally (e.g. Ollama): acceptable, given that it constrains the agents that can be tested?
 6. Does the supervisor want access to the repository, to follow the work? (Not asked in email 1; ask in email 2.)
 7. Scopus: ISEP has no licence, so it was dropped from the SLR sources (IEEE Xplore and ACM DL cover its SE venues; WoS stays). Does the supervisor agree, or know of legitimate access through ISEP?
@@ -198,7 +215,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 | Planning chapter depends on modules up to week 12 (ends ~4 Dec, after M3) | Course calendar | 20% item done in a rush | Draft P9–P11 by M2; week 12 work goes into M4–M6 |
 | Christmas break between 16 Dec and 6 Jan | Calendar | Less supervisor feedback on the M6 draft | Get the main feedback on emails 2 and 3 and on the M4 draft |
 | Field changes weekly | New preprints and tool versions | State of the art goes stale | Explicit cut-off date; update in the dissertation |
-| No explicit grading of the extended abstract | Undefined | Effort misdirected | Treat it as a draft of the final document |
+| Extended abstract judged insufficient | It is the gate to the final exam (`general/extended-abstract-function.txt`) | No exam scheduled | Follow the published structure; supervisor review by 15 Dec; WBS (P11) and preliminary Gantt (P12) must exist by M4, since section 6 needs them |
 | Single vendor for runs and for the writing assistant | D7; Claude used to assist this work | Perceived conflict of interest; agent choice constrained | Declare in the ethics section; record the agent as a factor |
 | Pro plan usage limits; no per-token cost visible | D7 | "Total cost" hard to measure; fewer runs | Define a cost proxy in the dissertation; state as a limitation |
 | Over-reliance on AI | Heavy assistant use | Misconduct; weak oral defence | Follow the SLR-module rules on AI use; read every source; log use |
@@ -215,3 +232,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-04 | Pilot search on IEEE Xplore (Scopus not licensed at ISEP; dropped from the sources). Strings v2: "LLM-based agent*" restricted to SE context, "agent manifest*" added; S2 209 → 146. Open: manual inspection of 20–30 records; SE terms restricted to title/abstract at the freeze. Log in `slr/search-log.md` | P3, P4 |
 | 2026-11-04 | Ethics position on P.PORTO art. 10 drafted (no ethics committee review proposed) and sent in email 1 | P13 |
 | 2026-11-04 | Email 1 sent with the protocol draft (PDF), pilot results, ethics position and questions 1–5 and 7 of §6 (text in `planning/emails/`). Not sent: repository access, timeline, meeting request, who the second reviewer is; to raise in email 2 | M1 |
+| 2026-11-04 | Extended abstract function and structure published by the course: plan updated (§4 structure table, M5, P15, §6 Q4, risks). It is a gate to the final exam; the WBS and a preliminary Gantt are needed by M4 | P15 |

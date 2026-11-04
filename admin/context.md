@@ -8,7 +8,8 @@ Course synthesis: `course-materials/course-overview.md`. PREPD plan: `planning/p
 - **Phase:** formalisation submitted on 2026-10-14 and approved; the approved text is `admin/formalizacao_1240441.pdf` (version with citations). All PREPD work starts from it. No reviewer comments so far. The title on the platform is correct. PREPD course work (charter, competencies, SLR, plan) not started.
 - **Reference text:** the approved formalisation (`admin/formalizacao_1240441.pdf`, 14 Oct) replaces the Word of 6 Oct (section 2 below is the 6 Oct text; its problem statement was reworded on 14 Oct).
 - **Supervision:** supervisor only; no co-supervisor. The supervisor gave no specific instructions beyond following the classes. GenAI use: no restriction, but it must be declared.
-- **Extended abstract:** the supervisor will review it until 15 Dec; send the draft (target 4 Dec) and ask for a meeting.
+- **Extended abstract:** the supervisor will review it until 15 Dec; draft sent 13 Dec (M4). Function and structure now published (`course-materials/general/extended-abstract-function.txt`, `extended-abstract-structure.txt`, 2026-11-04): it is not graded but lets the course head decide whether to schedule the final exam; 8 sections, about 4–5 pages, 10–20 references. Language still to confirm with the supervisor.
+- **Email 1** sent 2026-11-04 (`planning/emails/2026-11-04-email-1.md`). Scopus dropped from the SLR sources (no ISEP licence).
 - **Assessment:** 10-minute presentation; exam date to be announced at the end of December.
 - **State of the art:** full SLR (student's decision, 2 Nov).
 - **Resources:** no fixed hours; no token budget; runs (dissertation only) may use the student's personal Claude Pro plan. No employer is linked to the work.
