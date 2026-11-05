@@ -49,3 +49,7 @@ S2:
 | 2026-11-04 | IEEE Xplore | "AGENTS.md" | Year 2023–2026 (results sidebar) | 4 | Pilot | All 2026; all four are about the file |
 | 2026-11-04 | IEEE Xplore | S1 v2 | Year 2023–2026 (results sidebar) | 7 | Pilot | Same 7 records as S1 v1 |
 | 2026-11-04 | IEEE Xplore | S2 v2 | Year 2023–2026 (results sidebar) | 146 | Pilot | CSV export has 144 rows. Against v1: 117 records out (mostly outside SE), 54 in (from "autonomous agent*"). Key SE records kept. 99 enter through the generic branch; in 44 of them the SE term is only in IEEE index terms, not in title, abstract or keywords. Open: restrict the SE terms to title/abstract fields at the freeze, or remove at screening |
+
+## Pilot inspection (P4, 2026-11-05)
+
+Sheet: `pilot/pilot-inspection-2026-11-05.xlsx`. 30 records judged by title and abstract: all 7 of S1 v2, plus 23 drawn at random from the 142 S2 v2 records not in S1 (Python `random.Random(20261105).sample`, in export order). Columns: decision (I/E/?), criterion (IC1a–c, EC1–EC4, OUT-SE, OTHER), reason, group (c) "new agent on existing benchmark" (Y/N, to decide the candidate criterion in `protocol.md` §4), missing or noisy terms. Status: being filled in by the author.
