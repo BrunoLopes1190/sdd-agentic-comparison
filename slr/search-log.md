@@ -56,7 +56,7 @@ S2:
 TS=(("coding agent*" OR "AI coding agent*" OR "software engineering agent*" OR "agentic coding" OR "agentic software" OR "AI coding assistant*" OR (("LLM-based agent*" OR "autonomous agent*") AND ("software engineering" OR "software development" OR "code generation"))) AND (benchmark* OR "empirical stud*" OR "controlled experiment*" OR "comparative evaluation" OR "comparative study" OR "token usage" OR "token consumption" OR "inference cost" OR "API cost" OR "pass@k" OR "resolve rate" OR "task success" OR "functional correctness" OR "code quality" OR maintainability OR "technical debt" OR "human effort" OR "developer effort" OR "human intervention")) AND PY=(2023-2026)
 ```
 
-**ACM Digital Library** (Advanced Search). Title, abstract and author keywords only; the "Anywhere" field is not used because it includes full text. Year 2023–2026 set in the results sidebar. Field syntax (`Title:`, `Abstract:`, `Keyword:`) to be confirmed at the first run; any change is logged here.
+**ACM Digital Library** (Advanced Search). Title, abstract and author keywords only; the "Anywhere" field is not used because it includes full text. Collection: **ACM Guide to Computing Literature** (wider than the Full-Text Collection: it also indexes other publishers, a partial compensation for dropping Scopus; duplicates are removed at deduplication). Year 2023–2026 set in the results sidebar. Field syntax (`Title:`, `Abstract:`, `Keyword:`) accepted at the pilot run (2026-11-06).
 
 S1:
 
@@ -97,10 +97,12 @@ S2:
 | 2026-11-04 | IEEE Xplore | S2 v2 | Year 2023–2026 (results sidebar) | 146 | Pilot | CSV export has 144 rows. Against v1: 117 records out (mostly outside SE), 54 in (from "autonomous agent*"). Key SE records kept. 99 enter through the generic branch; in 44 of them the SE term is only in IEEE index terms, not in title, abstract or keywords. Decided 2026-11-05 (pilot inspection): keep the string, remove at screening |
 | 2026-11-06 | arXiv API | S1 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 50 | Pilot (count only) | Syntax test |
 | 2026-11-06 | arXiv API | S2 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 1466 | Pilot (count only) | 10× IEEE. Without date filter 1467. With `cat:cs.SE` 777 |
-| 2026-11-06 | Web of Science | S1 v2 | PY=(2023-2026) in the string | 4 | Pilot (count only) | Run by the author. Core Collection editions: to record |
+| 2026-11-06 | Web of Science | S1 v2 | PY=(2023-2026) in the string | 4 | Pilot (count only) | Run by the author. Core Collection editions available at ISEP: SCI-EXPANDED (1900–), SSCI (1956–), AHCI (1975–), CPCI-S (1990–), CPCI-SSH (1990–), ESCI (2021–), CCR-EXPANDED (1985–), IC (1993–); all selected |
 | 2026-11-06 | Web of Science | S2 v2 | PY=(2023-2026) in the string | 121 | Pilot (count only) | Run by the author |
-| 2026-11-06 | ACM DL | S1 v2 | Publication date 2023–2026 (sidebar) | 8 | Pilot (count only) | Run by the author. Collection (Full-Text or Guide): to record |
-| 2026-11-06 | ACM DL | S2 v2 | Publication date 2023–2026 (sidebar) | 175 | Pilot (count only) | Run by the author |
+| 2026-11-06 | ACM DL | S1 v2 | Publication date 2023–2026 (sidebar) | 8 | Pilot (count only) | Run by the author. ACM Full-Text Collection |
+| 2026-11-06 | ACM DL | S2 v2 | Publication date 2023–2026 (sidebar) | 175 | Pilot (count only) | Run by the author. ACM Full-Text Collection |
+| 2026-11-06 | ACM DL | S1 v2 | Publication date 2023–2026 (sidebar) | 10 | Pilot (count only) | Run by the author. ACM Guide to Computing Literature |
+| 2026-11-06 | ACM DL | S2 v2 | Publication date 2023–2026 (sidebar) | 209 | Pilot (count only) | Run by the author. ACM Guide to Computing Literature |
 | 2026-11-06 | arXiv API | S2 v2 AND NOT cat:cs.SE | as S2 v2 | 689 | Pilot (count only) | What a cs.SE restriction would drop. Primary categories: cs.AI 272, cs.CL 110, cs.LG 78, cs.CR 65, cs.RO 38, cs.CV 35. SWE-bench and SWE-agent are cross-listed in cs.SE (kept). 15 random titles (seed 20261106) in the dropped set include coding-agent benchmarks and evaluation studies |
 
 ## Pilot inspection (P4, 2026-11-05)
