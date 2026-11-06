@@ -5,7 +5,7 @@ $doc = $PSScriptRoot
 $out = Join-Path (Split-Path $doc) 'build'
 New-Item -ItemType Directory -Force $out | Out-Null
 
-$chapters = Get-ChildItem (Join-Path $doc 'chapters') -Filter *.md | Sort-Object Name | ForEach-Object FullName
+$chapters = @(Get-ChildItem (Join-Path $doc 'chapters') -Filter *.md | Sort-Object Name | ForEach-Object FullName)
 $pandocArgs = @(
     '--from', 'markdown',
     '--citeproc',
