@@ -57,7 +57,7 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 
 | Days | Work | Class |
 |---|---|---|
-| 5–6 | Finish the SLR protocol draft; set up Zotero + Better BibTeX | Week 4 |
+| 5–6 | Finish the SLR protocol draft; set up Zotero + Better BibTeX; create the Rayyan account (check free-plan limits and that blind mode is included) | Week 4 |
 | 7–8 | Competencies: self-assessment; ask a colleague for the hetero-assessment early | Week 5 |
 | 9–10 | Research design: sub-RQs, Oates figure, validity threats | Week 3 |
 | 11–12 | Pilot the extraction on 2–3 papers; freeze the protocol (with any supervisor reply) | Week 4 |
