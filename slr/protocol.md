@@ -118,7 +118,7 @@ AI may be used as an extra check only: screening the same sample and comparing i
 
 ### 4.2 Selection procedure
 
-Tools: Zotero holds the references; Rayyan (web screening tool) holds the screening decisions. Rayyan decisions are exported as CSV to `slr/` after each stage, so the PRISMA counts and the kappa (§4.1) are computed from files in the repository. Rayyan free plan (checked 2026-11-06): 3 active reviews, 2 invited reviewers, 1 sample; enough for the main screening, the second-reviewer sample (§4.1) and snowballing. Blind mode is not listed in the plan; to confirm in the review settings before 2026-11-20.
+Tools: Zotero holds the references; Rayyan (web screening tool) holds the screening decisions. Rayyan decisions are exported as CSV to `slr/` after each stage, so the PRISMA counts and the kappa (§4.1) are computed from files in the repository. Rayyan free plan (checked 2026-11-06): 3 active reviews, 2 invited reviewers, 1 sample; enough for the main screening, the second-reviewer sample (§4.1) and snowballing. Blind mode is included (confirmed by the author, 2026-11-06).
 
 | Step | Rule |
 |---|---|
