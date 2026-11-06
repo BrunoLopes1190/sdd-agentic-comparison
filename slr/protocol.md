@@ -61,7 +61,7 @@ Chosen before the search, following the week 4 module (slide 8) and the approved
 | IEEE Xplore | Main | Software engineering venues; named in the formalisation |
 | ACM Digital Library | Main | Computing and SE conferences (ICSE, FSE); named in the formalisation |
 | arXiv | Main (added) | SDD for agents emerged in 2025 and almost no peer-reviewed work exists yet; the evidence base relies on preprints and grey literature (Díaz et al., 2026). Preprints are flagged as not peer-reviewed and this is weighed in the quality assessment |
-| Google Scholar | Snowballing only (backward and forward) | Complementary source, never the only one (week 4, slide 8) |
+| Google Scholar | Snowballing only (backward and forward, one iteration, §4.2) | Complementary source, never the only one (week 4, slide 8) |
 
 The formalisation names Scopus, Web of Science, IEEE Xplore and ACM DL as "main sources". Scopus is dropped: ISEP has no Scopus licence (checked 2026-11-04). For software engineering, Scopus mostly indexes IEEE and ACM venues, which are searched directly, and Web of Science covers the multidisciplinary side. This is stated as a limitation of the review. Adding arXiv is a justified extension.
 Access: Web of Science only from the ISEP network or VPN (confirmed 2026-11-03).
@@ -108,13 +108,30 @@ The review has a single reviewer, the author. This procedure applies only if a s
 | Who | A person with a software engineering background (supervisor, MEI colleague or other), confirmed by the author. An AI system is never the second reviewer (week 4: eligibility decisions are not delegated to AI) |
 | What is reviewed | (a) Title/abstract screening of **30 records**, drawn at random from the records that enter screening (after deduplication). (b) Optional, only if the reviewer has time: quality assessment (§5) and extraction (§6) of 2 included studies. Full-text screening has no second review |
 | Effort asked | (a) about 1 hour, sent around 2026-11-20. (b) about 2–3 hours |
-| Independence | The reviewer receives title, abstract, keywords and the IC/EC sheet, not the author's decisions. Before the sample, a 15-minute calibration on 5 pilot records (`pilot/`), which are excluded from the sample |
+| Independence | The reviewer screens the 30 records in a separate Rayyan review with blind mode on, with title, abstract, keywords and the IC/EC sheet, and does not see the author's decisions. Before the sample, a 15-minute calibration on 5 pilot records (`pilot/`), which are excluded from the sample |
 | Agreement | Cohen's kappa on include/exclude ("?" counts as include, since it goes to full text), plus percentage agreement. Target κ ≥ 0.61 ("substantial", Landis & Koch, 1977); the threshold is a convention and is stated as such |
 | Below the target | Disagreements are discussed; the criterion that caused them is clarified (logged in the change log) and the author re-applies the clarified criterion to all screened records |
-| Disagreements | Resolved by discussion; if unresolved, the record goes to full-text screening. Every decision is logged in the sample sheet |
+| Disagreements | Resolved by discussion; if unresolved, the record goes to full-text screening. Every decision is in the Rayyan export (CSV in `slr/`) |
 | Sampling | Python `random.Random(seed).sample`, seed logged in `search-log.md`, as in the pilot |
 
 AI may be used as an extra check only: screening the same sample and comparing it with the author's decisions. It is not counted in the kappa, the author's decision stands, and the use is logged in `doc/ai-usage.md`.
+
+### 4.2 Selection procedure
+
+Tools: Zotero holds the references; Rayyan (web screening tool) holds the screening decisions. Rayyan decisions are exported as CSV to `slr/` after each stage, so the PRISMA counts and the kappa (§4.1) are computed from files in the repository.
+
+| Step | Rule |
+|---|---|
+| 1. Export | Each database and string exported (RIS or BibTeX) to `slr/exports/`, file name with database, string and date. Imported into Zotero, one collection per database. Records per database go to the PRISMA "identification" box |
+| 2. Deduplication | Zotero duplicate detection, then Rayyan's duplicate check, then a DOI and title check. Between a preprint and its published version, the published one is kept (EC4). Duplicates removed are counted |
+| 3. Pass 1: title | Exclude only when the title is clearly out of scope (another domain); any doubt goes to pass 2. Rayyan keyword highlighting may be used to read faster |
+| 4. Pass 2: title, abstract, keywords | IC/EC applied (§4). Decision: include, exclude (with code) or maybe. Maybe goes to full text |
+| 5. Index-term-only records | No automatic removal (pilot decision, `search-log.md`): screened like any other record; most fail IC1 |
+| 6. Exclusion codes | The IC that fails (IC1–IC4) or the EC that applies (EC1–EC4), set as a Rayyan exclusion label. The pilot code OUT-SE becomes IC1 |
+| 7. Full text | IC/EC applied again on the full text, with a code for every exclusion. Access tried through the publisher (ISEP), arXiv and Google Scholar; if none works, excluded under IC4 |
+| 8. Snowballing | **One iteration** of backward (reference lists) and forward (Google Scholar "Cited by") snowballing on the studies included after full text, with the same criteria and codes. Not iterated to saturation as Wohlin (2014) recommends; stated as a limitation (§7). Counted in the PRISMA "other methods" branch |
+| 9. AI | AI takes no screening decision (§4.1). Rayyan's relevance predictions are not used to decide; if used to order records, this is declared in `doc/ai-usage.md` |
+| 10. Time-box | Title/abstract screening 2026-11-18 to 2026-11-20 (about 2.5 hours a day) |
 
 ## 5. Quality assessment
 
@@ -179,7 +196,7 @@ Cross-cutting rules:
 1. Every claim states how many studies support it and their quality.
 2. Sensitivity analysis: each conclusion is checked again using only studies with a quality score of at least 0.5 (half of the applicable questions met). A conclusion that holds only because of lower-scored studies is reported as weak evidence. The 0.5 threshold is a convention and is stated as such.
 3. A conclusion that rests only on studies that were not peer-reviewed is flagged as such.
-4. Threats to validity of the review are discussed: single reviewer (mitigated by a second reviewer on a sample if one is found, §4.1; full-text screening always single-reviewer), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access.
+4. Threats to validity of the review are discussed: single reviewer (mitigated by a second reviewer on a sample if one is found, §4.1; full-text screening always single-reviewer), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access, snowballing limited to one iteration (studies reachable only through a second or later iteration are missed).
 
 ## 8. Search cut-off date
 
@@ -206,3 +223,4 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-06 | Strings v2 written for Web of Science, ACM DL and arXiv (generated from §2 by `slr/build_strings.py`); arXiv via the API instead of split web queries (§3) | Same logic in every database; arXiv web search lacks nested Boolean. arXiv count test: S1 50, S2 1466 |
 | 2026-11-06 | arXiv kept without category restriction (no `cat:cs.SE`) | A cs.SE restriction would drop 689 S2 records, and a random sample of them includes in-scope evaluation studies. Pilot totals before deduplication: S1 69, S2 1908. Decided by the author before the freeze, not after seeing screening results |
 | 2026-11-06 | ACM DL searched in the ACM Guide to Computing Literature, not only the Full-Text Collection | Pilot: Guide S1 10 / S2 209 vs Full-Text 8 / 175. Wider coverage of other publishers partly compensates for Scopus |
+| 2026-11-06 | §4.2 added: selection procedure (Zotero for references, Rayyan for screening with CSV exports to the repository; deduplication; two-pass title/abstract screening; exclusion codes; full text; one snowballing iteration). §4.1 uses a separate blind Rayyan review | Volume (about 1700 records after deduplication) and blind mode for the second reviewer; the author accepts one snowballing iteration as an explicit limitation |
