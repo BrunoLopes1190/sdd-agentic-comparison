@@ -99,6 +99,23 @@ Secondary studies (reviews) are included: they are a source of approaches and ga
 
 **Currency of included reviews.** For each included review: (1) record its own search cut-off date, so that later work it cannot cover is known; (2) forward snowballing (Google Scholar "Cited by") to find later reviews, comments or rebuttals; (3) check for retraction or withdrawal (publisher page, Crossref/Retraction Watch, latest arXiv version); (4) assess it with the DARE criteria recommended for secondary studies by Kitchenham & Charters (2007). Where a later review contradicts an earlier one, both are reported and the difference is discussed.
 
+### 4.1 Second reviewer (conditional, D2a)
+
+The review has a single reviewer, the author. This procedure applies only if a second reviewer is found by **2026-11-20**; otherwise it is removed (logged in the change log) and the single reviewer is reported as a threat to validity (§7).
+
+| Item | Rule |
+|---|---|
+| Who | A person with a software engineering background (supervisor, MEI colleague or other), confirmed by the author. An AI system is never the second reviewer (week 4: eligibility decisions are not delegated to AI) |
+| What is reviewed | (a) Title/abstract screening of **30 records**, drawn at random from the records that enter screening (after deduplication). (b) Optional, only if the reviewer has time: quality assessment (§5) and extraction (§6) of 2 included studies. Full-text screening has no second review |
+| Effort asked | (a) about 1 hour, sent around 2026-11-20. (b) about 2–3 hours |
+| Independence | The reviewer receives title, abstract, keywords and the IC/EC sheet, not the author's decisions. Before the sample, a 15-minute calibration on 5 pilot records (`pilot/`), which are excluded from the sample |
+| Agreement | Cohen's kappa on include/exclude ("?" counts as include, since it goes to full text), plus percentage agreement. Target κ ≥ 0.61 ("substantial", Landis & Koch, 1977); the threshold is a convention and is stated as such |
+| Below the target | Disagreements are discussed; the criterion that caused them is clarified (logged in the change log) and the author re-applies the clarified criterion to all screened records |
+| Disagreements | Resolved by discussion; if unresolved, the record goes to full-text screening. Every decision is logged in the sample sheet |
+| Sampling | Python `random.Random(seed).sample`, seed logged in `search-log.md`, as in the pilot |
+
+AI may be used as an extra check only: screening the same sample and comparing it with the author's decisions. It is not counted in the kappa, the author's decision stands, and the use is logged in `doc/ai-usage.md`.
+
 ## 5. Quality assessment
 
 Quality is not a selection criterion: it does not exclude studies, it weighs the evidence in the synthesis (week 4: eligibility is not quality). What each study found goes to the extraction form (§6), not here.
@@ -162,7 +179,7 @@ Cross-cutting rules:
 1. Every claim states how many studies support it and their quality.
 2. Sensitivity analysis: each conclusion is checked again using only studies with a quality score of at least 0.5 (half of the applicable questions met). A conclusion that holds only because of lower-scored studies is reported as weak evidence. The 0.5 threshold is a convention and is stated as such.
 3. A conclusion that rests only on studies that were not peer-reviewed is flagged as such.
-4. Threats to validity of the review are discussed: single reviewer (mitigated by D2a), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access.
+4. Threats to validity of the review are discussed: single reviewer (mitigated by a second reviewer on a sample if one is found, §4.1; full-text screening always single-reviewer), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access.
 
 ## 8. Search cut-off date
 
@@ -185,3 +202,4 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-04 | Scopus dropped from the sources (§3) | ISEP has no Scopus licence; IEEE Xplore and ACM DL cover its SE venues; WoS keeps multidisciplinary coverage. Raised with the supervisor in email 1 |
 | 2026-11-04 | Block B: "LLM-based agent*" restricted to a software engineering context, "autonomous agent*" added under the same condition; A2: "agent manifest*" added (strings v2 in `search-log.md`) | Pilot run 1: 162 of 207 S2 records entered only through "LLM-based agent*", mostly outside SE; "agent manifest" found in relevant abstracts |
 | 2026-11-05 | Pilot inspection (P4): strings v2 kept, index-term-only records removed at screening; candidate group (c) criterion (§4) not adopted for now | Results and reasons in `search-log.md`, "Pilot inspection"; author re-evaluates the criterion before the freeze |
+| 2026-11-06 | §4.1 added: conditional second reviewer (30-record screening sample, optional quality/extraction of 2 studies, kappa target 0.61); removed if no reviewer by 2026-11-20. AI never the second reviewer, only an extra check | D2a; week 4 "AI-assisted reviewing" slides. Author keeps the option to drop it; supervisor asked in person on 2026-11-09 |

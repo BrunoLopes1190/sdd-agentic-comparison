@@ -113,7 +113,7 @@ The extended abstract is the first time the separate products are written as one
 |---|---|---|---|
 | D1 | The approved formalisation (2026-10-14, with citations; `admin/formalizacao_1240441.pdf`) is the reference text for title, problem, objectives and RQ | [S] | Taken |
 | D2 | State of the art = **full SLR** (Kitchenham & Charters 2007): protocol written and frozen before the search, changes logged; reproducible search; IC/EC; formal quality assessment of every included study; extraction form piloted; PRISMA 2020; synthesis by RQ; threats to validity of the review | [S] student's choice; `week-04/systematic-literature-review-v1.md` slides 8, 11–22; formalisation field f | Taken |
-| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Confirm with the supervisor who the second reviewer is |
+| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Conditional (`slr/protocol.md` §4.1): 30-record screening sample; dropped if no reviewer by 2026-11-20. Ask the supervisor in person on 2026-11-09 |
 | D3 | arXiv preprints are an SLR source, justified by the field's age. Tool documentation, repositories and practitioner articles are **not** SLR studies: they are analysed separately, with a documented procedure and the 5W matrix, as input to the comparative framework (RQ1) | `week-03/source-evaluation-matrix.docx`; grading question on grey literature | Taken 2026-11-03 (no need to ask the supervisor; justified in `slr/protocol.md` §3) |
 | D4 | Citation style author-date (Harvard), as in the template and the submitted formalisation; `doc/ieee.csl` to be replaced | `.dotx`; formalisation | Proposed; confirm with the supervisor |
 | D5 | PREPD document follows the template structure (front matter, lists, references) | `.dotx`; grading item "Document structure" | Proposed |
@@ -196,7 +196,7 @@ Mapped to the grading items. To confirm against the week 9–13 materials and wi
 
 Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3.
 
-1. Full SLR (D2): who can act as second reviewer for the sample (D2a)? Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
+1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? Asked in person on 9 Nov. Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
 3. Citation style and template for the PREPD document (D4, D5); page limit?
 4. Extended abstract format. Asked in email 1 with the assumption "up to 1000 words or 2 A4 pages". Structure and length answered by the course on 2026-11-04 (§4, about 4–5 pages). Still open: language.
@@ -210,7 +210,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 |---|---|---|---|
 | Full SLR not finished by M3 (1 Dec) | Searches not started; no full paper read yet; full SLR adds quality assessment and a second reviewer | Weak extended abstract; 20% item at risk | Freeze the protocol by M2; time-box screening; cut-off date; if late, report the SLR up to full-text screening in the extended abstract and finish synthesis for the final document |
 | Supervisor does not reply in time | Availability | Decisions stall | Email on 4 Nov stating assumptions; work continues on them; feedback logged as changes (§2.1) |
-| No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1); otherwise state it as a threat to validity |
+| No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1) and in person (9 Nov); if none by 20 Nov, drop §4.1 of the protocol and state it as a threat to validity |
 | Formal databases return few hits | Most SDD work is arXiv or grey literature | Thin PRISMA corpus | Include arXiv and grey literature by protocol (D3), justified |
 | Planning chapter depends on modules up to week 12 (ends ~4 Dec, after M3) | Course calendar | 20% item done in a rush | Draft P9–P11 by M2; week 12 work goes into M4–M6 |
 | Christmas break between 16 Dec and 6 Jan | Calendar | Less supervisor feedback on the M6 draft | Get the main feedback on emails 2 and 3 and on the M4 draft |
@@ -234,3 +234,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-04 | Email 1 sent with the protocol draft (PDF), pilot results, ethics position and questions 1–5 and 7 of §6 (text in `planning/emails/`). Not sent: repository access, timeline, meeting request, who the second reviewer is; to raise in email 2 | M1 |
 | 2026-11-04 | Extended abstract function and structure published by the course: plan updated (§4 structure table, M5, P15, §6 Q4, risks). It is a gate to the final exam; the WBS and a preliminary Gantt are needed by M4 | P15 |
 | 2026-11-05 | Pilot inspection on IEEE Xplore: 20 records (7 S1, 13 S2, random, seed logged) judged by the author; precision S1 100%, S2 54%, total 70%. Decided: strings v2 kept (no v3), index-term-only records removed at screening; candidate group (c) criterion not adopted for now. Pending for P4: extraction form pilot, freeze. Log in `slr/search-log.md` | P4 |
+| 2026-11-06 | Second-reviewer procedure (D2a) written as conditional `slr/protocol.md` §4.1: 30-record screening sample, kappa target 0.61, AI only as an extra check; dropped if no reviewer by 20 Nov. To ask the supervisor in person on 9 Nov | P3 |
