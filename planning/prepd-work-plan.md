@@ -58,8 +58,9 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | Days | Work | Class |
 |---|---|---|
 | 5–6 | Finish the SLR protocol draft; set up Zotero + Better BibTeX; create the Rayyan account (check free-plan limits and that blind mode is included) | Week 4 |
-| 7–8 | Competencies: self-assessment; ask a colleague for the hetero-assessment early | Week 5 |
-| 9–10 | Research design: sub-RQs, Oates figure, validity threats | Week 3 |
+| 7–8 | No work (unavailable) | — |
+| 9 | Competencies: self-assessment and action plan (~2–2.5 h; hetero-assessment on hold, to discuss with the supervisor); ask the supervisor about the second reviewer; start the research design | Weeks 5 and 3 |
+| 10 | Research design: sub-RQs, Oates figure, validity threats | Week 3 |
 | 11–12 | Pilot the extraction on 2–3 papers; freeze the protocol (with any supervisor reply) | Week 4 |
 | 12–13 | Stakeholders (power × interest), project charter, ethics (one code, art. 10, licences, data) | Weeks 2 and 6 |
 | 14 | Planning approach, WBS (first to cut), week 9 class work | Weeks 8 and 9 |
@@ -239,3 +240,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-06 | Pilot counts on all databases (S1 69, S2 1908 before deduplication); arXiv kept unrestricted; ACM Guide used. Selection procedure written (`slr/protocol.md` §4.2): Zotero + Rayyan with CSV exports, two-pass screening, one snowballing iteration as a stated limitation. Pending for P3/P4: extraction form pilot, freeze | P3, P4 |
 | 2026-11-06 | Zotero 7 + Better BibTeX set up (collections `SLR` and `Dissertation`; Better BibLaTeX auto-export of `Dissertation` to `doc/references.bib`); Pandoc 3.13 installed; build tested with the first real entry (Spec Kit). Rayyan account still to create | — |
 | 2026-11-06 | Rayyan account created; free plan: 3 active reviews, 2 invited reviewers, 1 sample (enough; noted in `slr/protocol.md` §4.2). Blind mode included (confirmed by the author) | — |
+| 2026-11-08 | No work on 7–8 Nov. Competencies self-assessment moved to 9 Nov (with the start of the research design, so a heavier day); hetero-assessment on hold until it is discussed with the supervisor | P1, P2 |
