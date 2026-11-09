@@ -60,7 +60,7 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | 5–6 | Finish the SLR protocol draft; set up Zotero + Better BibTeX; create the Rayyan account (check free-plan limits and that blind mode is included) | Week 4 |
 | 7–8 | No work (unavailable) | — |
 | 9 | Competencies: self-assessment and action plan (~2–2.5 h; hetero-assessment on hold, to discuss with the supervisor); ask the supervisor about the second reviewer; start the research design | Weeks 5 and 3 |
-| 10 | Research design: sub-RQs, Oates figure, validity threats | Week 3 |
+| 10 | Research design: Oates figure, validity threats (sub-RQs done 9 Nov). On the computer with Pandoc: run `doc/build.ps1`; move the References section out of `01-introduction.md` into `99-references.md` | Week 3 |
 | 11–12 | Pilot the extraction on 2–3 papers; freeze the protocol (with any supervisor reply) | Week 4 |
 | 12–13 | Stakeholders (power × interest), project charter, ethics (one code, art. 10, licences, data) | Weeks 2 and 6 |
 | 14 | Planning approach, WBS (first to cut), week 9 class work | Weeks 8 and 9 |
@@ -246,3 +246,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-09 | Competency self-assessment done with the author (27 items, importance and level); key competencies chosen: A critical thinking, B time management, C written communication, two actions each with metrics (`doc/chapters/07-work-plan.md`). Hetero-assessment still on hold. The course does not ask for the `.docx` grid to be submitted; the table goes in the document | P1 |
 | 2026-11-09 | Question to the supervisor about the second reviewer prepared (Portuguese, deadline 20 Nov); to ask in person or by email | D2a |
 | 2026-11-09 | Research design started: main RQ split into SRQ1–SRQ5, typed by Shaw (2002) and linked to objectives (`doc/chapters/03-research-method.md`). Pending for 10 Nov: Oates figure, validity threats | P2 |
+| 2026-11-09 | Document build not tested: Pandoc missing on this computer. Build check and the References move added to 10 Nov | — |
