@@ -19,7 +19,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 | # | Date | Milestone | Done when | Status |
 |---|---|---|---|---|
 | M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Done 2026-11-04 |
-| M2 | 2026-11-15 | Email 2: everything up to week 9 done; feedback and meeting requested | P1–P4, P8–P11, P13 done, plus the week 9 class work; SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | Not started |
+| M2 | 2026-11-15 | Email 2: everything up to week 9 done; feedback and meeting requested | P1–P4, P8–P11, P13 done, plus the week 9 class work; SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | In progress |
 | M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
 | M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10). [F] Not graded, but a positive review justifies scheduling the final exam (`general/extended-abstract-function.txt`) | Not started |
@@ -114,7 +114,7 @@ The extended abstract is the first time the separate products are written as one
 |---|---|---|---|
 | D1 | The approved formalisation (2026-10-14, with citations; `admin/formalizacao_1240441.pdf`) is the reference text for title, problem, objectives and RQ | [S] | Taken |
 | D2 | State of the art = **full SLR** (Kitchenham & Charters 2007): protocol written and frozen before the search, changes logged; reproducible search; IC/EC; formal quality assessment of every included study; extraction form piloted; PRISMA 2020; synthesis by RQ; threats to validity of the review | [S] student's choice; `week-04/systematic-literature-review-v1.md` slides 8, 11–22; formalisation field f | Taken |
-| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Conditional (`slr/protocol.md` §4.1): 30-record screening sample; dropped if no reviewer by 2026-11-20. Ask the supervisor in person on 2026-11-09 |
+| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Conditional (`slr/protocol.md` §4.1): 30-record screening sample; dropped if no reviewer by 2026-11-20. In-person meeting of 2026-11-09 at risk; no reply to email 1; ask in person as soon as possible |
 | D3 | arXiv preprints are an SLR source, justified by the field's age. Tool documentation, repositories and practitioner articles are **not** SLR studies: they are analysed separately, with a documented procedure and the 5W matrix, as input to the comparative framework (RQ1) | `week-03/source-evaluation-matrix.docx`; grading question on grey literature | Taken 2026-11-03 (no need to ask the supervisor; justified in `slr/protocol.md` §3) |
 | D4 | Citation style author-date (Harvard), as in the template and the submitted formalisation; `doc/ieee.csl` to be replaced | `.dotx`; formalisation | Proposed; confirm with the supervisor |
 | D5 | PREPD document follows the template structure (front matter, lists, references) | `.dotx`; grading item "Document structure" | Proposed |
@@ -143,6 +143,7 @@ The extended abstract is the first time the separate products are written as one
 | P16 | Final PREPD document | All of the above | All document items | Draft M6; final M7 | Not started |
 | P17 | 10-min slides, paginated, readable; rehearsed with Q&A | Grading sheet "Presentation" | Presentation (25%) | Draft M6; final M7; rehearse before the exam | Not started |
 
+P1, P2 and P8–P13 are written as chapters in `doc/chapters/` (decided 2026-11-09), so they feed P15 and P16 directly.
 Planning outputs P10–P12 are refined as the week 9–12 materials arrive. Add each new module's method to this table.
 
 ### Extended abstract structure [F]
@@ -197,7 +198,7 @@ Mapped to the grading items. To confirm against the week 9–13 materials and wi
 
 Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3.
 
-1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? Asked in person on 9 Nov. Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
+1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? To ask in person (the 9 Nov meeting is at risk). Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
 3. Citation style and template for the PREPD document (D4, D5); page limit?
 4. Extended abstract format. Asked in email 1 with the assumption "up to 1000 words or 2 A4 pages". Structure and length answered by the course on 2026-11-04 (§4, about 4–5 pages). Still open: language.
@@ -210,7 +211,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 | Risk | Cause | Impact | Response |
 |---|---|---|---|
 | Full SLR not finished by M3 (1 Dec) | Searches not started; no full paper read yet; full SLR adds quality assessment and a second reviewer | Weak extended abstract; 20% item at risk | Freeze the protocol by M2; time-box screening; cut-off date; if late, report the SLR up to full-text screening in the extended abstract and finish synthesis for the final document |
-| Supervisor does not reply in time | Availability | Decisions stall | Email on 4 Nov stating assumptions; work continues on them; feedback logged as changes (§2.1) |
+| Supervisor does not reply in time | Availability | Decisions stall | Email on 4 Nov stating assumptions; work continues on them; feedback logged as changes (§2.1); if there is still no reply, talk to him in person |
 | No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1) and in person (9 Nov); if none by 20 Nov, drop §4.1 of the protocol and state it as a threat to validity |
 | Formal databases return few hits | Most SDD work is arXiv or grey literature | Thin PRISMA corpus | Include arXiv and grey literature by protocol (D3), justified |
 | Planning chapter depends on modules up to week 12 (ends ~4 Dec, after M3) | Course calendar | 20% item done in a rush | Draft P9–P11 by M2; week 12 work goes into M4–M6 |
@@ -241,3 +242,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-06 | Zotero 7 + Better BibTeX set up (collections `SLR` and `Dissertation`; Better BibLaTeX auto-export of `Dissertation` to `doc/references.bib`); Pandoc 3.13 installed; build tested with the first real entry (Spec Kit). Rayyan account still to create | — |
 | 2026-11-06 | Rayyan account created; free plan: 3 active reviews, 2 invited reviewers, 1 sample (enough; noted in `slr/protocol.md` §4.2). Blind mode included (confirmed by the author) | — |
 | 2026-11-08 | No work on 7–8 Nov. Competencies self-assessment moved to 9 Nov (with the start of the research design, so a heavier day); hetero-assessment on hold until it is discussed with the supervisor | P1, P2 |
+| 2026-11-09 | Progress review. M2 started (P3, P4, P13 in progress); M2 scope kept (P1–P4, P8–P11, P13 by 15 Nov). No reply to email 1; the in-person meeting of 9 Nov is at risk; if there is no reply, talk to the supervisor in person. Week 9 materials not yet published. P1, P2, P8–P13 to be written in `doc/chapters/`. Group (c) criterion adopted as EC5 (`slr/protocol.md` §4) | M2, P3 |

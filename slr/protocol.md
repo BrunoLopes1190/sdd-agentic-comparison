@@ -91,11 +91,12 @@ Applied at title/abstract screening and again at full-text screening. Every excl
 | EC2 | "Specification" in the formal-methods or requirements-engineering sense, with no coding agents |
 | EC3 | Editorial, keynote, poster, abstract only, or tutorial |
 | EC4 | Earlier or duplicate version of an included study (the most complete version is kept, e.g. the published version over the arXiv preprint) |
+| EC5 | Group (c) only: the main contribution is a new agent or technique tested on an existing benchmark, and the study adds nothing to the evaluation method (no new metric, no repetitions or control of agent and model, no new comparison design) [adopted 2026-11-09] |
 
 Workshop and short papers are included: in a field this young much work appears there; rigour is handled by the quality assessment.
 Secondary studies (reviews) are included: they are a source of approaches and gaps (RQ1, RQ4) and a starting set for snowballing. In the synthesis, evidence they report is not counted twice when the primary studies they cite are also included.
 
-**Candidate criterion, decided before the protocol is frozen (not adopted at the pilot, 2026-11-05):** exclude group (c) studies whose main contribution is not the evaluation itself (a new agent tested on an existing benchmark). Adopted only if the pilot shows that S2 returns too many records of this kind; the decision and its reason are logged.
+EC5 was a candidate criterion, not adopted at the pilot (2026-11-05) and adopted before the freeze (2026-11-09): in the pilot, 6 of the 10 group (c) records were a new agent on an existing benchmark, and with about 1700 records after deduplication they would load full-text screening and extraction while adding little to RQ2–RQ3 beyond a success rate. The exception (a contribution to the evaluation method) keeps the studies that matter for RQ2 and RQ3.
 
 **Currency of included reviews.** For each included review: (1) record its own search cut-off date, so that later work it cannot cover is known; (2) forward snowballing (Google Scholar "Cited by") to find later reviews, comments or rebuttals; (3) check for retraction or withdrawal (publisher page, Crossref/Retraction Watch, latest arXiv version); (4) assess it with the DARE criteria recommended for secondary studies by Kitchenham & Charters (2007). Where a later review contradicts an earlier one, both are reported and the difference is discussed.
 
@@ -127,7 +128,7 @@ Tools: Zotero holds the references; Rayyan (web screening tool) holds the screen
 | 3. Pass 1: title | Exclude only when the title is clearly out of scope (another domain); any doubt goes to pass 2. Rayyan keyword highlighting may be used to read faster |
 | 4. Pass 2: title, abstract, keywords | IC/EC applied (§4). Decision: include, exclude (with code) or maybe. Maybe goes to full text |
 | 5. Index-term-only records | No automatic removal (pilot decision, `search-log.md`): screened like any other record; most fail IC1 |
-| 6. Exclusion codes | The IC that fails (IC1–IC4) or the EC that applies (EC1–EC4), set as a Rayyan exclusion label. The pilot code OUT-SE becomes IC1 |
+| 6. Exclusion codes | The IC that fails (IC1–IC4) or the EC that applies (EC1–EC5), set as a Rayyan exclusion label. The pilot code OUT-SE becomes IC1 |
 | 7. Full text | IC/EC applied again on the full text, with a code for every exclusion. Access tried through the publisher (ISEP), arXiv and Google Scholar; if none works, excluded under IC4 |
 | 8. Snowballing | **One iteration** of backward (reference lists) and forward (Google Scholar "Cited by") snowballing on the studies included after full text, with the same criteria and codes. Not iterated to saturation as Wohlin (2014) recommends; stated as a limitation (§7). Counted in the PRISMA "other methods" branch |
 | 9. AI | AI takes no screening decision (§4.1). Rayyan's relevance predictions are not used to decide; if used to order records, this is declared in `doc/ai-usage.md` |
@@ -224,3 +225,4 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-06 | arXiv kept without category restriction (no `cat:cs.SE`) | A cs.SE restriction would drop 689 S2 records, and a random sample of them includes in-scope evaluation studies. Pilot totals before deduplication: S1 69, S2 1908. Decided by the author before the freeze, not after seeing screening results |
 | 2026-11-06 | ACM DL searched in the ACM Guide to Computing Literature, not only the Full-Text Collection | Pilot: Guide S1 10 / S2 209 vs Full-Text 8 / 175. Wider coverage of other publishers partly compensates for Scopus |
 | 2026-11-06 | §4.2 added: selection procedure (Zotero for references, Rayyan for screening with CSV exports to the repository; deduplication; two-pass title/abstract screening; exclusion codes; full text; one snowballing iteration). §4.1 uses a separate blind Rayyan review | Volume (about 1700 records after deduplication) and blind mode for the second reviewer; the author accepts one snowballing iteration as an explicit limitation |
+| 2026-11-09 | §4: EC5 adopted (group (c) studies that only test a new agent on an existing benchmark are excluded, unless they add to the evaluation method) | Pilot: 6 of 10 group (c) records of this kind; screening and extraction volume with the SLR due by M3. Decided by the author before the freeze |
