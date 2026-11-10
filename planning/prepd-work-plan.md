@@ -19,7 +19,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 | # | Date | Milestone | Done when | Status |
 |---|---|---|---|---|
 | M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Done 2026-11-04 |
-| M2 | 2026-11-15 | Email 2: everything up to week 9 done; feedback and meeting requested | P1–P4, P8–P11, P13 done, plus the week 9 class work; SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | In progress |
+| M2 | 2026-11-16 | Email 2: everything up to week 9 done; feedback and meeting requested; all open questions (§6) | P1–P4, P8–P11, P13 done, plus the week 9 class work if published (none by 10 Nov); SLR protocol frozen. P11 (WBS) is the first item to move to M3 if time runs short | In progress |
 | M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
 | M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10). [F] Not graded, but a positive review justifies scheduling the final exam (`general/extended-abstract-function.txt`) | Not started |
@@ -53,7 +53,7 @@ The protocol draft is kept in `slr/protocol.md`.
 
 The same scope rule applies to emails 2 and 3: they go on the milestone date with what is ready, and unfinished parts are named as in progress.
 
-### 2.2 Path to M2 (5–15 Nov, guideline)
+### 2.2 Path to M2 (5–16 Nov, guideline)
 
 | Days | Work | Class |
 |---|---|---|
@@ -63,8 +63,8 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | 10 | Research design: Oates figure, validity threats (sub-RQs done 9 Nov). On the computer with Pandoc: run `doc/build.ps1`; move the References section out of `01-introduction.md` into `99-references.md` | Week 3 |
 | 11–12 | Pilot the extraction on 2–3 papers; freeze the protocol (with any supervisor reply) | Week 4 |
 | 12–13 | Stakeholders (power × interest), project charter, ethics (one code, art. 10, licences, data) | Weeks 2 and 6 |
-| 14 | Planning approach, WBS (first to cut), week 9 class work | Weeks 8 and 9 |
-| 15 | Email 2 with a meeting request; open questions repeated | — |
+| 14 | Planning approach, WBS (first to cut), week 9 class work (if published) | Weeks 8 and 9 |
+| 16 (Mon) | Email 2 with a meeting request; all open questions of §6 | — |
 
 ### 2.3 Path to M3 (16 Nov – 1 Dec, guideline)
 
@@ -114,7 +114,7 @@ The extended abstract is the first time the separate products are written as one
 |---|---|---|---|
 | D1 | The approved formalisation (2026-10-14, with citations; `admin/formalizacao_1240441.pdf`) is the reference text for title, problem, objectives and RQ | [S] | Taken |
 | D2 | State of the art = **full SLR** (Kitchenham & Charters 2007): protocol written and frozen before the search, changes logged; reproducible search; IC/EC; formal quality assessment of every included study; extraction form piloted; PRISMA 2020; synthesis by RQ; threats to validity of the review | [S] student's choice; `week-04/systematic-literature-review-v1.md` slides 8, 11–22; formalisation field f | Taken |
-| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Conditional (`slr/protocol.md` §4.1): 30-record screening sample; dropped if no reviewer by 2026-11-20. In-person meeting of 2026-11-09 at risk; no reply to email 1; ask in person as soon as possible; question text prepared 2026-11-09 |
+| D2a | Single-reviewer mitigation [I]: a second person (supervisor or a colleague) independently screens a random sample of records and assesses a sample of included studies; agreement measured (Cohen's kappa); disagreements resolved and logged | Kitchenham & Charters (2007) | Conditional (`slr/protocol.md` §4.1): 30-record screening sample; dropped if no reviewer by 2026-11-20. In-person meeting of 2026-11-09 at risk; no reply to email 1; question text prepared 2026-11-09; supervisor not reached by 10 Nov, so it goes in email 2 (16 Nov) |
 | D3 | arXiv preprints are an SLR source, justified by the field's age. Tool documentation, repositories and practitioner articles are **not** SLR studies: they are analysed separately, with a documented procedure and the 5W matrix, as input to the comparative framework (RQ1) | `week-03/source-evaluation-matrix.docx`; grading question on grey literature | Taken 2026-11-03 (no need to ask the supervisor; justified in `slr/protocol.md` §3) |
 | D4 | Citation style author-date (Harvard), as in the template and the submitted formalisation; `doc/ieee.csl` to be replaced | `.dotx`; formalisation | Proposed; confirm with the supervisor |
 | D5 | PREPD document follows the template structure (front matter, lists, references) | `.dotx`; grading item "Document structure" | Proposed |
@@ -198,7 +198,7 @@ Mapped to the grading items. To confirm against the week 9–13 materials and wi
 
 Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3.
 
-1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? To ask in person (the 9 Nov meeting is at risk). Will the supervisor review the protocol before it is frozen (M2, 15 Nov)?
+1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? Supervisor not reached in person by 10 Nov; asked in email 2 (16 Nov). The protocol is frozen on 11–12 Nov on the current assumptions; any later comment is applied as a logged protocol change.
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
 3. Citation style and template for the PREPD document (D4, D5); page limit?
 4. Extended abstract format. Asked in email 1 with the assumption "up to 1000 words or 2 A4 pages". Structure and length answered by the course on 2026-11-04 (§4, about 4–5 pages). Still open: language.
@@ -212,7 +212,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 |---|---|---|---|
 | Full SLR not finished by M3 (1 Dec) | Searches not started; no full paper read yet; full SLR adds quality assessment and a second reviewer | Weak extended abstract; 20% item at risk | Freeze the protocol by M2; time-box screening; cut-off date; if late, report the SLR up to full-text screening in the extended abstract and finish synthesis for the final document |
 | Supervisor does not reply in time | Availability | Decisions stall | Email on 4 Nov stating assumptions; work continues on them; feedback logged as changes (§2.1); if there is still no reply, talk to him in person |
-| No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1) and in person (9 Nov); if none by 20 Nov, drop §4.1 of the protocol and state it as a threat to validity |
+| No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1) and again in email 2 (16 Nov); if none by 20 Nov, drop §4.1 of the protocol and state it as a threat to validity |
 | Formal databases return few hits | Most SDD work is arXiv or grey literature | Thin PRISMA corpus | Include arXiv and grey literature by protocol (D3), justified |
 | Planning chapter depends on modules up to week 12 (ends ~4 Dec, after M3) | Course calendar | 20% item done in a rush | Draft P9–P11 by M2; week 12 work goes into M4–M6 |
 | Christmas break between 16 Dec and 6 Jan | Calendar | Less supervisor feedback on the M6 draft | Get the main feedback on emails 2 and 3 and on the M4 draft |
@@ -245,5 +245,7 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-09 | Progress review. M2 started (P3, P4, P13 in progress); M2 scope kept (P1–P4, P8–P11, P13 by 15 Nov). No reply to email 1; the in-person meeting of 9 Nov is at risk; if there is no reply, talk to the supervisor in person. Week 9 materials not yet published. P1, P2, P8–P13 to be written in `doc/chapters/`. Group (c) criterion adopted as EC5 (`slr/protocol.md` §4) | M2, P3 |
 | 2026-11-09 | Competency self-assessment done with the author (27 items, importance and level); key competencies chosen: A critical thinking, B time management, C written communication, two actions each with metrics (`doc/chapters/07-work-plan.md`). Hetero-assessment still on hold. The course does not ask for the `.docx` grid to be submitted; the table goes in the document | P1 |
 | 2026-11-09 | Question to the supervisor about the second reviewer prepared (Portuguese, deadline 20 Nov); to ask in person or by email | D2a |
+| 2026-11-10 | Supervisor not reached (no meeting, no reply to email 1). Work continues on the current assumptions; all open questions (§6) go in email 2, moved to Monday 16 Nov. Week 9 materials still not published | M2, D2a |
+| 2026-11-10 | References section moved to `doc/chapters/99-references.md`; document build tested (`doc/build.ps1`, Pandoc 3.13): chapters 01, 03, 07 and the bibliography render | — |
 | 2026-11-09 | Research design started: main RQ split into SRQ1–SRQ5, typed by Shaw (2002) and linked to objectives (`doc/chapters/03-research-method.md`). Pending for 10 Nov: Oates figure, validity threats | P2 |
 | 2026-11-09 | Document build not tested: Pandoc missing on this computer. Build check and the References move added to 10 Nov | — |
