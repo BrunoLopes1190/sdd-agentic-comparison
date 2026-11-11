@@ -1,6 +1,6 @@
-# SLR protocol (draft)
+# SLR protocol
 
-Status: draft, not frozen. Method: Kitchenham & Charters (2007); PRISMA 2020 (Page et al., 2021).
+Status: frozen 2026-11-11, before the final search. Later changes are logged in the change log with their reason. Method: Kitchenham & Charters (2007); PRISMA 2020 (Page et al., 2021).
 Built step by step following the week 4 SLR module (`course-materials/week-04/slr-mini-tutorial.md`).
 Reference text: the approved formalisation (`admin/formalizacao_1240441.pdf`).
 
@@ -25,9 +25,9 @@ Related context mechanisms (e.g. Gloaguen et al., 2026) are in scope for RQ2–R
 
 ## 2. Concept blocks and search strings
 
-Synonyms are joined with OR inside a block; blocks are joined with AND. Draft lists, to be refined by the pilot search (P4); changes go to the change log.
+Synonyms are joined with OR inside a block; blocks are joined with AND. Lists refined by the pilot search (P4); the strings in use are version 2 (`search-log.md`).
 
-| Block | Concept | Terms (draft) |
+| Block | Concept | Terms |
 |---|---|---|
 | A1 | Spec-Driven Development | "spec-driven", "specification-driven", "spec-first", "spec kit", OpenSpec, BMAD, Kiro |
 | A2 | Related context mechanisms | "AGENTS.md", "context file*", "repository-level context", "instruction file*", "rules file*", "agent manifest*" |
@@ -137,7 +137,7 @@ Tools: Zotero holds the references; Rayyan (web screening tool) holds the screen
 ## 5. Quality assessment
 
 Quality is not a selection criterion: it does not exclude studies, it weighs the evidence in the synthesis (week 4: eligibility is not quality). What each study found goes to the extraction form (§6), not here.
-Answers: Yes = 1, Partly = 0.5, No = 0, N/A when the question does not apply. Score = points / applicable questions (relative score, so conceptual and empirical studies can be compared).
+Answers: Yes = 1, Partly = 0.5, No = 0, N/A when the question does not apply. When the study does not give enough information to answer, the answer is No (0): what is not reported is not counted. Score = points / applicable questions (relative score, so conceptual and empirical studies can be compared). The score is always reported with the number of applicable questions, e.g. 0.67 (6), because a score on few questions is less informative.
 Secondary studies are assessed with the DARE criteria instead (§4).
 
 | # | Question | Applies to |
@@ -156,27 +156,28 @@ Secondary studies are assessed with the DARE criteria instead (§4).
 | | **Credibility** | |
 | Q10 | Are threats to validity and limitations discussed? | All |
 | Q11 | Was it peer-reviewed? | All |
-| Q12 | Are the authors independent of the vendor of the tool evaluated? | All |
+| Q12 | Are the authors independent of the vendor of the tool evaluated? An author who created an approach the study evaluates counts as its vendor; Partly when this applies to only some of the approaches | All |
 | | **Feasibility** | |
-| Q13 | Is the proposed approach feasible to implement in practice: its requirements (tools, compute, cost) are stated and within reach of a typical development team? | Conceptual studies and studies that propose an approach |
+| Q13 | Is the proposed approach feasible to implement in practice: its requirements (tools, compute, cost) are stated and within reach of a typical development team? | Conceptual studies and studies that propose an approach, including those that also evaluate or compare it |
 
 Q13 measures practical feasibility, not research rigour: an approach that needs very costly compute may be sound research but is of little use to the target audience of the decision guide (O5). This is stated when the score is used in the synthesis.
 
 ## 6. Data extraction form
 
-One row per study. Every field exists because it answers an RQ (week 4, slides 7 and 15). Fields that do not apply are marked N/A. The form is piloted on 2–3 studies before the protocol is frozen (P4).
+One row per study. Every field exists because it answers an RQ (week 4, slides 7 and 15). Fields that do not apply are marked N/A. The form was piloted on 3 studies before the freeze (P4, `extraction-pilot.md`); the pilot added C1–C8 (change log, 2026-11-11).
 
 | Group | Fields | Serves |
 |---|---|---|
-| Identification | ID; reference; year; publication type (journal, conference, workshop, preprint); author affiliation; nature of the study: evaluates / compares / proposes an evaluation method / conceptual / review | All; Q11, Q12 |
-| Approach | Name and version; artefacts prescribed; phases of the flow; human review points; SDD level (spec-first, spec-anchored, spec-as-source; Böckeler, 2025) | RQ1 |
+| Identification | ID; reference; year; publication type (journal, conference, workshop, preprint); author affiliation; nature of the study: evaluates / compares / proposes an evaluation method (including a benchmark) / conceptual / review, as a main nature plus an optional secondary one | All; Q11, Q12 |
+| Approach | Name and version; artefacts prescribed; phases of the flow; human review points; parts exercised in the study (full workflow / specification format only / single artefact, e.g. a context file / not run, document-based); SDD level (spec-first, spec-anchored, spec-as-source; Böckeler, 2025, or not classifiable), with the authors' own wording | RQ1 |
 | Context of application | Task type (new project or existing code base); size; domain; team profile | O5 (decision guide) |
-| Measurement | Cost metrics (tokens, time, money); functional quality metrics (tests, resolve rate); internal quality metrics (maintainability, technical debt); human effort metrics; how they are collected (automatic or manual) | RQ2 |
-| Evaluation (each configuration on its own) | One entry per configuration evaluated, judged on its own and not against the others. A configuration is one approach (or the baseline) run with one agent and one model, e.g. "Spec Kit + Claude Code + Sonnet". For each: success criterion used; metric values; verdict: works / partly / does not work | RQ4 |
+| Measurement | Cost metrics (tokens, time, money); functional quality metrics (tests, resolve rate); internal quality metrics (maintainability, technical debt); human effort metrics; other outcome metrics (e.g. determinism, traceability, hallucination detection); how they are collected (automatic or manual) | RQ2 |
+| Evaluation (each configuration on its own) | One entry per configuration evaluated, judged on its own and not against the others. A configuration is one approach (or the baseline) run with one agent and one model, e.g. "Spec Kit + Claude Code + Sonnet"; "agent not stated" is recorded as such. When a study has several studies or benchmarks, each entry names it; ablation variants are entries marked "ablation". For each: success criterion used; metric values; a quality verdict and a cost verdict, each works / partly / does not work. Document-based studies run no configuration: Evaluation is N/A and their scores go to "Comparison: result" | RQ4 |
 | Comparison: design | Project or tasks; configurations compared; baseline; what is held constant (agent, model, operator, briefing); acceptance tests; number of repetitions; rules for human intervention | RQ3 |
 | Comparison: result | Which configuration is better, on which dimension, by how much; is the difference significant | RQ4 |
 | Comparison: did the method work | Did it distinguish the configurations; was it repeatable; limitations of the comparison method stated by the authors | RQ3 |
 | Conclusions | Limitations and gaps stated by the authors | RQ4 |
+| Notes | Reporting inconsistencies, with the source of each value used (table or text); data or replication package available; pre-registration claimed (with link or not); programming language | Q2, Q4, Q9 |
 | Quality | Q1–Q13 score, or DARE for reviews (§5) | Synthesis |
 
 Tools and agents supported by each approach are not extracted from studies: they come from the documentary analysis (§3).
@@ -226,3 +227,7 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-06 | ACM DL searched in the ACM Guide to Computing Literature, not only the Full-Text Collection | Pilot: Guide S1 10 / S2 209 vs Full-Text 8 / 175. Wider coverage of other publishers partly compensates for Scopus |
 | 2026-11-06 | §4.2 added: selection procedure (Zotero for references, Rayyan for screening with CSV exports to the repository; deduplication; two-pass title/abstract screening; exclusion codes; full text; one snowballing iteration). §4.1 uses a separate blind Rayyan review | Volume (about 1700 records after deduplication) and blind mode for the second reviewer; the author accepts one snowballing iteration as an explicit limitation |
 | 2026-11-09 | §4: EC5 adopted (group (c) studies that only test a new agent on an existing benchmark are excluded, unless they add to the evaluation method) | Pilot: 6 of 10 group (c) records of this kind; screening and extraction volume with the SLR due by M3. Decided by the author before the freeze |
+| 2026-11-11 | Extraction form piloted on 3 studies (P1 Panda 2026, compares; P2 Gloaguen et al. 2026, evaluates and compares; P3 Macedo 2026, document-based comparison); AI drafts verified by the author on the riskiest values (`extraction-pilot.md`) | Week 4 tutorial slide 20: pilot the form before the freeze |
+| 2026-11-11 | §6 changed from the pilot. C1: main plus secondary nature of the study. C2: parts of the approach exercised. C3: SDD level may be "not classifiable", with the authors' wording. C4: "agent not stated", study/benchmark per entry, ablation entries, Evaluation N/A for document-based studies. C5: separate quality and cost verdicts. C6: other outcome metrics. C7: Notes group (inconsistencies, replication package, pre-registration, language) | Pilot: every study hit these gaps (form problems in `extraction-pilot.md`). Decided by the author |
+| 2026-11-11 | §5 changed from the pilot (C8): missing information scores No; Q12 counts an author who created an evaluated approach as its vendor, Partly when only some approaches; Q13 also for studies that propose and compare; score reported with the number of applicable questions | Pilot: Q12 and Q13 were ambiguous for P1–P3; non-empirical scores rest on few questions. Decided by the author |
+| 2026-11-11 | **Protocol frozen** | Pilot search and extraction pilot done. Supervisor feedback received later is applied as a logged change |

@@ -42,8 +42,8 @@ Module schedule. [F] Labelled "Calendarização Provisória" (intro slide 6). [I
 | 6 | 19–23 Oct | Ethics in research (T) and engineering (TP) | `week-06/` |
 | 7 | 26–30 Oct | Technical-scientific writing | none; [S] no class was held |
 | 8 | 2–6 Nov | Project planning: approaches, WBS | `week-08/` |
-| 9 | 9–13 Nov | Project planning | pending |
-| 10 | 16–20 Nov | Self-organisation | pending |
+| 9 | 9–13 Nov | Project planning | none; [S] no class was held |
+| 10 | 16–20 Nov | Self-organisation; [F] materials are project planning: schedule construction, WBS example, MS Project | `week-10/` (published 2026-11-11) |
 | 11 | 23–27 Nov | Project planning | pending |
 | 12 | 30 Nov–4 Dec | Project planning | pending |
 | 13 | 7–11 Dec | (none) | pending |
@@ -106,6 +106,8 @@ Weights from `general/prepd-evaluation.xlsx`. Guiding questions summarised from 
 | Project charter | Stakeholders (power × interest), scope, objectives, benefits, deliverables, milestones, costs, assumptions, restrictions, risks (cause, effect, response); success metrics, governance, exit conditions | `week-02/project-charter-v1.md`; `project-charter-template-v01.docx` |
 | Planning approach | Predictive, adaptive or hybrid, with pros and cons | `week-08/planning-approach-v1.md` |
 | WBS | Deliverable-oriented tree, structured by life-cycle phase; 100% rule; one decomposition criterion per level; terminal tasks 8–80 h; dictionary with acceptance and progress criteria | `week-08/wbs-concepts-v01.md`; `wbs-template-v01.pptx` |
+| WBS example | A dissertation WBS by life cycle: 1.1 Planning (project charter, WBS, plan), 1.2 Design, 1.3 Build, 1.4 Evaluate, 1.5 Conclusions (final report, final presentation); level 1 = phases, below = deliverables, then tasks. The same WBS becomes the MS Project schedule: WBS code and level (project, phase, deliverable, task, milestone) per row, durations, predecessors, and a "Milestones" summary of 0-day tasks (e.g. plan delivered, report v0.1 delivered, final report delivered, presentation date) | `week-10/wbs-example-v01.md` (slides 3–4 are images: Gantt charts read from the PDF on 2026-11-11) |
+| Schedule | Logic network (sequenced terminal WBS tasks; AON/PDM, four dependency types, lags and leads; mandatory, external or optional dependencies) as the base for dates; estimates by the people doing the work, with a reserve: analogy, bottom-up from the WBS, parametric, three-point (PERT = (O+4M+P)/6, SD = (P−O)/6); milestones and deadlines; project, resource and task calendars; critical path method, free and total slack, negative slack; crashing and fast tracking; resources (work, material) for cost; baseline saved before execution, re-baselined only on approved change, rolling-wave detail or an unrealistic plan. Tool: MS Project 2019 or later, English version preferred, from the ISEP MSDN Academic Alliance | `week-10/schedule-construction-v1.md`; `ms-project-installation-v01.md`; `example-project-code-design-part-1.mpp` (MS Project file, not extracted) |
 | Competencies | Self-diagnosis (importance + level) and hetero-assessment by a peer; at least 3 key competencies with objectives; at least 2 actions each; strategies and metrics | `week-05/competencies.pdf`; `self-assessment.docx`; `assessment.docx` |
 | Research ethics | Misconduct (fabrication, falsification, plagiarism); bias; ALLEA European Code of Conduct (2023); P.PORTO Code (Despacho 11171/2020), arts. 6, 8, 10; GDPR; FAIR data; company work; GenAI rules | `week-06/t06.md`; `european-code-of-conduct-2023.pdf` |
 | Engineering ethics | NSPE, ACM, ACM/IEEE-CS SE codes; "choose one code and follow it, not selectively"; 5-step ethical decision method; licences; EU law (AI Act, CRA, GDPR) | `week-06/tp06.pdf`; `codes-of-ethics.txt`; `additional-resources-law.txt` |
@@ -128,4 +130,4 @@ Weights from `general/prepd-evaluation.xlsx`. Guiding questions summarised from 
 
 ## 7. Files whose content is partly image-only
 
-Text was not extracted from: the `tp01.pdf` platform screenshots; `research-methods-t` slides 32 and 37; `systematic-literature-review-v1` slides 9 and 19; the stakeholder-examples and life-cycle figures in `project-charter-v1` and `wbs-concepts-v01`. Check the PDF if those slides matter.
+Text was not extracted from: the `week-10/schedule-construction-v1` slides "Ciclo de vida do projeto" and "Elementos a adotar" and the network figures; `week-10/example-project-code-design-part-1.mpp` (open in MS Project); the `tp01.pdf` platform screenshots; `research-methods-t` slides 32 and 37; `systematic-literature-review-v1` slides 9 and 19; the stakeholder-examples and life-cycle figures in `project-charter-v1` and `wbs-concepts-v01`. Check the PDF if those slides matter.
