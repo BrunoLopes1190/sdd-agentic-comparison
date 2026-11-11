@@ -12,6 +12,7 @@ $pandocArgs = @(
     '--bibliography', (Join-Path $doc 'references.bib'),
     '--csl', (Join-Path $doc 'ieee.csl'),
     '--metadata', 'lang=en-GB',
+    '--resource-path', $doc,
     '--metadata', 'link-citations=true',
     '--output', (Join-Path $out 'thesis.docx')
 )
