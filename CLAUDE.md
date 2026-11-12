@@ -4,7 +4,7 @@ MSc dissertation repo (see README.md). Comparison of Spec-Driven Development app
 
 Start here: `course-materials/course-overview.md` (what PREPD requires) and `planning/prepd-work-plan.md` (what to produce, by when).
 
-**Progress tracking (always):** whenever a plan item (milestone M*, product P*) starts, finishes or moves, update its Status in `planning/prepd-work-plan.md`, add a dated line to its Progress log, then run `python planning/build_plan_html.py`. The `.md` is the source; never edit `prepd-work-plan.html` by hand.
+**Progress tracking (always):** whenever a plan item (milestone M*, product P*) starts, finishes or moves, update its Status in `planning/prepd-work-plan.md`, add a dated line to its Progress log, then run `python planning/build_plan_html.py`. The `.md` is the source; never edit `prepd-work-plan.html` by hand. At the end of each working day, also update `admin/context.md` §0 with what was done, so it keeps the full current state.
 
 ## Rules
 
