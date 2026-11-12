@@ -1,5 +1,93 @@
 # Work plan
 
+## Project charter
+
+The charter follows the course template.
+It covers the whole project, from PREPD, which is its planning phase, to the delivery of the dissertation.
+
+### General information
+
+- **Project name:** Spec-Driven for Agentic Software Development: A Characterisation and Comparison of Existing Approaches
+- **Sponsor:** the supervisor
+- **Institution:** ISEP, Department of Computer Engineering (DEI), Master's in Informatics Engineering (MEI)
+
+### Project team
+
+: Project team {#tbl:team}
+
+| Role | Name | Institution | Department | E-mail |
+|---|---|---|---|---|
+| Student | Bruno de Abreu Lopes | ISEP | DEI | 1240441@isep.ipp.pt |
+| Supervisor | Paulo Gandra de Sousa | ISEP | DEI | pag@isep.ipp.pt |
+
+### Stakeholders
+
+The stakeholders, their power and interest, and the engagement strategy are in the stakeholder table of the introduction.
+
+### Scope
+
+**Problem and objectives.**
+The problem is stated in the introduction.
+The main research question, the sub-questions SRQ1–SRQ5 and the objectives O1–O5 are in the research method chapter.
+
+**Benefits.**
+The benefits go to the teams and practitioners who adopt SDD, the users of the results.
+The values of B1 and B2 are only known after the experiment, so they are measured in the dissertation.
+
+: Benefits and how each one is measured {#tbl:benefits}
+
+| # | Benefit | How it is measured |
+|---|---|---|
+| B1 | Cost: a team knows what each approach costs on the same project and avoids paying for structure that brings no gain | Difference in total cost between the approaches and the baseline, measured in the experiment |
+| B2 | Quality: a team knows the quality each approach gives and can choose the one that is enough for its case | Difference in quality (acceptance tests, internal quality) between the approaches and the baseline |
+| B3 | Time to choose: the comparative framework and the decision guide spare a team from trying each approach | Qualitative: the guide covers the selected approaches |
+
+**Deliverables.**
+
+- PREPD: state of the art (SLR): PRISMA diagram, extraction matrix and quality assessment, synthesis by review question and gap; extended abstract; PREPD document; presentation.
+- Dissertation: comparative framework (O1); evaluation protocol with the reference project and its acceptance tests (O2); experiment data and results (O3, O4); decision guide (O5); dissertation report; presentation.
+
+**Exclusions.**
+
+- No new SDD approach is created.
+- No study with human participants is carried out.
+- Agents and models are not evaluated in themselves; they are a recorded factor.
+
+### Time
+
+Fixed dates are set by the course and cannot change.
+Committed dates are the student's own and may move; any move is logged.
+
+: PREPD milestones {#tbl:prepd-milestones}
+
+| Date | Milestone | Type |
+|---|---|---|
+| 2026-11-04 | Email 1 to the supervisor: SLR protocol draft and open questions | Committed |
+| 2026-11-16 | Email 2: work up to week 9, feedback and meeting requested | Committed |
+| 2026-12-01 | Email 3: supervisor's corrections applied, SLR results | Committed |
+| 2026-12-13 | Extended abstract draft sent to the supervisor | Committed |
+| 2026-12-16 | Extended abstract submitted | Fixed |
+| 2027-01-02 | Draft of the PREPD document and slides sent to the supervisor | Committed |
+| 2027-01-06 | PREPD document and presentation submitted | Fixed |
+| 2027-01-04 to 01-09 | Oral exam | Fixed |
+
+The dissertation runs from February to June 2027.
+Its phases follow the research method: protocol and reference project design, experiment runs, analysis, and writing.
+Their milestones are set in the schedule.
+The fixed dates of the dissertation (submission and defence) are not yet known.
+
+### Cost
+
+: Cost sources {#tbl:cost}
+
+| Source | Cost |
+|---|---|
+| Claude Pro plan (personal, used for the experiment runs) | 22.14 € per month, counted only for the months of the experiment runs |
+| Personal computer and local models | No new cost: existing equipment |
+| MS Project | ISEP student licence |
+| Zotero, Rayyan (free plan), Pandoc, GitHub | No cost |
+| Student's work | Hours, not priced; estimated in the schedule |
+
 ## Competency development plan
 
 A dissertation is a long, mostly individual project.
