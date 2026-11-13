@@ -219,6 +219,8 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 7. Scopus: ISEP has no licence, so it was dropped from the SLR sources (IEEE Xplore and ACM DL cover its SE venues; WoS stays). Does the supervisor agree, or know of legitimate access through ISEP?
 8. Project charter benefits (P9): B1–B3 go to the teams adopting SDD. Should the charter also list a benefit for the student (degree and the three key competencies)? Removed on 2026-11-12 until the supervisor answers (email 2).
 9. Fixed dates of the dissertation (submission and defence) for the charter and the schedule: not yet known (email 2).
+10. Project charter approval (P9): the supervisor, as sponsor, approves the charter (`doc/chapters/07-work-plan.md`, approval table). Sent with email 2.
+11. Research data (P13): the reference project, tests, logs, generated code and metrics are published openly at the end of the dissertation, in a repository with a persistent identifier (e.g. Zenodo). Does the supervisor agree (email 2)?
 
 ## 7. Risks for PREPD
 

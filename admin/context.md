@@ -14,7 +14,7 @@ Course synthesis: `course-materials/course-overview.md`. PREPD plan: `planning/p
 - **Assessment:** 10-minute presentation; exam date to be announced at the end of December.
 - **State of the art:** full SLR (student's decision, 2 Nov).
 - **Resources:** no fixed hours; no token budget; runs (dissertation only) may use the student's personal Claude Pro plan (22.14 € per month; counted in the charter only for the months of the runs). No employer is linked to the work.
-- **Not yet answered by the supervisor:** all email 1 questions (second reviewer, P.PORTO Code art. 10, citation style, extended abstract language, Pro plan and local models, Scopus); repository access (the repository is private), a benefit for the student in the charter, and the fixed dates of the dissertation not yet asked; all go in email 2 (16 Nov). See `planning/prepd-work-plan.md` §6.
+- **Not yet answered by the supervisor:** all email 1 questions (second reviewer, P.PORTO Code art. 10, citation style, extended abstract language, Pro plan and local models, Scopus); repository access (the repository is private), a benefit for the student in the charter, and the fixed dates of the dissertation, the charter approval and the open publication of the research data not yet asked; all go in email 2 (16 Nov). See `planning/prepd-work-plan.md` §6.
 - **Next:** see the products and dates in `planning/prepd-work-plan.md` §4.
 - **Left to the dissertation:** agents and models, definition of "total cost", final metrics, number of approaches and of repetitions, reference project, all runs.
 
