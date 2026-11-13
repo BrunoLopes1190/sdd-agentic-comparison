@@ -63,11 +63,11 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | 10 | Done 11 Nov. Research design: Oates figure, validity threats (sub-RQs done 9 Nov). On the computer with Pandoc: run `doc/build.ps1`; move the References section out of `01-introduction.md` into `99-references.md` | Week 3 |
 | 11 | Done 11 Nov. Pilot the extraction on 2–3 papers; freeze the protocol (with any supervisor reply). Week 10 materials added to the course overview | Weeks 4 and 10 |
 | 12 | Done 12 Nov. Stakeholders (power × interest) and problem interpretation (P8 done); project charter sections 1–6 | Week 2 |
-| 13 | Project charter sections 7–10 (assumptions, restrictions, risks, approval); ethics (one code, art. 10, licences, data); install MS Project, step by step below | Weeks 2, 6 and 10 |
-| 14 | Planning approach, WBS by life cycle (first to cut), in the form of the week 10 example | Weeks 8 and 10 |
+| 13 | Project charter sections 7–10 (assumptions, restrictions, risks, approval); ethics (one code, art. 10, licences, data). Done 13 Nov. MS Project installation moved to 14 Nov (Microsoft services down) | Weeks 2 and 6 |
+| 14 | Install MS Project, step by step below (moved from 13 Nov); planning approach, WBS by life cycle (first to cut), in the form of the week 10 example | Weeks 8 and 10 |
 | 16 (Mon) | Email 2 with a meeting request; all open questions of §6 | — |
 
-**MS Project installation (13 Nov), step by step** (from `course-materials/week-10/ms-project-installation-v01.md`):
+**MS Project installation (14 Nov, moved from 13 Nov), step by step** (from `course-materials/week-10/ms-project-installation-v01.md`):
 
 1. Go to https://moodle.isep.ipp.pt/ and open "MSDN Academic Alliance".
 2. Find Microsoft Project 2019 or later (2021 may be needed, depending on the installed Office). Prefer the English version.
@@ -276,3 +276,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-12 | Charter sections 1–6 written with the author: general information, team, stakeholders (link to P8), scope (benefits B1–B3 with measures, deliverables, exclusions), time (PREPD milestones; dissertation dates unknown), cost (Pro plan 22.14 €/month for the run months only). Student benefit removed until the supervisor answers; article submission cost left out. New open questions 8–9 (§6). Next, 13 Nov: charter sections 7–10, ethics (P13), MS Project installation | P9 |
 | 2026-11-13 | Charter finished with the author: assumptions A1–A5, restrictions R1–R5 (R2 aligned with the research method: Pro plan and local models), project risks K1–K8 (linked to A/R and to threats T1–T10; detailed register goes with P12), approval by the sponsor with email 2. Extended-abstract risk kept only in §7; K8 is rework of any deliverable. P9 done. Next: ethics (P13), MS Project installation | P9 |
 | 2026-11-13 | Ethics chapter written (`doc/chapters/06-ethics.md`): ACM Code (2018) chosen by the author and applied principle by principle (1.1–2.9), ALLEA principles, art. 10 position (autonomous AI systems run isolated on synthetic material; no legal requirement, so no ethics committee), licences, FAIR data plan, conflict of interest, GenAI use. Author decisions: research data published openly at the end of the dissertation in a repository with a persistent identifier; an approach whose terms forbid research use is excluded. ACM, ALLEA, P.PORTO code and Wilkinson et al. added to Zotero. P13 done. Next: MS Project installation; 14 Nov P10 and P11 | P13 |
+| 2026-11-13 | MS Project installation moved to 14 Nov: Microsoft services were down. Not blocking: P10 and P11 do not need it; P12 (Gantt) is due at M3 | M2 |
