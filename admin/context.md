@@ -70,8 +70,9 @@ Main objective: to identify and characterise the existing Spec-Driven Developmen
 | Language | Formal texts in English; emails to the professor in Portuguese |
 | Consistency | The Word, the formalisation and the emails must not diverge; the submitted formalisation of 14 Oct is the reference text |
 | State of the art | Full SLR (2 Nov) |
+| Ethics | ACM Code of Ethics (2018) as the one code, plus ALLEA principles; no ethics committee (art. 10); research data published openly at the end of the dissertation with a persistent identifier (13 Nov) |
 
-How to separate what counts as an SDD "standard": three layers. Method (flow of phases; object of comparison), artefact format (spec.md, delta specs, AGENTS.md; characteristic described), execution tool (CLI, IDE, agent, model; recorded factor). Inclusion criteria: persistent artefacts before the code; repeatable flow; public documentation and a pinnable version; able to carry out the example project.
+How to separate what counts as an SDD "standard": three layers. Method (flow of phases; object of comparison), artefact format (spec.md, delta specs, AGENTS.md; characteristic described), execution tool (CLI, IDE, agent, model; recorded factor). Inclusion criteria: persistent artefacts before the code; repeatable flow; public documentation and a pinnable version; able to carry out the example project; terms of use that allow research use (13 Nov).
 
 Characteristics of the example project: neutral briefing; executable by all approaches and agents; verifiable by external acceptance tests via API; new project; 8 to 10 features, repeatable in a few hours; tasks of different types; testable architectural constraints; some deliberately ambiguous requirements; original domain; reproducible.
 

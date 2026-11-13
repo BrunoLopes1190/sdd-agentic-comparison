@@ -1,3 +1,24 @@
+@book{allea-alleuropeanacademiesEuropeanCodeConduct2023,
+  title = {The {{European Code}} of {{Conduct}} for {{Research Integrity}}},
+  author = {{ALLEA - All European Academies}},
+  date = {2023-06},
+  publisher = {ALLEA - All European Academies},
+  location = {DE},
+  doi = {10.26356/ECoC},
+  url = {https://doi.org/10.26356/ECoC},
+  urldate = {2026-11-13},
+  isbn = {978-3-9823562-3-5},
+  langid = {english}
+}
+
+@online{associationforcomputingmachineryACMCodeEthics2018,
+  title = {{{ACM Code}} of {{Ethics}} and {{Professional Conduct}}},
+  author = {{Association for Computing Machinery}},
+  date = {2018},
+  url = {https://www.acm.org/code-of-ethics},
+  urldate = {2026-11-13}
+}
+
 @software{githubSpecKit2025,
   title = {Spec {{Kit}}},
   author = {{GitHub}},
@@ -21,6 +42,17 @@
   abstract = {A widespread practice in software development is to tailor coding agents to repositories using context files, such as AGENTS.md. Although this practice is strongly encouraged by agent developers, there is currently no rigorous investigation into whether such context files are actually effective for real-world tasks. In this work, we study this question and evaluate coding agents' task completion performance in two complementary settings: established SWE-bench tasks from popular repositories, with LLM-generated context files, and a novel collection of issues from repositories containing developer-committed context files. Surprisingly, we find that providing context files does not generally improve task success rates, while increasing inference cost by over 20\% on average. This observation holds across different LLMs, coding agents, and for both LLM-generated and developer-committed context files. Specifically, we find that while instructions in the context files are well followed by coding agents, repository overviews, although popular and recommended by model providers, are not helpful. We conclude that while context files are useful for specifying non-standard coding practices, any attempts to improve performance should be rigorously evaluated before deployment.},
   pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Software Engineering}
+}
+
+@report{institutopolitecnicodoportoRegulamentoCodigoBoas2020,
+  type = {Despacho},
+  title = {Regulamento do Código de Boas Práticas e de Conduta do Instituto Politécnico do Porto},
+  author = {{Instituto Politécnico do Porto}},
+  date = {2020},
+  institution = {Diário da República,~2.ª série},
+  url = {https://diariodarepublica.pt/dr/detalhe/despacho/11171-2020-148327696},
+  eid = {11171/2020},
+  langid = {portuguese}
 }
 
 @online{macedoPromptProcessProcess2026,
@@ -64,6 +96,23 @@
   abstract = {Spec-Driven Development (SDD) frameworks guide Large Language Model (LLM)-powered code generation through formal specifications, yet they differ fundamentally in how they enforce traceability between requirements and generated code. This paper presents two controlled empirical studies comparing three SDD frameworks: \$traceSDD\$, which enforces mandatory per-line requirement citations using hierarchical REQ-XXX.Y.Z identifiers; \$Spec Kit\$, which uses artifact-level traceability through user stories and acceptance criteria; and \$OpenSpec\$, which relies on post-hoc external trace maps. We measure two primary outcomes across two frontier LLMs -- Claude Sonnet 4.6 (N=20, 4 conditions, 240 implementations) and GLM-5-turbo (N=50, 4 conditions, 600 implementations): \$output\$ \$determinism\$ (lexical similarity across independent LLM sessions) and \$automated\$ \$hallucination\$ \$detection\$ \$rate\$ (TDR). Our pre-registered analysis reveals a consistent, cross-model replicated trade-off: the uncited condition produces significantly higher determinism than the cited condition (Claude: \$d=-0.76\$, \$p=0.003\$; GLM: \$d=-0.72\$, \$p{$<$}0.001\$), while only the cited condition enables automated hallucination detection (TDR: Claude 86.4\%, GLM 88.0\%, vs 0\% for all alternatives, FPR=0\% across both studies). traceSDD (cited) significantly outperforms \$Spec Kit\$ on determinism (Claude: \$d=0.47\$, \$p=0.049\$; GLM: \$d=0.42\$, \$p=0.003\$) but not OpenSpec (Claude: \$d=0.18\$, \$p=0.44\$; GLM: \$d=0.14\$, \$p=0.32\$). These findings establish that citation annotations trade determinism for verifiability, and that this trade-off generalizes across model architectures.},
   pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Software Engineering}
+}
+
+@article{wilkinsonFAIRGuidingPrinciples2016,
+  title = {The {{FAIR Guiding Principles}} for Scientific Data Management and Stewardship},
+  author = {Wilkinson, Mark D. and Dumontier, Michel and family=Aalbersberg, given=IJsbrand Jan, given-i={{IJ}}J and Appleton, Gabrielle and Axton, Myles and Baak, Arie and Blomberg, Niklas and Boiten, Jan-Willem and Da Silva Santos, Luiz Bonino and Bourne, Philip E. and Bouwman, Jildau and Brookes, Anthony J. and Clark, Tim and Crosas, Mercè and Dillo, Ingrid and Dumon, Olivier and Edmunds, Scott and Evelo, Chris T. and Finkers, Richard and Gonzalez-Beltran, Alejandra and Gray, Alasdair J.G. and Groth, Paul and Goble, Carole and Grethe, Jeffrey S. and Heringa, Jaap and ’T Hoen, Peter A.C and Hooft, Rob and Kuhn, Tobias and Kok, Ruben and Kok, Joost and Lusher, Scott J. and Martone, Maryann E. and Mons, Albert and Packer, Abel L. and Persson, Bengt and Rocca-Serra, Philippe and Roos, Marco and Van Schaik, Rene and Sansone, Susanna-Assunta and Schultes, Erik and Sengstag, Thierry and Slater, Ted and Strawn, George and Swertz, Morris A. and Thompson, Mark and Van Der Lei, Johan and Van Mulligen, Erik and Velterop, Jan and Waagmeester, Andra and Wittenburg, Peter and Wolstencroft, Katherine and Zhao, Jun and Mons, Barend},
+  date = {2016-03-15},
+  journaltitle = {Scientific Data},
+  shortjournal = {Sci Data},
+  volume = {3},
+  number = {1},
+  pages = {160018},
+  issn = {2052-4463},
+  doi = {10.1038/sdata.2016.18},
+  url = {https://www.nature.com/articles/sdata201618},
+  urldate = {2026-11-13},
+  abstract = {Abstract             There is an urgent need to improve the infrastructure supporting the reuse of scholarly data. A diverse set of stakeholders—representing academia, industry, funding agencies, and scholarly publishers—have come together to design and jointly endorse a concise and measureable set of principles that we refer to as the FAIR Data Principles. The intent is that these may act as a guideline for those wishing to enhance the reusability of their data holdings. Distinct from peer initiatives that focus on the human scholar, the FAIR Principles put specific emphasis on enhancing the ability of machines to automatically find and use the data, in addition to supporting its reuse by individuals. This Comment is the first formal publication of the FAIR Principles, and includes the rationale behind them, and some exemplar implementations in the community.},
+  langid = {english}
 }
 
 @book{wohlinExperimentationSoftwareEngineering2012,
