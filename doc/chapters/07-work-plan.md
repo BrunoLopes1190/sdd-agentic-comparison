@@ -88,6 +88,61 @@ The fixed dates of the dissertation (submission and defence) are not yet known.
 | Zotero, Rayyan (free plan), Pandoc, GitHub | No cost |
 | Student's work | Hours, not priced; estimated in the schedule |
 
+### Assumptions
+
+: Assumptions and the response if each one fails {#tbl:assumptions}
+
+| # | Assumption | If it fails |
+|---|---|---|
+| A1 | The selected SDD approaches keep public documentation and a version that can be pinned until the runs end | Pin the last version used; record the change |
+| A2 | The agents and models chosen stay available, on the same terms, during the run months | The agent is a recorded factor; the substitution is logged |
+| A3 | The SLR finds at least two approaches that meet the inclusion criteria, besides the baseline | The comparison is narrowed and the limitation is stated |
+| A4 | One run of the reference project takes a few hours, so the repetitions fit the schedule | Fewer repetitions or features; decided in the protocol |
+| A5 | The supervisor gives feedback at the committed milestones | Work goes on with the stated assumptions |
+
+### Restrictions
+
+: Restrictions and their source {#tbl:restrictions}
+
+| # | Restriction | Source |
+|---|---|---|
+| R1 | Fixed dates: extended abstract on 16 Dec 2026, PREPD on 6 Jan 2027; the dissertation dates are not yet known | Course |
+| R2 | Budget limited to the personal Claude Pro plan and models that run on the author's hardware; the plan's usage limits cap the runs per day | Student |
+| R3 | Individual work by one student; hours are not priced | Course |
+| R4 | No Scopus, for lack of an ISEP licence | Institution |
+| R5 | P.PORTO code of ethics, art. 10, on autonomous AI systems | Regulator (S5) |
+
+### Risks
+
+These are the risks of the whole project.
+The threats to the validity of the experiment are in the research method chapter.
+The detailed risk register, with monitoring, is kept with the schedule.
+
+: Project risks {#tbl:risks}
+
+| # | Risk | Probability | Impact | Response | Link |
+|---|---|---|---|---|---|
+| K1 | An approach changes a lot, or is abandoned, before the runs | High | Medium | Pin versions at selection; short run window; log the change | A1, T7 |
+| K2 | The provider updates or retires a model during the runs | Medium | High | Fixed model identifiers; all runs in a short window; substitution logged | A2, T7 |
+| K3 | Plan usage limits slow the runs and the schedule slips | High | Medium | Slack in the schedule for the runs; fewer repetitions as a last resort | R2, A4 |
+| K4 | The reference project is too large to run, or too small to tell the approaches apart | Medium | High | Pilot run with the baseline before the experiment; adjust the features | A4 |
+| K5 | The full SLR is late and delays the framework | Low | High | Protocol frozen; screening time-boxed; cut-off date | A3 |
+| K6 | The supervisor has little availability | Medium | Low | Assumptions stated in each email; work goes on with them; talk in person if there is no reply | A5 |
+| K7 | The student has less time than planned (individual work) | Medium | High | Committed milestones with buffer; the WBS marks what can be cut first | R3 |
+| K8 | A deliverable is judged insufficient and has to be reworked | Medium | Medium | Drafts sent to the supervisor before each deadline (extended abstract, PREPD document, dissertation) | R1 |
+
+### Approval
+
+The charter is approved by the sponsor.
+It is sent to the supervisor with email 2 (16 Nov 2026).
+
+: Charter approval {#tbl:approval}
+
+| Role | Name | Date | Signature |
+|---|---|---|---|
+| Student | Bruno de Abreu Lopes | | |
+| Sponsor (supervisor) | Paulo Gandra de Sousa | | |
+
 ## Competency development plan
 
 A dissertation is a long, mostly individual project.
