@@ -143,6 +143,96 @@ It is sent to the supervisor with email 2 (16 Nov 2026).
 | Student | Bruno de Abreu Lopes | | |
 | Sponsor (supervisor) | Paulo Gandra de Sousa | | |
 
+## Planning approach
+
+Projects can be planned with a predictive, an adaptive or a hybrid approach.
+A predictive approach plans the whole project up front, in phases closed by go/no-go decisions, and controls it by milestones.
+An adaptive approach plans only the next iteration and accepts change, but needs frequent contact with the client.
+A hybrid approach combines the two: a predictive frame of phases and milestones, with flexible work inside some phases.
+
+This project follows a hybrid approach.
+Four characteristics of the project lead to it.
+
+1. **Fixed dates and a busy sponsor.** The course dates are fixed (R1), and the supervisor has little availability (K6). An adaptive approach needs constant contact with the client, which is not possible here. Milestones and drafts sent before each deadline replace that contact.
+2. **Hard dependencies between phases.** The experiment is only valid if the protocol, the metrics and the acceptance tests are fixed before any run (T5). The approaches to compare are only known after the review. So the phases must run in order, each closed by a gate.
+3. **Uncertainty inside the design phase.** The reference project must be large enough to tell the approaches apart, and small enough to run (K4). This can only be found by trying it. The design phase therefore works in short iterations with pilot runs, until the protocol is frozen.
+4. **One person.** Team practices of adaptive methods, such as daily meetings or roles, do not apply. Only the iteration cadence is kept: a weekly review sets the three priorities of the week (action B1).
+
+The table below shows the approach in each phase of the work breakdown structure.
+
+: Planning approach by phase {#tbl:approach}
+
+| Phase | Approach | Closed by (gate) |
+|---|---|---|
+| 1.1 Planning | Predictive: fixed course dates and committed milestones | PREPD submitted |
+| 1.2 State of the art | Predictive: the protocol is frozen before the search; changes go to its change log | Comparative framework done; at least two approaches meet the inclusion criteria (A3) |
+| 1.3 Design | Adaptive: iterations of reference project and metrics, each tested by a pilot run with the baseline | Evaluation protocol frozen |
+| 1.4 Experiment | Predictive: no change once the runs start; all runs in a short window | All runs done, or the limit set in the protocol reached |
+| 1.5 Analysis | Predictive: analysis plan fixed in the protocol | Results and decision guide done |
+| 1.6 Closing | Incremental: chapters sent to the supervisor as they are drafted (K8) | Dissertation submitted and defended |
+
+Planning is progressive (rolling wave).
+The PREPD phase is planned day by day.
+The dissertation is planned now to the deliverable level; its work packages are detailed at the start of each phase, when its inputs are known.
+Any change to a milestone or to a frozen protocol is logged with its date and reason.
+
+## Work breakdown structure
+
+The work breakdown structure (WBS) covers the whole project, from PREPD to the delivery of the dissertation.
+It is organised by life-cycle phase, following the course example.
+The phases follow the research method: the review, design and creation of the evaluation protocol, the experiment, and the analysis.
+Level 2 holds the phases and level 3 the deliverables.
+Work that is not in the WBS is out of scope.
+
+![Work breakdown structure by life-cycle phase. Level 2 holds the phases and level 3 the deliverables; project management (grey) runs through all phases.](figures/wbs.png){#fig:wbs width=100%}
+
+Project management (1.7) controls the plan through all phases, so it is a branch of its own; making the plan belongs to 1.1.
+The deliverables are decomposed into work packages of 8 to 80 hours in the schedule, where they are estimated.
+
+### WBS dictionary
+
+The dictionary gives, for each element, its acceptance criteria and its progress criteria.
+Acceptance criteria are yes/no checks.
+Progress criteria use the 0/50/100 rule unless stated otherwise: 0 when not started, 50 when a draft exists, 100 when accepted.
+
+: WBS dictionary {#tbl:wbs-dictionary}
+
+| Code | Element | Type | Description and acceptance criteria | Progress criteria |
+|---|---|---|---|---|
+| 1.1 | Planning | Phase | PREPD, the planning phase of the project. Closed when the PREPD document and presentation are submitted | Mean of its deliverables |
+| 1.1.1 | Project charter | Deliverable | Stakeholders, problem interpretation and charter in the course template. Sent to the sponsor for approval | 0/50/100 |
+| 1.1.2 | Research design | Deliverable | Sub-questions typed by Shaw, research process figure, threats to validity. Each sub-question linked to an objective | 0/50/100 |
+| 1.1.3 | Ethics analysis | Deliverable | One code applied in full, position on art. 10, licences, data plan, conflicts, GenAI use | 0/50/100 |
+| 1.1.4 | Work plan | Deliverable | Planning approach, WBS and dictionary, schedule with critical path and baseline in MS Project, risk register | Approach 20%, WBS 30%, schedule baselined 100% |
+| 1.1.5 | Competency development plan | Deliverable | Self-assessment, at least three key competencies, two actions each with metrics | 0/50/100 |
+| 1.1.6 | Extended abstract | Deliverable | Course structure, about 4–5 pages, 10–20 references. Submitted by 16 Dec 2026 | Draft sent 50%, submitted 100% |
+| 1.1.7 | PREPD document and presentation | Deliverable | Report and 10-minute slides, with the section on AI-generated content. Submitted as one ZIP by 6 Jan 2027 | Drafts sent 50%, submitted 100% |
+| 1.2 | State of the art | Phase | Systematic literature review and analysis of the tools' documentation. Closed when the framework is done | Mean of its deliverables |
+| 1.2.1 | Review protocol | Deliverable | Protocol piloted and frozen before the final search | 0/50/100 (done) |
+| 1.2.2 | Selected studies | Deliverable | Final search on every database logged; screening with reasons; one snowballing iteration; PRISMA 2020 diagram | Search 25%, screening 75%, PRISMA diagram 100% |
+| 1.2.3 | Extraction and synthesis | Deliverable | Every included study quality-assessed and extracted; synthesis by review question; gap stated | Extraction 50%, synthesis 100% |
+| 1.2.4 | Comparative framework | Deliverable | Common dimensions; every approach that meets the inclusion criteria characterised (SRQ1, SRQ2) | 0/50/100 |
+| 1.3 | Design | Phase | Design and creation of the evaluation protocol (SRQ3). Closed when the protocol is frozen | Mean of its deliverables |
+| 1.3.1 | Selected approaches | Deliverable | At least two approaches plus the baseline; version and access date pinned; terms allow research use | 0/100 |
+| 1.3.2 | Reference project | Deliverable | Neutral briefing, 8 to 10 features, acceptance tests via API, testable architectural constraints. A pilot run with the baseline finishes within the planned time | Briefing 25%, tests 50%, pilot run passed 100% |
+| 1.3.3 | Metrics and measurement | Deliverable | Cost and quality metrics defined; scripts that collect them from a run; quality rubric fixed | 0/50/100 |
+| 1.3.4 | Evaluation protocol | Deliverable | Agents and models, prompts, repetitions, run order and analysis plan fixed. Frozen before any run | 0/50/100 |
+| 1.4 | Experiment | Phase | The selected approaches and the baseline applied to the reference project (SRQ4). Closed when all runs are done | Share of planned runs done |
+| 1.4.1 | Run environment | Deliverable | Isolated folder outside the repository, pinned tool and model versions, scripted setup | 0/100 |
+| 1.4.2 | Runs | Deliverable | Every planned run done in the random order; interruptions and human interventions logged | Share of planned runs done |
+| 1.4.3 | Run data set | Deliverable | Logs, usage records and metrics of every run, checked and stored in the results folder | 0/50/100 |
+| 1.5 | Analysis | Phase | Comparison and synthesis (SRQ4, SRQ5). Closed when the decision guide is done | Mean of its deliverables |
+| 1.5.1 | Comparison of results | Deliverable | Analysis plan applied; spread reported; qualitative observations synthesised | 0/50/100 |
+| 1.5.2 | Decision guide | Deliverable | Which approach in which situation, each recommendation traced to the framework or the results | 0/50/100 |
+| 1.6 | Closing | Phase | Delivery of the dissertation. Closed after the defence | Mean of its deliverables |
+| 1.6.1 | Dissertation report | Deliverable | Full report in the course format, every chapter reviewed by the supervisor. Submitted by the fixed date | Chapters drafted (share) to 80%, submitted 100% |
+| 1.6.2 | Presentation and defence | Deliverable | Slides done and rehearsed; defence held | Slides 50%, defence 100% |
+| 1.6.3 | Published research data | Deliverable | Protocol, reference project, data set and scripts in an open repository with a persistent identifier | 0/100 |
+| 1.7 | Project management | Phase | Control of the plan while the project runs, from November 2026 to the defence. The plan itself is made in 1.1 | Ongoing |
+| 1.7.1 | Progress and change logs | Deliverable | Plan status and progress log updated at each weekly review; protocol change logs and risk register kept up to date | Weekly reviews done (share) |
+| 1.7.2 | Supervisor emails and meeting notes | Deliverable | An email at each committed milestone with the work done and the open questions; notes of each meeting; feedback applied and logged | Milestone emails sent (share) |
+| 1.7.3 | AI usage log | Deliverable | Every AI contribution beyond editing logged with date, system, part and extent. Feeds the section on AI-generated content | Checked at each weekly review |
+
 ## Competency development plan
 
 A dissertation is a long, mostly individual project.
