@@ -193,19 +193,22 @@ The deliverables are decomposed into work packages of 8 to 80 hours in the sched
 
 The dictionary gives, for each element, its acceptance criteria and its progress criteria.
 Acceptance criteria are yes/no checks.
-Progress criteria use the 0/50/100 rule unless stated otherwise: 0 when not started, 50 when a draft exists, 100 when accepted.
+Progress criteria use the 0/50/100 rule unless stated otherwise: 0 when not started, 50 when a draft or plan exists, 100 when accepted.
+Where a deliverable has distinct parts, its own steps replace the rule, as in the course example.
+The progress of a phase is the mean of its deliverables; once the schedule estimates them, each deliverable is weighted by its hours.
+The student is the owner of every element.
 
 : WBS dictionary {#tbl:wbs-dictionary}
 
 | Code | Element | Type | Description and acceptance criteria | Progress criteria |
 |---|---|---|---|---|
 | 1.1 | Planning | Phase | PREPD, the planning phase of the project. Closed when the PREPD document and presentation are submitted | Mean of its deliverables |
-| 1.1.1 | Project charter | Deliverable | Stakeholders, problem interpretation and charter in the course template. Sent to the sponsor for approval | 0/50/100 |
+| 1.1.1 | Project charter | Deliverable | Stakeholders, problem interpretation and charter in the course template. Approved by the sponsor | 0/50/100 |
 | 1.1.2 | Research design | Deliverable | Sub-questions typed by Shaw, research process figure, threats to validity. Each sub-question linked to an objective | 0/50/100 |
 | 1.1.3 | Ethics analysis | Deliverable | One code applied in full, position on art. 10, licences, data plan, conflicts, GenAI use | 0/50/100 |
-| 1.1.4 | Work plan | Deliverable | Planning approach, WBS and dictionary, schedule with critical path and baseline in MS Project, risk register | Approach 20%, WBS 30%, schedule baselined 100% |
+| 1.1.4 | Work plan | Deliverable | Planning approach, WBS and dictionary, schedule with critical path and baseline in MS Project, risk register | Approach 20%, WBS 40%, schedule baselined 80%, risk register 100% |
 | 1.1.5 | Competency development plan | Deliverable | Self-assessment, at least three key competencies, two actions each with metrics | 0/50/100 |
-| 1.1.6 | Extended abstract | Deliverable | Course structure, about 4–5 pages, 10–20 references. Submitted by 16 Dec 2026 | Draft sent 50%, submitted 100% |
+| 1.1.6 | Extended abstract | Deliverable | Course structure, at most 5 pages, 10–20 references. Submitted by 16 Dec 2026 | Draft sent 50%, submitted 100% |
 | 1.1.7 | PREPD document and presentation | Deliverable | Report and 10-minute slides, with the section on AI-generated content. Submitted as one ZIP by 6 Jan 2027 | Drafts sent 50%, submitted 100% |
 | 1.2 | State of the art | Phase | Systematic literature review and analysis of the tools' documentation. Closed when the framework is done | Mean of its deliverables |
 | 1.2.1 | Review protocol | Deliverable | Protocol piloted and frozen before the final search | 0/50/100 (done) |
@@ -214,24 +217,24 @@ Progress criteria use the 0/50/100 rule unless stated otherwise: 0 when not star
 | 1.2.4 | Comparative framework | Deliverable | Common dimensions; every approach that meets the inclusion criteria characterised (SRQ1, SRQ2) | 0/50/100 |
 | 1.3 | Design | Phase | Design and creation of the evaluation protocol (SRQ3). Closed when the protocol is frozen | Mean of its deliverables |
 | 1.3.1 | Selected approaches | Deliverable | At least two approaches plus the baseline; version and access date pinned; terms allow research use | 0/100 |
-| 1.3.2 | Reference project | Deliverable | Neutral briefing, 8 to 10 features, acceptance tests via API, testable architectural constraints. A pilot run with the baseline finishes within the planned time | Briefing 25%, tests 50%, pilot run passed 100% |
+| 1.3.2 | Reference project | Deliverable | Neutral briefing, 8 to 10 features, acceptance tests via API, testable architectural constraints. A pilot run with the baseline finishes within the time set in the evaluation protocol (1.3.4) | Briefing 25%, tests 50%, pilot run passed 100% |
 | 1.3.3 | Metrics and measurement | Deliverable | Cost and quality metrics defined; scripts that collect them from a run; quality rubric fixed | 0/50/100 |
 | 1.3.4 | Evaluation protocol | Deliverable | Agents and models, prompts, repetitions, run order and analysis plan fixed. Frozen before any run | 0/50/100 |
 | 1.4 | Experiment | Phase | The selected approaches and the baseline applied to the reference project (SRQ4). Closed when all runs are done | Share of planned runs done |
 | 1.4.1 | Run environment | Deliverable | Isolated folder outside the repository, pinned tool and model versions, scripted setup | 0/100 |
 | 1.4.2 | Runs | Deliverable | Every planned run done in the random order; interruptions and human interventions logged | Share of planned runs done |
-| 1.4.3 | Run data set | Deliverable | Logs, usage records and metrics of every run, checked and stored in the results folder | 0/50/100 |
+| 1.4.3 | Run data set | Deliverable | Logs, usage records and metrics of every run, checked and stored in the results folder | Data of all planned runs collected 50%, checked 100% |
 | 1.5 | Analysis | Phase | Comparison and synthesis (SRQ4, SRQ5). Closed when the decision guide is done | Mean of its deliverables |
 | 1.5.1 | Comparison of results | Deliverable | Analysis plan applied; spread reported; qualitative observations synthesised | 0/50/100 |
 | 1.5.2 | Decision guide | Deliverable | Which approach in which situation, each recommendation traced to the framework or the results | 0/50/100 |
 | 1.6 | Closing | Phase | Delivery of the dissertation. Closed after the defence | Mean of its deliverables |
-| 1.6.1 | Dissertation report | Deliverable | Full report in the course format, every chapter reviewed by the supervisor. Submitted by the fixed date | Chapters drafted (share) to 80%, submitted 100% |
+| 1.6.1 | Dissertation report | Deliverable | Full report in the course format, every chapter approved by the supervisor. Submitted by the fixed date | Chapters drafted (share) to 80%, submitted 100% |
 | 1.6.2 | Presentation and defence | Deliverable | Slides done and rehearsed; defence held | Slides 50%, defence 100% |
 | 1.6.3 | Published research data | Deliverable | Protocol, reference project, data set and scripts in an open repository with a persistent identifier | 0/100 |
 | 1.7 | Project management | Phase | Control of the plan while the project runs, from November 2026 to the defence. The plan itself is made in 1.1 | Ongoing |
 | 1.7.1 | Progress and change logs | Deliverable | Plan status and progress log updated at each weekly review; protocol change logs and risk register kept up to date | Weekly reviews done (share) |
 | 1.7.2 | Supervisor emails and meeting notes | Deliverable | An email at each committed milestone with the work done and the open questions; notes of each meeting; feedback applied and logged | Milestone emails sent (share) |
-| 1.7.3 | AI usage log | Deliverable | Every AI contribution beyond editing logged with date, system, part and extent. Feeds the section on AI-generated content | Checked at each weekly review |
+| 1.7.3 | AI usage log | Deliverable | Every AI contribution beyond editing logged with date, system, part and extent. Feeds the section on AI-generated content | Weekly reviews in which the log was checked (share) |
 
 ## Competency development plan
 
