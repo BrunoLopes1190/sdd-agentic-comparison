@@ -10,7 +10,7 @@ $pandocArgs = @(
     '--from', 'markdown',
     '--citeproc',
     '--bibliography', (Join-Path $doc 'references.bib'),
-    '--csl', (Join-Path $doc 'ieee.csl'),
+    '--csl', (Join-Path $doc 'harvard-cite-them-right.csl'),
     '--metadata', 'lang=en-GB',
     '--resource-path', $doc,
     '--metadata', 'link-citations=true',
