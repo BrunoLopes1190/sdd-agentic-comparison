@@ -19,7 +19,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 | # | Date | Milestone | Done when | Status |
 |---|---|---|---|---|
 | M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Done 2026-11-04 |
-| M2 | 2026-11-16 | Email 2: everything up to week 9 done; feedback and meeting requested; all open questions (§6) | P1–P4, P8–P11, P13 done, no week 9 classes; SLR protocol frozen (done 11 Nov). P11 (WBS) is the first item to move to M3 if time runs short | In progress |
+| M2 | 2026-11-16 | Email 2: everything up to week 9 done; feedback and meeting requested; all open questions (§6) | P1–P4, P8–P11, P13 done, no week 9 classes; SLR protocol frozen (done 11 Nov). P11 (WBS) is the first item to move to M3 if time runs short | Done 2026-11-16 (P1 hetero-assessment still on hold) |
 | M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
 | M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10). [F] Not graded, but a positive review justifies scheduling the final exam (`general/extended-abstract-function.txt`) | Not started |
@@ -66,7 +66,7 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | 13 | Project charter sections 7–10 (assumptions, restrictions, risks, approval); ethics (one code, art. 10, licences, data). Done 13 Nov. MS Project installation moved to 15 Nov (Microsoft services down) | Weeks 2 and 6 |
 | 14 | No work (unavailable); its work moved to 15 Nov | — |
 | 15 | Install MS Project, step by step below (moved from 13 Nov; blocked by MFA on 15 Nov; done 16 Nov); planning approach (P10); WBS by life cycle (P11, first to cut: moves to M3 if it does not fit), in the form of the week 10 example | Weeks 8 and 10 |
-| 16 (Mon) | Email 2 with a meeting request; all open questions of §6 | — |
+| 16 (Mon) | Done 16 Nov. Email 2 with a meeting request; all open questions of §6 | — |
 
 **MS Project installation (done 16 Nov: Project Professional 2021, 64-bit, English, activated; moved from 13 and 15 Nov), step by step** (from `course-materials/week-10/ms-project-installation-v01.md`):
 
@@ -209,7 +209,7 @@ Mapped to the grading items. To confirm against the week 9–13 materials and wi
 
 ## 6. Open questions for the supervisor
 
-Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3.
+Sent in email 1 (§2.1), each with the student's assumption. Questions still open are repeated in emails 2 and 3. All 12 sent in email 2 on 2026-11-16 (no answer yet).
 
 1. Full SLR (D2): who can act as second reviewer for the sample (D2a; about 1 h, 30 abstracts, around 20 Nov)? May it be someone outside MEI? Supervisor not reached in person by 10 Nov; asked in email 2 (16 Nov). The protocol was frozen on 11 Nov on the current assumptions; any later comment is applied as a logged protocol change.
 2. P.PORTO Code art. 10 (autonomous systems using AI): is ethics committee review required for experiments with coding agents and no human participants?
@@ -289,3 +289,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-15 | MS Project installation blocked: the author lost the Microsoft Authenticator, the only MFA method on the ISEP account, so Moodle and the software portal cannot be reached (the Outlook session still works). Reset to be requested from the ISEP IT services by email (draft given to the author). Installation moved until access is restored; not blocking (P12 due at M3, 30 Nov). Email 2 is sent from Outlook on 16 Nov as planned | M2, P12 |
 | 2026-11-15 | Email 2 drafted (`planning/emails/2026-11-16-email-2.md`): work done since email 1, all open questions of §6 grouped by urgency (second reviewer first, answer needed by 20 Nov), next milestones, meeting request. Attachments (document draft and frozen protocol, as PDF) to prepare on 16 Nov. To be reviewed and sent by the author on 16 Nov | M2 |
 | 2026-11-16 | MFA on the ISEP account restored by the ISEP IT services; two methods registered (Microsoft Authenticator as default, SMS as backup). MS Project Professional 2021 (64-bit, English, matching Microsoft 365 Apps x64) installed from Azure Dev Tools for Teaching (student account validated in the Azure Education hub), activated with the academic key, tested on the week 10 example `.mpp`; Office updated back to the current build. Charter cost table: MS Project at no cost, ISEP academic licence. P12 unblocked | P12, P9 |
+| 2026-11-16 | Email 2 reviewed with the author: cross-reference to the charter question fixed (question 7), greeting changed; build switched from IEEE to Harvard (Cite Them Right, `doc/harvard-cite-them-right.csl`) so the draft matches D4. **Email 2 sent** by the author from the ISEP Outlook, with all 12 open questions (§6) and a meeting request this week. Attachments: document draft (32 pages, 0 unresolved citations, WBS and Oates figures) and frozen SLR protocol (19 pages). Answer to question 1 (second reviewer) needed by 20 Nov; if none, the protocol's §4.1 is dropped and stated as a limitation. **M2 done.** P1 stays in progress (hetero-assessment on hold, question 9). Next: final SLR search on 16–17 Nov (§2.3) | M2, P1 |
