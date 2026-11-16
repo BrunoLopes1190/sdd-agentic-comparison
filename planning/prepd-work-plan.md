@@ -65,10 +65,10 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 | 12 | Done 12 Nov. Stakeholders (power × interest) and problem interpretation (P8 done); project charter sections 1–6 | Week 2 |
 | 13 | Project charter sections 7–10 (assumptions, restrictions, risks, approval); ethics (one code, art. 10, licences, data). Done 13 Nov. MS Project installation moved to 15 Nov (Microsoft services down) | Weeks 2 and 6 |
 | 14 | No work (unavailable); its work moved to 15 Nov | — |
-| 15 | Install MS Project, step by step below (moved from 13 Nov); planning approach (P10); WBS by life cycle (P11, first to cut: moves to M3 if it does not fit), in the form of the week 10 example | Weeks 8 and 10 |
+| 15 | Install MS Project, step by step below (moved from 13 Nov; blocked by MFA on 15 Nov; done 16 Nov); planning approach (P10); WBS by life cycle (P11, first to cut: moves to M3 if it does not fit), in the form of the week 10 example | Weeks 8 and 10 |
 | 16 (Mon) | Email 2 with a meeting request; all open questions of §6 | — |
 
-**MS Project installation (15 Nov, moved from 13 Nov), step by step** (from `course-materials/week-10/ms-project-installation-v01.md`):
+**MS Project installation (done 16 Nov: Project Professional 2021, 64-bit, English, activated; moved from 13 and 15 Nov), step by step** (from `course-materials/week-10/ms-project-installation-v01.md`):
 
 1. Go to https://moodle.isep.ipp.pt/ and open "MSDN Academic Alliance".
 2. Find Microsoft Project 2019 or later (2021 may be needed, depending on the installed Office). Prefer the English version.
@@ -288,3 +288,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-15 | Open question 12 added for email 2: competency hetero-assessment (required?, assessor outside MEI?, assumption: one course colleague rates current level by 1 Dec). Approval of dissertation chapters (WBS 1.6.1) not asked now: a question for the dissertation itself | P1, M2 |
 | 2026-11-15 | MS Project installation blocked: the author lost the Microsoft Authenticator, the only MFA method on the ISEP account, so Moodle and the software portal cannot be reached (the Outlook session still works). Reset to be requested from the ISEP IT services by email (draft given to the author). Installation moved until access is restored; not blocking (P12 due at M3, 30 Nov). Email 2 is sent from Outlook on 16 Nov as planned | M2, P12 |
 | 2026-11-15 | Email 2 drafted (`planning/emails/2026-11-16-email-2.md`): work done since email 1, all open questions of §6 grouped by urgency (second reviewer first, answer needed by 20 Nov), next milestones, meeting request. Attachments (document draft and frozen protocol, as PDF) to prepare on 16 Nov. To be reviewed and sent by the author on 16 Nov | M2 |
+| 2026-11-16 | MFA on the ISEP account restored by the ISEP IT services; two methods registered (Microsoft Authenticator as default, SMS as backup). MS Project Professional 2021 (64-bit, English, matching Microsoft 365 Apps x64) installed from Azure Dev Tools for Teaching (student account validated in the Azure Education hub), activated with the academic key, tested on the week 10 example `.mpp`; Office updated back to the current build. Charter cost table: MS Project at no cost, ISEP academic licence. P12 unblocked | P12, P9 |

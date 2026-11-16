@@ -84,7 +84,7 @@ The fixed dates of the dissertation (submission and defence) are not yet known.
 |---|---|
 | Claude Pro plan (personal, used for the experiment runs) | 22.14 € per month, counted only for the months of the experiment runs |
 | Personal computer and local models | No new cost: existing equipment |
-| MS Project | ISEP student licence |
+| MS Project Professional 2021 | No cost: ISEP academic licence (Azure Dev Tools for Teaching) |
 | Zotero, Rayyan (free plan), Pandoc, GitHub | No cost |
 | Student's work | Hours, not priced; estimated in the schedule |
 
