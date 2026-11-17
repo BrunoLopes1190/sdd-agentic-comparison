@@ -83,8 +83,7 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 
 | Days | Work |
 |---|---|
-| 16–17 | Apply supervisor feedback; final search on all databases; export to Zotero; search log |
-| 17–18 | Deduplication |
+| 18 | Final search on all databases; export to Zotero; search log; deduplication (moved from 16–17 Nov: no work on 17 Nov). Supervisor feedback applied when it arrives (no reply to email 2 by 17 Nov) |
 | 18–20 | Title/abstract screening with reasons; sample to the second reviewer |
 | 21–23 | Full-text screening; backward/forward snowballing; PRISMA diagram |
 | 24–27 | Quality assessment and extraction of every included study |
@@ -290,3 +289,4 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-15 | Email 2 drafted (`planning/emails/2026-11-16-email-2.md`): work done since email 1, all open questions of §6 grouped by urgency (second reviewer first, answer needed by 20 Nov), next milestones, meeting request. Attachments (document draft and frozen protocol, as PDF) to prepare on 16 Nov. To be reviewed and sent by the author on 16 Nov | M2 |
 | 2026-11-16 | MFA on the ISEP account restored by the ISEP IT services; two methods registered (Microsoft Authenticator as default, SMS as backup). MS Project Professional 2021 (64-bit, English, matching Microsoft 365 Apps x64) installed from Azure Dev Tools for Teaching (student account validated in the Azure Education hub), activated with the academic key, tested on the week 10 example `.mpp`; Office updated back to the current build. Charter cost table: MS Project at no cost, ISEP academic licence. P12 unblocked | P12, P9 |
 | 2026-11-16 | Email 2 reviewed with the author: cross-reference to the charter question fixed (question 7), greeting changed; build switched from IEEE to Harvard (Cite Them Right, `doc/harvard-cite-them-right.csl`) so the draft matches D4. **Email 2 sent** by the author from the ISEP Outlook, with all 12 open questions (§6) and a meeting request this week. Attachments: document draft (32 pages, 0 unresolved citations, WBS and Oates figures) and frozen SLR protocol (19 pages). Answer to question 1 (second reviewer) needed by 20 Nov; if none, the protocol's §4.1 is dropped and stated as a limitation. **M2 done.** P1 stays in progress (hetero-assessment on hold, question 9). Next: final SLR search on 16–17 Nov (§2.3) | M2, P1 |
+| 2026-11-17 | No work on 17 Nov (author unavailable). Final SLR search, Zotero export, search log and deduplication all moved to 18 Nov (§2.3). No reply from the supervisor to email 2 yet; second-reviewer deadline (20 Nov) unchanged | M3, D2a |
