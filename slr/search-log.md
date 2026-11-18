@@ -117,6 +117,8 @@ arXiv: run by `slr/fetch_arxiv.py` (API, pages of 500, sorted by submission date
 | 2026-11-18 | arXiv API | S2 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 1548 | 1548 | `arxiv-S2-2026-11-18.ris` | Run 09:58 UTC |
 | 2026-11-18 | IEEE Xplore | S1 v2 | Command Search; Year 2023–2026 (results sidebar) | 10 | 10 | `ieee-S1-2026-11-18.ris` | Run 17:29 UTC by the author. RIS, citation and abstract. 2025: 1, 2026: 9; 2 without DOI; 2 also in S2. Pilot (2026-11-04): 7 |
 | 2026-11-18 | IEEE Xplore | S2 v2 | Command Search; Year 2023–2026 (results sidebar) | 159 | 157 | `ieee-S2-2026-11-18.ris` | Run 17:38 UTC by the author. RIS, citation and abstract, exported in two pages of 100 (99 + 58) and joined. 2 records shown but not exported, as in the pilot (146 shown, 144 exported). 6 without DOI. 2 titles repeat with different DOIs (one COMPSAC paper twice, one panel three times); left for deduplication |
+| 2026-11-18 | Web of Science | S1 v2 | Core Collection, Advanced Search; PY=(2023-2026) in the string; Exact search off (default) | 5 | 5 | `wos-S1-2026-11-18.ris` | Run 17:49 UTC by the author. RIS, Full Record. Same 8 editions as the pilot. No warning on `"AGENTS.md"` or `"pass@k"`: both accepted. All 2026; 1 without DOI; 3 also in S2. Pilot (2026-11-06): 4 |
+| 2026-11-18 | Web of Science | S2 v2 | as S1 | 128 | 128 | `wos-S2-2026-11-18.ris` | Run 17:52 UTC by the author (re-exported 17:58: the first export held only the 50 records of page 1). RIS, Full Record. 25 without DOI. 5 records have PY 2027: journal issues dated 2027 (e.g. IST, JSS January 2027) with articles online in 2026; kept, since IC2 counts the online date. Pilot: 121 |
 
 ## Pilot inspection (P4, 2026-11-05)
 

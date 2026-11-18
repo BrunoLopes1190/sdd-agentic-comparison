@@ -1,0 +1,184 @@
+﻿TY  - CPAPER
+AU  - Shukla, T
+AU  - Feng, K
+AU  - Wang, L
+AU  - Rostami, M
+AU  - Zhang, A
+A1  - ACM
+TI  - Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight
+T2  - PROCEEDINGS OF THE ACM CONFERENCE ON AI AND AGENTIC SYSTEMS, CAIS 2026
+LA  - English
+CP  - 2026 Conference on AI and Agentic Systems-CAIS
+KW  - coding agents
+KW  - dynamic autonomy
+KW  - adaptive personalization
+KW  - developer oversight
+KW  - human-agent collaboration
+KW  - AI governance
+AB  - Despite coding agents' advances in handling increasingly complex tasks, their continued tendency to introduce unintended edits, subtle bugs, and scope drift that slip past code review means developers must still decide how much autonomy to grant them. However, existing approaches for setting an agent's level of autonomy, such as static permission settings or instruction files, cannot account for how developers' preferences for agent autonomy can shift across tasks and over time. We conducted a formative survey with 21 software engineers who use coding agents and found that they experience frustration with calibrating autonomy and have evolving preferences for level of oversight. Building on these insights, we present Hedwig, a CLI coding agent that dynamically adjusts its autonomy level based on developer-agent interactions across sessions. Rather than operating on a global, fixed autonomy configuration, Hedwig learns an evolving set of behavioral guidelines from developer decisions and feedback, reducing friction on work for which the agent has earned trust, while tightening oversight when the agent operates outside familiar territory. Hedwig demonstrates the potential of a new paradigm where agents intelligently adapt their level of autonomy based on user trust through active, longitudinal collaboration.
+AD  - Univ Washington, Seattle, WA 98195 USAAD  - Amazon GenAI Innovat Ctr, Seattle, WA USAC3  - University of WashingtonC3  - University of Washington SeattlePU  - ASSOC COMPUTING MACHINERY
+PI  - NEW YORK
+PA  - 1601 Broadway, 10th Floor, NEW YORK, NY, UNITED STATES
+SN  - 979-8-4007-2415-2
+PY  - 2026
+SP  - 1293
+EP  - 1299
+DO  - 10.1145/3786335.3813223
+WE  - Conference Proceedings Citation Index - Science (CPCI-S)AN  - WOS:001883735900091
+N1  - Times Cited in Web of Science Core Collection:  0
+Total Times Cited:  0
+Cited Reference Count:  12
+ER  -
+
+TY  - CPAPER
+AU  - Cox, M
+AU  - Filgueira, JM
+AU  - Peng, C
+AU  - Molgo, J
+AU  - Swett, H
+AU  - Barrios, J
+AU  - Silva, PH
+AU  - Baumgartner, W
+AU  - Snead, J
+AU  - Hicks, B
+ED  - Ibsen, J
+ED  - Alberti, V
+TI  - Observatory software management in the era of AI-assisted software engineering
+T2  - SOFTWARE AND CYBERINFRASTRUCTURE FOR ASTRONOMY IX, PT 1
+LA  - English
+CP  - 2026 Conference on Software and Cyberinfrastructure for Astronomy
+KW  - AI-assisted Software Engineering
+KW  - Agentic Coding
+KW  - Software Management
+KW  - Spec-Driven Development
+KW  - Observatory Control Software
+KW  - Coding Agents
+KW  - Software Governance
+KW  - Large Language Models
+AB  - Thanks to advancements in generative AI and Large Language Models (LLMs), the last 5 years have seen exponential growth in the adoption of AI-Assisted software engineering across many industries. Simple developer tools used for code completion, static analysis and syntax linting have been augmented by semi-autonomous agents, able to contribute to a broad set of Software Engineering practices including code generation, documentation generation, test creation, refactoring, architectural assistance, enhanced Integrated Developer Environment (IDE) tools and analysis and verification. The way we develop, analyze and test software is rapidly changing. Recent industry reports show that at least 84% of professional software developers already use AI coding assistants regularly, with 52% of developers reporting that AI tools have had a positive effect on their productivity.
+   At GMTO, we stand to benefit from these technologies and adopting industry best practices. However, it needs to be done in a way that carefully considers our unique concerns and risks. These include code quality, maintainability and technical debt; scientific and engineering integrity, governance, trust and over-reliance; and ethical, talent and workforce issues. In this paper we describe how we are starting to utilize AI-assisted software engineering at GMTO, why these common industry concerns matter for Observatory software teams, and future plans.
+AD  - Giant Magellan Telescope Observ, Pasadena, CA 91101 USAPU  - SPIE-INT SOC OPTICAL ENGINEERING
+PI  - BELLINGHAM
+PA  - 1000 20TH ST, PO BOX 10, BELLINGHAM, WA 98227-0010 USA
+SN  - 0277-786X
+SN  - 1996-756X
+SN  - 979-8-9023-2351-8
+SN  - 979-8-9023-2352-5
+J9  - PROC SPIE
+PY  - 2026
+VL  - 14155
+C7  - 141550Q
+WE  - Conference Proceedings Citation Index - Science (CPCI-S)AN  - WOS:001894308500021
+N1  - Times Cited in Web of Science Core Collection:  0
+Total Times Cited:  0
+Cited Reference Count:  18
+ER  -
+
+TY  - CPAPER
+AU  - Garg, S
+AU  - Omidvar-Tehrani, B
+AU  - Fu, SY
+AU  - Guiner, G
+AU  - Ray, B
+A1  - ACM
+TI  - Collaborative LLM Agents for End-to-End Software Development
+T2  - COMPANION PROCEEDINGS OF THE ACM WEB CONFERENCE 2026, WWW COMPANION 2026
+LA  - English
+CP  - 35th Web Conference-WWW
+KW  - Large Language Models
+KW  - Multi-Agent Systems
+KW  - AI for Software Engineering
+KW  - Collaborative Coding Agents
+AB  - This tutorial explores the next generation of AI-powered software development, where large language models (LLMs) function as collaborative agents that plan, code, test, and review alongside human developers. Using GitHub Copilot, Mistral Code and Kiro as running exemplars, we synthesize the latest advances in multi-agent coordination, reflective collaboration, long-term memory and context maintenance, and tool-integrated verification. We show how role-specialized agent teams, manager-tool routing, and spec-driven development are replacing single-model code completion with structured, repeatable workflows that close the loop from generation to assurance, while addressing critical concerns around evaluation rigor, security guardrails, and safe deployment. Attendees will leave with a practical blueprint for designing and evaluating collaborative coding agents in real engineering environments. The tutorial blends concepts and live demonstrations, covering task decomposition, memory and retrieval, autonomous debugging with runtime feedback, and seamless integration into IDEs, version control, and CI/CD pipelines. We distill proven "do and don't" patterns for reliability, security, cost, and scalability, and map open research challenges to concrete experimental setups and metrics. The result is a concise, research-ready guide for building agentic systems that deliver measurable productivity and quality gains in modern software development.
+AD  - AWS AI, Santa Clara, CA 95054 USAAD  - Microsoft CoreAI, Washington, DC USAAD  - GitHub Copilot, Washington, DC USAAD  - Mistral AI, Paris, FranceAD  - Columbia Univ, New York, NY USAC3  - Columbia UniversityPU  - ASSOC COMPUTING MACHINERY
+PI  - NEW YORK
+PA  - 1601 Broadway, 10th Floor, NEW YORK, NY, UNITED STATES
+SN  - 979-8-4007-2308-7
+PY  - 2026
+SP  - 27
+EP  - 30
+DO  - 10.1145/3774905.3793914
+WE  - Conference Proceedings Citation Index - Science (CPCI-S)AN  - WOS:001873924300008
+N1  - Times Cited in Web of Science Core Collection:  0
+Total Times Cited:  0
+Cited Reference Count:  48
+ER  -
+
+TY  - JOUR
+AU  - Gülmez, B
+TI  - Code generation with large language models: a survey from neural program synthesis to autonomous software development
+T2  - APPLIED INTELLIGENCE
+LA  - English
+KW  - large language models
+KW  - code generation
+KW  - program synthesis
+KW  - software engineering
+KW  - neural code intelligence
+KW  - evaluation methodology
+KW  - code security
+AB  - Large language models have reshaped code generation, driving a transition from rule-based and statistical methods to transformer-based architectures pretrained on vast code corpora. This survey traces the intellectual lineage from classical program synthesis through pre-transformer neural approaches to contemporary large-scale models, examining code generation capabilities across model architectures, training strategies, task taxonomies, evaluation methodologies, security implications, and ethical considerations. Contemporary models show proficiency in function-level synthesis, program repair, and documentation generation, though performance varies across programming languages and task complexities. Models ranging from 125 M to hundreds of billions of parameters are analyzed (including CodeBERT, GraphCodeBERT, Codex, AlphaCode, CodeGen, StarCoder, CodeLlama, WizardCoder, DeepSeek-Coder-V2, Yi-Coder, and GPT-4) with pass@1 accuracies on HumanEval spanning a wide range across model generations; multi-agent approaches show promise on repository-level and complex benchmarks, though all figures require cautious interpretation given data contamination risks and evaluation protocol differences. Security concerns persist, as models consistently generate vulnerable code across a range of configurations, with vulnerability rates varying substantially depending on model generation, task type, and prompt design. The survey provides critical analysis of architectural design choices, scaling law behavior for code versus natural language, training data curation challenges including legal and ethical dimensions, and the gap between benchmark performance and real-world software engineering workflows. Critical gaps are identified in handling repository-level context, maintaining consistency across extended generation sessions, and providing reliability guarantees. Future trajectories point toward autonomous software engineering agents, hybrid neuro-symbolic verification approaches, and multi-faceted evaluation frameworks, though foundational challenges in correctness verification, security assurance, and trustworthy generation remain unresolved.
+AD  - Univ Coll Dublin, Coll Engn & Architecture, Dublin, IrelandAD  - Bursa, Dept Comp & Instruct Technol Educ, Veta Apt,Anafartalar Cad Cil Sok 3, Nilufer TR-16285, Bursa, TurkiyeC3  - University College DublinFU  - University College Dublin
+FX  - Open Access funding provided by the IReL Consortium
+PU  - SPRINGER
+PI  - DORDRECHT
+PA  - VAN GODEWIJCKSTRAAT 30, 3311 GZ DORDRECHT, NETHERLANDS
+SN  - 0924-669X
+SN  - 1573-7497
+J9  - APPL INTELL
+JI  - Appl. Intell.
+DA  - APR
+PY  - 2026
+VL  - 56
+IS  - 6
+C7  - 200
+DO  - 10.1007/s10489-026-07230-0
+C6  - APR 2026
+WE  - Science Citation Index Expanded (SCI-EXPANDED)AN  - WOS:001737909700006
+N1  - Times Cited in Web of Science Core Collection:  2
+Total Times Cited:  2
+Cited Reference Count:  43
+ER  -
+
+TY  - CPAPER
+AU  - Chatlatanagulchai, W
+AU  - Thonglek, K
+AU  - Reid, B
+AU  - Kashiwa, Y
+AU  - Leelaprute, P
+AU  - Rungsawang, A
+AU  - Manaskasemsak, B
+AU  - Lida, H
+ED  - Scanniello, G
+ED  - Lenarduzzi, V
+ED  - Romano, S
+ED  - Vegas, S
+ED  - Francese, R
+TI  - On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code
+T2  - PRODUCT-FOCUSED SOFTWARE PROCESS IMPROVEMENT, PROFES 2025
+LA  - English
+CP  - 26th International Conference on Product Focused Software Process Improvement-PROFES-Annual
+KW  - Agentic Coding
+KW  - Autonomous Programming
+KW  - Documents
+AB  - Agentic coding tools receive goals written in natural language as input, break them down into specific tasks, and write/execute the actual code with minimal human intervention. Key to this process are agent manifests, configuration files (such as Claude.md) that provide agents with essential project context, identity, and operational rules. However, the lack of comprehensive and accessible documentation for creating these manifests presents a significant challenge for developers. We analyzed 253 Claude.md files from 242 repositories to identify structural patterns and common content. Our findings show that manifests typically have shallow hierarchies with one main heading and several subsections, with content dominated by operational commands, technical implementation notes, and high-level architecture.
+AD  - Kasetsart Univ, Fac Engn, Bangkok, ThailandAD  - Nara Inst Sci & Technol NAIST, Nara, JapanC3  - Kasetsart UniversityC3  - Nara Institute of Science & TechnologyFU  - JSPS KAKENHI [JP24K02921, JP25K21359]; JST PRESTO [JPMJPR22P3]; ASPIRE grant [JPMJAP2415]; AIP Accelerated Program [JPMJCR25U7]
+FX  - We gratefully acknowledge the financial support of JSPS KAKENHI grants (JP24K02921, JP25K21359), as well as JST PRESTO grant (JPMJPR22P3), ASPIRE grant (JPMJAP2415), and AIP Accelerated Program (JPMJCR25U7).
+PU  - SPRINGER INTERNATIONAL PUBLISHING AG
+PI  - CHAM
+PA  - GEWERBESTRASSE 11, CHAM, CH-6330, SWITZERLAND
+SN  - 0302-9743
+SN  - 1611-3349
+SN  - 978-3-032-12088-5
+SN  - 978-3-032-12089-2
+J9  - LECT NOTES COMPUT SC
+PY  - 2026
+VL  - 16361
+SP  - 543
+EP  - 551
+DO  - 10.1007/978-3-032-12089-2_40
+WE  - Conference Proceedings Citation Index - Science (CPCI-S)AN  - WOS:001718768800040
+N1  - Times Cited in Web of Science Core Collection:  0
+Total Times Cited:  0
+Cited Reference Count:  13
+ER  -
+
