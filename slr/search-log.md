@@ -140,6 +140,21 @@ Run by `slr/dedup.py 2026-11-18` over the eight files in `slr/exports/` (protoco
 
 Title matches with two different non-arXiv DOIs (4), checked: a TechRxiv preprint and its IEEE paper; one COMPSAC 2026 paper listed twice by IEEE (same authors, pages 537–542 and 543–548); one panel summary published in three IEEE proceedings. Rayyan's duplicate check is the second check; what it finds is added here.
 
+### Rayyan (2026-11-18)
+
+Review "SLR SDD agentic coding – main screening" (owner: the author). Imported `rayyan-import-2026-11-18.ris`: 1862. Rayyan duplicate detection (default threshold): 10 possible duplicates in 5 pairs; 1 not a duplicate (two different "Self-Evolving Coding Agents" preprints, different authors), 4 duplicates deleted. All 4 were arXiv preprints whose published version (title changed) stays (EC4): Agentless (arXiv 2407.01489), AutoP2C (2504.20115), "AI-Generated Code Is Not Reproducible (Yet)" (2512.22387), SWE-Fuse (2603.07927). **Records screened: 1858.** Export: `slr/rayyan-after-dedup-2026-11-18.csv`.
+
+PRISMA identification: 2131 records from databases (arXiv 1605, IEEE Xplore 167, Web of Science 133, ACM DL 226); duplicates removed 273 (script 269, Rayyan 4); records screened 1858.
+
+### Second-reviewer sets (§4.1, 2026-11-18)
+
+Drawn by `slr/draw_sample.py 2026-11-18 20261118` (seed 20261118) from `rayyan-after-dedup-2026-11-18.csv`. Prepared in advance; used only if a second reviewer is confirmed by 2026-11-20.
+
+- Calibration (5 pilot records, stratified 3 pilot includes + 2 pilot excludes, all found in the screened set): P04, P06, P21 (I), P09, P28 (E). File `second-reviewer-calibration-2026-11-18.csv`. The pilot decisions predate EC5 (adopted 2026-11-09).
+- Sample (30 records, from the 1853 screened records outside the calibration set): `second-reviewer-sample-2026-11-18.csv`, Rayyan keys in the file. 27 with arXiv as first source, 3 with ACM; all with abstract.
+
+Both files are in Rayyan CSV format, for import into a separate review with blind mode.
+
 ## Pilot inspection (P4, 2026-11-05)
 
 Sheet: `pilot/pilot-inspection-2026-11-05.xlsx`. 20 records judged by the author on title and abstract: all 7 of S1 v2 and 13 of S2 v2. Columns: decision (I/E/?), criterion (IC1a–c, EC1–EC4, OUT-SE, OTHER), reason, group (c) "new agent on existing benchmark" (Y/N), missing or noisy terms. A record can meet more than one IC.
