@@ -115,6 +115,8 @@ arXiv: run by `slr/fetch_arxiv.py` (API, pages of 500, sorted by submission date
 |---|---|---|---|---|---|---|---|
 | 2026-11-18 | arXiv API | S1 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 57 | 57 | `arxiv-S1-2026-11-18.ris` | Run 09:58 UTC |
 | 2026-11-18 | arXiv API | S2 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 1548 | 1548 | `arxiv-S2-2026-11-18.ris` | Run 09:58 UTC |
+| 2026-11-18 | IEEE Xplore | S1 v2 | Command Search; Year 2023–2026 (results sidebar) | 10 | 10 | `ieee-S1-2026-11-18.ris` | Run 17:29 UTC by the author. RIS, citation and abstract. 2025: 1, 2026: 9; 2 without DOI; 2 also in S2. Pilot (2026-11-04): 7 |
+| 2026-11-18 | IEEE Xplore | S2 v2 | Command Search; Year 2023–2026 (results sidebar) | 159 | 157 | `ieee-S2-2026-11-18.ris` | Run 17:38 UTC by the author. RIS, citation and abstract, exported in two pages of 100 (99 + 58) and joined. 2 records shown but not exported, as in the pilot (146 shown, 144 exported). 6 without DOI. 2 titles repeat with different DOIs (one COMPSAC paper twice, one panel three times); left for deduplication |
 
 ## Pilot inspection (P4, 2026-11-05)
 

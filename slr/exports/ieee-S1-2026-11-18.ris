@@ -1,0 +1,342 @@
+TY  - CONF
+TI  - MCP-based AI coding agent Integrating Static Analysis for Web Accessibility Error Correction
+T2  - 2025 TRON Symposium (TRONSHOW)
+SP  - 1
+EP  - 4
+AU  - Y. Higuchi
+AU  - J. -E. Kim
+AU  - M. Bessho
+PY  - 2025
+KW  - Protocols
+KW  - Law
+KW  - Biological system modeling
+KW  - Static analysis
+KW  - Encoding
+KW  - Error correction codes
+KW  - Servers
+KW  - Artificial intelligence
+KW  - Standards
+KW  - Context modeling
+KW  - Web accessibility
+KW  - LLM
+KW  - WCAG
+KW  - Model Context Protocol
+KW  - AI coding agents
+KW  - Static Analysis
+DO  - 
+JO  - 2025 TRON Symposium (TRONSHOW)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2025 TRON Symposium (TRONSHOW)
+Y1  - 10-12 Dec. 2025
+AB  - While ensuring web accessibility is becoming a legal obligation, 94.8% of the top one million websites violate WCAG standards, highlighting the need for more efficient implementation support in development environments. This paper proposes a novel approach to ensuring web accessibility using general-purpose AI coding agents by providing them with appropriate contextual information for accessibility error correction through a Model Context Protocol (MCP) server. This approach enables integration of Biome’s static analysis with the flexible code-base understanding capabilities of AI coding agents to efficiently produce WCAG-compliant fixes. Adopting the MCP architecture enables uniform use across various AI coding agent environments, such as Claude Code and Roo Code. We conducted experiments using an AI coding agent with four different LLM backends on a common test case and demonstrated the feasibility of our approach.
+ER  - 
+
+TY  - CONF
+TI  - GHAgentFiles: A dataset of coding agent file histories in GitHub repositories
+T2  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+SP  - 754
+EP  - 758
+AU  - G. Cardoen
+AU  - T. Mens
+AU  - A. Decan
+PY  - 2026
+KW  - Context
+KW  - Codes
+KW  - Encoding
+KW  - Software development management
+KW  - History
+KW  - Printing
+KW  - Electronic mail
+KW  - Tools
+KW  - Evolution (biology)
+KW  - Software
+KW  - dataset
+KW  - coding agent
+KW  - context file
+KW  - collaborative software development
+KW  - empirical software engineering
+DO  - 10.1109/ICSME67971.2026.00080
+JO  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+IS  - 
+SN  - 2576-3148
+VO  - 
+VL  - 
+JA  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+Y1  - 14-18 Sept. 2026
+AB  - Since the introduction of coding-specific LLMs in the early 2020s, coding agents have become increasingly popular in collaborative software development projects. Since 2025, it is common practice to specify context files that provide additional context to coding agents about the project structure, development commands, coding conventions, and so on. To enable large-scale empirical studies of collaborative GitHub repositories involving coding agents, we provide a dataset of context, skill and subagent files and an open-source tool to identify and extract such files automatically. Out of an initial list of 165K+ repositories, we identify 27K+ repositories with coding agent files for six major agents (Claude, Codex, GitHub Copilot, Gemini, Windsurf and Cursor), resulting in 142K+ distinct file histories and 401K+ revisions covering their evolution. We conduct a preliminary observational analysis on this large dataset and present some perspectives to the research community on how to use this dataset for future empirical studies.
+ER  - 
+
+TY  - CONF
+TI  - Evolution Context Gap: An Empirical Study of Agent Manifests
+T2  - 2026 23rd International Joint Conference on Computer Science and Software Engineering (JCSSE)
+SP  - 369
+EP  - 374
+AU  - N. Chondamrongkul
+AU  - W. Rueangsirarak
+AU  - P. Jakkaew
+PY  - 2026
+KW  - Evolution (biology)
+KW  - Context
+KW  - Law
+KW  - Codes
+KW  - Encoding
+KW  - Modeling
+KW  - Labeling
+KW  - Printing
+KW  - Complexity theory
+KW  - Artificial intelligence
+KW  - agent manifests
+KW  - AI coding agents
+KW  - software evolution
+KW  - content analysis
+KW  - CLAUDE.md
+KW  - empirical study
+DO  - 10.1109/JCSSE68839.2026.11597070
+JO  - 2026 23rd International Joint Conference on Computer Science and Software Engineering (JCSSE)
+IS  - 
+SN  - 2642-6579
+VO  - 
+VL  - 
+JA  - 2026 23rd International Joint Conference on Computer Science and Software Engineering (JCSSE)
+Y1  - 24-27 June 2026
+AB  - AI coding agents—Claude Code, GitHub Copilot, OpenAI Codex, and Cursor—increasingly rely on developer-authored instruction les (CLAUDE.md, AGENTS.md, copilot-instructions.md, etc.) to understand project context. These agent manifests have not been systematically studied. We present the first large-scale content analysis of 80 real-world manifests drawn from five agent types using a six-category taxonomy and a three-model LLM classifier with majority-vote consensus. Workflow & Process dominates (present in 96.2% of manifests, 43.5% mean character fraction), while evolution context—information about how the software changes over time—is largely absent: 73.8% of manifests contain no evolution content, and none references Lehman’s laws of software evolution. A single significant project-level correlation emerges: manifests in more law-conformant projects contain more coding-style guidance (ρ = 0.431, p = 0.040, n=23). These findings characterise a systematic evolution context gap that leaves agents architecture-blind and motivate automated manifest enrichment tooling.
+ER  - 
+
+TY  - BOOK
+TI  - Agentic AI for Platform Engineering: Rethinking developer platforms with agentic AI, RAG, MCP, and governed autonomous operations
+SP  - 1
+EP  - 
+AU  - Tiago Miguel Reichert
+AU  - Lucas Soriano Alves Duarte
+AU  - Jaime Nagase
+AU  - Chris Aniszczyk
+PY  - 2026
+DO  - 
+PB  - Packt Publishing
+SN  - 9781806386642
+UR  - http://ieeexplore.ieee.org/document/11721274
+AB  - Build AI-driven platforms with RAG, MCP, governed agents, and observability, while seeing how Claude Code, Kiro, and Codex CLI fit into the shift from personal coding agents to governed platform agentsKey FeaturesEnd-to-end coverage from AI-enhanced developer portals to governed agentic operationsApply agentic AI patterns for governed remediation, observability, and human-in-the-loop controlGenerate infrastructure-as-code and CI/CD artifacts through conversational AI interfacesBook DescriptionPlatform engineers today face a growing challenge: developer platforms must scale faster than teams can maintain them. This book shows how to embed GenAI, RAG, MCP, and governed agents into developer platforms while preserving delivery and governance practices. The book moves from platform engineering and AIOps foundations to organizational knowledge, conversational interfaces, and agentic operations. Along the way, it places Claude Code, Kiro, and Codex CLI within this evolution, showing how these tools connect to the shift toward governed agents across platforms and organizations. You will build RAG pipelines, connect platform capabilities through MCP, and explore natural-language generation of Terraform and Kubernetes artifacts alongside CI/CD use cases. Hands-on chapters use Backstage, GitOps, Argo CD, Strands, and Langfuse to demonstrate assistants, governed pull-request changes, observability, audit trails, and operational agents. You will also learn when single- or multi-agent designs are appropriate, evaluate build-versus-buy choices, and address prompt injection, memory poisoning, identity abuse, and compliance. By the end, you will be able to design AI-enhanced developer platforms that improve self-service while keeping high-impact actions observable, auditable, and subject to human approval where risk demands it.What you will learnBuild RAG systems grounded in organizational knowledgeBuild governed agents that propose changes through pull requestsConnect conversational workflows to platform tools with MCPExplore where Claude Code and Kiro fit in agentic platform workflowsTrace agent activity and maintain auditable operational recordsSecure agent workflows with guardrails, identity, and compliance controlsCompare personal and production agents with governed tool accessEvaluate build-versus-buy choices for AI platform capabilitiesWho this book is forThis book is for platform engineers, SREs, DevOps professionals, and cloud architects who want to integrate GenAI and agentic AI into internal developer platforms. If you are responsible for building or maintaining internal platforms and want to improve developer self-service, operational intelligence, and governed automation, this book is for you. Technical leaders driving AI adoption within engineering teams will also find valuable strategic guidance. Basic familiarity with cloud computing, infrastructure as code, Kubernetes, CI/CD, and DevOps practices is assumed.
+ER  - 
+
+TY  - CONF
+TI  - Uncovering AGENTS.md: What Testing Guidance Open Source Projects Provide to Coding Agents
+T2  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+SP  - 23
+EP  - 34
+AU  - B. Ardic
+AU  - M. Olsthoorn
+AU  - A. Zaidman
+PY  - 2026
+KW  - Artificial intelligence
+KW  - Codes
+KW  - Poles and zeros
+KW  - Testing
+KW  - Encoding
+KW  - Printing
+KW  - Tools
+KW  - Documentation
+KW  - Software development management
+KW  - Conferences
+KW  - Software engineering
+KW  - agentic coding
+KW  - AI agents
+KW  - AI guidance
+KW  - software testing
+KW  - open-source software
+DO  - 10.1109/SCAM71261.2026.00010
+JO  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+IS  - 
+SN  - 2470-6892
+VO  - 
+VL  - 
+JA  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+Y1  - 14-15 Sept. 2026
+AB  - Agentic coding tools increasingly operate inside software repositories, where their behavior is shaped not only by model capabilities but also by repository context. An emerging form to provide such context is agent context files, also known as AI guidance files (e.g., AGENTS.md or CLAUDE.md), which can encode project commands, conventions, and development expectations. In this paper, we study how open-source projects organize these guidance files and how they communicate testing expectations to coding agents. We analyze repositories from AIDev-pop, a collection of popular GitHub repositories with observed agent-authored pull requests. We first mine root-level AI guidance files and any Markdown files they explicitly reference to characterize repository-level organization and delegation. We find that root-level guidance is concentrated in generic AGENTS.md files and Claude-specific files, and that root guidance is not always self-contained: many repositories refer to additional resources. We then manually analyze testing guidance in a stratified sample of 300 repositories, covering 626 Markdown files and more than 3,300 coded quotations. In our sample, testing guidance is common: 249 of the 300 repositories include test commands, helping agents execute repository-specific tests. Less frequent themes on testing guidance are related to strategy, mentality, mocking, coverage, avoidance, and naming convention expectations. Overall, our results show that AI guidance files are currently mostly used to expose testing infrastructure to coding agents, but are less consistently used to make maintainer expectations about good tests explicit.
+ER  - 
+
+TY  - CONF
+TI  - Execution Control Harness for Governed LLM-Based Code Generation
+T2  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+SP  - 1
+EP  - 4
+AU  - M. Takeda
+AU  - Y. Funaya
+AU  - O. Harriet
+AU  - R. Mibe
+AU  - H. Kanuka
+PY  - 2026
+KW  - Modeling
+KW  - Large language models
+KW  - Cognition
+KW  - Cognitive systems
+KW  - Codes
+KW  - DSL
+KW  - Design methodology
+KW  - Manuals
+KW  - Software
+KW  - Printing
+KW  - LLM-based code generation
+KW  - software engineering
+KW  - AI-assisted development
+KW  - workflow systems
+KW  - domain-specific languages
+KW  - software quality
+DO  - 10.1109/IISA71656.2026.11705535
+JO  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+Y1  - 6-9 July 2026
+AB  - LLM-based coding agents have strong potential for automating software development, but their direct application remains fragile under long and complex requirements. Specification omissions are common, and autonomous local fixes can trigger cascading regressions. In a preliminary experiment, implementing a single business function using a standard specification-driven approach required 65 interaction rounds and approximately 9 hours of manual correction.In this paper, we propose an execution control harness that tightly couples LLM-based code generation with governed execution. Implemented as a YAML-based workflow DSL, the harness integrates mechanically scoped reasoning, deterministic validation gates, automated Git-based rollback, and hybrid human-agent control.A case study on a real-world insurance application of approximately 30 KLOC suggests that the proposed approach helps suppress specification omissions and regression chains. Under comparable conditions, the number of correction iterations was reduced from 65 to 3, and total development time decreased from 9.0 to 0.5 hours. These results indicate that reliable AI-driven software development requires not only capable agents but also execution control architectures that govern the generation process.
+ER  - 
+
+TY  - CONF
+TI  - Configuration Smells in AGENTS.md Files: Common Mistakes in Configuring Coding Agents
+T2  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+SP  - 215
+EP  - 226
+AU  - H. V. F. Dos Santos
+AU  - V. Costa
+AU  - J. E. Montandon
+AU  - L. L. Silva
+AU  - M. T. Valente
+PY  - 2026
+KW  - Codes
+KW  - Context
+KW  - Modeling
+KW  - Manuals
+KW  - Encoding
+KW  - Reviews
+KW  - Software engineering
+KW  - Conferences
+KW  - Systematic literature review
+KW  - Testing
+DO  - 10.1109/SCAM71261.2026.00028
+JO  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+IS  - 
+SN  - 2470-6892
+VO  - 
+VL  - 
+JA  - 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM)
+Y1  - 14-15 Sept. 2026
+AB  - Coding agents are increasingly used to automate software engineering tasks. To guide their behavior, these agents commonly rely on configuration files, typically named AGENTS.md or CLAUDE.md, which provide instructions about architecture, workflows, coding conventions, and testing practices. Despite their growing importance, little is known about common problems affecting the definition and maintenance of these files. In this paper, we present the first catalog of smells for coding-agent configuration files. To identify such smells, we first conducted a grey literature review and a repository mining analysis. As a result, we identified six configuration smells and proposed automated heuristics to detect them. To evaluate the prevalence of the proposed smells, we analyzed 100 popular open-source repositories containing either an AGENTS.md or a CLAUDE.md file. Our results show that configuration smells are widespread. Lint Leakage was the most common smell, affecting 62% of the files, followed by Context Bloat (42%) and Skill Leakage (35%). We further show that several smells frequently co-occur, particularly Context Bloat, Skill Leakage, and Conflicting Instructions.
+ER  - 
+
+TY  - CONF
+TI  - Spec-Driven AI: A Multiagent Framework for Specification-Centric SDLC Automation
+T2  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+SP  - 830
+EP  - 834
+AU  - J. C. Bello
+AU  - D. Fazzioni
+AU  - V. M. A. De Lima
+AU  - T. N. Kudo
+AU  - A. Da Silva Soares
+PY  - 2026
+KW  - Context
+KW  - Codes
+KW  - Indexes
+KW  - Indexing
+KW  - Artificial intelligence
+KW  - Modeling
+KW  - Tools
+KW  - Printing
+KW  - Large language models
+KW  - Evolution (biology)
+KW  - Spec-Driven Development
+KW  - Multiagent Systems
+KW  - AI-Assisted Software Engineering
+KW  - Software Maintenance and Evolution
+KW  - SDLC Automation
+DO  - 10.1109/ICSME67971.2026.00092
+JO  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+IS  - 
+SN  - 2576-3148
+VO  - 
+VL  - 
+JA  - 2026 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+Y1  - 14-18 Sept. 2026
+AB  - AI coding assistants are transforming software development, but most approaches remain code-centric and weakly connected to requirements, specifications, architectural decisions, organizational standards, and quality gates. This paper presents Spec-Driven AI, a multiagent framework for specification-centric Software Development Life Cycle (SDLC) automation. The framework combines an SDLC orchestrator, specialized lifecycle agents, human-in-the-loop gates, auditable artifact generation, and a Pattern Manager / Context Platform that provides governed context through repository indexing, document retrieval, knowledge graph extraction, adherence validation, and Model Context Protocol (MCP) tools. Spec-Driven AI treats specifications as verifiable contracts and uses agents to coordinate discovery, specification, design, planning, implementation support, testing, review, and traceability. We describe the architecture, implementation, and demonstration scenario showing how a project is registered, indexed, governed, and used to prepare structured context for SDLC agents. Screencast: https://youtu.be/w4QT-nrRgNo.
+ER  - 
+
+TY  - CONF
+TI  - A Knowledge Engineering Framework for AI-Driven Software Development: Harness, Guardrail, and AI-Native Knowledge DevOps
+T2  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+SP  - 1
+EP  - 4
+AU  - K. Watanabe
+AU  - H. Ogawa
+AU  - S. Ito
+AU  - T. Nakazawa
+AU  - K. Tsuru
+PY  - 2026
+KW  - Modeling
+KW  - Codes
+KW  - Reviews
+KW  - Artificial intelligence
+KW  - Design methodology
+KW  - Testing
+KW  - Manuals
+KW  - DevOps
+KW  - Refining
+KW  - Encoding
+KW  - knowledge engineering
+KW  - AI-driven software development
+KW  - LLM coding agents
+KW  - knowledge DevOps
+KW  - harness engineering
+DO  - 10.1109/IISA71656.2026.11705457
+JO  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA)
+Y1  - 6-9 July 2026
+AB  - Development-time knowledge—design rationale, architectural decisions, domain constraints, hard-won lessons—generated during AI-driven software development is largely ephemeral, lost between agent sessions. We propose a knowledge engineering framework whose guiding principle is pervasive AI participation—an aspirational design stance in which the agent accompanies the development workflow as broadly as practical and externalizes what it observes into machine-readable artifacts. The framework casts an Effective Agent as Foundation Model + (Harness ∥ Guardrail): two parallel operational concerns—Harness (course-setting; Knowledge, Skills, Stakeholder personas, Runtime/loader) and Guardrail (deviation detection; static analysis, automated tests, an adversarial review-gate drawing on a heterogeneous foundation-model family (untested), post-push review). A separate, external meta-process, AI-Native Knowledge DevOps (Capture/Refine/Create/Apply, GitOps-versioned, agent-loop driven), refines them across sessions: capture Guardrail findings and re-inject refined artifacts into both Harness and Guardrail. Adopting ADRs, GitOps, and concurrent harness-engineering corpora (AGENTS.md, plans, post-integration sensors, AI-rule promotion [1]–[3]) as foundations rather than novelty, our narrower contribution is a four-cell Harness, a Guardrail panel at parity, and a dual-target refinement loop (a design hypothesis we present, not an evaluated effect). A 142-day, 297-commit longitudinal experience report (a marketsizing tool for business planning under the TAM/SAM/SOM framework, built with Claude Code plus an OpenAI Codex CLI review-gate) illustrates the framework: 9,441 LOC, 441 tests, 14 knowledge documents (7,349 lines), and 92 issues (78 filed via the agent’s issue-lifecycle Skill). Commit-history analysis shows 63% of commits on the agent-loaded artifacts are maintenance-class rather than purely additive—we report this as a descriptive number, not as evidence the cycle caused the share, since the case is N=1 with the developer overlapping the framework authors.
+ER  - 
+
+TY  - CONF
+TI  - Specifications as Governance Artifacts: Human–AI Collaboration and Oversight for AI-Generated Code
+T2  - 2026 IEEE Conference on Generative AI for Secure Systems (GAISS)
+SP  - 1
+EP  - 6
+AU  - N. Garg
+AU  - R. Mohindra
+AU  - S. Maru
+PY  - 2026
+KW  - Codes
+KW  - Modeling
+KW  - Artificial intelligence
+KW  - Reviews
+KW  - Printing
+KW  - Large language models
+KW  - Contracts
+KW  - Timing
+KW  - Costing
+KW  - Security
+KW  - human-AI collaboration
+KW  - AI governance
+KW  - accountability in code generation
+KW  - audit trails
+KW  - specification-driven development
+KW  - technical oversight
+KW  - code generation
+KW  - large language models
+DO  - 10.1109/GAISS66401.2026.11779695
+JO  - 2026 IEEE Conference on Generative AI for Secure Systems (GAISS)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2026 IEEE Conference on Generative AI for Secure Systems (GAISS)
+Y1  - 28-30 Oct. 2026
+AB  - AI coding assistants now write a large share of production software, and they write it fast. This shifts software engineering from writing code to governing it: deciding who is accountable for AI-generated behavior, how divergence from intent is detected, and how humans and models divide the labor of oversight. Most teams lack a structured answer, and AI-generated code reaches production carrying security defects, functional bugs, and behavioral drift. We present a specification-driven governance framework that treats the specification as the primary governance artifact and the shared contract for human–AI collaboration. The framework adds a specification review gate modeled on the high-level and low-level design (HLD/LLD) reviews teams already trust; it then treats the approved specification, HLD, and LLD as an explicit, auditable baseline against which generated code is checked for drift, routing every flagged drift to a human for reconciliation. We make the collaboration concrete—defining author, reviewer, model, and reconciler roles as a responsibility assignment (RACI) and specifying the audit trail the baseline produces—and align the control points to the NIST AI RMF, ISO/IEC 42001, and the EU AI Act. We evaluate with a controlled within-subject human study of five reviewers performing baseline-anchored versus code-only drift review on real AI-generated services, and—to check robustness in a separate population—a large automated-reviewer replication (three models, 90 machine reviews) of the same design. The human study reports an honest, sharp result: an approved specification did not increase the number of drifts reviewers caught (recall 0.53 vs $0.52, \mathrm{p}=0.69$), but it made findings attributable—reviewers tied 81% of findings to a named requirement versus 0% without a baseline $(\mathrm{p}=0.043)$—and raised confidence, at a significant effort cost $(\approx 48 vs 27 min, p = 0.043)$. The automated replication produced a similar pattern. Recall remained essentially unchanged $(\mathrm{p}=0.95)$, whereas attribution increased from 0.00 to 0.67 (p < 10-4) for all models. We observed this result across reviewers rather than for only one reviewer, suggesting that the effect is associated with the review setup rather than an individual reviewer's behavior. The anonymized artifact released with the study includes the complete set of materials.
+ER  - 
+
+
