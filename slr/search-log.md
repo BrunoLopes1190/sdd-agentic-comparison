@@ -105,6 +105,17 @@ S2:
 | 2026-11-06 | ACM DL | S2 v2 | Publication date 2023–2026 (sidebar) | 209 | Pilot (count only) | Run by the author. ACM Guide to Computing Literature |
 | 2026-11-06 | arXiv API | S2 v2 AND NOT cat:cs.SE | as S2 v2 | 689 | Pilot (count only) | What a cs.SE restriction would drop. Primary categories: cs.AI 272, cs.CL 110, cs.LG 78, cs.CR 65, cs.RO 38, cs.CV 35. SWE-bench and SWE-agent are cross-listed in cs.SE (kept). 15 random titles (seed 20261106) in the dropped set include coding-agent benchmarks and evaluation studies |
 
+## Final search (P5, 2026-11-18)
+
+Search cut-off date: **2026-11-18** (protocol §8; planned 16–17 Nov, moved: no work on 17 Nov). Strings v2 as above, unchanged (checked by `slr/build_strings.py`). Exports in `slr/exports/`, file name `database-string-date`. These counts enter the PRISMA "identification" box.
+
+arXiv: run by `slr/fetch_arxiv.py` (API, pages of 500, sorted by submission date, 3 s between calls); raw Atom kept next to the RIS. RIS: DOI is the published DOI when arXiv has one, otherwise the arXiv DOI (10.48550/arXiv.ID), to help deduplication.
+
+| Date | Database | String | Filters | Hits | Exported | Export file | Notes |
+|---|---|---|---|---|---|---|---|
+| 2026-11-18 | arXiv API | S1 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 57 | 57 | `arxiv-S1-2026-11-18.ris` | Run 09:58 UTC |
+| 2026-11-18 | arXiv API | S2 v2 | ti/abs; submittedDate 2023-01-01 to 2026-12-31 | 1548 | 1548 | `arxiv-S2-2026-11-18.ris` | Run 09:58 UTC |
+
 ## Pilot inspection (P4, 2026-11-05)
 
 Sheet: `pilot/pilot-inspection-2026-11-05.xlsx`. 20 records judged by the author on title and abstract: all 7 of S1 v2 and 13 of S2 v2. Columns: decision (I/E/?), criterion (IC1a–c, EC1–EC4, OUT-SE, OTHER), reason, group (c) "new agent on existing benchmark" (Y/N), missing or noisy terms. A record can meet more than one IC.

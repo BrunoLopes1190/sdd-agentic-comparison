@@ -1,0 +1,1043 @@
+TY  - UNPB
+TI  - On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code
+AU  - Worawalan Chatlatanagulchai
+AU  - Kundjanasith Thonglek
+AU  - Brittany Reid
+AU  - Yutaro Kashiwa
+AU  - Pattara Leelaprute
+AU  - Arnon Rungsawang
+AU  - Bundit Manaskasemsak
+AU  - Hajimu Iida
+PY  - 2025
+DA  - 2025-09-18
+AB  - Agentic coding tools receive goals written in natural language as input, break them down into specific tasks, and write/execute the actual code with minimal human intervention. Key to this process are agent manifests, configuration files (such as Claude.md) that provide agents with essential project context, identity, and operational rules. However, the lack of comprehensive and accessible documentation for creating these manifests presents a significant challenge for developers. We analyzed 253 Claude.md files from 242 repositories to identify structural patterns and common content. Our findings show that manifests typically have shallow hierarchies with one main heading and several subsections, with content dominated by operational commands, technical implementation notes, and high-level architecture.
+DO  - 10.1007/978-3-032-12089-2_40
+UR  - https://arxiv.org/abs/2509.14744
+AN  - arXiv:2509.14744v1
+DB  - arXiv
+PB  - arXiv
+N1  - Journal ref: Proceedings of the 26th International Conference on Product-Focused Software Process Improvement 2025
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Beyond Accuracy: Behavioral Dynamics of Agentic Multi-Hunk Repair
+AU  - Noor Nashid
+AU  - Daniel Ding
+AU  - Keheliya Gallaba
+AU  - Ahmed E. Hassan
+AU  - Ali Mesbah
+PY  - 2025
+DA  - 2025-11-14
+AB  - Automated program repair has traditionally focused on single-hunk defects, overlooking multi-hunk bugs that are prevalent in real-world systems. Repairing these bugs requires coordinated edits across multiple, disjoint code regions, posing substantially greater challenges. We present the first systematic study of LLM-driven coding agents (Claude Code, Codex, Gemini-cli, and Qwen Code) on this task. We evaluate these four state-of-the-art agents on 404 multi-hunk bugs from the PolyHunk dataset, yielding 1,616 repair trajectories for large-scale behavioral analysis. We employ fine-grained metrics to assess localization, repair accuracy, regression behavior, and operational dynamics across agents. We find that localization capability varies substantially, with Codex achieving the highest success rate (75.3%) and Qwen Code the lowest (40.4%). Repair accuracy also differs widely, ranging from 26.98% (Qwen Code) to 92.82% (Claude Code), and consistently declines with increasing bug dispersion and complexity (hunk divergence and spatial proximity). High-performing agents (Claude Code and Codex) demonstrate superior semantic consistency, achieving positive average regression reduction, whereas lower-performing agents often introduce new test failures. Notably, agents do not fail fast; failed repairs consume substantially more resources (33%-440% more input tokens) and require longer execution time (35%-330%). Additionally, we developed Maple to provide agents with repository-level context. Empirical results show that Maple improves repair accuracy of Gemini-cli by ~21% through enhanced localization. By analyzing fine-grained metrics and trajectory-level analysis, this study moves beyond accuracy to explain how coding agents localize, reason, and act during multi-hunk repair. Our findings underscore the impact of bug divergence and spatial proximity on multi-hunk repair success for coding agents.
+DO  - 10.48550/arXiv.2511.11012
+UR  - https://arxiv.org/abs/2511.11012
+AN  - arXiv:2511.11012v3
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Agent READMEs: An Empirical Study of Context Files for Agentic Coding
+AU  - Worawalan Chatlatanagulchai
+AU  - Hao Li
+AU  - Yutaro Kashiwa
+AU  - Brittany Reid
+AU  - Kundjanasith Thonglek
+AU  - Pattara Leelaprute
+AU  - Arnon Rungsawang
+AU  - Bundit Manaskasemsak
+AU  - Bram Adams
+AU  - Ahmed E. Hassan
+AU  - Hajimu Iida
+PY  - 2025
+DA  - 2025-11-17
+AB  - Agentic coding tools receive goals written in natural language, break them down into specific tasks, and write or execute code with minimal human intervention. Central to this process are agent context files (e.g., AGENTS.md and CLAUDE.md) that provide persistent, project-level instructions. In this paper, we conduct the first large-scale empirical study of 2,303 agent context files from 1,925 repositories to characterize their structure, maintenance, and content. We find that these files are not static documentation but complex, difficultto-read artifacts that evolve like configuration code through frequent, small additions. Our content analysis of 16 instruction types shows that developers prioritize functional context, such as test procedures (75.9%), implementation details (70.8%), and architecture (68.1%). We also identify a significant gap: non-functional requirements such as security (14.8%) and performance (14.5%) are rarely specified. These findings indicate that while developers use context files to make agents functional, they provide few guardrails to ensure that agent-written code is secure or performant, highlighting the need for improved tools and practices.
+DO  - 10.48550/arXiv.2511.12884
+UR  - https://arxiv.org/abs/2511.12884
+AN  - arXiv:2511.12884v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents
+AU  - Jai Lal Lulla
+AU  - Seyedmoein Mohsenimofidi
+AU  - Matthias Galster
+AU  - Jie M. Zhang
+AU  - Sebastian Baltes
+AU  - Christoph Treude
+PY  - 2026
+DA  - 2026-01-28
+AB  - AI coding agents such as Codex and Claude Code are increasingly used to autonomously contribute to software repositories. However, little is known about how repository-level configuration artifacts affect operational efficiency of the agents. In this paper, we study the impact of AGENTS$.$md files on the runtime and token consumption of AI coding agents operating on GitHub pull requests. We analyze 10 repositories and 124 pull requests, executing agents under two conditions: with and without an AGENTS$.$md file. We measure wall-clock execution time and token usage during agent execution. Our results show that the presence of AGENTS$.$md is associated with a lower median runtime ($Δ28.64$%) and reduced output token consumption ($Δ16.58$%), while maintaining a comparable task completion behavior. Based on these results, we discuss immediate implications for the configuration and deployment of AI coding agents in practice, and outline a broader research agenda on the role of repository-level instructions in shaping the behavior, efficiency, and integration of AI coding agents in software development workflows.
+DO  - 10.48550/arXiv.2601.20404
+UR  - https://arxiv.org/abs/2601.20404
+AN  - arXiv:2601.20404v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.ET
+KW  - cs.HC
+ER  - 
+
+TY  - UNPB
+TI  - Spec-Driven Development:From Code to Contract in the Age of AI Coding Assistants
+AU  - Deepak Babu Piskala
+PY  - 2026
+DA  - 2026-01-30
+AB  - The rise of AI coding assistants has reignited interest in an old idea: what if specifications-not code-were the primary artifact of software development? Spec-driven development (SDD) inverts the traditional workflow by treating specifications as the source of truth and code as a generated or verified secondary artifact. This paper provides practitioners with a comprehensive guide to SDD, covering its principles, workflow patterns, and supporting tools. We present three levels of specification rigor-spec-first, spec-anchored, and spec-as-source-with clear guidance on when each applies. Through analysis of tools ranging from Behavior-Driven Development frameworks to modern AI-assisted toolkits like GitHub Spec Kit, we demonstrate how the spec-first philosophy maps to real implementations. We present case studies from API development, enterprise systems, and embedded software, illustrating how different domains apply SDD. We conclude with a decision framework helping practitioners determine when SDD provides value and when simpler approaches suffice.
+DO  - 10.48550/arXiv.2602.00180
+UR  - https://arxiv.org/abs/2602.00180
+AN  - arXiv:2602.00180v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - SWE-AGI: Benchmarking Specification-Driven Software Construction with MoonBit in the Era of Autonomous Agents
+AU  - Zhirui Zhang
+AU  - Hongbo Zhang
+AU  - Haoxiang Fei
+AU  - Zhiyuan Bao
+AU  - Yubin Chen
+AU  - Zhengyu Lei
+AU  - Ziyue Liu
+AU  - Yixuan Sun
+AU  - Mingkun Xiao
+AU  - Zihang Ye
+AU  - Yu Zhang
+AU  - Hongcheng Zhu
+AU  - Yuxiang Wen
+AU  - Heung-Yeung Shum
+PY  - 2026
+DA  - 2026-02-10
+AB  - Although large language models (LLMs) have demonstrated impressive coding capabilities, their ability to autonomously build production-scale software from explicit specifications remains an open question. We introduce SWE-AGI, an open-source benchmark for evaluating end-to-end, specification-driven construction of software systems written in MoonBit. SWE-AGI tasks require LLM-based agents to implement parsers, interpreters, binary decoders, and SAT solvers strictly from authoritative standards and RFCs under a fixed API scaffold. Each task involves implementing 1,000-10,000 lines of core logic, corresponding to weeks or months of engineering effort for an experienced human developer. By leveraging the nascent MoonBit ecosystem, SWE-AGI minimizes data leakage, forcing agents to rely on long-horizon architectural reasoning rather than code retrieval. Across frontier models, gpt-5.3-codex achieves the best overall performance (solving 19/22 tasks, 86.4%), outperforming claude-opus-4.6 (15/22, 68.2%), and kimi-2.5 exhibits the strongest performance among open-source models. Performance degrades sharply with increasing task difficulty, particularly on hard, specification-intensive systems. Behavioral analysis further reveals that as codebases scale, code reading, rather than writing, becomes the dominant bottleneck in AI-assisted development. Overall, while specification-driven autonomous software engineering is increasingly viable, substantial challenges remain before it can reliably support production-scale development.
+DO  - 10.48550/arXiv.2602.09447
+UR  - https://arxiv.org/abs/2602.09447
+AN  - arXiv:2602.09447v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.CL
+ER  - 
+
+TY  - UNPB
+TI  - Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?
+AU  - Thibaud Gloaguen
+AU  - Niels Mündler-Sasahara
+AU  - Mark Niklas Müller
+AU  - Veselin Raychev
+AU  - Martin Vechev
+PY  - 2026
+DA  - 2026-02-12
+AB  - A widespread practice in software development is to tailor coding agents to repositories using context files, such as AGENTS.md. Although this practice is strongly encouraged by agent developers, there is currently no rigorous investigation into whether such context files are actually effective for real-world tasks. In this work, we study this question and evaluate coding agents' task completion performance in two complementary settings: established SWE-bench tasks from popular repositories, with LLM-generated context files, and a novel collection of issues from repositories containing developer-committed context files. Surprisingly, we find that providing context files does not generally improve task success rates, while increasing inference cost by over 20% on average. This observation holds across different LLMs, coding agents, and for both LLM-generated and developer-committed context files. Specifically, we find that while instructions in the context files are well followed by coding agents, repository overviews, although popular and recommended by model providers, are not helpful. We conclude that while context files are useful for specifying non-standard coding practices, any attempts to improve performance should be rigorously evaluated before deployment.
+DO  - 10.48550/arXiv.2602.11988
+UR  - https://arxiv.org/abs/2602.11988
+AN  - arXiv:2602.11988v3
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - ContextCov: Deriving and Enforcing Executable Constraints from Agent Instruction Files
+AU  - Reshabh K Sharma
+PY  - 2026
+DA  - 2026-02-28
+AB  - As Large Language Model (LLM) agents increasingly execute complex, autonomous software engineering tasks, developers rely on natural language instruction files such as AGENTS.md to express project-specific coding conventions, tooling restrictions, and architectural boundaries. However, because these instructions remain passive text, agents frequently violate documented constraints due to context window saturation or conflicting local context. In autonomous settings without real-time human supervision, such violations rapidly compound into technical debt. To ground autonomous agents in repository constraints, we introduce ContextCov, a framework that transforms passive natural language instructions into executable guardrails. Unlike prompt-only or reflection-only compliance approaches, ContextCov compiles documented constraints into three complementary checks: static AST queries for code patterns, runtime shell shims that intercept prohibited commands, and architectural validators that enforce structural rules. Acting as an automated, continuous reviewer, ContextCov intercepts agent actions and returns immediate, reproducible violation traces, enabling self-correction before non-compliant changes are finalized. We evaluate ContextCov on SWE-bench Lite (12 repositories, 300 tasks). Compared to prompt-only and LLM reflection baselines, ContextCov achieves 88.3% constraint compliance (vs. 67.0% and 50.3%) with 3.4x lower feedback cost, while maintaining functional correctness. The source code and evaluation results are available at https://github.com/reSHARMA/ContextCov.
+DO  - 10.48550/arXiv.2603.00822
+UR  - https://arxiv.org/abs/2603.00822
+AN  - arXiv:2603.00822v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Developer Experience with AI Coding Agents: HTTP Behavioral Signatures in Documentation Portals
+AU  - Oleksii Borysenko
+PY  - 2026
+DA  - 2026-04-02
+AB  - The rapid adoption of AI coding agents and AI assistant web services is fundamentally changing how developers discover, consume, and interact with technical documentation. This paper studies that transformation across three interconnected dimensions: documentation accessibility, content analytics, and feedback systems. We present an empirical study of HTTP request fingerprints from nine AI coding agents (Aider, Antigravity, Claude Code, Cline, Cursor, Junie, OpenCode, GitHub Copilot (VS Code agent mode), and Windsurf) and six AI assistant services (ChatGPT, Claude, Google Gemini, Google NotebookLM, MistralAI, and Perplexity) accessing a live developer documentation endpoint, revealing identifiable behavioral signatures in HTTP runtime environments, pre-fetch strategies, User-Agent strings, and header patterns. Our study shows that AI agent access compresses multi-page navigation into a single or two requests, making traditional engagement metrics - session depth, time-on-page, click path, and bounce rate - unreliable indicators of actual documentation consumption. We discuss practical adaptations for developer portal teams, including tokenomics-aware documentation design, adoption of emerging machine-readable standards (AGENTS.md, llms.txt, skill.md, agent-permissions.json), MCP server-based feedback channels, and analytics instrumentation for AI referral traffic.
+DO  - 10.48550/arXiv.2604.02544
+UR  - https://arxiv.org/abs/2604.02544
+AN  - arXiv:2604.02544v3
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Spec Kit Agents: Context-Grounded Agentic Workflows
+AU  - Pardis Taghavi
+AU  - Santosh Bhavani
+PY  - 2026
+DA  - 2026-04-07
+AB  - Spec-driven development (SDD) with AI coding agents provides a structured workflow, but agents often remain "context blind" in large, evolving repositories, leading to hallucinated APIs and architectural violations. We present Spec Kit Agents, a multi-agent SDD pipeline (with PM and developer roles) that adds phase-level, context-grounding hooks. Read-only probing hooks ground each stage (Specify, Plan, Tasks, Implement) in repository evidence, while validation hooks check intermediate artifacts against the environment. We evaluate 128 runs covering 32 features across five repositories. Context-grounding hooks improve judged quality by +0.15 on a 1-5 composite LLM-as-judge score (+3.0 percent of the full score; Wilcoxon signed-rank, p < 0.05) while maintaining 99.7-100 percent repository-level test compatibility. We further evaluate the framework on SWE-bench Lite, where augmentation hooks improve baseline by 1.7 percent, achieving 58.2 percent Pass@1.
+DO  - 10.48550/arXiv.2604.05278
+UR  - https://arxiv.org/abs/2604.05278
+AN  - arXiv:2604.05278v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.MA
+ER  - 
+
+TY  - UNPB
+TI  - Guardrails Beat Guidance: A Large-Scale Study of Rules, Skills, and Persistent Configuration for Coding Agents
+AU  - Xing Zhang
+AU  - Guanghui Wang
+AU  - Yanwei Cui
+AU  - Wei Qiu
+AU  - Ziyuan Li
+AU  - Bing Zhu
+AU  - Peiyang He
+PY  - 2026
+DA  - 2026-04-13
+AB  - Random rules improve a coding agent's task performance as much as expert-curated ones (both $+13.8$pp on a discriminative subset of SWE-bench Verified), and in our data every individually beneficial rule is a negative constraint ("do not refactor unrelated code"), while every individually harmful one is a positive directive ("follow code style"). We arrive at these findings through the first large-scale controlled study of agent rule files (\texttt{CLAUDE.md}, \texttt{.cursorrules}, and the broader family of agent skills, plugin manifests, and persona definitions): we scrape 679 rule files (25{,}532 rules) from GitHub and conduct over 5{,}000 agent runs of Claude Code with Claude Opus 4.6 on SWE-bench Verified. Three patterns emerge. (i) Rule polarity cleanly separates beneficial from harmful rules; we read this through the lens of potential-based reward shaping (PBRS). (ii) Performance gains are largely content-independent: random, shuffled, mismatched-domain, and unconverted-format rule files all match curated rules, pointing to a context priming mechanism. (iii) Individual rules often appear harmful in isolation yet do not visibly accumulate damage in ensemble: pass rates remain stable across rule counts from 0 to 50. These findings expose a hidden reliability risk in the rapidly growing ecosystem of community-authored rules and skills, and they yield a clear principle for safer agent configuration: constrain what agents must not do, rather than prescribing what they should.
+DO  - 10.48550/arXiv.2604.11088
+UR  - https://arxiv.org/abs/2604.11088
+AN  - arXiv:2604.11088v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.CL
+ER  - 
+
+TY  - UNPB
+TI  - ZORO: Active Controls to Support Rule Following in Vibe Coding
+AU  - Jenny Ma
+AU  - Sitong Wang
+AU  - Joshua H. Kung
+AU  - Lydia B. Chilton
+PY  - 2026
+DA  - 2026-04-17
+AB  - Rules files (e.g., AGENTS$.$md, CLAUDE$.$md) are the primary mechanism for human-agent alignment when developers vibe code. However, they remain passive: it is not immediately apparent when rules are being used or followed, or how to improve them. To transform rules from passive text into active controls, we introduce ZORO, an interactive interface that integrates directly with a coding agent and anchors rules to every step of the coding process. After an agent generates an initial plan, ZORO enriches the plan with rules, enforces the rules during implementation by requiring the agent prove that each rule was followed, and allows users to provide in-situ feedback when they are unsatisfied with a rule application to evolve the ruleset. A technical evaluation shows that coding agents follow rules more with ZORO than without. A user study demonstrates a change in people's behavior and cognitive strategies when rules are at the forefront of vibe coding. We discuss how making rules active in agentic systems unlocks broader opportunities for human-agent alignment in coding settings and beyond.
+DO  - 10.48550/arXiv.2604.15625
+UR  - https://arxiv.org/abs/2604.15625
+AN  - arXiv:2604.15625v3
+DB  - arXiv
+PB  - arXiv
+KW  - cs.HC
+ER  - 
+
+TY  - UNPB
+TI  - SDAD: Spec-Driven Agentic Development for the AI-Native SDLC
+AU  - Vu Hung Nguyen
+AU  - Thanh Nguyen
+PY  - 2026
+DA  - 2026-05-05
+AB  - Frontier coding agents backed by large language models with context windows from hundreds of thousands to millions of tokens are restructuring the Software Development Life Cycle (SDLC). Rich context handling and multi-step reasoning now allow substantial Functional Requirement Documents (FRDs) and repository context to be ingested in a single workflow, making specification quality the execution fuel for autonomous delivery. This report formalises Spec-Driven Agentic Development (SDAD) as a synthesis of disciplined up-front formalisation and high-velocity implementation: intent capture, machine-readable specification, agentic synthesis, and independent multi-agent verification under human sign-off. We revisit the historical pendulum between Waterfall and Agile, introduce AI-code as a fourth production paradigm, and compare Human-Agile (circa 2020) with Agentic-SDAD (circa 2026) across artefacts, cadence, accountability, and security posture. Beyond process description, we extend the model to team role metamorphosis (engineer, QA, platform, and product functions), quantitative governance (Ambiguity Tax, Spec Fidelity, SER, and TCI_agentic with repair multiplier phi), and pragmatic adoption via hybrid estimation and a staged migration blueprint. Industrial and research evidence on AI-augmented testing and verification is integrated to motivate separation between synthesis and release authority. Overall, the paper argues that agentic speed does not eliminate engineering discipline; it relocates discipline upstream into specification precision, explicit gates, and auditable provenance.
+DO  - 10.48550/arXiv.2608.20341
+UR  - https://arxiv.org/abs/2608.20341
+AN  - arXiv:2608.20341v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Operationalizing Ethics for AI Agents: How Developers Encode Values into Repository Context Files
+AU  - Christoph Treude
+AU  - Sebastian Baltes
+AU  - Marc Cheong
+PY  - 2026
+DA  - 2026-05-07
+AB  - As AI coding agents become embedded in software development workflows, developers are beginning to operationalize ethical principles by encoding behavioral rules into repository-level context files for AI agents, such as AGENTS.md files. Rather than examining the ethics of AI agents in the abstract, this vision paper investigates how ethics and values are already being translated for AI agents into actionable instructions that shape agent behavior. Through a preliminary investigation, we find that developers are already embedding guidance related to fairness, accessibility, sustainability, tone, and privacy. These artifacts function as a developer-authored governance layer, translating abstract principles into situated, natural-language directives within development workflows. We outline a research agenda for studying this emerging practice, including how encoded values vary across communities, what governance dynamics emerge when multiple contributors negotiate these files, and whether agents reliably adhere to the constraints specified. Understanding how ethics and values are operationalized for AI agents is essential to ground AI governance in modern software engineering practice.
+DO  - 10.1145/3805760.3814899
+UR  - https://arxiv.org/abs/2605.05584
+AN  - arXiv:2605.05584v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.CY
+ER  - 
+
+TY  - UNPB
+TI  - Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight
+AU  - Tanjal Shukla
+AU  - K. J. Kevin Feng
+AU  - Leijie Wang
+AU  - Mohammad Rostami
+AU  - Amy X. Zhang
+PY  - 2026
+DA  - 2026-05-12
+AB  - Despite coding agents' advances in handling increasingly complex tasks, their continued tendency to introduce unintended edits, subtle bugs, and scope drift that slip past code review means developers must still decide how much autonomy to grant them. However, existing approaches for setting an agent's level of autonomy, such as static permission settings or instruction files, cannot account for how developers' preferences for agent autonomy can shift across tasks and over time. We conducted a formative survey with 21 software engineers who use coding agents and found that they experience frustration with calibrating autonomy and have evolving preferences for level of oversight. Building on these insights, we present Hedwig, a CLI coding agent that dynamically adjusts its autonomy level based on developer-agent interactions across sessions. Rather than operating on a global, fixed autonomy configuration, Hedwig learns an evolving set of behavioral guidelines from developer decisions and feedback, reducing friction on work for which the agent has earned trust, while tightening oversight when the agent operates outside familiar territory. Hedwig demonstrates the potential of a new paradigm where agents intelligently adapt their level of autonomy based on user trust through active, longitudinal collaboration.
+DO  - 10.48550/arXiv.2605.11495
+UR  - https://arxiv.org/abs/2605.11495
+AN  - arXiv:2605.11495v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.HC
+ER  - 
+
+TY  - UNPB
+TI  - Context Rot in AI-Assisted Software Development: Repurposing Documentation Consistency for AI Configuration Artifacts
+AU  - Christoph Treude
+AU  - Sebastian Baltes
+PY  - 2026
+DA  - 2026-06-08
+AB  - Developers increasingly provide AI coding assistants with persistent context through configuration files such as CLAUDE.md, AGENTS.md, and .cursorrules. These files describe code elements, architecture, and development conventions, forming the context that guides AI tool behavior across sessions. As software evolves, this context can become stale, a phenomenon we call context rot. While AI configuration artifacts are new, the underlying consistency problem connects to decades of software documentation research. Researchers have built tools to check consistency between documentation and code, spanning README files, code comments, API documentation, architecture descriptions, and installation instructions. We argue that this existing toolbox is an immediate starting point for detecting context rot, and we present a research roadmap mapping documentation consistency approaches to corresponding problems in this new setting. As preliminary evidence, applying an existing README/wiki consistency checker to a statistically representative sample of 356 repositories identifies stale code element references in 23.0% of repositories, showing that traditional documentation consistency tools can already surface context rot.
+DO  - 10.48550/arXiv.2606.09090
+UR  - https://arxiv.org/abs/2606.09090
+AN  - arXiv:2606.09090v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Configuration Smells in AGENTS.md Files: Common Mistakes in Configuring Coding Agents
+AU  - Helio Victor F. dos Santos
+AU  - Vitor Costa
+AU  - Joao Eduardo Montandon
+AU  - Luciana Lourdes Silva
+AU  - Marco Tulio Valente
+PY  - 2026
+DA  - 2026-06-14
+AB  - Coding agents are increasingly used to automate software engineering tasks. To guide their behavior, these agents commonly rely on configuration files, typically named AGENTS. md or CLAUDE. md, which provide instructions about architecture, workflows, coding conventions, and testing practices. Despite their growing importance, little is known about common problems affecting the definition and maintenance of these files. In this paper, we present the first catalog of smells for coding-agent configuration files. To identify such smells, we first conducted a grey literature review and a repository mining analysis. As a result, we identified six configuration smells and proposed automated heuristics to detect them. To evaluate the prevalence of the proposed smells, we analyzed 100 popular open-source repositories containing either an AGENTS. md or a CLAUDE. md file. Our results show that configuration smells are widespread. Lint Leakage was the most common smell, affecting 62% of the files, followed by Context Bloat (42%) and Skill Leakage (35%). We further show that several smells frequently co-occur, particularly Context Bloat, Skill Leakage, and Conflicting Instructions.
+DO  - 10.48550/arXiv.2606.15828
+UR  - https://arxiv.org/abs/2606.15828
+AN  - arXiv:2606.15828v5
+DB  - arXiv
+PB  - arXiv
+N1  - Journal ref: 26th IEEE International Conference on Source Code Analysis and Manipulation (SCAM 2026)
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Probe-and-Refine Tuning of Repository Guidance for Coding Agents
+AU  - Asa Shepard
+AU  - Jeannie Albrecht
+PY  - 2026
+DA  - 2026-06-18
+AB  - LLM-based coding agents need higher-level operational knowledge about a repository (which files house which subsystems, how to run the test suite, which workflows have historically led to wrong fixes) that does not exist in the code itself. Engineers typically maintain AGENTS.md files to supply this context as instructions for coding agents, but whether they help is contested: recent studies disagree on whether LLM-generated guidance improves or harms agent performance. In this paper we show that how the guidance is produced is the decisive variable, and introduce probe-and-refine tuning: a procedure that uses synthetic bug-fix probes to iteratively diagnose and patch a repository's guidance file through single-shot LLM calls, with no agent loop or tool use during tuning. On SWE-bench Verified across four independent trials with Qwen3.5-35B-A3B at 200 steps, probe-and-refine achieves 33.0% mean resolve rate vs. 28.3% for the static knowledge base used to initialize it and 25.5% for an unguided baseline (p < 0.001 for both probe-and-refine contrasts). The improvement comes from coverage rather than precision: refined guidance produces evaluable patches for 14.5 percentage points (pp) more instances while per-patch precision remains statistically constant (~59%, p = 0.119), showing that improved guidance helps agents reach the correct file rather than improving the quality of the changes they make. Further, a step-budget experiment shows that guidance is what lets the agent use a larger step budget productively, and a cross-model experiment with NVIDIA-Nemotron-3-Nano-30B-A3B finds that the tuning loop degrades when the model cannot generate sufficiently diagnostic output, though per-patch precision remains constant even then.
+DO  - 10.48550/arXiv.2606.20512
+UR  - https://arxiv.org/abs/2606.20512
+AN  - arXiv:2606.20512v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.LG
+ER  - 
+
+TY  - UNPB
+TI  - How Do Developers Maintain and Evolve Their Agents' Instructions? An Empirical Study
+AU  - Gianmario Voria
+AU  - Alfonso Cannavale
+AU  - Andrea De Lucia
+AU  - Yutaro Kashiwa
+AU  - Gemma Catolino
+AU  - Fabio Palomba
+PY  - 2026
+DA  - 2026-06-24
+AB  - Context. Autonomous coding agents are increasingly used in software development, shifting parts of the engineering process to AI assistance. While this automation brings clear benefits, it introduces challenges in governance, traceability, and control over agent behavior. Agent Context Files (ACFs) have emerged as a practical mechanism to guide agents through structured instructions, yet little is known about how these artifacts are maintained and how their evolution relates to code development. Objective. This paper plans to investigate the evolution of ACFs and their role in agent-driven development. Specifically, we (1) classify ACF changes through a taxonomy grounded in software maintenance theory, (2) analyze how different types of changes are associated with code quality outcomes, and (3) examine their temporal patterns across the development lifecycle. Method. We conduct a large-scale mining study combining repositories with ACFs and agent-generated commits. We reconstruct ACF evolution at the commit level, classify changes using a qualitative approach, and analyze their association with code quality metrics. Statistical analyses and hypotheses are used to evaluate differences across maintenance categories, to inform future design of ACFs for governing autonomous coding agents.
+DO  - 10.48550/arXiv.2606.25257
+UR  - https://arxiv.org/abs/2606.25257
+AN  - arXiv:2606.25257v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - A Deterministic Control Plane for LLM Coding Agents
+AU  - Padmaraj Madatha
+PY  - 2026
+DA  - 2026-06-25
+AB  - LLM coding harnesses grant agents broad file and shell access, yet the configuration layer that steers them -- rules files, agent definitions, IDE-specific markdown -- is largely unmanaged. A prevalence study of 10,008 public GitHub repositories (n=6,145 agent config files) finds that agent configurations propagate as undeclared shared components: 10.1% of tracked paths are SHA-256 exact duplicates across independent repositories (fork-adjusted, threshold-independent), with 75.5% of clone pairs crossing organisational boundaries. Two further patterns are indicative: configurations are rarely revised (58% single-commit; 0.4 vs 0.6 commits/month age-normalised against CI/CD workflows), and rarely declare permission boundaries (<1% of agent configs vs 33% of Actions workflows, n=31 true positives). We propose a deterministic control plane above the harness that maps one-to-one to these gaps. Rel(AI)Build treats agent definitions as a managed supply chain (SHA-256 content addressing, HMAC-stamped lockfiles, hash-chained audit logs); enforces tiered permissions and attack-derived blocklists before LLM invocation; gates feature work through a phase state machine with requirement-to-file-to-test traceability; compiles a single canonical definition to seven IDE targets; and detects prompt drift via Jaccard similarity. Conformance tests on injected violations confirm each mechanism enforces its stated invariant; developer outcomes remain future work. Governance of this layer must be deterministic and tool-agnostic -- not delegated to further LLM orchestration.
+DO  - 10.48550/arXiv.2606.26924
+UR  - https://arxiv.org/abs/2606.26924
+AN  - arXiv:2606.26924v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.CR
+ER  - 
+
+TY  - UNPB
+TI  - The Spec Growth Engine: Spec-Anchored, Code-Coupled, Drift-Enforced Architecture for AI-Assisted Software Development
+AU  - Hartwig Grabowski
+PY  - 2026
+DA  - 2026-06-25
+AB  - AI coding agents dramatically accelerate implementation speed but introduce two structural failure modes that existing spec-driven approaches do not fully solve: (1) context explosion -- the agent must reason over an entire repository at once, degrading output quality as the context window fills; and (2) silent spec-code drift -- code evolves, the specification does not, and the divergence becomes invisible until it is costly to repair. We present the Spec Growth Engine, a lightweight framework that addresses both failure modes through a machine-readable spec graph whose nodes carry explicit contract/design separation, a Spine context assembler that scopes agent context to an ownership path, a vertical-slice growth protocol that enforces hardest-first ordering, and a drift gate that makes spec-code divergence a blocking merge condition. The design synthesises well-established software engineering principles (Parnas information hiding, C4, ADRs, Walking Skeleton, Reflexion Models, Fitness Functions) into a lean, code-coupled, machine-enforced whole -- without the overhead of heavy-weight frameworks such as RUP or MDA.
+DO  - 10.48550/arXiv.2606.27045
+UR  - https://arxiv.org/abs/2606.27045
+AN  - arXiv:2606.27045v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Cloak and Detonate: Scanner Evasion and Dynamic Detection of Agent Skill Malware
+AU  - Zimo Ji
+AU  - Congying Xu
+AU  - Zongjie Li
+AU  - Yudong Gao
+AU  - Xin Wei
+AU  - Shuai Wang
+AU  - Shing-Chi Cheung
+PY  - 2026
+DA  - 2026-07-02
+AB  - LLM coding agents increasingly rely on third-party agent skills from public marketplaces, which execute with the agent's privileges and create a software supply-chain attack surface: a malicious skill can steal credentials, exfiltrate source code, or install backdoors. Existing defenses use static skill scanners based on pattern matching or LLM-as-judge analysis, but it remains unclear whether they withstand adaptive evasions that preserve malicious behavior while changing payload appearance. This paper first presents an adversarial study of existing skill scanners through SkillCloak, a payload-preserving evasion framework that keeps the attack semantics intact while transforming their visible form. SkillCloak uses two complementary strategies: Structural Obfuscation, which rewrites visible payload indicators into semantically equivalent forms, and Self-Extracting Skill (SFS) Packing, which hides malicious components from the install-time view and restores them during agent execution. Across eight scanners and 1,613 in-the-wild malicious skills, SFS Packing bypasses every scanner at over 90%, while Structural Obfuscation bypasses over 80% on most static scanners and reaches 96% on a hybrid scanner, showing that appearance-based auditing is insufficient. Motivated by this finding, we propose SkillDetonate, a behavior-centric runtime auditor that executes skills in a sandbox and detects malicious effects through OS-boundary information-flow evidence rather than install-time appearance. SkillDetonate combines on-demand closure lift, which observes instructions materialized during execution, with marker-based taint analysis, which tracks sensitive-data flows across the agent context, files, processes, and network operations. The results show that SkillDetonate detects 97% of attacks at a 2% false-positive rate and sustains 87% detection on real-world malicious skills.
+DO  - 10.48550/arXiv.2607.02357
+UR  - https://arxiv.org/abs/2607.02357
+AN  - arXiv:2607.02357v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.CR
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Self-Improving AI Coding Agents Through Accumulated Behavioral Rules: A Closed-Loop Framework
+AU  - Aditya Aggarwal
+AU  - Nahid Farhady Ghalaty
+PY  - 2026
+DA  - 2026-07-13
+AB  - LLM-based coding agents repeat the same classes of mistakes across sessions because they lack a mechanism to retain corrections from human review feedback. We present a closed-loop framework in which every accepted review comment is codified as a persistent behavioral rule, progressively expanding the set of error classes the agent can self-detect. The framework combines an accumulating rule set in a version-controlled instruction file, a self-review checklist executed before code submission, and automated validation that ensures rule set integrity as it grows. In deployment across a 35+ service microservices platform, the rule set grew from 5 to 18 behavioral rules, 15+ language-specific standards, and a 15-item self-review checklist, all derived from real review feedback. We present empirical results from 11 recorded working sessions spanning code generation, PR review, incident investigation, and cross service refactoring. We observe that accumulated rules shift review effort from low-level correctness toward design-level validation, achieve a measured 0% recurrence rate for ruled-against error classes, and transfer across heterogeneous agent interfaces. We compare our approach against related work in experiential LLM learning (Reflexion, ExpeL, Voyager) and automated code review (CodeReviewer, SWE-bench agents), showing that our framework achieves persistent cross-session learning without weight updates, operates on production codebases rather than synthetic benchmarks, and addresses an orthogonal dimension (behavioral consistency over time) that existing benchmarks do not measure. The result is a coding agent that improves with every review cycle, accumulating the engineering wisdom of its human collaborators without changing a single model weight.
+DO  - 10.48550/arXiv.2607.13091
+UR  - https://arxiv.org/abs/2607.13091
+AN  - arXiv:2607.13091v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Delivery, Not Storage: Cue-Anchored Working Memory as a Harness Property for Coding Agents
+AU  - Swapnanil Saha
+PY  - 2026
+DA  - 2026-07-23
+AB  - Coding agents ship with one kind of memory: documents. Instruction files, plan artifacts, and auto-written memory directories are deliberately authored and deliberately retrieved: the agent must choose to write them and choose to read them back. Human expertise runs on a second tier that never gets written down: situationally-bound operational facts (gotchas, locations, local conventions) encoded as a side effect of the work and retrieved involuntarily when the situation cues them. We argue this second tier is the load-bearing one for long-running agents and must be a harness property, not an agent choice. We contribute: (1) a two-tier design theory grounded in the cognitive literature on memory offloading, incidental encoding, and event-based prospective memory, each mapped to an architectural requirement; (2) a cue-anchored memory model where memories carry first-class trigger conditions over a composable vocabulary (path, symbol, semantic, event, temporal), evaluated deterministically by the harness, a composition no surveyed academic or shipped system provides; (3) a controlled evaluation on a real coding task showing that voluntary memory use is near zero even with a pre-seeded store (0 memory operations in 114 turns), that deterministic injection delivered in every seeded run with zero false alarms, and that 39% of intra-session re-reads re-buy content paid for before a compaction boundary; (4) a repeated-compaction decay probe: ten facts held only in conversation vanish at the first summary and stay absent from 106 of 108 compactions, and the deprived agent greps the harness's own session files to rebuild them, while the same facts injected from a harness-owned store arrive intact through all 138 compact-resumes as the final summary carries none. Delivery, not storage, is the product: the reliable memory channel for agents is the one the agent never has to think about.
+DO  - 10.48550/arXiv.2607.20972
+UR  - https://arxiv.org/abs/2607.20972
+AN  - arXiv:2607.20972v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories
+AU  - Prakhar Khatri
+PY  - 2026
+DA  - 2026-07-28
+AB  - Persistent context files (AGENTS.md, CLAUDE.md) are standard practice for guiding AI coding agents, yet evidence for their effectiveness is contradictory. We present a controlled ablation of context-injection strategy across two frontier agents (Claude Code and Codex), 17 real tasks from 3 repositories (15 shared + 2 Codex-only), and 288 evaluated runs with gold-test evaluation. Context strategy does not measurably move correctness on either agent (bounded to <=10-15pp via equivalence testing). A failure-mode triage reveals why: agents fail on implementation skill---feature design, pattern selection, exact wiring---not missing repository knowledge that a context file could supply; a manipulation probe confirms the real AGENTS.md never converts a near-miss to a pass on either agent. We further show that borderline task difficulty is agent-specific (Spearman rho=0.75), offering a candidate explanation for prior contradictions: single-agent studies draw tasks from different agents' informative bands. We release all code, data, and analysis.
+DO  - 10.18653/2026.realm-1.5
+UR  - https://arxiv.org/abs/2607.27250
+AN  - arXiv:2607.27250v1
+DB  - arXiv
+PB  - arXiv
+N1  - Journal ref: Proceedings of the Second Workshop for REsearch on Agent Language Models (REALM 2026), pages 57-67
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Self-Evolving Coding Agents
+AU  - Hao Zhou
+AU  - Haichuan Hu
+AU  - Tianyu Luo
+AU  - Ye Shang
+AU  - Chunrong Fang
+AU  - Zhenyu Chen
+AU  - Liang Xiao
+AU  - Quanjun Zhang
+PY  - 2026
+DA  - 2026-08-04
+AB  - Large language models are increasingly embedded in software engineering workflows as coding agents that can inspect repositories, invoke tools, execute tests, debug failures, and generate patches. Yet most existing coding agents remain largely static after deployment, even though software development is a dynamic, feedback-rich process in which repositories evolve, dependencies change, tests fail, and repair attempts leave reusable experience. This tension has motivated a growing body of work on self-evolving coding agents, where the agent improves its future behavior by persistently updating its framework, memory, skills and tools, components, workflow and topology, or environment and context from prior coding interactions. In this survey, we provide a structured synthesis of this emerging area. We first define the concept of self-evolving coding agents and distinguish it from conventional coding agents and general self-evolving agents. We then develop a taxonomy centered on the targets of evolution, complemented by two orthogonal perspectives: when evolution occurs and which code-specific signals drive it. We further examine the benchmarks used to measure the effect of evolution and related coding products. Across the literature, we find that executable feedback, repository-level context, and coding trajectories make software engineering a natural domain for agent self-evolution, but also introduce challenges in feedback reliability, benchmark overfitting, reversibility, system complexity, safety, cost, and generalization. By organizing existing work around these dimensions, this survey aims to clarify the conceptual boundaries of self-evolving coding agents and provide a foundation for designing more adaptive, reliable, and software-aware agentic systems.
+DO  - 10.48550/arXiv.2608.03392
+UR  - https://arxiv.org/abs/2608.03392
+AN  - arXiv:2608.03392v4
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - OpenHarmony Bench: Evaluating LLMs and Coding Agents on OpenHarmony App Development
+AU  - Li Li
+AU  - Han Hu
+AU  - Tianjian Zhang
+AU  - Xin Peng
+AU  - Fangzhu Mao
+AU  - Qingyu Zhang
+AU  - Xiaoheng Xie
+AU  - Zhongmin Tang
+AU  - Zhihao Lin
+AU  - Haolin Ruan
+AU  - Miaomiao Dong
+AU  - Liuchuan Zhu
+AU  - Yue Li
+AU  - Chi Chen
+AU  - Wenkang Zhong
+AU  - Mingfei Zhang
+AU  - Yang Yu
+AU  - Bo Sun
+AU  - Chaorui Zhang
+AU  - Weixi Zhang
+AU  - Wei Han
+AU  - Bo Bai
+AU  - Kui Liu
+AU  - Gang Fan
+AU  - Siru Liu
+AU  - Jiaqian Zhou
+AU  - Jiali Sun
+AU  - Yunbiao Dong
+AU  - Wenhao Zhong
+AU  - Yunhong Xu
+PY  - 2026
+DA  - 2026-08-17
+AB  - We present OPENHARMONY BENCH, an app-level coding benchmark for evaluating LLM-based coding agents on OpenHarmony ArkTS applications. Unlike function-level benchmarks, it evaluates complete app-level changes: each task requires an agent to modify a buildable ArkTS project so that a requested behavior works end to end, involving UI state, data persistence, build configuration, and platform APIs. The benchmark installs and drives the delivered application on a device to check whether the behavior is observable. It covers three input sources: natural-language feature requests (new-feature), structured scenario specifications (spec-driven), and bug descriptions (bug-fix). The benchmark contains 153 top-level tasks and 242 Feature points (F-points), where an F-point is one executable behavior check. The snapshot includes 32 new-feature tasks, 50 spec-driven tasks with 139 F-points, and 71 bug-fix tasks. The main leaderboard is scored over top-level tasks rather than independently weighted F-points. We describe the benchmark construction, statistics, and build-and-test evaluation pipeline, and evaluate DevEco Code with eight LLMs across three independent full-suite runs per configuration. Three findings emerge. First, newer generations complete more tasks than their predecessors within evaluated model-family pairs. Second, buildability is close to saturated while behavioral correctness is not: mean Final Build Success Rate is 94.77% to 100.00%, whereas mean Task Completion is 48.36% to 58.39%. Third, spec-driven tasks have the lowest Task Completion under all-checks task scoring, with no configuration exceeding 35%. The code, data, tasks, reference solutions, tests, evaluation scripts, and leaderboard are released through the official OPENHARMONY BENCH website at https://bench.matrix.openharmony.cn/.
+DO  - 10.48550/arXiv.2608.16022
+UR  - https://arxiv.org/abs/2608.16022
+AN  - arXiv:2608.16022v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation
+AU  - Zhijun Gao
+AU  - Jing Chen
+PY  - 2026
+DA  - 2026-08-20
+AB  - Technical documentation is written for human developers, but an increasing share of software changes is now authored by autonomous coding agents. Which documents they consult, when, and what follows remain unknown. We conduct a behaviour-grounded study of agent-documentation interaction across two public datasets: 557 agentic coding sessions from SWE-chat, yielding 94,813 development events including 3,033 documentation interactions; and 33,097 agentic pull requests from AIDev, with 690,260 classified file-level change records. Four findings challenge current documentation practice. First, agents' documentation work is dominated by agent-facing artefacts: instruction files and working notes account for 60.5% of all documentation interactions, versus 10.6% for classical technical documentation and 1.3% for API references. Second, the link between consultation and code editing is unresolved: the adjacent transition probability is 0.002 and the unadjusted three-event lift 1.05, whereas a stage-adjusted model places it above unity (OR 1.33 [1.09, 1.62]); documentation creation is elevated unadjusted (lift 1.67) but its adjusted interval includes unity. Third, no explicit documentation-based validation sequence was observed, and consultation is associated with less immediate testing (lift 0.23, cluster CI 0.08-0.45; adjusted OR 0.39 [0.25, 0.60]). Fourth, consultation is self-initiated (70.2%) far more often than failure-driven (7.5%), and documentation trails code: among multi-commit pull requests changing both, code is touched first 4.7x more often. From these traces we derive a descriptive model of agent-documentation interaction as a two-lobed cycle rather than a linear journey, and show that two widely assumed properties of "agent-friendly" documentation - actionability and verifiability - lack consistent behavioural support. We release our pipeline, coding scheme, and event-level data.
+DO  - 10.48550/arXiv.2608.20195
+UR  - https://arxiv.org/abs/2608.20195
+AN  - arXiv:2608.20195v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.HC
+ER  - 
+
+TY  - UNPB
+TI  - Applying Anthropic Primitives at Large Enterprises: Harness Paradigm for Knowledge Work
+AU  - George Juraj Salapa
+PY  - 2026
+DA  - 2026-08-20
+AB  - Frontier models have collapsed the cost of writing custom code: a niche problem a specialist sees in their own domain now costs an afternoon. The cost of reviewing and maintaining that code hasn't collapsed. Each solution drifts from the next; understanding one means reading its codebase from scratch. Large enterprises build something centrally governed instead: at worst an off-the-shelf product, at best a graph-orchestration framework wired bespoke per use case, or a low-code platform used as the orchestrator. These are custom every time and limited in scope. Enterprises don't weigh a third option that escapes both constraints: the harness paradigm. Recent work treats the coding-agent harness as enterprise infrastructure rather than a coding tool, converging on three findings: harnesses suffice at the task level and outperform more elaborate architectures on enterprise work (arXiv:2604.00073, arXiv:2604.13107); harness choice accounts for most of the variance in agent benchmark results, more than model choice does (arXiv:2605.23950); and the gap between that finding and enterprise adoption is governance (arXiv:2605.10223, arXiv:2605.18747). We propose an architecture that closes that gap. One harness runs unmodified as the backbone; the code stays identical across every deployment, so reviewing what gets built collapses to reading its instructions file. Section 4 gives four mechanisms: credential-scoped tooling, where each backend gets one generic request tool and a scoped credential instead of a hand-built method; authorization logic outside the harness, so one artifact runs as a cron backbone, a chat-surface engine, and a terminal tool; registration is a side effect of pushing code, collapsing an audit a review of a text file. Built on microcc (<https://pypi.org/project/micro-cc/>), our reference harness.
+DO  - 10.48550/arXiv.2608.20622
+UR  - https://arxiv.org/abs/2608.20622
+AN  - arXiv:2608.20622v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Specification Portability Across LLM Development Agents: Cross-Agent Compatibility in Specification-Driven Software Migration
+AU  - Oleg Grynets
+AU  - Oleksii Ilchuk
+AU  - Dariia Zatulna
+AU  - Vasyl Lyashkevych
+PY  - 2026
+DA  - 2026-08-21
+AB  - This paper investigates cross-agent specification portability using Oracle-to-PostgreSQL migration as a controlled software transformation task. The study combines two experimental stages. First, a specification-first migration pipeline was evaluated on 1,006 PL/SQL files, of which 623 were successfully regenerated and 380 generated scripts executed successfully in PostgreSQL 16. Second, cross-agent experiments were conducted on a dataset of 1,802 Oracle scripts with corresponding PostgreSQL implementations using Amazon Kiro, Google Gemini, and GitHub Copilot, with Claude Code and Cursor included in the initial single-agent evaluation. Native and foreign specifications were assessed using Token F1, exact match, SQL syntax validity, AST exact match, AST mean similarity, and immediate runnability. The results show that specification size alone does not predict implementation quality and that cross-agent transfer can produce substantial agent-dependent degradation. The strongest replicated case occurred when Gemini directly consumed a Kiro-origin specification, producing a Token F1 of 0.035, SQL syntax validity of 2.33%, and AST mean similarity of 0.015. Rewriting substantially improved Gemini in the tested configuration, compression did not provide a universal benefit, and retrieval-augmented ingestion was the only common strategy represented on the per-agent Pareto frontiers of both Gemini and Copilot. The findings suggest that specifications in heterogeneous SDD workflows should not automatically be treated as agent-neutral artifacts and motivate explicit consideration of specification portability, agent-specific interpretation, and retrieval-based access in multi-agent software engineering.
+DO  - 10.48550/arXiv.2608.21208
+UR  - https://arxiv.org/abs/2608.21208
+AN  - arXiv:2608.21208v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+KW  - cs.LO
+ER  - 
+
+TY  - UNPB
+TI  - Spec-Driven Development as Prescribed and as Practiced
+AU  - Shyam Agarwal
+AU  - Anmol Singhal
+AU  - Andrew Macvean
+AU  - Bogdan Vasilescu
+AU  - Travis Breaux
+PY  - 2026
+DA  - 2026-08-25
+AB  - AI coding agents implement software from naturallanguage instructions, but the intent behind that work is lost when stated only in chat sessions. Spec-driven development (SDD) addresses this by having developers and agents write specifications that guide implementation, yet evidence on its use comes largely from tool vendors. We study SDD in practice through a thematic analysis of Reddit discussions, interviews with 21 practitioners, including eight tool makers, and 266 active and popular repositories in SpecMine, a corpus of 470,795 spec files from 73,030 public GitHub repositories that we release. Practitioners agreed that specs should capture intent, but many also included implementation details, used SDD selectively and mainly for new features, and reported more reliable agent behavior alongside greater planning and review costs. Our findings show that implementation detail may help agents while making specs prone to decay, that tool-specific record structures shape what people and agents see, and that participants described spec-code checks mainly when changes are completed rather than over time. We also find that individual benefits may come from clarifying intent before delegation, while team benefits may depend on SDD becoming a shared process. We derive implications for tool builders, practitioners, and researchers.
+DO  - 10.48550/arXiv.2608.25202
+UR  - https://arxiv.org/abs/2608.25202
+AN  - arXiv:2608.25202v5
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces
+AU  - Ahmed Hereiz
+AU  - Yingzhe Lyu
+AU  - Hao Li
+AU  - Bram Adams
+AU  - Ahmed E. Hassan
+PY  - 2026
+DA  - 2026-08-28
+AB  - AI coding agents, software tools that automate development tasks through reasoning and tool use, are increasingly extended through plugin marketplaces, yet the structure, maintenance, and co-evolution dynamics of these emerging repositories remain empirically unexplored. Unlike traditional software packages that deliver functionality through source code, agent plugins deliver functionality through a combination of natural-language instruction files, scripts, and configuration files, raising the question of whether these plugins are maintained artifacts that co-evolve across components, or one-off artifacts that developers write once and do not need to revisit. To study the maintenance and co-evolution of agent plugins, we conduct an empirical study of 1,926 repositories hosting Claude Code plugin marketplaces, analyzing 8,351 plugins and 77,773 commits across 2,018 marketplaces. We find that the marketplace is expanding rapidly, plugin-touching commit activity growing 8.8x over six months after the October 2025 launch, and plugins targeting Software Engineering tasks accounting for 61.3% of all plugins. Plugin development is predominantly feature-driven, with feature commits occurring at more than twice the rate of conventional open-source software (OSS) (39.6% vs. 17.2%). Claude co-authors 34.9% of all commits, and four commit types (docs, perf, style, and refactor) carry substantially different meanings in plugin repositories than in traditional software. Most component types evolve independently, but within skills directories, natural-language instruction files and implementation scripts co-evolve at above-chance rates, with 78% of co-changes being functionally coupled, representing a new class of maintenance dependency not observed in traditional software engineering.
+DO  - 10.48550/arXiv.2608.28497
+UR  - https://arxiv.org/abs/2608.28497
+AN  - arXiv:2608.28497v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Spec-Driven Development for Agentic Software Engineering: Harnessing Human-Agent Teamwork
+AU  - Jessica Diaz
+AU  - Joaquin Gayoso
+AU  - Andrea Cimminio
+AU  - Jorge Perez
+PY  - 2026
+DA  - 2026-08-31
+AB  - Context: Software engineering is moving from AI-assisted practices like vibe coding, in which assistants accelerate individual developers, towards Agentic Software Engineering (ASE), in which autonomous agents are delegated goal-level tasks. However, industry reports a productivity paradox: as individual productivity increases, team throughput, review capacity, and stability degrade because team-scale software engineering discipline is neglected. Objective: This paper aims to establish the conceptual and methodological foundations of Spec-Driven Development (SDD) as an enabling discipline for ASE at team scale and characterize the harness, i.e., the technical and methodological mechanisms through which teams govern agent behavior. Method: We conducted a conceptual analysis drawing predominantly on gray literature, including ASE vision and roadmap papers, practitioner reports, talks, and tooling, because peer-reviewed evidence and a shared academic-industrial vocabulary are not yet established. Results: Using a comparative characterization of the paradigm progression as conceptual framing, the article presents (i) a socio-technical model of SDD in which specifications act as the contract substrate between humans and agents; (ii) an operational characterization of the harness, distinguishing the technical harness around the agent from the methodological harness around the team, with worked examples; and (iii) a typology of five human--agent interaction patterns through which the human role is redefined. Conclusion: We conclude that SDD reconstitutes, in specification-centric form, the contracts that vibe coding dissolves: accountability, verifiability, and transferability. Given the immaturity of the evidence base, this work is presented as a first step toward academic-industrial consensus rather than a validated theory, and outlines a research agenda for future empirical validation.
+DO  - 10.48550/arXiv.2609.00252
+UR  - https://arxiv.org/abs/2609.00252
+AN  - arXiv:2609.00252v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - WetRobo: A Reproducible Robot Kit for Coding Agents in Biological Laboratories
+AU  - Yuna Oikawa
+AU  - Kei Endo
+AU  - Takanori Uzawa
+AU  - Yunzhe Zhang
+AU  - Manan Anjaria
+AU  - Lerrel Pinto
+AU  - Sherry Yang
+AU  - Koji Tsuda
+PY  - 2026
+DA  - 2026-09-16
+AB  - Automating biological research requires general-purpose, reproducible robot systems that allow individual wet-lab researchers to delegate robot tasks without performing teleoperation or neural-network training. Vision-language-action policies have been proposed for general-purpose arms, but can lose performance when their operating environment changes. We therefore built WetRobo, a robot kit that can readily transfer between laboratories. It consists of one robot arm, laboratory equipment (an incubator, a reagent bottle with a cap, and a Petri dish), the existing code that moves the arm, teleoperation demonstrations of each task that we recorded, and a general AGENTS.md skill file. A biological experimentalist provides natural-language tasks without collecting local teleoperation training data or training a neural network. The coding agent observes the local laboratory and writes and executes programs, using external tools as needed for adaptation. We demonstrate use of WetRobo with OpenAI Codex (gpt-5.6-sol) on three successful tasks: lifting a Petri dish lid, removing a bottle cap, and opening the incubator door, all in real-world laboratories. The coding agent achieved the cap task in both laboratories, Lab X and Lab Y, whereas a VLA fine-tuned on Lab X demonstrations succeeded there but failed to transfer to Lab Y. These results point to a practical route for laboratory robotics: instead of training a policy for each laboratory, distribute a kit and let a coding agent adapt it in each laboratory. Code, demonstrations, and the evolved programs are available at https://github.com/tsudalab/WetRobo.
+DO  - 10.48550/arXiv.2609.18435
+UR  - https://arxiv.org/abs/2609.18435
+AN  - arXiv:2609.18435v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.RO
+ER  - 
+
+TY  - UNPB
+TI  - A Lean and Spec-Driven AI-Assisted Software Development Lifecycle for Applied AI Education: The AI-SDLC Approach
+AU  - Andreas Martin
+AU  - Sandro Schwander
+PY  - 2026
+DA  - 2026-09-21
+AB  - AI coding agents increasingly support software development beyond code completion, including planning, implementation, testing, and repository-level task execution. Their practical use, however, often remains only weakly connected to established software engineering practices. The aim of this work is to develop and evaluate a lightweight, spec-driven lifecycle for governed agentic software engineering. The lifecycle combines established software engineering practices with repository-local guidance through specifications, AGENTS.md, and phase-specific agent skill files. The approach was developed in the context of the FHNW course AI-assisted Software Development and applied by students to business-oriented software use cases. Its educational and practical applicability is explored through a student survey combining closed rating items with open-ended questions. The contribution of this work is a process-oriented framework that enables AI coding agents to operate with bounded autonomy within an explicit, reviewable, and test-oriented software development lifecycle.
+DO  - 10.48550/arXiv.2609.24348
+UR  - https://arxiv.org/abs/2609.24348
+AN  - arXiv:2609.24348v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Methodological Harness in Agentic Software Engineering: An Empirical Study on Mining Software Repositories
+AU  - Jessica Díaz
+AU  - Jorge Pérez
+AU  - Sergio Gil-Borrás
+PY  - 2026
+DA  - 2026-09-25
+AB  - Context. Agentic software engineering requires mechanisms to coordinate and govern agents' work. The framework motivating this study proposes a methodological harness with eight mechanisms: context engineering, persistent shared knowledge, executable specifications, N-version mindset and parallel agents, normative specifications, structured consultation, evidence-based acceptance, and graduated autonomy. These are realized through artifacts such as rule or context files, specifications, and architectural decision records, but the framework had not been empirically validated at repository scale. Objective. We analyze to what extent and how this harness is observable in repositories with agentic activity. RQ1 characterizes adoption through artifact prevalence, breadth, co-occurrence, and temporal evolution; RQ2 examines rule files - a key observable artifact and persistent source of agent instructions - to assess how their content reflects the proposed mechanisms. Method. From the AIDev dataset of 116,211 GitHub repositories, we analyzed 5,435 using a design stratified by visibility, measured through stars as an indicator of popularity and/or reputation. For RQ1, we detected and quantified artifacts and introduction dates for the seven observable mechanisms. For RQ2, we qualitatively coded rule files from 150 repositories. Results. Population prevalence of at least one mechanism is 21.7%, versus 65.3% among the most visible repositories. Multi-mechanism configurations are rare. Where rule files exist, they almost always guide the agent and state norms, while persistent shared knowledge, executable specifications, structured consultation, and graduated autonomy appear only in a minority. Conclusions. The harness is empirically observable, but mainly through isolated mechanisms rather than the integrated system proposed by the framework.
+DO  - 10.48550/arXiv.2609.32014
+UR  - https://arxiv.org/abs/2609.32014
+AN  - arXiv:2609.32014v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Aletheia: Permission-Minimality Testing for Coding-Agent Rules
+AU  - Jieke Shi
+AU  - Yuchen Chen
+AU  - Junda He
+AU  - Yue Liu
+AU  - David Lo
+PY  - 2026
+DA  - 2026-09-30
+AB  - Coding agents powered by Large Language Models (LLMs) read repository rules (e.g., AGENTS.md and Cursor rules) to learn project conventions and development procedures. An attacker can exploit the same files to mislead the agent into requesting excessive permissions or performing unrelated operations, such as accessing credentials or transferring data. We present Aletheia, a framework for permission-minimality testing of coding-agent rules. It tests whether the permissions requested in these rules are necessary to complete specified tasks. An LLM first translates the rule files into a typed permission language. Aletheia then removes one permission declaration at a time and synthesizes the corresponding restricted sandbox configuration using a trusted task environment. It executes the unchanged rule and task under both the full and restricted configurations. If both executions produce artifacts that pass the functional tests, Aletheia identifies the removed permission as unnecessary for the tested task and flags the corresponding rule file as suspicious. We evaluate Aletheia on AIShellJack, which provides 314 attack rules containing prompt-injection payloads and five benign rules, as well as 80 manually verified benign rules from GHAgentFiles. Aletheia detects all 314 attacks while reporting only three false positives among the 85 benign rules (3.5%). On average, the evaluation takes 44.35 seconds and costs US$0.22 per rule.
+DO  - 10.48550/arXiv.2609.39678
+UR  - https://arxiv.org/abs/2609.39678
+AN  - arXiv:2609.39678v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.CR
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - The EPIC Framework for Spec-Driven Development
+AU  - Bruno Claudino
+AU  - Ruizhe Xing
+AU  - Yuanhao Zuo
+AU  - Tyler Menezes
+AU  - Anita Sarma
+AU  - Kostadin Damevski
+AU  - Zixuan Feng
+PY  - 2026
+DA  - 2026-10-06
+AB  - One practitioner we interviewed said their team writes "must" instead of "should" when instructing a coding agent, because the agent may treat "should" as optional. Small wording choices matter because agents often fill gaps in their instructions with their own assumptions. Spec-driven development (SDD) asks developers to write a specification, plan, and tasks before the agent writes code. SDD frameworks provide templates for these artifacts, but the templates do not help developers judge whether they have written enough or clearly enough. We studied what good SDD specifications contain. We scored the artifacts of 114 open-source SDD repositories against ISO/IEC/IEEE 29148 and derived practices from the highest-scoring ones. The resulting framework, EPIC, has 40 practices in 10 quality dimensions that guide developers in making expectations and decisions explicit in specifications, plans, and tasks for coding agents. The majority of SDD practitioners (N=15) endorsed every practice. Repositories in the top third of specification quality spent 11.8% of their commits on bug fixes, compared with 20.4% in the bottom third, and had a median of 4x as many contributors. Developers can use EPIC to find and fill the gaps in a specification before the agent does.
+DO  - 10.48550/arXiv.2610.07534
+UR  - https://arxiv.org/abs/2610.07534
+AN  - arXiv:2610.07534v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files
+AU  - Yupu Wang
+AU  - Zhengyuan Jiang
+AU  - Reachal Wang
+AU  - Neil Zhenqiang Gong
+PY  - 2026
+DA  - 2026-10-07
+AB  - Modern agentic coding frameworks increasingly rely on community-shared rule files (e.g., AGENTS.md or .cursorrules) to guide autonomous code generation, yet the security risks of this pipeline remain underexplored. To bridge this gap, we introduce the package hallucination attack, where an attacker injects malicious prompts into benign rule files to induce coding agents to replace legitimate dependencies with attacker-controlled packages. To obtain effective malicious prompts injected into rule files, we propose PackHallu, an evolutionary optimization framework that iteratively rewrites these injected prompts using trajectory-level feedback and LLM-guided mutations. Evaluations across multiple benchmarks, LLMs, and agent frameworks show that PackHallu achieves high attack success rates and strong transferability across diverse models and agent combinations. Our findings demonstrate that coding agents are vulnerable to package hallucination attacks, highlighting the urgent need for stronger security safeguards in autonomous coding systems.
+DO  - 10.48550/arXiv.2610.09264
+UR  - https://arxiv.org/abs/2610.09264
+AN  - arXiv:2610.09264v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.CR
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - The Role of Agentic Instruction Categories for Code Generation: A Study of Five Python Libraries
+AU  - Warren Gerald Polandra
+AU  - Yoshiki Higo
+AU  - Raula Gaikovina Kula
+PY  - 2026
+DA  - 2026-10-15
+AB  - Agentic coding systems increasingly rely on repository-level agent files, such as AGENTS.md, to communicate project knowledge and developer intent. However, it remains unclear which categories of agent instructions enable efficient agent-file generation and accurate code generation. We evaluate five instruction categories: Repository Overview, Function Description, Implementation Detail, Testing, and Reconstruction Steps, across all 31 non-empty combinations using two Large Language Models (LLMs), Gemma 4 and GPT-5.4, and five human-written Python libraries. Our study addresses two research questions, comprising five sub-questions, on agent file generation and code generation. Results show that the number of instructions alone does not determine token usage for agent-file generation, with substantial variation across models and libraries. Although most AI-generated libraries compiled successfully regardless of the instruction combination, functional correctness remained limited. No Gemma 4 variant passed all tests, whereas 12.99% of GPT-5.4 variants did. Function Description achieved Gemma 4's highest partial-pass rate, while Reconstruction Steps achieved GPT-5.4's highest full-pass rate. For structural similarity to human-written code, Reconstruction Steps was most frequently associated with libraries closest to the originals in Lines of File and total Cyclomatic Complexity, while Testing and Reconstruction Steps were jointly most frequent for File Count and Function Count.
+DO  - 10.48550/arXiv.2610.21421
+UR  - https://arxiv.org/abs/2610.21421
+AN  - arXiv:2610.21421v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - One Skill Takes Over: Clashing Agent Skills and a One-File Fix
+AU  - Parsa Razmara
+AU  - Seyedarmin Azizi
+AU  - Ardalan Aryashad
+PY  - 2026
+DA  - 2026-10-18
+AB  - Agent Skills are instruction files that tell a coding agent how to do one job. Users install skills from many authors, so two skills for the same job can be active at the same time. We ask what a model does when both skill files are in its context: does it combine their compatible rules, or follow one skill and drop the other? We build SkillClash, 16 pairs of same-job skills in which code checks every rule and a reference output shows the best result that can be reached. On seven models from five families, from 4B open models to Qwen3-235B and GPT-4.1, a skill's rules are followed 93 to 99% of the time when it is loaded alone and 61 to 62% when a same-job skill is loaded next to it. Most outputs show takeover: every rule that only one skill asks for is followed, and every rule that only the other skill asks for is dropped. The worked examples inside the skills drive this. When each skill file instead ends with one example that follows both skills, takeover falls to 1 to 15% on the six models we tested. Telling the model which skill has priority does not bring the dropped skill back, and telling it to apply both skills brings the dropped skill back only on the two strong models and leaves the interacting rules broken. One merged skill file written by the strongest model we used, Claude Opus 5.5, lets all seven models follow 96 to 99% of the achievable rules. Most of its gain over a plain list of both skills' rules comes from its one worked example, and such an example helps only when it is correct. Code and data: https://github.com/prazmara/skillclash
+DO  - 10.48550/arXiv.2610.25064
+UR  - https://arxiv.org/abs/2610.25064
+AN  - arXiv:2610.25064v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Stale Instruction Files Override the Code in Coding Agents: A One-Sentence Fix
+AU  - Xiaonan Xu
+AU  - Wenjing Wu
+PY  - 2026
+DA  - 2026-10-22
+AB  - Purpose: Coding agents follow a project's instruction file, such as CLAUDE.md or AGENTS.md, even when it disagrees with the existing code and even when they notice the disagreement. We measure this behaviour and test whether one sentence in the user's own instruction file makes agents follow the code instead. Methods: We built 40 Python projects in which the instruction file asks for one convention while the existing code uses another, for example print instead of logging. Claude Code and Codex CLI added a feature to each project, with and without a sentence in the user-level instruction file that gives the existing code precedence, in 320 runs. Results: Without the sentence, 90.1% of the agents' choices followed the stale file. Claude Code pointed out the conflict in 79 of 80 runs and still followed the file. Codex CLI rewrote the existing code to match the file in 20 of 80 runs, and the project's own tests then failed in 17 of them. The sentence raised the share of choices that follow the code from 4.2% to 91.4%, stopped the rewrites and raised the test pass rate from 89.4% to 100%. Conclusion: We attribute the behaviour to how agents receive the two sources: the instruction file reaches the model as an instruction and the code as tool output, which models are trained to rank lower. Users can add the sentence today, and makers of agents and models can build the same rule into their products.
+DO  - 10.48550/arXiv.2610.30571
+UR  - https://arxiv.org/abs/2610.30571
+AN  - arXiv:2610.30571v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - What Open-Source Projects Tell Their Coding Agents: A Census of AGENTS.md and CLAUDE.md
+AU  - Pawel Zarzycki
+PY  - 2026
+DA  - 2026-10-22
+AB  - Coding agents can be guided with instruction files in a repository. We examine this emerging practice through a census of 22,854 popular, active GitHub repositories in thirteen languages, treating each repository's root 'AGENTS$.$md' and 'CLAUDE$.$md' as one instruction set. Agent instructions appear in 26.3% of repositories and 59.6% of the most-starred; where both files exist, 'CLAUDE$.$md' usually points to 'AGENTS$.$md'. We analyse 341,852 statements using model-assisted annotation and human review. The annotations reveal a practical mix of project knowledge and rules about code, building and workflow. Collaboration rules name concrete requirements, from test plans to commit formats, yet 74.0% of directives give no reason. Projects disagree on AI attribution: commit-message rules more often prohibit it than require it, while pull-request rules more often require disclosure. A third of instruction sets have a generator-associated signature, a tool-inserted block, shared text or an AI-marked creation commit; four in five are edited after creation. Prespecified tests associate repository popularity with rules on pull requests and AI contributions. Exploratory analyses link activity to process-oriented content and show that LLM and agent projects are over-represented among adopters. The models agree much more closely with each other than with the human reviewer's topic assignments, a caution for automated annotation. We release the annotations, taxonomies and pointers to the analysed file versions.
+DO  - 10.48550/arXiv.2610.31715
+UR  - https://arxiv.org/abs/2610.31715
+AN  - arXiv:2610.31715v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Lessons Outlive Their Failures: A Case Study of Rules for AI Coding Agents
+AU  - Hassan Hassanzadeh Aliabadi
+PY  - 2026
+DA  - 2026-10-23
+AB  - AI coding agents increasingly work inside a harness: rule files such as AGENTS.md, on-demand skills, runtime hooks and automated checks. Most studies of harnesses look at a single point in time or at short benchmark runs. I report a six-week case study of my personal system of record, a plain-markdown repository that three AI agent tools edited daily under one shared rule set. I built a ledger of 118 agent failures, their fixes and whether they came back. I also tested the system's monthly LLM documentation audit against 47 known stale statements and 20 planted errors. Finally, I replayed five past failures in isolated git clones, with and without their fixes. All results come from one repository with three runs per condition, so I report them as exploratory. Stale documentation (drift) was the largest failure class (48 of 118), although 35 of those were found on one audit day. A single audit run found about half of the known drift (Claude Sonnet 5.5 mean: 50%), and at least 93% of its findings were correct. On Sonnet 5.5, the agent finished four of the five replayed tasks. In three of those four, the failure did not happen, with or without its fix. Only the stale-count failure came back without its check, and the check stopped it in every run. On older models, an agent drafted an em-dash once while the em-dash lint check was active, and the check rejected it. A written rule on run-time estimates did not change Sonnet 4.5's overestimates. These results suggest that harness lessons can outlive the failures they were written to fix, while drift persists and still needs mechanical checks. Tools that evolve a harness add lessons faster than they retire them, so they should re-test their rules from time to time and retire the obsolete ones.
+DO  - 10.48550/arXiv.2610.32578
+UR  - https://arxiv.org/abs/2610.32578
+AN  - arXiv:2610.32578v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Ethics by Configuration: AI Ethics Principles in Coding Agent Instructions
+AU  - Haoyu Gao
+AU  - Peerachai Banyongrakkul
+AU  - Marc Cheong
+AU  - Christoph Treude
+AU  - Sebastian Baltes
+AU  - Mansooreh Zahedi
+PY  - 2026
+DA  - 2026-10-26
+AB  - As AI coding agents become integral to software development, projects increasingly utilise configuration files, such as context files and skills, to govern agent behaviour. While AI ethics principles are widely used in research and policy, little is known about whether and how they are reflected when developers configure coding agents. We studied ethics principles in 40,079 configuration files across 8,893 GitHub repositories. Using a validated large language model (LLM) classification, we measured the prevalence of ethics-related statements, and qualitatively analysed 702 stratified samples across 679 files to uncover the ethical considerations reflected in these files and the parties they concern. Ethics-related statements appeared in 39.4% of files and 61.5% of repositories; concentrated on accountability, transparency, privacy protection, and reliability; and occurred more often in task-specific files such as skills than in project-wide context files. Our qualitative analysis identified 30 categories of ethical considerations, which take the form of concrete rules for the agent. Accountability appeared mainly as requirements for human approval, transparency as explain and honestly report the agent's work, and fairness as accessibility and localisation. These considerations reveal a difference in focus. Whereas public ethics frameworks aim to protect society and end users, configuration files mainly concern developers, maintainers, and community members in the development workflow. Ethics-related content appeared mainly in prose-based files, and whether agents follow these instructions remains untested. We discuss the implications for practitioners, researchers, and policymakers.
+DO  - 10.48550/arXiv.2610.34847
+UR  - https://arxiv.org/abs/2610.34847
+AN  - arXiv:2610.34847v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Modern Software Engineering with Verification Agents: A Spec-First Architecture for Autonomous Synthesis, Verification IRs, and Organizational Scale
+AU  - Jason Hickey
+PY  - 2026
+DA  - 2026-11-01
+AB  - When autonomous coding agents synthesize implementation code, formal specifications, and mechanical proofs simultaneously, the software engineering hierarchy inverts: the formal specification becomes the primary human-reviewed artifact, while source code and proof scripts become disposable build outputs. This paper presents an end-to-end architecture for agent-authored, formally verified software engineering. First, we establish a logic-agnostic foundation combining a spec-first stack inversion, a zero-code-review workflow gated by automated continuous integration (CI) checks, and a minimal Verification Intermediate Representation (VIR) lowered via a thin, verified translator. Second, we pair an extensional Computational Type Theory (CTT) specification layer with Higher-Order Abstract Syntax (HOAS) and linear resource typing in the VIR--eliminating rewrite friction for synthesis agents while defining an experiment, its protocol frozen before the first reader, to measure whether removing boundary coercions improves human specification readability. Third, we scale collaboration across multi-team organizations using Personal Spec-Copilots and a Shared Synthesis Fleet that detects cross-team Semantic Merge Conflicts and fuses modular contracts into zero-copy binaries. We illustrate this architecture on a zero-copy authenticated message router and distinguish our existing empirical baselines (salt, SaltBench, x86lean, and MetaPRL) from newly proposed components.
+DO  - 10.48550/arXiv.2611.02285
+UR  - https://arxiv.org/abs/2611.02285
+AN  - arXiv:2611.02285v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.LO
+ER  - 
+
+TY  - UNPB
+TI  - Toward an Evidence-Based Template for Agent Instruction Files: An Empirical Study of Adoption, Consistency, and Maintenance
+AU  - Mehedi Hasan Shanto
+AU  - Md. Anaytul Islam
+AU  - Muhammad Asaduzzaman
+AU  - Alioune Ngom
+PY  - 2026
+DA  - 2026-11-02
+AB  - AI coding agents rely on repository-level instruction files to understand project conventions, development workflows, and constraints. However, different agents support different instruction formats, and limited empirical evidence exists about how these files are adopted, what information they contain, whether coexisting formats provide consistent guidance, and how they are maintained. We conduct an empirical study of 3,387 instruction files from 1,000 GitHub repositories across four formats: AGENTS.md, CLAUDE.md, GitHub Copilot instructions, and Cursor rules. We find that 42.2% of instruction-bearing repositories in the higher-popularity cohort maintain multiple formats. Among 386 manually examined pairs of corresponding sections, 16.1% provide divergent guidance. Our maintenance analysis further shows that 40.4% of the analyzed files have only one recorded modification event and that maintenance patterns differ across formats. Based on category prevalence and category addition ratios (CAR), we derive an evidence-based template containing ten Required, four Gap, and two Recommended categories. In an exploratory generation experiment, explicit template guidance increases structural category coverage from 18.7% to 82.8%. We further introduce AGIT-Instruct, a benchmark for evaluating instruction-file generation through structural coverage and content alignment. Across four generation configurations, retrieval-augmented generation achieves the highest full-file ROUGE-1 F1 of 0.459. A manual assessment of 278 generated category instances finds that 19.4% fully preserve and 61.2% partially preserve developer-written intent. Our findings provide empirical guidance for organizing and maintaining agent instruction
+DO  - 10.48550/arXiv.2611.02383
+UR  - https://arxiv.org/abs/2611.02383
+AN  - arXiv:2611.02383v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Specification-Driven Governance for Fairness-by-Design in Agentic Software Engineering: How Far Can We Go?
+AU  - Alfonso Cannavale
+AU  - Alessandra Parziale
+AU  - Valeria Pontillo
+AU  - Patrizio Pelliccione
+AU  - Andrea De Lucia
+AU  - Fabio Palomba
+PY  - 2026
+DA  - 2026-11-02
+AB  - Agentic AI is shifting developers' responsibilities from software implementation to software governance. While this paradigm improves productivity, it also raises challenges in ensuring that autonomous coding agents preserve developers' intentions. Among these, operationalizing fairness-by-design is largely unexplored, as existing approaches provide limited support for representing and propagating fairness requirements throughout agentic development workflows. In this paper, we investigate whether specification-driven development can operationalize fairness-by-design in the agentic development of machine learning systems. We study three coding agents on four machine learning applications, using four prompts that progressively operationalize fairness through nine Fairness Specification Elements, and analyze the traceability of fairness requirements across the generated artifacts, the fairness-accuracy trade-off of the resulting models, and the agents' design decisions and rationales. The results show that when fairness is operationalized, agents capture almost all fairness requirements in the specification (97.22%) and preserve most of them in the code (82.41%). However, the resulting models are not significantly fairer, as agents implement fairness as a post-hoc audit that neither shapes training nor prevents model delivery. Specifications thus make fairness traceable, but not enforceable, calling for fairness specifications that state what agents should do when requirements are not met, and for workflows that make the fairness decisions agents delegate to developers explicit.
+DO  - 10.48550/arXiv.2611.03231
+UR  - https://arxiv.org/abs/2611.03231
+AN  - arXiv:2611.03231v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Do Coding Agents Follow AGENTS.md? The Effect of Policy Wording on Instruction Compliance
+AU  - Rikuto Tsuchida
+AU  - Youmei Fan
+AU  - Kazumasa Shimari
+AU  - Raula Gaikovina Kula
+AU  - Kenichi Matsumoto
+PY  - 2026
+DA  - 2026-11-03
+AB  - Coding agents do not always follow the policies in an Agent Context File (ACF). We inserted one policy, in four styles, into the ACFs of 86 benchmark tasks across four harness-model combinations. Conditional phrasing was followed less often than Prescriptive and Explanatory. The better of those two varied by combination.
+DO  - 10.48550/arXiv.2611.04367
+UR  - https://arxiv.org/abs/2611.04367
+AN  - arXiv:2611.04367v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - A Gated Spec-Driven Workflow: An Audit-Trail Study of Coding-Agent Work
+AU  - Rodrigo Figueiredo Abdo
+AU  - Pedro Carvalho Brom
+PY  - 2026
+DA  - 2026-11-03
+AB  - Spec-driven development (SDD) asks a coding agent to work from specifications, plans, and task lists rather than from the chat transcript. We study one such workflow for Claude Code, in which almost every control is an instruction carried out by the same model that it constrains. The user must approve each stage before the next begins. A reviewer subagent checks each artefact against a fixed, stage-specific defect list, and an executor subagent may only touch the files listed in its task. After each block of tasks, the orchestrator runs a file-inventory check to detect undeclared changes. We analyse the logs and transcripts of nine features in seven projects, all run by the authors, ranging from a Fortran solver and Python programs to books and this paper. Of these, five finished with every planned task done, including the Fortran solver feature, and 288 of the 581 planned tasks were completed block by block. The executor kept to its declared files: it left only one undeclared change in the deliverable folder, and the check caught it, although its reports record other departures from the protocol. The weak point was the orchestrator, which runs and judges its own checks. It recorded undeclared changes in 11 of 247 block checks, mostly from the authors' in-round requests and the environment, and stopped work in only four.
+DO  - 10.48550/arXiv.2611.05094
+UR  - https://arxiv.org/abs/2611.05094
+AN  - arXiv:2611.05094v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - When Instruction Files Go Stale: Documentation Debt and Hidden Cost in Coding Agents
+AU  - Tural Mehtiyev
+AU  - Biruk Tadesse
+AU  - Lawrence Arkoh
+AU  - Wesley Assunção
+PY  - 2026
+DA  - 2026-11-06
+AB  - LLM-based coding agents such as Claude Code are guided by repository instruction files (also called context files or agent configuration files) like AGENTS.md and CLAUDE.md, which are read in every agent session. As any documentation artifact, these files can fall behind the code and become stale (e.g., a test folder moves, but the file still points to the old one). In technical debt terms, such a stale instruction is documentation debt, and its interest is the cost it adds to every later agent session. Evaluations that check only task success can miss this cost, and the stale file can persist. In this study, we ask what leads agents to act on a stale instruction, how it affects their behavior and at what cost, and how they recover. We study three real-world stale instructions from active open-source repositories in depth, each a different kind of guidance: a test command, a code location, and a procedure for adding a component. Agents fix 22 maintenance tasks under three versions of each instruction (left stale, corrected to the current path, and removed), with the code and the task held fixed, and we analyze 732 trajectories of two models at the level of individual tool calls. We find that agents follow stale guidance when it is relevant to their tasks, sometimes even when correct information is available elsewhere. On the stale test command, Claude Sonnet 5.5 needed about two extra tool calls per run, a third more than with the corrected command; in the other cases, we could not detect a difference. Although agents generally recovered from the immediate failures, none repaired the underlying instruction file. Correcting the instructions eliminated operations on obsolete paths, while removing them prevented most. Our findings show that task success alone can hide the costs of documentation debt, highlighting the need to evaluate agent behavior beyond final outcomes.
+DO  - 10.48550/arXiv.2611.09802
+UR  - https://arxiv.org/abs/2611.09802
+AN  - arXiv:2611.09802v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Agents on the Patch Path: Mining AI-Associated Security Remediation in GitHub Security Advisories
+AU  - Claudio Segal
+AU  - Paulo Segal
+AU  - Hudson Silva Borges
+AU  - Paulo Silveira
+AU  - Daniel S. Menasché
+AU  - Eduardo Santana de Almeida
+AU  - Felipe de Sant'Anna Paixão
+AU  - Joanna C. S. Santos
+AU  - Anton Kocheturov
+AU  - Gaurav Srivastava
+AU  - Raphael Machado
+PY  - 2026
+DA  - 2026-11-06
+AB  - Autonomous coding agents are increasingly involved in software development, but their participation in real-world security remediation remains poorly understood. We investigate observable evidence of coding-agent involvement in commits referenced by reviewed GitHub Security Advisories (GHSAs), characterize the associated vulnerabilities, and examine review timing in relation to advisory disclosure routes. We develop a local-Git mining pipeline that identifies agent evidence through known agent accounts, explicit commit-message attribution, repository instruction files, and agent configuration artifacts. Linking these findings to GHSA-referenced commits yields 469 valid candidate advisories across 189 repositories, including 448 with direct attribution and 21 supported only by repository-level evidence. Claude is the most frequently observed tool family, followed by Copilot and Cursor. We further compare review timing against other advisories and historical baselines using an exact route--timing decomposition. Relative to advisories published in the same months, candidate advisories exhibit a modestly longer mean review lag, primarily associated with within-route timing rather than disclosure-route composition. Compared with a historical baseline, they exhibit substantially shorter mean review lags, with both route composition and within-route timing contributing to the difference. These findings demonstrate that coding-agent involvement is already observable across hundreds of security advisories and repositories, including high- and critical-severity vulnerabilities. By distinguishing direct attribution from repository-level adoption evidence and separating route-composition effects from within-route timing differences, we provide an empirical characterization of agent-associated remediation in the GHSA review pipeline.
+DO  - 10.48550/arXiv.2611.09808
+UR  - https://arxiv.org/abs/2611.09808
+AN  - arXiv:2611.09808v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Do They Do as They Are Told? Investigating Coding Agents' Adherence to Explicit Instructions in Context Files
+AU  - Gianmario Voria
+AU  - Yutaro Kashiwa
+AU  - Gemma Catolino
+AU  - Fabio Palomba
+PY  - 2026
+DA  - 2026-11-10
+AB  - Developers increasingly rely on agent context files (ACFs), persistent, project-scoped artifacts such as AGENTS.md, to steer the behavior of autonomous coding agents without renegotiating expectations at every interaction. Yet this governance mechanism rests on an untested assumption: that instructions written into an ACF are actually carried out, rather than ignored or loosely followed. Existing studies describe what ACFs contain, but not whether individual instructions are followed, leaving open which guidance can be trusted. We address this gap through an empirical study of real-world ACF snapshots and their linked agent-generated commits: characterizing the explicit, actionable instructions ACFs encode, operationalizing them into executable measurement scripts, and using these scripts to assess instruction-level compliance. We find that most observable instructions can be operationalized and that agents follow ACF guidance more often than not, but adherence splits sharply between instructions followed consistently and those never respected, with differences across instruction categories and coding agents. This split shows where ACF guidance works and where it does not, pointing to instruction types that may need rewriting and to agents that may need enforcement beyond the ACF. These findings lay the groundwork for systematic approaches to specifying, verifying, and enforcing project-specific instructions in autonomous software development.
+DO  - 10.48550/arXiv.2611.13709
+UR  - https://arxiv.org/abs/2611.13709
+AN  - arXiv:2611.13709v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - AgentTorrent: A Dataset of Context and Harness Engineering Artifacts on GitHub
+AU  - Sebastian Baltes
+AU  - Seyedmoein Mohsenimofidi
+AU  - Levi Böhme
+AU  - Vahram Nersesyan
+AU  - Muhammad Auwal Abubakar
+AU  - Jai Lal Lulla
+AU  - Matthias Galster
+AU  - Christoph Treude
+PY  - 2026
+DA  - 2026-11-11
+AB  - Over the past months, developers have moved from formulating detailed prompts to engineering the context that agentic coding tools read and to configuring the underlying harnesses. For example, developers commit context files, skills, hooks, and MCP configurations to their repositories, and these files control which instructions a harness reads and which actions it can take. Developers may also commit the specs, plans, and task files that agentic coding tools and spec-driven development frameworks write for agents to implement. The AgentTorrent dataset records these files for six proprietary and open-source agentic coding tools in 10,944 engineered software projects on GitHub. It contains 62,374 configuration artifacts, the files that these artifacts import, 27,593 agentic planning documents, and more than 1.2 million commits that credit an AI tool. All heuristics used for data collection are grounded in tool documentation or derived from GitHub repositories, and we evaluate their detection accuracy with each collection. We use open-weight models to classify whether GitHub repositories host engineered software projects. Unlike most datasets, AgentTorrent links configuration artifacts, imported files, agentic planning documents, and commits that credit an AI tool within the same repositories. Configuration artifacts, planning documents, and credited commits occur together in 388 repositories. For example, our dataset allows researchers to study whether a tool is credited in commits that add instructions for that same tool and how instruction files import and contradict each other. Our data collection pipeline supports regular updates and automatically checks vendor documentation and reports unknown artifacts and agentic coding tools. The dataset and the pipeline are open-source and are archived on Zenodo.
+DO  - 10.48550/arXiv.2611.15436
+UR  - https://arxiv.org/abs/2611.15436
+AN  - arXiv:2611.15436v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Spec-Driven PBT: Deriving Semantic Invariants from Code Specifications for Agentic Property-based Testing
+AU  - Aditya Shukla
+AU  - Kartik Gupta
+AU  - Ali Alavi
+AU  - Pashootan Vaezipoor
+PY  - 2026
+DA  - 2026-11-11
+AB  - Software is increasingly written by AI agents that produce an implementation from a natural language specification, a practice known as agentic coding. Code is now produced faster than it can be reviewed, and has been shown to exhibit its own characteristic failure patterns. Property-based testing (PBT), a long-standing technique in which invariant properties of a program are checked against many generated inputs, has recently been revisited with LLM agents authoring the properties, thereby removing the high-effort derivation of invariants that has long hindered its adoption. Existing methods, however, derive these properties from the implementation alone (Code-driven PBT). At the same time, a thorough specification such as a product requirements document has become routine within agentic coding, yet its role in testing the resulting code remains underexplored. We study the value of the specification as a source of properties for testing agent-written code. Our key insight is that the specification, unlike the implementation, records what the code was meant to do, and invariants derived from it are not biased by particular implementation choices. We propose Spec-Driven PBT, an agent that first expresses invariants in natural language from the specification and only then inspects the implementation to translate them into concrete tests. Across 25 applications from ViBench, Spec-Driven PBT finds a novel set of bugs that Code-driven PBT misses, while writing 2.4x fewer property tests. Though the two approaches surface a roughly equivalent number of bugs, there is little overlap: nearly 60% of the 169 total bugs are found by only one. Qualitatively, we find that the bugs unique to Spec-Driven PBT tend to violate documented product workflows whereas those to Code-driven PBT instead concentrate on implementation robustness, offering complementary value for bug discovery in agent-written code.
+DO  - 10.48550/arXiv.2611.15920
+UR  - https://arxiv.org/abs/2611.15920
+AN  - arXiv:2611.15920v2
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+KW  - cs.AI
+ER  - 
+
+TY  - UNPB
+TI  - Is This Code Mine? Student Ownership When AI Agents Write the Spec and the Code
+AU  - Gustavo Pinto
+AU  - Enne Rebeca Silva de Freitas
+AU  - Danilo Monteiro Ribeiro
+PY  - 2026
+DA  - 2026-11-16
+AB  - Software engineering courses are starting to ask students to build entire systems with AI coding agents, but little is known about what students actually do with them and whether they still own what they deliver. If the agent writes both the code and the decisions behind it, the artifacts we grade no longer show what students learned. We studied an assignment in which 18 pairs of students built applications with agents under Spec-Driven Development, combining the mined history of their repositories, the prompts they recorded, and a survey of 33 students. The agents wrote 69\% of the specifications meant to keep students in control, sometimes from a prompt of a few words. Students locate their ownership in the ideas, crediting themselves with half of them but a fifth of the code, yet most could not explain that code to a colleague or modify it without the agent, and what they report having written is unrelated to what their own commits declare. The three teams that met the 100,000-line target did so with generated code the application never uses, in one case proposed by the agent itself, and one team rewrote its history to backdate its specifications. Teaching with agents should therefore assess what students specify, review, and can explain, rather than what they ship, and enforce the engineering process with tools rather than trusting it to students or agents.
+DO  - 10.48550/arXiv.2611.21501
+UR  - https://arxiv.org/abs/2611.21501
+AN  - arXiv:2611.21501v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.SE
+ER  - 
+
+TY  - UNPB
+TI  - Values Shape What Self-Improving Coding Agents Build
+AU  - Jason Liang
+AU  - Dylan Waldner
+AU  - Risto Miikkulainen
+PY  - 2026
+DA  - 2026-11-17
+AB  - Self-improving agents are typically optimized for the results they produce, with less attention to how they produce them. Their instructions give designers limited ways to shape how they work, especially when the task is open-ended. This paper studies whether a short value statement in an agent's persistent instruction file changes not only how well the agent performs but also what it builds. Four higher-order value types in Schwartz's theory of basic human values were evaluated: openness to change, conservation, self-enhancement, and self-transcendence. Across diverse coding tasks, the values were held fixed within each run over multiple iterations of self-improvement. Three findings emerged: (1) Values matter for performance across a diverse set of tasks. The openness values increase performance on held-out data, whereas the opposite conservation values result in scores below those of an agent given no values. (2) Values change what agents build, producing solution algorithms that differ in size, complexity and approach. (3) Human oversight is still needed for designing values. Allowing the agent to revise its own values narrows the differences between sets of values, and values distilled from the AI literature provide no detectable gain over having no values. Properly designed values can thus influence what a self-improving coding agent builds and, where the task permits, how well it performs.
+DO  - 10.48550/arXiv.2611.23067
+UR  - https://arxiv.org/abs/2611.23067
+AN  - arXiv:2611.23067v1
+DB  - arXiv
+PB  - arXiv
+KW  - cs.AI
+KW  - cs.MA
+ER  - 
