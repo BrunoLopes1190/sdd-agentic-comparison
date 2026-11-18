@@ -122,6 +122,24 @@ arXiv: run by `slr/fetch_arxiv.py` (API, pages of 500, sorted by submission date
 | 2026-11-18 | ACM DL | S1 v2 | ACM Guide to Computing Literature; Publication Date 2023–2026 (sidebar) | 10 | 10 | `acm-S1-2026-11-18.bib` | Run 18:43 UTC by the author. BibTeX (ACM exports no RIS). 2025: 1, 2026: 9; all with abstract; 1 without DOI. Pilot (Guide, 2026-11-06): 10 |
 | 2026-11-18 | ACM DL | S2 v2 | as S1 | 216 | 216 | `acm-S2-2026-11-18.bib` | Run 18:46 UTC by the author; exported in one file. 3 without abstract (Elsevier records indexed in the Guide); 41 without DOI. 6 records dated 2003–2017 despite the date filter (multi-agent systems papers, AAMAS and similar): kept in the count, excluded at screening under IC2. 1 record with year 2027 (2027 proceedings, online 2026). Pilot (Guide): 209 |
 
+Totals exported (identification, before deduplication): S1 82, S2 2049, all 2131 (2133 shown on screen; 2 IEEE S2 records not exported). By database: arXiv 1605, IEEE Xplore 167, Web of Science 133, ACM DL 226.
+
+Zotero (2026-11-18): the eight files imported into collection SLR, one subcollection per database; counts match the files. BibTeX import dropped the abstract (and the fields after it) of the 5 ACM S2 entries with a single unescaped "$" in the abstract (e.g. "$1.28 per task"); those 5 were re-imported from a copy with "\$" and the faulty items deleted. 3 ACM S2 records (Elsevier, indexed in the Guide) have no abstract in the source.
+
+### Deduplication (2026-11-18)
+
+Run by `slr/dedup.py 2026-11-18` over the eight files in `slr/exports/` (protocol change log, 2026-11-18). Records with the same DOI, then with the same normalised title (letters and digits only, at least 20 characters), form one group; one record per group is kept: the published one over the arXiv preprint (EC4), then the one with an abstract, then the one with a DOI. Output: `slr/dedup-2026-11-18.csv` (one row per removed record, with the kept record and the match) and `slr/rayyan-import-2026-11-18.ris` (kept records; `N1` lists the source files of the group).
+
+| Step | Records |
+|---|---|
+| Exported (identification) | 2131 |
+| Removed, same DOI | 146 |
+| Removed, same title | 123 |
+| of which arXiv preprints of a published record (EC4) | 148 |
+| **After deduplication (to Rayyan)** | **1862** |
+
+Title matches with two different non-arXiv DOIs (4), checked: a TechRxiv preprint and its IEEE paper; one COMPSAC 2026 paper listed twice by IEEE (same authors, pages 537–542 and 543–548); one panel summary published in three IEEE proceedings. Rayyan's duplicate check is the second check; what it finds is added here.
+
 ## Pilot inspection (P4, 2026-11-05)
 
 Sheet: `pilot/pilot-inspection-2026-11-05.xlsx`. 20 records judged by the author on title and abstract: all 7 of S1 v2 and 13 of S2 v2. Columns: decision (I/E/?), criterion (IC1a–c, EC1–EC4, OUT-SE, OTHER), reason, group (c) "new agent on existing benchmark" (Y/N), missing or noisy terms. A record can meet more than one IC.
