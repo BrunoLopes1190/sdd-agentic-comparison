@@ -247,7 +247,7 @@ This section diagnoses those competencies and plans how the weakest relevant one
 The diagnosis used the course's self-assessment grid of 27 competencies.
 Each competency was rated from 1 (very low) to 5 (very high) twice: its importance for this dissertation (I) and the author's current level (L).
 The gap is I − L; a positive gap marks a competency to develop.
-A hetero-assessment by a colleague is planned with the same grid; it is on hold until it is discussed with the supervisor.
+A hetero-assessment of the current level by an MSc colleague, with the same grid, was requested on 19 November 2026.
 
 : Competency self-assessment (I = importance, L = current level, gap = I − L) {#tbl:competencies}
 
