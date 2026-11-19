@@ -5,7 +5,8 @@ Usage: python doc/make_reference_docx.py
 Changes to the official .dotx: saved as .docx; body reduced to one section with a
 right-aligned page number footer (the template's cover and front-matter sections
 leaked into the build); chapters start on a new page; a "Table" style with grid
-borders added (Pandoc's table style, absent from the template). Everything else
+borders added (Pandoc's table style, absent from the template); line spacing 1.5
+instead of the template's 1.15 (course guideline; tables stay single). Everything else
 (fonts, headings, numbering, captions, margins) is the template's.
 """
 import re
@@ -40,6 +41,8 @@ def fix(name, data):
         # Chapters (Heading 1) start on a new page.
         x = re.sub(r'(<w:style [^>]*w:styleId="Heading1">.*?<w:pPr>)', r'\1<w:pageBreakBefore/>', x, count=1, flags=re.S)
         x = x.replace('</w:styles>', TABLE + '</w:styles>')
+        # Line spacing 1.5 (course: Calibri 11, 1.5); the template's default is 1.15 (276).
+        x = re.sub(r'(<w:pPrDefault>.*?w:line=")276(")', r'\g<1>360\2', x, count=1, flags=re.S)
         return x.encode()
     return data
 
@@ -52,4 +55,5 @@ with zipfile.ZipFile(DST) as z:  # self-check
     assert b'document.main+xml' in z.read('[Content_Types].xml')
     assert z.read('word/document.xml').count(b'<w:sectPr>') == 1
     assert b'w:styleId="Table"' in z.read('word/styles.xml')
+    assert b'w:line="360"' in z.read('word/styles.xml')
 print(f'Wrote {DST}')
