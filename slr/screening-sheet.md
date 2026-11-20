@@ -65,7 +65,11 @@ The pilot decisions predate EC5 (adopted 9 Nov). The group (c) "Y" records are t
 
 | Date | Case | Rule |
 |---|---|---|
-| | | |
+| 2026-11-20 | Coding agents and games | Games are software, so the topic alone does not exclude. Agent that plays the game (game-playing, RL, NPCs) or generates non-code content (levels, narrative, assets) → IC1. Agent that writes or changes a game's code → normal flow (a/b/c, EC5) |
+| 2026-11-20 | Comparison on an existing benchmark | EC5 depends on the main contribution, not on the benchmark being new. A new agent or technique on an existing benchmark with nothing for the evaluation method → EC5. An empirical study comparing existing agents or models (no new agent proposed) → include, the comparison is the contribution (as P30). A new benchmark → include. Test: does the paper sell an agent or measure agents? |
+| 2026-11-20 | Multi-agent systems | Multi-agent coordination in general (not software development) → IC1. New multi-agent coding framework on an existing benchmark → EC5. Study comparing agent configurations on software tasks (single vs multi-agent, coordination strategies, roles, topologies) → include, relevant to RQ3. New benchmark or method for evaluating coordination of coding agents → include |
+| 2026-11-20 | Agent as developer vs agent as component | The agent must develop software (write, change, test code). Agents as part of the system's architecture or product (e.g. microservices vs LLM multi-agent systems, chatbots, data pipelines) → IC1, even in a software engineering venue |
+| 2026-11-20 | Record with no abstract | Maybe, unless the title alone is clearly out of scope (then exclude with the code). Before full text, one extra pass over these Maybe records to look up the abstract (DOI, publisher, Google Scholar) and decide by the normal flow |
 
 ## Appendix: IEEE records with no search term in title or abstract
 
