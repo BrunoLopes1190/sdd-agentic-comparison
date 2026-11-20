@@ -25,7 +25,7 @@ Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. The p
 7. **Group (c) only:** main contribution is a new agent or technique run on an existing benchmark (e.g. SWE-bench), and it adds nothing to the evaluation method (no new metric, no repetitions, no control of agent and model, no new comparison design) → **EC5**.
 8. Published before 2023 → **IC2**; not in English → **IC3**. IC4 (full text) is checked at full-text screening.
 
-Otherwise **include**; if unsure, **maybe**.
+Otherwise **include**. From record 135 of pass 2 (2026-11-20): if unsure, **exclude** with the criterion most likely to fail; **maybe** only when the abstract lacks the information.
 
 Kept: workshop and short papers; secondary studies (reviews, surveys); new benchmarks or evaluation methods for coding agents (a contribution to the evaluation method, so not EC5).
 
