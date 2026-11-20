@@ -1,6 +1,6 @@
 # Screening sheet (title/abstract)
 
-Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. Also the IC/EC sheet given to a second reviewer (§4.1). The protocol rules; this sheet only summarises it.
+Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. The protocol rules; this sheet only summarises it.
 
 ## Procedure
 

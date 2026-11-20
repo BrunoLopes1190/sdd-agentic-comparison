@@ -100,26 +100,13 @@ EC5 was a candidate criterion, not adopted at the pilot (2026-11-05) and adopted
 
 **Currency of included reviews.** For each included review: (1) record its own search cut-off date, so that later work it cannot cover is known; (2) forward snowballing (Google Scholar "Cited by") to find later reviews, comments or rebuttals; (3) check for retraction or withdrawal (publisher page, Crossref/Retraction Watch, latest arXiv version); (4) assess it with the DARE criteria recommended for secondary studies by Kitchenham & Charters (2007). Where a later review contradicts an earlier one, both are reported and the difference is discussed.
 
-### 4.1 Second reviewer (conditional, D2a)
+### 4.1 Second reviewer (removed 2026-11-20)
 
-The review has a single reviewer, the author. This procedure applies only if a second reviewer is found by **2026-11-20**; otherwise it is removed (logged in the change log) and the single reviewer is reported as a threat to validity (§7).
-
-| Item | Rule |
-|---|---|
-| Who | A person with a software engineering background (supervisor, MEI colleague or other), confirmed by the author. An AI system is never the second reviewer (week 4: eligibility decisions are not delegated to AI) |
-| What is reviewed | (a) Title/abstract screening of **30 records**, drawn at random from the records that enter screening (after deduplication). (b) Optional, only if the reviewer has time: quality assessment (§5) and extraction (§6) of 2 included studies. Full-text screening has no second review |
-| Effort asked | (a) about 1 hour, sent around 2026-11-20. (b) about 2–3 hours |
-| Independence | The reviewer screens the 30 records in a separate Rayyan review with blind mode on, with title, abstract, keywords and the IC/EC sheet, and does not see the author's decisions. Before the sample, a 15-minute calibration on 5 pilot records (`pilot/`), which are excluded from the sample |
-| Agreement | Cohen's kappa on include/exclude ("?" counts as include, since it goes to full text), plus percentage agreement. Target κ ≥ 0.61 ("substantial", Landis & Koch, 1977); the threshold is a convention and is stated as such |
-| Below the target | Disagreements are discussed; the criterion that caused them is clarified (logged in the change log) and the author re-applies the clarified criterion to all screened records |
-| Disagreements | Resolved by discussion; if unresolved, the record goes to full-text screening. Every decision is in the Rayyan export (CSV in `slr/`) |
-| Sampling | Python `random.Random(seed).sample`, seed logged in `search-log.md`, as in the pilot |
-
-AI may be used as an extra check only: screening the same sample and comparing it with the author's decisions. It is not counted in the kappa, the author's decision stands, and the use is logged in `doc/ai-usage.md`.
+The review has a single reviewer, the author. A second reviewer for a 30-record screening sample was planned conditionally (D2a) but none was found by the deadline of 2026-11-20, so the procedure was removed (change log). The single reviewer is reported as a threat to validity (§7). An AI system is never used as a reviewer (week 4: eligibility decisions are not delegated to AI).
 
 ### 4.2 Selection procedure
 
-Tools: Zotero holds the references; Rayyan (web screening tool) holds the screening decisions. Rayyan decisions are exported as CSV to `slr/` after each stage, so the PRISMA counts and the kappa (§4.1) are computed from files in the repository. Rayyan free plan (checked 2026-11-06): 3 active reviews, 2 invited reviewers, 1 sample; enough for the main screening, the second-reviewer sample (§4.1) and snowballing. Blind mode is included (confirmed by the author, 2026-11-06).
+Tools: Zotero holds the references; Rayyan (web screening tool) holds the screening decisions. Rayyan decisions are exported as CSV to `slr/` after each stage, so the PRISMA counts are computed from files in the repository. Rayyan free plan (checked 2026-11-06): 3 active reviews, 2 invited reviewers, 1 sample; enough for the main screening, the second-reviewer sample (§4.1) and snowballing. Blind mode is included (confirmed by the author, 2026-11-06).
 
 | Step | Rule |
 |---|---|
@@ -131,7 +118,7 @@ Tools: Zotero holds the references; Rayyan (web screening tool) holds the screen
 | 6. Exclusion codes | The IC that fails (IC1–IC4) or the EC that applies (EC1–EC5), set as a Rayyan exclusion label. The pilot code OUT-SE becomes IC1 |
 | 7. Full text | IC/EC applied again on the full text, with a code for every exclusion. Access tried through the publisher (ISEP), arXiv and Google Scholar; if none works, excluded under IC4 |
 | 8. Snowballing | **One iteration** of backward (reference lists) and forward (Google Scholar "Cited by") snowballing on the studies included after full text, with the same criteria and codes. Not iterated to saturation as Wohlin (2014) recommends; stated as a limitation (§7). Counted in the PRISMA "other methods" branch |
-| 9. AI | AI takes no screening decision (§4.1). Rayyan's relevance predictions are not used to decide; if used to order records, this is declared in `doc/ai-usage.md` |
+| 9. AI | AI takes no screening decision. Rayyan's relevance predictions are not used to decide; if used to order records, this is declared in `doc/ai-usage.md` |
 | 10. Time-box | Title/abstract screening 2026-11-18 to 2026-11-20 (about 2.5 hours a day) |
 
 ## 5. Quality assessment
@@ -198,7 +185,7 @@ Cross-cutting rules:
 1. Every claim states how many studies support it and their quality.
 2. Sensitivity analysis: each conclusion is checked again using only studies with a quality score of at least 0.5 (half of the applicable questions met). A conclusion that holds only because of lower-scored studies is reported as weak evidence. The 0.5 threshold is a convention and is stated as such.
 3. A conclusion that rests only on studies that were not peer-reviewed is flagged as such.
-4. Threats to validity of the review are discussed: single reviewer (mitigated by a second reviewer on a sample if one is found, §4.1; full-text screening always single-reviewer), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access, snowballing limited to one iteration (studies reachable only through a second or later iteration are missed).
+4. Threats to validity of the review are discussed: single reviewer at every stage (no second reviewer was available, §4.1), English only, young field with many preprints, unstable terminology (the strings may miss terms), Web of Science access, snowballing limited to one iteration (studies reachable only through a second or later iteration are missed).
 
 ## 8. Search cut-off date
 
@@ -232,3 +219,5 @@ Snowballing applies the same cut-off. A critical study published after the cut-o
 | 2026-11-11 | §5 changed from the pilot (C8): missing information scores No; Q12 counts an author who created an evaluated approach as its vendor, Partly when only some approaches; Q13 also for studies that propose and compare; score reported with the number of applicable questions | Pilot: Q12 and Q13 were ambiguous for P1–P3; non-empirical scores rest on few questions. Decided by the author |
 | 2026-11-11 | **Protocol frozen** | Pilot search and extraction pilot done. Supervisor feedback received later is applied as a logged change |
 | 2026-11-18 | §4.2 step 2: deduplication by script (`slr/dedup.py`: same DOI, then same normalised title; published over preprint) instead of Zotero's duplicate detection; Rayyan's check kept as the second check. Zotero keeps the references and is not merged | Zotero merges one set at a time, does not match a preprint with its published version (different item types) and searches the whole library; 269 duplicates in 2131 records, 148 of them EC4 preprints. The script is reproducible and logs every removal. Decided by the author |
+| 2026-11-20 | §4.1 removed: no second reviewer; the review is single-reviewer at every stage and this is stated in §7. The calibration and sample drawn on 2026-11-18 are not used | No reply from the supervisor to email 2 (question 1) and no other reviewer available by the 2026-11-20 deadline. Decided by the author |
+| 2026-11-20 | §4.2: screening continues in a second Rayyan review, holding the 982 records left undecided after pass 1 plus 354 pass-1 exclusions sent back to pass 2. The first review is kept, read-only, with its export in `slr/` | Rayyan's free plan stopped accepting decisions in the first review after 876. The 354 are pass-1 exclusions whose titles contain in-scope terms (coding agents, context or instruction files, repository-level tasks); pass 1 excludes only records clearly from another domain, so they go to pass 2. Decided by the author |

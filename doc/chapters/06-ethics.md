@@ -25,7 +25,7 @@ Section 4 (compliance) is met by applying the code as shown.
 | 2.1 High quality in processes and products | A reproducible protocol, frozen before the runs; validity threats T1–T10 and their mitigations |
 | 2.2 Professional competence | The competency development plan, including ethics, which has a gap of 2 |
 | 2.3 Know and respect the rules | P.PORTO code (art. 6, 8 and 10), ISEP dissertation rules, and the terms of use of each tool |
-| 2.4 Accept and give professional review | Drafts are sent to the supervisor at each milestone; a second reviewer is sought for the SLR |
+| 2.4 Accept and give professional review | Drafts are sent to the supervisor at each milestone; a second reviewer was sought for the SLR; none was available, so the single reviewer is reported as a threat to validity |
 | 2.5 Thorough evaluation, including risks | Spread and limits are reported, not only means; claims are kept to what the data support |
 | 2.6 Work only within competence | Statistical analysis follows established methods for software engineering experiments [@wohlinExperimentationSoftwareEngineering2012] |
 | 2.7 Foster public understanding | The decision guide is written for practitioners |

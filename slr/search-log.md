@@ -148,7 +148,7 @@ PRISMA identification: 2131 records from databases (arXiv 1605, IEEE Xplore 167,
 
 ### Second-reviewer sets (§4.1, 2026-11-18)
 
-Drawn by `slr/draw_sample.py 2026-11-18 20261118` (seed 20261118) from `rayyan-after-dedup-2026-11-18.csv`. Prepared in advance; used only if a second reviewer is confirmed by 2026-11-20.
+Drawn by `slr/draw_sample.py 2026-11-18 20261118` (seed 20261118) from `rayyan-after-dedup-2026-11-18.csv`. Prepared in advance; used only if a second reviewer is confirmed by 2026-11-20. **Not used:** no second reviewer was found; §4.1 removed on 2026-11-20.
 
 - Calibration (5 pilot records, stratified 3 pilot includes + 2 pilot excludes, all found in the screened set): P04, P06, P21 (I), P09, P28 (E). File `second-reviewer-calibration-2026-11-18.csv`. The pilot decisions predate EC5 (adopted 2026-11-09).
 - Sample (30 records, from the 1853 screened records outside the calibration set): `second-reviewer-sample-2026-11-18.csv`, Rayyan keys in the file. 27 with arXiv as first source, 3 with ACM; all with abstract.

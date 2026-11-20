@@ -321,7 +321,6 @@ Progress is checked in the weekly review (action B1) and recorded in the plan's 
 |---|---|---|---|
 | A. Critical thinking | A1. Apply the quality checklist to every included study and the 5W matrix to every grey-literature source | Share of included studies quality-assessed; share of grey sources rated with 5W | 100%; 100% |
 | | A2. For each review question, write the Evidence → Limitation → Gap chain and a comparison table | Review questions with a comparison table | 4 of 4 |
-| | (both) Independent screening of a sample by a second reviewer, if one is available | Cohen's kappa | ≥ 0.61 |
 | B. Time management | B1. Fixed weekly review (Sunday, 20 min): update the plan status and progress log; choose the three priorities of the week | Weekly reviews done | ≥ 8 by 6 Jan 2027 |
 | | B2. Estimate the hours of each product before starting it; record the actual hours when it is done | Deviation between estimated and actual hours | ≤ 25% |
 | | (both) Milestones met | Milestones M2–M7 met on the planned date | 6 of 6 |
