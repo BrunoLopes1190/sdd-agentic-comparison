@@ -247,39 +247,39 @@ This section diagnoses those competencies and plans how the weakest relevant one
 The diagnosis used the course's self-assessment grid of 27 competencies.
 Each competency was rated from 1 (very low) to 5 (very high) twice: its importance for this dissertation (I) and the author's current level (L).
 The gap is I − L; a positive gap marks a competency to develop.
-A hetero-assessment of the current level by an MSc colleague, with the same grid, was requested on 19 November 2026.
+An MSc colleague rated the author's current level with the same grid on 20 November 2026 (hetero-assessment, H); importance was not rated again, since it depends on the dissertation.
 
-: Competency self-assessment (I = importance, L = current level, gap = I − L) {#tbl:competencies}
+: Competency self-assessment and hetero-assessment (I = importance, L = current level, gap = I − L, H = level rated by a colleague) {#tbl:competencies}
 
-| # | Competency | I | L | Gap | Hetero-assessment |
+| # | Competency | I | L | Gap | H |
 |---|---|---|---|---|---|
-| 1 | Problem analysis and solving | 5 | 4 | 1 | Pending |
-| 2 | Lifelong learning | 4 | 4 | 0 | Pending |
-| 3 | Teamwork and collaboration | 2 | 5 | −3 | Pending |
-| 4 | Drive for excellence | 5 | 3 | 2 | Pending |
-| 5 | Adaptability and flexibility | 2 | 4 | −2 | Pending |
-| 6 | Ethics and social responsibility | 5 | 3 | 2 | Pending |
-| 7 | Foreign languages | 2 | 4 | −2 | Pending |
-| 8 | Technical competencies in the field | 5 | 4 | 1 | Pending |
-| 9 | Decision making | 4 | 3 | 1 | Pending |
-| 10 | Time management | 5 | 2 | 3 | Pending |
-| 11 | Risk taking | 4 | 3 | 1 | Pending |
-| 12 | Oral communication | 5 | 4 | 1 | Pending |
-| 13 | Written communication | 5 | 3 | 2 | Pending |
-| 14 | Resilience | 4 | 3 | 1 | Pending |
-| 15 | Active listening | 3 | 3 | 0 | Pending |
-| 16 | Interpersonal relationships | 4 | 3 | 1 | Pending |
-| 17 | Leadership | 2 | 4 | −2 | Pending |
-| 18 | Creativity and innovation | 4 | 3 | 1 | Pending |
-| 19 | Adaptation and flexibility | 2 | 4 | −2 | Pending |
-| 20 | Critical thinking | 5 | 3 | 2 | Pending |
-| 21 | Planning and organisation | 4 | 4 | 0 | Pending |
-| 22 | Emotion management | 4 | 2 | 2 | Pending |
-| 23 | Negotiation | 2 | 2 | 0 | Pending |
-| 24 | Empathy | 4 | 2 | 2 | Pending |
-| 25 | Assertiveness | 5 | 3 | 2 | Pending |
-| 26 | Stress management | 5 | 4 | 1 | Pending |
-| 27 | Proactivity | 4 | 4 | 0 | Pending |
+| 1 | Problem analysis and solving | 5 | 4 | 1 | 4 |
+| 2 | Lifelong learning | 4 | 4 | 0 | 4 |
+| 3 | Teamwork and collaboration | 2 | 5 | −3 | 4 |
+| 4 | Drive for excellence | 5 | 3 | 2 | 4 |
+| 5 | Adaptability and flexibility | 2 | 4 | −2 | 5 |
+| 6 | Ethics and social responsibility | 5 | 3 | 2 | 3 |
+| 7 | Foreign languages | 2 | 4 | −2 | 5 |
+| 8 | Technical competencies in the field | 5 | 4 | 1 | 5 |
+| 9 | Decision making | 4 | 3 | 1 | 4 |
+| 10 | Time management | 5 | 2 | 3 | 3 |
+| 11 | Risk taking | 4 | 3 | 1 | 4 |
+| 12 | Oral communication | 5 | 4 | 1 | 3 |
+| 13 | Written communication | 5 | 3 | 2 | 4 |
+| 14 | Resilience | 4 | 3 | 1 | 5 |
+| 15 | Active listening | 3 | 3 | 0 | 3 |
+| 16 | Interpersonal relationships | 4 | 3 | 1 | 3 |
+| 17 | Leadership | 2 | 4 | −2 | 4 |
+| 18 | Creativity and innovation | 4 | 3 | 1 | 4 |
+| 19 | Adaptation and flexibility | 2 | 4 | −2 | 5 |
+| 20 | Critical thinking | 5 | 3 | 2 | 5 |
+| 21 | Planning and organisation | 4 | 4 | 0 | 4 |
+| 22 | Emotion management | 4 | 2 | 2 | 3 |
+| 23 | Negotiation | 2 | 2 | 0 | 3 |
+| 24 | Empathy | 4 | 2 | 2 | 4 |
+| 25 | Assertiveness | 5 | 3 | 2 | 4 |
+| 26 | Stress management | 5 | 4 | 1 | 4 |
+| 27 | Proactivity | 4 | 4 | 0 | 5 |
 
 Items 5 and 19 are near-duplicates in the original grid; both are kept as rated.
 
@@ -287,6 +287,14 @@ The most developed competency is teamwork and collaboration (level 5).
 Problem solving, technical competencies, oral communication and stress management are rated 4 and are also highly important (5).
 Time management has the largest gap (3).
 Five competencies of importance 5 have a gap of 2: drive for excellence, ethics, written communication, critical thinking and assertiveness.
+
+The colleague rated the author higher than the self-assessment did: mean level 4.0 against 3.3.
+The ratings match on 8 items, H is higher on 17 and lower on 2 (teamwork and oral communication, by 1).
+No item differs by more than 2.
+The largest differences (+2) are in resilience, critical thinking and empathy.
+For the key competencies, H is 5 for critical thinking (L = 3), 3 for time management (L = 2) and 4 for written communication (L = 3).
+Time management is among the lowest-rated items in both assessments (L = 2, H = 3).
+The key competencies are kept: the colleague rated general behaviour, not work on a systematic review or a dissertation, for which these competencies were chosen.
 
 ### Key competencies and objectives
 
