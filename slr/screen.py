@@ -1,20 +1,23 @@
-"""Pass-2 title/abstract screening tool (protocol §4.2).
+"""Title/abstract screening tool for passes 2 and 3 (protocol §4.2 steps 4 and 4b).
 
-Run:  python slr/screen.py   -> opens http://127.0.0.1:8765
-Queue:       slr/pass2-queue.csv           (records to screen)
-Suggestions: slr/pass2-ai-suggestions.csv  (AI suggestion, shown only AFTER the author decides)
-Decisions:   slr/pass2-decisions.csv       (append-only; the last row per key wins)
+Run:  python slr/screen.py [2|3]   -> opens http://127.0.0.1:8765  (default: pass 2)
+Queue:       slr/passN-queue.csv           (records to screen; pass 3 from build_pass3_queue.py)
+Suggestions: slr/pass2-ai-suggestions.csv  (pass-2 AI suggestion, shown only AFTER the author decides)
+Decisions:   slr/passN-decisions.csv       (append-only; the last row per key wins)
+In pass 3, "first" is the decision before the pass-2 AI suggestion is shown, "final" the one after.
 """
-import csv, datetime, json, os, webbrowser
+import csv, datetime, json, os, sys, webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-QUEUE = os.path.join(HERE, "pass2-queue.csv")
+PASS = sys.argv[1] if len(sys.argv) > 1 else "2"
+assert PASS in ("2", "3"), "usage: python slr/screen.py [2|3]"
+QUEUE = os.path.join(HERE, f"pass{PASS}-queue.csv")
 AI = os.path.join(HERE, "pass2-ai-suggestions.csv")
-DEC = os.path.join(HERE, "pass2-decisions.csv")
+DEC = os.path.join(HERE, f"pass{PASS}-decisions.csv")
 FIELDS = ["time", "key", "first", "final", "ai", "agree", "note"]
-ALLOWED = {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"}
+ALLOWED = {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"} | ({"EC6"} if PASS == "3" else set())
 
 
 def read(path):
@@ -54,7 +57,7 @@ class H(BaseHTTPRequestHandler):
     def do_GET(self):
         u = urlparse(self.path)
         if u.path == "/":
-            self.send(PAGE, "text/html")
+            self.send(PAGE.replace("__PASS__", PASS).replace("__CARD__", CARD[PASS]), "text/html")
         elif u.path == "/data":
             self.send(json.dumps({"queue": read(QUEUE), "done": decisions()}))
         elif u.path == "/ai":
@@ -73,7 +76,7 @@ class H(BaseHTTPRequestHandler):
         self.send('{"ok": true}')
 
 
-PAGE = r"""<!doctype html><html lang="pt"><head><meta charset="utf-8"><title>Triagem passagem 2</title>
+PAGE = r"""<!doctype html><html lang="pt"><head><meta charset="utf-8"><title>Triagem passagem __PASS__</title>
 <style>
 body{font:17px/1.55 system-ui,sans-serif;max-width:960px;margin:0 auto;padding:16px;background:#fafafa;color:#222}
 #bar{display:flex;justify-content:space-between;font-size:14px;color:#555}
@@ -101,16 +104,12 @@ q{font-style:italic}
 <div id="keys"></div>
 <div id="ai"></div>
 <div id="hint"></div>
-<div id="card"><b>Pergunta por ordem; a primeira que decide manda.</b><ol>
-<li><b>Há um agente de IA a desenvolver software</b> (escreve, altera, testa código)? Não → <b>[1] IC1</b>. Também IC1: agente que joga o jogo, agente como peça do produto, multi-agentes em geral.</li>
-<li><b>Só gera funções soltas</b> (HumanEval, concursos)? Sim → <b>[2] EC1</b></li>
-<li><b>Fala de especificações, SDD, AGENTS.md, regras, contexto ou memória do agente?</b> Sim → <b>[I] Include</b></li>
-<li><b>Vende um agente ou mede agentes?</b> Mede (benchmark novo, compara agentes/modelos/configurações, estudo empírico, revisão) → <b>[I]</b>. Vende (agente novo + benchmark existente) → <b>[3] EC5</b></li>
-</ol>Decide sempre <b>Include</b> ou exclusão; na fronteira fica <b>Include</b> (a passagem 3 aperta os benchmarks). <b>[M] Maybe</b> só se não perceberes o que o artigo faz. Raro (poster, outra língua, antes de 2023, duplicado) → <b>[O]</b> + nota.<br>
-Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê a frase citada, decide tu, Enter.</div>
+<div id="card">__CARD__</div>
 <script>
-const OPTS=[["I","Include"],["M","Maybe"],["1","IC1"],["2","EC1"],["3","EC5"],["O","Other"]];
-const LABEL={Include:"Include",Maybe:"Maybe",IC1:"Excluir IC1 (sem agente a programar)",EC1:"Excluir EC1 (só funções)",EC5:"Excluir EC5 (só o agente deles)",Other:"Outro (nota)"};
+const PASS=__PASS__;
+const OPTS=PASS===3?[["I","Include"],["6","EC6"],["1","IC1"],["2","EC1"],["3","EC5"],["M","Maybe"],["O","Other"]]
+  :[["I","Include"],["M","Maybe"],["1","IC1"],["2","EC1"],["3","EC5"],["O","Other"]];
+const LABEL={Include:"Include",Maybe:"Maybe",IC1:"Excluir IC1 (sem agente a programar)",EC1:"Excluir EC1 (só funções)",EC5:"Excluir EC5 (só o agente deles)",EC6:"Excluir EC6 (passo 3)",Other:"Outro (nota)"};
 let Q=[],done={},i=0,first=null,final=null,note="",ai=null;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -123,21 +122,22 @@ function show(){const x=Q[i];const prev=done[x.key];first=prev?prev.first:null;f
   $("pos").textContent=`#${i+1} de ${Q.length}`+(prev?" (já decidido, podes mudar)":"");
   $("title").textContent=x.title;
   const link=x.url||("https://scholar.google.com/scholar?q="+encodeURIComponent(x.title));
-  $("meta").innerHTML=`${esc(x.year)} · ${esc(x.sources)} · <a href="${esc(link)}" target="_blank">abrir</a>`+(x.keywords?`<br>Palavras-chave: ${esc(x.keywords)}`:"");
+  $("meta").innerHTML=`${x.flag?'<b style="color:#c00">⚠ DISCORDÂNCIA no passo 2: aplica primeiro o fluxo do passo 2, depois o EC6.</b><br>':""}${x.p2?"Passo 2: "+esc(x.p2)+" · ":""}${esc(x.year)} · ${esc(x.sources)} · <a href="${esc(link)}" target="_blank">abrir</a>`+(x.keywords?`<br>Palavras-chave: ${esc(x.keywords)}`:"");
   $("abs").innerHTML=x.abstract?esc(x.abstract):'<span class="noabs">SEM RESUMO.</span> Decide pelo título; se não chegar, carrega em "abrir" ou escolhe Maybe.';
   $("ai").className="";$("ai").innerHTML="";counts();render();if(prev)reveal();}
 function render(){$("keys").innerHTML=OPTS.map(([k,v])=>`<button data-v="${v}" class="${v===first?"first":""} ${v===final?"final":""}">[${k}] ${LABEL[v]}</button>`).join("");
   document.querySelectorAll("#keys button").forEach(b=>b.onclick=()=>pick(b.dataset.v));
-  $("hint").innerHTML=first===null?"<b>Passo 1:</b> decide TU primeiro (I, M, 1, 2, 3, O). A sugestão da IA só aparece depois."
+  $("hint").innerHTML=first===null?`<b>Passo 1:</b> decide TU primeiro (${OPTS.map(o=>o[0]).join(", ")}). A sugestão da IA só aparece depois.`
    :`<b>Passo 2:</b> a tua decisão: <b>${LABEL[final]}</b>${note?" · nota: "+esc(note):""}. <b>Enter</b> grava e avança · outra tecla muda · <b>N</b> nota · <b>←</b> anterior`;}
 async function reveal(){const x=Q[i];const k=x.key;const r=await (await fetch("/ai?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;ai=r;
   const el=$("ai");if(!r){el.className="none";el.innerHTML="Sem sugestão da IA para este registo (ainda). Decide só por ti.";return;}
+  if(PASS===3&&!x.flag){el.className="none";el.innerHTML=`IA no passo 2: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q><br>Se o grupo for (a) ou (b) e decidiste EC6, revê.`;return;}
   const same=r.s===first;el.className=same?"agree":"disagree";
   el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>`;}
 function pick(v){if(first===null){first=v;final=v;if(v==="Other"&&!note)askNote();render();reveal();}else{final=v;if(v==="Other"&&!note)askNote();render();}}
 function askNote(){const t=prompt("Nota (ex.: poster EC3, não está em inglês, anterior a 2023, duplicado):",note||"");if(t!==null)note=t.trim();}
 async function commit(){if(first===null)return;if(final==="Other"&&!note){askNote();if(!note)return;}
-  const x=Q[i];const d={key:x.key,first,final,ai:ai?ai.s:"",agree:ai?String(ai.s===first):"",note};
+  const x=Q[i];const d={key:x.key,first,final,ai:ai?ai.s:"",agree:ai&&(PASS===2||x.flag)?String(ai.s===first):"",note};
   const r=await fetch("/decide",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
   if(!r.ok){alert("ERRO ao gravar. Não avances; verifica se o screen.py está a correr.");return;}
   done[x.key]=d;$("saved").textContent="gravado ✓";setTimeout(()=>$("saved").textContent="",800);
@@ -148,9 +148,23 @@ document.onkeydown=e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key.to
   else if(e.key==="ArrowLeft"&&i>0){i--;show();}else if(e.key==="ArrowRight"&&i<Q.length-1){i++;show();}};
 load();
 </script></body></html>"""
+CARD = {"2": r"""<b>Pergunta por ordem; a primeira que decide manda.</b><ol>
+<li><b>Há um agente de IA a desenvolver software</b> (escreve, altera, testa código)? Não → <b>[1] IC1</b>. Também IC1: agente que joga o jogo, agente como peça do produto, multi-agentes em geral.</li>
+<li><b>Só gera funções soltas</b> (HumanEval, concursos)? Sim → <b>[2] EC1</b></li>
+<li><b>Fala de especificações, SDD, AGENTS.md, regras, contexto ou memória do agente?</b> Sim → <b>[I] Include</b></li>
+<li><b>Vende um agente ou mede agentes?</b> Mede (benchmark novo, compara agentes/modelos/configurações, estudo empírico, revisão) → <b>[I]</b>. Vende (agente novo + benchmark existente) → <b>[3] EC5</b></li>
+</ol>Decide sempre <b>Include</b> ou exclusão; na fronteira fica <b>Include</b> (a passagem 3 aperta os benchmarks). <b>[M] Maybe</b> só se não perceberes o que o artigo faz. Raro (poster, outra língua, antes de 2023, duplicado) → <b>[O]</b> + nota.<br>
+Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê a frase citada, decide tu, Enter.""", "3": r"""<b>Passo 3 (EC6). Grupos (a) SDD e (b) ficheiros de contexto: [I] fica, sem perguntas. Grupo (c), por ordem:</b><ol>
+<li>A tarefa <b>não</b> é escrever ou alterar código de uma aplicação (só testes, revisão, segurança, documentação, compreensão de código)? → <b>[6] EC6</b></li>
+<li>É <b>reparação de issues</b> (tipo SWE-bench)? → <b>[6] EC6</b>, sempre</li>
+<li>O contributo principal é o <b>método de avaliação</b> (métricas de custo, qualidade ou esforço; repetições; comparação controlada de agentes, modelos ou workflows nas mesmas tarefas)? → <b>[I]</b></li>
+<li>O agente <b>constrói ou estende uma aplicação</b> a partir de requisitos (funcionalidade ou projeto), sem ser um domínio especializado? → <b>[I]</b></li>
+<li>Senão → <b>[6] EC6</b> (mineração de PRs, tarefas pequenas, só hardware, data science, smart contracts…)</li>
+</ol>Registo com <b style="color:#c00">⚠ discordância</b>: primeiro o fluxo do passo 2 ([1] IC1, [2] EC1, [3] EC5), depois este. <b>[M]</b> só se o resumo não chegar.<br>
+Depois: cinzento = sugestão da IA do passo 2, só informativa (vê o grupo) → Enter. Laranja/verde nas discordâncias, como no passo 2."""}
 
 if __name__ == "__main__":
     srv = ThreadingHTTPServer(("127.0.0.1", 8765), H)
-    print("Screening at http://127.0.0.1:8765  (Ctrl+C to stop; decisions in slr/pass2-decisions.csv)")
+    print(f"Pass {PASS} screening at http://127.0.0.1:8765  (Ctrl+C to stop; decisions in {DEC})")
     webbrowser.open("http://127.0.0.1:8765")
     srv.serve_forever()
