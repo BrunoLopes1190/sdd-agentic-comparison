@@ -1,6 +1,6 @@
 # Screening sheet (title/abstract)
 
-Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. The protocol rules; this sheet only summarises it.
+Quick reference for screening (Rayyan, then the local tool `slr/screen.py`), from `protocol.md` §4 and §4.2. The protocol rules; this sheet only summarises it.
 
 ## Procedure
 
@@ -8,6 +8,7 @@ Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. The p
 |---|---|---|
 | 1 | Title | Exclude only when clearly out of scope (another domain). Any doubt goes to pass 2 |
 | 2 | Title, abstract, keywords | Apply IC/EC below. Include, exclude (with label) or maybe. Maybe goes to full text |
+| 3 | Title, abstract, keywords of the pass-2 includes | Group (c): apply the **pass 3 flow** below (EC6). Groups (a) and (b): keep |
 
 - Every exclusion gets **one** label: the first criterion that fails, in the order of the decision flow below.
 - Index-term-only records are screened like any other (no automatic removal, §4.2 step 5).
@@ -27,6 +28,18 @@ Quick reference for screening in Rayyan, from `protocol.md` §4 and §4.2. The p
 
 Otherwise **include**. From decision 135 of pass 2 (2026-11-20): decide include or exclude on every record, keeping borderline records as **include**; **maybe** only when the abstract does not make clear what the study does. Group (c) is narrowed later in pass 3 (protocol §4.2 step 4b).
 
+## Pass 3 flow (group (c) only, EC6)
+
+Groups (a) SDD and (b) context files: **keep**, no question asked.
+
+1. Is the task something other than writing or changing an application's code? (tests only, code review, security, documentation, code understanding or search) → **EC6**
+2. Is it issue repair (SWE-bench style)? → **EC6**, always
+3. Is the main contribution the evaluation method? (cost, quality or human-effort metrics; repetitions; controlled comparison of agents, models or workflows on the same tasks) → **Include**
+4. Does the agent build or extend an application from natural-language requirements (feature or project level), not limited to one specialised domain? → **Include**
+5. Otherwise → **EC6** (e.g. mining PRs or commits, small or function-level tasks, one specialised domain such as hardware, data science, smart contracts)
+
+Records flagged as an author–AI disagreement in pass 2: decide again with the pass-2 flow first, then this one.
+
 Kept: workshop and short papers; secondary studies (reviews, surveys); new benchmarks or evaluation methods for coding agents (a contribution to the evaluation method, so not EC5).
 
 ## Rayyan labels
@@ -41,6 +54,7 @@ Kept: workshop and short papers; secondary studies (reviews, surveys); new bench
 | EC3 | Editorial, keynote, panel, poster, abstract, tutorial |
 | EC4 | Earlier or duplicate version |
 | EC5 | New agent on existing benchmark, nothing for the evaluation method |
+| EC6 | Pass 3, group (c): not code development, issue repair, or neither feature/project level nor evaluation method |
 
 Optional inclusion labels, useful later for extraction: IC1a, IC1b, IC1c.
 
@@ -69,6 +83,7 @@ The pilot decisions predate EC5 (adopted 9 Nov). The group (c) "Y" records are t
 | 2026-11-20 | Comparison on an existing benchmark | EC5 depends on the main contribution, not on the benchmark being new. A new agent or technique on an existing benchmark with nothing for the evaluation method → EC5. An empirical study comparing existing agents or models (no new agent proposed) → include, the comparison is the contribution (as P30). A new benchmark → include. Test: does the paper sell an agent or measure agents? |
 | 2026-11-20 | Multi-agent systems | Multi-agent coordination in general (not software development) → IC1. New multi-agent coding framework on an existing benchmark → EC5. Study comparing agent configurations on software tasks (single vs multi-agent, coordination strategies, roles, topologies) → include, relevant to RQ3. New benchmark or method for evaluating coordination of coding agents → include |
 | 2026-11-20 | Agent as developer vs agent as component | The agent must develop software (write, change, test code). Agents as part of the system's architecture or product (e.g. microservices vs LLM multi-agent systems, chatbots, data pipelines) → IC1, even in a software engineering venue |
+| 2026-11-22 | LLM vs humans | Coding agent compared with human developers → include (c), then the normal flow. LLM with no agentic behaviour compared with humans → EC1 (single function) or IC1 |
 | 2026-11-20 | Record with no abstract | Maybe, unless the title alone is clearly out of scope (then exclude with the code). Before full text, one extra pass over these Maybe records to look up the abstract (DOI, publisher, Google Scholar) and decide by the normal flow |
 
 ## Appendix: IEEE records with no search term in title or abstract
