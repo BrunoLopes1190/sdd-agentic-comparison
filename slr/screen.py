@@ -2,9 +2,8 @@
 
 Run:  python slr/screen.py [2|3]   -> opens http://127.0.0.1:8765  (default: pass 2)
 Queue:       slr/passN-queue.csv           (records to screen; pass 3 from build_pass3_queue.py)
-Suggestions: slr/pass2-ai-suggestions.csv  (pass-2 AI suggestion, shown only AFTER the author decides)
+Suggestions: slr/passN-ai-suggestions.csv  (AI suggestion, shown only AFTER the author decides)
 Decisions:   slr/passN-decisions.csv       (append-only; the last row per key wins)
-In pass 3, "first" is the decision before the pass-2 AI suggestion is shown, "final" the one after.
 """
 import csv, datetime, json, os, sys, webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -14,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PASS = sys.argv[1] if len(sys.argv) > 1 else "2"
 assert PASS in ("2", "3"), "usage: python slr/screen.py [2|3]"
 QUEUE = os.path.join(HERE, f"pass{PASS}-queue.csv")
-AI = os.path.join(HERE, "pass2-ai-suggestions.csv")
+AI = os.path.join(HERE, f"pass{PASS}-ai-suggestions.csv")
 DEC = os.path.join(HERE, f"pass{PASS}-decisions.csv")
 FIELDS = ["time", "key", "first", "final", "ai", "agree", "note"]
 ALLOWED = {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"} | ({"EC6"} if PASS == "3" else set())
@@ -131,13 +130,12 @@ function render(){$("keys").innerHTML=OPTS.map(([k,v])=>`<button data-v="${v}" c
    :`<b>Passo 2:</b> a tua decisão: <b>${LABEL[final]}</b>${note?" · nota: "+esc(note):""}. <b>Enter</b> grava e avança · outra tecla muda · <b>N</b> nota · <b>←</b> anterior`;}
 async function reveal(){const x=Q[i];const k=x.key;const r=await (await fetch("/ai?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;ai=r;
   const el=$("ai");if(!r){el.className="none";el.innerHTML="Sem sugestão da IA para este registo (ainda). Decide só por ti.";return;}
-  if(PASS===3&&!x.flag){el.className="none";el.innerHTML=`IA no passo 2: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q><br>Se o grupo for (a) ou (b) e decidiste EC6, revê.`;return;}
   const same=r.s===first;el.className=same?"agree":"disagree";
   el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>`;}
 function pick(v){if(first===null){first=v;final=v;if(v==="Other"&&!note)askNote();render();reveal();}else{final=v;if(v==="Other"&&!note)askNote();render();}}
 function askNote(){const t=prompt("Nota (ex.: poster EC3, não está em inglês, anterior a 2023, duplicado):",note||"");if(t!==null)note=t.trim();}
 async function commit(){if(first===null)return;if(final==="Other"&&!note){askNote();if(!note)return;}
-  const x=Q[i];const d={key:x.key,first,final,ai:ai?ai.s:"",agree:ai&&(PASS===2||x.flag)?String(ai.s===first):"",note};
+  const x=Q[i];const d={key:x.key,first,final,ai:ai?ai.s:"",agree:ai?String(ai.s===first):"",note};
   const r=await fetch("/decide",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
   if(!r.ok){alert("ERRO ao gravar. Não avances; verifica se o screen.py está a correr.");return;}
   done[x.key]=d;$("saved").textContent="gravado ✓";setTimeout(()=>$("saved").textContent="",800);
@@ -161,7 +159,7 @@ Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70
 <li>O agente <b>constrói ou estende uma aplicação</b> a partir de requisitos (funcionalidade ou projeto), sem ser um domínio especializado? → <b>[I]</b></li>
 <li>Senão → <b>[6] EC6</b> (mineração de PRs, tarefas pequenas, só hardware, data science, smart contracts…)</li>
 </ol>Registo com <b style="color:#c00">⚠ discordância</b>: primeiro o fluxo do passo 2 ([1] IC1, [2] EC1, [3] EC5), depois este. <b>[M]</b> só se o resumo não chegar.<br>
-Depois: cinzento = sugestão da IA do passo 2, só informativa (vê o grupo) → Enter. Laranja/verde nas discordâncias, como no passo 2."""}
+Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê a frase citada, decide tu, Enter. Se a IA sugerir EC2, EC3, EC4, IC2 ou IC3 e concordares: <b>[O]</b> + nota com o código."""}
 
 if __name__ == "__main__":
     srv = ThreadingHTTPServer(("127.0.0.1", 8765), H)
