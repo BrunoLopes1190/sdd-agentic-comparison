@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800498018",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Alonso, P., Yovine, S., Braberman, V. A. (2026). TDAD: Test-Driven Agentic Development - Reducing Code Regressions in AI Coding Agents via Graph-Based Impact Analysis. arXiv:2603.17973v2 [cs.SE], 19 Mar 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.17973v2 [cs.SE], 19 Mar 2026; no published venue found (record only in the arXiv export)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Format: the value must use ' — ' after the type (verification rules); substance unchanged."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Universidad ORT Uruguay (Alonso, Yovine); DC, UBA, Argentina (Braberman)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — TDAD, an open-source tool for graph-based test impact analysis delivered to the agent as a skill (test_map.txt + SKILL.md), compared with a vanilla baseline and a TDD-prompt variant on SWE-bench Verified; also proposes regression rate as a first-class benchmark metric",
+   "p": "1-2",
+   "verdict": "corrected",
+   "why": "Format: secondary nature must be one listed value ('evaluates/compares' is two) and the detail follows ' — '. Compares chosen because the study runs TDAD against vanilla and TDD-prompt configurations under the same setup."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "TDAD (Test-Driven Agentic Development), pip package 'tdad', version Not stated; compared with a 'TDD Prompt' configuration (TDD procedural instructions, write tests first then implement) and a vanilla prompt",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Code-test dependency graph (4 node types: File, Function, Class, Test; 5 edge types: CONTAINS, CALLS, IMPORTS, TESTS, INHERITS) built by AST parsing; static test map file test_map.txt (source file to test file, grep-able); SKILL.md, a 20-line skill definition (fix the bug, grep test_map.txt for related tests, run them and fix failures), simplified from 107 lines. TDD Prompt variant: procedural TDD instructions (119-line prompt). No specification document",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Tool: Stage 1 indexing (AST parser, graph builder, test linker) and Stage 2 impact analysis (weighted strategies direct 0.95, transitive 0.70, coverage 0.80, imports 0.50; export test_map.txt). Agent: read issue, plan fix, implement, query test map for at-risk tests, verify tests, self-correct regressions, submit patch (Fig. 1)",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (agents run autonomously; no human review in the flow)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the proposed tool (indexing, test map, skill) on benchmark tasks; TDD Prompt as a prompt-only variant",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (test-impact context file and skill, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: resolving GitHub issues (bug fixes) in SWE-bench Verified repositories",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Phase 1: 100 SWE-bench Verified instances (first 100 in canonical order); Phase 2: 25 instances selected for diversity; auto-improvement loop: 10-instance subset (5-25 per iteration); 12 Python repositories",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (Django, scikit-learn, sympy, matplotlib, astropy, Flask, pytest and others)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (15-minute generation limit per instance; no tokens, time or money reported)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolution rate (all FAIL_TO_PASS tests pass); generation rate (non-empty patch); test-level regression rate (PASS_TO_PASS failures / total P2P tests; primary metric); instance-level regression rate (share of generated patches with at least one P2P failure); catastrophic regressions (all P2P tests failing)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Count of P2P test failures; empty-patch rate; auto-improvement loop acceptance rate (4 of 15 iterations accepted)",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: SWE-bench Docker harness per instance (checkout base commit, apply patch, run F2P and P2P tests); empty patches excluded from P2P evaluation",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SWE-bench F2P (resolution) and P2P (regression) tests. Phase 1 agent framework not stated ('single-agent setup', llama.cpp); Phase 2 OpenCode v1.2.24. Cost not measured in any configuration. -- Phase 1, Vanilla + agent not stated + Qwen3-Coder 30B (Q4_K_M): resolution 31%, generation 86%, P2P failures 562 / 9,245, test regression 6.08%, instance regression 30.2%, catastrophic 3. Quality: partly (31% resolved, regressions in 30.2% of generated patches). Cost: not reported. -- Phase 1, TDD Prompt + agent not stated + Qwen3-Coder 30B: resolution 31%, generation 75%, P2P failures 799 / 8,040, test regression 9.94%, instance regression 33.3%, catastrophic 5. Quality: partly (31% resolved, highest regression rate, 5 catastrophic). Cost: not reported. -- Phase 1, GraphRAG+TDD (TDAD: TDD + SKILL.md + test_map.txt) + agent not stated + Qwen3-Coder 30B: resolution 29%, generation 74%, P2P failures 155 / 8,536, test regression 1.82%, instance regression 33.3%, catastrophic 1. Quality: partly (29% resolved, low test-level regression 1.82%). Cost: not reported. -- Phase 2, Baseline + OpenCode v1.2.24 + Qwen3.5-35B-A3B (4-bit, MLX): resolved 6/25 (24%), generated 10/25 (40%), 15 empty patches, regression 0%. Quality: partly (24% resolved, no regressions). Cost: not reported. -- Phase 2, TDAD Skill (NetworkX) + OpenCode v1.2.24 + Qwen3.5-35B-A3B: resolved 8/25 (32%), generated 17/25 (68%), 8 empty patches, regression 0%. Quality: partly (32% resolved, no regressions; n = 25). Cost: not reported. -- Ablation (auto-improvement loop: Claude Code, version not stated, modifying TDAD; 10-instance eval with the Phase 2 model): resolution 12% to 60%, generation 28% to 80%, 0% regression; SKILL.md 107 to 20 lines alone 12% to 50%",
+   "p": "4-6",
+   "verdict": "corrected",
+   "why": "r0 gave the two baselines no verdict ('Baseline.') and judged the other configurations against the baseline ('regressions -70%', '+8 pp'); §6 requires each configuration, baseline included, to get its own quality and cost verdict. Judged on their own, all configurations resolve only 24-32% of instances, so quality is partly; cost is not measured. Verdict levels remain a judgement."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Verified, 100 instances (Phase 1, first 100 in canonical order) and 25 (Phase 2, selected for diversity). Configurations: Phase 1 Vanilla vs TDD Prompt vs GraphRAG+TDD; Phase 2 Baseline vs TDAD Skill. Baseline: vanilla prompt (49 lines) / OpenCode without skill. Held constant within Phase 1: model Qwen3-Coder 30B Q4_K_M, llama.cpp, 32K context, temperature 0, 15-minute limit; Phase 2: model Qwen3.5-35B-A3B (MLX, 4-bit) and OpenCode v1.2.24, other settings not stated; both phases evaluated in the SWE-bench Docker harness. Configurations run sequentially. Acceptance tests: SWE-bench F2P and P2P tests. Repetitions: 1 run per configuration. Human intervention: none stated. Earlier ablations on prompt length (119 vs 49 lines) reported from prior experiments",
+   "p": "4-6",
+   "verdict": "corrected",
+   "why": "r0 listed 32K context, temperature 0 and the 15-minute limit as held constant 'within phase' for both phases; the text gives them only for Phase 1 (p. 4), Phase 2 settings beyond model, quantization and agent are not stated."
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Phase 1: TDAD cut test-level regressions 6.08% to 1.82% (-70%; P2P failures 562 to 155, -72%; -81% vs TDD Prompt) with resolution 31% to 29% (-2 pp, more empty patches 26% vs 14%). TDD Prompt worse than vanilla (9.94%, +42% failures): 'TDD Prompting Paradox'. Instance-level regression rate higher for TDAD (33.3% vs 30.2%), explained as a denominator artifact (25 of 74 vs 26 of 86). Phase 2: resolution 24% to 32% (+8 pp), generation 40% to 68%. No significance tests",
+   "p": "1, 4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on regression rate in Phase 1 and on resolution/generation in Phase 2 (no regressions in Phase 2, so not on regressions). Repeatability: single run, temperature 0; two baseline resolutions lost in Phase 2 attributed to nondeterminism. Limitations stated: small samples without formal significance tests; sequential runs; auto-loop evaluation set risks overfitting; test-level regression weights all tests equally; P2P set may not cover all affected code",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "100 and 25 instances without significance tests; two small local models (frontier models may not show the paradox); Python only; static analysis misses dynamic dispatch and runtime code; auto-loop on 10 instances. Future: other languages via Tree-sitter, dynamic coverage, frontier models (Claude Opus 4.6, GPT-5.4), composite resolution-regression metric",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 4 (p. 4) and Table 6 (p. 5) jumbled by pdftotext: GraphRAG+TDD values (8,536 P2P tests, 155 failures, 1.82%, 33.3%, 1 catastrophic) rebuilt from text p. 4-5; Phase 2 values rebuilt from Table 6 and text p. 5. Table 6 'Res. of generated' 8/13 (62%) for TDAD skill conflicts with 17/25 generated (8/17 = 47%); not explained. Abstract says resolution 24% to 32% and 70% regression reduction, consistent with tables. 'Prior experiments' ablation (prompt shortening) not fully reported. Use of generative AI declared. Code, patches, logs and 28 experiment records at github.com/pepealonso95/TDAD (MIT). No pre-registration. Programming language: Python",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (reduce regressions via impact analysis) and contributions stated; no explicit RQs",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): tool design, weights, prompts structure, setup and harness described; code, data and logs released",
+   "p": "2-4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and quantization named, OpenCode v1.2.24 versioned; Phase 1 agent scaffold not named; Claude Code version (auto-loop) not given",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-bench Verified, instance selection described (Phase 2 'selected for diversity' only), public benchmark and released patches",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SWE-bench F2P/P2P tests",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; no cost metrics",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): vanilla and TDD-prompt baselines under the same conditions",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run, no statistical tests (acknowledged)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): regression finding follows; claims of 'confirming generalization' and resolution improvement rest on 25 instances (+2 resolved) without tests; instance-level rate discussed",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations and threats (internal, external, construct) sections",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created TDAD, the approach evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): pip install, NetworkX only, runs with grep and pytest on consumer hardware with local open-weight models; Python repositories only",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

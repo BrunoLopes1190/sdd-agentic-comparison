@@ -1,226 +1,370 @@
 {
-"key": "rayyan-800485907",
-"model": "Claude Opus 5.5 (subagent)",
-"fields": [
-{
-"f": "Reference",
-"v": "Gloaguen, T., Mündler-Sasahara, N., Müller, M. N., Raychev, V., Vechev, M. (2026). Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? arXiv:2602.11988v3 [cs.SE], 29 Sep 2026",
-"p": "1"
-},
-{
-"f": "Year",
-"v": "2026 (v3, 29 Sep 2026)",
-"p": "1"
-},
-{
-"f": "Publication type",
-"v": "Preprint (arXiv; marked 'Preprint.')",
-"p": "1"
-},
-{
-"f": "Author affiliation",
-"v": "Department of Computer Science, ETH Zurich (Gloaguen, Mündler-Sasahara, Vechev); LogicStar.ai (Müller, Raychev)",
-"p": "1"
-},
-{
-"f": "Nature of the study",
-"v": "Compares (no context file vs LLM-generated vs developer-written context files, 4 agent+model pairs, 2 benchmarks, with ablations); secondary: proposes an evaluation method (CTXBENCH benchmark, 138 instances)",
-"p": "1-2, 5"
-},
-{
-"f": "Approach(es): name and version",
-"v": "Context files (AGENTS.md / CLAUDE.md), no version (format 'formalized in August 2025'): (A) LLM-generated context file via each agent's recommended init command and model; (B) developer-committed context file from the pre-patch repository state",
-"p": "2-5"
-},
-{
-"f": "Artefacts prescribed",
-"v": "A single context file at repository root (CLAUDE.md for Claude Code; AGENTS.md for Codex and Qwen Code). LLM-generated files typically contain Overview, Tooling, Testing; developer files: mean 641 words, 9.7 sections, 8 of 12 have a codebase overview",
-"p": "5, 7, 16"
-},
-{
-"f": "Phases of the flow",
-"v": "Generate (init command) or take existing context file -> file placed in context -> agent resolves task -> hidden tests run. No SDD flow",
-"p": "2, 5"
-},
-{
-"f": "Human review points",
-"v": "None (LLM-generated files used unedited; agents run autonomously)",
-"p": "2, 5"
-},
-{
-"f": "Parts exercised",
-"v": "Single artefact (context file)",
-"p": "5"
-},
-{
-"f": "SDD level",
-"v": "Not classifiable (context file, no specification); authors do not use SDD terms",
-"p": "—"
-},
-{
-"f": "Task type",
-"v": "Existing code bases: bug fixing and feature addition from GitHub issues/PRs",
-"p": "2-3"
-},
-{
-"f": "Size",
-"v": "SWE-bench Lite: 300 tasks, 11 repos. CTXBENCH: 138 instances from 5,694 PRs, 12 repos; codebase mean 3,337 files; gold patch mean 118.9 lines, 2.5 files; tests cover 75% of modified code",
-"p": "2, 4-5"
-},
-{
-"f": "Domain",
-"v": "Open-source Python repositories (SWE-bench: django, sympy, astropy, ...; CTXBENCH: transformers, smolagents, tinygrad, ansible, wagtail, fastmcp, ...)",
-"p": "4-5, 14"
-},
-{
-"f": "Team profile",
-"v": "N/A (no human participants; autonomous agents)",
-"p": "—"
-},
-{
-"f": "Cost metrics",
-"v": "Steps per task; LLM inference cost in USD per task (Qwen estimated from OpenRouter price); reasoning tokens (GPT models only). No wall-clock time",
-"p": "6, 8"
-},
-{
-"f": "Functional quality metrics",
-"v": "Success (resolution) rate: % of instances whose patch passes all tests",
-"p": "3, 6"
-},
-{
-"f": "Internal quality metrics",
-"v": "None (efficiency and security named as future work)",
-"p": "9"
-},
-{
-"f": "Human effort metrics",
-"v": "None",
-"p": "—"
-},
-{
-"f": "Other outcome metrics",
-"v": "Behavioural trace analysis: steps before first interaction with a gold-patch file; tool-use frequency and intent; instruction following (tool mentioned vs used); reasoning tokens; presence of codebase overviews in generated files",
-"p": "7-8, 13-15"
-},
-{
-"f": "How metrics are collected",
-"v": "Automatic: tests in Docker, traces, cost logs; LLM-as-judge (GPT-OSS-120B) for overview detection and tool-call intent; Cochran-Mantel-Haenszel, stratified permutation and McNemar tests. Manual: trace inspection, cheating check, review of all CTXBENCH instances and edit of 25 over-specified tests",
-"p": "6-7, 13, 16-18"
-},
-{
-"f": "Evaluation (each configuration)",
-"v": "Criterion: hidden tests pass. Values: success % SWE-bench Lite / CTXBENCH (Table 5, CTXBENCH rows labelled 'PLAN-BENCH'); cost USD per instance SWE / CTX (Table 2). One run each\n- None + Claude Code + Sonnet-4.5: 59.9 / 73.2; 1.30 / 1.15. Baseline\n- LLM + Claude Code + Sonnet-4.5: 58.7 / 65.2; 1.51 / 1.33. Quality: does not work; cost: does not work\n- DEV + Claude Code + Sonnet-4.5: CTX 70.3; 1.30. Quality: does not work; cost: does not work\n- None + Codex + GPT-5.2: 56.6 / 65.2; 0.32 / 0.38. Baseline\n- LLM + Codex + GPT-5.2: 54.4 / 68.1; 0.43 / 0.57. Quality: partly (mixed); cost: does not work\n- DEV + Codex + GPT-5.2: CTX 68.1; 0.54. Quality: partly (+2.9, n.s.); cost: does not work\n- None + Codex + GPT-5.1 Mini: 47.7 / 54.3; 0.18 / 0.18. Baseline\n- LLM + Codex + GPT-5.1 Mini: 47.6 / 50.7; 0.22 / 0.20. Quality: does not work; cost: does not work\n- DEV + Codex + GPT-5.1 Mini: CTX 55.8; 0.19. Quality: partly (+1.5, n.s.); cost: partly\n- None + Qwen Code + Qwen3-30B-Coder: 31.1 / 45.7; 0.12 / 0.13. Baseline\n- LLM + Qwen Code + Qwen3-30B-Coder: 32.4 / 47.1; 0.13 / 0.15. Quality: partly (n.s.); cost: partly\n- DEV + Qwen Code + Qwen3-30B-Coder: CTX 53.6; 0.15. Quality: partly (+7.9); cost: partly\n- Ablation (GPT-5.2 + Codex, LLM file without testing / overview / tooling, Table 7): CTX accuracy 66.67 / 62.32 / 63.77% vs full 68.12%; SWE 57.72 / 54.20 / 53.69% vs 54.36%; none significant; removing testing lowers cost significantly on both benchmarks\n- Ablation (generating model, prompt, documentation removed): stronger models' files +2% SWE, -3% CTX; no consistent prompt effect; with docs removed LLM files +2.7% on average (Fig. 7, 8, 12 only)",
-"p": "5-9, 15-17"
-},
-{
-"f": "Comparison: design",
-"v": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
-"p": "3-5, 13, 17-18"
-},
-{
-"f": "Comparison: result",
-"v": "LLM vs None: success -0.5 pts SWE-bench (p=0.87), -2 pts CTXBENCH (p=0.37), drops in 5 of 8 settings; steps +2.45 / +3.92, cost +20% / +23% (significant). DEV vs None: +2.4 pts (p=0.21), +3.34 steps, cost up to +19% (significant). DEV vs LLM: DEV better (p=0.038). Text (p. 2) says DEV outperforms LLM by '7% on average'; Table 5 per-model differences range 0 (GPT-5.2) to 6.5 pts (Qwen3-30B), ~5 for the others. Reasoning tokens +22%/+10% (GPT-5.2/GPT-5.1 Mini, SWE) with LLM files",
-"p": "2, 6, 8, 15-16"
-},
-{
-"f": "Comparison: did the method work",
-"v": "Distinguished configurations on cost and steps, mostly not on success. Repeatability: single sample per configuration, standard errors and statistical tests reported; temperature 0 for 3 of 4 models; no code/data release link found. Limitations stated: SWE-bench per-repo estimates noisy (django dominates); CTXBENCH ~15% easier than SWE-bench; contamination checked and ruled out; Python only",
-"p": "5-6, 9, 14, 17-18"
-},
-{
-"f": "Conclusions: limitations and gaps",
-"v": "Python only (parametric knowledge may nullify context files); only task resolution measured (efficiency, security future work); how to generate useful context files is open. Recommends omitting LLM-generated files and keeping human files to non-standard instructions",
-"p": "2, 9"
-},
-{
-"f": "Notes",
-"v": "Same study as pilot record P2 (author verified Table 5 Sonnet values, one run, the '7%' inconsistency and affiliations, 2026-11-11). Table 5 labels CTXBENCH rows 'PLAN-BENCH'. Table 2 and Table 5 columns partly jumbled by pdftotext, values rebuilt and matched to Figure 3 and text. Prompts given in appendix E; no code/data repository link found in the text. No pre-registration. Programming language: Python",
-"p": "2, 6, 15, 19-23"
-},
-{
-"f": "Q1",
-"v": "Yes (1): research question and contributions explicit",
-"p": "1-2"
-},
-{
-"f": "Q2",
-"v": "Yes (1): benchmark construction, setup, settings and all prompts given",
-"p": "3-5, 13, 19-23"
-},
-{
-"f": "Q3",
-"v": "Partly (0.5): models named; agent/CLI versions not stated",
-"p": "5"
-},
-{
-"f": "Q4",
-"v": "Partly (0.5): CTXBENCH and SWE-bench described; CTXBENCH availability not stated",
-"p": "3-5"
-},
-{
-"f": "Q5",
-"v": "Yes (1): hidden tests (manually reviewed)",
-"p": "3-5, 18"
-},
-{
-"f": "Q6",
-"v": "Yes (1): success rate, steps, USD cost",
-"p": "6"
-},
-{
-"f": "Q7",
-"v": "Yes (1): None baseline under identical conditions",
-"p": "5"
-},
-{
-"f": "Q8",
-"v": "Partly (0.5): single run per configuration, but standard errors and statistical tests (CMH, permutation, McNemar)",
-"p": "5-6, 15-17"
-},
-{
-"f": "Q9",
-"v": "Yes (1): conclusions match mostly non-significant results; recommendations hedged (except the '7%' figure)",
-"p": "6, 9"
-},
-{
-"f": "Q10",
-"v": "Partly (0.5): short limitations section; no threats-to-validity section; contamination and benchmark difficulty analysed in appendix",
-"p": "9, 16-18"
-},
-{
-"f": "Q11",
-"v": "No (0): arXiv preprint",
-"p": "1"
-},
-{
-"f": "Q12",
-"v": "Yes (1): ETH Zurich and LogicStar.ai; not vendors of the agents or of the context-file format evaluated",
-"p": "1"
-},
-{
-"f": "Q13",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE1",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE2",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE3",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE4",
-"v": "N/A",
-"p": "—"
-}
-]
+ "key": "rayyan-800485907",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Gloaguen, T., Mündler-Sasahara, N., Müller, M. N., Raychev, V., Vechev, M. (2026). Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? arXiv:2602.11988v3 [cs.SE], 29 Sep 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 29 Sep 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2602.11988v3 (29 Sep 2026), marked 'Preprint.'; no published venue found (arXiv export has no journal-ref or DOI; record not in the ACM/WoS exports)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> â€” <detail>'; type unchanged (Preprint)"
+    },
+    {
+     "round": 2,
+     "verdict": "confirmed",
+     "why": ""
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of Computer Science, ETH Zurich (Gloaguen, Mündler-Sasahara, Vechev); LogicStar.ai (Müller, Raychev)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — no context file vs LLM-generated vs developer-written context files, 4 agent+model pairs, 2 benchmarks, with ablations; proposes the CTXBENCH benchmark (138 instances)",
+   "p": "1-2, 5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> â€” <detail>'; natures unchanged"
+    },
+    {
+     "round": 2,
+     "verdict": "confirmed",
+     "why": ""
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Context files (AGENTS.md / CLAUDE.md), no version (format 'formalized in August 2025'): (A) LLM-generated context file via each agent's recommended init command and model; (B) developer-committed context file from the pre-patch repository state",
+   "p": "2-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single context file at repository root (CLAUDE.md for Claude Code; AGENTS.md for Codex and Qwen Code). LLM-generated files typically contain Overview, Tooling, Testing; developer files: mean 641 words, 9.7 sections, 8 of 12 have a codebase overview",
+   "p": "5, 7, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Generate (init command) or take existing context file -> file placed in context -> agent resolves task -> hidden tests run. No SDD flow",
+   "p": "2, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (LLM-generated files used unedited; agents run autonomously)",
+   "p": "2, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context file, no specification); authors do not use SDD terms",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: bug fixing and feature addition from GitHub issues/PRs",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Lite: 300 tasks, 11 repos. CTXBENCH: 138 instances from 5,694 PRs, 12 repos; codebase mean 3,337 files; gold patch mean 118.9 lines, 2.5 files; tests cover 75% of modified code",
+   "p": "2, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (SWE-bench: django, sympy, astropy, ...; CTXBENCH: transformers, smolagents, tinygrad, ansible, wagtail, fastmcp, ...)",
+   "p": "4-5, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Steps per task; LLM inference cost in USD per task (Qwen estimated from OpenRouter price); reasoning tokens (GPT models only). No wall-clock time",
+   "p": "6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Success (resolution) rate: % of instances whose patch passes all tests",
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (efficiency and security named as future work)",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Behavioural trace analysis: steps before first interaction with a gold-patch file; tool-use frequency and intent; instruction following (tool mentioned vs used); reasoning tokens; presence of codebase overviews in generated files",
+   "p": "7-8, 13-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: tests in Docker, traces, cost logs; LLM-as-judge (GPT-OSS-120B) for overview detection and tool-call intent; Cochran-Mantel-Haenszel, stratified permutation and McNemar tests. Manual: trace inspection, cheating check, review of all CTXBENCH instances and edit of 25 over-specified tests",
+   "p": "6-7, 13, 16-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: hidden tests pass. Values: success % SWE-bench Lite / CTXBENCH (Table 5, CTXBENCH rows labelled 'PLAN-BENCH'); cost USD per instance SWE / CTX (Table 2). One run each. Verdicts judged on each configuration's own values: quality partly when it resolves part but not nearly all tasks (no configuration exceeds 73.2%); cost works when the cost per task is at most about USD 1.5 (no cost threshold set by the authors)\n- None + Claude Code + Sonnet-4.5 (baseline): 59.9 / 73.2; 1.30 / 1.15. Quality: partly; cost: works\n- LLM + Claude Code + Sonnet-4.5: 58.7 / 65.2; 1.51 / 1.33. Quality: partly; cost: works\n- DEV + Claude Code + Sonnet-4.5: CTX 70.3; 1.30. Quality: partly; cost: works\n- None + Codex + GPT-5.2 (baseline): 56.6 / 65.2; 0.32 / 0.38. Quality: partly; cost: works\n- LLM + Codex + GPT-5.2: 54.4 / 68.1; 0.43 / 0.57. Quality: partly; cost: works\n- DEV + Codex + GPT-5.2: CTX 68.1; 0.54. Quality: partly; cost: works\n- None + Codex + GPT-5.1 Mini (baseline): 47.7 / 54.3; 0.18 / 0.18. Quality: partly; cost: works\n- LLM + Codex + GPT-5.1 Mini: 47.6 / 50.7; 0.22 / 0.20. Quality: partly; cost: works\n- DEV + Codex + GPT-5.1 Mini: CTX 55.8; 0.19. Quality: partly; cost: works\n- None + Qwen Code + Qwen3-30B-Coder (baseline): 31.1 / 45.7; 0.12 / 0.13. Quality: partly (does not work on SWE-bench Lite alone); cost: works\n- LLM + Qwen Code + Qwen3-30B-Coder: 32.4 / 47.1; 0.13 / 0.15. Quality: partly (does not work on SWE-bench Lite alone); cost: works\n- DEV + Qwen Code + Qwen3-30B-Coder: CTX 53.6; 0.15. Quality: partly; cost: works\n- Ablation (GPT-5.2 + Codex, LLM file without testing / overview / tooling, categories removed with GPT-5.4, Table 7): CTX accuracy 66.67 / 62.32 / 63.77% vs full 68.12%; SWE 57.72 / 54.20 / 53.69% vs 54.36%; none significant; cost CTX $0.3730 / $0.4027 / $0.4815 vs $0.4715, SWE $0.2756 / $0.3018 / $0.2715 vs $0.3272; removing testing lowers cost significantly on both benchmarks (p = 0.023 CTX, 0.0035 SWE), removing tooling on SWE-bench (p = 0.0012). Quality: partly; cost: works\n- Ablation (generating model, prompt, documentation removed): stronger models' files +2% SWE, -3% CTX; no consistent prompt effect; with docs removed LLM files +2.7% on average (Fig. 7, 8, 12 only)",
+   "p": "5-9, 15-17",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Values match Tables 2, 5 and 7 (added the significant cost drop when removing tooling on SWE-bench, p = 0.0012). Unclear for the author: the quality and cost verdicts are set relative to the None baseline, while Â§6 asks for each configuration judged on its own; and the None baseline entries carry no verdicts"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The verdicts were set relative to the None baseline and the baselines had none; draft-verify and §6 require each configuration, baseline included, to be judged on its own. Verdicts redone from each configuration's own values (Tables 2, 5, 7, p. 6, 15, 17); the thresholds are the extractor's, as the paper sets none, so the author should check them. Ablation costs added from Table 7"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
+   "p": "3-5, 13, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "LLM vs None: success -0.5 pts SWE-bench (p=0.87), -2 pts CTXBENCH (p=0.37), drops in 5 of 8 settings; steps +2.45 / +3.92, cost +20% / +23% (significant). DEV vs None: +2.4 pts (p=0.21), +3.34 steps, cost up to +19% (significant). DEV vs LLM: DEV better (p=0.038). Text (p. 2) says DEV outperforms LLM by '7% on average'; Table 5 per-model differences range 0 (GPT-5.2) to 6.5 pts (Qwen3-30B), ~5 for the others. Reasoning tokens +22%/+10% (GPT-5.2/GPT-5.1 Mini, SWE) with LLM files",
+   "p": "2, 6, 8, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on cost and steps, mostly not on success. Repeatability: single sample per configuration, standard errors and statistical tests reported; temperature 0 for 3 of 4 models; no code/data release link found. Limitations stated: SWE-bench per-repo estimates noisy (django dominates); CTXBENCH ~15% easier than SWE-bench; contamination checked and ruled out; Python only",
+   "p": "5-6, 9, 14, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Python only (parametric knowledge may nullify context files); only task resolution measured (efficiency, security future work); how to generate useful context files is open. Recommends omitting LLM-generated files and keeping human files to non-standard instructions",
+   "p": "2, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Same study as pilot record P2 (author verified Table 5 Sonnet values, one run, the '7%' inconsistency and affiliations, 2026-11-11). Table 5 labels CTXBENCH rows 'PLAN-BENCH'. Table 2 and Table 5 columns partly jumbled by pdftotext, values rebuilt and matched to Figure 3 and text. Reporting inconsistency: Table 8 (p. 19) gives SWE-bench Lite success with the original issue descriptions that differs slightly from Table 5 for the same settings (GPT-5.2 None 57.0 vs 56.6, LLM 54.9 vs 54.4; Qwen3-30B None 30.3 vs 31.1; Qwen3-30B LLM 32.4 in both); Table 5 values used. Prompts given in appendix E; no code/data repository link found in the text. No pre-registration. Programming language: Python",
+   "p": "2, 6, 15, 19-23",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Missed reporting inconsistency: Table 8 (p. 19) repeats the SWE-bench Lite original-description runs with values that differ from Table 5 (p. 15) for GPT-5.2 and Qwen3-30B None; §6 Notes asks for inconsistencies with the source of the value used"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question and contributions explicit",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): benchmark construction, setup, settings and all prompts given",
+   "p": "3-5, 13, 19-23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named; agent/CLI versions not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): CTXBENCH and SWE-bench described; CTXBENCH availability not stated",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests (manually reviewed)",
+   "p": "3-5, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): success rate, steps, USD cost",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): None baseline under identical conditions",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): single run per configuration, but standard errors and statistical tests (CMH, permutation, McNemar)",
+   "p": "5-6, 15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions match mostly non-significant results; recommendations hedged (except the '7%' figure)",
+   "p": "6, 9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The conclusion section is hedged and matches the mostly non-significant results, but the introduction claims DEV beats LLM 'by a significant margin of 7% on average' (p. 2) while Table 5 gives about 4.2 points on average, and the abstract says the >20% cost increase holds for developer-written files too, while p. 6 gives at most 19% for them. Yes vs Partly depends on how much weight the abstract/introduction carry"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The conclusion (p. 9) is hedged and matches the mostly non-significant results, but the introduction says DEV beats LLM 'by a significant margin of 7% on average' (p. 2) while Table 5 gives about 4.2 points on average (p. 15), and the abstract extends the >20% cost increase to developer-written files although p. 6 gives at most 19% for them. Yes vs Partly depends on the weight given to abstract and introduction"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The conclusion (p. 9) is hedged and matches the mostly non-significant results, but the introduction says DEV beats LLM 'by a significant margin of 7% on average' (p. 2) while Table 5 gives about 4.2 points on average (p. 15), and the abstract extends the >20% cost increase to developer-written files although p. 6 gives at most 19% for them. Yes vs Partly depends on the weight given to abstract and introduction"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section; no threats-to-validity section; contamination and benchmark difficulty analysed in appendix",
+   "p": "9, 16-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): ETH Zurich and LogicStar.ai; not vendors of the agents or of the context-file format evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
 }

@@ -1,46 +1,360 @@
-{"key": "rayyan-800486310", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Sam-Bodden, B. (2026). What Context Does a Coding Agent Actually Need to Act? arXiv:2607.09691v1 [cs.LG], 19 Jun 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Integrallis Software (single author)", "p": "1"},
-{"f": "Nature of the study", "v": "Compares (context representations for acting on code at oracle localization: full files vs structured tiers vs keep/drop vs call-flow slice; and source vs NL summaries vs signatures on behavioral probes); secondary: proposes an evaluation method (audited resolve@cost instrument with expressibility verification and pre-registration)", "p": "1-2"},
-{"f": "Approach(es): name and version", "v": "No SDD tool. Context representation arms (deterministic, no versions): oracle_full (whole gold files); oracle_tier (gold units in full + remainder rendered as structured tiers: UML-class skeleton, method-only, signature+doc, name); oracle_keep_drop (gold units, remainder deleted); keep/drop + AST sequence slice of local call flow (follow-up). Probe arms: full source; NL summary written by Claude Sonnet 4.6; NL summary written by Qwen2.5-Coder-3B; signature + docstring", "p": "2-6"},
-{"f": "Artefacts prescribed", "v": "Context rendered from a deterministic AST structural tree (Subsystem -> Component -> File -> Class -> Function) at rungs full-body, method-only, UML-class-skeleton, signature+doc, name, exclude; 180-token NL summaries in the probe study. No specification artefact", "p": "3-4"},
-{"f": "Phases of the flow", "v": "Oracle localization (gold-changed files) -> render context per arm -> single-shot agent emits SEARCH/REPLACE blocks (<= 2 apply-failure retries) -> deterministic difflib patch -> SWE-bench 4.1.0 Docker harness", "p": "3-4"},
-{"f": "Human review points", "v": "None (automated)", "p": "3"},
-{"f": "Parts exercised", "v": "Single artefact (code context representation given to a single-shot model)", "p": "2-3"},
-{"f": "SDD level", "v": "Not classifiable (no specification; study of code-context representation)", "p": "—"},
-{"f": "Task type", "v": "Existing code base: SWE-bench Verified issue resolution (multi-file instances); probe study on held-out classes of seaborn, pylint, pytest", "p": "3-4"},
-{"f": "Size", "v": "All 71 multi-file SWE-bench Verified instances (>= 2 gold files), 70 after gold-validation exclusion; probe study 15 classes x 3 probes = 45; mean context 6.9K-25.4K tokens per arm", "p": "3-6"},
-{"f": "Domain", "v": "Open-source Python repositories (SWE-bench Verified; seaborn, pylint, pytest)", "p": "3, 7"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Mean context tokens (cl100k_base proxy, plus Anthropic count_tokens on initial prompt); tokens per resolve (total context tokens / instances resolved); API cost reported for the whole study (~$20 resolve run, ~$5 probe study), ~6 h Docker evaluation", "p": "3-4, 6, 8"},
-{"f": "Functional quality metrics", "v": "Resolve rate (SWE-bench FAIL_TO_PASS and PASS_TO_PASS) with Wilson 95% CI; behavioral-probe accuracy (answers to test-minted probes graded by an independent judge)", "p": "3-4, 6"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Run-to-run non-determinism at temperature 0 (~9% of per-instance outcomes flip); format failures (truncations, empty patches, retry-loop firing); judge agreement (kappa 0.84)", "p": "4, 6"},
-{"f": "How metrics are collected", "v": "Automatic: SWE-bench Docker harness, token counters, deterministic patch builder logs; probe answers graded by LLM judge GPT-4o-mini with Claude as second judge; exact McNemar tests, Wilson CIs, class-clustered bootstrap", "p": "3-4, 6"},
-{"f": "Evaluation (each configuration)", "v": "Agent = custom single-shot harness (no execution, temperature 0, max_tokens 8000, <= 2 apply retries) with Claude Sonnet 4.6 (alias claude-sonnet-4-6) for all resolve arms. Criterion: SWE-bench resolution; cost = mean context tokens and tokens per resolve (Table 3). Single run, N = 70. Verdicts relative to the absolute rates (all oracle ceilings).\n- oracle_full + single-shot harness + Claude Sonnet 4.6: 19/70 = 0.271 [0.18, 0.39]; 25,426 mean tokens; 93,700 tokens/resolve. Quality partly / does not work; cost does not work\n- oracle_tier + harness + Sonnet 4.6: 23/70 = 0.329 [0.23, 0.44]; 8,629; 26,300. Quality partly; cost works\n- oracle_keep_drop + harness + Sonnet 4.6: 25/70 = 0.357 [0.26, 0.47]; 6,876; 19,300 (re-run: 23/70). Quality partly; cost works\n- keep/drop + sequence slice (follow-up, pre-registered H3) + harness + Sonnet 4.6: 26/70 = 0.371 [0.27, 0.49] vs keep/drop re-run 23/70; slice mean 215 extra tokens. Quality partly; cost works\nProbe study (answerer Claude Sonnet 4.6, no agent; n = 45; Table 2): full source 0.600 (27/45), 1,124 tokens; summary by Sonnet 4.6 0.089 (4/45), 165 tokens; summary by Qwen2.5-Coder-3B 0.089 (4/45), 180 tokens; signature + docstring 0.133 (6/45), 212 tokens. Source partly works; summaries and signatures do not work", "p": "3-6, 8"},
-{"f": "Comparison: design", "v": "Tasks: all 70 valid multi-file SWE-bench Verified instances (whole pool, no sampling). Configurations: 3 representation arms (+ slice follow-up). Baseline: oracle_full (registered comparison: tier vs keep/drop). Held constant: oracle localization (same gold files), model, prompt (byte-identical except context), temperature, retry rules, harness; every gold edit verified expressible in every arm. Acceptance tests: SWE-bench FAIL_TO_PASS and PASS_TO_PASS; gold patch validated per instance. Repetitions: 1 (keep/drop re-run once). Human intervention: none. Protocol and hypotheses pre-registered and committed before data. Probe study: 15 held-out classes x 3 test-minted probes, same answerer, independent judge", "p": "2-6, 9"},
-{"f": "Comparison: result", "v": "H2 (tier > keep/drop) null: 23/70 vs 25/70, McNemar 4 vs 6, p = 0.754. Tier vs full p = 0.344; keep/drop vs full 25 vs 19, p = 0.070 (not claimed). Compressed arms match whole files at 3-3.7x fewer tokens; tokens per resolve 19,300 (keep/drop) vs 26,300 (tier) vs 93,700 (full). H3 slice vs keep/drop 26 vs 23, p = 0.375 (n.s.). Probes: source 27/45 vs summaries 4/45 (McNemar 23-vs-0, p < 1e-4); frontier and 3B summarizers identical. Run-to-run noise: 6/70 flips (~9%) between identical runs, larger than the H2 gap", "p": "1, 4-6, 9"},
-{"f": "Comparison: did the method work", "v": "Did not distinguish the representation arms on resolve (all within run-to-run noise); did distinguish on tokens and in the probe study. Repeatability: keep/drop re-run showed ~9% outcome flips at T = 0; probes single draws. Limitations stated: single-shot no-execution regime; oracle ceilings with asymmetric construction (compressed arms encode gold edit locations); probe scope 15 classes, one language; residual format penalty for tier; token proxy; one model family, Python", "p": "6-7"},
-{"f": "Conclusions: limitations and gaps", "v": "Single-shot, no-execution regime (multi-turn agents could recover by reading more); oracle localization, not deployable; compressed vs full confounds compression with location hinting; probes 15 classes, Python only; one model family; interaction-level artifacts and distance-graded detail specified but not implemented. Future: 2-step agent loop on the solvable subset (registered), act-view re-grade, in-the-loop version", "p": "5-7, 9"},
-{"f": "Notes", "v": "Code, frozen instance lists, pre-registrations, per-instance harness reports public (MIT): github.com/integrallis/act-context. Pre-registration claimed (committed in the repository before data; link to repo given). Language: Python. Model alias only (no dated snapshot). Exploratory results on author's own code quarantined in Appendix D (not claims). Figures 1-4 text garbled by pdftotext; values taken from Tables 2-4. Relevance to SDD: indirect (what context an agent needs, no specification approach)", "p": "1, 8-9"},
-{"f": "Q1", "v": "Yes (1): question and find/act sub-questions, registered hypotheses H2 and H3", "p": "1-2, 5-6"},
-{"f": "Q2", "v": "Yes (1): setup table, prompt, decoding, patch builder, harness, statistics; code and protocol released", "p": "3, 8"},
-{"f": "Q3", "v": "Yes (1): models and versions given (claude-sonnet-4-6 alias, GPT-4o-mini, Qwen2.5-Coder-3B), SWE-bench harness 4.1.0; custom harness released (alias without dated snapshot noted)", "p": "3, 8-9"},
-{"f": "Q4", "v": "Yes (1): SWE-bench Verified multi-file instances listed and frozen; probe repos at pinned commits; public", "p": "3, 8-9"},
-{"f": "Q5", "v": "Yes (1): SWE-bench tests; probes minted from test files and graded by an independent-family judge (kappa 0.84)", "p": "3-4"},
-{"f": "Q6", "v": "Yes (1): resolve rate, context tokens, tokens per resolve defined; cost and quality covered", "p": "4, 6"},
-{"f": "Q7", "v": "Yes (1): arms compared under the same oracle localization, model and prompt; full-file arm as reference", "p": "3, 6"},
-{"f": "Q8", "v": "Partly (0.5): exact McNemar, Wilson CIs, clustered bootstrap, and run-to-run noise measured, but single run per arm in the main experiment", "p": "3, 6"},
-{"f": "Q9", "v": "Yes (1): registered null reported as null; p = 0.07 not claimed; scope limits stated", "p": "5-7"},
-{"f": "Q10", "v": "Yes (1): threats-to-validity section stating which way each bias cuts", "p": "6-7"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): author not a vendor of the models or the compared representations (generic rendering techniques)", "p": "1"},
-{"f": "Q13", "v": "N/A (compares representations; no approach proposed)", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486310",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Sam-Bodden, B. (2026). What Context Does a Coding Agent Actually Need to Act? arXiv:2607.09691v1 [cs.LG], 19 Jun 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (marked 'Preprint.' on p. 1); no venue stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must be the type followed by ' — ' and detail; content unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Integrallis Software (single author)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — context representations for acting on code at oracle localization (full files vs structured tiers vs keep/drop vs call-flow slice; source vs NL summaries vs signatures on behavioral probes); audited resolve@cost instrument with expressibility verification and pre-registration",
+   "p": "1-2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: main nature; secondary: <value> — detail; content unchanged"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "'Compares' fits the title question and the registered arm comparisons, but contribution (1) is the audited resolve@cost instrument and the conclusion calls the rig 'the lasting contribution' (p. 2, 7), so another reader could make 'Proposes an evaluation method' the main nature. Q13 stays N/A either way (no approach proposed)"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD tool. Context representation arms (deterministic, no versions): oracle_full (whole gold files); oracle_tier (gold units in full + remainder rendered as structured tiers: UML-class skeleton, method-only, signature+doc, name); oracle_keep_drop (gold units, remainder deleted); keep/drop + AST sequence slice of local call flow (follow-up). Probe arms: full source; NL summary written by Claude Sonnet 4.6; NL summary written by Qwen2.5-Coder-3B; signature + docstring",
+   "p": "2-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Context rendered from a deterministic AST structural tree (Subsystem -> Component -> File -> Class -> Function) at rungs full-body, method-only, UML-class-skeleton, signature+doc, name, exclude; 180-token NL summaries in the probe study. No specification artefact",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Oracle localization (gold-changed files) -> render context per arm -> single-shot agent emits SEARCH/REPLACE blocks (<= 2 apply-failure retries) -> deterministic difflib patch -> SWE-bench 4.1.0 Docker harness",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automated)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (code context representation given to a single-shot model)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; study of code-context representation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: SWE-bench Verified issue resolution (multi-file instances); probe study on held-out classes of seaborn, pylint, pytest",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "All 71 multi-file SWE-bench Verified instances (>= 2 gold files), 70 after gold-validation exclusion; probe study 15 classes x 3 probes = 45; mean context 6.9K-25.4K tokens per arm",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (SWE-bench Verified; seaborn, pylint, pytest)",
+   "p": "3, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean context tokens (cl100k_base proxy, plus Anthropic count_tokens on initial prompt); tokens per resolve (total context tokens / instances resolved); API cost reported for the whole study (~$20 resolve run, ~$5 probe study), ~6 h Docker evaluation",
+   "p": "3-4, 6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve rate (SWE-bench FAIL_TO_PASS and PASS_TO_PASS) with Wilson 95% CI; behavioral-probe accuracy (answers to test-minted probes graded by an independent judge)",
+   "p": "3-4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Run-to-run non-determinism at temperature 0 (~9% of per-instance outcomes flip); format failures (truncations, empty patches, retry-loop firing); judge agreement (kappa 0.84)",
+   "p": "4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: SWE-bench Docker harness, token counters, deterministic patch builder logs; probe answers graded by LLM judge GPT-4o-mini with Claude as second judge; exact McNemar tests, Wilson CIs, class-clustered bootstrap",
+   "p": "3-4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent = custom single-shot harness (no execution, temperature 0, max_tokens 8000, <= 2 apply retries) with Claude Sonnet 4.6 (alias claude-sonnet-4-6) for all resolve arms. Criterion: SWE-bench resolution; cost = mean context tokens and tokens per resolve (Table 3); whole registered run about $20 API for ~210 calls. Single run, N = 70. Each arm judged on its own absolute values (all are oracle ceilings).\n- oracle_full + single-shot harness + Claude Sonnet 4.6: 19/70 = 0.271 [0.18, 0.39]; 25,426 mean tokens; 93,700 tokens/resolve. Quality partly; cost partly\n- oracle_tier + harness + Sonnet 4.6: 23/70 = 0.329 [0.23, 0.44]; 8,629; 26,300. Quality partly; cost works\n- oracle_keep_drop + harness + Sonnet 4.6: 25/70 = 0.357 [0.26, 0.47]; 6,876; 19,300 (re-run: 23/70). Quality partly; cost works\n- keep/drop + sequence slice (follow-up, pre-registered H3) + harness + Sonnet 4.6: 26/70 = 0.371 [0.27, 0.49] vs keep/drop re-run 23/70; slice mean 215 extra tokens (present on 65/70). Quality partly; cost works\nProbe study (answerer Claude Sonnet 4.6, no agent; n = 45; Table 2): full source 0.600 (27/45), 1,124 tokens: quality partly, cost works; summary by Sonnet 4.6 0.089 (4/45), 165 tokens: quality does not work, cost works; summary by Qwen2.5-Coder-3B 0.089 (4/45), 180 tokens: quality does not work, cost works; signature + docstring 0.133 (6/45), 212 tokens: quality does not work, cost works",
+   "p": "3-6, 8",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Round 1 gave oracle_full a double quality verdict ('partly / does not work') and a cost 'does not work' that reads as relative to the compressed arms; on its own 25K context tokens per single-shot call (about $0.10 per call, App. B) is not prohibitive, so partly (judgement). Probe arms lacked cost verdicts"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: all 70 valid multi-file SWE-bench Verified instances (whole pool, no sampling). Configurations: 3 representation arms (+ slice follow-up). Baseline: oracle_full (registered comparison: tier vs keep/drop). Held constant: oracle localization (same gold files), model, prompt (byte-identical except context), temperature, retry rules, harness; every gold edit verified expressible in every arm. Acceptance tests: SWE-bench FAIL_TO_PASS and PASS_TO_PASS; gold patch validated per instance. Repetitions: 1 (keep/drop re-run once). Human intervention: none. Protocol and hypotheses pre-registered and committed before data. Probe study: 15 held-out classes x 3 test-minted probes, same answerer, independent judge",
+   "p": "2-6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "H2 (tier > keep/drop) null: 23/70 vs 25/70, McNemar 4 vs 6, p = 0.754. Tier vs full p = 0.344; keep/drop vs full 25 vs 19, p = 0.070 (not claimed). Compressed arms match whole files at 3-3.7x fewer tokens; tokens per resolve 19,300 (keep/drop) vs 26,300 (tier) vs 93,700 (full). H3 slice vs keep/drop 26 vs 23, p = 0.375 (n.s.). Probes: source 27/45 vs summaries 4/45 (McNemar 23-vs-0, p < 1e-4); frontier and 3B summarizers identical. Run-to-run noise: 6/70 flips (~9%) between identical runs, larger than the H2 gap",
+   "p": "1, 4-6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Did not distinguish the representation arms on resolve (all within run-to-run noise); did distinguish on tokens and in the probe study. Repeatability: keep/drop re-run showed ~9% outcome flips at T = 0; probes single draws. Limitations stated: single-shot no-execution regime; oracle ceilings with asymmetric construction (compressed arms encode gold edit locations); probe scope 15 classes, one language; residual format penalty for tier; token proxy; one model family, Python",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single-shot, no-execution regime (multi-turn agents could recover by reading more); oracle localization, not deployable; compressed vs full confounds compression with location hinting; probes 15 classes, Python only; one model family; interaction-level artifacts and distance-graded detail specified but not implemented. Future: 2-step agent loop on the solvable subset (registered), act-view re-grade, in-the-loop version",
+   "p": "5-7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code, frozen instance lists, pre-registrations, per-instance harness reports public (MIT): github.com/integrallis/act-context. Pre-registration claimed (committed in the repository before data; link to repo given). Language: Python. Model alias only (no dated snapshot). Inconsistency: probe study stated as temperature 0 throughout (§4, Table 2 'strict T=0', App. C 'corrected strict T=0 rerun'), but the threats section says 'probe cells are single draws at T=1' (p. 7); values taken from Table 2. Exploratory results on author's own code quarantined in Appendix D (not claims). Figures 1-4 text garbled by pdftotext; values taken from Tables 2-4. Relevance to SDD: indirect (what context an agent needs, no specification approach)",
+   "p": "1, 4, 7-9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Missing reporting inconsistency: probe temperature given as T=0 on pp. 4 and 9 but T=1 on p. 7"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question and find/act sub-questions, registered hypotheses H2 and H3",
+   "p": "1-2, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): setup table, prompt, decoding, patch builder, harness, statistics; code and protocol released",
+   "p": "3, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): models and versions given (claude-sonnet-4-6 alias, GPT-4o-mini, Qwen2.5-Coder-3B), SWE-bench harness 4.1.0; custom harness released (alias without dated snapshot noted)",
+   "p": "3, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-bench Verified multi-file instances listed and frozen; probe repos at pinned commits; public",
+   "p": "3, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SWE-bench tests; probes minted from test files and graded by an independent-family judge (kappa 0.84)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolve rate, context tokens, tokens per resolve defined; cost and quality covered",
+   "p": "4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): arms compared under the same oracle localization, model and prompt; full-file arm as reference",
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): exact McNemar, Wilson CIs, clustered bootstrap, and run-to-run noise measured, but single run per arm in the main experiment",
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): registered null reported as null; p = 0.07 not claimed; scope limits stated",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats-to-validity section stating which way each bias cuts",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): author not a vendor of the models or the compared representations (generic rendering techniques)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The structured-tier rendering (AST tree, rungs) and the slice arm are the author's own constructions from his in-house work (App. D); if these count as approaches the author created, Q12 would be Partly. They are generic techniques with no product or vendor named, so Yes is defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The tier rendering and the slice arm are the author's own constructions (in-house codebase, App. D); if they count as approaches the author created, Q12 would be Partly. They are generic deterministic renderings with no product or vendor, so Yes is defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The tier rendering and the slice arm are the author's own constructions; if they count as approaches the author created, Q12 would be Partly. They are generic deterministic renderings with no product or vendor, so Yes is defensible"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (compares representations; no approach proposed)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+"key": "rayyan-800486278",
+"model": "Claude Opus 5.5 (subagent)",
+"fields": [
+{
+"f": "Reference",
+"v": "Moreira, P. S., Sweet, C. (2026). Beyond Memory: A Templated Substrate for Heterogeneous Collaborative Knowledge Work with LLM Agents. arXiv:2607.24759v1 [cs.AI], 29 May 2026",
+"p": "1"
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1"
+},
+{
+"f": "Publication type",
+"v": "Preprint (arXiv)",
+"p": "1"
+},
+{
+"f": "Author affiliation",
+"v": "Center for Research Computing (CRC), University of Notre Dame",
+"p": "1"
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an approach (llm-wiki-memory-template, an agent-aware template of the llm-wiki pattern with a three-axis design framing); secondary: evaluates (three deployed case studies + one design report, interpretive trace analysis)",
+"p": "1-3, 8"
+},
+{
+"f": "Approach(es): name and version",
+"v": "llm-wiki-memory-template (github.com/crcresearch/llm-wiki-memory-template; version Not stated), instantiating the llm-wiki pattern (Karpathy 2026; tonbi 2026). Overlays: Claude Code (validated end to end), Cursor (structurally only), 'none'; tutor variant (Case D)",
+"p": "2-4, 11, 13"
+},
+{
+"f": "Artefacts prescribed",
+"v": "LLM-maintained wiki of cross-linked Markdown pages with YAML frontmatter (type, up:, typed edges extends/supports/criticizes/source/related); home, index, log_<repo>.md (each entry with 'by: <human> via <agent>'), SCHEMA_<repo>.md; CLAUDE.md; agent-agnostic policy files discipline-gates.md and verification-gate.md (pre-commit checklist); agent overlay commands/skills/rules (.claude/, .cursor/); ALWAYS_FILES sync allowlist. Append-only convention",
+"p": "4-6"
+},
+{
+"f": "Phases of the flow",
+"v": "Bootstrap (scripts/instantiate.sh) -> ongoing operations: ingest (wiki-experiment, wiki-source), query, lint; discipline gates and verification gate before commit; one commit per log entry; template sync via update-from-template.sh; three-tier governance (base / variant / derived) with graduation trigger",
+"p": "4-5, 7"
+},
+{
+"f": "Human review points",
+"v": "Verification gate as pre-commit checklist (applied by agent); humans read/audit the wiki and log; Case B retroactive audit by a human researcher. No mandatory human approval step stated",
+"p": "5, 10"
+},
+{
+"f": "Parts exercised",
+"v": "Full template in real projects (Cases A, B, D with Claude Code); Case C multi-agent only as design (not run)",
+"p": "8-11"
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (project memory/knowledge wiki, not a software specification)",
+"p": "—"
+},
+{
+"f": "Task type",
+"v": "Mixed knowledge work: research software projects (retrieval research; adaptive web scraper), course wiki for teaching; not code-generation tasks as such",
+"p": "8-11"
+},
+{
+"f": "Size",
+"v": "Case A: 48 pages, 907 body cross-references, 237 typed edges over 22 days; Case B: two researchers, experiments with 20 questions; Case D: ~30 pages. Code-base size Not stated",
+"p": "8-11"
+},
+{
+"f": "Domain",
+"v": "Research software (information retrieval; LLM-based web extraction); undergraduate microelectronics education (Arduino)",
+"p": "8-11"
+},
+{
+"f": "Team profile",
+"v": "Case A: one researcher (first author); Case B: two researchers (R1, R2) with coding agents; Case C: research computing center project (in progress); Case D: scripted student (no real students)",
+"p": "8-12"
+},
+{
+"f": "Cost metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Functional quality metrics",
+"v": "None of code quality; Case B reports evidence-based question coverage of the scraper (20/20 -> 14/12 -> 18/18)",
+"p": "10"
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Other outcome metrics",
+"v": "Wiki size/compounding counts (pages, cross-references, typed edges); qualitative properties: failure-path preservation, error visibility, local adaptation",
+"p": "8, 12-13"
+},
+{
+"f": "How metrics are collected",
+"v": "Manual interpretive trace analysis of wiki content and git logs (public for A and D; saved per-experiment summaries, private, for B); hedge-phrase filter on saved summaries in Case B",
+"p": "3, 10"
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Criterion: qualitative demonstration of each collaboration axis (no success criterion defined). Agent model not stated in any case\n- Case A - llm-wiki template + Claude Code + model n.s. (solo, 22 days): 48 pages, 907 cross-references, 237 typed edges; abandoned iteration preserved. Quality partly (qualitative); cost not measured\n- Case B - llm-wiki template + Claude Code + model n.s. (two authors): audit via preserved summaries revised Exp 7/8 coverage 20/20 -> 14/20 and 12/20, fix -> 18/20 and 18/20; concepts 16 -> 54. Quality works (qualitative); cost not measured\n- Case C - Claude Code + Cursor overlays (design report, not run): N/A\n- Case D - tutor variant + Claude Code + model n.s.: scripted paired-video illustration, no real users. Not evaluated",
+"p": "8-12"
+},
+{
+"f": "Comparison: design",
+"v": "No comparison; no baseline. Authors state a controlled comparison against alternative substrates (Notion, plain Git, built-in agent memory) is future work",
+"p": "13"
+},
+{
+"f": "Comparison: result",
+"v": "N/A (no comparison). Claimed properties: failure paths survive; errors become visible and correctable; designs adapt locally",
+"p": "12-13"
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A. Authors note the four-case method shows the architecture works on each axis but not relative to alternatives",
+"p": "13"
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Only Claude Code overlay validated end to end (Cursor structural only, 'none' untested); small longitudinal evidence (one 22-day solo window, two-person Case B); prompt injection not caught by gates; governance untested beyond 2-3 variants; no comparison with alternative substrates; three-axes-simultaneous case not shown; Case D real-student study planned",
+"p": "13"
+},
+{
+"f": "Notes",
+"v": "Case B data private; Cases A and D git logs public; template open source. Case C is design only and Case D uses scripted videos, so only A and B provide observed evidence. Authors are template creators and Case A is the first author's own project. Pre-registration: Not stated. Programming language: Not stated (Markdown/YAML/bash template)",
+"p": "3, 8-13"
+},
+{
+"f": "Q1",
+"v": "Yes (1): contributions and three-axis claim clearly stated",
+"p": "2"
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): template fully described and released; case analysis method only named (interpretive trace analysis)",
+"p": "3-5"
+},
+{
+"f": "Q3",
+"v": "No (0): Claude Code and Cursor named without versions; models not stated",
+"p": "4, 8"
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): cases described; Case B private; A and D git logs public",
+"p": "3, 8-11"
+},
+{
+"f": "Q5",
+"v": "No (0): authors' own interpretation; no independent criterion (Case B ground-truth validation concerns the scraper, not the template)",
+"p": "3, 9-10"
+},
+{
+"f": "Q6",
+"v": "No (0): no defined metrics for the approach; no cost",
+"p": "—"
+},
+{
+"f": "Q7",
+"v": "No (0): no baseline",
+"p": "13"
+},
+{
+"f": "Q8",
+"v": "No (0): single cases, no repetition",
+"p": "—"
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): claims mostly tempered (design prediction, design report), but 'empirically sufficient' from one case and compounding from one solo window",
+"p": "8, 12-13"
+},
+{
+"f": "Q10",
+"v": "Yes (1): Section 7 limitations",
+"p": "13"
+},
+{
+"f": "Q11",
+"v": "No (0): preprint",
+"p": "1"
+},
+{
+"f": "Q12",
+"v": "No (0): authors created the template evaluated",
+"p": "1, 4"
+},
+{
+"f": "Q13",
+"v": "Yes (1): open-source Markdown/git template, one-command bootstrap, works with Claude Code or Cursor; no special compute",
+"p": "4, 14"
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—"
+}
+]
+}

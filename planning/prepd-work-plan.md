@@ -20,7 +20,7 @@ Note: the exam window (4–9 Jan) starts before M7. Exam scheduling is the cours
 |---|---|---|---|---|
 | M1 | 2026-11-04 | Email 1 to the supervisor | Sent with the work ready at that moment and the assumptions to confirm (§2.1) | Done 2026-11-04 |
 | M2 | 2026-11-16 | Email 2: everything up to week 9 done; feedback and meeting requested; all open questions (§6) | P1–P4, P8–P11, P13 done, no week 9 classes; SLR protocol frozen (done 11 Nov). P11 (WBS) is the first item to move to M3 if time runs short | Done 2026-11-16 (P1 hetero-assessment finished 2026-11-20) |
-| M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied; weeks 10–11 class work; SLR search, screening and synthesis (P5–P7); P12 draft | Not started |
+| M3 | 2026-12-01 | Email 3: supervisor's corrections applied, plus the work from the later classes | M2 feedback applied (none received); weeks 10–11 class work; SLR full-text screening done, with quality assessment and extraction of the included studies (P5, P6). Replanned 2026-11-23: snowballing, PRISMA, synthesis, P7 and the P12 draft move to the M4 path (§2.4); email 3 reports the SLR as far as it got | In progress |
 | M4 | 2026-12-13 | Extended abstract draft sent to the supervisor | [S] He reviews it until the 15th | Not started |
 | M5 | 2026-12-16 | Extended abstract submitted | [F] Fixed (intro slide 10). [F] Not graded, but a positive review justifies scheduling the final exam (`general/extended-abstract-function.txt`) | Not started |
 | M6 | 2027-01-02 | Draft of the whole document and slides sent to the supervisor | Full draft of P16 and P17 | Not started |
@@ -79,34 +79,37 @@ The same scope rule applies to emails 2 and 3: they go on the milestone date wit
 7. Open `course-materials/week-10/example-project-code-design-part-1.mpp` to check that it works.
 8. Confirm the licence source in the charter cost table (`doc/chapters/07-work-plan.md`).
 
-### 2.3 Path to M3 (16 Nov – 1 Dec, guideline)
+### 2.3 Path to M3 (16 Nov – 1 Dec, guideline; replanned 2026-11-23)
 
 | Days | Work |
 |---|---|
-| 18 | Final search on all databases; export to Zotero; search log; deduplication (moved from 16–17 Nov: no work on 17 Nov). Supervisor feedback applied when it arrives (no reply to email 2 by 17 Nov) |
-| 18–20 | Title/abstract screening with reasons (second reviewer dropped on 20 Nov). Pass 2 started 20 Nov in the local tool (241 of 1307 by end of day) |
-| 21 | Pass 2 finished (1307 of 1307; 694 pass) |
-| 22 | Define the group (c) criterion for pass 3 and log it before applying it; pass 3 (with the review of author–AI disagreements). Moved from 21 Nov. Done: 328 to full text |
-| 23–27 | Full-text screening joined with quality assessment and extraction: one reading per study, groups (a) and (b) first, then (c) (decided 23 Nov; protocol §4.2 step 7). Then backward/forward snowballing and PRISMA diagram |
-| 28–29 | Synthesis by RQ, gap, comparative framework (with the tool documentation analysis) |
-| 30 | Schedule (Gantt) draft for Feb–Jun 2027 in MS Project, built from the WBS (week 10: logic network, three-point estimates, critical path, milestones as 0-day tasks, baseline) |
+| 18 | Done. Final search on all databases; export to Zotero; search log; deduplication (moved from 16–17 Nov: no work on 17 Nov) |
+| 18–20 | Done. Title/abstract screening with reasons (second reviewer dropped on 20 Nov) |
+| 21 | Done. Pass 2 finished (1307 of 1307; 694 pass) |
+| 22 | Done. Group (c) criterion EC6 logged before pass 3; pass 3: 328 to full text |
+| 23 (Mon) | Done. Full-text preparation (327 texts, tool, AI suggestions and drafts); AI suggestions from three independent runs; AI drafts checked in rounds; first full-text decisions. AI runs continue at 19:05 and 00:10 (remaining draft checks, rules pass, group (c) drafts) |
+| 24 (Tue) | Group (a): full-text decision, quality and extraction check (40 studies, about 31 includes, about 6 h) |
+| 25–27 (Wed–Fri) | Group (b): 124 studies, about 92 includes (about 20 h, about 7 h a day) |
+| 28–30 (Sat–Mon) | Group (c): 164 studies, about 134 includes. Fits only with a lighter extraction for group (c) (about 5 min per include instead of 10: quality plus the RQ2/RQ3 fields), **to decide by the author and log in the protocol before starting (c)**; otherwise (c) runs into 1–4 Dec and the M4 path below shifts |
 | Throughout | Week 11 class work (week 10 work goes into P11 and P12) |
-| 1 Dec | Email 3; announces the extended abstract draft for 13 Dec |
+| 1 Dec (Tue) | Full-text counts for PRISMA; email 3: SLR status (screening and extraction done, or as far as they got), what comes next, extended abstract draft announced for 13 Dec |
 
-Corpus size is unknown until the pilot search (M1). Fallback: email 3 reports the SLR as far as it got; synthesis is finished before M4. A supervisor meeting during this phase may change the protocol; changes are logged.
+Assumption: about 6–7 h a day of the author's time on the SLR from 24 Nov. Estimates from 23 Nov: about 2–3 min per exclusion and about 10 min per include (decision plus checking the verified AI draft). AI work (suggestions, drafts, checks) runs outside the author's hours; if usage limits stop it, the author checks the unverified draft. A supervisor meeting during this phase may change the protocol; changes are logged.
 
-### 2.4 Path to M4 and M5 (2–16 Dec, guideline)
+### 2.4 Path to M4 and M5 (2–16 Dec, guideline; replanned 2026-11-23)
 
 | Days | Work |
 |---|---|
-| 2–6 | Week 12 class work; apply feedback on email 3; finish the SLR if anything is left |
-| 2–8 | Complete the planning: final schedule, cost estimate, risk register, monitoring and control |
-| 7–11 | Week 13 class work; write the extended abstract in the published structure (§4, "Extended abstract structure") |
+| 2–4 | Snowballing, one iteration (backward reference lists, forward "Cited by") on the included studies, with AI pre-screening of candidates and the author's decisions; final PRISMA 2020 diagram (moved from 23–27 Nov). Finish group (c) here if it ran late |
+| 2–6 | Week 12 class work; apply feedback on email 3, if any |
+| 4–7 | Synthesis by RQ; Evidence → Limitation → Gap → RQ → Contribution chain; threats to validity of the review (P6). Comparative framework (P7): SLR plus the documented analysis of tool documentation (5W matrix) (moved from 28–29 Nov) |
+| 7–8 | Schedule (Gantt) draft for Feb–Jun 2027 in MS Project (P12; moved from 30 Nov; needed by section 6 of the extended abstract); complete the planning: cost estimate, risk register, monitoring and control. P1 week 9 additions (SWOT, GRIT, market analysis, GROW, SMART labels; moved from M3) |
+| 9–12 | Week 13 class work; write the extended abstract in the published structure (§4, "Extended abstract structure") |
 | 12–13 | Review (sentences under 30 words; every reference exists and was read); send the draft (M4) |
 | 14–15 | Apply supervisor feedback, if any |
 | 16 | Submit (M5) |
 
-The extended abstract is the first time the separate products are written as one text; allow time for it.
+The extended abstract is the first time the separate products are written as one text; allow time for it. If the SLR runs late, the extended abstract reports it up to the last finished step and the synthesis is finished for the final document (M6).
 
 ### 2.5 Path to M6 and M7 (17 Dec – 6 Jan, guideline)
 
@@ -138,18 +141,18 @@ The extended abstract is the first time the separate products are written as one
 
 | # | Product | Method / class | Feeds grading item | Due | Status |
 |---|---|---|---|---|---|
-| P1 | Competency self-diagnosis + hetero-assessment by a colleague; ≥ 3 key competencies with SMART objectives; ≥ 2 actions each, with metrics; week 9 additions: personal SWOT, GRIT scale, market analysis, GROW model, evaluation and control | Week 5: `competencies.pdf`, `self-assessment.docx`, `assessment.docx`; week 9: `competency-action-plan.md` | Schedule (20) | M2; week 9 additions M3 | In progress (reopened 2026-11-23 for the week 9 additions; base done 2026-11-20) |
+| P1 | Competency self-diagnosis + hetero-assessment by a colleague; ≥ 3 key competencies with SMART objectives; ≥ 2 actions each, with metrics; week 9 additions: personal SWOT, GRIT scale, market analysis, GROW model, evaluation and control | Week 5: `competencies.pdf`, `self-assessment.docx`, `assessment.docx`; week 9: `competency-action-plan.md` | Schedule (20) | M2; week 9 additions 8 Dec (moved from M3 on 2026-11-23) | In progress (reopened 2026-11-23 for the week 9 additions; base done 2026-11-20) |
 | P2 | Research design: main RQ (formalisation) + sub-RQs typed by Shaw; Oates process figure (strategies: design and creation + experiment; data: documents, observation, logs; analysis: quantitative + qualitative); validity threats and bias controls | Week 3: `research-methods-t.md`, `research-process-figure.pptx`, TP activity I | Objectives/method (10) | M2 | Done 2026-11-11 |
 | P3 | SLR protocol (frozen before the search): review RQs, concept blocks and synonyms, string per database, databases and justification, search cut-off date, IC/EC, quality assessment checklist, extraction form, synthesis plan, second-reviewer procedure (D2a), protocol change log | Week 4: SLR module + mini-SLR tutorial; Kitchenham & Charters (2007) | State of the art (20) | Draft M1; frozen M2 | Done 2026-11-11 (frozen) |
 | P4 | Pilot search on one database (inspect 20–30 results); pilot the extraction form; refine and log changes; then freeze the protocol | Week 4: tutorial slide 20, steps 1–2 | State of the art | Search M1; extraction pilot M2 | Done 2026-11-11 |
-| P5 | Final search on all databases; exports; search log (query, date, filters, n); deduplication; title/abstract and full-text screening with reasons; backward/forward snowballing; PRISMA 2020 diagram | Week 4; Wohlin (2014); Page et al. (2021) | State of the art | M3 | In progress (final search done 18 Nov; title/abstract pass 2 done 21 Nov, 694 of 1307 pass; pass 3 done 22 Nov, 328 to full text; full text started 23 Nov, joined with P6) |
-| P6 | Quality assessment of every included study; extraction matrix; critical synthesis by RQ; Evidence → Limitation → Gap → RQ → Contribution chain; threats to validity of the review | Week 4: slides 22–28 | State of the art; Background (10) | M3 | In progress (from 23 Nov, in the same sitting as the full-text decision) |
-| P7 | Preliminary comparative framework of SDD approaches, from the SLR plus the documented analysis of tool documentation (D3) (RQ1 / O1) | Week 4 synthesis; Macedo (2026) dimensions | State of the art | M3 | Not started |
+| P5 | Final search on all databases; exports; search log (query, date, filters, n); deduplication; title/abstract and full-text screening with reasons; backward/forward snowballing; PRISMA 2020 diagram | Week 4; Wohlin (2014); Page et al. (2021) | State of the art | Full text M3; snowballing and PRISMA 4 Dec | In progress (final search done 18 Nov; title/abstract pass 2 done 21 Nov, 694 of 1307 pass; pass 3 done 22 Nov, 328 to full text; full text started 23 Nov, joined with P6) |
+| P6 | Quality assessment of every included study; extraction matrix; critical synthesis by RQ; Evidence → Limitation → Gap → RQ → Contribution chain; threats to validity of the review | Week 4: slides 22–28 | State of the art; Background (10) | Quality and extraction M3; synthesis 7 Dec | In progress (from 23 Nov, in the same sitting as the full-text decision) |
+| P7 | Preliminary comparative framework of SDD approaches, from the SLR plus the documented analysis of tool documentation (D3) (RQ1 / O1) | Week 4 synthesis; Macedo (2026) dimensions | State of the art | 7 Dec (moved from M3 on 2026-11-23) | Not started |
 | P8 | Stakeholder analysis (power × interest) and problem interpretation from several perspectives | Week 2 charter; grading notes | Problem interpretation (10) | M2 | Done 2026-11-12 |
 | P9 | Project charter for the dissertation | Week 2: `project-charter-template-v01.docx` | Schedule (20) | M2 | Done 2026-11-13 |
 | P10 | Planning approach (predictive / adaptive / hybrid) with justification | Week 8: `planning-approach-v1.md` | Schedule | M2 | Done 2026-11-15 |
 | P11 | WBS by life-cycle phase aligned with the research method, plus WBS dictionary (acceptance and progress criteria) | Week 8: `wbs-concepts-v01.md`, `wbs-template-v01.pptx`; week 10: `wbs-example-v01.md` (phases → deliverables → tasks) | Schedule | M2 | Done 2026-11-15 |
-| P12 | Schedule (Gantt) Feb–Jun 2027 in MS Project: logic network, three-point (PERT) estimates, dependencies, critical path and slack, milestones as 0-day tasks, baseline; cost from resources; risk register; monitoring and control | Week 10: `schedule-construction-v1.md`, `wbs-example-v01.md`, MS Project; weeks 11–12 pending; grading notes | Schedule | Draft M3; final M6 | Not started |
+| P12 | Schedule (Gantt) Feb–Jun 2027 in MS Project: logic network, three-point (PERT) estimates, dependencies, critical path and slack, milestones as 0-day tasks, baseline; cost from resources; risk register; monitoring and control | Week 10: `schedule-construction-v1.md`, `wbs-example-v01.md`, MS Project; weeks 11–12 pending; grading notes | Schedule | Draft 8 Dec (moved from M3 on 2026-11-23; needed by M4); final M6 | Not started |
 | P13 | Ethics: chosen code (one, applied in full); ALLEA principles; position on P.PORTO art. 10; licences and terms of the tools; FAIR data plan; conflicts of interest; GenAI use | Week 6: `t06.md`, `tp06.pdf` | Ethics (10) | M2 | Done 2026-11-13 |
 | P14 | "Use of AI-generated content" section, from `doc/ai-usage.md` | `ai-generated-content-guidelines.txt` | Accuracy; Ethics | M4, M6, M7 | Not started |
 | P15 | Extended abstract | `general/extended-abstract-structure.txt`; condensed P1, P2, P6–P9, P11–P13 | Gate to the final exam (`general/extended-abstract-function.txt`) | Draft M4; submitted M5 | Not started |
@@ -228,7 +231,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 
 | Risk | Cause | Impact | Response |
 |---|---|---|---|
-| Full SLR not finished by M3 (1 Dec) | Searches not started; no full paper read yet; full SLR adds quality assessment | Weak extended abstract; 20% item at risk | Freeze the protocol by M2; time-box screening; cut-off date; if late, report the SLR up to full-text screening in the extended abstract and finish synthesis for the final document |
+| Full SLR not finished by M3 (1 Dec) | 328 full texts, about 257 likely includes, each with quality and extraction (about 45 h of the author's time from 24 Nov) | Weak extended abstract; 20% item at risk | **Occurring (2026-11-23).** Replanned: screening and extraction by M3; snowballing, PRISMA, synthesis, P7 and P12 on the M4 path (§2.4); lighter extraction for group (c) to decide; if still late, the extended abstract reports the SLR up to the last finished step and the synthesis is finished for M6 |
 | Supervisor does not reply in time | Availability | Decisions stall | Email on 4 Nov stating assumptions; work continues on them; feedback logged as changes (§2.1); if there is still no reply, talk to him in person |
 | No second reviewer available | Single student | Reduced reliability of the SLR | Ask in email 1 (§6 Q1) and again in email 2 (16 Nov); if none by 20 Nov, drop §4.1 of the protocol and state it as a threat to validity. **Occurred 2026-11-20: §4.1 dropped** |
 | Formal databases return few hits | Most SDD work is arXiv or grey literature | Thin PRISMA corpus | Include arXiv and grey literature by protocol (D3), justified |
@@ -237,6 +240,7 @@ Sent in email 1 (§2.1), each with the student's assumption. Questions still ope
 | Field changes weekly | New preprints and tool versions | State of the art goes stale | Explicit cut-off date; update in the dissertation |
 | Extended abstract judged insufficient | It is the gate to the final exam (`general/extended-abstract-function.txt`) | No exam scheduled | Follow the published structure; supervisor review by 15 Dec; WBS (P11) and preliminary Gantt (P12) must exist by M4, since section 6 needs them |
 | Single vendor for runs and for the writing assistant | D7; Claude used to assist this work | Perceived conflict of interest; agent choice constrained | Declare in the ethics section; record the agent as a factor |
+| AI usage limits stop the AI work on the SLR | Three runs per suggestion and up to three checks per draft use many tokens | Drafts unverified when the author reaches them | Runs scheduled outside the author's hours (23 Nov 19:05 and 24 Nov 00:10), stopped before the limit and resumed from the saved state (`slr/extraction/verification-progress.csv`); the author checks every field anyway |
 | Pro plan usage limits; no per-token cost visible | D7 | "Total cost" hard to measure; fewer runs | Define a cost proxy in the dissertation; state as a limitation |
 | Over-reliance on AI | Heavy assistant use | Misconduct; weak oral defence | Follow the SLR-module rules on AI use; read every source; log use |
 
@@ -311,3 +315,6 @@ How to track progress: when an item starts or finishes, update its Status above 
 | 2026-11-23 | Week 9 materials added (`course-materials/week-09/`, renamed to English, text extracted): competency action plan (diagnosis with personal SWOT, GRIT scale and market analysis; at least 3 competencies; SMART objectives; GROW strategies; evaluation and control), social competencies guide, Landing.Jobs Global Tech Talent Trends 2024. Course overview updated. P1 reopened: the base (self- and hetero-assessment, 3 key competencies, actions with metrics) is done; SWOT, GRIT, market analysis, GROW and SMART labelling to add by M3. Today's main work stays full-text screening (P5) | P1 |
 | 2026-11-23 | Full-text procedure decided (protocol §4.2 step 7, change log): full-text decision, quality assessment and extraction in one sitting per study, from AI drafts checked by the author; groups (a) 40 and (b) 124 first, then (c) 164 (AI group as proxy); AI suggestion only after the author's decision. 268 of the 328 have an arXiv version: downloaded by `slr/fetch_fulltext.py` (access log `slr/fulltext-access.csv`, PDFs not committed); 59 with a DOI only, to fetch next. EC4 check: one possible preprint/published pair ("Needle in the Repo"), left to the author at full text. §2.3: 23–27 Nov now full text + extraction, snowballing and PRISMA after | P5, P6 |
 | 2026-11-23 | Full-text preparation done: 327 of 328 full texts (29 fetched by hand; 1 Wiley paper not obtained, IC4 unless found); `slr/screen.py ft` with decision view, AI suggestion after the author's decision and extraction/quality panel; AI suggestions for 298 records (group (c) harmonised, 9 of 149 changed); AI extraction and quality drafts for all 149 group (a)/(b) studies then with a full text (structure checked; 98.3% of numbers verbatim in the text). Protocol: nature "proposes an approach" added; DARE only for reviews that describe their search. No full-text decision yet. Next: suggestions and drafts for the 29 hand-fetched papers, then the author screens (a), (b), (c) | P5, P6 |
+| 2026-11-23 | At the author's request, the AI material was made more reliable before the author sees it (protocol change log): full-text suggestions for all 327 records are now the majority of three independent runs (278 unanimous, 45 two of three, 4 without majority, all flagged in the tool; 47 suggestions changed: Include 257, EC6 41, EC3 9, IC1 9, EC5 8, EC4 2, EC1 1). Extraction drafts checked against the full text in up to three rounds by fresh agents: group (a) 40 of 40 done; group (b) 28 with three rounds, 42 with two, 8 with one, 45 not yet (paused by the author to save usage; state in `slr/extraction/verification-progress.csv`). Tool: dropdowns for publication type and nature, guide card, question text and help for Q1–Q13 and DARE, flagged fields with a summary and a "how to resolve" guide, PDF page links, "only ⚠" filter | P5, P6 |
+| 2026-11-23 | Author's decisions: Q12 is N/A when no approach is evaluated; repository-mining studies are "Evaluates"; evaluation verdicts only with the authors' own success criterion (extractor thresholds removed); third draft check in group (b) only where the AI suggests Include; two EC4 pairs excluded (rayyan-800486075, rayyan-800486182; the published versions are kept). Full-text decisions so far: 6 (Include 3, EC4 2, IC4 1) | P5, P6 |
+| 2026-11-23 | **Plan redone** (§2, §2.3, §2.4, §4, §7): fixed milestones unchanged; M3 now means full-text screening with quality and extraction; snowballing, PRISMA, synthesis, P7 framework, P12 Gantt draft and the P1 week 9 additions moved to 2–8 Dec, before the extended abstract (9–13 Dec). About 45 h of the author's time needed from 24 Nov; group (c) fits by 30 Nov only with a lighter extraction, still to decide | M3, M4, P1, P5–P7, P12 |

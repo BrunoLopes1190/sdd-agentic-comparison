@@ -80,7 +80,9 @@ def view(key):
         return " ".join(" ".join(lines[heads[j][0] + 1:end]).split())[:2200]
 
     m = re.search(r"[Cc]ontributions?\b|(In this|This) (paper|work|study)", body[:max(4000, len(body) // 3)])
-    contrib = " ".join(body[max(0, m.start() - 300):m.start() + 1500].split()) if m else ""
+    s = max(0, m.start() - 300) if m else 0
+    s = max(body.rfind(" ", 0, s), body.rfind("\n", 0, s)) + 1 if s else 0  # start on a word boundary
+    contrib = " ".join(body[s:m.start() + 1500].split()) if m else ""
     method = section(r"method|study design|approach|research questions|experimental setup|setup")
     if not method:  # own section names (e.g. "3 SpecBench"): first section after the introduction and related work
         rest = [h for _, h in heads[1:] if not re.search(r"intro|related|background|motivation|prelim|abstract", h, re.I)]
@@ -195,6 +197,7 @@ q{font-style:italic}
 #xp table{width:100%;border-collapse:collapse;font-size:14px}#xp td{border-top:1px solid #eee;padding:3px 4px;vertical-align:top}
 #xp td.f{width:190px;font-weight:600}#xp textarea{width:100%;font:14px/1.4 system-ui;box-sizing:border-box}
 #xp input.p{width:60px}#xp tr.ok td.f{color:#080}#xp tr.sec td{background:#eef3ff;font-weight:700}
+#xp tr.warn td{background:#fff3e0}#xp tr.warn td.f{border-left:4px solid #e80}#xp details.hp{font-weight:400;font-size:12px;color:#555;margin-top:2px}#xp details.hp summary{cursor:pointer}#xp details.hp .q{display:inline-block;border:1px solid #999;border-radius:50%;width:14px;text-align:center;font-size:11px;line-height:14px}#xp details.hp div{background:#fffbe6;border:1px solid #e6d9a0;padding:6px;margin-top:3px;border-radius:4px}#xp.onlyw tr:not(.warn):not(.sec){display:none}#xp .w{font-weight:400;font-size:12px;color:#a50}
 #xp button{font-size:15px;padding:6px 12px;margin:6px 6px 0 0}
 </style></head><body>
 <div id="bar"><span id="pos"></span><span id="counts"></span><span id="saved"></span></div>
@@ -231,19 +234,71 @@ function show(){const x=Q[i];const prev=done[x.key];first=prev?prev.first:null;f
   if(PASS==="ft"){ftview(x);if(prev&&prev.final==="Include")xpanel(x);}}
 const XSEC={"Reference":"Identificação","Approach(es): name and version":"Abordagem (RQ1)","Task type":"Contexto (O5)","Cost metrics":"Medição (RQ2)",
   "Evaluation (each configuration)":"Avaliação e comparação (RQ3, RQ4)","Conclusions: limitations and gaps":"Conclusões e notas","Q1":"Qualidade (§5): Sim 1 / Parcial 0.5 / Não 0 / N/A","DARE1":"DARE (só revisões)"};
+// Quality questions (protocol §5; DARE as in Kitchenham & Charters 2007): [question, Yes, Partly, No, where to look]
+const QH={Q1:["Os objetivos ou as RQ estão claros? (todos)","há objetivo ou RQ explícitos","só implícitos","não se percebe o objetivo","Abstract, fim da Introdução"],
+ Q2:["O método está descrito ao ponto de ser replicável? (todos)","passos, configuração e dados para repetir","falta algum elemento","só descrição vaga","Method / Setup"],
+ Q3:["Versões do agente, do modelo e da ferramenta identificadas? (empíricos)","todas, com versão ou data","algumas","nenhuma","Setup, Implementation"],
+ Q4:["Tarefas, projeto ou benchmark descritos e disponíveis? (empíricos)","descritos e públicos (link)","descritos mas não públicos","não descritos","Setup, Data, Artifact"],
+ Q5:["Eficácia medida contra critério independente (testes de aceitação, ground truth, peritos)? (empíricos)","critério externo","misto","só o juízo dos autores","Evaluation, Metrics"],
+ Q6:["Métricas definidas e cobrem custo E qualidade? (empíricos)","ambos, definidos","só um, ou mal definidos","sem métricas","Metrics"],
+ Q7:["Baseline ou alternativa avaliada nas mesmas condições? (empíricos)","sim, nas mesmas condições","condições diferentes","não há","Experiments"],
+ Q8:["Variabilidade tratada (repetições, estatística)? (empíricos)","repetições e teste estatístico","só uma das duas","corrida única","Setup, Results"],
+ Q9:["As conclusões seguem dos resultados, incluindo negativos ou mistos? (todos)","sim","exageram em parte","não seguem","Conclusão comparada com as tabelas"],
+ Q10:["Discute ameaças à validade e limitações? (todos)","secção própria","só de passagem","não discute","Threats / Limitations"],
+ Q11:["Teve revisão por pares? (todos)","conferência, journal ou workshop com revisão","venue de revisão duvidosa","preprint ou submetido","cabeçalho, rodapé da 1.ª página, DOI"],
+ Q12:["Autores independentes do fornecedor da ferramenta avaliada? (todos)","independentes","só parte das abordagens avaliadas é dos autores","avaliam a sua própria ferramenta ou abordagem (N/A se não avaliam nenhuma)","afiliações, Contributions"],
+ Q13:["Abordagem proposta viável: requisitos (ferramentas, computação, custo) declarados e ao alcance de uma equipa típica? (conceptuais ou que propõem abordagem)","declarados e acessíveis","só parcialmente declarados","não declarados, ou fora do alcance (N/A se não é conceptual nem propõe abordagem)","Implementation, Discussion"],
+ DARE1:["Critérios de inclusão e exclusão descritos e adequados? (revisões com pesquisa descrita)","descritos e adequados","descritos de forma vaga","não descritos","Method da revisão"],
+ DARE2:["A pesquisa terá coberto os estudos relevantes?","várias bases + snowballing ou pesquisa manual","uma ou duas bases","fontes não indicadas","Search strategy"],
+ DARE3:["A qualidade dos estudos incluídos foi avaliada?","critérios explícitos","avaliação implícita","não avaliada","Quality assessment"],
+ DARE4:["Os dados dos estudos incluídos estão descritos?","cada estudo descrito","só resumo agregado","não descritos","tabelas e resultados da revisão"]};
+// How to resolve a flagged (⚠) field: what to read and what to decide
+const TUT={"Nature of the study":"<b>Ler:</b> Abstract, a lista de contribuições (\"we propose…\", \"we evaluate…\", \"we compare…\") e os títulos das secções.<br><b>Decidir:</b> a principal é o que o artigo mais entrega. Ferramenta ou método novo → Proposes an approach; benchmark ou métrica → Proposes an evaluation method; configurações comparadas nas mesmas tarefas → Compares; mede uma só abordagem → Evaluates; sem dados → Conceptual; revisão com pesquisa descrita → Review. Mineração de repositórios → Evaluates, com \"repository mining\" na nota. Secundária só se houver um segundo contributo claro.",
+ "Evaluation (each configuration)":"<b>Ler:</b> as tabelas de resultados e, no Setup ou Metrics, o critério de sucesso que os autores definem.<br><b>Decidir:</b> uma entrada por configuração (abordagem ou baseline + agente + modelo), cada uma julgada por si. Veredicto de qualidade e de custo só quando os autores dão um critério; sem critério escreve \"no criterion stated by the authors\". Apaga qualquer limiar escolhido pela IA.",
+ "Comparison: result":"<b>Ler:</b> as tabelas de comparação e a Discussion.<br><b>Decidir:</b> quem ganha, em que dimensão, por quanto e se a diferença é significativa, só com números do texto. Sem limiares inventados.",
+ "SDD level":"<b>Ler:</b> a descrição do fluxo com especificações.<br><b>Decidir</b> (Böckeler, 2025): spec-first = escreve-se a spec, gera-se o código, a spec pode ser abandonada; spec-anchored = a spec é mantida com o código ao longo do tempo; spec-as-source = só se edita a spec e o código é regenerado; sem fluxo com spec (comum em b e c) → Not classifiable. Guarda as palavras dos autores.",
+ "Publication type":"<b>Ler:</b> cabeçalho e rodapé da 1.ª página (nome da conferência, \"Accepted at…\"), o DOI, ou o link \"abrir\" no topo.<br><b>Decidir:</b> Preprint só se não houver venue aceite; publicado mas lido no arXiv → o tipo do venue. A Q11 segue esta decisão.",
+ "Notes":"<b>Ler:</b> cada inconsistência listada pela IA e a tabela ou frase de onde vem.<br><b>Decidir:</b> confirma cada uma no PDF; apaga as que não se confirmam. Valores reconstruídos de tabelas desorganizadas: confirma-os no PDF.",
+ "Task type":"<b>Ler:</b> Setup: as tarefas partem de um repositório vazio ou de código existente?<br><b>Decidir:</b> new project, existing code base, ou ambos; se o artigo não diz, \"Not stated\".",
+ _:"<b>Ler:</b> abre o PDF na página indicada (link \"pág.\") e lê o parágrafo ou a tabela de onde vem o valor.<br><b>Decidir:</b> se o texto confirma o valor, marca ✓; se não, corrige com as palavras do artigo; se o artigo não diz, \"Not stated\"."};
+const qtut=f=>QH[f]?`<b>Ler:</b> ${QH[f][4]}.<br><b>Decidir:</b> Sim (1) se ${QH[f][1]}; Parcial (0.5) se ${QH[f][2]}; Não (0) se ${QH[f][3]}. Informação em falta = Não.`:"";
+const qhelp=f=>QH[f]?`<details class="hp"><summary>${esc(QH[f][0])} <span class="q">?</span></summary><div><b>Sim (1):</b> ${QH[f][1]}<br><b>Parcial (0.5):</b> ${QH[f][2]}<br><b>Não (0):</b> ${QH[f][3]}<br><b>Onde ver:</b> ${QH[f][4]}<br>Informação em falta = Não.</div></details>`:"";
+const wtip=(f,w)=>`<div class="w">⚠ ${esc(w)}</div><details class="hp"><summary class="w"><b>Como resolver</b> <span class="q">?</span></summary><div>${TUT[f]||qtut(f)||TUT._}</div></details>`;
+function openPage(f){const m=($("xp").querySelector(`[data-p="${CSS.escape(f)}"]`).value.match(/\d+/)||[])[0];window.open("/pdf?key="+encodeURIComponent(Q[i].key)+(m?"#page="+m:""),"_blank");}
+// Fields with fixed values (protocol §6): dropdown + note, saved as one string "Value; secondary: Value — note"
+const CH={"Publication type":["Journal","Conference","Workshop","Preprint"],
+  "Nature of the study":["Evaluates","Compares","Proposes an approach","Proposes an evaluation method","Conceptual","Review"]};
+function parseCh(f,v){const o=CH[f],lo=x=>x.toLowerCase();let s=String(v||"").trim().replace(/^main:\s*/i,"");
+  const m=o.find(x=>lo(s).startsWith(lo(x)))||"";s=s.slice(m.length);let sec="";
+  if(f==="Nature of the study"){const k=s.match(new RegExp("secondary:\\s*("+o.join("|")+")","i"));if(k){sec=o.find(x=>lo(x)===lo(k[1]));s=s.replace(k[0],"");}}
+  s=s.replace(/^[\s;,:—-]+|[\s;,—-]+$/g,"");
+  if(s[0]==="("){let d=0,j=0;for(;j<s.length;j++){d+=s[j]==="("?1:s[j]===")"?-1:0;if(!d)break;}if(j===s.length-1)s=s.slice(1,-1).trim();}
+  return {m,sec,note:s};}
+function composeCh(p){const h=p.m+(p.sec?"; secondary: "+p.sec:"");return h&&p.note?h+" — "+p.note:h||p.note;}
+function chCell(f,v){const p=parseCh(f,v),opt=(sel,none)=>`<option value="">${none}</option>`+CH[f].map(x=>`<option ${x===sel?"selected":""}>${x}</option>`).join("");
+  return `<select data-sel="${esc(f)}">${opt(p.m,"— escolhe —")}</select>`+(f==="Nature of the study"?` secundária <select data-sec="${esc(f)}">${opt(p.sec,"(nenhuma)")}</select>`:"")
+   +`<br><input data-note="${esc(f)}" value="${esc(p.note)}" placeholder="nota" style="width:100%;box-sizing:border-box">`;}
+function chValue(el,f){const q=a=>el.querySelector(`[${a}="${CSS.escape(f)}"]`);return composeCh({m:q("data-sel").value,sec:q("data-sec")?q("data-sec").value:"",note:q("data-note").value.trim()});}
 async function xpanel(x){const k=x.key;const r=await (await fetch("/draft?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;
   const src=r.saved||r.draft;const by={};((src&&src.fields)||[]).forEach(f=>by[f.f]=f);
+  const dw={};((r.draft&&r.draft.fields)||[]).forEach(f=>dw[f.f]=f);const nw=Object.values(dw).filter(f=>f.warn).length;
+  const revt=f=>(dw[f]&&dw[f].rev||[]).map(x=>`volta ${x.round} ${x.verdict}: ${x.why}`).join("\n");
   const el=$("xp");el.style.display="block";
   el.innerHTML=`<b>Extração e qualidade</b> · ${r.saved?"gravada a "+esc(r.saved.time)+" (podes corrigir)":r.draft?"rascunho da IA: confirma (✓) ou corrige cada campo; página do PDF ao lado":"<span class=noabs>ainda sem rascunho da IA</span>: preenche à mão ou grava mais tarde"}
-   <table>${r.fields.map(f=>(XSEC[f]?`<tr class="sec"><td colspan="3">${XSEC[f]}</td></tr>`:"")+`<tr class="${by[f]&&by[f].ok?"ok":""}"><td class="f">${esc(f)}</td>
-   <td><textarea rows="${Math.min(6,Math.max(1,Math.ceil(((by[f]&&by[f].v)||"").length/110)))}" data-f="${esc(f)}">${esc(by[f]?by[f].v:"")}</textarea></td>
-   <td><input class="p" data-p="${esc(f)}" value="${esc(by[f]?by[f].p:"")}" title="página(s)"><br><label><input type="checkbox" data-ok="${esc(f)}" ${by[f]&&by[f].ok?"checked":""}>✓</label></td></tr>`).join("")}</table>
+   ${r.draft&&r.draft.rounds?` · verificado ${r.draft.rounds} vezes${nw?` · <b style="color:#c60">⚠ ${nw} campo(s) com atenção redobrada</b>`:" · sem campos inseguros"}`:r.draft?" · <i>ainda não verificado (voltas em curso)</i>":""}
+   ${nw?`<button id="xonly">só ⚠ (${nw})</button>`:""}<table>${r.fields.map(f=>(XSEC[f]?`<tr class="sec"><td colspan="3">${XSEC[f]}</td></tr>`:"")+`<tr class="${by[f]&&by[f].ok?"ok":""} ${dw[f]&&dw[f].warn?"warn":""}"><td class="f" title="${esc(revt(f))}">${esc(f)}${qhelp(f)}${dw[f]&&dw[f].warn?wtip(f,dw[f].warn):""}</td>
+   <td>${CH[f]?chCell(f,by[f]&&by[f].v):`<textarea rows="${Math.min(6,Math.max(1,Math.ceil(((by[f]&&by[f].v)||"").length/110)))}" data-f="${esc(f)}">${esc(by[f]?by[f].v:"")}</textarea>`}</td>
+   <td><input class="p" data-p="${esc(f)}" value="${esc(by[f]?by[f].p:"")}" title="página(s)"> <a href="#" data-pg="${esc(f)}" title="abrir o PDF nesta página">pág.</a><br><label><input type="checkbox" data-ok="${esc(f)}" ${by[f]&&by[f].ok?"checked":""}>✓</label></td></tr>`).join("")}</table>
    <button id="xall">✓ em todos</button><button id="xsave"><b>Gravar extração e avançar</b></button><button id="xlater">Gravar mais tarde (avançar)</button>`;
+  el.querySelectorAll("[data-pg]").forEach(a=>a.onclick=e=>{e.preventDefault();openPage(a.dataset.pg);});
+  if($("xonly"))$("xonly").onclick=()=>{el.classList.toggle("onlyw");$("xonly").textContent=el.classList.contains("onlyw")?"mostrar todos":`só ⚠ (${nw})`;};
   $("xall").onclick=()=>el.querySelectorAll("[data-ok]").forEach(c=>c.checked=true);
   $("xlater").onclick=()=>next();
   $("xsave").onclick=async()=>{const dv={};((r.draft&&r.draft.fields)||[]).forEach(f=>dv[f.f]=f.v);
-    const fields=r.fields.map(f=>{const v=el.querySelector(`[data-f="${CSS.escape(f)}"]`).value;return {f,v,p:el.querySelector(`[data-p="${CSS.escape(f)}"]`).value,
-      ok:el.querySelector(`[data-ok="${CSS.escape(f)}"]`).checked,ai:f in dv?dv[f]:null,changed:f in dv?v!==dv[f]:null};});
+    const fields=r.fields.map(f=>{const v=CH[f]?chValue(el,f):el.querySelector(`[data-f="${CSS.escape(f)}"]`).value;
+      const base=f in dv?(CH[f]?composeCh(parseCh(f,dv[f])):dv[f]):null;  // dropdown fields: compare in the same format
+      return {f,v,p:el.querySelector(`[data-p="${CSS.escape(f)}"]`).value,
+      ok:el.querySelector(`[data-ok="${CSS.escape(f)}"]`).checked,ai:f in dv?dv[f]:null,changed:f in dv?v!==base:null};});
     const s=await fetch("/extract",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({key:k,fields})});
     if(!s.ok){alert("ERRO ao gravar a extração.");return;}$("saved").textContent="extração gravada ✓";setTimeout(()=>$("saved").textContent="",1200);next();};}
 async function ftview(x){const el=$("ftv");el.innerHTML="";const k=x.key;
@@ -261,7 +316,9 @@ function render(){$("keys").innerHTML=OPTS.map(([k,v])=>`<button data-v="${v}" c
 async function reveal(){const x=Q[i];const k=x.key;const r=await (await fetch("/ai?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;ai=r;
   const el=$("ai");if(!r){el.className="none";el.innerHTML="Sem sugestão da IA para este registo (ainda). Decide só por ti.";return;}
   const same=r.s===first;el.className=same?"agree":"disagree";
-  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>${r.sec?" ("+esc(r.sec)+")":""}${r.q_ok==="False"?' <b style="color:#c00">citação não verificada</b>':""}`;}
+  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>${r.sec?" ("+esc(r.sec)+")":""}${r.q_ok==="False"?' <b style="color:#c00">citação não verificada</b>':""}`
+   +(r.agree?(r.agree==="3/3"?`<br>3 leituras independentes concordam (3/3).`
+     :`<br><b style="color:#c60">⚠ IA insegura: ${r.agree==="2/3"?"só 2 das 3 leituras concordam":"sem maioria nas 3 leituras (fica a sugestão anterior)"} (${esc(r.votes)}). Atenção redobrada.</b>`):"");}
 function pick(v){if(first===null){first=v;final=v;if(v==="Other"&&!note)askNote();render();reveal();}else{final=v;if(v==="Other"&&!note)askNote();render();}}
 function askNote(){const t=prompt(PASS==="ft"?"Nota (o que decidiu; ex.: grupo a, SDD com Kiro; EC6 é issue repair; EC4 duplicado de …):":"Nota (ex.: poster EC3, não está em inglês, anterior a 2023, duplicado):",note||"");if(t!==null)note=t.trim();}
 async function commit(){if(first===null)return;if(final==="Other"&&!note){askNote();if(!note)return;}
@@ -286,7 +343,27 @@ CARD = {"ft": r"""<b>Texto integral. Lê o resumo e as partes extraídas; abre o
 <li>Grupos (a) SDD e (b) ficheiros de contexto: confirma que o texto é mesmo isso → <b>[I]</b></li>
 <li>Grupo (c): agente novo num benchmark existente sem contributo de método → <b>[3] EC5</b>; fluxo EC6 do passo 3 (não é código, issue repair, nem funcionalidade/projeto nem método) → <b>[6] EC6</b>; senão <b>[I]</b></li>
 </ol>Sem Maybe: decide sempre. <b>N</b> nota (escreve sempre uma linha curta: fica guardada). IC2/IC3 → <b>[O]</b> + nota.<br>
-Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê a frase citada, decide tu, Enter.""", "2": r"""<b>Pergunta por ordem; a primeira que decide manda.</b><ol>
+Depois: <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê a frase citada, decide tu, Enter.
+<details><summary><b>Guia completo: porque lês, o que estás a ver, o que fazer com o que lês</b></summary>
+<p><b>Porque lês.</b> Uma leitura serve para duas coisas: (1) a decisão final de elegibilidade, com os critérios aplicados ao texto inteiro (cada exclusão tem código, vai para o PRISMA); (2) nos incluídos, a extração (§6) e a qualidade (§5) na mesma leitura. O que recolhes responde às RQ:
+RQ1 abordagem SDD (artefactos, fases, revisão humana) → quadro comparativo;
+RQ2 métricas de custo, qualidade e esforço e como são recolhidas → as tuas métricas;
+RQ3 como tornam a comparação justa (tarefas, baseline, agente/modelo fixos, repetições) → o teu protocolo;
+RQ4 resultados, limitações, lacunas → a lacuna. Grupos (a)/(b): todas as RQ. Grupo (c): sobretudo RQ2 e RQ3 (como avaliam, não o agente).</p>
+<p><b>O que estás a ver.</b> Resumo (dos autores). Grupo da IA no passo 3: (a) SDD, (b) ficheiros/mecanismos de contexto, (c) avaliação de agentes; só ordena a fila, confirma tu.
+Contadores de termos: pista rápida (SWE-bench alto e spec a 0 → provável EC6).
+<i>Contribuições</i>: excerto à volta da primeira frase "contributions" / "In this paper"; dá a natureza do estudo.
+<i>Método</i>: agente, modelo, tarefas, baseline, repetições. <i>Avaliação / resultados</i> (fechada): métricas e números, abre só nos incluídos.
+<i>Conclusão</i>: conclusões e limitações. <i>Secções</i>: estrutura do artigo. Os cortes são mecânicos (sem IA) e podem falhar: "não encontrado" ou algo estranho → <b>P</b> (PDF).</p>
+<p><b>Em cada artigo.</b> A. Decide sem ver a IA (1–3 min): resumo + Contribuições + Método, fluxo acima, nota curta (N). B. Vê a IA: verde Enter, laranja relê a citação e decide. C. Só nos incluídos, no painel de extração: confirma cada campo no texto (página ao lado), corrige, ✓; "✓ em todos" só depois de percorrer. Pesam mais:
+Nature of the study (decide que Q se aplicam); Approach / Artefacts / Phases / Human review points (RQ1, grupos a/b); métricas e How collected (RQ2); Comparison: design (RQ3); Comparison: result e Limitations (RQ4).
+Sem tempo: "Gravar mais tarde" (a decisão fica, a extração fica por fazer).</p>
+<p><b>Valores possíveis.</b> <i>Publication type</i>: journal · conference · workshop · preprint. Preprint só quando não há venue publicado (arXiv sem aceitação; "submitted to…" continua preprint e Q11 = Não). Se o artigo foi publicado mas leste a versão arXiv, fica o tipo do venue (ex. "Conference (UIST '26; read from arXiv v3)") e Q11 conforme o venue.
+<i>Nature of the study</i> (principal + secundária opcional, ex. "compares; proposes an evaluation method"): evaluates · compares · proposes an approach · proposes an evaluation method (incl. benchmark) · conceptual · review (só se descreve a pesquisa: fontes e critérios; senão conceptual).</p>
+<p><b>Qualidade.</b> Sim 1 / Parcial 0.5 / Não 0 / N/A. Informação em falta = Não. Q3–Q8 só empíricos. Q12: autor que criou a abordagem avaliada = vendedor (Parcial se só algumas). Q13 só em estudos conceptuais ou que propõem uma abordagem (§5). DARE só para revisões com pesquisa descrita.</p>
+<p><b>Onde procurar.</b> Contribuições → natureza, abordagem, grupo. Método → agente/modelo/versões (Q3), tarefas e disponibilidade (Q4), baseline (Q7), repetições (Q8), intervenção humana. Avaliação → métricas, valores, quem ganha e por quanto, significância. Conclusão → Q9, limitações (Q10, RQ4). PDF → afiliação (Q12), venue (Q11), pacote de replicação (Notes).</p>
+<p><b>Ritmo.</b> (a) → (b) → (c); capacidade ~250 antes do M3, o (c) é o que cede. No (c), avisa o Claude dos incluídos para os rascunhos.</p>
+</details>""", "2": r"""<b>Pergunta por ordem; a primeira que decide manda.</b><ol>
 <li><b>Há um agente de IA a desenvolver software</b> (escreve, altera, testa código)? Não → <b>[1] IC1</b>. Também IC1: agente que joga o jogo, agente como peça do produto, multi-agentes em geral.</li>
 <li><b>Só gera funções soltas</b> (HumanEval, concursos)? Sim → <b>[2] EC1</b></li>
 <li><b>Fala de especificações, SDD, AGENTS.md, regras, contexto ou memória do agente?</b> Sim → <b>[I] Include</b></li>

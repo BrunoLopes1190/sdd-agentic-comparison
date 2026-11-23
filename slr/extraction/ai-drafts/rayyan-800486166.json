@@ -1,46 +1,350 @@
-{"key": "rayyan-800486166", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Zheng, Y., Zhang, Z., Ma, C., Yu, Y., Zhu, J., Wu, Y., Xu, T., Dong, B., Zhu, H., Huang, R., Yu, G. (2026). SkillRouter: Skill Routing for LLM Agents at Scale. arXiv:2603.22455v5 [cs.LG], 20 Jul 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v5, 20 Jul 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Industry: Alibaba Group, Hangzhou, China (all authors)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (SkillRouter: 1.2B body-aware retrieve-and-rerank skill router); secondary: proposes an evaluation method (~80K-skill routing benchmark with 75 SkillsBench-derived queries, Easy/Hard tiers, and SkillBench-Supp) and compares (routers; end-to-end with four coding agents)", "p": "1-3, 5"},
-{"f": "Approach(es): name and version", "v": "SkillRouter (SR-Emb-0.6B + SR-Rank-0.6B; scaled SR-Emb-8B + SR-Rank-8B); baselines: BM25, BGE-Large-v1.5, gemini-embedding-001, text-embedding-3-large, Qwen3-Emb-0.6B/8B, Qwen3-Rank-0.6B/8B, LLM-as-judge rerankers (GPT-4o-mini, GPT-5.4-mini); input variants nd (name+description) vs all-field (with body) vs oracle nd", "p": "5-8"},
-{"f": "Artefacts prescribed", "v": "Agent skills (name, description, full implementation body) in a large registry; router indexes all fields; downstream agent receives retrieved skills' name and description (progressive disclosure)", "p": "1-2, 9"},
-{"f": "Phases of the flow", "v": "Offline: embed skill pool with fine-tuned bi-encoder. Online: query -> bi-encoder retrieves top-20 -> listwise cross-encoder reranks -> top-1 or top-10 skills injected into agent context (Claude Code harness) -> agent executes task", "p": "5-6, 9"},
-{"f": "Human review points", "v": "None in the routing flow; benchmark query-skill labels from expert-curated SkillsBench", "p": "3"},
-{"f": "Parts exercised", "v": "Single artefact type (skill selection/routing) plus end-to-end agent execution with routed skills", "p": "5-10"},
-{"f": "SDD level", "v": "Not classifiable (skill retrieval, not specifications)", "p": "—"},
-{"f": "Task type", "v": "Skill retrieval; end-to-end SkillsBench tasks (75 core tasks across 55 application domains); not specific to existing vs new code bases", "p": "3, 9"},
-{"f": "Size", "v": "Pool ~80K skills (Easy 78,361; Hard 79,141 with 780 LLM-generated distractors); 75 core queries (24 single-skill, 51 multi-skill); SkillBench-Supp 256 queries over 77K pool; training 37,979 query-skill pairs and 32,283 rerank lists; end-to-end 75 tasks x 4 agents x 3 trials", "p": "3, 5-6, 9-10"},
-{"f": "Domain", "v": "General agent skills (55 application domains, eight super-categories; e.g. speech-to-text, CI/CD, vulnerability audit, HVAC control)", "p": "3, 26-27"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Model parameters; serving latency (median 495.8 ms for 1.2B pipeline, 5.8x faster than 16B); GPU memory (-15.8%); GPU-sec per 1K queries. No money or token cost of agent runs", "p": "9-10, 21-22"},
-{"f": "Functional quality metrics", "v": "Routing: Hit@1 (primary), MRR@10, Recall@K, FC@10; end-to-end: task success rate following SkillsBench validation", "p": "2, 9-10"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Field-level attention shares (length-controlled diagnostic); share of no-skill -> gold-skill uplift recovered", "p": "4, 9"},
-{"f": "How metrics are collected", "v": "Automatic (ranking metrics against SkillsBench labels; SkillsBench task validation for success; GPU timing)", "p": "2-3, 9-10"},
-{"f": "Evaluation (each configuration)", "v": "Routing (Hit@1, Easy/Hard average, all-field, top-20 rerank; Table 4): Qwen3-Emb-0.6B x Qwen3-Rank-0.6B .640; Qwen3-Emb-8B x Qwen3-Rank-0.6B .580; Qwen3-Emb-8B x Qwen3-Rank-8B .680; SR-Emb-0.6B x Qwen3-Rank-0.6B .707; SR-Emb-0.6B x Qwen3-Rank-8B .714; SkillRouter 1.2B .740 (R@10 .704); SR-Emb-8B x SR-Rank-8B .760. Encoder-only: SR-Emb-0.6B .653, Qwen3-Emb-8B .640, BM25 .314. Ablations: raw negatives .613; pointwise reranker .433. nd-only: pipelines .240-.273 (does not work). End-to-end (Claude Code harness, 3 trials, overall success %, SkillsBench criteria; Table 25): Kimi-K2.5: no skill 10.22, gold 24.00, base top-1 14.67, SkillRouter top-1 17.78, base top-10 20.00, SkillRouter top-10 18.22. glm-5: 12.00, 28.00, 24.89, 23.11, 20.89, 24.89. Claude Sonnet 4.6: 19.56, 42.67, 33.78, 36.89, 36.89, 40.44. Claude Opus 4.6: 17.78, 36.00, 29.78, 32.44, 24.00, 27.56. Average: no skill 14.89, gold 32.67, base 25.78 / 25.45, SkillRouter 27.56 / 27.78. Verdicts: SkillRouter routing quality works, cost works (latency); end-to-end quality partly (gains small and not uniform: lower than base for glm-5 top-1 and Kimi top-10); cost of agent runs not measured", "p": "7-10, 27"},
-{"f": "Comparison: design", "v": "Routing: 75 core queries on Easy and Hard pools, averaged; configurations: encoders and encoder x reranker pipelines; baseline: strongest base pipeline Qwen3-8B x 8B; held constant: pool, queries, top-20 candidates, input caps. End-to-end: 4 models in Claude Code harness, 1200 s timeout, conditions no skill / gold / retrieved top-1 / top-10 from base vs SkillRouter, natural pool. Acceptance tests: SkillsBench success validation. Repetitions: 3 trials per task per condition (end-to-end); routing deterministic. Human intervention: none", "p": "3, 6-10, 26"},
-{"f": "Comparison: result", "v": "SkillRouter 1.2B Hit@1 74.0% vs 68.0% for 16B base (+6.0pp; +8.0 Easy, +4.0 Hard), 13x fewer parameters, 5.8x lower latency; base better on multi-skill FC@10 (.382 vs .353). Removing body drops Hit@1 by 37-44pp; oracle nd recovers part (6.7-21.3pp residual gap); nd-only fine-tuned encoder 14.0pp below all-field. Supp benchmark: .641 vs .637. End-to-end: +1.78pp (top-1) and +2.33pp (top-10) over base router; larger for Claude models (+3.22pp) than glm-5/Kimi (+0.89pp). No significance testing (stated)", "p": "3-4, 8-10"},
-{"f": "Comparison: did the method work", "v": "Routing metrics distinguished configurations; end-to-end differences small and per-agent mixed. Repeatability: 3 trials end-to-end, no variance or tests reported. Limitations stated: 75-query core small; SkillBench-Supp LLM-generated (transfer check, not human validated); downstream four agents under one budget without significance testing; Hit@1 for multi-skill queries mechanical", "p": "2-3, 8, 10"},
-{"f": "Conclusions: limitations and gaps", "v": "Small core set; whether the body-access effect transfers to typed API repositories, vertical catalogs or multi-hop agentic retrieval is open; retrieval fails on tasks needing multi-hop prerequisite inference; compact router weaker in specialized multi-skill domains", "p": "10, 26-27"},
-{"f": "Notes", "v": "Table 25 (per-agent) rebuilt from pdftotext column order; SkillRouter is worse than the base router for glm-5 top-1 (23.11 vs 24.89) and Kimi-K2.5 top-10 (18.22 vs 20.00), which the main text averages away. Hard tier uses LLM-generated distractors. Base models (Qwen3) and the authors are both Alibaba. No code, model or data release stated in the text read. No pre-registration. Language: not applicable (skills in natural language)", "p": "3, 9-10, 27"},
-{"f": "Q1", "v": "Yes (1): research question and contributions stated", "p": "1-2"},
-{"f": "Q2", "v": "Yes (1): benchmark construction, training data, negatives, hyperparameters and templates given in appendices", "p": "3, 5-6, 19-22"},
-{"f": "Q3", "v": "Partly (0.5): models named; Claude Code harness version not stated", "p": "7-9"},
-{"f": "Q4", "v": "Partly (0.5): benchmark described (SkillsBench and public registry sources); availability of the constructed benchmark not stated", "p": "3, 27-28"},
-{"f": "Q5", "v": "Yes (1): expert-curated SkillsBench labels and SkillsBench task validation", "p": "3, 9"},
-{"f": "Q6", "v": "Yes (1): ranking and success metrics defined; latency and memory as cost", "p": "2, 10"},
-{"f": "Q7", "v": "Yes (1): base pipelines, encoders and no-skill/gold conditions under same settings", "p": "7-10"},
-{"f": "Q8", "v": "Partly (0.5): 3 end-to-end trials, but no variance or significance tests (acknowledged)", "p": "10"},
-{"f": "Q9", "v": "Partly (0.5): routing claims supported and scoped; 'routing gains transfer to improved task success' overstated given small, non-uniform, untested end-to-end differences", "p": "1, 9-10, 27"},
-{"f": "Q10", "v": "Partly (0.5): brief limitations paragraph only", "p": "10"},
-{"f": "Q11", "v": "No (0): preprint", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): Alibaba authors created SkillRouter and the Qwen3 base models; other baselines (BM25, BGE, OpenAI, Gemini) and agents independent", "p": "1, 7"},
-{"f": "Q13", "v": "Yes (1): compact 1.2B models trained on one 96GB GPU, sub-second serving; release of weights not stated", "p": "6, 10"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486166",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zheng, Y., Zhang, Z., Ma, C., Yu, Y., Zhu, J., Wu, Y., Xu, T., Dong, B., Zhu, H., Huang, R., Yu, G. (2026). SkillRouter: Skill Routing for LLM Agents at Scale. arXiv:2603.22455v5 [cs.LG], 20 Jul 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v5, 20 Jul 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.22455v5 [cs.LG]; no published venue stated (access log: arXiv record)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself is right"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: Alibaba Group, Hangzhou, China (all authors)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — SkillRouter, a 1.2B body-aware retrieve-and-rerank skill router, evaluated against base routers and end-to-end with four coding agents; also builds a ~80K-skill routing benchmark (75 SkillsBench-derived queries, Easy/Hard tiers) and SkillBench-Supp",
+   "p": "1-3, 5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The value had two secondary natures (evaluation method and compares) and did not follow the form '<nature>; secondary: <nature> — <detail>'; only one secondary is allowed, and the comparison is part of 'Proposes an approach' (§5: studies that propose and compare), so the benchmark is kept as secondary"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SkillRouter (SR-Emb-0.6B + SR-Rank-0.6B; scaled SR-Emb-8B + SR-Rank-8B); baselines: BM25, BGE-Large-v1.5, gemini-embedding-001, text-embedding-3-large, Qwen3-Emb-0.6B/8B, Qwen3-Rank-0.6B/8B, LLM-as-judge rerankers (GPT-4o-mini, GPT-5.4-mini); input variants nd (name+description) vs all-field (with body) vs oracle nd",
+   "p": "5-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent skills (name, description, full implementation body) in a large registry; router indexes all fields; downstream agent receives retrieved skills' name and description (progressive disclosure)",
+   "p": "1-2, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Offline: embed skill pool with fine-tuned bi-encoder. Online: query -> bi-encoder retrieves top-20 -> listwise cross-encoder reranks -> top-1 or top-10 skills injected into agent context (Claude Code harness) -> agent executes task",
+   "p": "5-6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the routing flow; benchmark query-skill labels from expert-curated SkillsBench",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact type (skill selection/routing) plus end-to-end agent execution with routed skills",
+   "p": "5-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skill retrieval, not specifications)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Skill retrieval; end-to-end SkillsBench tasks (75 core tasks across 55 application domains); not specific to existing vs new code bases",
+   "p": "3, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Pool ~80K skills (Easy 78,361; Hard 79,141 with 780 LLM-generated distractors); 75 core queries (24 single-skill, 51 multi-skill); SkillBench-Supp 256 queries over 77K pool; training 37,979 query-skill pairs and 32,283 rerank lists; end-to-end 75 tasks x 4 agents x 3 trials",
+   "p": "3, 5-6, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General agent skills (55 application domains, eight super-categories; e.g. speech-to-text, CI/CD, vulnerability audit, HVAC control)",
+   "p": "3, 26-27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Model parameters; serving latency (median 495.8 ms for 1.2B pipeline, 5.8x faster than 16B); GPU memory (-15.8%); GPU-sec per 1K queries. No money or token cost of agent runs",
+   "p": "9-10, 21-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Routing: Hit@1 (primary), MRR@10, Recall@K, FC@10; end-to-end: task success rate following SkillsBench validation",
+   "p": "2, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Field-level attention shares (length-controlled diagnostic); share of no-skill -> gold-skill uplift recovered",
+   "p": "4, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic (ranking metrics against SkillsBench labels; SkillsBench task validation for success; GPU timing)",
+   "p": "2-3, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Each configuration judged on its own values; the study sets no thresholds, so the extractor's scale is: routing Hit@1 >= .70 works, .50-.70 partly, < .50 does not work; task success >= 50% works, 20-50% partly, < 20% does not work. Routing (75 core queries, Hit@1 Easy/Hard average, all-field input unless stated; success criterion: SkillsBench expert labels; cost = online serving, reported only for four systems, Table 20). Encoder-only (Table 3): BM25 .314 (quality does not work, cost not reported); BGE-Large-v1.5 .600 (partly, not reported); gemini-embedding-001 .587 (partly, not reported); text-embedding-3-large .620 (partly, not reported); Qwen3-Emb-0.6B .560 (partly, not reported); Qwen3-Emb-8B .640 (partly; p50 60.4 ms, 22,539 MiB: works); SR-Emb-0.6B .653 (partly; p50 19.8 ms, 9,364 MiB: works); SR-Emb-8B .680 (partly, not reported). Retrieve-and-rerank, top-20 (Table 4): Qwen3-Emb-0.6B x Qwen3-Rank-0.6B .640 (partly, not reported); Qwen3-Emb-8B x Qwen3-Rank-0.6B .580 (partly, not reported); Qwen3-Emb-8B x Qwen3-Rank-8B (16B, strongest base) .680 (partly; p50 2,900.1 ms, 22,539 MiB: works); SR-Emb-0.6B x Qwen3-Rank-0.6B .707 (works, not reported); SR-Emb-0.6B x Qwen3-Rank-8B .714 (works, not reported); SkillRouter 1.2B (SR-Emb-0.6B x SR-Rank-0.6B) .740, R@10 .704 (works; p50 495.8 ms, 18,976 MiB: works); SR-Emb-8B x SR-Rank-8B (scaling) .760 (works, not reported); LLM-as-judge rerankers on the same lists: GPT-4o-mini .673, GPT-5.4-mini .660 (partly, not reported). Ablations (Table 6): SR-Emb-0.6B with raw negatives .613 (partly); SR-Emb-0.6B x SR-Rank-0.6B pointwise .433 (does not work). Metadata controls (Table 2): nd-only input SkillRouter .273, Qwen3 0.6B x 0.6B .267, Qwen3 8B x 8B .240 (does not work); oracle nd .527, .567, .613 (partly); encoder fine-tuned on nd .513 (partly). End-to-end (Claude Code harness, 75 core tasks x 3 trials, overall success %, SkillsBench validation, Table 25; money, tokens and time of agent runs not reported, so cost not assessable for any entry), order: no skills / gold skills / base 16B router top-1 / SkillRouter top-1 / base top-10 / SkillRouter top-10: Kimi-K2.5: 10.22 (does not work) / 24.00 (partly) / 14.67 (does not work) / 17.78 (does not work) / 20.00 (partly) / 18.22 (does not work); glm-5: 12.00 (does not work) / 28.00 / 24.89 / 23.11 / 20.89 / 24.89 (all partly); Claude Sonnet 4.6: 19.56 (does not work) / 42.67 / 33.78 / 36.89 / 36.89 / 40.44 (all partly); Claude Opus 4.6: 17.78 (does not work) / 36.00 / 29.78 / 32.44 / 24.00 / 27.56 (all partly)",
+   "p": "4, 7-10, 22, 27",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Section 6 requires a quality and a cost verdict for every configuration, baselines included, judged on its own: r1 gave verdicts only to SkillRouter (and a pooled end-to-end verdict justified by the difference from the base router), none to the baselines, encoders or per-agent conditions, and left out the LLM-as-judge rerankers and oracle-nd controls. Values unchanged (re-checked against Tables 2-4, 6, 20, 25). The cut-offs are the extractor's judgement, e.g. glm-5 base top-10 20.89% as partly vs Kimi SkillRouter top-10 18.22% as does not work"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Routing: 75 core queries on Easy and Hard pools, averaged; configurations: encoders and encoder x reranker pipelines; baseline: strongest base pipeline Qwen3-8B x 8B; held constant: pool, queries, top-20 candidates, input caps. End-to-end: 4 models in Claude Code harness, 1200 s timeout, conditions no skill / gold / retrieved top-1 / top-10 from base vs SkillRouter, natural pool. Acceptance tests: SkillsBench success validation. Repetitions: 3 trials per task per condition (end-to-end); routing: one evaluation per configuration, no repetitions reported. Human intervention: none",
+   "p": "3, 6-10, 26",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "'routing deterministic' is not stated in the text; the paper reports one routing evaluation per configuration and says nothing on determinism or seeds"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "SkillRouter 1.2B Hit@1 74.0% vs 68.0% for 16B base (+6.0pp; +8.0 Easy, +4.0 Hard), 13x fewer parameters, 5.8x lower latency; base better on multi-skill FC@10 (.382 vs .353). Removing body drops Hit@1 by 37-44pp; oracle nd recovers part (6.7-21.3pp residual gap); nd-only fine-tuned encoder 14.0pp below all-field. Supp benchmark: .641 vs .637. End-to-end: +1.78pp (top-1) and +2.33pp (top-10) over base router; larger for Claude models (+3.22pp) than glm-5/Kimi (+0.89pp). No significance testing (stated)",
+   "p": "3-4, 8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Routing metrics distinguished configurations; end-to-end differences small and per-agent mixed. Repeatability: 3 trials end-to-end, no variance or tests reported. Limitations stated: 75-query core small; SkillBench-Supp LLM-generated (transfer check, not human validated); downstream four agents under one budget without significance testing; Hit@1 for multi-skill queries mechanical",
+   "p": "2-3, 8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Small core set; whether the body-access effect transfers to typed API repositories, vertical catalogs or multi-hop agentic retrieval is open; retrieval fails on tasks needing multi-hop prerequisite inference; compact router weaker in specialized multi-skill domains",
+   "p": "10, 26-27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 25 (per-agent) rebuilt from pdftotext column order; SkillRouter is worse than the base router for glm-5 top-1 (23.11 vs 24.89) and Kimi-K2.5 top-10 (18.22 vs 20.00), which the main text averages away. Hard tier uses LLM-generated distractors. Base models (Qwen3) and the authors are both Alibaba. No code, model or data release stated in the text read. No pre-registration. Language: not applicable (skills in natural language)",
+   "p": "3, 9-10, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question and contributions stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): benchmark construction, training data, negatives, hyperparameters and templates given in appendices",
+   "p": "3, 5-6, 19-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named; Claude Code harness version not stated",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark described (SkillsBench and public registry sources); availability of the constructed benchmark not stated",
+   "p": "3, 27-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): expert-curated SkillsBench labels and SkillsBench task validation",
+   "p": "3, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): ranking and success metrics defined; latency and memory as cost",
+   "p": "2, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): base pipelines, encoders and no-skill/gold conditions under same settings",
+   "p": "7-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 end-to-end trials, but no variance or significance tests (acknowledged)",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): routing claims supported and scoped; 'routing gains transfer to improved task success' overstated given small, non-uniform, untested end-to-end differences",
+   "p": "1, 9-10, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): brief limitations paragraph only",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): Alibaba authors created SkillRouter and the Qwen3 base models; other baselines (BM25, BGE, OpenAI, Gemini) and agents independent",
+   "p": "1, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): compact 1.2B models trained on one 96GB GPU, sub-second serving; release of weights not stated",
+   "p": "6, 10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Compute is modest, but no weights or code are released, so a team would have to rebuild the training data (37,979 GPT-4o-mini queries) and fine-tune both models; Yes vs Partly depends on whether that counts as within reach"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Compute is modest (1.2B models, one 96GB GPU, one epoch, sub-second serving), but the text states no release of weights, code or benchmark, so a team would have to rebuild the training data (37,979 GPT-4o-mini queries, 32,283 rerank lists) and fine-tune both models; Yes vs Partly depends on whether that counts as within reach"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

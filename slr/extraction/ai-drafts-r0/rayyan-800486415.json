@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800486415",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Denisov-Blanch, Y., Agarwal, S., Azaletskiy, P., He, H., Schaeffer, R., Miranda, B., Vasilescu, B., Koyejo, S. (2026). A Few Pages of Markdown: Committed AI Configuration and Lower Quality Cost after Coding-Agent Adoption. In Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, 12-16 Oct 2026. ACM. https://doi.org/10.1145/3832783.3837546 (arXiv:2608.25241v2)",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference (ASE '26, ACM); also arXiv preprint v2. Received 2026-03-26, accepted 2026-06-18",
+   "p": "1, 13"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Stanford University (Denisov-Blanch, Schaeffer, Miranda, Koyejo); Carnegie Mellon University (Agarwal, He, Vasilescu); Grid Dynamics (Azaletskiy)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method (RAMP, four-level repository AI maturity model + classification pipeline, validated); secondary: evaluates (observational, staggered difference-in-differences re-analysis: committed AI configuration as moderator of quality and velocity after coding-agent adoption)",
+   "p": "1-2"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Committed AI configuration artefacts classified by RAMP levels: L1 Unconfigured; L2 Grounded Prompting (context artefacts); L3 Agent-Augmented (capability artefacts); L4 Orchestration (coordination artefacts). Detected for 12 tools (Claude Code, Cursor, GitHub Copilot, Windsurf, Aider, AMP, Gemini CLI, Google IDX, JetBrains AI, Kiro, OpenAI Codex, OpenHands) plus cross-tool AGENTS.md, *mcp*.json. Versions: N/A",
+   "p": "2-4"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an approach; observed categories: L2 rules/instructions (CLAUDE.md, .cursorrules, copilot-instructions.md), configuration, architecture docs, code-style; L3 agents (personas with tool restrictions), commands (slash-command templates), skills (how-to guides); L4 flows (orchestration plans with phases, dependencies, exit criteria), session-logs. Practical advice: commit at least a rules file and a coding-standards document",
+   "p": "4-5, 10"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (repository configuration, not a workflow)",
+   "p": "—"
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefacts (committed context/configuration files), presence only, observed in repositories; not run by the authors",
+   "p": "4, 10"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'committed AI configuration', 'grounded prompting')",
+   "p": "4"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (observational: real repositories adopting coding agents)",
+   "p": "3, 7"
+  },
+  {
+   "f": "Size",
+   "v": "Development: 441 private corporate repos from 27 organisations (1,046 validated artefacts); Study 1: 196-repo temporal subset; Study 2: 509 treated open-source repos (236 L1, 273 L2+) from Agarwal et al. panel with matched controls (401 agent-first/606 controls; 117 IDE-first/73 controls). Repo age, stars, PRs in Table 4",
+   "p": "3, 7"
+  },
+  {
+   "f": "Domain",
+   "v": "Corporate repositories across diverse industry sectors (Study 1); open-source GitHub repositories (Study 2); domain otherwise Not stated",
+   "p": "3, 7"
+  },
+  {
+   "f": "Team profile",
+   "v": "Real development teams (corporate and open-source); details Not stated; L3 repos average 3.4 contributors to AI artefacts vs 1.0-1.5 at L1-L2",
+   "p": "7"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money)",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (no tests)",
+   "p": "—"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "SonarQube: cognitive complexity, static-analysis warnings, duplicated line density, comment line density (monthly, log-transformed)",
+   "p": "8"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Velocity: monthly commits, lines of code added. Adoption dynamics: level transitions, time to next level (Kaplan-Meier), set-and-forget share. Classifier validity: Guttman CR/CS, accuracy and kappa vs human labels",
+   "p": "5-8"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: RAMP pipeline (file patterns + nomic-embed-text-v1.5 embeddings), git history, SonarQube; staggered DiD (Borusyak imputation estimator) with SEs clustered by repository. Manual: three annotators labelled 195 artefacts from 35 held-out repos",
+   "p": "3-4, 6, 8"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Configurations are maturity strata of treated repositories (agents mixed and not identified per repo; models not stated). Criterion: post-adoption change vs matched controls (DiD).\n- L1 (no committed AI configuration), agent-first stratum: cognitive complexity +52.7% (p<0.001), warnings +24.1% (p<0.01), duplication +15.4% (p<0.05), comment density +7.1% (n.s.); commits +37.6%, lines added +48.1%. Quality does not work; cost: N/A (velocity works)\n- L2+ (committed configuration), agent-first stratum: complexity +26.7% (p<0.01), warnings +14.0% (p<0.05), duplication +14.2% (p<0.01), comments +1.9% (n.s.); commits +27.5%, lines added +68.7%. Quality partly; cost: N/A (velocity works)\n- Four-level gradient (pooled sample): complexity L1 +54.4%, L2 +39.8% (p<0.001), L3-L4 not distinguishable from zero; warnings L1 +23.0%, L2 +16.7%, n.s. above; L4 duplication +31.4% (p<0.01). L3 and L4 strata small (23 and 40 repos)\n- Combined L1-2 (robustness): complexity +46.6%, warnings +20.9%\n- Pooled agent-first + IDE-first: complexity +54.4% vs +35.9%; warnings +23.0% vs +20.0%; duplication L2+ +5.9% (n.s.) vs L1 +16.0%",
+   "p": "8-9"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Observational re-analysis of Agarwal et al.'s staggered DiD panel; treatment = first agent-attributed PR; unit repository-month; propensity-score matched controls; maturity labelled at Nov 2025 snapshot; strata compared within agent-first population. Baseline: L1 stratum and matched non-adopters. Held constant: estimator, outcomes and control pool from Agarwal et al.; prior AI exposure (agent-first). Acceptance tests: N/A. Repetitions: N/A (observational). Human intervention: N/A. Event window 6 months after adoption",
+   "p": "7-9"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "L1 shows ~2.0x the complexity increase (+52.7% vs +26.7%) and 1.7x the warnings increase (+24.1% vs +14.0%) of L2+ in the agent-first stratum; duplication similar (1.1x). Velocity rises in both (commits 1.4x higher at L1; lines added higher at L2+). Gap widens over months after adoption. Within-stratum effects significant; formal test of the difference between strata Not reported. Adoption: 73.8% of artefacts committed once and never modified; 95.9% enter at L2; no reversals",
+   "p": "1, 7-9"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: stratification separated quality trajectories, robust across groupings; contrast identified only within agent-first (IDE-first L1 only 22 repos); warnings weakly identified (pre-trends). Classifier reproduced human repo-level labels for 34/35 repos (kappa_w 0.829). Limitations stated: observational, model capability and usage intensity unobserved, reverse causality, shared control pool, presence not quality of artefacts",
+   "p": "6, 9-11"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Associations hypothesis-generating, not causal; model capability and AI usage intensity confounders; maturity measured at end snapshot (only 3.8% of agent-first L2+ committed configuration before adoption); SonarQube proxies; presence not content quality of artefacts; L4 absent in development sample; 6-month and 14-month windows; governance outside the repo invisible. Future: content specificity and upkeep, subsystem-level measurement, designs fixing configuration before adoption",
+   "p": "10-11"
+  },
+  {
+   "f": "Notes",
+   "v": "Replication package: doi.org/10.5281/zenodo.21406147 (pipeline, patterns, notebooks; corporate repos not identifiable). Study 2 data from public Agarwal et al. dataset; co-author Agarwal is first author of that panel. No pre-registration. Programming languages Not stated. Values from Table 5 (p. 8; rows partly jumbled, checked against text) and Section 5.3.4 text. Abstract '+53% versus +27%' rounds Table 5. Table 4 and Table C.1 jumbled in text extraction, rebuilt (agent-first 214 L1 / 182 L2+; IDE-first 22 / 91). Appendix A: LLM labeller (Claude Haiku) 81.1% vs classifier 81.7%",
+   "p": "1, 6-8, 11, 13"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1 and RQ2 stated",
+   "p": "3"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, templates, estimator and validation detailed; package released",
+   "p": "3-8, 11"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): tools detected listed, embedding model named; coding agents and models used per repository not identified (model capability unobserved)",
+   "p": "3-4, 11"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): Study 2 panel public; corporate development sample confidential",
+   "p": "3, 11"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SonarQube metrics and git data, independent of authors' judgement; classifier validated against human annotators",
+   "p": "6, 8"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and velocity metrics defined; no cost metrics",
+   "p": "8"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): matched controls and L1 vs L2+ strata under the same estimator",
+   "p": "7-8"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): clustered SEs, significance, event-study pre-trends, four robustness checks",
+   "p": "8-9"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): hedged as hypothesis-generating; residual complexity increase at L2+ and weak identification of warnings reported",
+   "p": "1, 9-11"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 7 Threats to Validity (Wohlin categories)",
+   "p": "10-11"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ASE '26 (accepted) [Check: the record has a published DOI (https://doi.org/10.1145/3832783.3837546); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "p": "1, 13"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): universities and Grid Dynamics; not vendors of the tools whose configuration is studied",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

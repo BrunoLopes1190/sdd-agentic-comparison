@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800485911",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhang, X., Wang, G., Cui, Y., Qiu, W., Li, Z., Zhu, B., He, P. (2026). Guardrails Beat Guidance: A Large-Scale Study of Rules, Skills, and Persistent Configuration for Coding Agents. arXiv:2604.11088v2 [cs.AI], 28 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2604.11088v2 [cs.AI] ('Preprint. May 29, 2026', ICML-style layout); no published venue found",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "AWS Generative AI Innovation Center (Zhang, Wang, Cui, He); HSBC Holdings Plc., HSBC Technology Center, China (Qiu, Li, Zhu)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs); secondary: corpus analysis and taxonomy of 679 rule files (25,532 rules)",
+   "p": "1-2, 4",
+   "verdict": "uncertain",
+   "why": "Main vs secondary is a judgement: the paper calls its contribution 'the first controlled evaluation of agent rule files' (p. 2), so 'Evaluates' could be main with 'Compares' secondary; every experiment is a paired comparison of rule conditions against a no-rule baseline, which supports 'Compares'. Value kept"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent rule files (CLAUDE.md, .cursorrules; also discussed: AGENTS.md, skills, plugin manifests, personas), no version. Rule sets: curated (18 hand-crafted rules), random, popular, matched, mismatched, native-only, shuffled community rule files",
+   "p": "1, 3-5, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single CLAUDE.md file in the working directory, read by Claude Code at session start, containing natural-language rules. Corpus categories: project-specific 64.9%, behavior/persona 10.8%, tool/process 8.9%, code style 6.5%, architecture 5.8%, safety 3.0%. Experiments use the five transferable categories",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (rule file swapped before each run; no SDD flow)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous runs)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (rule/context file CLAUDE.md)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (rule files, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-bench Verified Python bug fixes",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified (500 tasks) screened with 3 baseline runs each; 58 discriminative tasks (30-70% baseline pass rate) for Exp. 1-3, 35 for Exp. 4 (17 baseline-solved for 4b); corpus 679 rule files (486 CLAUDE.md, 193 .cursorrules)",
+   "p": "3-4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python open-source repositories (SWE-bench Verified)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "API cost reported only globally (~$5 per task-condition; ~$2,000 total); no per-condition tokens, time or cost",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate on SWE-bench Verified tasks (official Docker harness)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Per-rule effect (pp change when removed: shaping / distorting / inert); tasks broken among previously-solved tasks; additivity error of rule pairs; rule taxonomy shares",
+   "p": "3, 5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-bench Docker harness; McNemar exact, Cochran's Q, binomial sign, Fisher exact, Mann-Whitney tests. LLM classifier for rule taxonomy (87% agreement with human labels on 200 rules); LLM-based format converter for non-CLAUDE.md files",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SWE-bench Verified tests pass (official Docker harness), on discriminative tasks selected for 30-70% baseline pass rate. All configurations: Claude Code (version not stated) + Claude Opus 4.6 (AWS Bedrock). Cost for every configuration: not measured per configuration (only ~$5 per task-condition and ~$2,000 overall), cost verdict not assessable.\nExp. 1 rule sources (n=58, single trajectory; Table 2):\n- No rules (baseline) + Claude Code + Opus 4.6: 50.0%. Quality: partly (half of the discriminative tasks solved)\n- Random rule files + Claude Code + Opus 4.6: 63.8% (vs baseline p=.077). Quality: partly\n- Curated rules: 63.8% (p=.115). Quality: partly\n- Popular: 60.3% (p=.361). Quality: partly\n- Mismatched domain: 58.6% (p=.424). Quality: partly\n- Matched domain: 56.9% (p=.481). Quality: partly\n- Shuffled: 56.9% (p=.523). Quality: partly\n- Native-only CLAUDE.md: 56.9% (p=.556). Quality: partly\nExp. 2 rule counts 0, 1, 3, 5, 10, 20, 50 x 3 seeds (n=58): all in the 59-67% band; 0 rules 60.3%, 50 rules 66.7% (Cochran's Q p=0.227; Fig. 3a). Quality: partly for every count\nExp. 3 rule types, 10 rules each (n=58; Table 3): tool/process 63.8%, mixed 62.1%, safety 60.3%, code style 56.9%, architecture 53.4% (Cochran's Q p=0.549). Quality: partly for every type\nExp. 4 (n=35):\n- 18-rule curated set: 65.7%. Quality: partly\n- 4a ablation (18 leave-one-out variants): 3 shaping rules, all 'do not' (removing 'no unrelated refactor' -20pp, p=.016); 4 distorting, all 'do' (read test files, follow code style, handle edge cases, preserve compatibility); 11 inert (|delta|<=5pp)\n- 4b ablation (single rules on 17 baseline-solved tasks): 14 of 18 rules break >=2 tasks (worst 4/17)\n- 4c ablation (5 rule pairs; no-rule baselines 68.6-74.3%): 3 of 5 approximately additive (error <10pp), max error 22.9pp",
+   "p": "4-7, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 58 (Exp. 1-3) / 35 (Exp. 4) discriminative SWE-bench Verified tasks, paired within-subject. Configurations: rule sources (8), counts (19 incl. seeds), types (5), ablation/distortion/superposition. Baseline: no rule file. Held constant: agent (Claude Code), model (Claude Opus 4.6 via Bedrock), prompt template, tooling; only the CLAUDE.md contents vary. Acceptance tests: SWE-bench harness. Repetitions: 1 trajectory per task-condition in Exp. 1; 3 seeds in Exp. 2; screening 3 runs. Human intervention: none",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "All rule conditions beat no-rule by 6.9-13.8pp but none significantly (no pairwise McNemar p<0.05; Cochran's Q p=0.697); sign test across 7 directions p=0.008. Random = curated (63.8%). No degradation with rule count up to 50. Tool/process rules best, architecture worst (10.4pp, n.s.). Polarity separation of shaping vs distorting rules Fisher p=0.029 (threshold-sensitive: dissolves at 10pp; Mann-Whitney p~0.13)",
+   "p": "1, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: distinguished direction but rarely significance (n=58 detects ~15pp effects). Repeatable: baseline differs between Exp. 1 (50.0%) and Exp. 2 (60.3%), retest reliability 88.2% on solved tasks; run-to-run stochasticity acknowledged. Limitations stated: single agent, model, benchmark; selection bias of discriminative tasks; no multiple-comparison correction for per-rule results",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single vendor/model/benchmark (Claude Code + Opus 4.6, SWE-bench Verified, Python bug fixes); weaker models and benchmarks rewarding broader changes may differ; limited statistical power; baseline variance between experiments; per-rule significance would not survive correction; task selection bias. Future: cross-agent and cross-task replication, minimal-prime test, constraint-aware rule evolution, rules as RL reward signals",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code/data availability Not stated. Table 2 rebuilt from pdftotext text (row values listed after condition names, matched in order). Inconsistency: the Limitations give a '14pp average rule gain in Experiment 1' (p. 9), but Table 2 gains range 6.9-13.8pp (mean about 9.6pp); Fig. 1 caption says 7-14pp. Exp. 1 baseline (50.0%, single trajectory) vs Exp. 2 zero-rule (60.3%, 3 seeds) differ, acknowledged by authors; Exp. 4c no-rule baselines are 68.6-74.3% vs the 18-rule set 65.7% on the same 35 tasks. Run totals: 3,544 experiment runs + 1,500 screening runs. PBRS used as metaphor, not theory. Rules for Exp. 4 listed in Appendix A. No pre-registration. Programming language: Python",
+   "p": "4-6, 8-9, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research questions and three PBRS predictions (P1-P3) stated",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): design, task selection, conditions and curated rules given; community rule sets, prompt template and classifier prompts not provided; no replication package",
+   "p": "3-5, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Opus 4.6 and Claude Code named; Claude Code version not stated",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): SWE-bench Verified public, but the 58/35 selected task IDs and rule files used are not listed or released",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SWE-bench Verified tests",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): pass rate defined; cost only as global API spend, not per condition",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-rule baseline, paired design",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): paired tests, Cochran's Q, sign test, threshold sensitivity, seeds in Exp. 2; mostly single trajectories acknowledged",
+   "p": "4-6, 8",
+   "verdict": "uncertain",
+   "why": "Statistical tests of differences are thorough (McNemar, Cochran's Q, sign test, threshold sensitivity, Mann-Whitney), but Exp. 1, 3 and 4 use one trajectory per task-condition and the Exp. 2 seeds vary which rules are sampled, not the run; the authors note an 11.8% flip chance from run noise (p. 6). Partly (0.5) is defensible"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): non-significance and threshold sensitivity reported; claims hedged as scoped and suggestive (title 'Guardrails Beat Guidance' stronger than evidence)",
+   "p": "5-6, 8",
+   "verdict": "uncertain",
+   "why": "The body hedges (no significant pairwise test, polarity 'suggestive', threshold sensitivity reported), but the title and abstract ('Guardrails Beat Guidance', polarity 'cleanly separates') overstate a pattern that dissolves at a 10pp threshold (Fisher p=0.25; Mann-Whitney p~0.13). Partly (0.5) is defensible"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations paragraph (scope, power, baseline variance, selection bias)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): AWS and HSBC authors; not vendors of Claude Code or of the rule files (note: the model runs via AWS Bedrock)",
+   "p": "1, 4",
+   "verdict": "uncertain",
+   "why": "Authors are not vendors of Claude Code or Opus 4.6, but the 18-rule curated set evaluated in Exp. 1 and 4 was hand-crafted by them (Appendix A, p. 11), which §5 could read as vendor of one configuration (Partly); four authors are at AWS, which serves the model via Bedrock"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

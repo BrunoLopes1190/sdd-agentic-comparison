@@ -1,46 +1,343 @@
-{"key": "rayyan-800485928", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Martin, A., Schwander, S. (2026). A Lean and Spec-Driven AI-Assisted Software Development Lifecycle for Applied AI Education: The AI-SDLC Approach. arXiv:2609.24348v1 [cs.SE], 21 Sep 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; Springer LNCS-style format, venue not stated)", "p": "1"},
-{"f": "Author affiliation", "v": "FHNW University of Applied Sciences and Arts Northwestern Switzerland, School of Business, Olten", "p": "1"},
-{"f": "Nature of the study", "v": "Evaluates (proposes the authors' AI-SDLC lifecycle and evaluates it with a post-course student survey; descriptive, exploratory)", "p": "1-2, 4"},
-{"f": "Approach(es): name and version", "v": "AI-SDLC (AI-Assisted Software Development Life Cycle), authors' own; evaluated version 1.0.0-beta (Zenodo 10.5281/zenodo.22724343); current template v1.0.0 (Zenodo 10.5281/zenodo.22833065)", "p": "2, 4, 9-10"},
-{"f": "Artefacts prescribed", "v": "Compact AGENTS.md (workflow rules, guardrails); phase-specific SKILL.md files (skills/ai-sdlc-*); docs/PROJECT.md (system, stack, architecture, dependencies); use case specifications under docs/specs/ (behaviour, scope, acceptance criteria, NFRs, intended tests); docs/TASKS.md (lifecycle state, tasks); optional ADRs; tests (integration, unit, E2E)", "p": "2-3"},
-{"f": "Phases of the flow", "v": "Bootstrap (project context, environment, architectural baseline) -> Specify (user story to use case spec; no implementation) -> Design (map to Clean Architecture, ADRs, tasks) -> Develop (TDD: integration -> unit -> code, Red-Green-Refactor) -> Validate (unit, integration, E2E tests, CI, release build) -> Deploy; feedback loops back on failing validation or new requirements (iterative)", "p": "2-3"},
-{"f": "Human review points", "v": "No mandatory approval after each action; agent autonomous within a phase once started; human control through inspectable/modifiable persistent artefacts (specs, ADRs, tasks, tests, validation results) between phases; PR review used by some students", "p": "4, 6"},
-{"f": "Parts exercised", "v": "Full workflow (six phases) in student semester projects; adherence partial (Bootstrap, Specify, Validate most often shortened; no phase skipped)", "p": "4, 6-7"},
-{"f": "SDD level", "v": "Not stated (one use case spec per user story/change kept in docs/specs/; closest to spec-first/spec-anchored, not classified by the authors)", "p": "—"},
-{"f": "Task type", "v": "New projects: business-oriented software use cases developed by student teams in a semester project", "p": "1, 4"},
-{"f": "Size", "v": "Not stated (project size not given); 34 students invited, 13 complete responses", "p": "4"},
-{"f": "Domain", "v": "Business-oriented software (education context, BSc Business Artificial Intelligence)", "p": "1, 4"},
-{"f": "Team profile", "v": "Bachelor students (Business AI), student teams; median age 25 (23-32); 5 beginners, 7 basic programming knowledge, median 3 years programming; prior work mainly hobby/open source (10 of 13); high AI coding tool experience (7 daily/intensive)", "p": "4"},
-{"f": "Cost metrics", "v": "None measured. Perceived: all 13 agreed they made faster progress; 4 agreed the process felt like unnecessary overhead in some phases (small tasks); survey time ~22 min (not a cost metric)", "p": "5-6"},
-{"f": "Functional quality metrics", "v": "None measured objectively. Perceived: 10 of 13 agreed quality of result improved; confidence in code correctness mostly with reservations", "p": "5-6"},
-{"f": "Internal quality metrics", "v": "None measured", "p": "—"},
-{"f": "Human effort metrics", "v": "None measured (perceived overhead and comprehension items only)", "p": "5-6"},
-{"f": "Other outcome metrics", "v": "Survey: agreement items on process support, artefacts, self-instruction files, human verification, learning/productivity; adherence and perceived usefulness per phase (means 3.77-4.42 of 5); Net Promoter item (7-10, median 8); thematic coding of open answers", "p": "4-7"},
-{"f": "How metrics are collected", "v": "Manual: cross-sectional online survey (German), 5-point agreement scale with reverse-worded items; descriptive frequencies only; open answers coded thematically by one author", "p": "4-5"},
-{"f": "Evaluation (each configuration)", "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: student perceptions (no objective criterion). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: partly (perceived positive, verification weak, self-report only). Cost verdict: partly (perceived faster, overhead for small tasks; not measured)", "p": "5-8"},
-{"f": "Comparison: design", "v": "No comparison: single cohort, one point in time, no control group or baseline; respondents asked to compare with their 'usual way of working'. Projects not described; agents/models not controlled or reported; no acceptance tests; no repetitions; human intervention unrestricted (students drive the process)", "p": "4-5"},
-{"f": "Comparison: result", "v": "N/A (no comparison); perceived improvement over usual way of working (10 of 13)", "p": "5"},
-{"f": "Comparison: did the method work", "v": "N/A. Authors state the design is descriptive and exploratory, not able to establish causal effects; closed ratings and free-text answers disagree in places (e.g. adopting code without understanding 6 vs 11; PR review 7 agree vs 1 mention)", "p": "4, 6-7"},
-{"f": "Conclusions: limitations and gaps", "v": "Inexperienced cohort with no own process to compare (assessment may be favourable); 13 respondents from one cohort, not generalisable; results are perceived, not observed behaviour. Open issues: confidence vs comprehension gap; repository-local instructions need maintenance (forgotten conventions, files growing too large); artefacts not updated automatically across team members' agents; ADRs rarely used; need lightweight path for small changes; add security/monitoring step. Future: repeat with later and more experienced cohorts; objective measures (code quality, coverage, adherence, review activity)", "p": "7-8"},
-{"f": "Notes", "v": "Inconsistencies: conclusion says verification relied on trying software (5 mentions) more than tests/CI (3 mentions), findings list tests/CI second without a count; conclusion reports 11 of 12 agreeing instruction files helped adhere to conventions, while findings report 11 of 13 found it clear how to use them (different items/denominators). Figure values jumbled in extraction; counts taken from text. AI-SDLC artefacts on Zenodo (both versions); questionnaire availability not stated. No pre-registration. Programming language: Not stated. Generative AI used for language editing and Python implementation (declared)", "p": "4-9"},
-{"f": "Q1", "v": "Yes (1): aim to develop and evaluate a lightweight spec-driven lifecycle stated", "p": "1-2"},
-{"f": "Q2", "v": "Partly (0.5): lifecycle and survey structure described; questionnaire items not fully given, projects and course setup not described", "p": "2-5"},
-{"f": "Q3", "v": "No (0): coding agents and models used by students not identified (only AI-SDLC version given)", "p": "4"},
-{"f": "Q4", "v": "No (0): student projects/use cases not described; only the AI-SDLC artefacts are available", "p": "4, 9-10"},
-{"f": "Q5", "v": "No (0): self-reported perceptions only", "p": "4, 8"},
-{"f": "Q6", "v": "Partly (0.5): survey items cover perceived quality and speed/overhead; no objective cost or quality metrics", "p": "4-6"},
-{"f": "Q7", "v": "No (0): no control group or baseline", "p": "4"},
-{"f": "Q8", "v": "No (0): single cohort, descriptive statistics only (n=13)", "p": "4-5"},
-{"f": "Q9", "v": "Yes (1): conclusions cautious, report the confidence-comprehension gap and disagreements between ratings and free text", "p": "8"},
-{"f": "Q10", "v": "Partly (0.5): limitations paragraph (inexperienced cohort, n=13, self-report) and design caveats; no threats-to-validity section", "p": "4, 8"},
-{"f": "Q11", "v": "No (0): arXiv preprint, venue not stated", "p": "1"},
-{"f": "Q12", "v": "No (0): the authors created the AI-SDLC they evaluate", "p": "2"},
-{"f": "Q13", "v": "Yes (1): lightweight Markdown artefacts (AGENTS.md, SKILL.md, docs) published on Zenodo and used by bachelor students; no special compute; tool or token costs not stated", "p": "2-3, 9-10"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800485928",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Martin, A., Schwander, S. (2026). A Lean and Spec-Driven AI-Assisted Software Development Lifecycle for Applied AI Education: The AI-SDLC Approach. arXiv:2609.24348v1 [cs.SE], 21 Sep 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.24348v1 [cs.SE]; Springer LNCS-style layout, venue not stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Required 'Type — detail' form not used; substance unchanged (no venue in the text)."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "FHNW University of Applied Sciences and Arts Northwestern Switzerland, School of Business, Olten",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — proposes the authors' AI-SDLC lifecycle (six phases, AGENTS.md, SKILL.md files, specs) and explores it with a post-course student survey (n=13; descriptive, exploratory)",
+   "p": "1-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The paper's stated contribution is the AI-SDLC framework itself ('The contribution of this work is a process-oriented framework', abstract; Section 2), evaluated only by a survey. Under the 2026-11-23 change, 'Proposes an approach' is the main nature, not 'Evaluates'; the form 'Type; secondary: Type — detail' was also not used."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "AI-SDLC (AI-Assisted Software Development Life Cycle), authors' own; evaluated version 1.0.0-beta (Zenodo 10.5281/zenodo.22724343); current template v1.0.0 (Zenodo 10.5281/zenodo.22833065)",
+   "p": "2, 4, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Compact AGENTS.md (workflow rules, guardrails); phase-specific SKILL.md files (skills/ai-sdlc-*); docs/PROJECT.md (system, stack, architecture, dependencies); use case specifications under docs/specs/ (behaviour, scope, acceptance criteria, NFRs, intended tests); docs/TASKS.md (lifecycle state, tasks); optional ADRs; tests (integration, unit, E2E)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Bootstrap (project context, environment, architectural baseline) -> Specify (user story to use case spec; no implementation) -> Design (map to Clean Architecture, ADRs, tasks) -> Develop (TDD: integration -> unit -> code, Red-Green-Refactor) -> Validate (unit, integration, E2E tests, CI, release build) -> Deploy; feedback loops back on failing validation or new requirements (iterative)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "No mandatory approval after each action; agent autonomous within a phase once started; human control through inspectable/modifiable persistent artefacts (specs, ADRs, tasks, tests, validation results) between phases; PR review used by some students",
+   "p": "4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (six phases) in student semester projects; adherence partial (Bootstrap, Specify, Validate most often shortened; no phase skipped)",
+   "p": "4, 6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated (one use case spec per user story/change kept in docs/specs/; closest to spec-first/spec-anchored, not classified by the authors)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New projects: business-oriented software use cases developed by student teams in a semester project",
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Not stated (project size not given); 34 students invited, 13 complete responses",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Business-oriented software (education context, BSc Business Artificial Intelligence)",
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Bachelor students (Business AI), student teams; median age 25 (23-32); 5 beginners, 7 basic programming knowledge, median 3 years programming; prior work mainly hobby/open source (10 of 13); high AI coding tool experience (7 daily/intensive)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured. Perceived: all 13 agreed they made faster progress; 4 agreed the process felt like unnecessary overhead in some phases (small tasks); survey time ~22 min (not a cost metric)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured objectively. Perceived: 10 of 13 agreed quality of result improved; confidence in code correctness mostly with reservations",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (perceived overhead and comprehension items only)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Survey: agreement items on process support, artefacts, self-instruction files, human verification, learning/productivity; adherence and perceived usefulness per phase (means 3.77-4.42 of 5); Net Promoter item (7-10, median 8); thematic coding of open answers",
+   "p": "4-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: cross-sectional online survey (German), 5-point agreement scale with reverse-worded items; descriptive frequencies only; open answers coded thematically by one author",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: student perceptions (no objective criterion). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: partly (perceived positive, verification weak, self-report only). Cost verdict: partly (perceived faster, overhead for small tasks; not measured)",
+   "p": "5-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No comparison: single cohort, one point in time, no control group or baseline; respondents asked to compare with their 'usual way of working'. Projects not described; agents/models not controlled or reported; no acceptance tests; no repetitions; human intervention unrestricted (students drive the process)",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (no comparison); perceived improvement over usual way of working (10 of 13)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A. Authors state the design is descriptive and exploratory, not able to establish causal effects; closed ratings and free-text answers disagree in places (e.g. adopting code without understanding 6 vs 11; PR review 7 agree vs 1 mention)",
+   "p": "4, 6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Inexperienced cohort with no own process to compare (assessment may be favourable); 13 respondents from one cohort, not generalisable; results are perceived, not observed behaviour. Open issues: confidence vs comprehension gap; repository-local instructions need maintenance (forgotten conventions, files growing too large); artefacts not updated automatically across team members' agents; ADRs rarely used; need lightweight path for small changes; add security/monitoring step. Future: repeat with later and more experienced cohorts; objective measures (code quality, coverage, adherence, review activity)",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: conclusion says verification relied on trying software (5 mentions) more than tests/CI (3 mentions), findings list tests/CI second without a count; conclusion reports 11 of 12 agreeing instruction files helped adhere to conventions, while findings report 11 of 13 found it clear how to use them (different items/denominators). Figure values jumbled in extraction; counts taken from text. AI-SDLC artefacts on Zenodo (both versions); questionnaire availability not stated. No pre-registration. Programming language: Not stated. Generative AI used for language editing and Python implementation (declared)",
+   "p": "4-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim to develop and evaluate a lightweight spec-driven lifecycle stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): lifecycle and survey structure described; questionnaire items not fully given, projects and course setup not described",
+   "p": "2-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): coding agents and models used by students not identified (only AI-SDLC version given)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "No (0): student projects/use cases not described; only the AI-SDLC artefacts are available",
+   "p": "4, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): self-reported perceptions only",
+   "p": "4, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): survey items cover perceived quality and speed/overhead; no objective cost or quality metrics",
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no control group or baseline",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single cohort, descriptive statistics only (n=13)",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions cautious, report the confidence-comprehension gap and disagreements between ratings and free text",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations paragraph (inexperienced cohort, n=13, self-report) and design caveats; no threats-to-validity section",
+   "p": "4, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, venue not stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): the authors created the AI-SDLC they evaluate",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): lightweight Markdown artefacts (AGENTS.md, SKILL.md, docs) published on Zenodo and used by bachelor students, so plausibly within reach of a typical team; but the coding agents, models, tools and token costs needed are not stated",
+   "p": "2-3, 9-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Q13 asks that requirements (tools, compute, cost) be stated; here the artefacts are given but the agents/models and costs are not named at all ('contemporary coding agents'), so Yes (r0) rests on inference. Partly is my reading; Yes is defensible if only the artefacts count."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Artefacts are light Markdown files published on Zenodo and used by bachelor students (pp. 2-4), but the paper only says 'contemporary coding agents' (p. 2) and states no agent, model, compute or token cost, so the requirements Q13 asks for are not stated. Partly is a reading; Yes if only the artefacts count, No under the 'missing information scores No' rule if the author reads it strictly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Artefacts are light Markdown files (AGENTS.md, SKILL.md, docs) published on Zenodo and used by bachelor students (pp. 2-4), but the paper only says 'contemporary coding agents' (p. 2) and states no agent, model, compute or token cost, so the requirements Q13 asks for are not stated. Partly is a reading; Yes if only the artefacts count, No under the 'missing information scores No' rule read strictly."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

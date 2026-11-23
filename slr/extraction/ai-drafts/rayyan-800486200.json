@@ -1,226 +1,315 @@
 {
-"key": "rayyan-800486200",
-"model": "Claude Opus 5.5 (subagent)",
-"fields": [
-{
-"f": "Reference",
-"v": "Ustynov, D. (2026). Beyond Human-Readable: Rethinking Software Engineering Conventions for the Agentic Development Era. arXiv:2604.07502v1 [cs.SE], 8 Apr 2026",
-"p": "1"
-},
-{
-"f": "Year",
-"v": "2026",
-"p": "1"
-},
-{
-"f": "Publication type",
-"v": "Preprint (arXiv)",
-"p": "1"
-},
-{
-"f": "Author affiliation",
-"v": "Military Institute of Telecommunications and Information Technologies (MITIT)",
-"p": "1"
-},
-{
-"f": "Nature of the study",
-"v": "Conceptual (semantic density principle, taxonomy of conventions under agentic pressure, program skeleton CODEMAP.md proposal); secondary: evaluates (small controlled experiment on log format token economy)",
-"p": "1, 3-5"
-},
-{
-"f": "Approach(es): name and version",
-"v": "Semantic density principle; program skeleton (CODEMAP.md) proposed as new artefact; experiment compares four log formats (A human-readable, B structured, C compressed, D compressed + decoder tool). Version N/A",
-"p": "3-5"
-},
-{
-"f": "Artefacts prescribed",
-"v": "Program skeleton CODEMAP.md (module topology, entry points, call chains with one-line descriptions, signatures with docstrings, data flow summary, file locations; omits bodies, imports, boilerplate); rich commit messages; context files discussed. Not a requirements/spec artefact",
-"p": "4-5"
-},
-{
-"f": "Phases of the flow",
-"v": "Not stated (no workflow prescribed)",
-"p": "—"
-},
-{
-"f": "Human review points",
-"v": "Not stated as flow steps; discusses human reviewer cognitive debt and calibrating consolidation to the review workflow",
-"p": "8"
-},
-{
-"f": "Parts exercised",
-"v": "Not run for the skeleton (proposal only; evaluation planned). Experiment exercised only log data formats in a diagnostic Q&A task",
-"p": "5, 9"
-},
-{
-"f": "SDD level",
-"v": "Not classifiable (no specification; CODEMAP.md is a code-derived navigation artefact)",
-"p": "—"
-},
-{
-"f": "Task type",
-"v": "Experiment: log analysis (diagnostic questions over a generated log file); no code base modified",
-"p": "5"
-},
-{
-"f": "Size",
-"v": "200 synthetic log events (30-minute e-commerce window); 6,695-8,072 tokens per file; 5 questions",
-"p": "5"
-},
-{
-"f": "Domain",
-"v": "Simulated e-commerce application logs; discussion covers Java/Spring Boot, Go, Angular",
-"p": "5, 7-8"
-},
-{
-"f": "Team profile",
-"v": "N/A (no human participants)",
-"p": "—"
-},
-{
-"f": "Cost metrics",
-"v": "File-level tokens (cl100k_base); session tokens; wall-clock time; tool calls",
-"p": "5"
-},
-{
-"f": "Functional quality metrics",
-"v": "Correctness of answers to 5 diagnostic questions (of 5); not code tests",
-"p": "5"
-},
-{
-"f": "Internal quality metrics",
-"v": "None measured (ceremony-to-logic ratio proposed as informal metric)",
-"p": "4"
-},
-{
-"f": "Human effort metrics",
-"v": "None",
-"p": "—"
-},
-{
-"f": "Other outcome metrics",
-"v": "Number of HIGH-confidence answers; session-to-file token ratio",
-"p": "5-6"
-},
-{
-"f": "How metrics are collected",
-"v": "Automatic token counts via tiktoken; session tokens, time and tool calls from the session (tool not stated); correctness judged against known answers, by whom Not stated",
-"p": "5"
-},
-{
-"f": "Evaluation (each configuration)",
-"v": "Criterion: correctness of 5 diagnostic answers and session cost. Agent not stated (isolated fresh sessions, 15.1k baseline tokens) + claude-sonnet-4-6, no extended thinking; single session per format\n- Format A human-readable + n.s. + claude-sonnet-4-6: file 8,072 tokens; session 18.9k tokens, 1m36s, 1 tool call, 5/5 correct, 4/5 high confidence. Quality works, cost works\n- Format B structured + n.s. + claude-sonnet-4-6: file 7,106 (-12.0%); session 24.0k, 5m24s, 1 call, 5/5, 4/5. Quality works, cost partly\n- Format C compressed + n.s. + claude-sonnet-4-6: file 6,695 (-17.1%); session 31.6k (+67.2% vs A), 7m00s, 1 call, 5/5, 3/5. Quality works, cost does not work\n- Format D compressed + decoder tool + n.s. + claude-sonnet-4-6: session 28.3k, 4m05s, ~5-7 calls (one execution error), 5/5, 4/5. Quality works, cost does not work",
-"p": "5-7"
-},
-{
-"f": "Comparison: design",
-"v": "Same 200 events encoded in 4 formats; same 5 questions; same model (claude-sonnet-4-6), fresh isolated session per format, no extended thinking. Baseline: Format A. Acceptance: answer correctness (criteria Not stated). Repetitions: 1 session per format. Human intervention: Not stated",
-"p": "5"
-},
-{
-"f": "Comparison: result",
-"v": "All formats 5/5 correct; human-readable cheapest in session tokens (18.9k) and time; compressed C +67.2% session tokens despite -17.1% input tokens; decoder tool reduces C's cost to 28.3k but adds tool overhead. No statistical test",
-"p": "5-7"
-},
-{
-"f": "Comparison: did the method work",
-"v": "Distinguished cost, not correctness (ceiling 5/5). Not repeatable as reported (single run per format). Limitations stated: single model, single dataset, crossover point not established; experiment covers data retrieval, not code architecture (proxy gap)",
-"p": "7-9"
-},
-{
-"f": "Conclusions: limitations and gaps",
-"v": "Training distribution paradox (agent-optimal structures underrepresented); Lost-in-the-Middle challenges large files; human reviewer cognitive debt; proxy gap (architectural claims not experimentally validated); single model and dataset. Future: compression crossover, controlled CODEMAP.md evaluation, file consolidation, ceremony-to-logic formalisation, LLM-native language",
-"p": "7-9"
-},
-{
-"f": "Notes",
-"v": "Table 1 and Table 2 columns jumbled by pdftotext; values rebuilt from text order (Tokens/Lines/Tok-per-line per format) and checked against text (17.1% input reduction, 67.2% session increase, 28.3k vs 31.6k). Format D file tokens not reported. Agent/harness not named. Cites grey literature heavily. Data and replication package: Not stated. Pre-registration: Not stated. Language: N/A (log text); Python decoder script",
-"p": "5-7"
-},
-{
-"f": "Q1",
-"v": "Yes (1): aims (systematic analysis, semantic density principle, experiment) stated",
-"p": "1-2"
-},
-{
-"f": "Q2",
-"v": "Partly (0.5): formats and questions procedure described, but questions, logs and harness not provided",
-"p": "5"
-},
-{
-"f": "Q3",
-"v": "Partly (0.5): model claude-sonnet-4-6 named; agent/tool and version Not stated",
-"p": "5"
-},
-{
-"f": "Q4",
-"v": "Partly (0.5): log dataset described in general terms; not available",
-"p": "5"
-},
-{
-"f": "Q5",
-"v": "Partly (0.5): correctness against diagnostic questions with known answers, but who judged and criteria Not stated",
-"p": "5"
-},
-{
-"f": "Q6",
-"v": "Yes (1): token, time and correctness metrics cover cost and quality",
-"p": "5"
-},
-{
-"f": "Q7",
-"v": "Yes (1): four formats under same model and questions",
-"p": "5"
-},
-{
-"f": "Q8",
-"v": "No (0): single session per format, no statistics",
-"p": "5, 9"
-},
-{
-"f": "Q9",
-"v": "Partly (0.5): log result reported fairly, but a single-run experiment is called validation of a general principle; architectural claims flagged as hypotheses",
-"p": "6-9"
-},
-{
-"f": "Q10",
-"v": "Yes (1): Section 8.4 limitations and open challenges",
-"p": "8-9"
-},
-{
-"f": "Q11",
-"v": "No (0): preprint",
-"p": "1"
-},
-{
-"f": "Q12",
-"v": "Yes (1): no vendor tool evaluated; author's own principle is not a tool",
-"p": "1"
-},
-{
-"f": "Q13",
-"v": "Partly (0.5): CODEMAP.md is cheap to adopt as a file, but no generator or requirements given (relies on future IDE vendor support); untested",
-"p": "4-5"
-},
-{
-"f": "DARE1",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE2",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE3",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE4",
-"v": "N/A",
-"p": "—"
-}
-]
+ "key": "rayyan-800486200",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ustynov, D. (2026). Beyond Human-Readable: Rethinking Software Engineering Conventions for the Agentic Development Era. arXiv:2604.07502v1 [cs.SE], 8 Apr 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Military Institute of Telecommunications and Information Technologies (MITIT)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual (semantic density principle, taxonomy of conventions under agentic pressure, program skeleton CODEMAP.md proposal); secondary: evaluates (small controlled experiment on log format token economy)",
+   "p": "1, 3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Semantic density principle; program skeleton (CODEMAP.md) proposed as new artefact; experiment compares four log formats (A human-readable, B structured, C compressed, D compressed + decoder tool). Version N/A",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Program skeleton CODEMAP.md (module topology, entry points, call chains with one-line descriptions, signatures with docstrings, data flow summary, file locations; omits bodies, imports, boilerplate); rich commit messages; context files discussed. Not a requirements/spec artefact",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no workflow prescribed)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as flow steps; discusses human reviewer cognitive debt and calibrating consolidation to the review workflow",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run for the skeleton (proposal only; evaluation planned). Experiment exercised only log data formats in a diagnostic Q&A task",
+   "p": "5, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; CODEMAP.md is a code-derived navigation artefact)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Experiment: log analysis (diagnostic questions over a generated log file); no code base modified",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "200 synthetic log events (30-minute e-commerce window); 6,695-8,072 tokens per file; 5 questions",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Simulated e-commerce application logs; discussion covers Java/Spring Boot, Go, Angular",
+   "p": "5, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "File-level tokens (cl100k_base); session tokens; wall-clock time; tool calls",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Correctness of answers to 5 diagnostic questions (of 5); not code tests",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured (ceremony-to-logic ratio proposed as informal metric)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Number of HIGH-confidence answers; session-to-file token ratio",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic token counts via tiktoken; session tokens, time and tool calls from the session (tool not stated); correctness judged against known answers, by whom Not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: correctness of 5 diagnostic answers and session cost. Agent not stated (isolated fresh sessions, 15.1k baseline tokens) + claude-sonnet-4-6, no extended thinking; single session per format\n- Format A human-readable + n.s. + claude-sonnet-4-6: file 8,072 tokens; session 18.9k tokens, 1m36s, 1 tool call, 5/5 correct, 4/5 high confidence. Quality works, cost works\n- Format B structured + n.s. + claude-sonnet-4-6: file 7,106 (-12.0%); session 24.0k, 5m24s, 1 call, 5/5, 4/5. Quality works, cost partly\n- Format C compressed + n.s. + claude-sonnet-4-6: file 6,695 (-17.1%); session 31.6k (+67.2% vs A), 7m00s, 1 call, 5/5, 3/5. Quality works, cost does not work\n- Format D compressed + decoder tool + n.s. + claude-sonnet-4-6: session 28.3k, 4m05s, ~5-7 calls (one execution error), 5/5, 4/5. Quality works, cost does not work",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Same 200 events encoded in 4 formats; same 5 questions; same model (claude-sonnet-4-6), fresh isolated session per format, no extended thinking. Baseline: Format A. Acceptance: answer correctness (criteria Not stated). Repetitions: 1 session per format. Human intervention: Not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "All formats 5/5 correct; human-readable cheapest in session tokens (18.9k) and time; compressed C +67.2% session tokens despite -17.1% input tokens; decoder tool reduces C's cost to 28.3k but adds tool overhead. No statistical test",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished cost, not correctness (ceiling 5/5). Not repeatable as reported (single run per format). Limitations stated: single model, single dataset, crossover point not established; experiment covers data retrieval, not code architecture (proxy gap)",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Training distribution paradox (agent-optimal structures underrepresented); Lost-in-the-Middle challenges large files; human reviewer cognitive debt; proxy gap (architectural claims not experimentally validated); single model and dataset. Future: compression crossover, controlled CODEMAP.md evaluation, file consolidation, ceremony-to-logic formalisation, LLM-native language",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 and Table 2 columns jumbled by pdftotext; values rebuilt from text order (Tokens/Lines/Tok-per-line per format) and checked against text (17.1% input reduction, 67.2% session increase, 28.3k vs 31.6k). Format D file tokens not reported. Agent/harness not named. Cites grey literature heavily. Data and replication package: Not stated. Pre-registration: Not stated. Language: N/A (log text); Python decoder script",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims (systematic analysis, semantic density principle, experiment) stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): formats and questions procedure described, but questions, logs and harness not provided",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model claude-sonnet-4-6 named; agent/tool and version Not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): log dataset described in general terms; not available",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): correctness against diagnostic questions with known answers, but who judged and criteria Not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): token, time and correctness metrics cover cost and quality",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): four formats under same model and questions",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single session per format, no statistics",
+   "p": "5, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): log result reported fairly, but a single-run experiment is called validation of a general principle; architectural claims flagged as hypotheses",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8.4 limitations and open challenges",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no vendor tool evaluated; author's own principle is not a tool",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): CODEMAP.md is cheap to adopt as a file, but no generator or requirements given (relies on future IDE vendor support); untested",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
 }

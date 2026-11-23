@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800485902",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chatlatanagulchai, W., Thonglek, K., Reid, B., Kashiwa, Y., Leelaprute, P., Rungsawang, A., Manaskasemsak, B., Iida, H. (2025). On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code. In: Product-Focused Software Process Improvement, PROFES 2025, Salerno, Italy, Springer LNCS. https://doi.org/10.1007/978-3-032-12089-2_40. Read from arXiv:2509.14744v1 [cs.SE], 18 Sep 2025",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "The record has a published version (PROFES 2025, Springer, DOI 10.1007/978-3-032-12089-2_40, per the ACM/WoS exports and the access log 'arXiv version of the DOI record'); the reference gave only the arXiv version"
+  },
+  {
+   "f": "Year",
+   "v": "2025",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference â€” PROFES 2025 (26th Int. Conf. on Product-Focused Software Process Improvement, Springer LNCS), DOI 10.1007/978-3-032-12089-2_40; full text read from arXiv:2509.14744v1",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Was Preprint, but the paper is published in PROFES 2025 (venue from the ACM and WoS exports, slr/exports/*-2026-11-18); a published paper read from arXiv keeps the venue type. Also the value did not follow the form '<type> â€” <detail>'"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Faculty of Engineering, Kasetsart University, Thailand (Chatlatanagulchai, Thonglek, Leelaprute, Rungsawang, Manaskasemsak); Nara Institute of Science and Technology (NAIST), Japan (Reid, Kashiwa, Iida)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates â€” empirical repository-mining study of the structure and content of 253 Claude.md files (RQ1 structure, RQ2 instruction categories). No agent run; effect of the files not measured",
+   "p": "1-2",
+   "verdict": "uncertain",
+   "why": "Form fixed to '<nature> â€” <detail>'. A descriptive mining study of artefacts fits none of the natures cleanly: 'Evaluates' is the closest, but nothing about the approach's effect is evaluated; the author should confirm"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agentic Coding Manifests (ACMs): Claude.md for Claude Code (AGENTS.md for Codex mentioned); no version",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single Markdown manifest/context file in the repository root, loaded at the start of each session: project context, identity, operational rules (architecture, coding standards, workflows). Observed content categories (Table 1): Build and Run 77.1%, Implementation Details 71.9%, Architecture 64.8%, Testing 60.5%, System Overview 48.2%, Development Process 37.2%, Conf.&Env. 26.5%, Maintenance 19.8%, AI Integration 15.4%, Doc.&Refs 13.8%, Performance 12.7%, Project Management 11.1%, DevOps 9.5%, Security 8.7%, UI/UX 8.3%",
+   "p": "1-2, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no flow; the file is loaded into context at each session start)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file Claude.md), observed in repositories, not run by the authors",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context file, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (open-source GitHub repositories using Claude Code)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "253 Claude.md files from 242 repositories (838 files in 806 repos before filtering); 1,249 commits retrieved; repository size Not stated",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (open-source GitHub repositories of any domain; languages not reported)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; files written by open-source developers, profile Not stated). Labelling inspectors: 4-17 years programming experience",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Structural: counts of Markdown header levels H1-H6 per file (median H1 1, H2 5, H3 9; H4 in 37 files, H5 in 5, H6 once). Content: share of files containing each of 15 instruction categories (Table 1)",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: GitHub API search (Feb 24 - Jun 16 2025, at least 20 commits after the file was introduced), header counting excluding code blocks. Manual: two-phase labelling (LLM-suggested labels from Claude, Gemini, ChatGPT on H1/H2 titles, one author selects; two authors review; 80 labels merged to 20; two inspectors label each file independently, 1,228 assignments, 113 disagreements resolved with a third inspector; final 15 labels)",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational mining study; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no configurations compared)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Descriptive only: manifests have shallow hierarchies (one H1, ~5 H2, ~9 H3) and are dominated by Build and Run, Implementation Details and Architecture; non-functional topics (Performance, Security, UI/UX) rare",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps / future work: maintenance and evolution of manifests; impact of Claude.md on agent performance and developer productivity via controlled experiments (task completion time, code quality, iterations, satisfaction) and interviews/surveys; other tools (Codex, Copilot)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Short paper (7 pages of text). Only Claude Code manifests. LLM models used for label suggestion not versioned. Inter-rater agreement given only as count of disagreements (113 of 1,228), no kappa. Fig. 1 values (header distributions) only partly given in text. No data or replication package mentioned; no pre-registration. Programming language: Not stated",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (structural patterns and content) and RQ1, RQ2 stated",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): data collection and labelling procedure described, but LLM prompts/models, label definitions beyond Table 1 and dataset not provided",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): Claude Code named without version; labelling LLMs (Claude, Gemini, ChatGPT) named without versions; no version identified anywhere",
+   "p": "3, 5",
+   "verdict": "corrected",
+   "why": "Q3 asks for versions; none is given (p. 3, 5), and missing information scores No under Â§5. Naming the tools without versions is not a partial identification of versions"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): dataset selection described (search dates, 20-commit filter); repositories not listed and availability not stated",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): content labels by two independent inspectors with third-inspector resolution; no agreement statistic; no effectiveness measured",
+   "p": "5",
+   "verdict": "uncertain",
+   "why": "No effectiveness is measured at all; the only independent check is the two-inspector labelling with third-inspector resolution (p. 5). Partly is defensible, but a reader could score No because Q5 is about effectiveness"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): structural and content metrics defined; no cost or quality outcomes (out of scope)",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): descriptive study, no baseline or alternative",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): descriptive statistics only, no statistical analysis",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions descriptive and follow from the counts; no causal claims",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in PROFES 2025 (Springer LNCS, DOI 10.1007/978-3-032-12089-2_40); full text read from the arXiv version",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "The draft's own check holds: the ACM and WoS exports list the paper in the PROFES 2025 proceedings, so it was peer-reviewed"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (Kasetsart, NAIST); no tool by the authors evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

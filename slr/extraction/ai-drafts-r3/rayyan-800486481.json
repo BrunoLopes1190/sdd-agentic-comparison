@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486481",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Tan, Z., Gu, P., Li, Z., Hu, Y., He, X., Li, D., Hao, J. (2026). EngramBench: A Capability-Grounded Benchmark for Skill-Evolution Harnesses. Technical report V1.0, arXiv:2609.39284v1 [cs.SE], 30 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.39284v1 [cs.SE], industry technical report V1.0 (MemoraX AI Research), no published venue",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The Chinese University of Hong Kong, Shenzhen (Tan); MemoraX AI (Gu, Li, Hu, He, Li, Hao); corresponding author e-mail at tju.edu.cn",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — benchmark EngramBench for skill-evolution harnesses (30 learning tasks, 13 transfer tasks, two-phase frozen protocol, CCPF metric); evaluation of static skill banks against a No Skills baseline with two ablations on 4 transfer tasks",
+   "p": "1, 3-4, 9",
+   "verdict": "uncertain",
+   "why": "Main nature (benchmark = proposes an evaluation method) is clear from the contributions (p. 3-4). The secondary is a judgement: four configurations are run against each other (Compares) but all are variants of one skill-bank approach vs none (Evaluates)"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Static skill banks (procedural memory, SKILL.md) distilled from learning-phase trajectories by a two-stage pipeline (local distillation into 368 raw skill packages, then global compression with DeepSeek V4 Pro at temperature 0); configurations S-Full-20, S-Ablated-20 (from history with 69.66% of text removed), Coreless-3 (3 basic interface skills). Pipeline not named; no version",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task: definitive README contract (immutable requirements), frozen execution plan, user scenario, deterministic scaffold with request/response contracts and public interface checker; skill bank (SKILL.md) frozen with SHA-256 manifest",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Phase 1: learning tasks run, trajectories distilled into skill bank, bank frozen. Phase 2: transfer task with README, clean scaffold and frozen bank; multi-turn development driven by simulated user against frozen plan; iterate against public interface checker; commit frozen; hidden evaluation in separate container",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (LLM-simulated user replaces human); tasks and distilled skills 'verified through human-expert baseline executions'; manual trajectory auditing mentioned",
+   "p": "5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact varied (skill bank); README contract and frozen plan held fixed in all configurations",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable — authors do not use SDD terms; tasks are 'requirement-driven' from a 'definitive README contract' and a 'frozen execution plan' (closest to spec-first, reviewer's reading); the varied artefact is a skill bank, not a specification",
+   "p": "5, 9",
+   "verdict": "uncertain",
+   "why": "The README contract and frozen plan are fixed inputs, not the object studied (the skill bank is); 'not classifiable' vs 'spec-first' is a judgement for the author"
+  },
+  {
+   "f": "Task type",
+   "v": "New projects from a scaffold: build full-stack business systems from lightweight API contracts (clean V2 API scaffold)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Benchmark: 30 learning tasks (6 domains, 583 archived turns) and 13 transfer tasks; starter repos mean 23.46 files, 8 source files, 622 non-empty LOC in total and 268 public operations across the transfer set; 25-30 turns per task, hours of execution, up to 66M tokens per run. Experiment: 4 transfer tasks x 4 configurations x 3 trials = 48 trajectories",
+   "p": "5, 7, 9, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Business systems: resource booking and logistics, data and collaboration, transaction and ledger, IoT and configuration, security and moderation, infrastructure and communication; stack TypeScript, Node.js 22, React, PostgreSQL 16; transfer tasks used: CapacityLease, EscrowGuard, MeterSettle, FlagFoundry",
+   "p": "5, 7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent with LLM-simulated user)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total tokens (input + output, cached contexts deduplicated by session); non-cached input tokens; pure development (coding) time excluding simulated-user and evaluation phases; completed development turns",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Confirmed-Case Pass Fraction (CCPF): share of applicable hidden test cases passed, micro-averaged across runs; agent-authored tests ignored; hidden tests across five dimensions (contracts/lifecycle, idempotency/concurrency, worker recovery/durability, cross-layer UI, operational compatibility) incl. fake-green checks",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Behavioural dynamics: tool invocations, return text characters, patch invocations, added patch lines, reasoning tokens, context compactions",
+   "p": "10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden evaluators in a separate container, token and timing logs, action counts from trajectories; manual trajectory audit mentioned",
+   "p": "8-10, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: micro-average CCPF on 4 transfer tasks, 3 trials each (12 runs per configuration); coding agent GPT-5.5 Medium (agent harness not named), simulated user DeepSeek V4 Pro. - No Skills (baseline) + GPT-5.5 Medium: CCPF 46.63% (MeterSettle 76.42, FlagFoundry 46.34, EscrowGuard 18.52, CapacityLease 47.83); 50.0M tokens, 3.21M non-cached input, 27.0 turns, 189.00 min per run. Quality partly (under half of hidden cases passed); cost does not work (about 3 h and 50M tokens per run). - S-Full-20 + GPT-5.5 Medium: CCPF 51.25% (80.49 / 47.15 / 33.33 / 46.38); 40.2M tokens, 0.61M non-cached, 26.5 turns, 84.46 min. Quality partly (about half of hidden cases; uneven across tasks); cost partly (84 min, 40M tokens per run). - S-Ablated-20 (ablation) + GPT-5.5 Medium: CCPF 52.60%, 91.74 min. Quality partly; cost partly. - Coreless-3 (ablation, exploratory, designed after seeing results) + GPT-5.5 Medium: CCPF 48.36%, >=190.87 min; 26 compactions, 699,961 reasoning tokens (totals over 12 runs). Quality partly; cost does not work. Per-task CCPF only reported for No Skills and S-Full-20; tokens per run only for No Skills and S-Full-20",
+   "p": "9, 11-13",
+   "verdict": "uncertain",
+   "why": "All numbers checked against Tables 2-5 (p. 11-12). Verdict levels are a judgement: e.g. about 85-90 min and 40M tokens per run for S-Full-20 / S-Ablated-20 could be read as 'partly' or 'does not work', and CCPF around 50% as 'partly' or 'does not work'"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 4 of 13 transfer tasks. Configurations: No Skills, S-Full-20, S-Ablated-20, Coreless-3. Baseline: No Skills. Held constant: coding model (GPT-5.5 Medium), simulated user (DeepSeek V4 Pro thinking/high), README, frozen plan, scenario, learning trajectories, Docker sandbox. Acceptance: hidden evaluators. Repetitions: 3 trials per configuration-task pair (48 trajectories). Human intervention: none in runs. S-Full-20 bank selected by qualitative coverage, not transfer scores",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "S-Full-20 vs No Skills: CCPF +4.62 pp (51.25 vs 46.63; EscrowGuard +14.81, CapacityLease -1.45); tokens -19.66%, non-cached input -80.91%, turns -1.85%, coding time -55.3% (189.00 -> 84.46 min). S-Ablated-20 highest CCPF (52.60%), +8.6% time vs S-Full-20. Coreless-3 CCPF 48.36%, time above baseline; tool invocations +68.97% and reasoning tokens +131.76% vs S-Full-20. Patch invocations -29.8% with S-Full-20. No significance tests or variance reported",
+   "p": "11-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations mainly on time and token cost; correctness differences small and uneven with 3 trials per cell and no statistics. Limitations stated: computational scale (up to 66M tokens per run, manual auditing) restricts study to 48 runs on 4 tasks; only frozen skill banks (no dynamic retrieval); single coding model; evaluator isolation to be hardened; Coreless-3 exploratory",
+   "p": "9, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Static skill banks do not bypass the 'last mile' of exact implementation (bounded by base model) but act as an 'execution compass', cutting coding time by over 55%; history volume matters less than abstracted knowledge. Future: scale audit to all 13 tasks, test open-weight models, dynamic memory retrieval, stricter air-gapped evaluator isolation",
+   "p": "11-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD (skill-evolution / procedural memory), although tasks are README-contract driven with a frozen plan. Code: https://github.com/Virgil-Tan/EngramBench. Table 5 (behaviour) rebuilt from pdftotext column dump: tool invocations 6,484 / 4,850 / 5,979 / 8,195; return chars 13.66M / 6.06M / 10.11M / 14.76M; patches 865 / 607 / 751 / 988; added lines 40,393 / 38,914 / 41,500 / 46,059; reasoning tokens 441,803 / 302,016 / 360,958 / 699,961; compactions 21 / 11 / 16 / 26 (No Skills / S-Full / S-Ablated / Coreless). Human-expert validation claimed in abstract but not described (who, how). Per-run variance not reported. Strong wording ('profound insight', 'transformative') vs modest correctness gain. No pre-registration. Language: TypeScript",
+   "p": "1, 5, 11-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): identifiability problem and design axiom stated; contributions listed",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol and configurations described; distillation and compression prompts, agent harness and human-expert validation procedure not given in the paper",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-5.5 Medium and DeepSeek V4 Pro named; coding-agent harness and versions not identified",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described, mapping in App. A; code repository public",
+   "p": "1, 5-7, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden evaluators in separate container, agent tests ignored",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): CCPF, total and non-cached tokens, coding time defined",
+   "p": "8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No Skills baseline under the same model, user simulator and plan",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 trials per configuration-task pair; no variance or statistical tests",
+   "p": "9, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): small, uneven CCPF gain without statistics presented as 'verifiable overall gain'; strong causal language on efficiency; exploratory Coreless-3 used to support interpretation",
+   "p": "1, 11-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section (scale, scope); no threats-to-validity discussion",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): technical report on arXiv",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): most authors from MemoraX AI; they built the benchmark and the distillation pipeline producing the skill banks evaluated",
+   "p": "1, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486577",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Sepidband, M., Shin, J., Wang, S., Hemmati, H. (2026). How Should Agents See Code? Rethinking Code Representations for Agentic Software Engineering. arXiv:2611.07286v1 [cs.SE], 5 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.07286v1 [cs.SE], 5 Nov 2026; no published venue (arXiv record has no journal_ref; not in ACM/IEEE/WoS exports)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "York University, Toronto (all four authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — five map-based code-representation workflows (AST, Callgraph, Deps, Docs, Hybrid MCP servers, implemented by the authors) against a raw-tool baseline under a fixed agent stack (Claude Code + Haiku 4.5) on four benchmarks",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Map-based code-representation workflows exposed as MCP tool servers: AST (8 tools), Callgraph (9), Deps (8), Docs (6), Hybrid (6, combines the others); baseline: no MCP, native tools only (Read, Edit, Write, Bash, Grep, Glob). Version: N/A (authors' implementation, GitHub)",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no spec artefacts). Repository map built by the server before each run (SQLite FTS5 index, graph of code units); representation-use steer in the prompt; on repair, a pre-tool-use hook forcing one map query before native reads",
+   "p": "4-5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (not SDD). Index repository -> agent loop with map queries (<rep>_explore, <rep>_node) and native tools -> artefact (ranked files, patch or test) -> benchmark scoring",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automatic runs)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not an SDD approach; repository interface (code representation tools) of the agent varied",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not SDD)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: fault localization, program repair, test generation, security patching in real repositories",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Samples: LinuxFLBench 152, SWE-bench Pro 253, SWT-bench 161, SecBench 166 tasks (95% confidence, 5% margin); repository sizes not stated (Linux kernel, Django, Ansible, gpac, faad2 examples)",
+   "p": "5, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source software: Linux kernel (C), Python projects (SWE-bench Pro, SWT-bench), C/C++ libraries with CVEs (SecBench)",
+   "p": "4-5, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average total tokens per task (cost measure); wall-clock time (s); tool calls (MCP and native: read, grep, glob, bash)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "LinuxFLBench file-level recall@1 and recall@10; SWE-bench Pro resolution rate (fail-to-pass and pass-to-pass tests); SWT-bench reproducing-test rate (fails before fix, passes after); SecBench patch-resolution rate (harness acceptance)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (token and tool counts omit human costs, stated as threat)",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Per-instance divergence counts vs baseline (wins/losses, fewer/more tokens) and qualitative trajectory categories (e.g. read displacement, map overhead, correct localization wrong patch)",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark harnesses and agent logs (tokens, time, tool calls). Manual: two authors read paired divergent trajectories and coded reasons into per-benchmark categories (no agreement statistic reported)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All entries Claude Code (version n.s.) + claude-haiku-4-5-20251001, effort=low; k=1 run per task. Format: LinuxFL recall@10 / tokens; SWE-Pro resolved / tokens; SWT reproducing / tokens; SecBench resolved / tokens. Cost verdicts judged on each configuration's own tokens and wall time per task (no money reported). (1) Baseline (no MCP): 0.717 / 1.01M; 49.0% / 3.12M; 44.7% / 1.67M; 28.9% / 684K; wall 66-269 s. Quality partly; cost works. (2) AST: 0.757 / 755K; 50.6% / 2.45M; 45.3% / 1.77M; 25.3% / 656K; wall 105-209 s. Quality partly; cost works. (3) Callgraph: 0.770 / 683K; 46.2% / 2.31M; 37.9% / 1.69M; 34.3% / 614K; wall 105-201 s. Quality partly (best SecBench, worst SWT); cost works. (4) Deps: 0.757 / 628K; 49.4% / 2.41M; 42.9% / 1.77M; 31.9% / 651K; wall 88-205 s. Quality partly; cost works. (5) Docs: 0.770 / 663K; 44.3% / 2.53M; 47.2% / 1.82M; 31.3% / 698K; wall 106-290 s. Quality partly; cost works (slowest on SecBench, 290 s). (6) Hybrid: 0.829 / 611K; 50.6% / 2.59M; 47.8% / 1.87M; 29.5% / 658K; wall 82-204 s. Quality partly (best FL, zero FL losses); cost works. Relative to baseline, wall time rises with all workflows on LinuxFL, SWT, SecBench (SecBench 66 s vs 136-290 s) and falls on SWE-Pro (269 s vs 194-209 s)",
+   "p": "5-8",
+   "verdict": "corrected",
+   "why": "The baseline entry had no quality or cost verdict (protocol §6). The cost verdicts were comparative ('works except SWT' because SWT tokens exceed the baseline), against the rule that each configuration is judged on its own; all six spend 0.61-3.12M tokens and 66-290 s per task with Haiku 4.5 (Tables III-VI, pp. 6-7), so the same verdict is given to all. 'Works' rather than 'partly' is a judgement: no money figure is reported. Values rechecked against Tables III-VI; per-configuration wall-time ranges added from the tables"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Grid: (1 baseline + 5 workflows) x 4 benchmarks, same sampled task IDs (deterministic seed). Held constant: agent (Claude Code), model and effort, built-in tools pinned, benchmark prompt; treatment adds MCP server plus representation-use steer (and on repair a map-first hook). Acceptance: benchmark hidden tests/harnesses. Repetitions: 1 per task per workflow (k=1). Human intervention: none",
+   "p": "4-5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Fault localization: all workflows improve recall@10 (0.757-0.829 vs 0.717; Hybrid +15.6%) and cut tokens 25-39%, but increase wall time. Program repair: resolution ~baseline (44.3-50.6% vs 49.0%), tokens -17-26%, faster. Security patching: Callgraph best (34.3% vs 28.9%), mixed tokens, all slower. Test generation: Hybrid/Docs slightly better (47.8%, 47.2% vs 44.7%), all use more tokens and time. No significance tests; differences on SWT/SecBench treated as descriptive",
+   "p": "1, 5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished workflows mainly on localization and token cost; success differences on repair, test and security often within one-shot variance. Not repeated (k=1). Limitations stated: treatment confounds representation content with steering and map-first hook; single agent/model; metrics omit map-construction and human costs",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Non-determinism of agent runs; treatment combines representation content, availability and map-first steering; one agent stack (Claude Code + Haiku 4.5) and four benchmarks; benchmark success does not capture patch quality or developer usefulness; token counts omit human and one-time infrastructure costs; k=1 runs, small differences may be variance. Out-of-map tasks (tree-wide replace, new files, config/YAML edits) defeat all maps. Recommends choosing representations by task bottleneck",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Relevance to SDD indirect (agent context/tools, not specifications). Table VII/VIII and Fig. 3 values partly jumbled by pdftotext; Tables III-VI read cleanly. Replication package: https://github.com/MelikaSepidband/How-Should-Agents-See-Code (servers, map builders, harness, metric scripts). Languages: Python and C/C++ (tree-sitter, jedi, griffe). No pre-registration",
+   "p": "2, 4, 6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1 and RQ2 stated",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): servers, query process, agent flags, sampling and metrics described; code released",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model snapshot pinned (claude-haiku-4-5-20251001, effort low); Claude Code version not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks with sample sizes; same task IDs; harness released",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark ground truth and hidden tests",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): success metrics per benchmark plus tokens, time and tool calls",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-MCP baseline under the same agent, model and tasks",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per task (k=1), no statistical tests; acknowledged",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): task-dependent claims; small differences treated as descriptive; negative results (SWT tokens, Callgraph losses) reported",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VI threats to validity",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of Anthropic, but the representation servers compared are the authors' own",
+   "p": "1, 4",
+   "verdict": "uncertain",
+   "why": "All five treatment workflows are the authors' own MCP servers (p. 4); only the no-MCP baseline (Claude Code native tools) is not. Partly if the baseline counts as an evaluated approach; No if only the treatments count"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source servers on common tools (tree-sitter, SQLite, MCP) with a small model and token costs reported; map-construction compute and cost not measured",
+   "p": "4-5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

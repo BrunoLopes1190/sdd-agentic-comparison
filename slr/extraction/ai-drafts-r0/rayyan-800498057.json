@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800498057",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chukkapalli, D., Avula, T., Aggarwal, A., Singh, H., Tallanki, A. (2026). CommitDistill: A Lightweight Knowledge-Centric Memory Layer for Software Repositories. arXiv:2605.18284v1 [cs.SE], 18 May 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv; IEEE template; mentions a 'special-session theme' and a link 'to be inserted on acceptance', venue Not stated)",
+   "p": "1-2, 14"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Microsoft Corporation (all five authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (CommitDistill, open-source prototype mining git history into typed knowledge units with a TF-IDF retriever); secondary: evaluates it in an 'illustrative case study' (RQ1-RQ5) against git log --grep and BM25",
+   "p": "1-2, 5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CommitDistill, versions CD-v1 (regex-only extraction) and CD-v2 (regex + subject-fallback unit, released default); CD-Hybrid rendering (ablation). Baselines: git log -i --grep, BM25 over raw commits",
+   "p": "1, 9-10"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Knowledge store .knowledge/units.json (plain JSON, committed with the code) of typed units: Facts (constraints), Skills (actionable solutions), Patterns (recurring failure modes), each with id, type, title, content, weight, context and provenance (commit SHA, author, date); 9 regex heuristics. No specification document",
+   "p": "3-5"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Extraction phase (asynchronous post-merge hook: normalise commit text, regex matching, length filter, dedup, store) and retrieval phase (triggered by developer, IDE or LLM agent before acting: TF-IDF with type/prior boosts, silence threshold θ=2.5, top-k)",
+   "p": "3-4"
+  },
+  {
+   "f": "Human review points",
+   "v": "Store is reviewable through git diff/PR workflows (described as a property, not evaluated); IDE integration with human reading proposed as future work",
+   "p": "5, 13"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full prototype (extraction and retrieval) on real repositories; downstream LLM use only as top-3 units prepended to a prompt (no coding agent)",
+   "p": "5-11"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (repository memory/context layer, no specification); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: mining history of public repositories; downstream task is time-travel bug-fix file/identifier localisation (no patch generated)",
+   "p": "6, 9"
+  },
+  {
+   "f": "Size",
+   "v": "5 repositories, 5,000 most recent commits each (25,000 commits; Section V-B says 2,000 each / 10,000), 1,167 units; 40 dual-annotated units; 36 retrieval queries; 12-query budget benchmark; 15-query calibration set; 40 fixes (RQ4); 200 fixes (RQ5)",
+   "p": "5-6, 9"
+  },
+  {
+   "f": "Domain",
+   "v": "psf/requests (Python, HTTP client), pallets/flask (Python, web framework), expressjs/express (JavaScript), redis/redis (C, in-memory database), junit-team/junit5 (Java, test framework)",
+   "p": "6"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants); two co-author annotators, adjudication by a third co-author",
+   "p": "6, 13"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Extraction wall-clock time (3.47 s for 25,000 commits), query latency (<50 ms), retrieved payload length in characters (median top-1 72 vs 287 BM25 vs 301 grep); back-of-envelope tokens saved per developer-day",
+   "p": "5, 7, 11"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Useful-precision of units (human labels, Cohen's κ); retrieval hit-rate, top-1 relevance and false positives; budget-constrained hit-rate; Hit@1/3/10 and MRR (time-travel regression finding); LLM-as-judge usefulness score 0-2 (RQ5)",
+   "p": "6-10"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Yield (units per 1,000 commits, by type); abstention (hit-rate on answerable / not-in-corpus / OOD queries vs θ)",
+   "p": "6-7"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic scripts (released drivers), git history time-travel; LLM-as-judge with GPT-4o and GPT-4o-mini, paired bootstrap CIs. Manual: two co-author annotators labelling units (4-class rubric), relevance judgement of top-1 results on hand-authored queries",
+   "p": "5-9"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Configurations are retrievers; downstream assistant GPT-4o-mini (no agent). -- Budget-constrained hit-rate at 256 chars (12 queries, Table V): CommitDistill 0.750, BM25 0.333, grep 0.083; unconstrained Hit@10 11/12, 8/12, 1/12. -- Hand-authored queries (6, Table IV): CD top-1 useful 3/6, 0 false positives (silent on 3); grep 1 useful, 5 false positives; BM25 5 useful, 0 false positives (values read from jumbled table). -- RQ4 time-travel (40 fixes, Table VII), Hit@1 / Hit@3 / Hit@10 / MRR: grep 0.125 / 0.200 / 0.300 / 0.168; BM25 0.050 / 0.150 / 0.400 / 0.136; CD-v1 0.000 / 0.025 / 0.025 / 0.009 (does not work); CD-v2 0.075 / 0.250 / 0.450 / 0.177. -- RQ5 downstream, GPT-4o-mini assistant, n=200, mean usefulness 0-2 (Table VIII): control 0.703 (baseline); +CD-v2 0.718 (+0.015, CI [-0.035, +0.065]); +CD-Hybrid 0.720 (+0.018, [-0.035, +0.070]); +BM25 0.733 (+0.030, [-0.022, +0.083]); original 3-arm CD-v1 0.663 (-0.040, [-0.090, +0.010]). Quality: does not work (no detectable lift for any retriever); cost: works (short payloads, fast). Hard half (n=102): lifts CD-v2 +0.123, CD-Hybrid +0.142, BM25 +0.162. -- Precision: 21/40 useful (0.525, CI [0.375, 0.675]), κ=0.633",
+   "p": "7-11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Subjects: 5 public repositories. Configurations: CommitDistill (CD-v1, CD-v2, CD-Hybrid) vs git log --grep vs BM25; RQ5 adds a no-retrieval control. Held constant: same commit window, top-k, pre-fix time-travel discipline, same assistant model and two judge models, paired design. Acceptance criteria: answer-span substring match; file-locality ground truth (RQ4); LLM judges given ground-truth files/identifiers (RQ5). Repetitions: deterministic single runs; bootstrap resampling. Human intervention: none. Three-arm RQ5 design stated as pre-registered (n=40 pilot, then n=200); four-arm ablation designed post hoc (exploratory)",
+   "p": "5-10"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CommitDistill wins budget-constrained retrieval (0.750 vs 0.333 BM25 at 256 chars) and has shorter payloads; on unconstrained auto-derived queries baselines hit 36/36 vs 31/36 (trivial recall); CD-v2 best on RQ4 Hit@10/MRR, CD-v1 worst; RQ5: no retriever beats control on the mean (all CIs include zero), CD-Hybrid vs BM25 Δ = -0.013 [-0.068, +0.043] (indistinguishable)",
+   "p": "7-12"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished retrievers on retrieval tasks; RQ5 failed to distinguish conditions (inter-judge κ 0.355, judges rank conditions differently, ρ=0.21). Deterministic and scripted, so repeatable (LLM response cache released). Limitations stated: small query sets, author-curated queries, LLM-judge construct validity, minimal-prompt control unlike production assistants, post hoc four-arm design",
+   "p": "9-14"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Recall limited (lexical, regex keywords); yield depends on commit-message culture; precision only on 40 Python units by co-authors; 36 queries too few; RQ5 judges from one vendor, low κ; no evidence of developer productivity or end-to-end LLM utility; trust threats (commit-prose poisoning, privacy, attribution, adversarial silence circumvention). Future: LLM-assisted extraction, neural re-ranker, controlled maintainer study, IDE integration, production assistant study, held-out replication on a third repository",
+   "p": "12-14"
+  },
+  {
+   "f": "Notes",
+   "v": "Many internal inconsistencies: 'three' RQs announced, five listed (p. 5-6); Section V-B says 2,000 commits per subject (10,000 total) while Table II and abstract use 5,000 (25,000); redis yield 185.6 units/kc in Table II vs 329.5 on p. 12-13; p. 12 attributes 8.0 units/kc to flask (Table II: express 8.0, flask 14.6); p. 13 says condition ordering matches between judges while p. 10 says it is not preserved; p. 14 calls RQ5 'null with a slight negative trend for CommitDistill' although CD-v2 Δ is +0.015; char audit refers to an unexplained 'PM' arm. Pre-registration of the three-arm RQ5 claimed, no link or registry. Abstract says source accompanies the paper; p. 14 says link 'to be inserted on acceptance'. Tables IV and VI jumbled by pdftotext; Table IV totals read as CD 3/0, grep 1/5, BM25 5/0. Programming language: Python (tool); subjects Python, JavaScript, C, Java",
+   "p": "1, 5-14"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ5 stated (count mismatch noted)",
+   "p": "5-6"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithms, heuristics, thresholds, drivers and reproduction commands given",
+   "p": "3-11, 14-15"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-4o and GPT-4o-mini named without snapshot versions; no agent involved; Python 3.9+",
+   "p": "5, 9"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public repositories and query construction described; artefact availability promised on acceptance",
+   "p": "6, 14-15"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): answer-span matching and file-locality ground truth are independent, but precision labelled by co-authors, hand queries author-curated, RQ5 judged by LLMs with low agreement",
+   "p": "7-9"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): retrieval and usefulness metrics defined, payload/latency measured; no monetary or token cost of downstream use",
+   "p": "6-11"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): grep, BM25 and no-retrieval control under the same conditions",
+   "p": "6-9"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): bootstrap CIs and κ for RQ2/RQ5; no tests on Tables II-IV; single deterministic runs",
+   "p": "7, 9-10, 13-14"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): null RQ5 result reported honestly, but 'decisive' framing of a 12-query benchmark and several contradictory statements",
+   "p": "9-14"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity by Wohlin category plus trust threat model",
+   "p": "12-14"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created CommitDistill, the approach evaluated",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): pure Python, no dependencies, local, seconds on a laptop; requirements stated",
+   "p": "4-5"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

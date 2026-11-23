@@ -1,226 +1,315 @@
 {
-"key": "rayyan-800486135",
-"model": "Claude Opus 5.5 (subagent)",
-"fields": [
-{
-"f": "Reference",
-"v": "Paipuru, T. (2026). The Navigation Paradox in Large-Context Agentic Coding: Graph-Structured Dependency Navigation Outperforms Retrieval in Architecture-Heavy Tasks. arXiv:2602.20048v1 [cs.AI], 23 Feb 2026",
-"p": "1"
-},
-{
-"f": "Year",
-"v": "2026",
-"p": "1"
-},
-{
-"f": "Publication type",
-"v": "Preprint (arXiv)",
-"p": "1"
-},
-{
-"f": "Author affiliation",
-"v": "Independent researcher (personal gmail address)",
-"p": "1"
-},
-{
-"f": "Nature of the study",
-"v": "Proposes an approach (CodeCompass, MCP server exposing an AST-derived dependency graph to Claude Code) and compares it with Vanilla Claude Code and BM25-augmented prompting (secondary: proposes an evaluation method, a 30-task G1/G2/G3 benchmark and the ACS metric)",
-"p": "2-4"
-},
-{
-"f": "Approach(es): name and version",
-"v": "CodeCompass (MCP server, FastMCP + Neo4j 5.15; tool get_architectural_context, plus semantic_search; version Not stated). Baselines: Vanilla Claude Code; Claude Code + top-10 BM25 file rankings prepended (Agentless-style). Claude Code version Not stated",
-"p": "3, 6, 8, 22"
-},
-{
-"f": "Artefacts prescribed",
-"v": "No specification artefacts. Structural code dependency graph (IMPORTS, INHERITS, INSTANTIATES edges from Python ast; 71 nodes, 255 edges); task prompt with instruction/checklist to call the graph tool first",
-"p": "6, 8-9, 12"
-},
-{
-"f": "Phases of the flow",
-"v": "Build graph offline (AST -> Neo4j) -> agent calls get_architectural_context on the primary task file -> reads all returned 1-hop neighbours -> edits",
-"p": "6, 8-9"
-},
-{
-"f": "Human review points",
-"v": "None in the experiment; author argues an SME should validate, augment and maintain the graph in production",
-"p": "8, 14"
-},
-{
-"f": "Parts exercised",
-"v": "Single artefact / tool (graph navigation context via MCP) within Claude Code headless runs",
-"p": "8-9"
-},
-{
-"f": "SDD level",
-"v": "Not classifiable (no specification; code-derived navigation context)",
-"p": "—"
-},
-{
-"f": "Task type",
-"v": "Existing code base (modification tasks on the FastAPI RealWorld example app)",
-"p": "5"
-},
-{
-"f": "Size",
-"v": "~3,500 lines, 40 source files (graph has 71 Python file nodes); 30 tasks (10 per group); 258 completed trials of 270 planned",
-"p": "2, 5-6, 10"
-},
-{
-"f": "Domain",
-"v": "Python web API (Medium-like blogging backend, FastAPI, repository pattern with dependency injection)",
-"p": "5"
-},
-{
-"f": "Team profile",
-"v": "N/A (no human participants; automated harness)",
-"p": "—"
-},
-{
-"f": "Cost metrics",
-"v": "None (no tokens, time or money; FCTC steps and tool-call counts only)",
-"p": "9, 11"
-},
-{
-"f": "Functional quality metrics",
-"v": "None of implementation correctness (no tests); completion rate = share of trials with ACS = 1.0",
-"p": "10, 14"
-},
-{
-"f": "Internal quality metrics",
-"v": "None",
-"p": "—"
-},
-{
-"f": "Human effort metrics",
-"v": "None",
-"p": "—"
-},
-{
-"f": "Other outcome metrics",
-"v": "Architectural Coverage Score (ACS = share of gold-standard required files read or edited); First Correct Tool Call (FCTC, steps to first required file); MCP calls per trial (tool adoption); Veto Protocol events",
-"p": "9"
-},
-{
-"f": "How metrics are collected",
-"v": "Automatic: harness/calculate_acs.py parses Claude Code JSONL transcripts (Read, Edit, Write, Bash paths) against manually verified gold-standard file lists",
-"p": "5, 9, 22"
-},
-{
-"f": "Evaluation (each configuration)",
-"v": "Criterion: ACS (and completion = ACS >= 1.0). All with Claude Code + claude-sonnet-4-5, headless (claude -p). Quality verdict on navigational coverage only (no correctness tests); no cost verdict (cost not measured)\n- Vanilla Claude Code + Sonnet 4.5 (n=89): ACS G1 90.0±20.3%, G2 79.7±20.6%, G3 76.2±23.6%, overall 82.0±22.1%; completion 54%; FCTC 1.67. Partly\n- BM25-prepended + Claude Code + Sonnet 4.5 (n=81): G1 100.0±0.0%, G2 85.1±17.7%, G3 78.2±22.9%, overall 87.1±19.4%; completion 62%; FCTC 1.36. Works (G1), partly (G2, G3)\n- CodeCompass graph + Claude Code + Sonnet 4.5 (n=88): G1 88.9±21.2%, G2 76.4±19.7%, G3 99.4±3.6%, overall 88.3±18.6%; completion 66%; FCTC 1.93 (G3 2.23 vs Vanilla 1.31). Works (G3), partly (G1, G2). Tool adoption 42.0% overall (G1 22.2%, G2 0%, G3 100%); ACS 99.5% when used vs 80.2% when ignored\n- Prompt variant (CodeCompass, initial vs checklist-at-END prompt, G3 only): adoption 85.7% -> 100%, G3 ACS 96.6% -> 99.4%",
-"p": "10-12"
-},
-{
-"f": "Comparison: design",
-"v": "Tasks: 30 tasks on FastAPI RealWorld app, G1 semantic / G2 structural / G3 hidden. Configurations: A Vanilla, B BM25 top-10 prepended, C CodeCompass MCP. Baseline: A. Held constant: Claude Code, claude-sonnet-4-5, clean git checkout per trial, built-in tools. Not constant: prompt (C has extra tool instruction; G3 C prompt changed mid-study to checklist-at-END). Acceptance criterion: manually verified gold-standard file lists (no tests). Repetitions: 3 runs per task-condition (258/270 completed; 12 lost to API credit exhaustion). Human intervention: none (--dangerously-skip-permissions)",
-"p": "5, 8-10, 12"
-},
-{
-"f": "Comparison: result",
-"v": "G3: CodeCompass 99.4% vs Vanilla 76.2% (+23.2 pp) and BM25 78.2%; Welch t-test C vs A t=5.23, C vs B t=4.83, both p<0.001. G1: BM25 best (100%). G2: CodeCompass worst (76.4% vs 79.7% and 85.1%), attributed to zero tool adoption plus prompt overhead. Overall completion C 66% > B 62% > A 54%; BM25 fastest FCTC. Significance only tested for G3",
-"p": "10-12, 15"
-},
-{
-"f": "Comparison: did the method work",
-"v": "Distinguished conditions on G1 and G3; taxonomy claimed to have predictive validity. Repeatability: 3 runs, but G3 condition C prompt changed between runs. Limitations stated: single codebase; ACS is not correctness; prompt sensitivity (improvement partly reflects prompt design); single model",
-"p": "10, 12, 14-15"
-},
-{
-"f": "Conclusions: limitations and gaps",
-"v": "Single Python codebase; ACS measures navigation not correctness; prompt sensitivity, tool call should be structurally enforced (tool_choice or planning agent); only claude-sonnet-4-5; graph unvalidated by experts, needs SME validation and maintenance; tool adoption is an open research problem",
-"p": "13-16"
-},
-{
-"f": "Notes",
-"v": "Inconsistencies: discussion says tool-ignore rate 61% and adoption 38% vs 58.0%/42.0% in results; Vanilla G3 '80% ACS' (p. 13) vs 76.2%; '20 pp' vs 23.2 pp; G3 C SD ±3.6% (table) vs ±3.5% and ±7.7% (text). Values used from result tables (pp. 10-11). G3 condition C mixes an improved prompt introduced after initial trials (30/35 adoption -> 31/31). Duplicate result directories from concurrent runners; most recent kept. Paper appears unfinished (references 'to be populated', Appendix A 'to be attached'). Code, tasks, harness and 258 transcripts at github.com/tpaip607/research-codecompass. Pre-registration: Not stated. Language: Python",
-"p": "1, 9-16, 18, 21"
-},
-{
-"f": "Q1",
-"v": "Yes (1): Navigation Paradox hypothesis and contributions clearly stated",
-"p": "3"
-},
-{
-"f": "Q2",
-"v": "Yes (1): harness, conditions, metrics described; code, tasks and transcripts released",
-"p": "8-9"
-},
-{
-"f": "Q3",
-"v": "Partly (0.5): model claude-sonnet-4-5 named; Claude Code version Not stated",
-"p": "8, 15"
-},
-{
-"f": "Q4",
-"v": "Partly (0.5): codebase and taxonomy described, tasks released on GitHub; task table not included in paper (to be attached)",
-"p": "5-6, 9, 21"
-},
-{
-"f": "Q5",
-"v": "Partly (0.5): ACS against author-built gold-standard file lists (manually verified by author); no correctness tests",
-"p": "5, 14"
-},
-{
-"f": "Q6",
-"v": "Partly (0.5): ACS, FCTC defined; no cost metrics and no correctness measure",
-"p": "9"
-},
-{
-"f": "Q7",
-"v": "Yes (1): Vanilla and BM25 under same agent, model and repo state (prompt differs by design)",
-"p": "8"
-},
-{
-"f": "Q8",
-"v": "Yes (1): 3 runs per task, SDs, Welch t-tests (G3 only)",
-"p": "10, 12"
-},
-{
-"f": "Q9",
-"v": "Partly (0.5): G2 regression and low adoption reported, but discussion numbers contradict results and mid-study prompt change inflates G3 C",
-"p": "11-15"
-},
-{
-"f": "Q10",
-"v": "Yes (1): limitations section",
-"p": "14-15"
-},
-{
-"f": "Q11",
-"v": "No (0): preprint",
-"p": "1"
-},
-{
-"f": "Q12",
-"v": "Partly (0.5): author created CodeCompass (vendor of the approach); independent of Claude Code and BM25 baselines",
-"p": "1, 3"
-},
-{
-"f": "Q13",
-"v": "Yes (1): open-source MCP server, Python ast + Neo4j, works with Claude Code; low requirements, though cost not reported and graph needs SME maintenance",
-"p": "6, 9, 14"
-},
-{
-"f": "DARE1",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE2",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE3",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE4",
-"v": "N/A",
-"p": "—"
-}
-]
+ "key": "rayyan-800486135",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Paipuru, T. (2026). The Navigation Paradox in Large-Context Agentic Coding: Graph-Structured Dependency Navigation Outperforms Retrieval in Architecture-Heavy Tasks. arXiv:2602.20048v1 [cs.AI], 23 Feb 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher (personal gmail address)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (CodeCompass, MCP server exposing an AST-derived dependency graph to Claude Code) and compares it with Vanilla Claude Code and BM25-augmented prompting (secondary: proposes an evaluation method, a 30-task G1/G2/G3 benchmark and the ACS metric)",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CodeCompass (MCP server, FastMCP + Neo4j 5.15; tool get_architectural_context, plus semantic_search; version Not stated). Baselines: Vanilla Claude Code; Claude Code + top-10 BM25 file rankings prepended (Agentless-style). Claude Code version Not stated",
+   "p": "3, 6, 8, 22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "No specification artefacts. Structural code dependency graph (IMPORTS, INHERITS, INSTANTIATES edges from Python ast; 71 nodes, 255 edges); task prompt with instruction/checklist to call the graph tool first",
+   "p": "6, 8-9, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Build graph offline (AST -> Neo4j) -> agent calls get_architectural_context on the primary task file -> reads all returned 1-hop neighbours -> edits",
+   "p": "6, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the experiment; author argues an SME should validate, augment and maintain the graph in production",
+   "p": "8, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact / tool (graph navigation context via MCP) within Claude Code headless runs",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; code-derived navigation context)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (modification tasks on the FastAPI RealWorld example app)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "~3,500 lines, 40 source files (graph has 71 Python file nodes); 30 tasks (10 per group); 258 completed trials of 270 planned",
+   "p": "2, 5-6, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python web API (Medium-like blogging backend, FastAPI, repository pattern with dependency injection)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; automated harness)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money; FCTC steps and tool-call counts only)",
+   "p": "9, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None of implementation correctness (no tests); completion rate = share of trials with ACS = 1.0",
+   "p": "10, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Architectural Coverage Score (ACS = share of gold-standard required files read or edited); First Correct Tool Call (FCTC, steps to first required file); MCP calls per trial (tool adoption); Veto Protocol events",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: harness/calculate_acs.py parses Claude Code JSONL transcripts (Read, Edit, Write, Bash paths) against manually verified gold-standard file lists",
+   "p": "5, 9, 22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: ACS (and completion = ACS >= 1.0). All with Claude Code + claude-sonnet-4-5, headless (claude -p). Quality verdict on navigational coverage only (no correctness tests); no cost verdict (cost not measured)\n- Vanilla Claude Code + Sonnet 4.5 (n=89): ACS G1 90.0±20.3%, G2 79.7±20.6%, G3 76.2±23.6%, overall 82.0±22.1%; completion 54%; FCTC 1.67. Partly\n- BM25-prepended + Claude Code + Sonnet 4.5 (n=81): G1 100.0±0.0%, G2 85.1±17.7%, G3 78.2±22.9%, overall 87.1±19.4%; completion 62%; FCTC 1.36. Works (G1), partly (G2, G3)\n- CodeCompass graph + Claude Code + Sonnet 4.5 (n=88): G1 88.9±21.2%, G2 76.4±19.7%, G3 99.4±3.6%, overall 88.3±18.6%; completion 66%; FCTC 1.93 (G3 2.23 vs Vanilla 1.31). Works (G3), partly (G1, G2). Tool adoption 42.0% overall (G1 22.2%, G2 0%, G3 100%); ACS 99.5% when used vs 80.2% when ignored\n- Prompt variant (CodeCompass, initial vs checklist-at-END prompt, G3 only): adoption 85.7% -> 100%, G3 ACS 96.6% -> 99.4%",
+   "p": "10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 30 tasks on FastAPI RealWorld app, G1 semantic / G2 structural / G3 hidden. Configurations: A Vanilla, B BM25 top-10 prepended, C CodeCompass MCP. Baseline: A. Held constant: Claude Code, claude-sonnet-4-5, clean git checkout per trial, built-in tools. Not constant: prompt (C has extra tool instruction; G3 C prompt changed mid-study to checklist-at-END). Acceptance criterion: manually verified gold-standard file lists (no tests). Repetitions: 3 runs per task-condition (258/270 completed; 12 lost to API credit exhaustion). Human intervention: none (--dangerously-skip-permissions)",
+   "p": "5, 8-10, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "G3: CodeCompass 99.4% vs Vanilla 76.2% (+23.2 pp) and BM25 78.2%; Welch t-test C vs A t=5.23, C vs B t=4.83, both p<0.001. G1: BM25 best (100%). G2: CodeCompass worst (76.4% vs 79.7% and 85.1%), attributed to zero tool adoption plus prompt overhead. Overall completion C 66% > B 62% > A 54%; BM25 fastest FCTC. Significance only tested for G3",
+   "p": "10-12, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on G1 and G3; taxonomy claimed to have predictive validity. Repeatability: 3 runs, but G3 condition C prompt changed between runs. Limitations stated: single codebase; ACS is not correctness; prompt sensitivity (improvement partly reflects prompt design); single model",
+   "p": "10, 12, 14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single Python codebase; ACS measures navigation not correctness; prompt sensitivity, tool call should be structurally enforced (tool_choice or planning agent); only claude-sonnet-4-5; graph unvalidated by experts, needs SME validation and maintenance; tool adoption is an open research problem",
+   "p": "13-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: discussion says tool-ignore rate 61% and adoption 38% vs 58.0%/42.0% in results; Vanilla G3 '80% ACS' (p. 13) vs 76.2%; '20 pp' vs 23.2 pp; G3 C SD ±3.6% (table) vs ±3.5% and ±7.7% (text). Values used from result tables (pp. 10-11). G3 condition C mixes an improved prompt introduced after initial trials (30/35 adoption -> 31/31). Duplicate result directories from concurrent runners; most recent kept. Paper appears unfinished (references 'to be populated', Appendix A 'to be attached'). Code, tasks, harness and 258 transcripts at github.com/tpaip607/research-codecompass. Pre-registration: Not stated. Language: Python",
+   "p": "1, 9-16, 18, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): Navigation Paradox hypothesis and contributions clearly stated",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): harness, conditions, metrics described; code, tasks and transcripts released",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model claude-sonnet-4-5 named; Claude Code version Not stated",
+   "p": "8, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): codebase and taxonomy described, tasks released on GitHub; task table not included in paper (to be attached)",
+   "p": "5-6, 9, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): ACS against author-built gold-standard file lists (manually verified by author); no correctness tests",
+   "p": "5, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): ACS, FCTC defined; no cost metrics and no correctness measure",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Vanilla and BM25 under same agent, model and repo state (prompt differs by design)",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 3 runs per task, SDs, Welch t-tests (G3 only)",
+   "p": "10, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): G2 regression and low adoption reported, but discussion numbers contradict results and mid-study prompt change inflates G3 C",
+   "p": "11-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): author created CodeCompass (vendor of the approach); independent of Claude Code and BM25 baselines",
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): open-source MCP server, Python ast + Neo4j, works with Claude Code; low requirements, though cost not reported and graph needs SME maintenance",
+   "p": "6, 9, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
 }

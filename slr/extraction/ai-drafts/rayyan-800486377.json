@@ -1,46 +1,385 @@
-{"key": "rayyan-800486377", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Wang, P., Zhang, L., Liu, F., Li, T., & Zhu, Y. (2026). CodeSpec: Dual Executable Specifications for Agentic Long-Horizon Feature Development. arXiv:2607.26777v1 [cs.SE], 29 Jul 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv); AAAI template with 'Copyright 2027 AAAI' notice, acceptance not stated", "p": "1"},
-{"f": "Author affiliation", "v": "Academia: Beihang University (State Key Laboratory of Complex & Critical Software Environment), China; The University of Hong Kong", "p": "1"},
-{"f": "Nature of the study", "v": "Main: proposes an approach (CodeSpec) and compares it with five coding-agent scaffolds on FeatureBench and NL2Repo-Bench, with ablations", "p": "1-2, 5"},
-{"f": "Approach(es): name and version", "v": "CodeSpec (authors'; code at github.com/zhu-zhu-ding/CodeSpec), no version. Baselines: OpenHands, Mini-SWE-Agent, Claude Code, Codex, RTADev (architecture-first, textual designs); versions not stated. Variant: CodeSpec (Text) with textual instead of executable specs", "p": "1, 5-6"},
-{"f": "Artefacts prescribed", "v": "Sub-requirements decomposed from the feature instruction; evidence-grounded functional chain per sub-requirement (units linked by evidence pairing requirement semantics with repository design patterns, call relations, dependencies); executable architecture specification per chain (CheckUnit, CheckRelation, CheckDataFlow); executable behaviour specification per chain (CheckOutput, CheckBoundary, CheckState, pytest-style)", "p": "3-4"},
-{"f": "Phases of the flow", "v": "(1) Functional chain construction: decompose instruction into sub-requirements, identify candidate units, evidence-driven chain reasoning; (2) dual executable specification compilation (architecture spec from template, then behaviour spec); (3) specification-guided code generation loop (Algorithm 1): edit patch -> execute architecture and behaviour checks -> revise until all pass or interaction budget K exhausted. Greenfield (NL2Repo): first create repository skeleton and units", "p": "3-4, 7"},
-{"f": "Human review points", "v": "None (fully automated)", "p": "3-4"},
-{"f": "Parts exercised", "v": "Full workflow (plus ablations removing each specification type and the evidence grounding)", "p": "5-6"},
-{"f": "SDD level", "v": "Not stated in Böckeler terms. Executable specifications generated per feature and enforced throughout implementation to keep 'design-implementation consistency'; not maintained after the task (closest to spec-first, draft)", "p": "1, 3-4"},
-{"f": "Task type", "v": "Existing code base (FeatureBench: feature development in existing repositories); also new project (NL2Repo-Bench: greenfield repository from a requirements document)", "p": "1, 5, 7"},
-{"f": "Size", "v": "FeatureBench: Lite 30, Fast 100, Full 200 tasks; avg 4.8k-word problem, ~800 lines of valid code per task. NL2Repo-Bench: 104 tasks; Easy <1.5K, Medium 1.5K-4K, Hard >4K LOC", "p": "5, 7"},
-{"f": "Domain", "v": "Python repositories (e.g., MLflow distributed tracing); NL2Repo generates Python repositories", "p": "1, 7"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Average cost per task in USD", "p": "5"},
-{"f": "Functional quality metrics", "v": "%Passed (average proportion of fail-to-pass tests passed per task); #Resolved (tasks with all required tests passing)", "p": "5"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Pass rate by instruction length and by number of agent interaction turns (RQ3)", "p": "6"},
-{"f": "How metrics are collected", "v": "Automatic: benchmark evaluation scripts (fail-to-pass tests); task-level results bootstrapped 10,000 times (mean ± SD)", "p": "5"},
-{"f": "Evaluation (each configuration)", "v": "Criterion: benchmark tests. FeatureBench, DeepSeek-V4-Pro (max thinking), %Passed / #Resolved / $ per task for Lite | Fast | Full: OpenHands 60.0/6/0.15 | 41.4/10/0.13 | 37.1/18/0.11; Claude Code (with DeepSeek backbone) 59.8/6/0.11 | 47.0/14/0.12 | 41.1/23/0.10; Mini-SWE-Agent 62.6/7/0.09 | 49.6/24/0.09 | 43.4/25/0.09; RTADev 65.3/6/0.17 | 49.7/15/0.16 | 46.1/26/0.15; CodeSpec 70.7/9/0.18 | 55.0/17/0.19 | 49.9/28/0.16. FeatureBench Lite, GPT-5.4-mini (medium thinking): Mini-SWE-Agent 47.5/2/0.7; OpenHands 48.1/3/1.2; RTADev 45.9/3/1.3; Codex 51.7/4/0.7; CodeSpec 54.7/5/1.3. Ablations (Lite, DeepSeek): w/o all specs 62.6/7/0.09; w/o behaviour spec 64.0/6/0.13; w/o architecture spec 66.6/7/0.16; w/o evidence 64.8/6/0.16; CodeSpec (Text) 43.8% vs CodeSpec 71.8% on 3,000-5,000-word instructions, ~51% vs 65.2% beyond 200 turns. NL2Repo, DeepSeek, overall %Passed/#Resolved/$: OpenHands 26.4/2/0.10; Claude Code 41.6/5/0.11; Mini-SWE-Agent 35.5/4/0.08; RTADev 41.3/7/0.14; CodeSpec 46.6/8/0.17 (Easy 70.0, Medium 51.7, Hard 20.4). Verdicts: CodeSpec quality partly (best %Passed everywhere, but at most ~71% of tests and few tasks fully resolved), cost works ($0.16-0.19 DeepSeek, $1.3 GPT-5.4-mini); baselines quality partly/does not work (OpenHands on NL2Repo), cost works", "p": "5-7"},
-{"f": "Comparison: design", "v": "Tasks: FeatureBench Lite/Fast/Full (30/100/200), NL2Repo-Bench (104). Configurations: 5 scaffolds + CodeSpec; ablations and CodeSpec (Text) on Lite. Baseline: OpenHands, Mini-SWE-Agent, Claude Code, Codex, RTADev. Held constant: backbone DeepSeek-V4-Pro for all except Codex (GPT-5.4-mini); same repository environments, evaluation scripts and interaction budgets. Acceptance tests: benchmark fail-to-pass tests. Repetitions: Not stated (one run; bootstrap over tasks). Human intervention: none", "p": "5"},
-{"f": "Comparison: result", "v": "CodeSpec best %Passed on all splits: +5.4 (Lite), +5.3 (Fast), +3.8 (Full) points over RTADev, at +$0.01-0.03 per task; with GPT-5.4-mini 54.7% vs Codex 51.7%; NL2Repo 46.6% vs Claude Code 41.6%. Ablations: removing all specs -8.1 points, behaviour spec -6.7, architecture spec -4.1, evidence -5.9. Executable vs textual specs: similar on short tasks, gaps widen on long instructions and >200 turns. Significance: no tests; bootstrap SDs (e.g., Lite ±5-6) overlap", "p": "5-7"},
-{"f": "Comparison: did the method work", "v": "Distinguished configurations on %Passed, though differences are within bootstrap SDs on small splits (Lite n=30). Repeatability: not assessed (single run). Limitations of the comparison: not stated by the authors", "p": "5-6"},
-{"f": "Conclusions: limitations and gaps", "v": "No limitations section. Stated in passing: smaller gain on Hard NL2Repo tasks reflects difficulty of coordinating larger requirements for current agents; specification steps add moderate cost", "p": "6-7"},
-{"f": "Notes", "v": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast (check PDF). Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python", "p": "1, 5-7"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ4", "p": "5"},
-{"f": "Q2", "v": "Partly (0.5): method formalised with templates and Algorithm 1; prompts, budget K, underlying scaffold of CodeSpec not given (code released)", "p": "3-5"},
-{"f": "Q3", "v": "Partly (0.5): models named (DeepSeek-V4-Pro, GPT-5.4-mini, thinking levels); agent/scaffold versions not stated", "p": "5"},
-{"f": "Q4", "v": "Yes (1): public benchmarks (FeatureBench, NL2Repo-Bench) described; code and data released", "p": "1, 5, 7"},
-{"f": "Q5", "v": "Yes (1): benchmark fail-to-pass tests", "p": "5"},
-{"f": "Q6", "v": "Yes (1): %Passed, #Resolved and cost per task defined", "p": "5"},
-{"f": "Q7", "v": "Yes (1): five baselines under the same backbone, environments and budgets", "p": "5"},
-{"f": "Q8", "v": "Partly (0.5): bootstrap mean ± SD over tasks; no repeated runs or significance tests", "p": "5"},
-{"f": "Q9", "v": "Partly (0.5): 'consistently outperforms' with overlapping SDs and no tests; 'highest number of resolved tasks' claim appears contradicted on Fast", "p": "5-7"},
-{"f": "Q10", "v": "No (0): no threats to validity or limitations discussed", "p": "—"},
-{"f": "Q11", "v": "No (0): preprint", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): independent of baseline vendors; authors created CodeSpec", "p": "1"},
-{"f": "Q13", "v": "Yes (1): cost per task stated and low ($0.16-0.19 with DeepSeek-V4-Pro, $1.3 with GPT-5.4-mini); code released", "p": "1, 5-7"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486377",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, P., Zhang, L., Liu, F., Li, T., & Zhu, Y. (2026). CodeSpec: Dual Executable Specifications for Agentic Long-Horizon Feature Development. arXiv:2607.26777v1 [cs.SE], 29 Jul 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; AAAI template with 'Copyright © 2027 AAAI' notice, acceptance not stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format fixed. The AAAI copyright line is part of the AAAI author kit and also appears in submissions, so it does not show acceptance; check whether the paper was published at AAAI-27 (would change the type to Conference and Q11)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The 'Copyright © 2027 AAAI' line (p. 1) comes from the AAAI author kit and also appears in submissions, so acceptance is not shown; if published at AAAI-27, type becomes Conference and Q11 Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The 'Copyright © 2027, AAAI' footnote (p. 1) comes from the AAAI author kit and also appears in submissions, so acceptance is not shown; if published at AAAI-27, type becomes Conference and Q11 Yes (0.5 more on Q11)"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: Beihang University (State Key Laboratory of Complex & Critical Software Environment), China; The University of Hong Kong",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — CodeSpec (dual executable specifications) compared with five coding-agent scaffolds on FeatureBench and NL2Repo-Bench, with ablations",
+   "p": "1-2, 5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: the value must start with one of the listed types/natures and use ' — ' (and '; secondary: ') as the draft-verify rules require; content unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CodeSpec (authors'; code at github.com/zhu-zhu-ding/CodeSpec), no version. Baselines: OpenHands, Mini-SWE-Agent, Claude Code, Codex, RTADev (architecture-first, textual designs); versions not stated. Variant: CodeSpec (Text) with textual instead of executable specs",
+   "p": "1, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Sub-requirements decomposed from the feature instruction; evidence-grounded functional chain per sub-requirement (units linked by evidence pairing requirement semantics with repository design patterns, call relations, dependencies); executable architecture specification per chain (CheckUnit, CheckRelation, CheckDataFlow); executable behaviour specification per chain (CheckOutput, CheckBoundary, CheckState, pytest-style)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Functional chain construction: decompose instruction into sub-requirements, identify candidate units, evidence-driven chain reasoning; (2) dual executable specification compilation (architecture spec from template, then behaviour spec); (3) specification-guided code generation loop (Algorithm 1): edit patch -> execute architecture and behaviour checks -> revise until all pass or interaction budget K exhausted. Greenfield (NL2Repo): first create repository skeleton and units",
+   "p": "3-4, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (plus ablations removing each specification type and the evidence grounding)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler terms. Executable specifications generated per feature and enforced throughout implementation to keep 'design-implementation consistency'; not maintained after the task (closest to spec-first, draft)",
+   "p": "1, 3-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Executable specifications are generated per feature before coding and enforced by execution throughout the implementation loop, which a reader could call spec-anchored for the task's duration; they are not kept after the task, so spec-first remains the best value"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Executable specifications are generated per feature before coding and enforced by execution throughout the loop (Algorithm 1, p. 4), which a reader could call spec-anchored for the task's duration; they are not kept after the task, so spec-first remains the best value"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Executable specifications are generated per feature before coding and enforced by execution in every iteration (Algorithm 1, p. 4), which a reader could call spec-anchored for the task's duration; they are not kept or maintained after the task, so spec-first remains the best value"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (FeatureBench: feature development in existing repositories); also new project (NL2Repo-Bench: greenfield repository from a requirements document)",
+   "p": "1, 5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "FeatureBench: Lite 30, Fast 100, Full 200 tasks; avg 4.8k-word problem, ~800 lines of valid code per task. NL2Repo-Bench: 104 tasks; Easy <1.5K, Medium 1.5K-4K, Hard >4K LOC",
+   "p": "5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python repositories (e.g., MLflow distributed tracing); NL2Repo generates Python repositories",
+   "p": "1, 7",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The text states Python only for NL2Repo-Bench (p. 7); FeatureBench's language is not stated in this paper (the MLflow example is Python). Check the FeatureBench paper if the language matters"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Python is stated only for NL2Repo-Bench (p. 7); FeatureBench's language is not given in this paper (the MLflow example is Python). Check the FeatureBench paper if the language matters"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Python is stated only for NL2Repo-Bench (p. 7); FeatureBench's language is not given in this paper (the MLflow example, p. 1 and 7, is Python). Check the FeatureBench paper if the language matters"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average cost per task in USD",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "%Passed (average proportion of fail-to-pass tests passed per task); #Resolved (tasks with all required tests passing)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Pass rate by instruction length and by number of agent interaction turns (RQ3)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark evaluation scripts (fail-to-pass tests); task-level results bootstrapped 10,000 times (mean ± SD)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: benchmark tests. FeatureBench, DeepSeek-V4-Pro (max thinking), %Passed / #Resolved / $ per task for Lite | Fast | Full: OpenHands 60.0/6/0.15 | 41.4/10/0.13 | 37.1/18/0.11; Claude Code (with DeepSeek backbone) 59.8/6/0.11 | 47.0/14/0.12 | 41.1/23/0.10; Mini-SWE-Agent 62.6/7/0.09 | 49.6/24/0.09 | 43.4/25/0.09; RTADev 65.3/6/0.17 | 49.7/15/0.16 | 46.1/26/0.15; CodeSpec 70.7/9/0.18 | 55.0/17/0.19 | 49.9/28/0.16. FeatureBench Lite, GPT-5.4-mini (medium thinking): Mini-SWE-Agent 47.5/2/0.7; OpenHands 48.1/3/1.2; RTADev 45.9/3/1.3; Codex 51.7/4/0.7; CodeSpec 54.7/5/1.3. Ablations (Lite, DeepSeek): w/o all specs 62.6/7/0.09; w/o behaviour spec 64.0/6/0.13; w/o architecture spec 66.6/7/0.16; w/o evidence 64.8/6/0.16; CodeSpec (Text) 43.8% vs CodeSpec 71.8% on 3,000-5,000-word instructions, ~51% vs 65.2% beyond 200 turns. NL2Repo, DeepSeek, overall %Passed/#Resolved/$: OpenHands 26.4/2/0.10; Claude Code 41.6/5/0.11; Mini-SWE-Agent 35.5/4/0.08; RTADev 41.3/7/0.14; CodeSpec 46.6/8/0.17 (Easy 70.0, Medium 51.7, Hard 20.4). Verdicts: CodeSpec quality partly (best %Passed everywhere, but at most ~71% of tests and few tasks fully resolved), cost works ($0.16-0.19 DeepSeek, $1.3 GPT-5.4-mini); baselines quality partly/does not work (OpenHands on NL2Repo), cost works",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: FeatureBench Lite/Fast/Full (30/100/200), NL2Repo-Bench (104). Configurations: 5 scaffolds + CodeSpec; ablations and CodeSpec (Text) on Lite. Baseline: OpenHands, Mini-SWE-Agent, Claude Code, Codex, RTADev. Held constant: backbone DeepSeek-V4-Pro for all except Codex (GPT-5.4-mini); same repository environments, evaluation scripts and interaction budgets. Acceptance tests: benchmark fail-to-pass tests. Repetitions: Not stated (one run; bootstrap over tasks). Human intervention: none",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CodeSpec best %Passed on all splits: +5.4 (Lite), +5.3 (Fast), +3.8 (Full) points over RTADev, at +$0.01-0.03 per task; with GPT-5.4-mini 54.7% vs Codex 51.7%; NL2Repo 46.6% vs Claude Code 41.6%. Ablations: removing all specs -8.1 points, behaviour spec -6.7, architecture spec -4.1, evidence -5.9. Executable vs textual specs: similar on short tasks, gaps widen on long instructions and >200 turns. Significance: no tests; bootstrap SDs (e.g., Lite ±5-6) overlap",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on %Passed, though differences are within bootstrap SDs on small splits (Lite n=30). Repeatability: not assessed (single run). Limitations of the comparison: not stated by the authors",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Stated in passing: smaller gain on Hard NL2Repo tasks reflects difficulty of coordinating larger requirements for current agents; specification steps add moderate cost",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast (check PDF). Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python",
+   "p": "1, 5-7",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "'Language: Python' is stated only for NL2Repo-Bench; FeatureBench's language is not given here. Rest checked: Table 1 row mapping verified (RTADev deltas 5.4/5.3/3.8 and +$0.01-0.03 match), and Mini-SWE-Agent 24 vs CodeSpec 17 resolved on Fast stands against the 'highest number of resolved tasks' claim"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "'Language: Python' is stated only for NL2Repo-Bench. Rest re-checked: Table 1 row mapping holds (RTADev deltas 5.4/5.3/3.8 points and +$0.01-0.03 match; Mini-SWE-Agent Lite row equals the 'w/o All Specification' ablation row 62.6/7/0.09), so Mini-SWE-Agent 24 vs CodeSpec 17 resolved on Fast contradicts the 'highest number of resolved tasks' claim (p. 5)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Re-checked Table 1 mapping: RTADev deltas 5.4/5.3/3.8 points and +$0.01-0.03 match the text, and Mini-SWE-Agent's Lite row equals the 'w/o All Specification' row (62.6/7/0.09), so the mapping holds; Mini-SWE-Agent 24 vs CodeSpec 17 resolved on Fast contradicts 'the highest number of resolved tasks' (p. 5). Author to confirm on the PDF. 'Language: Python' is stated only for NL2Repo-Bench"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): method formalised with templates and Algorithm 1; prompts, budget K, underlying scaffold of CodeSpec not given (code released)",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (DeepSeek-V4-Pro, GPT-5.4-mini, thinking levels); agent/scaffold versions not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks (FeatureBench, NL2Repo-Bench) described; code and data released",
+   "p": "1, 5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark fail-to-pass tests",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): %Passed, #Resolved and cost per task defined",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five baselines under the same backbone, environments and budgets",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): bootstrap mean ± SD over tasks; no repeated runs or significance tests",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): 'consistently outperforms' with overlapping SDs and no tests; 'highest number of resolved tasks' claim appears contradicted on Fast",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of baseline vendors; authors created CodeSpec",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): cost per task stated and low ($0.16-0.19 with DeepSeek-V4-Pro, $1.3 with GPT-5.4-mini); code released",
+   "p": "1, 5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

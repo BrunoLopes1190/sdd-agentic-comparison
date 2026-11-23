@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486519",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, A. J., Xu, W., Singh, C., Chen, Z., Inala, J. P., Siska, C., Tamersoy, A., Yu, B., Stoica, I., Galley, M., Gao, J. (2026). TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents. arXiv:2610.22732v1 [cs.CL], 15 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.22732v1 [cs.CL], 15 Oct 2026; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "UC Berkeley (Li, Yu, Stoica); Microsoft Research (Xu, Singh, Inala, Galley, Gao); Microsoft Security (Chen, Siska, Tamersoy). First author's work done during a Microsoft Research internship",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — TokenEconomizer, external experience-driven cost controller for black-box coding agents, compared with default high effort, medium/low effort, RTK, RepoMap and combinations across 3 agents, 5 agent-model settings and 4 benchmarks; preceded by a cost-profiling study of fixed strategies",
+   "p": "1-3, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "TokenEconomizer (no version; code at github.com/microsoft/TokenEconomizer): three meta-strategies learning repository-specific policies from completed traces: (I) experience-grounded micro-skills (one-line operational facts with regex/predicate detectors, activated after confirmation, retired on contradiction), (II) tool pruning (unused for 3 tasks or judged irrelevant; full-catalog re-audit every 5 tasks), (III) failure-loop intervention (turn budget 1.25x 90th percentile of passed turns, LLM judge redirect then stop). Baselines: reduced reasoning effort; RTK v0.45.0 (command-output compression); Aider RepoMap; Serena (profiling only)",
+   "p": "1, 4-7, 13-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Micro-skill manual (short list of operational facts) inserted between harness instructions and task description; loaded tool set; repository state (skills, evidence, tool history, turn statistics). No specification",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per task in a chronological stream: controller decides active micro-skills, tool set and turn budget from repository state -> agent runs task -> live guard checks for loops (redirect/abort) -> completed trace updates state; proposer drafts candidate micro-skills after task 4 and every 5 tasks",
+   "p": "5-7, 15, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automatic controller)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full approach run on unchanged agents (all three meta-strategies acting on the prompt prefix, tool configuration and event stream); ablations run each meta-strategy alone. Not an SDD approach; of the form's categories the closest is 'single artefact' (micro-skill manual injected into the prompt), but tool pruning and the loop guard are not artefacts",
+   "p": "8",
+   "verdict": "uncertain",
+   "why": "Draft said N/A, but the approach is run, so the field applies; which of the form's categories (full workflow / single artefact) fits a non-SDD controller is a judgement for the author"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (cost control; no specification artefact)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-Bench streams in 6 repositories (chronological); Web-Bench sequential web development within one project; security auditing (credential and vulnerability detection) in different repositories",
+   "p": "7, 9, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-Bench 277 tasks (199 Verified + 78 full split): scikit-learn 60, SymPy 60, Django 40, Sphinx 44, Matplotlib 34, xarray 39; Web-Bench 102 tasks from 5 projects (calculator, table, expressjs, react, zustand); CredData 100 and ReposVul 100 tasks; profiling 60 tasks; 3 seeds per setting; total 579 tasks",
+   "p": "3, 7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (SWE-Bench, ReposVul Python split); web front-end/back-end projects (HTML/CSS/JS, React, Node.js); security auditing",
+   "p": "7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous headless agent runs)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean cache-aware cost per task (provider-reported token classes weighted by prices, cached context priced as cache read), paired relative change vs default, including all controller LLM calls; cumulative cost change over the stream; turns",
+   "p": "3, 7-8, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@1 under official SWE-Bench grader; cumulative Pass@2 on Web-Bench; line-level detection F1 on CredData and ReposVul",
+   "p": "7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Profiling: repeated actions share, tool usage, cost share of failed tasks; meta-strategy activity counts (skills confirmed/needed, tools masked, re-audits, redirects)",
+   "p": "3-4, 23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official graders, provider-reported token usage (Copilot CLI from debug log), JSON event streams; LLM judges inside the controller use the same model as the task agent",
+   "p": "7, 19, 25-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: Pass@1 (official grader) and paired cost change vs default high effort, 277 SWE-Bench tasks, 3 seeds (Table 1; mean, SD omitted here). Versions: Claude Code 2.1.170, Codex 0.153.1, Copilot CLI 1.0.84-7. Values: default Pass@1; then cost change / Pass@1 for medium effort; low effort; RTK; RepoMap; TE; TE+RTK; TE+RepoMap. - Claude Code + Sonnet 5: default 74.7; medium -26.6/70.0; low -45.5/65.1; RTK -1.1/73.1; RepoMap -1.4/74.1; TE -23.6/76.0; TE+RTK -23.5/76.4; TE+RepoMap -18.3/76.7. - Claude Code + Opus 4.8: default 74.0; medium -16.8/72.2; low -31.0/70.4; RTK -3.6/74.0; RepoMap +6.5/74.6; TE -30.9/73.0; TE+RTK -33.2/74.8; TE+RepoMap -24.9/75.1. - Codex + GPT-5.6 Terra: default 73.8; medium -25.7/69.6; low -33.0/65.3; RTK -4.7/74.3; RepoMap +3.1/70.0; TE -24.7/74.7; TE+RTK -23.8/75.2; TE+RepoMap -21.9/73.5. - Codex + GPT-5.6 Sol: default 80.1; medium -28.9/76.7; low -43.9/69.8; RTK +4.5/79.2; RepoMap -6.1/78.7; TE -26.1/81.7; TE+RTK -23.3/81.3; TE+RepoMap -29.2/79.0. - Copilot CLI + Sonnet 5: default 75.0; medium -25.4/72.6; low -41.9/65.9; RTK -8.9/76.9; RepoMap -3.3/74.9; TE -18.4/77.6; TE+RTK -13.2/77.4; TE+RepoMap -6.3/76.8. Verdicts per configuration on its own (absolute costs are not reported, so every cost verdict rests on the change vs default): Default (5 settings): quality works (73.8-80.1); cost not judgeable (reference, no absolute cost). TE (5): quality works (73.0-81.7); cost works (-18.4 to -30.9%, controller overhead included). TE+RTK, TE+RepoMap (5 each): quality works (73.5-81.3); cost works (-6.3 to -33.2%). Medium effort (5): quality works (69.6-76.7); cost works. Low effort (5): quality partly (65.1-70.4); cost works. RTK (5): quality works (73.1-79.2); cost partly (-8.9 to +4.5%). RepoMap (5): quality works (70.0-78.7); cost partly (-6.1 to +6.5%). Ablations (Claude Code, Table 2a, cost/Pass@1): Sonnet 5 micro-skills -11.8/77.3, tool pruning -13.2/74.3, failure-loop guard -7.1/76.2; Opus 4.8 -14.3/74.2, -17.7/73.5, -5.4/72.6; quality works, cost partly to works. Generalisation (Table 2b, TE cost change; default vs TE quality): Web-Bench Pass@2 Claude Code -21.2% (69.3 vs 73.3), Codex -16.0% (64.0 vs 66.5), Copilot -18.7% (60.8 vs 59.3): default and TE quality partly, TE cost works. CredData F1 -19.6% (67.9 vs 70.1), -16.5% (68.0 vs 69.2), -18.3% (68.2 vs 67.7): quality partly, TE cost works. ReposVul F1 -7.5% (17.5 vs 19.6), -6.4% (19.4 vs 20.1), -9.3% (21.6 vs 22.5): default and TE quality do not work (line-level F1 about 20), TE cost partly",
+   "p": "8-9, 25",
+   "verdict": "uncertain",
+   "why": "All numbers checked against Tables 1-2 (p. 8-9). The paper reports only relative cost changes, so every cost verdict is necessarily relative to default and default's cost cannot be judged ('not judgeable' is outside works/partly/does not work); quality levels (e.g. CredData F1 about 68 'partly', SWE-Bench Pass@1 65-70 for low effort 'partly') are a judgement"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: chronological task streams per repository/project; same tasks and order for all methods and seeds; answer-key guard blocks GitHub access for all methods. Configurations: 8 methods x 5 agent-model settings on SWE-Bench; TE vs default on Web-Bench and security benchmarks (micro-skills disabled on security). Baseline: unmodified agent at high reasoning effort. Held constant: agent version, model, tasks and order, controller configuration (fixed before main runs from development runs on the same six repositories, not tuned per repository). Acceptance: official graders. Repetitions: 3 seeds. Human intervention: none",
+   "p": "7-8, 15-16, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "TE reduces SWE-Bench cost by 18.4-30.9% (incl. controller overhead) with Pass@1 above default in 4 of 5 settings (-1.0 pt on Opus 4.8); reduced effort saves 16.8-45.5% but loses 1.8-10.3 pts; RTK and RepoMap alone change cost inconsistently (RTK raises cost in 12/30 repository-setting cells, RepoMap in 15/30). TE lowers cost in all 30 cells (5.2-40.1%); TE+RTK in 30/30, TE+RepoMap 29/30. TE variants form every Pareto point at or above default pass rate. Cumulative savings 16.9-32.0% after initial overhead (cheaper by sixth task). Web-Bench -16.0 to -21.2%, CredData -16.5 to -19.6%, ReposVul -6.4 to -9.3%. No significance tests; SDs over 3 seeds",
+   "p": "2, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods on cost consistently across repositories and settings; Pass@1 differences of 1-2 points comparable to seed SDs. Repeatable: 3 seeds with SDs; config fixed in advance; code released. Limitations stated: controller decisions can be wrong (stale skills, needed tool pruned, productive task taken for loop), each with a recovery path; minimal harnesses not covered; SWE-Bench streams are independent fixes, not real user sessions; Codex hook not invoked in its version (guard relies on DNS block)",
+   "p": "10, 13-14, 26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Coding-agent costs accumulate across tasks in recurring environments; an external controller learning from completed work makes unchanged agents cheaper while largely preserving success. Gaps: interactive coding sessions as next test; minimal harnesses; broader class of external controls (effort/model choice, learned compaction, environment reuse)",
+   "p": "10, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD (context/cost control via micro-skills, tool pruning, loop guard). Table 1 rebuilt from pdftotext column dump (values per setting in order default, medium, low, RTK, RepoMap, TE, TE+RTK, TE+RepoMap). Text says reduced effort lowers Pass@1 by 1.8-10.3 pts; Table 1 range is 1.8 (Opus medium) to 10.3 (Codex Sol low), consistent. Absolute costs not reported, only relative changes. Code: https://github.com/microsoft/TokenEconomizer; project page tokeneconomizer.github.io. Controller configuration 'pre-registered' only for the Web-Bench budget default (30 turns), no study pre-registration. Language: Python (SWE-Bench), JavaScript/TypeScript (Web-Bench)",
+   "p": "1, 8, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem formulation and three contributions stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithm, configuration (Table 4), prompts (App. G), task selection, harness adapters described; code released",
+   "p": "5-7, 15-16, 25-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.170, Codex 0.153.1, Copilot CLI 1.0.84-7, RTK v0.45.0; models named",
+   "p": "7, 14, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmarks, repositories and stream construction described; code released",
+   "p": "7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): official benchmark graders and line-level F1 against fixing commits",
+   "p": "7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cache-aware cost incl. controller overhead and Pass@1/Pass@2/F1 defined",
+   "p": "7, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): default high-effort agent, reduced effort, RTK, RepoMap under same tasks and order",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 seeds with SDs and paired cost changes; no statistical tests of differences",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims of 'comparable task success' match tables; Opus 4.8 Pass@1 drop and small ReposVul savings reported",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph; no threats-to-validity section",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created TokenEconomizer (and most are at Microsoft, vendor of GitHub Copilot CLI, one of the agents); independent of RTK, RepoMap, Claude Code and Codex",
+   "p": "1, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): needs only exposed harness interfaces (prompt, tool config, event stream), no model access or retraining; controller calls use the same model and are included in reported cost; open-source code",
+   "p": "5, 7, 13, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486413",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yang, Z., Fan, D. (2026). Signal or Noise? A Benchmark Study of Agent Skills in Web Development. arXiv:2608.23067v1 [cs.CL], 24 Aug 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.23067v1 [cs.CL], 24 Aug 2026; no published venue (access log: arXiv only)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the protocol form '<type> — <detail>' (was 'Preprint (arXiv)'); type unchanged"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Baidu, NLP, Beijing (both authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — WebDev-Skills-Bench with length-matched control and slice ablation; compares no Skill vs target Skill vs length-matched irrelevant Skill vs slice ablations, 31 public Skills x 4 models",
+   "p": "1-3",
+   "verdict": "corrected",
+   "why": "Value did not follow the protocol form '<nature>; secondary: <nature> — <detail>' (details in parentheses, secondary in lower case). Natures unchanged; 'Evaluates' (public Skills) would also be a defensible secondary"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not an SDD approach. Agent Skills (Anthropic SKILL.md format): 31 third-party public WebDev Skills from Anthropic, Mindrally, Osmani, Vercel Labs repositories (versions Not stated; accessed 2026-04)",
+   "p": "1, 3, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One SKILL.md per Skill (1.2K-22K characters) injected into the prompt; auxiliary references/, examples/, scripts/ mounted in the workspace under .skills/<skill-id>/. Slices: meta header, positive rules (Rp), anti-patterns (Rn), example code (X)",
+   "p": "3, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (Skill injected at session start into every prompt; agent solves 20 ordered Web-Bench tasks per project, two attempts per task)",
+   "p": "1, 3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs; authors manually routed (Skill, project) pairs as core/skip beforehand",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (SKILL.md skill file)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'reusable procedural modules', 'persistent behavioral prior')",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New projects built incrementally: Web-Bench 20 sequentially dependent tasks per project from a starting workspace",
+   "p": "3",
+   "verdict": "uncertain",
+   "why": "The paper does not say whether Web-Bench projects start from an empty or a scaffolded workspace; it only says tasks are 20 sequentially dependent tasks on a project workspace (task-1 initialises containers, later tasks add features), which reads as an incremental new build but rests on the external Web-Bench design"
+  },
+  {
+   "f": "Size",
+   "v": "50 projects x 20 ordered tasks = 1,000 tasks; 117 core (Skill, project) pairs; 180 ablation runs on 5 pairs",
+   "p": "1, 3, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Web development (JavaScript/TypeScript, HTML/CSS): React/Vue/Angular/Svelte, Express/Fastify, ORM/DB, CSS, Canvas/SVG/Three.js, bundlers, DOM apps (11 stack categories)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; two author annotators for routing, professional WebDev experience)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Relative total-token overhead rho = (tokens_Cx - tokens_C0)/tokens_C0; input tokens saved by removing a slice. No latency or USD",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@1 and Pass@2 on Web-Bench Playwright tests (deltas vs C0, pp); Task Completion Depth (longest consecutive Pass@2 prefix in 20-task chain); win/tie/loss share of pairs",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (visual fidelity, readability, accessibility explicitly not captured)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (routing annotation cost reported: ~258 person-hours)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Length/content decomposition (Delta Length = C2-C0, Delta Content = C1-C2, Survival share); cross-model Pearson/Spearman correlation of per-pair effects; effects by task difficulty",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic Playwright tests, token counts; 95% paired-bootstrap CIs (1,000 resamples; 10,000 for C3), Wilcoxon signed-rank and McNemar tests. Manual: Skill-project routing by two annotators (kappa ≈ 0.74)",
+   "p": "3-4, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent/harness: Not stated (Web-Bench harness; agent not named). Temperature 0, 64k maxTokens, N=3 replicates. Criterion: Playwright tests (Pass@2). Values are C1-C0 on 117 core pairs (Table 1, columns partly jumbled, rebuilt from text).\n- Target Skill (C1) + n.s. + Claude Sonnet 4 (claude-sonnet-4-20250514): dP@1 -2.8 [-4.6,-1.1]; dP@2 -4.2 [-6.9,-1.9]; dTCD -0.85; W/T/L 30/9/61%; tokens +72%. Quality does not work; cost does not work\n- Target Skill + n.s. + GPT-5.1: dP@1 -1.6 [-3.3,-0.1]; dP@2 -1.3 [-3.4,+0.5]; dTCD -0.26; 35/20/45; +74%. Quality partly (n.s. on P@2); cost does not work\n- Target Skill + n.s. + Qwen3-Coder-30B-A3B: dP@1 -3.2 [-4.3,-2.1]; dP@2 -2.3 [-3.4,-1.3]; dTCD -0.47; 17/35/48; +91%. Does not work; does not work\n- Target Skill + n.s. + DeepSeek-V4-flash: dP@1 -4.1 [-5.8,-2.2]; dP@2 -2.0 [-3.8,-0.2]; dTCD -0.40; 36/16/48; +394%. Does not work; does not work\n- No Skill (C0) + each model: baseline (absolute pass rates Not stated in text)\n- Length-matched irrelevant Skill (C2, control): dLength Sonnet -3.3, Qwen -3.5, GPT-5.1 -0.2, DeepSeek -0.6 pp; dContent -0.9, +1.2, -1.1, -1.4. Control\n- Slice ablations (C3, ablation; 5 helpful pairs, 20 cells): whole Skill +5.1 [1.0,9.3]; Rp +0.0, Rn +3.1 (McNemar p=0.008), X -0.7 (pooled); without Sonnet +6.1, +4.6, +6.1, +4.2 (Wilcoxon p=0.005); X helps DeepSeek +8.3, Qwen +3.7, GPT-5.1 +0.7, hurts Sonnet -15.3; removing X saves 34,482 input tokens/run (22.7%). Anti-patterns: quality works; cost works",
+   "p": "3-6, 10",
+   "verdict": "uncertain",
+   "why": "All values check against Tables 1, 3, 5 and the text (row-order mapping of W/T/L and rho confirmed by p. 4 text); added the two missing P@1 CIs. Uncertain: verdicts rest on deltas vs C0 because absolute pass rates are not reported; GPT-5.1 'partly' (mean still negative, P@1 CI excludes zero) and anti-patterns 'quality works' (bootstrap CI [-3.3, 9.8] includes zero; only McNemar p=0.008) are judgements"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Web-Bench 50 projects x 20 ordered tasks; 31 Skills, 117 core pairs. Conditions: C0 no Skill (baseline), C1 target Skill, C2 length-matched (±5% bytes) irrelevant skip-tier Skill, C3 leave-one-out slice ablation on 5 positive-tail pairs. 4 models. Held constant: workspace, harness, task order, decoding (temperature 0, 64k), Playwright tests; workspace reset (git clean -fdx) before each run. Acceptance tests: Web-Bench Playwright suites. Repetitions: N=3 per cell. Human intervention: none",
+   "p": "3, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "C1 worse than C0 on all four models: dPass@2 -1.3 to -4.2 pp (3 of 4 CIs exclude zero; GPT-5.1 P@1 CI excludes zero), lower TCD, tokens +72% to +394%; gains on 17-36% of pairs. Losses concentrated on easy tasks (-4.0 to -10.7 pp, CIs exclude zero). Sonnet and Qwen length-distracted, GPT-5.1 and DeepSeek content-misled. Cross-model per-pair correlation |r| ≤ 0.12; 74% of pairs have opposite signs across models. In helpful Skills anti-patterns most cost-effective (p=0.008)",
+   "p": "1, 4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes: length-matched control separated two mechanisms a plain C1-C0 comparison would hide; paired bootstrap CIs distinguish model-level effects. Repeatable: N=3; seed spread (Sonnet 4.4 and 3.6 pp across replicates) comparable to headline effect, so pair-level estimates uncertain. Limitations stated: shared C2 prompts (109 unique runs), conservative routing, positive-tail selection for C3 (5 pairs)",
+   "p": "6-7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Seed variance comparable to effect size; C2 prompts shared across pairs (cluster bootstrap open); only core-tier pairs (no off-target deployment); public high-visibility Skills only; pre-deployment benchmark without live traffic or human interventions; functional correctness only (no visual fidelity, UX, readability); token overhead instead of latency",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Benchmark, harness, routing, 31 Skills, derived per-pair CSVs released (anonymous.4open.science/r/webdev-skills-bench-1C32/); raw per-task reports and Web-Bench harness not included. No pre-registration. Languages: JavaScript/TypeScript, HTML/CSS. Tables 1 and 5 columns jumbled in pdftotext: W/T/L, rho and the '-Sonnet' column mapped by order and checked against text (rho +72% to +91% for three models, +394% DeepSeek; X without Sonnet +4.2). Coding agent/scaffold used is never named. Absolute C0 pass rates not reported in the main text",
+   "p": "3-6, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question (should a matched Skill be injected) stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): conditions, routing, decoding and statistics detailed; agent/scaffold and prompts not described",
+   "p": "3, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (Sonnet 4 with snapshot id); agent not named; Skill versions not stated",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): Web-Bench public; Skills manifest, routing and data released",
+   "p": "3, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): deterministic Playwright tests",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): Pass@k, TCD and token overhead defined",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): C0 baseline and length-matched C2 control",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): N=3, paired bootstrap CIs, Wilcoxon, McNemar",
+   "p": "3-4, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): negative results central; selection caveat for C3 stated",
+   "p": "4-7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Baidu; authored none of the Skills; not vendor of models evaluated",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

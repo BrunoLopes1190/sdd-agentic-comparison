@@ -1,0 +1,315 @@
+{
+"key": "rayyan-800485913",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 3,
+"fields": [
+{
+"f": "Reference",
+"v": "Nguyen, V. H., Nguyen, T. (2026). SDAD: Spec-Driven Agentic Development for the AI-Native SDLC. Technical Report — SDAD-Framework, arXiv:2608.20341v1 [cs.AI], 5 May 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2608.20341v1, technical report ('Technical Report — SDAD-Framework'); no published venue",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Author affiliation",
+"v": "Australian Catholic University (V. H. Nguyen); International College of Management Sydney, ICMS (T. Nguyen)",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an approach; secondary: Conceptual — proposes the SDAD framework ('Proposed Framework', Section 8), SDAD-V model, metrics, cost model and migration blueprint, on top of a historical review and narrative literature synthesis. No empirical evaluation",
+"p": "1, 4, 15-18, 29-30",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Approach(es): name and version",
+"v": "SDAD (Spec-Driven Agentic Development) framework and SDAD-V model, proposed by the authors; no version, no tool implementation",
+"p": "1, 15-18",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "Reviewable intent record / intent doc; formal, machine-interpretable specification (interfaces, logic, data structures, acceptance criteria; YAML-based logic or structured natural-language templates; security requirements as first-class fields); synthesis output (code, tests, deployment artefacts); verification report; provenance log (link from merged artefacts to spec revision, model route, gate outcomes)",
+"p": "16-17, 27-29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Four steps: (1) intent capture (structured human-agent dialogue); (2) formal specification; (3) agentic synthesis (multi-file generation of code and tests); (4) independent multi-agent verification (test, security, conformance gates) then human sign-off. SDAD-V: Stakeholder Intent -> Spec Architect -> Formal Specification -> Spec Fidelity Gate -> Agentic Implementation -> Agentic Verification, with feedback loops. Adoption: Phase 0 Assessment, 1 Pilot, 2 Hybrid, 3 SDAD-first, with gates",
+"p": "15-18, 28-29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human review points",
+"v": "Spec Fidelity Gate (completeness, consistency, traceability) after the formal spec; human (Spec Architect or accountable reviewer) sign-off on merge/release after verification; human sign-off on requirements in AI-assisted Waterfall phases; migration gates (spec clarity, verification pass rate, repair multiplier, security)",
+"p": "7, 15-16, 18, 28-29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Parts exercised",
+"v": "Not run, document-based",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "SDD level",
+"v": "Not classified by the authors in Böckeler terms; wording: 'The Spec is the Code', specification as 'single source of truth', regenerate module from updated spec ('re-synthesis'), provenance from artefacts to spec revision (closest to spec-anchored / spec-as-source)",
+"p": "4, 20, 22, 27, 29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Task type",
+"v": "N/A (no study run); discusses greenfield synthesis, refactoring and migration",
+"p": "10-11",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Size",
+"v": "N/A (illustrative scenario: complex module from a ~1,000-page specification ledger)",
+"p": "24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Domain",
+"v": "N/A (enterprise software in general; illustrative enterprise ledger module)",
+"p": "24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (proposes roles: Spec Architect, QA/evaluation strategy, SRE/platform, Product Owner/BA; Domain Owner, Verification Owner)",
+"p": "15-18, 28-29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Cost metrics",
+"v": "None measured. Proposed: TCI_agentic = phi(T_in + T_out)P_token + H_arch R_arch; Cost per implementation; re-synthesis return; illustrative Table 6 (Agile USD 60,000 vs SDAD USD 600, 'author's own observational estimates', not audited)",
+"p": "22-24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "None measured. Proposed: first-pass alignment rate; verification pass rate (gate)",
+"p": "21, 29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None measured. Proposed: cognitive gap index (qualitative 'shadow' technical debt)",
+"p": "22",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None measured. Proposed: human touchpoints (manual edits after synthesis per merge window); Spec Architect hours in TCI",
+"p": "22-23",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "None measured. Proposed: Spec Fidelity (completeness, consistency, unambiguity, verifiability); Ambiguity Tax H(C) = alpha e^(-beta C); Synthesis Efficiency Ratio SER = logic density / total tokens; Agentic Autonomy Rate (agent lines / merged lines, goal >95%); verification latency; spec-to-product latency",
+"p": "11-12, 15, 21-22, 24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "How metrics are collected",
+"v": "N/A (metrics proposed, not collected; operational definitions left as future work)",
+"p": "28, 30",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "N/A (document-based, no configuration run)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: design",
+"v": "N/A (no empirical comparison). Conceptual comparison of Waterfall (1970s), Human-Agile/Scrum (2020) and Agentic-SDAD (2026) across artefacts, skills, bottleneck, feedback loop, metrics, debt risk, security (Table 3) and estimation metrics (Table 7)",
+"p": "19-20, 26",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: result",
+"v": "N/A. Qualitative and illustrative: SDAD argued superior in velocity with bounded debt; illustrative TCI ~99% lower than Agile (Table 6, not audited); cites He et al. [4] for 3-5x velocity gains and higher debt with weak requirement discipline",
+"p": "6, 19, 24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Numeric anchors illustrative, not audited; comparison is directional, not causal. Open questions: quality/reliability of AI code and necessary gate density; operational definitions and baselines for Spec Fidelity and SER; autonomy vs human oversight; human-AI collaboration design; closed-loop critique among agents. Future work: industry-calibrated measurement of Spec Fidelity and SER, benchmark hybrid estimation, open toolchains for spec and provenance, longitudinal adoption studies. Risks: human comprehension, security propagation, vendor dependence, labour dynamics",
+"p": "19, 23-24, 27-28, 30",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Notes",
+"v": "Inconsistencies: Ambiguity Tax curve (Fig. 3, H(C)=e^(-0.045C), 70% threshold) attributed to 'empirical data from [4]', but [4] (Cursor adoption, MSR'26) does not measure spec clarity vs hallucination; token price anchor 'USD 0.05 per million tokens' for frontier models is implausibly low and drives the 99% figures; Table 6 SDAD column does not add up: delivery labour ~USD 400 + management overhead ~USD 600 + tokens ~USD 0.20 gives ~USD 1,000, yet TCI is given as ~USD 600 (-99%); the Agile column adds up (48,000 + 12,000 = 60,000); text refers to 'Table 9' and 'Table 11.4' for Tables 3 and 6; '1-2M KLOC' monorepos and '500,000 lines of code (KLOC)' unit confusion; claim of '80 hours into minutes' cited to an SLR. Table 6 values read from a jumbled extraction (column order rebuilt from the variance column). No data or replication package (none applicable). No pre-registration. Licence CC BY-SA 4.0. Programming language: N/A",
+"p": "9, 12, 14, 19, 21, 23-24",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): aims and structure stated (formalise SDAD, compare Human-Agile vs Agentic-SDAD, roles, metrics, economics, adoption)",
+"p": "1, 4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q2",
+"v": "No (0): no method for the literature synthesis or for deriving the framework and illustrative numbers is described",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q5",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q6",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q7",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q8",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): framework follows from the argument and numbers are flagged as illustrative, but 'empirical regularity' of the Ambiguity Tax and economic conclusions rest on unsupported attributions, an implausible token price and a Table 6 total that does not match its rows",
+"p": "11-12, 23-24, 30",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): challenges, open questions and the illustrative nature of numbers discussed; no threats-to-validity section for the paper itself",
+"p": "19, 23, 27-28",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q11",
+"v": "No (0): technical report on arXiv",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q12",
+"v": "No (0): the authors created SDAD and are the only ones assessing it, through their own illustrative comparison with Agile (Tables 3 and 6, 'author's own observational estimates'); academic affiliations, no commercial tie stated",
+"p": "1, 20, 24",
+"verdict": "uncertain",
+"why": "The authors created SDAD (its vendor under §5) and the only assessment of it is their own illustrative comparison with Agile (Tables 3 and 6, 'author's own observational estimates'). Scored No, aligned with rayyan-800485919 in this round (also No). If 'evaluated' is read as empirical evaluation only, both become Yes (academic affiliations, no commercial tie, nothing evaluated)"
+},
+{
+"f": "Q13",
+"v": "Partly (0.5): staged adoption blueprint with a bounded pilot and gates; requirements (frontier models, multi-agent verification, provenance tooling, Spec Architect role) only stated abstractly, no concrete tools; cost figures illustrative",
+"p": "17-18, 23-24, 28-29",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+}
+]
+}

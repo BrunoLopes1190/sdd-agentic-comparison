@@ -1,0 +1,226 @@
+{
+"key": "rayyan-800486044",
+"model": "Claude Opus 5.5 (subagent)",
+"fields": [
+{
+"f": "Reference",
+"v": "Zhou, X., Chen, V., Wang, Z. Z., Neubig, G., Sap, M., Wang, X. (2026). ToM-SWE: User Mental Modeling for Software Engineering Agents. arXiv:2510.21903v2 [cs.SE], 29 Jan 2026",
+"p": "1"
+},
+{
+"f": "Year",
+"v": "2026 (v2; v1 2025)",
+"p": "1"
+},
+{
+"f": "Publication type",
+"v": "Preprint (arXiv; 'Preprint. February 2, 2026')",
+"p": "1"
+},
+{
+"f": "Author affiliation",
+"v": "Language Technology Institute, Carnegie Mellon University; All Hands AI (company behind OpenHands, the platform the approach is built on)",
+"p": "1"
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an approach (ToM-SWE: dual-agent SWE agent + theory-of-mind agent with persistent user memory) and evaluates/compares it against CodeAct and RAG baselines (secondary: proposes an evaluation method, the Stateful SWE benchmark with profile-conditioned user simulators)",
+"p": "1-2, 4-5"
+},
+{
+"f": "Approach(es): name and version",
+"v": "ToM-SWE, implemented as ToMCodeAct agent on OpenHands (version Not stated). Baselines: OpenHands CodeAct agent; RAGCodeAct (CodeAct prompted to retrieve past sessions via BM25). Human study used a ToM-enhanced OpenHands CLI",
+"p": "2, 5, 7"
+},
+{
+"f": "Artefacts prescribed",
+"v": "No specification artefacts. Three-tier external user memory: (1) raw session storage; (2) session-based user model (JSON: session intent, interaction patterns, coding preferences); (3) overall user model (JSON: profile, interaction style, coding preferences, session summaries). ToM suggestions with confidence score",
+"p": "3-4, 12-13, 16"
+},
+{
+"f": "Phases of the flow",
+"v": "In-session: SWE agent decides to call consult_tom -> ToM agent reads/searches memory (max 3 actions) -> give_suggestions -> SWE agent adapts action. After-session: update_memory -> analyze_session (tier 2) -> initialize/update overall user model (tier 3)",
+"p": "3-4, 12"
+},
+{
+"f": "Human review points",
+"v": "None prescribed in the flow. In the human study developers marked each ToM suggestion Accept / Almost right (modify) / Reject. Benchmarks: simulated user answers clarification questions",
+"p": "7"
+},
+{
+"f": "Parts exercised",
+"v": "Full workflow (both in-session and after-session ToM) in benchmarks and in the 3-week field study",
+"p": "5, 7"
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification; user mental model memory, not a spec)",
+"p": "—"
+},
+{
+"f": "Task type",
+"v": "Existing code base (SWE-bench Verified issues turned into vague instructions; field study: developers' own daily tasks)",
+"p": "4-5, 7"
+},
+{
+"f": "Size",
+"v": "Ambiguous SWE-bench and Stateful SWE-bench: 500 instances each, max 100 interaction turns; cost study 100 sampled instances; field study 209 sessions, 174 ToM suggestions. Repository size Not stated",
+"p": "5, 7"
+},
+{
+"f": "Domain",
+"v": "Python open-source repositories (SWE-bench); field study: developers' own work, not described (privacy)",
+"p": "4, 7, 16"
+},
+{
+"f": "Team profile",
+"v": "Benchmarks: GPT-5 user simulators conditioned on 15 developer profiles derived from 453 real OpenHands sessions. Field study: 17 professional developers, 3 weeks, CLI",
+"p": "4, 7"
+},
+{
+"f": "Cost metrics",
+"v": "Average session cost (USD) of the ToM agent per base model and ToM overhead as % of average SWE session cost ($1.08) (100 instances only). No token or time metrics",
+"p": "7"
+},
+{
+"f": "Functional quality metrics",
+"v": "Task resolved rate (% of instances passing SWE-bench unit tests)",
+"p": "5"
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Human effort metrics",
+"v": "None measured directly; field study measured acceptance of ToM suggestions (accept / partial / reject)",
+"p": "7"
+},
+{
+"f": "Other outcome metrics",
+"v": "User simulator satisfaction score (1-5; overall, communication, problem solving, efficiency, preference alignment); F+H rate (failed but high satisfaction); correlation resolution vs satisfaction; suggestion acceptance rate by query category",
+"p": "5-8, 15"
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: unit tests; LLM (GPT-5) profile-conditioned simulator ratings (validated on 30 samples vs human, r = 0.86); cost from API usage. Field study: in-CLI developer annotations of each suggestion. Manual analysis of 44 F+H cases and 50 sampled suggestions",
+"p": "5-8, 15"
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Criterion: resolved rate on SWE-bench tests; satisfaction; acceptance. All benchmark runs on OpenHands; ToM agent model Claude Sonnet 4 in all benchmark runs.\n- Ambiguous SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 51.9%. Partly\n- Ambiguous - ToMCodeAct + OpenHands + Claude Sonnet 4: 63.4%. Works\n- Ambiguous - other model/agent bars (Claude 3.7 Sonnet, Qwen3-480B; also 'Original SWE Bench' panel): value in Fig. 4 only (labels jumbled: 68.0, 64.6, 60.6, 50.4, 46.2, 46.2, 40.9)\n- Stateful SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 18.1%, satisfaction 2.57±0.08. Does not work\n- Stateful - RAGCodeAct + Claude Sonnet 4: resolved value in Fig. 4 only; satisfaction 3.09±0.09. Partly\n- Stateful - ToMCodeAct + Claude Sonnet 4: 59.7%, satisfaction 3.62±0.07, F+H 21.5%. Works\n- Stateful - CodeAct + Claude 3.7 Sonnet: 18.7%, satisfaction 2.26±0.08. Does not work\n- Stateful - RAGCodeAct + Claude 3.7 Sonnet: 14.4%, satisfaction 2.32±0.08. Does not work\n- Stateful - ToMCodeAct + Claude 3.7 Sonnet: resolved value in Fig. 4 only; satisfaction 3.29±0.08. Partly\n- Stateful - CodeAct / RAG / ToM + Qwen3-480B: satisfaction 2.48 / 2.54 / 3.24; resolved values in Fig. 4 only\n- Single-agent ToM baseline (preliminary, N=100) + Claude Sonnet 4: 27.17% on Stateful. Does not work\n- Cost study (100 Stateful instances, ToM base model varied): GPT-5 nano 38.0% at $0.02/session; Claude Sonnet 4 adds $0.17/session (~16% overhead); others value in Fig. 5 only. Cost verdict: works (small overhead)\n- Field study - ToM + OpenHands CLI (model Not stated for field study): 174 suggestions, 86.2% accepted (74.1% full + 12.1% partial); Code Understanding 92.0%, Development 75.2%, Troubleshooting 82.5%, Other 79.4%. Works (no comparison)",
+"p": "1-2, 5-8"
+},
+{
+"f": "Comparison: design",
+"v": "Tasks: 500 SWE-bench Verified instances in Ambiguous SWE-bench and Stateful SWE-bench (15 profiles). Configurations: CodeAct vs RAGCodeAct vs ToMCodeAct x 3 SWE models (Claude Sonnet 4, Claude 3.7 Sonnet, Qwen3-480B). Baseline: CodeAct. Held constant: OpenHands platform, same simulated users, same prompt (Listing 8), ToM model Claude Sonnet 4, BM25 retrieval top-3, temperatures 0.1 ToM / 0.7 SWE. Acceptance tests: SWE-bench unit tests. Repetitions: Not stated (single run apparently). Human intervention: none (simulated users). Field study observational, no control group",
+"p": "5, 7, 15-16"
+},
+{
+"f": "Comparison: result",
+"v": "ToMCodeAct best on resolved rate and satisfaction for all models: Ambiguous +11.5 pp (63.4 vs 51.9, Claude 4); Stateful +41.6 pp (59.7 vs 18.1, Claude 4); satisfaction 3.62 vs 2.57 (+41%). RAG below ToM for all models, and below CodeAct with Claude 3.7 (14.4 vs 18.7). Significance of differences not tested (only ± values in Table 1); resolution-satisfaction correlation r = 0.74, p < 0.001",
+"p": "2, 6"
+},
+{
+"f": "Comparison: did the method work",
+"v": "Distinguished configurations clearly on Stateful benchmark; repeatability not assessed (no repetitions). Limitations stated: LLM user simulator may introduce systematic biases (mitigated by calibration and 30-sample manual check); field study observational, no causal productivity claims",
+"p": "7-8, 15"
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Simulator bias (over-knowledgeability, excessive compliance); privacy and consent of user modeling; profiles mainly English-speaking developers, limited diversity; generalisation beyond SE open; ToM struggles with very vague queries and low-confidence cases; how to leverage user effort is open",
+"p": "8-9"
+},
+{
+"f": "Notes",
+"v": "Inconsistency: introduction reports Stateful ToMCodeAct 57.4% vs CodeAct 13.5% (+43.9), while abstract, text and Fig. 4 report 59.7% vs 18.1% (+41.6); values used from p. 6 text. Figure 4 bar labels jumbled by pdftotext: only values confirmed in text are mapped. Field study percentages in text (Development 75.2%) differ from Fig. 6 labels (72.5%/67.6% etc.). Model IDs in A.8.1 look inconsistent (gpt-5-*-20241201). Original 453 sessions not released (privacy); anonymised profiles and prompts in appendix; code/benchmark release Not stated. Language: Python (SWE-bench). Pre-registration: Not stated",
+"p": "2, 6, 8-9, 15"
+},
+{
+"f": "Q1",
+"v": "Yes (1): goal of modeling user intent stated; contributions (framework, benchmark, field study) clear",
+"p": "1-2"
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): prompts, algorithm, hyperparameters, schemas given; repetitions and code/benchmark release not stated; sessions not released",
+"p": "9, 12-16"
+},
+{
+"f": "Q3",
+"v": "Partly (0.5): model IDs given (claude-sonnet-4-20250514 etc.); OpenHands version Not stated; Qwen3 only as 'Qwen3-480B'",
+"p": "5, 15"
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): based on SWE-bench Verified and Ambiguous SWE-bench (public); Stateful benchmark availability Not stated; field study tasks not described",
+"p": "4-5, 7, 9"
+},
+{
+"f": "Q5",
+"v": "Yes (1): resolved rate against SWE-bench unit tests; satisfaction is LLM-judged (checked vs human, r = 0.86)",
+"p": "5, 15"
+},
+{
+"f": "Q6",
+"v": "Yes (1): resolved rate, satisfaction, F+H defined; cost per session reported (Sec. 5.3, 100 instances)",
+"p": "5-7"
+},
+{
+"f": "Q7",
+"v": "Yes (1): CodeAct and RAGCodeAct under the same platform, simulators and prompt",
+"p": "5, 16"
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): ± on satisfaction and correlation tests, but no repetitions and no significance tests on resolved-rate differences",
+"p": "6"
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): conclusions follow, but headline numbers inconsistent between introduction and results; field study without control used to claim usefulness",
+"p": "2, 6-8"
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): simulator bias, privacy and profile diversity discussed briefly; no threats-to-validity section",
+"p": "8-9"
+},
+{
+"f": "Q11",
+"v": "No (0): preprint",
+"p": "1"
+},
+{
+"f": "Q12",
+"v": "No (0): authors created ToM-SWE; one affiliation is All Hands AI (OpenHands vendor)",
+"p": "1"
+},
+{
+"f": "Q13",
+"v": "Yes (1): built on open-source OpenHands with commercial LLM APIs; ToM overhead $0.02-0.17 per session (~16% of $1.08 SWE cost); within reach of a typical team",
+"p": "7"
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—"
+}
+]
+}

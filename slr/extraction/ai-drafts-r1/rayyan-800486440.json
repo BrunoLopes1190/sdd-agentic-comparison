@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486440",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Barba, L. A. (2026). Reproducibility in the Age of Agentic AI: Context Engineering at the Timescale of a Codebase. Computing in Science & Engineering (IEEE), https://doi.org/10.1109/MCSE.2026.3749779. Read from arXiv:2609.11728v1 [cs.SE], 10 Sep 2026 (paper dated June 2026)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "The arXiv record (v2, slr/exports/arxiv-S2-2026-11-18.atom.xml) carries DOI 10.1109/MCSE.2026.3749779, i.e. IEEE Computing in Science & Engineering; the reference gave only the arXiv version"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — IEEE Computing in Science & Engineering (CiSE), DOI 10.1109/MCSE.2026.3749779 (from the arXiv v2 metadata); position/essay paper; full text read from arXiv:2609.11728v1",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Was Preprint, but the arXiv metadata gives a published DOI in IEEE CiSE; a published paper read from arXiv keeps the venue type. CiSE is an IEEE magazine, filed as Journal. Also form fixed to '<type> — <detail>'"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The George Washington University (single author)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual — essay arguing that reproducible research practices are context engineering for AI coding agents; catalog mapping artefacts to context categories, plus an 'invocation layer' of commands/skills",
+   "p": "1-3",
+   "verdict": "corrected",
+   "why": "Form fixed to '<nature> — <detail>'; nature unchanged"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named SDD approach. Author's catalog of 'agent-facing artifacts' (reproducible-research practices reframed as context engineering) plus an 'invocation layer' of slash commands and skills that write to project files. Version: N/A",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent instruction file AGENTS.md/CLAUDE.md (always-on semantic memory; six areas: commands, testing, structure, code style, git workflow, boundaries always/ask first/never); test suite of characterization tests (executable semantic memory, 'a specification of expected behavior'); commit history with Conventional Commits (episodic memory); repository structure (pre-processed context); decision record DECISIONS.md in ADR format (static context)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a flow; artefacts drafted by the agent on request (e.g. /commit, decision-record skill, changelog skill) and verified by the researcher",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Researcher as 'owner and verifier' of every agent-drafted artefact: confirms test intent, edits commit messages, supplies tacit knowledge and decision reasoning",
+   "p": "2-3, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (argument only)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'context engineering at the timescale of a codebase'; tests as executable specification)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing research code bases (research software maintenance); not run",
+   "p": "1-2, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Not stated",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Scientific/research software (computational science)",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Researchers and graduate students who are 'not trained or paid to be software engineers'",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (qualitative claim that per-session friction collapses)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no data collected)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (conceptual; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison; argument draws on a cited GitHub analysis of 2,500 agent instruction files and an RSE vision statement)",
+   "p": "3, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Qualitative: four of the six areas of effective agent instruction files (commands, testing, structure, git workflow) match reproducibility practices cleanly; code style and boundaries partly",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Artefacts do not prevent researchers accepting agent output without understanding (skill erosion); generation stays non-deterministic; productivity is not a fix for research incentives; untouched: training-data provenance and attribution, unequal access to frontier tools, institutional disinvestment in people",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "No empirical data; no replication package (N/A). No pre-registration. Main evidence is a cited industry analysis of 2,500 instruction files [4] and the Edinburgh RSE workshop vision statement [10]. Artefact table (p. 3) jumbled in text extraction; rebuilt from the prose. Language: N/A",
+   "p": "3, 5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): thesis stated in abstract and introduction",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): essay, no method",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): argument reasoned and bounded (Section 5), but rests on one cited industry study and the author's experience",
+   "p": "5-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 5 'The Limits of the Optimistic Case'",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in IEEE Computing in Science & Engineering (DOI 10.1109/MCSE.2026.3749779, from the arXiv metadata)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Was No (preprint), but the paper has a published IEEE CiSE version. Caveat: the review process of the CiSE section it appeared in is not stated; the author may want to check the DOI page"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university author; no tool evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): uses standard files (AGENTS.md, tests, Conventional Commits, DECISIONS.md) and agent commands/skills; no special compute; within reach of any team using a coding agent",
+   "p": "3-5",
+   "verdict": "uncertain",
+   "why": "Requirements are stated only loosely (a coding agent with slash commands/skills, standard files); no cost or compute stated beyond 'almost no cost'. Yes is defensible, Partly also; judgement call"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

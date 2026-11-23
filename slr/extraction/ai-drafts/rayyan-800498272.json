@@ -1,46 +1,315 @@
-{"key": "rayyan-800498272", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Jin, H., Lian, D., Wang, X., Xie, H. (2026). MUSE: Multi-Level Memory with Selective Runtime Injection for Scientific Coding Agents. arXiv:2610.38332v1 [cs.LG], 28 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; 'Preprint. Under review.')", "p": "1"},
-{"f": "Author affiliation", "v": "University of Science and Technology of China and State Key Laboratory of Cognitive Intelligence, Hefei (Jin, Lian, Xie); Gaoling School of Artificial Intelligence, Renmin University of China (Wang)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (MUSE memory framework for scientific coding agents), evaluated against ten memory/retrieval baselines on four benchmarks with ablations and a transfer experiment", "p": "1-2, 5"},
-{"f": "Approach(es): name and version", "v": "MUSE (no version). Baselines: Vanilla agent (no memory), Trajectory RAG, ReasoningBank, ReMe, TRAD, AdaMEM, AutoSci-SciMem, EvoScientist, Agent KB, ACE", "p": "2, 6"},
-{"f": "Artefacts prescribed", "v": "Three memory banks built from historical trajectories: L0 GlobalMemBank (consolidated, reviewed cross-task lessons, given in full; advisory budget 80,000 tokens), L1 approach-level lessons (solution outline, tool choices, applicability) with source material, L2 implementation-level lessons (code details, rationale, outcome); indexes of historical submissions and errors; gate review notes. No specification", "p": "3-5, 13"},
-{"f": "Phases of the flow", "v": "Memory construction (offline): per-attempt extraction by an agent -> consolidation into L0 (add/replace/retire) -> bank-wide review -> freeze. Solving: initialization with L0 + top-5 problem-matched L1 -> during execution, after designated tool returns (Write, Bash), four-route retrieval of L2/submissions/errors -> LLM gate selects at most one source and writes a review note, or skips -> agent continues to final submission", "p": "3-5"},
-{"f": "Human review points", "v": "None (LLM gate and LLM review of the global bank; no human annotation)", "p": "4-5, 11"},
-{"f": "Parts exercised", "v": "Full workflow (memory construction and runtime injection) on four benchmarks, plus ablations", "p": "5-7"},
-{"f": "SDD level", "v": "Not classifiable (experience memory / context injection, no specification); authors' terms: 'multi-level memory', 'selective runtime injection'", "p": "1"},
-{"f": "Task type", "v": "Mixed: new code from task specification (PDE solvers, GPU kernels) and existing code bases (SWE-bench Science scientific repository repair)", "p": "5"},
-{"f": "Size", "v": "Test tasks: PDEAgent-Bench 451, KernelBenchX 122, KernelGenBench-MS 140, SWE-bench Science 84 (extraction sets 194, 53, 63, 35; about 30% random sample)", "p": "5, 7"},
-{"f": "Domain", "v": "Scientific coding: numerical PDE solving (DOLFINx/PETSc), GPU kernel optimization (Triton/PyTorch, CUDA), scientific software repair; Python", "p": "5, 11"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "11"},
-{"f": "Cost metrics", "v": "None per configuration; total API expenditure about US$1,500 across preliminary experiments, memory construction and evaluation reported; task wall-clock limits stated", "p": "11"},
-{"f": "Functional quality metrics", "v": "Verifier pass rate (PDE, SWE Science); kernel correctness rate (hidden assessments)", "p": "6"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Kernel acceleration rate: share of test tasks correct with valid timing and speedup >= 1.01x over reference", "p": "6"},
-{"f": "How metrics are collected", "v": "Automatic: public benchmarks' verifiers and hidden assessments run after solving (not returned to agent); kernels timed on the same A100 GPU under a lock", "p": "6, 11"},
-{"f": "Evaluation (each configuration)", "v": "Agent ZCode + glm-5.3-flash (high reasoning effort) for all. Criterion: verifier pass / correctness, acceleration. Values PDE pass / KBX correct, accel / KGB correct, accel / SWE Science pass (%): (a) Vanilla (baseline): 44.8 / 57.4, 31.1 / 44.3, 8.6 / 29.8. (b) Trajectory RAG: 72.3 / 53.3, 29.5 / 57.9, 12.1 / 28.6. Partly. (c) ReasoningBank: 63.6 / 59.8, 28.7 / 47.9, 15.7 / 31.0. Partly. (d) ReMe: 50.1 / 50.0, 29.5 / 40.0, 20.0 / 35.7. Partly. (e) TRAD: 75.8 / 60.7, 29.5 / 48.6, 9.3 / 31.0. Partly. (f) AdaMEM: 55.7 / 59.0, 32.8 / 47.1, 16.4 / 28.6. Partly. (g) AutoSci-SciMem: 78.5 / 63.1, 33.6 / 47.9, 16.4 / 32.1. Partly. (h) EvoScientist: 87.8 / 58.2, 29.5 / 50.0, 18.6 / 31.0. Partly. (i) Agent KB: 69.6 / 59.8, 27.9 / 50.0, 18.6 / 34.5. Partly. (j) ACE: 83.8 / 66.4, 36.9 / 50.7, 17.9 / 31.0. Partly. (k) MUSE: 92.2 / 79.5, 44.3 / 66.4, 24.3 / 40.5. Quality works. Cost verdict for all: Not stated (no per-configuration cost). Ablations: MUSE L0 only PDE 82.7; L0+L1 89.4; MUSE w/o gate PDE 90.7, KBX 66.4/37.7, KGB 62.1/20.0, SWE 32.1. Transfer KBX->KGB: MUSE 62.1/25.0, L0 53.6/15.7, L0+L1 54.3/23.6; Agent KB 48.6/17.9; ACE 50.0/22.1", "p": "6-7"},
-{"f": "Comparison: design", "v": "Tasks: four public benchmarks; ~30% of problems randomly sampled for memory extraction (one rollout without memory per problem, shared by all memory methods), rest for test. Configurations: 11 (Vanilla + 9 memory/retrieval baselines + MUSE) plus ablations. Baseline: Vanilla agent. Held constant: agent (ZCode), model (glm-5.3-flash), source trajectories, tool permissions per benchmark, embedding model, time limits. Acceptance tests: hidden benchmark verifiers. Repetitions: Not stated (apparently one run). Human intervention: none", "p": "5-6, 11"},
-{"f": "Comparison: result", "v": "MUSE best on all six metrics: PDE 92.2 vs EvoScientist 87.8 (Vanilla 44.8); KBX 79.5/44.3 vs ACE 66.4/36.9; KGB 66.4 vs RAG 57.9 and accel 24.3 vs ReMe 20.0; SWE Science 40.5 vs ReMe 35.7 (Vanilla 29.8). No significance tests or variance reported", "p": "6"},
-{"f": "Comparison: did the method work", "v": "Separated MUSE from baselines on point estimates; baselines often close to each other and some below Vanilla (e.g. ReMe on KBX/KGB, RAG on SWE Science). Repeatability not addressed (single runs, no variance). Limitations stated: one backbone and agent interface due to cost", "p": "6-8"},
-{"f": "Conclusions: limitations and gaps", "v": "Single backbone/agent (ZCode + GLM-5.3-flash) due to evaluation cost; only one transfer direction (KBX -> KGB); frozen banks, no continual memory updates (consolidation, conflict resolution, retirement as environments evolve as future work)", "p": "8-9"},
-{"f": "Notes", "v": "Tables 2, 3, 5 and 6 jumbled by pdftotext; values rebuilt in row order and checked against text (e.g. ACE KBX 66.4/36.9, RAG KGB 57.9, ReMe accel 20.0, PDE 451 and KGB 140 test tasks). Code stated as available (link not in extracted text). All prompts given in Appendix B; environment versions in Appendix A.2. Hardware: 2x AMD EPYC 7742, 8x A100 40GB. No pre-registration. Language: Python (Triton kernels)", "p": "1, 5-7, 11-17"},
-{"f": "Q1", "v": "Yes (1): problems and aims clearly stated", "p": "1-2"},
-{"f": "Q2", "v": "Yes (1): method, prompts, retrieval settings, environment versions and time limits given; code available", "p": "3-5, 11-17"},
-{"f": "Q3", "v": "Partly (0.5): glm-5.3-flash, Qwen3-Embedding-8B and library versions named; ZCode agent version Not stated", "p": "5, 11"},
-{"f": "Q4", "v": "Yes (1): public benchmarks with licences and links; extraction/test split sizes given (split IDs not stated)", "p": "5, 11"},
-{"f": "Q5", "v": "Yes (1): hidden benchmark verifiers and timing under matched conditions", "p": "5-6"},
-{"f": "Q6", "v": "Partly (0.5): pass, correctness and acceleration defined; no cost metric per configuration", "p": "6, 11"},
-{"f": "Q7", "v": "Yes (1): Vanilla and nine memory baselines with the same agent, model and source data", "p": "6"},
-{"f": "Q8", "v": "No (0): no repetitions, variance or statistical tests", "p": "6-7"},
-{"f": "Q9", "v": "Partly (0.5): conclusions match the point estimates, but no uncertainty analysis for gains of a few points (e.g. KGB accel 24.3 vs 20.0)", "p": "6-8"},
-{"f": "Q10", "v": "Partly (0.5): short limitations section (single backbone, one transfer direction, frozen banks); no threats to validity", "p": "8-9"},
-{"f": "Q11", "v": "No (0): arXiv preprint, under review", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): authors created MUSE; the baselines are by others", "p": "1, 6"},
-{"f": "Q13", "v": "Partly (0.5): no training needed, hosted model API and open embedding model; total API cost (~US$1,500 for all experiments) and hardware stated, but per-task cost of memory construction and gate calls not given; long task limits (2-4 h)", "p": "11"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800498272",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jin, H., Lian, D., Wang, X., Xie, H. (2026). MUSE: Multi-Level Memory with Selective Runtime Injection for Scientific Coding Agents. arXiv:2610.38332v1 [cs.LG], 28 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv; 'Preprint. Under review.')",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Science and Technology of China and State Key Laboratory of Cognitive Intelligence, Hefei (Jin, Lian, Xie); Gaoling School of Artificial Intelligence, Renmin University of China (Wang)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (MUSE memory framework for scientific coding agents), evaluated against ten memory/retrieval baselines on four benchmarks with ablations and a transfer experiment",
+   "p": "1-2, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "MUSE (no version). Baselines: Vanilla agent (no memory), Trajectory RAG, ReasoningBank, ReMe, TRAD, AdaMEM, AutoSci-SciMem, EvoScientist, Agent KB, ACE",
+   "p": "2, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Three memory banks built from historical trajectories: L0 GlobalMemBank (consolidated, reviewed cross-task lessons, given in full; advisory budget 80,000 tokens), L1 approach-level lessons (solution outline, tool choices, applicability) with source material, L2 implementation-level lessons (code details, rationale, outcome); indexes of historical submissions and errors; gate review notes. No specification",
+   "p": "3-5, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Memory construction (offline): per-attempt extraction by an agent -> consolidation into L0 (add/replace/retire) -> bank-wide review -> freeze. Solving: initialization with L0 + top-5 problem-matched L1 -> during execution, after designated tool returns (Write, Bash), four-route retrieval of L2/submissions/errors -> LLM gate selects at most one source and writes a review note, or skips -> agent continues to final submission",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (LLM gate and LLM review of the global bank; no human annotation)",
+   "p": "4-5, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (memory construction and runtime injection) on four benchmarks, plus ablations",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (experience memory / context injection, no specification); authors' terms: 'multi-level memory', 'selective runtime injection'",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: new code from task specification (PDE solvers, GPU kernels) and existing code bases (SWE-bench Science scientific repository repair)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Test tasks: PDEAgent-Bench 451, KernelBenchX 122, KernelGenBench-MS 140, SWE-bench Science 84 (extraction sets 194, 53, 63, 35; about 30% random sample)",
+   "p": "5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Scientific coding: numerical PDE solving (DOLFINx/PETSc), GPU kernel optimization (Triton/PyTorch, CUDA), scientific software repair; Python",
+   "p": "5, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None per configuration; total API expenditure about US$1,500 across preliminary experiments, memory construction and evaluation reported; task wall-clock limits stated",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Verifier pass rate (PDE, SWE Science); kernel correctness rate (hidden assessments)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Kernel acceleration rate: share of test tasks correct with valid timing and speedup >= 1.01x over reference",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: public benchmarks' verifiers and hidden assessments run after solving (not returned to agent); kernels timed on the same A100 GPU under a lock",
+   "p": "6, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent ZCode + glm-5.3-flash (high reasoning effort) for all. Criterion: verifier pass / correctness, acceleration. Values PDE pass / KBX correct, accel / KGB correct, accel / SWE Science pass (%): (a) Vanilla (baseline): 44.8 / 57.4, 31.1 / 44.3, 8.6 / 29.8. (b) Trajectory RAG: 72.3 / 53.3, 29.5 / 57.9, 12.1 / 28.6. Partly. (c) ReasoningBank: 63.6 / 59.8, 28.7 / 47.9, 15.7 / 31.0. Partly. (d) ReMe: 50.1 / 50.0, 29.5 / 40.0, 20.0 / 35.7. Partly. (e) TRAD: 75.8 / 60.7, 29.5 / 48.6, 9.3 / 31.0. Partly. (f) AdaMEM: 55.7 / 59.0, 32.8 / 47.1, 16.4 / 28.6. Partly. (g) AutoSci-SciMem: 78.5 / 63.1, 33.6 / 47.9, 16.4 / 32.1. Partly. (h) EvoScientist: 87.8 / 58.2, 29.5 / 50.0, 18.6 / 31.0. Partly. (i) Agent KB: 69.6 / 59.8, 27.9 / 50.0, 18.6 / 34.5. Partly. (j) ACE: 83.8 / 66.4, 36.9 / 50.7, 17.9 / 31.0. Partly. (k) MUSE: 92.2 / 79.5, 44.3 / 66.4, 24.3 / 40.5. Quality works. Cost verdict for all: Not stated (no per-configuration cost). Ablations: MUSE L0 only PDE 82.7; L0+L1 89.4; MUSE w/o gate PDE 90.7, KBX 66.4/37.7, KGB 62.1/20.0, SWE 32.1. Transfer KBX->KGB: MUSE 62.1/25.0, L0 53.6/15.7, L0+L1 54.3/23.6; Agent KB 48.6/17.9; ACE 50.0/22.1",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: four public benchmarks; ~30% of problems randomly sampled for memory extraction (one rollout without memory per problem, shared by all memory methods), rest for test. Configurations: 11 (Vanilla + 9 memory/retrieval baselines + MUSE) plus ablations. Baseline: Vanilla agent. Held constant: agent (ZCode), model (glm-5.3-flash), source trajectories, tool permissions per benchmark, embedding model, time limits. Acceptance tests: hidden benchmark verifiers. Repetitions: Not stated (apparently one run). Human intervention: none",
+   "p": "5-6, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "MUSE best on all six metrics: PDE 92.2 vs EvoScientist 87.8 (Vanilla 44.8); KBX 79.5/44.3 vs ACE 66.4/36.9; KGB 66.4 vs RAG 57.9 and accel 24.3 vs ReMe 20.0; SWE Science 40.5 vs ReMe 35.7 (Vanilla 29.8). No significance tests or variance reported",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Separated MUSE from baselines on point estimates; baselines often close to each other and some below Vanilla (e.g. ReMe on KBX/KGB, RAG on SWE Science). Repeatability not addressed (single runs, no variance). Limitations stated: one backbone and agent interface due to cost",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single backbone/agent (ZCode + GLM-5.3-flash) due to evaluation cost; only one transfer direction (KBX -> KGB); frozen banks, no continual memory updates (consolidation, conflict resolution, retirement as environments evolve as future work)",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 2, 3, 5 and 6 jumbled by pdftotext; values rebuilt in row order and checked against text (e.g. ACE KBX 66.4/36.9, RAG KGB 57.9, ReMe accel 20.0, PDE 451 and KGB 140 test tasks). Code stated as available (link not in extracted text). All prompts given in Appendix B; environment versions in Appendix A.2. Hardware: 2x AMD EPYC 7742, 8x A100 40GB. No pre-registration. Language: Python (Triton kernels)",
+   "p": "1, 5-7, 11-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problems and aims clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): method, prompts, retrieval settings, environment versions and time limits given; code available",
+   "p": "3-5, 11-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): glm-5.3-flash, Qwen3-Embedding-8B and library versions named; ZCode agent version Not stated",
+   "p": "5, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks with licences and links; extraction/test split sizes given (split IDs not stated)",
+   "p": "5, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden benchmark verifiers and timing under matched conditions",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): pass, correctness and acceleration defined; no cost metric per configuration",
+   "p": "6, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Vanilla and nine memory baselines with the same agent, model and source data",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions, variance or statistical tests",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions match the point estimates, but no uncertainty analysis for gains of a few points (e.g. KGB accel 24.3 vs 20.0)",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section (single backbone, one transfer direction, frozen banks); no threats to validity",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, under review",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created MUSE; the baselines are by others",
+   "p": "1, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): no training needed, hosted model API and open embedding model; total API cost (~US$1,500 for all experiments) and hardware stated, but per-task cost of memory construction and gate calls not given; long task limits (2-4 h)",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

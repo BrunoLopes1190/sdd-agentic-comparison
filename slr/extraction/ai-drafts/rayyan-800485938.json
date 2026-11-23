@@ -1,46 +1,333 @@
-{"key": "rayyan-800485938", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Voria, G., Kashiwa, Y., Catolino, G., Palomba, F. (2026). Do They Do as They Are Told? Investigating Coding Agents' Adherence to Explicit Instructions in Context Files. arXiv:2611.13709v1 [cs.SE], 10 Nov 2026 (ACM TOSEM template with placeholder volume/DOI)", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; formatted for ACM TOSEM, no volume or DOI, so not confirmed as published)", "p": "1"},
-{"f": "Author affiliation", "v": "University of Salerno, Italy (Voria, Catolino, Palomba); Nara Institute of Science and Technology, Japan (Kashiwa)", "p": "1"},
-{"f": "Nature of the study", "v": "Evaluates (observational repository-mining study of instruction-level compliance: 621 ACF snapshots linked to 6,541 agent-authored commits in 268 repositories; LLM-assisted instruction extraction, test-driven generation of measurement scripts, compliance per instruction); secondary: proposes an evaluation method (pipeline operationalising ACF instructions into executable compliance checks)", "p": "1, 3, 7"},
-{"f": "Approach(es): name and version", "v": "No SDD approach. Agent context files (CLAUDE.md, AGENTS.md, copilot-instructions.md) of three agents: GitHub Copilot, Claude Code, OpenAI Codex; no versions", "p": "2, 7"},
-{"f": "Artefacts prescribed", "v": "N/A (observed artefacts: ACF snapshots; instructions classified by explicitness, actionability, observability over 19 categories from Chatlatanagulchai et al.)", "p": "8-9"},
-{"f": "Phases of the flow", "v": "N/A", "p": "—"},
-{"f": "Human review points", "v": "N/A as prescription. Implication: generated compliance checks need human review before use as enforcement", "p": "27-28"},
-{"f": "Parts exercised", "v": "Single artefact (context files) observed in real agent commits; not run by the authors", "p": "7-8"},
-{"f": "SDD level", "v": "Not classifiable (context files, no specification)", "p": "—"},
-{"f": "Task type", "v": "Existing code bases: real agent-authored commits in open-source repositories (AIDev); 62.2% touch source, 21.1% tests, 16.4% docs", "p": "7-8"},
-{"f": "Size", "v": "621 snapshots (median 638 words); 6,541 commits, 268 repos, 25,822 changed files (median 1 per commit), 26 languages; 14,902 candidate instructions -> 6,552 explicit+actionable+observable -> 4,123 operationalised -> 2,053 evaluated on 18,594 instruction-commit pairs", "p": "7-8, 15-16, 18, 21"},
-{"f": "Domain", "v": "Public open-source GitHub repositories, 26 languages (C#, TypeScript, Python, Rust, ...)", "p": "8"},
-{"f": "Team profile", "v": "N/A (no participants; real OSS projects using agents)", "p": "—"},
-{"f": "Cost metrics", "v": "Not measured", "p": "—"},
-{"f": "Functional quality metrics", "v": "Not measured (task correctness not assessed)", "p": "—"},
-{"f": "Internal quality metrics", "v": "Not measured as such; compliance with project conventions (naming, implementation details) is the outcome", "p": "—"},
-{"f": "Human effort metrics", "v": "Not measured", "p": "—"},
-{"f": "Other outcome metrics", "v": "Instruction funnel shares; operationalisation rate; evaluation coverage; per-instruction compliance rate (share of applicable commits in which the instruction is followed), by category and agent; extraction precision/recall/F1 and label accuracy; script spot-check agreement", "p": "13-17, 21-22"},
-{"f": "How metrics are collected", "v": "Automatic: Qwen 3.5 9B annotator (local, temp 0.1) extracts instructions with few-shot prompt; manual validation of 84 snapshots by one author; Qwen2.5-Coder-14B-Instruct generates 10 scripts + 10 fixture pairs per instruction (CodeT-style, temp 0.8), accepted if passing >= 2 fixtures and >= 60% corroboration; manual spot-check of 94 scripts; scripts run on before/after files of applicable commits (applicability from fixture file patterns). Kruskal-Wallis, Mann-Whitney U with Bonferroni, Cliff's delta, sensitivity at >= 3 and >= 5 commits", "p": "9-15"},
-{"f": "Evaluation (each configuration)", "v": "Observational, per originating agent (ACF + agent; models not stated); criterion: per-instruction compliance with own ACF on applicable commits. - ACF + GitHub Copilot + model n.s.: 1,137 instructions evaluated; mean 66.0%, median 100%. Quality: partly. - ACF + Claude Code + model n.s.: 799 evaluated; mean 52.2%, median 66.7%. Quality: partly. - ACF + OpenAI Codex + model n.s.: 117 evaluated; mean 51.2%, median 100%. Quality: partly. Overall: mean 59.8%, median 100%; 54.4% of instructions always followed, 37.3% never, 8.3% in between. Cost verdict: not measured", "p": "21-24"},
-{"f": "Comparison: design", "v": "No controlled comparison: real commits mined; groups compared by category (18) and originating agent (3) using one compliance rate per instruction. No baseline (no counterfactual without instruction). Not held constant: repositories, languages, category mix differ across agents. Acceptance: generated scripts (71.3% correct on spot-check). Repetitions: N/A. Sensitivity analysis on thin-evidence instructions", "p": "15, 22-24, 28"},
-{"f": "Comparison: result", "v": "Category differences significant (H = 59.13, p < .001); four pairs after Bonferroni: Development Process lower than Build and Run (delta -0.39), Documentation (-0.29), Implementation Details (-0.32); Implementation Details > Testing (0.15). Only ImplDetails vs Testing survives at >= 3 and >= 5. Agent differences significant (H = 41.58, p < .001): Copilot > Claude Code (delta 0.15, robust), Copilot > Codex (0.13, full sample only); Claude Code = Codex. Operationalisation by agent 62.1-63.5%; by category 47.7% (Management) to 75.6% (Config)", "p": "18-24"},
-{"f": "Comparison: did the method work", "v": "Partly: pipeline operationalised 62.9% of observable instructions, but only 31.3% of them produced a compliance observation; 28.7% of accepted scripts wrong on spot-check; permissive defaults (62.3% of scripts return True without evidence) make compliance optimistic; agent effect is association only (category mix not controlled)", "p": "20-21, 26, 28-29"},
-{"f": "Conclusions: limitations and gaps", "v": "No counterfactual (compliance may reflect defaults); snapshot-commit linking; agent comparison not controlled for category mix; authorship attribution noise; stochastic LLM components; acceptance thresholds from a pilot; scripts see final file state not diff; binary compliance; single annotator; open-weight local models; public GitHub only, three agents. Future: more agents, causes of gaps, enforcement at generation time; recommend artefact-checkable rules and tooling (hooks, CI) for process conventions", "p": "26-30"},
-{"f": "Notes", "v": "Tables 6, 8 jumbled by pdftotext; values rebuilt from text and column order (e.g. Testing operationalised 626/927 = 67.5%, evaluated 270, mean 49.2%, median 37.5%; Development Process evaluated 50, mean 34.0%). Table 7 prints 'No corroborating script' 41.0% while text says 41.1%. Validation counts 2,202 / 2,196 / 2,114 explained in text. Replication package: github.com/gianwario/Agents-Context-Files-Analysis. Authors declare GPT and Claude used for writing and partly for scripts. No pre-registration. Languages: 26", "p": "10, 19-20, 22, 30, 32"},
-{"f": "Q1", "v": "Yes (1): main objective and RQ1-RQ3 stated", "p": "3, 6-7"},
-{"f": "Q2", "v": "Yes (1): data integration, prompts, model settings, thresholds, statistics described; replication package", "p": "7-15"},
-{"f": "Q3", "v": "Partly (0.5): pipeline LLMs and settings identified; agents observed named without versions or models", "p": "7, 10, 12"},
-{"f": "Q4", "v": "Yes (1): dataset sources (AIDev, ACF dataset) described; data and scripts released", "p": "7-8, 32"},
-{"f": "Q5", "v": "Partly (0.5): compliance judged by generated scripts validated on fixtures and a manual spot-check (71.3% correct); no independent ground truth for compliance", "p": "12-13, 20"},
-{"f": "Q6", "v": "Partly (0.5): compliance metrics well defined; no cost or functional quality", "p": "14-15"},
-{"f": "Q7", "v": "No (0): no baseline or controlled alternative (agents compared observationally)", "p": "28"},
-{"f": "Q8", "v": "Yes (1): non-parametric tests with Bonferroni, effect sizes, sensitivity analysis", "p": "15, 22-24"},
-{"f": "Q9", "v": "Yes (1): conclusions qualified; non-robust results flagged; agent effect stated as association", "p": "24-28"},
-{"f": "Q10", "v": "Yes (1): Section 6 Threats to Validity (internal, construct, external, conclusion)", "p": "28-30"},
-{"f": "Q11", "v": "No (0): arXiv preprint; TOSEM template with placeholders, publication not confirmed", "p": "1"},
-{"f": "Q12", "v": "Yes (1): academic authors; not vendors of the agents", "p": "1"},
-{"f": "Q13", "v": "N/A", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800485938",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Voria, G., Kashiwa, Y., Catolino, G., Palomba, F. (2026). Do They Do as They Are Told? Investigating Coding Agents' Adherence to Explicit Instructions in Context Files. arXiv:2611.13709v1 [cs.SE], 10 Nov 2026 (ACM TOSEM template with placeholder volume/DOI)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.13709v1 [cs.SE], 10 Nov 2026; formatted for ACM TOSEM with placeholder volume, DOI and received/accepted dates, so not confirmed as published (found only in the arXiv exports)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'. Type itself (Preprint) is right: the record is only in the arXiv exports and the TOSEM header has placeholders (X, XXXXXXX; 'Received 20 February 2007')"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Salerno, Italy (Voria, Catolino, Palomba); Nara Institute of Science and Technology, Japan (Kashiwa)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — observational repository-mining study of instruction-level compliance (621 ACF snapshots linked to 6,541 agent-authored commits in 268 repositories; LLM-assisted instruction extraction, test-driven generation of measurement scripts, compliance per instruction); the secondary nature is the pipeline that operationalises ACF instructions into executable compliance checks",
+   "p": "1, 3, 7",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>'. Natures themselves kept"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent context files (CLAUDE.md, AGENTS.md, copilot-instructions.md) of three agents: GitHub Copilot, Claude Code, OpenAI Codex; no versions",
+   "p": "2, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (observed artefacts: ACF snapshots; instructions classified by explicitness, actionability, observability over 19 categories from Chatlatanagulchai et al.)",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A as prescription. Implication: generated compliance checks need human review before use as enforcement",
+   "p": "27-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context files) observed in real agent commits; not run by the authors",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context files, no specification)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: real agent-authored commits in open-source repositories (AIDev); 62.2% touch source, 21.1% tests, 16.4% docs",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "621 snapshots (median 638 words); 6,541 commits, 268 repos, 25,822 changed files (median 1 per commit), 26 languages; 14,902 candidate instructions -> 6,552 explicit+actionable+observable -> 4,123 operationalised -> 2,053 evaluated on 18,594 instruction-commit pairs",
+   "p": "7-8, 15-16, 18, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Public open-source GitHub repositories, 26 languages (C#, TypeScript, Python, Rust, ...)",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; real OSS projects using agents)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Not measured (task correctness not assessed)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured as such; compliance with project conventions (naming, implementation details) is the outcome",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Instruction funnel shares; operationalisation rate; evaluation coverage; per-instruction compliance rate (share of applicable commits in which the instruction is followed), by category and agent; extraction precision/recall/F1 and label accuracy; script spot-check agreement",
+   "p": "13-17, 21-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Qwen 3.5 9B annotator (local, temp 0.1) extracts instructions with few-shot prompt; manual validation of 84 snapshots by one author; Qwen2.5-Coder-14B-Instruct generates 10 scripts + 10 fixture pairs per instruction (CodeT-style, temp 0.8), accepted if passing >= 2 fixtures and >= 60% corroboration; manual spot-check of 94 scripts; scripts run on before/after files of applicable commits (applicability from fixture file patterns). Kruskal-Wallis, Mann-Whitney U with Bonferroni, Cliff's delta, sensitivity at >= 3 and >= 5 commits",
+   "p": "9-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Observational, per originating agent (ACF + agent; models not stated); criterion: per-instruction compliance with own ACF on applicable commits. - ACF + GitHub Copilot + model n.s.: 1,137 instructions evaluated; mean 66.0%, median 100%. Quality: partly. - ACF + Claude Code + model n.s.: 799 evaluated; mean 52.2%, median 66.7%. Quality: partly. - ACF + OpenAI Codex + model n.s.: 117 evaluated; mean 51.2%, median 100%. Quality: partly. Overall: mean 59.8%, median 100%; 54.4% of instructions always followed, 37.3% never, 8.3% in between. Cost verdict: not measured",
+   "p": "21-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No controlled comparison: real commits mined; groups compared by category (18) and originating agent (3) using one compliance rate per instruction. No baseline (no counterfactual without instruction). Not held constant: repositories, languages, category mix differ across agents. Acceptance: generated scripts (71.3% correct on spot-check). Repetitions: N/A. Sensitivity analysis on thin-evidence instructions",
+   "p": "15, 22-24, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Category differences significant (H = 59.13, p < .001); four pairs after Bonferroni: Development Process lower than Build and Run (delta -0.39), Documentation (-0.29), Implementation Details (-0.32); Implementation Details > Testing (0.15). Only ImplDetails vs Testing survives at >= 3 and >= 5. Agent differences significant (H = 41.58, p < .001): Copilot > Claude Code (delta 0.15, robust), Copilot > Codex (0.13, full sample only); Claude Code = Codex. Operationalisation by agent 62.1-63.5%; by category, among the 12 categories with >= 50 instructions, 47.7% (Management) to 75.6% (Config and Environment) (all 19: 0% AI Integration, 1 instruction, to 90.9% General, 11)",
+   "p": "18-24",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The category range 47.7-75.6% holds only for the twelve categories with at least 50 instructions (p. 18); Table 6 includes General 90.9% and AI Integration 0%, so the range without the qualifier was wrong"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: pipeline operationalised 62.9% of observable instructions, but only 31.3% of them produced a compliance observation; 28.7% of accepted scripts wrong on spot-check; permissive defaults (62.3% of scripts return True without evidence) make compliance optimistic; agent effect is association only (category mix not controlled)",
+   "p": "20-21, 26, 28-29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No counterfactual (compliance may reflect defaults); snapshot-commit linking; agent comparison not controlled for category mix; authorship attribution noise; stochastic LLM components; acceptance thresholds from a pilot; scripts see final file state not diff; binary compliance; single annotator; open-weight local models; public GitHub only, three agents. Future: more agents, causes of gaps, enforcement at generation time; recommend artefact-checkable rules and tooling (hooks, CI) for process conventions",
+   "p": "26-30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 6, 8 jumbled by pdftotext; values rebuilt from text and column order (e.g. Testing operationalised 626/927 = 67.5%, evaluated 270, mean 49.2%, median 37.5%; Development Process evaluated 50, mean 34.0%). Table 7 prints 'No corroborating script' 41.0% while text says 41.1%. Validation counts 2,202 / 2,196 / 2,114 explained in text. Replication package: github.com/gianwario/Agents-Context-Files-Analysis. Authors declare GPT and Claude used for writing and partly for scripts. No pre-registration. Languages: 26",
+   "p": "10, 19-20, 22, 30, 32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): main objective and RQ1-RQ3 stated",
+   "p": "3, 6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data integration, prompts, model settings, thresholds, statistics described; replication package",
+   "p": "7-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): pipeline LLMs and settings identified; agents observed named without versions or models",
+   "p": "7, 10, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): dataset sources (AIDev, ACF dataset) described; data and scripts released",
+   "p": "7-8, 32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): compliance judged by generated scripts validated on fixtures and a manual spot-check (71.3% correct); no independent ground truth for compliance",
+   "p": "12-13, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): compliance metrics well defined; no cost or functional quality",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline or controlled alternative (agents compared observationally)",
+   "p": "28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): non-parametric tests with Bonferroni, effect sizes, sensitivity analysis",
+   "p": "15, 22-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions qualified; non-robust results flagged; agent effect stated as association",
+   "p": "24-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 Threats to Validity (internal, construct, external, conclusion)",
+   "p": "28-30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint; TOSEM template with placeholders, publication not confirmed",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; not vendors of the agents",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

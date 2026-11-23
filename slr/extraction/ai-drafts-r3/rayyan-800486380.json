@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486380",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, Y., Chang, S., Chawa, K., Lin, F., Chen, B., Wang, S., & Hassan, A. E. (2026). SpecFirst: Behavioral Specification Elicitation as a First-Class Step in Agent-Based Program Synthesis from Scratch. arXiv:2607.27167v1 [cs.SE], 29 Jul 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Mixed: Huawei Canada (industry); Queen's University, University of Manitoba, Concordia University (academia)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — SpecFirst (spec agent + code synthesis agent) compared with the single-loop Direct-Synthesis baseline on ProgramBench across 4 models; also compares SPEC.md formats (Sections, Freeform, OpenSpec)",
+   "p": "1-2, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SpecFirst (authors'; spec agent + code synthesis agent), no version; baseline Direct-Synthesis = original ProgramBench pipeline with official mini-SWE-agent (commit not given in text). Format variants: Sections (default), Freeform, OpenSpec format (Fission AI)",
+   "p": "2, 4, 6, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "SPEC.md behavioural specification written by the spec agent from documentation and black-box probing; default 'Sections' format with six headings: Overview; Flags; Input & stdin; Output format; Error patterns; Edge cases. Variants: free-form, or OpenSpec (## Purpose, ### Requirement blocks with RFC 2119 keywords, GIVEN/WHEN/THEN scenarios)",
+   "p": "3-4, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Stage 1: spec agent reads documentation and probes the execute-only binary (boundary probing, error-path elicitation, combinatorial flag testing, output-format refinement), writes SPEC.md; terminates on self-declared completion, 1,000 turns or 6 h; deliverable gate (up to 8 rejections). Stage 2: code synthesis agent (mini-SWE-agent) receives documentation, binary and SPEC.md (spec-agent reasoning discarded), implements, may still probe the binary; output repository with build file scored on hidden tests",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (spec elicited autonomously; automated judge only checks for prohibited shortcuts)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-first (draft): specification elicited before and used to drive implementation, not maintained afterwards. Authors: 'forces the specification elicitation before code synthesis'; SPEC.md as 'a stable behavioral contract'",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: from-scratch re-implementation of a command-line program from documentation and an execute-only binary (agent chooses language and architecture)",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "200 ProgramBench instances (easy 28, medium 143, hard 29); 248,853 hidden tests, median 770 per task, 79.7% line coverage; includes FFmpeg, SQLite, PHP interpreter. Reference implementations: Rust 107, Go 46, C/C++ 45, Java 1, Haskell 1",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Real-world open-source command-line tools (deterministic CLI programs)",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean per-instance cost in USD (spec agent, synthesis agent, total); agent turns consumed",
+   "p": "8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Average test pass rate on hidden tests (primary); share of instances with pass rate >= 50/70/90/95%; resolved rate mentioned (baseline GPT-5.5-high resolves 1/200)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Probing coverage (share of binary's executable lines exercised by probes, via go build -cover, gcc --coverage, cargo llvm-cov); codebase size (LOC) over normalised run progress; failure taxonomy on 50 sampled failures (spec omission 10%, wrong spec 4%, inaccurate spec 26%, execution fault 52%, environment 8%)",
+   "p": "6, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden test suites, binary instrumentation, API cost via LiteLLM; paired two-sided Wilcoxon signed-rank tests (alpha 0.05), 95% CIs. Manual: labelling of 50 failure cases (number of labellers not stated)",
+   "p": "6-7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: average hidden-test pass rate; probing coverage; cost. Agent: mini-SWE-agent (version n.s.) for synthesis in all; same model for both stages. Direct-Synthesis / SpecFirst pass rate, coverage, cost: (1) Direct + mini-SWE-agent + Qwen3.5-397B-A17B: 33.66%, 51.9%, $2.56; (2) SpecFirst + mini-SWE-agent + Qwen3.5-397B-A17B: 40.84%, 59.8%, $3.79. (3) Direct + Qwen3.6-35B-A3B: 27.51%, 49.2%, $2.03; (4) SpecFirst + Qwen3.6-35B-A3B: 31.40%, 58.3%, $3.17. (5) Direct + GPT-5.5-high: 59.02%, 55.1%, $2.54; (6) SpecFirst + GPT-5.5-high: 65.14%, 60.3%, $5.85 (>=90% pass on 16.5% vs 5.5% of programs). (7) Direct + GPT-5.4-mini (medium): 39.09%, 52.1%, $0.35; (8) SpecFirst + GPT-5.4-mini: 41.78%, 58.6%, $0.53. Format study (GPT-5.4-mini, 50 sampled instances): no spec 55.9%, Freeform 60.7%, OpenSpec 61.7%, Sections 62.6%. Verdicts: SpecFirst quality partly (best but 31-65% pass, few programs fully resolved), cost works (partly for GPT-5.5-high, +130%); Direct-Synthesis quality partly/does not work, cost works",
+   "p": "6-8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: all 200 ProgramBench instances. Configurations: SpecFirst vs Direct-Synthesis x 4 models; format variants on 50 instances with GPT-5.4-mini. Baseline: Direct-Synthesis (same mini-SWE-agent scaffold; only difference is the spec agent). Held constant: scaffold, model per pair, provider-default decoding, isolated no-network Docker images, same limits; shortcut prohibitions (source recovery, disassembly) enforced by automated judge. Acceptance tests: hidden benchmark tests. Repetitions: Not stated (apparently one run per instance x configuration). Human intervention: none",
+   "p": "4-7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "SpecFirst > Direct-Synthesis on pass rate for all models: relative +21.3% (Qwen3.5), +14.1% (Qwen3.6), +10.4% (GPT-5.5-high), +6.9% (GPT-5.4-mini); W/L/T 130/58/12, 121/67/12, 150/38/12, 119/69/12; all p < 0.01. Gains on all difficulty levels (largest GPT-5.5-high hard: 30.8% -> 40.0%). Probing coverage +9.4% to +18.5% relative, p < 0.05. Cost +48% to +130%. Formats: Sections best (62.6%) vs OpenSpec 61.7%, Freeform 60.7% (no test)",
+   "p": "6-8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished SpecFirst from baseline on every model with significant paired tests; format comparison small, one model, 50 instances, no test. Repeatability: single run, not assessed. Limitations stated: extra compute for two agents (argued away since baseline runs end early by choice, median 22-177 turns); deterministic CLI programs only; one scaffold; pass-rate metric mixes buildability and behaviour (compile failures at most 3/200)",
+   "p": "8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Results may not generalise to non-deterministic, GUI or IPC-heavy programs, other models or scaffolds; requires an executable oracle (argued to generalise to any queryable reference such as a REST API or a human). Dominant remaining failure is execution fault (52%): need stronger execution-stage reasoning, self-consistency checking against SPEC.md, test-driven repair; elicitation coverage and fidelity still open (40% spec-related failures); targeted probing of error paths, flag interactions, output routing",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Threats section says 'single scaffold (SWE-agent)' while the method uses mini-SWE-agent. 'Local modifications released as patches against those exact commits' but no URL or commit given in text; no data availability statement. Relative improvements are percentages of baseline, not percentage points (e.g., GPT-5.4-mini +2.7 points). Format comparison is the only place OpenSpec is run, and only as a SPEC.md format. Pre-registration: not claimed. Language: agent chooses implementation language; reference binaries mostly Rust, Go, C/C++",
+   "p": "6, 7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): procedure, limits, spec format, termination and controls described; prompts not shown and patches/code location not given",
+   "p": "3-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning levels named (Table I); mini-SWE-agent version/commit not stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public ProgramBench, described with sizes, languages and difficulty",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden benchmark test suites",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass rate and probing coverage defined; cost per instance reported",
+   "p": "6, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Direct-Synthesis with the same scaffold and model",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): paired Wilcoxon tests and 95% CIs over instances; one run per configuration, no repetitions",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main results follow, but 'more compute would not help' is inferred rather than tested, and the format claim rests on 50 instances, one model, no test",
+   "p": "8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Threats to Validity (internal, external, construct)",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created SpecFirst; baseline scaffold and OpenSpec are third-party",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): cost stated ($0.53-$5.85 per instance) and uses standard tooling, but requires an executable behavioural oracle, which typical new projects lack",
+   "p": "10",
+   "verdict": "uncertain",
+   "why": "Judgement: cost is stated ($0.53-$5.85 per instance, Table VII p. 10) and tooling is standard (mini-SWE-agent, Docker, LiteLLM), which could support Yes; but the approach needs an executable behavioural oracle, which the authors argue can be any queryable reference 'or human' (p. 10), while a typical new project has none (Partly)"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

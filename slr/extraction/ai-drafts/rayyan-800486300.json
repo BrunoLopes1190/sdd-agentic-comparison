@@ -1,226 +1,315 @@
 {
  "key": "rayyan-800486300",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
  "fields": [
   {
    "f": "Reference",
    "v": "Ma, D., Chen, S., Yang, Y., Shi, Y., Yan, Y., Gu, X. (2026). LLM Agents Can See Code Repositories. In Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany. ACM. https://doi.org/10.1145/3832783.3834363. arXiv:2606.14061v4 [cs.SE], 3 Aug 2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
    "v": "Conference (ASE '26, ACM); arXiv v4 used",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "Shanghai Jiao Tong University; Xi'an Jiaotong University; Zhejiang University (Hangzhou High-Tech Zone Institute of Blockchain and Data Security)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
    "v": "Compares (empirical study of repository representation modality, layout, depth and invocation stage across multimodal models; 4 RQs); secondary: proposes an approach (SeeRepo multimodal graph-visualisation tool)",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "SeeRepo (graph visualisation tool: AST-based dependency graph rendered as Graphviz PNG; version Not stated) on Mini-SWE-Agent (version Not stated). Variants: vision-only, text+vision (multimodal), text-rendered graph, layouts graph/nested/tabular, fixed depth 1-4 vs agent-decided depth, invocation at localization/repair/validation. Baseline: text-only Mini-SWE-Agent",
-   "p": "2, 4-5, 7-8"
+   "p": "2, 4-5, 7-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "No specification artefacts. Pre-built heterogeneous repository graph (contains, imports, invokes, inherits) serialised for reuse; query-centred subgraph images (PNG, <=35 Mpx) returned by a graph tool; stage-specific system prompts",
-   "p": "4-5, 8"
+   "p": "4-5, 8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Localization (file hunting via imports graph -> logic hunting via invokes graph -> hierarchy/path verification via inherits and contains) -> read code -> fix via Bash -> run tests",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Full agent loop on issue resolution with the visualisation tool; stage ablations confine tool to one stage",
-   "p": "5, 8"
+   "p": "5, 8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (no specification; visual repository context)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing code base (SWE-bench Verified issues; SWE-Rebench; repository QA in SWE-QA)",
-   "p": "3, 6"
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "SWE-bench Verified 500 instances; SWE-Rebench 2026.03: 110 instances, 41 repositories; SWE-QA (size Not stated); limits 250 steps and $3.0 per instance",
-   "p": "3-4, 6"
+   "p": "3-4, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Open-source Python repositories (GitHub)",
-   "p": "3, 10"
+   "p": "3, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (no human participants)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "API calls per instance; input and output tokens per instance; average cost ($) per instance",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "Pass@1 (resolution by unit tests) on SWE-bench Verified and SWE-Rebench; SWE-QA Overall Score (0-100)",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Case study of localisation steps (astropy-13398: tokens 143,558 -> 96,816, steps 17 -> 12)",
-   "p": "9-10"
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Automatic: benchmark test harnesses and official SWE-QA protocol; token and cost accounting from API usage; averaged over three runs",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "Criterion: Pass@1 (unit tests) and cost per instance. Agent = Mini-SWE-Agent (+ SeeRepo), temperature 0, averaged over 3 runs, SWE-bench Verified 500 unless noted\n- Text + GPT-5-mini: 55.0%, 15 calls, 193,157 in tokens, $0.031. Quality partly, cost works\n- Vision-only + GPT-5-mini: 41.4%, 270,117 tokens, $0.044 (+42%). Does not work\n- Multimodal (SeeRepo) + GPT-5-mini: 55.4%, 144,403 tokens (-25%), $0.023 (-26%). Quality partly, cost works\n- Text + GPT-5.1: 51.0%, $0.1795; Multimodal + GPT-5.1: 48.8%, $0.0975 (-46%). Partly\n- Text + Kimi K2.5: 70.3% (Table 1) / 68.8% (Table 2), ~$0.12-0.13; Vision-only + Kimi K2.5: 55.0%, $0.1543; Multimodal + Kimi K2.5: 70.6%, $0.1229. Multimodal works\n- Text + Doubao-Seed-2.0-Lite: 51.0%, $0.019 / $0.0173; Vision-only + Doubao: 16.9%, $0.070 (+268%), does not work; Multimodal + Doubao: 52.0%, $0.0162. Partly\n- SWE-Rebench (110) + GPT-5-mini: text 25.45% $0.052; multimodal 26.36% $0.047. Does not work (quality)\n- SWE-QA + GPT-5-mini: text 66.8 $0.0107; multimodal 67.2 $0.0079. Partly\n- Layout ablation + GPT-5-mini: text-rendered graph 53.8% $0.027; graph 55.4% $0.023; nested 55.8% $0.025; tabular 56.2% $0.027 (ablation)\n- Depth ablation + GPT-5-mini: depth 1 54.4% $0.028; depth 2 55.8% $0.026; depth 3 55.4% $0.026; depth 4 57.2% $0.026; agent-decided 55.4% $0.023 (ablation)\n- Stage ablation + GPT-5-mini: localization 55.4% $0.023; repair 50.0% $0.029; patch validation 51.6% $0.030 (ablation)",
-   "p": "4-8"
+   "p": "4-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "Benchmarks: SWE-bench Verified (500), SWE-Rebench 2026.03 (110), SWE-QA. Configurations: text-only vs vision-only (3 models), text vs multimodal (4 models), layouts, depths, stages (GPT-5-mini). Baseline: text-only Mini-SWE-Agent. Held constant: scaffold, temperature 0, 250-step and $3 budgets, all settings except structural context. Acceptance: benchmark unit tests / SWE-QA scoring. Repetitions: averaged over 3 independent runs. Human intervention: none",
-   "p": "3-5, 10"
+   "p": "3-5, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "Vision-only worst for all models (-13.6 to -34.1 pp, cost +27% to +268%). Multimodal reduces cost (GPT-5-mini -26%, GPT-5.1 -46%, Kimi -3%, Doubao -6%) with Pass@1 change -2.2 to +1.8 pp. Graph layout most token-efficient; tabular highest Pass@1 (56.2%); depth 4 best Pass@1 (57.2%); localization stage best, repair (-5.0) and validation (-3.4) worse. No significance tests or variance reported; accuracy differences mostly < 2 pp",
-   "p": "4-8"
+   "p": "4-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "Clearly distinguished vision-only and stage variants; small multimodal Pass@1 differences not tested for significance. Repeatability: 3-run averages, spread not reported. Limitations stated: Python only; tokens and trajectory length as efficiency proxies; model-specific tool-use tendencies",
-   "p": "4, 10"
+   "p": "4, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Python-only benchmark (generalisation to Java/TypeScript unclear); efficiency proxies miss qualitative reasoning aspects (no human evaluation); model-architecture interactions; static Graphviz layouts dense for large repositories; future: adaptive visualisation, learned invocation policies, dynamic/runtime signals",
-   "p": "10"
+   "p": "10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Inconsistency: text-only baselines differ between Table 1 and Table 2 (Kimi K2.5 70.3% vs 68.8%; Doubao input tokens 201,754 vs 185,311, cost $0.019 vs $0.0173); abstract says four models but RQ1 uses three. Tables rebuilt from pdftotext output (column values split across lines). Data and artefacts at https://doi.org/10.5281/zenodo.19229174. Pre-registration: Not stated. Language: Python",
-   "p": "1-2, 4-5, 10"
+   "p": "1-2, 4-5, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): four RQs stated",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Yes (1): implementation, budgets, temperature, variants described; artefacts on Zenodo",
-   "p": "4-5, 8, 10"
+   "p": "4-5, 8, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Partly (0.5): models named without snapshot versions; Mini-SWE-Agent and SeeRepo versions Not stated",
-   "p": "2, 4"
+   "p": "2, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "Yes (1): public benchmarks (SWE-bench Verified, SWE-Rebench 2026.03, SWE-QA)",
-   "p": "3, 6"
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "Yes (1): benchmark unit tests and official SWE-QA scoring",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "Yes (1): Pass@1, tokens, calls and $ cost defined",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "Yes (1): text-only Mini-SWE-Agent under same settings",
-   "p": "4, 10"
+   "p": "4, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "Partly (0.5): averaged over 3 runs but no variance or significance tests",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Partly (0.5): negative results (vision-only, stages) reported, but 'maintaining or improving accuracy' and 'all layouts outperform' claimed from untested differences < 2 pp (and GPT-5.1 -2.2, text-graph -1.2)",
-   "p": "2, 6-8"
+   "p": "2, 6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Yes (1): Section 9.1 threats to validity",
-   "p": "10"
+   "p": "10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
    "v": "Yes (1): ASE '26 (ACM) [Check: the record has a published DOI (https://doi.org/10.1145/3832783.3834363); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Partly (0.5): authors built SeeRepo; independent of Mini-SWE-Agent and model vendors",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "Yes (1): Graphviz + AST static analysis on an open scaffold; cost per instance $0.02-0.12 reported; artefacts public",
-   "p": "4-5, 10"
+   "p": "4-5, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

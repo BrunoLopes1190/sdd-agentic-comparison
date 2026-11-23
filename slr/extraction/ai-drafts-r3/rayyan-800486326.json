@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486326",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Gao, H., Baltes, S., Lulla, J. L., Treude, C., Lin, H. Y., Zahedi, M. (2026). From Registry to Repository: How AI Agent Skills Are Written, Adapted, and Maintained. arXiv:2607.00911v2 [cs.SE], 6 Jul 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 6 Jul 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.00911v2 [cs.SE]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The University of Melbourne (Gao, Lin, Zahedi); Heidelberg University (Baltes); Singapore Management University (Lulla, Treude)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — empirical mining study of AI agent skills as software artefacts (SWEBOK classification, packaging and spec conformance, content taxonomy, customisation and evolution), comparing registry vs personal-use skills and customisation vs evolution; no agent configuration run",
+   "p": "1-3",
+   "verdict": "uncertain",
+   "why": "No SDD approach or agent configuration is evaluated; the study mines and characterises skill artefacts (RQ1-RQ3, p. 3). 'Evaluates; secondary: Compares' is the closest value in the closed list, but no value fits an artefact-mining study well, so the main nature is a judgement call."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent Skills (SKILL.md with YAML frontmatter + Markdown body + optional scripts/, references/, assets/), per the public Agent Skills specification supported by Anthropic (agentskills.io; version Not stated, accessed 28-06-2026); skills from the skills.sh registry and personal-use GitHub repositories",
+   "p": "1, 4, 6, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "SKILL.md (frontmatter: name, description mandatory; license, compatibility, metadata, allowed-tools optional); optional scripts/, references/, assets/ directories; spec recommends body <= 500 lines, <= 5,000 whitespace tokens, relative Markdown links at most one directory deep. Content taxonomy found: scoping/orchestrating, execution lifecycle, output quality, governing agent conduct, domain knowledge, user/agent coordination",
+   "p": "1, 4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not applicable to skills as a whole (skills loaded on demand by progressive disclosure: frontmatter preloaded, body on activation); 68% of sampled skills prescribe a sequenced/branching workflow",
+   "p": "1-2, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as a prescribed flow; 63% of sampled skills contain user-interaction rules (e.g., gating consequential actions behind user consent)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (mining of SKILL.md files and their git histories)",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skills are reusable context bundles, not specifications; authors call workflow parts 'operational specifications')",
+   "p": "2, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (mining study); skills come from existing open-source repositories and a registry",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "18,463 registry skills (skills.sh, >= 20 installs, 2,338 repos) + 23,199 personal-use skills (5,876 GitHub repos); 3,709 reuse links (2,462 SE pairs); 29,450 SE skills after classification; 180 skills thematically analysed; 444 diffs coded (188 linked, 256 unlinked)",
+   "p": "1-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Agent skills across SWEBOK knowledge areas (Software Construction dominant: 28.3% registry, 22.1% personal) plus ~29% non-SE skills",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (open-source repositories; contributor profiles not analysed)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (SKILL.md length in tokens reported as a descriptive property: median 1,678 vs 1,114)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (no agent run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Conformance to 17 statically checkable provisions of the Agent Skills specification (7 mandatory, 10 optional); length and header structure",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (maintenance activity measured as commits: 58.8% of all 16,244 SE personal-use skills updated at least once; locally authored 60.8%, median 2 follow-up commits; reused 47.4%)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "SWEBOK KA distribution; reuse linkage and verbatim-copy rate (70.3% pairs similarity >= 0.99); upstream synchronisation (40.2% of never-updated reused skills missed upstream updates; 62.3% diverged); taxonomies of content (6 themes, 17 subthemes, 69 codes) and changes (6 themes, 60 codes); addition/removal ratio",
+   "p": "4-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic mining (skills.sh, GitHub Search API, commit histories, LCS similarity); LLM classification (Qwen3.6-27b, temperature 0, validated against a 285-skill gold standard, kappa 0.82); manual thematic analysis and open coding by two authors; Mann-Whitney U, Cliff's delta, Fisher's exact with Benjamini-Hochberg, Cohen's h",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based mining study; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Document-based: centralised (registry) vs personal-use skills on KA distribution, structure and specification conformance; customisation (registry-to-local adoption diff, 188 linked pairs) vs evolution (initial-to-final diff of locally authored skills, 256), stratified by similarity/churn quartiles. No agent, acceptance tests, repetitions or human intervention apply",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Registry skills longer (median 1,678 vs 1,114 tokens; 19 vs 13 headers; p < 0.001, Cliff's delta 0.23/0.25) and more spec-conformant (name equals directory 97.65% vs 91.23%); optional fields in 3-16%. Reuse mostly one-time copy: 1,841/2,462 near-verbatim; 47.4% of reused skills locally updated vs 60.8% of local ones; 53% never updated after adoption. Most edited: reworking operational specifications (56.9% customisation / 61.6% evolution) and adapting knowledge (46.3% / 50.2%). Significant differences: repackaging/porting only in customisation (12.2% vs 0%, h = 0.71), renames/tool substitutions in evolution (5.3% vs 24.3%, h = 0.57), polishing presentation in customisation (55.9% vs 30.6%, h = 0.52). Additions outnumber removals 2.7:1 (evolution 6.1:1). User interaction, monitoring and failure-handling rules rarely edited",
+   "p": "5-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished registry vs personal and customisation vs evolution with statistical tests and effect sizes. Linkage heuristic validated (90% agreement, 93% genuine reuse in boundary bucket; 30/30 below threshold independent). Limitations stated: tests ignore clustering within repositories and dependence among labels; endpoint diff hides intermediate edits; exploratory",
+   "p": "4-5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single primary KA per skill; linkage misses renamed/heavily edited skills and assumes direction registry -> repo; customisation and evolution use different diff designs; 20-install threshold; LLM labels; gold standard stratified by predicted label; only public GitHub repos; Tukey cap may drop genuine projects; snapshot to March/May 2026; single registry. Gaps: consolidate re-authored domain knowledge, skill activation tracing, prose vs script trade-off, agent-neutral formats and templates",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Replication package: zenodo.org/records/21032973. No pre-registration. No programming language (Markdown/YAML artefacts). Not an evaluation of agent performance; relevance to SDD: skills as reusable instruction artefacts. Tables I-III extracted with jumbled columns; values rebuilt by order and checked against text (e.g., h values 0.71 in table vs 0.72 in text for repackaging, p. 8-9). Evolution frame: 5,978 changed skills reduced to 5,367 after churn filter",
+   "p": "4-5, 8-9, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 with sub-questions",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): collection filters, linkage heuristic, classification, sampling and coding procedures described; replication package",
+   "p": "3-5, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): classifier LLMs named (Qwen3.6-27b, Gemma-4-31b-it) with temperature; spec version not given (only access date); no agent run",
+   "p": "4, 11",
+   "verdict": "uncertain",
+   "why": "Q3 targets agent runs; no agent is run. Classifier LLMs are named with temperature 0 (Qwen3.6-27b, Gemma-4-31b-it, p. 4); the Agent Skills spec is cited only by URL and access date (ref. 44). Partly or Yes both defensible."
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): data sources, dates and filters described; dataset in replication package",
+   "p": "3, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM labels validated against a two-annotator gold standard (kappa 0.85; classifier kappa 0.82) and linkage audited by two authors, but the gold standard and all thematic codes are the authors' own annotations",
+   "p": "4-5",
+   "verdict": "uncertain",
+   "why": "The gold standard (two annotators, kappa 0.85; classifier kappa 0.82 against it, p. 4-5) and the linkage audit are built by the study's own authors. Whether author-built ground truth with inter-rater agreement is an independent criterion is a judgement: Partly or Yes."
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): descriptive metrics defined; no cost or agent-quality outcomes",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): registry vs personal and customisation vs evolution compared under the same procedure, but no baseline in the usual sense",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): Mann-Whitney, Fisher's exact with BH correction, effect sizes; inter-rater agreement",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): implications follow from data; interpretations flagged as tentative where not evidenced",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats-to-validity section (construct, internal, external)",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university authors; not vendors of skills.sh or the Agent Skills specification",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -1,46 +1,361 @@
-{"key": "rayyan-800486531", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Salle, J., Bhatnagar, H., Bethge, M., Abdelnabi, S., Andriushchenko, M. (2026). Benchmarks Are Surprisingly Compaction-Friendly. arXiv:2610.31778v1 [cs.LG], 22 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; marked 'Preprint'), venue not stated", "p": "1"},
-{"f": "Author affiliation", "v": "ELLIS Institute Tuebingen; Max Planck Institute for Intelligent Systems; Tuebingen AI Center; University of Tuebingen", "p": "1"},
-{"f": "Nature of the study", "v": "Compares (five context-compaction strategies and compaction thresholds inside a fixed scaffold, four frontier models, three long-horizon benchmarks); secondary: evaluates (constraint erosion on ProgramBench and on real SWE-chat sessions)", "p": "1-3"},
-{"f": "Approach(es): name and version", "v": "Context compaction strategies implemented in OpenCode (version not stated): self-summarization (baseline, scaffold default), tool-output pruning, filesystem offloading (context saved to JSON file), reasoning block discarding (clear thinking, k = 10), small-model summarization (Claude Haiku 4.5). Not an SDD approach", "p": "4-5, 13"},
-{"f": "Artefacts prescribed", "v": "None of the SDD kind; compaction summary (prompt asks for what was done, current work, files, next steps, key user requests/constraints, technical decisions); JSON copy of context for offloading", "p": "5, 14"},
-{"f": "Phases of the flow", "v": "Not an SDD flow: agent works -> token budget reached -> compaction (summary/pruning) -> fresh context with system prompt + summary -> continue", "p": "5"},
-{"f": "Human review points", "v": "None in benchmark runs (autonomous); SWE-chat sessions are real human-agent sessions (Claude Code) analysed post hoc", "p": "4, 7-9"},
-{"f": "Parts exercised", "v": "N/A (not an SDD approach; compaction mechanism run in full within the scaffold)", "p": "5"},
-{"f": "SDD level", "v": "Not classifiable (context compaction; no specification artefact). SWE-chat taxonomy distinguishes 'specifications of what to build' (feature requirements) from process instructions and scope exclusions", "p": "7-8"},
-{"f": "Task type", "v": "New projects / from scratch: PaperBench (replicate ICML 2024 papers as a repository), ProgramBench (reimplement a CLI tool from a reference binary), PostTrainBench (post-train a small LLM); SWE-chat: real interactive coding sessions (task type not stated)", "p": "4, 7"},
-{"f": "Size", "v": "PaperBench 3 of 20 papers (adaptive-pruning, all-in-one, bam), 10 h, Code-Dev variant; ProgramBench 2 tasks (Canop/broot in Rust, jarun/nnn in C; plus lua/luajit for erosion/reward-hacking analysis), 6 h; PostTrainBench 2 base models x 3 target benchmarks, 10 h on one H100; 2 runs per task and configuration; thresholds 160K-380K tokens; SWE-chat 44 sessions, 269 constraints", "p": "4, 7-8, 13, 22"},
-{"f": "Domain", "v": "ML research replication, terminal tools (Rust, C), LLM post-training; real user coding sessions (SWE-chat)", "p": "4"},
-{"f": "Team profile", "v": "N/A for benchmarks (autonomous agents); SWE-chat users not described", "p": "-"},
-{"f": "Cost metrics", "v": "Not measured as cost (number of compaction events per run reported; tokens before compaction is the manipulated threshold). No money or time", "p": "5, 21-22"},
-{"f": "Functional quality metrics", "v": "PaperBench rubric score (LLM judge gpt-4o-mini, Code-Dev leaves); ProgramBench fraction of tests passed; PostTrainBench target benchmark performance; accuracy conditional on valid submission; failure rate", "p": "5, 13, 20-21"},
-{"f": "Internal quality metrics", "v": "Not measured", "p": "-"},
-{"f": "Human effort metrics", "v": "Not measured", "p": "-"},
-{"f": "Other outcome metrics", "v": "Constraint erosion (number of the three ProgramBench anti-cheating rule categories absent from each compaction summary); rule violations / reward hacking (7 mechanism types); SWE-chat constraint preservation/drop rate by category", "p": "5, 7-8, 22-24"},
-{"f": "How metrics are collected", "v": "Automatic benchmark graders; LLM judges: Claude Sonnet 5 for reward hacking (after regex pass), constraint erosion, SWE-chat constraint extraction, preservation and categorisation; second judge GPT-5.6 Sol for replication (agreement 88.8%, kappa 0.681); bootstrap 95% CIs; taxonomy built by reading a sample manually", "p": "5, 14-19, 23-24"},
-{"f": "Evaluation (each configuration)", "v": "Criterion: accuracy conditional on valid submission vs self-summarization baseline (bootstrap CIs). Scaffold OpenCode for all; most values in Figs. 2-3 only. Threshold sweep 160K-380K (baseline strategy): - Claude Opus 4.6 (max effort): flat across thresholds on all benchmarks. Works. - GPT-5.4 (medium): flat. Works. - GPT-5.3-Codex (400K window): PaperBench 0.38 at 160K -> ~0.60 at >=260K; ProgramBench flat; PostTrainBench inconclusive. Partly. - Gemini 3.1 Pro Preview: rarely compacts (~1 per run at 160K); uninformative. N/A. Strategies at 160K (no strategy better than baseline beyond CIs): - Tool-output pruning: close to baseline for all models on PaperBench. Works. - Filesystem offloading: near baseline for 1M models; GPT-5.3-Codex 0.38 -> ~0.24 on PaperBench. Partly. - Clear thinking: GPT-5.4 PaperBench 0.59 -> 0.43; no drop for Opus 4.6 and GPT-5.3-Codex. Partly. - Small-model summary (Haiku 4.5): Opus 4.6 within CI; GPT-5.4 0.59 -> 0.43; GPT-5.3-Codex 0.38 -> 0.18. Partly. ProgramBench: no strategy significantly changes performance. Constraint erosion per compaction (Table 3): GPT-5.3-Codex 2.73 of 3 dropped (all 3 in 80%); GPT-5.4 1.76 (25%); Opus 4.6 0.51 (0%). Cost verdicts: N/A (no cost metric)", "p": "6-7, 13, 20-22"},
-{"f": "Comparison: design", "v": "Benchmarks: PaperBench (3 papers), ProgramBench (2 tasks), PostTrainBench (2 base models x 3 targets). Configurations: 5 compaction strategies at 160K threshold; thresholds 160K/180K/200K/260K/320K/380K for baseline; 4 models. Baseline: self-summarization by the same model. Held constant: scaffold (OpenCode), trigger mechanism, summarization prompt, benchmark settings (time limits, hardware). Acceptance: benchmark graders (rubric LLM judge, tests, target benchmark). Repetitions: 2 runs per task and configuration; runs relaunched until enough succeeded (attempts vary). Human intervention: none. Gemini not run on PostTrainBench; ProgramBench Gemini results excluded (reward hacking)", "p": "4-5, 7, 13, 20-21"},
-{"f": "Comparison: result", "v": "Threshold does not affect 1M-context models; GPT-5.3-Codex worse at low thresholds on PaperBench (0.38 vs ~0.60). No strategy beats self-summarization; discarding strategies cost some models up to 20 points on PaperBench (e.g. GPT-5.4 0.59 -> 0.43) and leave others unaffected. Constraint erosion: ~0.92 rule categories dropped at first compaction, 1.93 by 10th, 2.41 by 15th, 2.65 by 30th. SWE-chat: 81% of constraints preserved, 19% dropped (24.5% with second judge); feature requirements dropped 6.2%, process instructions 35.9%, scope exclusions 36.8%. Significance via overlapping bootstrap CIs only, no formal tests", "p": "2-3, 6-8, 24"},
-{"f": "Comparison: did the method work", "v": "Distinguished models on threshold and some strategies on PaperBench; PostTrainBench error bars too wide to conclude; Gemini uninformative. Repeatability: 2 runs per configuration, bootstrap CIs; code released. Limitations stated: four models, three benchmarks, few tasks per benchmark (cost and compute); one scaffold; Gemini rarely compacts and reward hacks; SWE-chat sessions from a different scaffold (Claude Code) and models; Q4 measures loss but not its effect on outcomes; threshold range covers only 16-38% of 1M windows", "p": "6, 8-9"},
-{"f": "Conclusions: limitations and gaps", "v": "Current benchmarks are compaction-friendly (fixed objective, progress on disk), so they hide constraint loss; constraints on how to work and what not to do are dropped first, even when the prompt asks to keep them. Future: compare subagent decomposition with compaction under the same scaffold; harder evaluations with constraints not recoverable from the filesystem (multi-turn sessions with changing user instructions)", "p": "8-9"},
-{"f": "Notes", "v": "Not about SDD; relevant only indirectly (specifications of what to build survive compaction better than process instructions). Most accuracy values in Figs. 2-3 only (numbers quoted are from text). Code: aisa-group/compaction (GitHub path given without full URL). Prompts and judge prompts in App. 6.4. Model API strings and reasoning effort in Table 1. No pre-registration stated. AI use statement: generative AI used for code, plots, literature search and readability", "p": "1, 6-7, 10, 13-19"},
-{"f": "Q1", "v": "Yes (1): four questions Q1-Q4 stated", "p": "2-3"},
-{"f": "Q2", "v": "Partly (0.5): strategies, benchmarks, prompts and settings described; number of attempted runs varies and run-level selection (relaunch until enough succeed) not fully specified", "p": "4-5, 13-21"},
-{"f": "Q3", "v": "Partly (0.5): model API strings and reasoning effort given; OpenCode version not stated", "p": "4, 13"},
-{"f": "Q4", "v": "Yes (1): benchmarks and chosen tasks named; code released", "p": "1, 4, 13"},
-{"f": "Q5", "v": "Yes (1): benchmark graders (tests, rubric judge, target benchmarks); erosion and SWE-chat via LLM judges with a second judge", "p": "5, 13, 24"},
-{"f": "Q6", "v": "Partly (0.5): quality and erosion metrics defined; no cost metrics (tokens, time, money)", "p": "5"},
-{"f": "Q7", "v": "Yes (1): self-summarization baseline in the same scaffold", "p": "5"},
-{"f": "Q8", "v": "Partly (0.5): 2 runs per task and configuration with bootstrap CIs; no formal tests", "p": "4-5"},
-{"f": "Q9", "v": "Yes (1): conclusions hedged; uninformative results (Gemini, PostTrainBench) acknowledged", "p": "6, 8-9"},
-{"f": "Q10", "v": "Partly (0.5): short limitations paragraph; no threats-to-validity section", "p": "9"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): academic institutes; strategies are generic scaffold mechanisms, not products of the authors; no vendor relation to OpenCode or model providers stated (funding from UK AI Security Institute, Coefficient Giving)", "p": "1, 10"},
-{"f": "Q13", "v": "N/A", "p": "-"},
-{"f": "DARE1", "v": "N/A", "p": "-"},
-{"f": "DARE2", "v": "N/A", "p": "-"},
-{"f": "DARE3", "v": "N/A", "p": "-"},
-{"f": "DARE4", "v": "N/A", "p": "-"}
-]}
+{
+ "key": "rayyan-800486531",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Salle, J., Bhatnagar, H., Bethge, M., Abdelnabi, S., Andriushchenko, M. (2026). Benchmarks Are Surprisingly Compaction-Friendly. arXiv:2610.31778v1 [cs.LG], 22 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.31778v1 [cs.LG], 22 Oct 2026, pages marked 'Preprint'; no venue stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "ELLIS Institute Tuebingen; Max Planck Institute for Intelligent Systems; Tuebingen AI Center; University of Tuebingen",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — five context-compaction strategies and six compaction thresholds inside a fixed scaffold (OpenCode), four frontier models, three long-horizon benchmarks; evaluation of constraint erosion on ProgramBench and on real SWE-chat sessions",
+   "p": "1-3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one> — detail'; substance unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Context compaction strategies implemented in OpenCode (version not stated): self-summarization (baseline, scaffold default), tool-output pruning, filesystem offloading (context saved to JSON file), reasoning block discarding (clear thinking, k = 10), small-model summarization (Claude Haiku 4.5). Not an SDD approach",
+   "p": "4-5, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None of the SDD kind; compaction summary (prompt asks for what was done, current work, files, next steps, key user requests/constraints, technical decisions); JSON copy of context for offloading",
+   "p": "5, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not an SDD flow: agent works -> token budget reached -> compaction (summary/pruning) -> fresh context with system prompt + summary -> continue",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in benchmark runs (autonomous); SWE-chat sessions are real human-agent sessions (Claude Code) analysed post hoc",
+   "p": "4, 7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (not an SDD approach; compaction mechanism run in full within the scaffold)",
+   "p": "5",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The compaction strategies are run in full, so the field applies even though they are not SDD approaches; whether to record N/A or a form category (e.g. full workflow) for a non-SDD mechanism is a judgement for the author"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context compaction; no specification artefact). SWE-chat taxonomy distinguishes 'specifications of what to build' (feature requirements) from process instructions and scope exclusions",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New projects / from scratch: PaperBench (replicate ICML 2024 papers as a repository), ProgramBench (reimplement a CLI tool from a reference binary), PostTrainBench (post-train a small LLM); SWE-chat: real interactive coding sessions (task type not stated)",
+   "p": "4, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "PaperBench 3 of 20 papers (adaptive-pruning, all-in-one, bam), 10 h, Code-Dev variant; ProgramBench 2 tasks (Canop/broot in Rust, jarun/nnn in C), 6 h, plus lua/lua for the constraint-erosion analysis and lua and luajit for the reward-hacking analysis; PostTrainBench 2 base models x 3 target benchmarks, 10 h on one H100; 2 runs per task and configuration (runs relaunched until enough succeeded); thresholds 160K-380K tokens; SWE-chat 44 sessions, 269 constraints",
+   "p": "4, 7-8, 13, 22",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft put lua/luajit under both analyses; the text adds only lua/lua to the erosion analysis (App. 6.9) and lua and luajit to the reward-hacking analysis (App. 6.10)"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "ML research replication, terminal tools (Rust, C), LLM post-training; real user coding sessions (SWE-chat)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A for benchmarks (autonomous agents); SWE-chat users not described",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured as cost (number of compaction events per run reported; tokens before compaction is the manipulated threshold). No money or time",
+   "p": "5, 21-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "PaperBench rubric score (LLM judge gpt-4o-mini, Code-Dev leaves); ProgramBench fraction of tests passed; PostTrainBench target benchmark performance; accuracy conditional on valid submission; failure rate",
+   "p": "5, 13, 20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Constraint erosion (number of the three ProgramBench anti-cheating rule categories absent from each compaction summary); rule violations / reward hacking (7 mechanism types); SWE-chat constraint preservation/drop rate by category",
+   "p": "5, 7-8, 22-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic benchmark graders; LLM judges: Claude Sonnet 5 for reward hacking (after regex pass), constraint erosion, SWE-chat constraint extraction, preservation and categorisation; second judge GPT-5.6 Sol for replication (agreement 88.8%, kappa 0.681); bootstrap 95% CIs; taxonomy built by reading a sample manually",
+   "p": "5, 14-19, 23-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: accuracy conditional on valid submission (bootstrap CIs) and, on ProgramBench, constraint erosion per compaction. Scaffold OpenCode for all; most accuracy values in Figs. 2-3 only. Threshold sweep 160K-380K (self-summarization baseline): - Claude Opus 4.6 (max effort): accuracy flat across thresholds on all benchmarks; erosion 0.51 of 3 rule categories per compaction, never all 3. Quality works; cost N/A. - GPT-5.4 (medium): accuracy flat (PaperBench about 0.59 at 160K); erosion 1.76 of 3 (all 3 in 25%). Quality partly (task score kept, rules lost). - GPT-5.3-Codex (400K window): PaperBench 0.38 at 160K -> ~0.60 at >=260K; ProgramBench flat; PostTrainBench inconclusive; erosion 2.73 of 3 (all 3 in 80%). Quality partly. - Gemini 3.1 Pro Preview: rarely compacts (~1 per run at 160K); uninformative; ProgramBench excluded (reward hacking). N/A. Strategies at 160K (no strategy better than baseline beyond CIs; ProgramBench: no strategy significantly changes performance): - Tool-output pruning: close to baseline for all models on PaperBench. Quality as baseline. - Filesystem offloading: near baseline for 1M models; GPT-5.3-Codex 0.38 -> ~0.24 on PaperBench. Partly. - Clear thinking: GPT-5.4 PaperBench 0.59 -> 0.43; no drop for Opus 4.6 and GPT-5.3-Codex. Partly. - Small-model summary (Haiku 4.5): Opus 4.6 within CI; GPT-5.4 0.59 -> 0.43; GPT-5.3-Codex 0.38 -> 0.18. Partly. Erosion not measured per strategy. Cost verdicts: N/A (no cost metric)",
+   "p": "6-7, 13, 20-22",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Draft verdicts judged accuracy against the baseline only and ignored the measured constraint erosion (Table 3), which differs strongly by model; absolute accuracies are mostly only in Figs. 2-3, so verdicts on each configuration's own values cannot be read reliably from the text. Erosion values added; verdict levels for the author to decide"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Numbers checked against the text (p. 6-7), Table 2 and Table 3. Absolute accuracies for most configurations exist only in Figs. 2-3, so verdicts cannot be checked against each configuration's own values; whether constraint erosion lowers the quality verdict (e.g. GPT-5.4 'partly', Opus 4.6 'works') and whether 'N/A' is acceptable as a cost verdict when no cost is measured are judgements for the author"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmarks: PaperBench (3 papers), ProgramBench (2 tasks), PostTrainBench (2 base models x 3 targets). Configurations: 5 compaction strategies at 160K threshold; thresholds 160K/180K/200K/260K/320K/380K for baseline; 4 models. Baseline: self-summarization by the same model. Held constant: scaffold (OpenCode), trigger mechanism, summarization prompt, benchmark settings (time limits, hardware). Acceptance: benchmark graders (rubric LLM judge, tests, target benchmark). Repetitions: 2 runs per task and configuration; runs relaunched until enough succeeded (attempts vary). Human intervention: none. Gemini not run on PostTrainBench; ProgramBench Gemini results excluded (reward hacking)",
+   "p": "4-5, 7, 13, 20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Threshold does not affect 1M-context models; GPT-5.3-Codex worse at low thresholds on PaperBench (0.38 vs ~0.60). No strategy beats self-summarization; discarding strategies cost some models up to 20 points on PaperBench (e.g. GPT-5.4 0.59 -> 0.43) and leave others unaffected. Constraint erosion: ~0.92 rule categories dropped at first compaction, 1.93 by 10th, 2.41 by 15th, 2.65 by 30th. SWE-chat: 81% of constraints preserved, 19% dropped (24.5% with second judge); feature requirements dropped 6.2%, process instructions 35.9%, scope exclusions 36.8%. Significance via overlapping bootstrap CIs only, no formal tests",
+   "p": "2-3, 6-8, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models on threshold and some strategies on PaperBench; PostTrainBench error bars too wide to conclude; Gemini uninformative. Repeatability: 2 runs per configuration, bootstrap CIs; code released. Limitations stated: four models, three benchmarks, few tasks per benchmark (cost and compute); one scaffold; Gemini rarely compacts and reward hacks; SWE-chat sessions from a different scaffold (Claude Code) and models; Q4 measures loss but not its effect on outcomes; threshold range covers only 16-38% of 1M windows",
+   "p": "6, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Current benchmarks are compaction-friendly (fixed objective, progress on disk), so they hide constraint loss; constraints on how to work and what not to do are dropped first, even when the prompt asks to keep them. Future: compare subagent decomposition with compaction under the same scaffold; harder evaluations with constraints not recoverable from the filesystem (multi-turn sessions with changing user instructions)",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD; relevant only indirectly (specifications of what to build survive compaction better than process instructions). Reporting inconsistencies: abstract says 'three frontier models', Sec. 1 and 3 evaluate four (Gemini 3.1 Pro Preview reported as uninformative); taxonomy described as 7 categories in Sec. 4.2 and 8 in App. 6.11 (8th 'other' never assigned); overall drop rate 19% in text vs 18% for Sonnet in Fig. 11, and technical-parameter n = 67 in Fig. 4b vs 66 in Fig. 11, both explained by Fig. 11's own method (majority verdict over three judge runs; one constraint without a majority excluded, 268 constraints), so not inconsistencies. Most accuracy values in Figs. 2-3 only (numbers quoted are from text); compaction counts from Table 2, erosion from Table 3. Code: aisa-group/compaction (GitHub path given without full URL). Prompts and judge prompts in App. 6.4. Model API strings and reasoning effort in Table 1. No pre-registration stated. AI use statement: generative AI used for code, plots, literature search and readability",
+   "p": "1, 6-7, 10, 13-19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft listed no reporting inconsistencies; four found in the text (model count, category count, overall drop rate, category n)"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The n = 67 vs 66 and 19% vs 18% differences were listed as reporting inconsistencies, but the Fig. 11 caption (p. 25) explains both: one constraint is excluded (268 instead of 269; Fig. 4b counts sum to 269, Fig. 11 counts to 268) and verdicts are majorities over three runs. Only the model-count and category-count inconsistencies remain"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four questions Q1-Q4 stated",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): strategies, benchmarks, prompts and settings described; number of attempted runs varies and run-level selection (relaunch until enough succeed) not fully specified",
+   "p": "4-5, 13-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model API strings and reasoning effort given; OpenCode version not stated",
+   "p": "4, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmarks and chosen tasks named; code released",
+   "p": "1, 4, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark graders (tests, rubric judge, target benchmarks); erosion and SWE-chat via LLM judges with a second judge",
+   "p": "5, 13, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and erosion metrics defined; no cost metrics (tokens, time, money)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): self-summarization baseline in the same scaffold",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 2 runs per task and configuration with bootstrap CIs; no formal tests",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions hedged; uninformative results (Gemini, PostTrainBench) acknowledged",
+   "p": "6, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph; no threats-to-validity section",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic institutes; strategies are generic scaffold mechanisms, not products of the authors; no vendor relation to OpenCode or model providers stated (funding from UK AI Security Institute, Coefficient Giving)",
+   "p": "1, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,226 +1,315 @@
 {
  "key": "rayyan-800497943",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
  "fields": [
   {
    "f": "Reference",
    "v": "Hereiz, A., Lyu, Y., Li, H., Adams, B., Hassan, A. E. (2026). On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces. arXiv:2608.28497v1 [cs.SE], 28 Aug 2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
    "v": "Preprint (arXiv; manuscript submitted to ACM TOSEM per the ACM reference format)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "Queen's University, Software Analysis and Intelligence Lab (SAIL), Kingston, ON, Canada (all five authors)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
    "v": "Evaluates (empirical mining study of 1,926 GitHub repositories hosting Claude Code plugin marketplaces: structure, commit types, co-evolution of components; RQ1-RQ3). No agent run; effect of plugins on agent output not measured",
-   "p": "1-3"
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "Claude Code agent plugins and plugin marketplaces (marketplace.json; launched October 2025); no version",
-   "p": "2, 4-5"
+   "p": "2, 4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "Plugin components (Table 1): commands/ (slash-command Markdown prompts), agents/ (custom agent definitions), skills/ (SKILL.md plus supporting files/scripts), hooks/ (lifecycle shell commands, hooks.json), .mcp.json, .lsp.json, settings.json, .claude-plugin/plugin.json manifest; marketplace.json catalogue. Not specifications",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Not stated as a development flow. Runtime: skill name/description loaded, full SKILL.md loaded when task matches, hooks fire on events, agents run in isolated context (Fig. 1). Distribution: register marketplace, install plugin",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "Not stated (no review step prescribed; merged PRs used as developer-reviewed units of change)",
-   "p": "22"
+   "p": "22",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Not run; plugin artefacts and commit histories observed in repositories (document/repository-based)",
-   "p": "8-9"
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (agent extension packages, no specification); authors do not use SDD terms",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing code bases (open-source GitHub repositories hosting plugin marketplaces)",
-   "p": "8-9"
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "1,926 repositories (>=10 stars, of 10,646 unique), 2,018 marketplaces, 8,351 plugins, 77,773 plugin-touching commits, 3,948 authors; median 13 plugin-touching commits per repo (mean 40.4); 112,807 merged PRs (10,679 plugin PRs from 748 repos for coupling); median repo age 80 days",
-   "p": "8-10, 22-23, 29"
+   "p": "8-10, 22-23, 29",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Agent plugins of all kinds; 61.3% Software Engineering (code generation 25.9%, infrastructure 16.6%, debug & analysis 14.8%, version control 4.0%); also productivity, data, content creation, information retrieval",
-   "p": "11-12"
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (no participants); 3,948 open-source commit authors, profile Not stated",
-   "p": "9"
+   "p": "9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None of the listed kind (maintenance activity measured via commit types and co-change, not code quality)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None (share of AI co-authored commits measured: 35.5% any agent, Claude 34.9%)",
-   "p": "21"
+   "p": "21",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Growth (monthly repo creation, cumulative component counts, monthly commits; Mann-Whitney U, Cliff's delta, Mann-Kendall, Sen's slope); plugin category taxonomy shares; component co-occurrence and file-type composition; CCS commit-type distribution and re-classification by diff; agent co-authorship rate; association rules (support, confidence, lift, chi-squared) between component types and file types; script-Markdown coupling categories",
-   "p": "10-11, 15-17, 20-26"
+   "p": "10-11, 15-17, 20-26",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Automatic: GitHub Code Search/REST API, git history extraction, regex CCS prefixes, LLM classification (Qwen3-Coder-Next-80B for plugin taxonomy; GPT-5-mini for CCS Stage 2, re-classification and coupling categories), co-author trailer heuristics. Manual: single-rater validation of 385-commit samples (kappa 0.903, 0.707); two-author open coding of 700 commits (kappa 0.671) and 64 PRs (kappa 0.74); LLM vs human kappa 0.65 and 0.62",
-   "p": "8-9, 11, 16-17, 23-24"
+   "p": "8-9, 11, 16-17, 23-24",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "N/A (observational mining study; no configuration run)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "N/A (no configurations compared; descriptive comparison of CCS distribution against Zeng et al. traditional OSS baseline and of category shares against Ling et al. skills.sh)",
-   "p": "11, 17"
+   "p": "11, 17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "N/A. Descriptive: commit activity grew 8.8x Oct 2025-Mar 2026 (Mann-Kendall p=0.003); SE plugins 61.3%; 34.4% of plugins combine >=2 component types; feat 39.6% vs 17.2% in OSS; 74% of docs commits change runtime AI instructions (docs 10.3% -> 1.7% after re-classification); Claude co-authors 34.9%; only agents-commands co-change above chance (lift 1.40); script-Markdown within skills above chance (lift 1.37-1.58), 78% of sampled co-changes functionally coupled",
-   "p": "11-12, 15, 18-27"
+   "p": "11-12, 15, 18-27",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Threats: search completeness (public indexed files only); 10-star threshold (checked at 5 and 25 stars); snapshot of April 2026, young repos; Claude Code only; subjective manual labels; LLM classification bias and single run; agent detection is a lower bound. Gaps: semantic differencing, instruction linting, consistency checks between scripts and SKILL.md, automated propagation of interface changes; longitudinal follow-up; other agent platforms; human-AI collaboration over plugin lifecycle",
-   "p": "27-30"
+   "p": "27-30",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Tables 3, 4, 5 and Figures 3-9 partly jumbled by pdftotext; values taken from the prose where possible (Table 5b rebuilt from cell order). Appendices (prompts, rubrics) on pp. 31-41 not read in detail. Dataset released (github.com/SAILResearch/agentic_plugin_marketplace). Pre-registration: not claimed. Languages: Markdown dominant; scripts in Python, shell, JS/TS. 72,191 commits used for post-launch growth vs 77,773 total (different windows)",
-   "p": "3, 11-21"
+   "p": "3, 11-21",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): RQ1-RQ3 stated",
-   "p": "2-3"
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Yes (1): search query, filters, classification pipeline, sampling and statistics described; prompts in appendices; dataset released",
-   "p": "8-11, 16-17, 22-24"
+   "p": "8-11, 16-17, 22-24",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Partly (0.5): classifier LLMs named (Qwen3-Coder-Next-80B, GPT-5-mini) without snapshot dates; Claude Code version not relevant/not stated",
-   "p": "11, 16, 30"
+   "p": "11, 16, 30",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "Yes (1): data set construction described and released",
-   "p": "3, 8-9"
+   "p": "3, 8-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "Partly (0.5): LLM labels validated against human raters (kappa 0.62-0.90); no effectiveness of plugins measured",
-   "p": "16-17, 24"
+   "p": "16-17, 24",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "Partly (0.5): descriptive and association metrics defined; no cost or quality outcomes (out of scope)",
-   "p": "10-11, 23"
+   "p": "10-11, 23",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "Partly (0.5): descriptive comparison with traditional OSS commit distribution (Zeng et al.) and skills.sh shares (Ling et al.), not under the same conditions",
-   "p": "11, 17, 21"
+   "p": "11, 17, 21",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "Yes (1): statistical tests (Mann-Whitney U, Cliff's delta, Mann-Kendall, chi-squared), inter-rater agreement, star-threshold sensitivity",
-   "p": "10-11, 16, 23, 29"
+   "p": "10-11, 16, 23, 29",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Yes (1): conclusions follow from descriptive results; lower-bound caveats stated",
-   "p": "29-30"
+   "p": "29-30",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Yes (1): Section 8 threats to validity",
-   "p": "29-30"
+   "p": "29-30",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
    "v": "No (0): arXiv preprint (submitted to ACM, not yet reviewed)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Yes (1): academic authors; Claude Code/plugins not made by the authors",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

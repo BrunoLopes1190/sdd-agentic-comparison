@@ -1,226 +1,392 @@
 {
  "key": "rayyan-800486424",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
    "v": "Kapetanovic, A., Duricic, T., Mercep, A., Lacic, E. (2026). A Phased Workflow for Operating LLM-Based Coding Agents. In Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM '26), Rome, Italy. ACM, 2 pages. doi:10.1145/3799682.3839253. Also arXiv:2608.30701v1 [cs.SE], 31 Aug 2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
-   "v": "Conference (CIKM '26 Industry Day, 2-page proposal with speaker bio); also on arXiv",
-   "p": "1, 2"
+   "v": "Conference — CIKM '26 (35th ACM International Conference on Information and Knowledge Management), Industry Day, 2-page proposal with speaker bio; read from arXiv:2608.30701v1",
+   "p": "1, 2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'."
+    }
+   ],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "Infobip (Split and Zagreb, Croatia), all four authors (industry, AI research team)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual (experience report: proposes a phased workflow for operating coding agents, from practitioner experience; no evaluation). Contributions: workflow, per-phase harness practices, two open problems",
-   "p": "1"
+   "v": "Proposes an approach; secondary: Conceptual — experience report proposing a four-phase workflow for operating coding agents ('Our proposed workflow'), with per-phase harness practices and two open problems; no evaluation",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The paper's first contribution is 'a phased workflow for operating coding agents' that it proposes; under the 2026-11-23 rule this is 'Proposes an approach', not 'Conceptual'. Format also brought to the required form."
+    }
+   ],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "Infobip phased workflow for operating coding agents (extends the research-plan-implement paradigm of Horthy 2025). Version: Not stated. Materials: github.com/infobip/agentic-development-workflow",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "Curated research document (validated findings); persistent plan artifact (validated decisions, replaces the conversation); machine-readable tasks (stable identifier, goal, dependencies, relevant code paths, acceptance criteria, validation method); task registry (status, dependencies, acceptance criteria, latest outcome); append-only activity log (actions, validation results, changed files/commits, failures, next action); hand-crafted project-level instructions (concise single-line corrections); git for code state",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Research -> planning (once per project) -> task definition -> implementation (repeated per task; return to task definition when a task is poorly defined instead of patching the code). In each phase four context strategies (write, select, compress, isolate) against four failure modes (distraction, confusion, poisoning, clash). Implementation: fresh session per task; implement, validate, log, update status, commit, terminate",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "Human effort front-loaded: research findings validated before proceeding; practitioner manually curates the plan to validated decisions; tasks defined with acceptance criteria; implementation under manual supervision or in an autonomous loop; practitioner reviews output rather than writing it; adds corrections to project instructions when the agent repeats mistakes",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Not run (document-based description of practice; no study conducted)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
-   "v": "Not classifiable / Not stated (authors' wording: 'phased workflow', 'research-plan-implement paradigm', 'user harness'; plan and task artefacts persist and replace conversation state)",
-   "p": "1-2"
+   "v": "Not classifiable (closest: spec-first). Authors' wording: 'phased workflow', 'research-plan-implement paradigm', 'user harness'; the plan and task artefacts persist across the project's phases and replace conversation state",
+   "p": "1-2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "'Not stated' is not an allowed value. The plan and machine-readable tasks are written before implementation and drive it, which resembles spec-first, but the paper says nothing about keeping them after the project, so a reader could choose spec-first or not classifiable."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Paper does not place itself on an SDD level; plan and machine-readable tasks are written before implementation (spec-first-like), but nothing is said about keeping them after the project, so spec-first or not classifiable are both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Paper does not place itself on an SDD level; plan and machine-readable tasks are written before implementation (spec-first-like), but nothing is said about keeping them after the project, so spec-first or not classifiable are both defensible."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Task type",
    "v": "Not stated ('non-trivial tasks'; research and planning per project, so new features/projects on existing code bases implied but not stated)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "Not stated",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Industrial: cloud communications platform (Infobip, ~900 engineers, 42 billion messages/month)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "Practitioners of Infobip's AI research team; number and experience not stated",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "None measured",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "None measured",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None measured (qualitative observation: correcting generated code can introduce bloat and fragility)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None measured",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "None measured. Proposed candidate metrics for workflow effectiveness: task success rate per session, instruction correction rate, context utilization at task completion",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "N/A (observations from practitioner experience; no data collection described)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "N/A (no configuration run; agent and model not named)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "N/A (no comparison)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "No established metrics for workflow effectiveness (cannot measure improvement over unstructured delegation, task granularity, instruction calibration; benchmarks unreliable proxies); research formalizes context-management components, not workflow-level patterns; no shared terminology to compare or transfer approaches across teams. Observations: upstream research/planning errors compound; dedicated planning modes push agent to finalize prematurely",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Two-page industry-day paper; claims rest on unreported practitioner experience. Agent, model and programming language not stated. Workflow materials repository linked (p. 1 footnote). GenAI used for conceptualization and drafting the repository; Google Scholar Labs for references. No pre-registration",
-   "p": "1, 2"
+   "p": "1, 2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
-   "v": "Partly (0.5): three contributions stated; no research questions",
-   "p": "1"
+   "v": "Yes (1): aim and three contributions stated explicitly (a phased workflow, per-phase harness practices, two open problems); no research questions",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Q1 asks whether the aims OR research questions are clear; the draft scored Partly only because there are no RQs, although the aim and contributions are explicit. A reader who expects RQs could keep Partly."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Q2",
    "v": "Partly (0.5): phases and artefacts described briefly, materials repository linked; how the workflow was derived and observed is not described",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Partly (0.5): claims framed as 'our experience' and the lack of metrics is acknowledged, but the recommendation to front-load review rests on unreported observation",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): no limitations section; open problems admit effectiveness cannot be measured",
-   "p": "2"
+   "p": "2",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is no limitations section; Partly rests on the open problems (no metrics to show the workflow beats unstructured delegation), which are field-level gaps rather than limitations of this report. Since missing information scores No, a stricter reader could score No (0)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "There is no limitations section; Partly rests on the open problems (no metrics to show the workflow beats unstructured delegation), which are field-level gaps rather than limitations of this report. Since missing information scores No, a stricter reader could score No (0)."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Q11",
-   "v": "Yes (1): published in CIKM '26 proceedings (Industry Day track); review process of the track to check [Check: the record has a published DOI (https://doi.org/10.1145/3799682.3839253); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "p": "1, 2"
+   "v": "Yes (1): published in the CIKM '26 proceedings (ACM, doi:10.1145/3799682.3839253), Industry Day track; full text read from the arXiv version",
+   "p": "1, 2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Removed the unresolved [Check] note. A published ACM DOI points to Yes, but the text does not describe how Industry Day proposals (2 pages with speaker bio) are reviewed; check the CIKM '26 Industry Day call."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Published with ACM DOI in the CIKM '26 proceedings, which points to Yes, but it is a 2-page Industry Day proposal with speaker bio and the text does not say how such proposals are reviewed; check the CIKM '26 Industry Day call."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Published with ACM DOI in the CIKM '26 proceedings, which points to Yes, but it is a 2-page Industry Day proposal with speaker bio and the text does not say how such proposals are reviewed; check the CIKM '26 Industry Day call."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Q12",
    "v": "No (0): all authors at Infobip, which developed the workflow (authors are its vendor)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
-   "v": "Partly (0.5): relies on an off-the-shelf coding agent, git and text artefacts, plausibly within reach of a typical team; agent, tools, compute and cost not stated",
-   "p": "1-2"
+   "v": "Partly (0.5): relies on a coding agent, git and plain-text artefacts (research document, plan, task registry, activity log), with workflow materials published on GitHub, plausibly within reach of a typical team; agent, model, compute and cost not stated",
+   "p": "1-2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Requirements are only partly stated (no agent, model or cost). Since missing information scores No, a stricter reader could score No (0); Partly rests on the tools that are named and the public materials."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Requirements only partly stated: plain-text artefacts, git and a public materials repository are named, but no agent, model, compute or cost. Since missing information scores No, a stricter reader could score No (0)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Requirements only partly stated: plain-text artefacts, git and a public materials repository are named, but no agent, model, compute or cost. Since missing information scores No, a stricter reader could score No (0)."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

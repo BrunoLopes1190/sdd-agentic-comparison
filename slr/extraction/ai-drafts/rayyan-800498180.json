@@ -1,46 +1,377 @@
-{"key": "rayyan-800498180", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Ma, G., Mikek, B., Li, H., Erata, F., Zhang, Y., Shui, Z., Omidvar Tehrani, B., Huan, J., Ramanathan, M. K., Sojoudi, S., Zhou, H., Deoras, A. (2026). SWE-Proof: Can Language Models Resolve Real-World Issues with Machine-Checked Proofs? arXiv:2609.21190v2 [cs.LG], 22 Sep 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; 'Under review')", "p": "1"},
-{"f": "Author affiliation", "v": "UC Berkeley (Ma, Sojoudi); Georgia Tech (Mikek); UIUC (Li); AWS AI Labs (8 authors: Erata, Zhang, Shui, Omidvar Tehrani, Huan, Ramanathan, Zhou, Deoras)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an evaluation method (BenchProofer construction pipeline and the SWE-Proof benchmark: formal specs, axioms, reference implementations and proofs for 500 SWE-bench Verified issues, extended to SWE-bench Pro); secondary: compares specification settings with one model (no spec, self-written formal/EARS spec, provided formal/EARS spec)", "p": "1-2, 7"},
-{"f": "Approach(es): name and version", "v": "Specification settings (Table 2 rows 0-8) under four specification backends: Nagini (contract-annotated Python, SMT), Velvet (imperative DSL in Lean, SMT), pure Lean 4 + Mathlib (agent-written proofs), and EARS structured natural-language requirements (no verifier; non-formal control). Versions of verifiers and EARS template Not stated", "p": "2, 6-7, 27-29"},
-{"f": "Artefacts prescribed", "v": "Formal specification (pre/postconditions over modeled functions) + axioms for unchanged callees + operation correspondence ('specification view'); implementation in the backend language with proof annotations; equivalent Python patch. EARS: requirements with numbered acceptance criteria in WHEN/THEN/SHALL, SHALL, IF/THEN, WHILE patterns (median 106 lines, 3.7 requirements, 14.7 criteria in the corpus)", "p": "2-3, 5-6, 29"},
-{"f": "Phases of the flow", "v": "Depends on setting: end-to-end (agent writes spec -> verifying implementation -> equivalent patch -> submit); from localization (same, given files/functions); from specification (given spec view -> verifying implementation -> patch); spec synthesis only (spec + witness implementation, no patch). Single ReAct loop (shell, verify, submit), 250-step budget", "p": "7, 38-41"},
-{"f": "Human review points", "v": "None during evaluation; grading by tests, verifier and LLM judges/auditors (majority of three). Authors hand-inspected some instances during construction", "p": "7, 10"},
-{"f": "Parts exercised", "v": "Specification artefact (formal or EARS) and its verification within one agent episode; full spec -> implementation -> patch flow in rows 2-3, 5, 7", "p": "7"},
-{"f": "SDD level", "v": "Not stated (authors' wording: 'formal specification', 'verified code generation', 'specification synthesis'); spec written or given per issue before the patch", "p": "1-2, 8"},
-{"f": "Task type", "v": "Existing code bases: real GitHub issue resolution (SWE-bench Verified; SWE-bench Pro Python subset)", "p": "1-2, 17-18"},
-{"f": "Size", "v": "SWE-bench Verified: 500 instances, 12 repos, gold patch churn mean 14.3 / median 7 lines, 1.25 files. SWE-bench Pro: 242 of 266 Python tasks green under all backends, churn mean 145.5 lines, 3.4 files", "p": "6, 17-18, 45"},
-{"f": "Domain", "v": "Open-source Python projects (Django 231, SymPy 75, Sphinx 44, Matplotlib 34, scikit-learn 32, ...); Pro: Ansible, OpenLibrary, qutebrowser", "p": "17-18"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Input and output tokens per episode, agent steps, wall-clock per episode (12-way concurrency), verifier time, input tokens per resolved instance", "p": "44, 61-62"},
-{"f": "Functional quality metrics", "v": "Resolution rate under hidden SWE-bench tests; strict pass (patch resolves + implementation verifies + judged equivalent); counterexample audit (adversarial tests vs ground-truth patch)", "p": "7-8, 42-43"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Specification quality audit on five properties (admissibility, soundness, completeness, axiom soundness, faithfulness); verifier use per episode; instance stability across repetitions", "p": "8-9, 46, 54"},
-{"f": "How metrics are collected", "v": "Automatic: official SWE-bench Docker harness, verifiers (Nagini/Velvet SMT, Lean kernel); agentic: panels of LLM auditors/judges (majority of three) for equivalence, counterexample audit and spec audit; per-episode logs for tokens and steps", "p": "7-9, 42-44"},
-{"f": "Evaluation (each configuration)", "v": "All: minimal ReAct scaffold (SWE-agent style) + Claude Opus 4.8, provider-default decoding, 250 steps; main values one run (Nagini cells repeated 4 times). Values %: Nagini / Velvet / Lean / EARS (Table 2, SWE-bench Verified, n = 500). Tokens = input tokens per episode (Table 41, Nagini unless noted). Draft verdict rule: quality works >= 90, partly 60-90, does not < 60; cost works <= 250k, partly 250-450k.\n- Row 0 unaided baseline (no spec): 85.0 (all); 200k. Quality partly; cost works\n- Row 1 baseline + counterexample audit: 58.2. Does not work (shows test incompleteness)\n- Row 2 end-to-end, agent writes spec (graded on tests): 85.6 / 85.0 / 83.8 / 84.2; 438k (EARS 326k). Partly; cost partly\n- Row 3 verified end-to-end (self-written spec must verify): 84.0 / 85.4 / 84.6 / 57.2; 438k (EARS 301k). Partly (EARS does not work); cost partly\n- Row 4 localization provided (no spec): 88.2; 140k. Partly; works\n- Row 5 verified from localization: 92.0 / 91.8 / 89.6 / 64.6. Works/partly\n- Row 6 ground-truth spec provided: 96.2 / 94.0 / 95.2 / 97.8; 376k. Works; cost partly\n- Row 7 verified from provided spec: 95.0 / 94.0 / 93.6 / 80.0; 354k. Works (EARS partly); cost partly\n- Row 8 spec synthesis audit pass: 46.0 / 60.0 / 61.4 / N/A; 335k. Does not work / partly\n- SWE-bench Pro (n = 242, Table 19), same rows: R0 61.2; R1 17.4; R2 50.8/49.2/50.0/50.8; R3 49.6/50.0/47.9/12.4; R4 61.2; R5 52.9/52.1/53.7/19.4; R6 55.8/59.9/58.7/73.1; R7 56.2/55.0/58.7/31.4; R8 31.0/35.5/49.2. Mostly does not work / partly\nRepetitions (Nagini, Table 32): SD <= 1.3 points per cell", "p": "7, 45, 55, 62"},
-{"f": "Comparison: design", "v": "Tasks: SWE-bench Verified (500) and SWE-bench Pro Python (242). Configurations: 9 settings x 4 backends, one model (Claude Opus 4.8); 26 cells over 500 instances. Baselines: unaided (row 0), localization-only (row 4). Held constant: scaffold, prompts, 250-step budget, container, sanitized git history, hidden tests never visible. Acceptance tests: hidden SWE-bench tests plus verification and equivalence judges. Repetitions: 1 per cell; Nagini cells 4 (except rows 1, 5). Human intervention: none", "p": "7, 41, 44"},
-{"f": "Comparison: result", "v": "Tests incomplete: 26.8 points of test-passing baseline patches overturned by audit (85.0 -> 58.2). Self-written spec does not help: row 2 vs row 0 +0.6 (Nagini) to -1.2. Provided formal spec raises resolution 85.0 -> 94.0-96.2; +6.9 over localization alone; +8.6 to +11.0 over self-written (row 7 vs 3). EARS: resolves like formal (row 2 EARS 421 vs Nagini 428, McNemar p = 0.35) but fails the audit far more (row 3: 286 vs 420 pass, p = 5e-28). Spec synthesis passes audit only 46-61%; faithfulness fails 42.5%. Unresolved instances' specs fail audit 92.3% vs 50.5% resolved. Cost: provided spec cheaper than end-to-end (389k vs 517k input tokens per resolved). Pro: provided spec below localization-only (55.8-59.9 vs 61.2)", "p": "7-9, 45-46, 61-62"},
-{"f": "Comparison: did the method work", "v": "Distinguished settings clearly on Verified; repetition SD <= 1.3 points, smaller than Wilson half-widths (1.66-4.37). Limitations stated: verify-implies-resolve rests on audited trust points (axiom soundness, implementation-patch refinement); backend expressiveness required manual modeling for a few instances; a few instances relax non-leakage; spec audit is an LLM panel (evidence, not proof); counterexample audit not applied to prover-accepted submissions, so EARS vs formal audit gap is not like-for-like", "p": "9, 54, 61"},
-{"f": "Conclusions: limitations and gaps", "v": "Faithful specification synthesis from informal intent is the open problem; trust points (axioms, refinement to Python patch, Python translation for conformance as weakest link); expressiveness limits (names, imports, class identity, process/filesystem effects cannot be specified; 22 Pro tasks refused); LLM auditors as evidence. Single model evaluated (not discussed as a limitation)", "p": "5-6, 9, 30"},
-{"f": "Notes", "v": "Artifacts and pipeline 'will be released' (no link). No pre-registration. Language: Python (specs in Python/Lean). Inconsistencies: Table 32 says r1 is the Table 2 repetition, but Nagini r1 values differ for rows 2-8 (e.g., row 4 91.4 vs 88.2; row 8 49.2 vs 46.0 in Table 3); appendix F.3 says row 1 'has not been run' while Table 2 reports 58.2 and Table 18 lists one repetition; F.3 gives EARS row 3 pass 59.8% vs 57.2% in Table 2 (286/500 in Table 40); '26.8% of the patches that pass' is a difference in points over all 500 (equals 31.5% of passing patches). Values used from Table 2 (p. 7), Table 19 (p. 45), Table 41 (p. 62). AWS affiliation: Kiro (AWS) uses EARS, not mentioned in the paper (reviewer to judge)", "p": "7-8, 10, 42-45, 55, 61"},
-{"f": "Q1", "v": "Yes (1): five experimental questions stated", "p": "7"},
-{"f": "Q2", "v": "Yes (1): construction pipeline, gates, settings, scaffold, budget and grading described in detail", "p": "3-6, 31-44"},
-{"f": "Q3", "v": "Partly (0.5): Claude Opus 4.8 named, no snapshot; custom scaffold; verifier versions not stated", "p": "7, 44"},
-{"f": "Q4", "v": "Partly (0.5): tasks from public SWE-bench; SWE-Proof artifacts announced for release, not yet available", "p": "10, 17"},
-{"f": "Q5", "v": "Yes (1): hidden SWE-bench tests and mechanical verification; LLM judges only demote", "p": "7, 42-44"},
-{"f": "Q6", "v": "Yes (1): resolution, strict pass, tokens, steps and time defined", "p": "7, 61-62"},
-{"f": "Q7", "v": "Yes (1): unaided and localization-only baselines under identical scaffold and budget", "p": "7, 41"},
-{"f": "Q8", "v": "Partly (0.5): 4 repetitions with SD and Wilson intervals for Nagini, McNemar tests; other backends single runs", "p": "44, 54-55, 61"},
-{"f": "Q9", "v": "Partly (0.5): findings follow from Table 2, but reporting inconsistencies between Table 2 and appendix values", "p": "7-9, 42, 55"},
-{"f": "Q10", "v": "Partly (0.5): discussion and limitations of trust points; no threats section; single model not discussed", "p": "9"},
-{"f": "Q11", "v": "No (0): arXiv preprint under review", "p": "1"},
-{"f": "Q12", "v": "Yes (1): authors not vendors of the model, verifiers or EARS evaluated (AWS affiliation noted)", "p": "1"},
-{"f": "Q13", "v": "N/A (proposes a benchmark/evaluation method)", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800498180",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ma, G., Mikek, B., Li, H., Erata, F., Zhang, Y., Shui, Z., Omidvar Tehrani, B., Huan, J., Ramanathan, M. K., Sojoudi, S., Zhou, H., Deoras, A. (2026). SWE-Proof: Can Language Models Resolve Real-World Issues with Machine-Checked Proofs? arXiv:2609.21190v2 [cs.LG], 22 Sep 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.21190v2 [cs.LG], 22 Sep 2026; marked 'Preprint. Under review.', no published venue",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) was right."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "UC Berkeley (Ma, Sojoudi); Georgia Tech (Mikek); UIUC (Li); AWS AI Labs (8 authors: Erata, Zhang, Shui, Omidvar Tehrani, Huan, Ramanathan, Zhou, Deoras)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — BenchProofer construction pipeline and the SWE-Proof benchmark (formal specs, axioms, reference implementations and proofs for the 500 SWE-bench Verified issues, extended to SWE-bench Pro); compares nine specification settings with one model (no spec, self-written formal/EARS spec, provided formal/EARS spec)",
+   "p": "1-2, 7",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form (main nature; 'secondary: <value from the list>'; ' — ' and detail). Natures themselves were right."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Specification settings (Table 2 rows 0-8) under four specification backends: Nagini (contract-annotated Python, SMT), Velvet (imperative DSL in Lean, SMT), pure Lean 4 + Mathlib (agent-written proofs), and EARS structured natural-language requirements (no verifier; non-formal control). Versions pinned in Table 49: Nagini 1.2.0, Lean toolchain v4.24.0, Mathlib and Velvet by git revision (f897ebcf72cd, 2cf0acb04c51), z3 4.15.4, cvc5 1.3.1. EARS template version not stated",
+   "p": "2, 6-7, 27-29, 86",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said verifier versions are not stated; Appendix Table 49 (p. 86) pins Nagini, Lean, Mathlib, Velvet and the SMT solvers."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Formal specification (pre/postconditions over modeled functions) + axioms for unchanged callees + operation correspondence ('specification view'); implementation in the backend language with proof annotations; equivalent Python patch. EARS: requirements with numbered acceptance criteria in WHEN/THEN/SHALL, SHALL, IF/THEN, WHILE patterns (median 106 lines, 3.7 requirements, 14.7 criteria in the corpus)",
+   "p": "2-3, 5-6, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Depends on setting: end-to-end (agent writes spec -> verifying implementation -> equivalent patch -> submit); from localization (same, given files/functions); from specification (given spec view -> verifying implementation -> patch); spec synthesis only (spec + witness implementation, no patch). Single ReAct loop (shell, verify, submit), 250-step budget",
+   "p": "7, 38-41",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during evaluation; grading by tests, verifier and LLM judges/auditors (majority of three). Authors hand-inspected some instances during construction",
+   "p": "7, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification artefact (formal or EARS) and its verification within one agent episode; full spec -> implementation -> patch flow in rows 2-3, 5, 7",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (closest to spec-first: a per-issue spec is written or given before the implementation and is not maintained afterwards); authors' wording: 'formal specification', 'verified code generation', 'specification synthesis'",
+   "p": "1-2, 8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "'Not stated' is not a value of the form (spec-first / spec-anchored / spec-as-source / not classifiable). The setting is a benchmark, not a development flow, so whether to call it spec-first or not classifiable is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper is a benchmark, not a development flow: a per-issue spec is written or given before the implementation and never maintained (p. 7), which leans spec-first, but no flow is prescribed, so 'not classifiable' is equally defensible. Author to choose."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "A benchmark, not a development flow: a per-issue spec is written or given before the implementation and never maintained (p. 7), which leans spec-first, but no flow is prescribed, so 'not classifiable' is equally defensible. Author to choose."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: real GitHub issue resolution (SWE-bench Verified; SWE-bench Pro Python subset)",
+   "p": "1-2, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified: 500 instances, 12 repos, gold patch churn mean 14.3 / median 7 lines, 1.25 files. SWE-bench Pro: 242 of 266 Python tasks green under all backends, churn mean 145.5 lines, 3.4 files",
+   "p": "6, 17-18, 45",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python projects (Django 231, SymPy 75, Sphinx 44, Matplotlib 34, scikit-learn 32, ...); Pro: Ansible, OpenLibrary, qutebrowser",
+   "p": "17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input and output tokens per episode, agent steps, wall-clock per episode (12-way concurrency), verifier time, input tokens per resolved instance",
+   "p": "44, 61-62",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolution rate under hidden SWE-bench tests; strict pass (patch resolves + implementation verifies + judged equivalent); counterexample audit (adversarial tests vs ground-truth patch)",
+   "p": "7-8, 42-43",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Specification quality audit on five properties (admissibility, soundness, completeness, axiom soundness, faithfulness); verifier use per episode; instance stability across repetitions",
+   "p": "8-9, 46, 54",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-bench Docker harness, verifiers (Nagini/Velvet SMT, Lean kernel); agentic: panels of LLM auditors/judges (majority of three) for equivalence, counterexample audit and spec audit; per-episode logs for tokens and steps",
+   "p": "7-9, 42-44",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All: minimal ReAct scaffold (SWE-agent style) + Claude Opus 4.8, provider-default decoding, 250 steps; main values one run (Nagini cells repeated 4 times). Values %: Nagini / Velvet / Lean / EARS (Table 2, SWE-bench Verified, n = 500). Tokens = input tokens per episode (Table 41, Nagini unless noted). Draft verdict rule: quality works >= 90, partly 60-90, does not < 60; cost works <= 250k, partly 250-450k.\n- Row 0 unaided baseline (no spec): 85.0 (all); 200k. Quality partly; cost works\n- Row 1 baseline + counterexample audit: 58.2. Does not work (shows test incompleteness)\n- Row 2 end-to-end, agent writes spec (graded on tests): 85.6 / 85.0 / 83.8 / 84.2; 438k (EARS 326k). Partly; cost partly\n- Row 3 verified end-to-end (self-written spec must verify): 84.0 / 85.4 / 84.6 / 57.2; 438k (EARS 301k). Partly (EARS does not work); cost partly\n- Row 4 localization provided (no spec): 88.2; 140k. Partly; works\n- Row 5 verified from localization: 92.0 / 91.8 / 89.6 / 64.6. Works/partly\n- Row 6 ground-truth spec provided: 96.2 / 94.0 / 95.2 / 97.8; 376k. Works; cost partly\n- Row 7 verified from provided spec: 95.0 / 94.0 / 93.6 / 80.0; 354k. Works (EARS partly); cost partly\n- Row 8 spec synthesis audit pass: 46.0 / 60.0 / 61.4 / N/A; 335k. Does not work / partly\n- SWE-bench Pro (n = 242, Table 19), same rows: R0 61.2; R1 17.4; R2 50.8/49.2/50.0/50.8; R3 49.6/50.0/47.9/12.4; R4 61.2; R5 52.9/52.1/53.7/19.4; R6 55.8/59.9/58.7/73.1; R7 56.2/55.0/58.7/31.4; R8 31.0/35.5/49.2. Mostly does not work / partly\nRepetitions (Nagini, Table 32): SD <= 1.3 points per cell",
+   "p": "7, 45, 55, 62",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Verified (500) and SWE-bench Pro Python (242). Configurations: 9 settings x 4 backends, one model (Claude Opus 4.8); 26 cells over 500 instances. Baselines: unaided (row 0), localization-only (row 4). Held constant: scaffold, prompts, 250-step budget, container, sanitized git history, hidden tests never visible. Acceptance tests: hidden SWE-bench tests plus verification and equivalence judges. Repetitions: 1 per cell; Nagini cells 4 (except rows 1, 5). Human intervention: none",
+   "p": "7, 41, 44",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Tests incomplete: 26.8 points of test-passing baseline patches overturned by audit (85.0 -> 58.2). Self-written spec does not help: row 2 vs row 0 +0.6 (Nagini) to -1.2. Provided formal spec raises resolution 85.0 -> 94.0-96.2; +6.9 over localization alone; +8.6 to +11.0 over self-written (row 7 vs 3). EARS: resolves like formal (row 2 EARS 421 vs Nagini 428, McNemar p = 0.35) but fails the audit far more (row 3: 286 vs 420 pass, p = 5e-28). Spec synthesis passes audit only 46-61%; faithfulness fails 42.5%. Unresolved instances' specs fail audit 92.3% vs 50.5% resolved. Cost: provided spec cheaper than end-to-end (389k vs 517k input tokens per resolved). Pro: provided spec below localization-only (55.8-59.9 vs 61.2)",
+   "p": "7-9, 45-46, 61-62",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished settings clearly on Verified; repetition SD <= 1.3 points, smaller than Wilson half-widths (1.66-4.37). Limitations stated: verify-implies-resolve rests on audited trust points (axiom soundness, implementation-patch refinement); backend expressiveness required manual modeling for a few instances; a few instances relax non-leakage; spec audit is an LLM panel (evidence, not proof); counterexample audit not applied to prover-accepted submissions, so EARS vs formal audit gap is not like-for-like",
+   "p": "9, 54, 61",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Faithful specification synthesis from informal intent is the open problem; trust points (axioms, refinement to Python patch, Python translation for conformance as weakest link); expressiveness limits (names, imports, class identity, process/filesystem effects cannot be specified; 22 Pro tasks refused); LLM auditors as evidence. Single model evaluated (not discussed as a limitation)",
+   "p": "5-6, 9, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Artifacts and pipeline 'will be released' (no link), under MIT licence (p. 86). No pre-registration. Language: Python (specs in Python/Lean). Tool pins in Table 49 (p. 86). Inconsistencies: Table 32 says r1 is the Table 2 repetition, but Nagini r1 values differ for rows 2-8 (e.g., row 4 91.4 vs 88.2; row 8 49.2 vs 46.0 in Table 3), and Table 34 gives row 6 - row 0 = +11.4 vs 11.2 from Table 2; appendix F.3 says row 1 'has not been run' while Table 2 reports 58.2 and Table 18 lists one repetition; EARS row 3: F.3 gives 122 of 421 violations (29.0%, pass 59.8%), G.1 says 32% of resolving submissions, Table 2 gives 57.2% (286/500 in Table 40); '26.8% of the patches that pass' is a difference in points over all 500 (equals 31.5% of passing patches). Main text (p. 8) says EARS 'does not close' the gap and 'confers none of the improvement', but the appendix (p. 61) says the gap 'does not show that structured requirements are a weaker way to pin down behavior' because prover-accepted formal submissions were never audited. p. 86 says 'both models were reached through their providers' hosted APIs' although only Claude Opus 4.8 is evaluated; the model behind the LLM auditors/judges is not named. Values used from Table 2 (p. 7), Table 19 (p. 45), Table 41 (p. 62). AWS affiliation: Kiro (AWS) uses EARS, not mentioned in the paper (reviewer to judge)",
+   "p": "7-8, 10, 42-45, 55-56, 61, 86",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added substantive reporting issues the draft missed: main-text EARS conclusion contradicted by the appendix caveat (p. 61), the 32% vs 29.0% figure, Table 34's +11.4, the 'both models' statement and unnamed judge model, and the Table 49 tool pins."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): five experimental questions stated",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, gates, settings, scaffold, budget and grading described in detail",
+   "p": "3-6, 31-44",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Opus 4.8 named, no snapshot or date; custom minimal ReAct scaffold described; verifier and solver versions pinned (Table 49); the model used for the LLM auditors and judges is not named",
+   "p": "7, 41, 44, 86",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Score kept, but the draft's reason was wrong: verifier versions are stated (Table 49, p. 86). The missing items are the model snapshot and the unnamed auditor/judge model; a reader could argue Yes."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks from public SWE-bench; SWE-Proof artifacts announced for release, not yet available",
+   "p": "10, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden SWE-bench tests and mechanical verification; LLM judges only demote",
+   "p": "7, 42-44",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolution, strict pass, tokens, steps and time defined",
+   "p": "7, 61-62",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): unaided and localization-only baselines under identical scaffold and budget",
+   "p": "7, 41",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 4 repetitions with SD and Wilson intervals for Nagini, McNemar tests; other backends single runs",
+   "p": "44, 54-55, 61",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): findings follow from Table 2, but reporting inconsistencies between Table 2 and appendix values",
+   "p": "7-9, 42, 55",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): discussion and limitations of trust points; no threats section; single model not discussed",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint under review",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors not vendors of the model, verifiers or EARS evaluated (AWS affiliation noted)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The authors did not create Claude, Nagini, Velvet, Lean or EARS, so Yes is defensible; but eight authors are at AWS AI Labs, whose Kiro uses EARS (one of the compared formats, which comes out worse) and which hosts Claude. Whether that counts as vendor ties is for the author to judge."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No author created Claude, Nagini, Velvet, Lean or EARS, so Yes is defensible; but eight of twelve authors are at AWS AI Labs (p. 1), which hosts Claude and whose Kiro uses EARS (the format that comes out worse). Whether that is a vendor tie is the author's call."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No author created Claude, Nagini, Velvet, Lean or EARS, so Yes is defensible; but eight of twelve authors are at AWS AI Labs (p. 1), and the paper only says models were reached via 'the cloud provider's SDK' (p. 86). Whether an AWS tie to the evaluated model or to EARS (used by AWS Kiro, not mentioned in the paper) counts as vendor dependence is the author's call."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes a benchmark/evaluation method)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

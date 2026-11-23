@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486484",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jiang, Z., Wang, R., Hu, Y., Wang, Y., Jia, Y., Gong, N. Z. (2026). Self-Evolving Coding Rules for AI Coding Agents. arXiv:2610.00650v1 [cs.CL], 30 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — NeurIPS 2026 (40th Conference on Neural Information Processing Systems), per the camera-ready footer on p. 1; full text read from arXiv:2610.00650v1 [cs.CL]; acceptance not confirmed from another source",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "Only evidence of the venue is the NeurIPS 2026 camera-ready footer on p. 1 of the arXiv copy (no DOI, no proceedings reference). Author to confirm acceptance; if not accepted, Preprint"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Duke University (all six authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — RuleEvolve, self-evolving framework for coding rules (AGENTS.md / system prompt), compared with no rule, a manual rule and Prompt-Ops across 2 agent frameworks, 4 backbone models, 3 benchmarks plus SWE-bench Lite",
+   "p": "1-2, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "RuleEvolve (no version): pool of m candidate coding rules evolved by an LLM mutator and a judge module, with strategic mutation allocation based on Optimal Computing Budget Allocation (OCBA). Baselines: No rule; Manual rule (from awesome-cursorrules repository, App. F); Prompt-Ops (LLM prompt duel optimizer, default settings); ablations: even and proportional allocation",
+   "p": "1-6, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Coding rules file (AGENTS.md for OpenHands; system prompt for OpenAI SDK agent). Evolved rule has 16 sections in six categories (output format/self-containment, algorithm knowledge, brevity style, API/library idiom, correctness tactics, process/budget)",
+   "p": "1-3, 6, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Initial rules -> mutator generates m variants -> judge runs agent on mini-batch of training tasks and scores (code characters + lambda x correctness penalty vs no-rule) -> allocate N mutations by OCBA -> evaluate -> prune to top m -> repeat T iterations -> return best rule",
+   "p": "2, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automatic loop); only the initial rule is human-written",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (coding rules / context file), evolved and then used by the agent",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (coding rules / AGENTS.md, no specification)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mostly function-level code generation from a problem description (BigCodeBench, BigCodeBench-Hard, HumanEval); existing code base only in SWE-Bench Lite (repository-level issues)",
+   "p": "5-6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Training: 1,000 random BigCodeBench instances (mini-batches of B = 10); testing: 100 random samples each of BCB (disjoint), BCB-Hard, HumanEval; SWE-Bench Lite 100-task subset. Parameters T = 10, N = 20, m = 5, lambda = 3,000",
+   "p": "5-7, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python programming tasks (general, library function calls); SWE-Bench Lite Python repositories",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average generation time (s); average token usage (computed only on functionally correct code). Cost of the evolution process itself not reported",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate (share of generated code passing all test cases); Pass@k (k = 1-10)",
+   "p": "6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Average code lines and code characters (main); App. D: duplicated-block ratio, cyclomatic complexity, Halstead volume, maintainability index, complexity per SLOC, docstring rate (No rule vs RuleEvolve only)",
+   "p": "6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Character attribution per rule category (ablation of rule sections, App. C)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark test cases, token counts, generation time, code metrics",
+   "p": "6-7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: pass rate on 100-sample test sets; values PR BCB/BCB-H/HE; tokens BCB (Tables 5-6); rules evolved per backbone. OpenAI SDK agent: - gpt-4.1-mini: No rule 0.47/0.25/0.97, 623.5 tok; Manual 0.46/0.20/0.92, 852.0; Prompt-Ops 0.45/0.24/0.92, 540.5; RuleEvolve 0.46/0.24/0.93, 479.3. - gpt-5-mini: No rule 0.36/0.20/0.95, 2185; Manual 0.31/0.20/0.68, 2799; Prompt-Ops 0.38/0.20/0.99, 1884; RuleEvolve 0.46/0.20/0.99, 1717. - gpt-5.3-codex: No rule 0.46/0.26/0.97, 790.8; Manual 0.45/0.23/0.98, 1022; Prompt-Ops 0.48/0.23/0.89, 581.7; RuleEvolve 0.49/0.26/0.99, 544.5. - Qwen-Coder-30B: No rule 0.17/0.12/0.90, 932.4; Manual 0.19/0.09/0.69, 1083; Prompt-Ops 0.32/0.18/0.67, 799.0; RuleEvolve 0.38/0.19/0.88, 715.5. OpenHands (rules via AGENTS.md): - gpt-4.1-mini: No rule 0.48/0.27/0.96, 1079; Manual 0.48/0.28/0.95, 1320; Prompt-Ops 0.43/0.22/0.71, 903.1; RuleEvolve 0.50/0.28/0.98, 991.6. - gpt-5-mini: No rule 0.40/0.18/0.97, 1793; Manual 0.38/0.22/0.96, 2047; Prompt-Ops 0.33/0.19/0.99, 1392; RuleEvolve 0.41/0.25/0.98, 1498. - gpt-5.3-codex: No rule 0.49/0.29/0.99, 1143; Manual 0.49/0.29/0.99, 1293; Prompt-Ops 0.40/0.25/0.91, 1009; RuleEvolve 0.52/0.27/0.99, 1016. - Qwen-Coder-30B: No rule 0.43/0.27/0.97, 1250; Manual 0.44/0.28/0.99, 1262; Prompt-Ops 0.35/0.19/0.91, 1119; RuleEvolve 0.44/0.27/0.96, 1028. Verdicts, each configuration on its own: RuleEvolve (all 8 framework-model cells): quality partly (BCB 0.38-0.52, BCB-H 0.19-0.28, HE 0.88-0.99); cost works (about 480-1,720 tokens and 3-23 s per task; cost of the evolution runs not reported). No rule (all 8): quality partly (BCB 0.17-0.49, BCB-H 0.12-0.29, HE 0.90-0.99); cost works. Manual rule (all 8): quality partly (HE falls to 0.68-0.69 with SDK gpt-5-mini and Qwen); cost works (highest or near-highest tokens, up to 2,799). Prompt-Ops (all 8): quality partly (BCB 0.32-0.48, HE down to 0.67); cost works. Multi-seed (gpt-4.1-mini, BCB, 10 seeds; framework not stated): No rule PR 0.502 +/- 0.015, 1181 tok, 8.66 s; Public rule 0.498, 2049; Prompt-Ops 0.502, 1130; RuleEvolve 0.502 +/- 0.026, 1019 tok, 9.67 s; all four quality partly (PR about 0.50), cost works. SWE-Bench Lite (gpt-4.1-mini, framework not stated): No rule PR 0.330, 131.17 s, 911 tok (quality partly; cost works); Public rule 0.190, 166.45 s, 867 tok (quality does not work; cost works); Prompt-Ops 0.080, 175.24 s, 684 tok (quality does not work; cost works); RuleEvolve 0.340, 297.46 s, 722 tok (quality partly; cost partly, time more than double No rule). Ablation (mutation allocation; backbone, framework and benchmark not stated for Fig. 2b): even, proportional, OCBA all PR 0.500; tokens 980.9 / 998.6 / 975.2; time 20.47 / 17.37 / 15.48 s (value labels in Fig. 2b)",
+   "p": "6-9, 12",
+   "verdict": "corrected",
+   "why": "Multi-seed entry was attributed to the OpenAI SDK, but p. 7 and Table 3 name only the backbone and benchmark (the No rule values, 1181 tokens and 8.66 s, are closer to the OpenHands than to the SDK single run); the ablation entry's setting (gpt-4.1-mini, BCB) is not stated for Fig. 2b. Numbers re-checked against Tables 3-6 and Fig. 2b; verdict levels remain a judgement"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100-sample test sets of BCB, BCB-Hard, HumanEval; SWE-Bench Lite 100 tasks. Configurations: 4 methods x 2 frameworks (OpenAI SDK custom agent, OpenHands) x 4 backbones; rules evolved per model. Baselines: No rule, Manual rule, Prompt-Ops; ablation: even/proportional allocation, T, N, m. Held constant: framework, backbone, test samples within comparison. Acceptance tests: benchmark test cases. Repetitions: single run per cell in main tables; 10 seeds for the four methods in one setting (gpt-4.1-mini, BCB, framework not stated). Human intervention: none. Mutator LLM not stated",
+   "p": "5-9",
+   "verdict": "corrected",
+   "why": "The 10-seed run (Table 3) covers all four methods (No rule, Public rule, Prompt-Ops, RuleEvolve), not one configuration, and its framework is not stated"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "RuleEvolve reaches highest or near-highest PR and lower code length/tokens than No rule and Manual rule in most cells, e.g. OpenAI SDK gpt-5.3-codex BCB PR 0.49 vs 0.45 manual, chars 453.1 vs 2372, tokens 544.5 vs 1022; gpt-5-mini BCB 0.46 vs 0.31 manual, ~40% fewer tokens (1717 vs 2799). Prompt-Ops sometimes cheaper but drops PR (same backbone, OpenHands gpt-5.3-codex BCB 0.40 vs 0.52; the paper's 0.43 vs 0.52 compares Prompt-Ops on gpt-4.1-mini with RuleEvolve on gpt-5.3-codex). Multi-seed: PR equal (0.502) with fewer lines (24.3 vs 32.5) and tokens (1019 vs 1181), but time higher (9.67 vs 8.66 s). SWE-Bench Lite: 0.340 vs 0.330 no rule, with time 297 s vs 131 s. App. D: lower cyclomatic complexity (5.37 -> 3.95) and Halstead volume, maintainability index 78.3 vs 85.1, docstring rate 47% -> 1%. No significance tests",
+   "p": "7-9, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods mainly on length and tokens; PR differences small (often 0.01-0.03 on 100 samples). Repeatability: 10-seed check in one setting only (four methods, gpt-4.1-mini, BCB) (SDs 0.015-0.032 on PR, comparable to differences). Limitations stated: brevity objective may slightly lower PR on complex tasks; stochasticity and bias of LLM mutator/judge; length used as proxy for cost; maintainability and architecture not explored",
+   "p": "7-8, 11",
+   "verdict": "corrected",
+   "why": "The 10-seed check covers four configurations (methods) in one backbone/benchmark setting, not one configuration"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Coding rules can be evolved to cut code length and inference cost while keeping correctness. Limitations: possible PR drop on complex tasks; mutator/judge stochasticity and bias; other dimensions (maintainability, architectural complexity) left to future work",
+   "p": "9, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD (coding rules / AGENTS.md optimisation). Text claims RuleEvolve 'consistently achieves the highest or equal PR across all benchmarks', but Tables 5-6 show lower PR in some cells (e.g. SDK gpt-4.1-mini HE 0.93 vs 0.97 no rule; OpenHands gpt-5.3-codex BCB-H 0.27 vs 0.29; OpenHands Qwen HE 0.96 vs 0.99 manual). Tables 1-2 ('backbone with the highest pass rate') do not use one backbone: Table 1 No rule is the gpt-4.1-mini row, the other Table 1 rows gpt-5.3-codex; Table 2 Prompt-Ops row mixes backbones per benchmark (BCB gpt-4.1-mini, BCB-H gpt-5.3-codex, HE gpt-5-mini), so the text's Prompt-Ops vs RuleEvolve comparison (0.43 vs 0.52) crosses backbones. Values in this form taken from Tables 5-6. Figure 2 labels the method 'RuleRefine'. Table 4 values rebuilt from interleaved pdftotext text (Public rule CLn 9.1, CC 413, time 166.45 s, tok 867; Prompt-Ops CLn 5.4, CC 236, 175.24 s, 684). App. D 'reduces Halstead volume by 47%' matches 53.0 -> 28.0. Efficiency metrics averaged only over correct code. Code/data availability not stated. No pre-registration. Language: Python",
+   "p": "6-9, 12, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goals and constrained optimisation objective defined",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): algorithm, parameters and manual rule given; mutator LLM, mutation guidance beyond one example, evolved rule text and SWE-Bench framework not given",
+   "p": "4-7, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): backbone models named; OpenHands version, OpenAI SDK version and mutator model not stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks, but random 100-sample subsets not listed and no code/data release stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark test cases",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass rate, code length, generation time, tokens defined",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No rule, Manual rule, Prompt-Ops under the same framework and backbone",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 10-seed evaluation of the four methods in one setting (gpt-4.1-mini, BCB) with SDs; main tables single runs; no significance tests",
+   "p": "7-8",
+   "verdict": "corrected",
+   "why": "Score unchanged; the 10-seed evaluation covers four methods in one setting, not one configuration"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): 'consistently highest or equal PR' not supported in several table cells; SWE-Bench time increase downplayed",
+   "p": "7-8, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations appendix; no threats-to-validity discussion",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): NeurIPS 2026 camera-ready footer indicates the conference version (arXiv copy; acceptance not confirmed from another source)",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "Rests only on the p. 1 NeurIPS 2026 footer of the arXiv copy. Author to confirm acceptance; if not accepted, No (0) and Publication type Preprint"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created RuleEvolve; independent of the baselines (awesome-cursorrules rules, Prompt-Ops), OpenHands and model vendors",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): needs only an agent framework and LLM API, within reach; evolution needs T x N x B agent runs (about 2,000 task runs with defaults) and its cost and time are not reported",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

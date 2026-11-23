@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800498082",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Malo, R. C., Qiu, T. (2026). PROJECTMEM: A Local-First, Event-Sourced Memory and Judgment Layer for AI Coding Agents. arXiv:2606.12329v2 [cs.AI], 30 Sep 2026 (June 2026; revised September 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.12329v2 [cs.AI], v1 June 2026, revised 30 Sep 2026; self-described 'system and feasibility report'; no published venue found in the exports or access log",
+   "p": "1-2",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>' (draft-verify rules). Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2), no venue stated in the paper"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Utah (both authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — projectmem, an event-sourced plain-text project memory plus an advisory pre-edit 'judgment gate' served over MCP; evaluation is feasibility only (author-run six-month self-study, gate latency benchmark v0.3.2 vs v0.3.3, client acceptance suite), explicitly not of prevention effectiveness",
+   "p": "1-2, 7",
+   "verdict": "corrected",
+   "why": "Form fixed to '<nature>; secondary: <nature> — <detail>' with the controlled values (draft had lower-case 'evaluates' inside the detail). Substance unchanged"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "projectmem v0.3.3 (latency compared with v0.3.2; supersession field added in v0.1.4; first paper version used earlier releases). Python >= 3.10, on PyPI, MIT licence",
+   "p": "4-5, 9, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Under .projectmem/: events.jsonl (append-only log of typed events: issue, attempt with outcome worked/failed/partial, fix, decision with optional supersedes, note); summary.md (deterministic projection the agent reads); PROJECT_MAP.md (stack and structure, hand/agent-edited); AI_INSTRUCTIONS.md (workflow rules served at session start); plan.md (intent: plans and ideas, outside the log); per-issue files; bridge files CLAUDE.md and AGENTS.md at repo root; machine-wide ~/.projectmem/global lesson store",
+   "p": "2-3, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not a spec-to-code flow. Agent protocol: start session by reading instructions, summary and project map (Setup Mode populates them on a new project, Maintenance Mode afterwards) -> call precheck_file before modifying a file -> log issue before attempting a fix -> record each attempt with outcome -> record fix when there is evidence -> record decisions/notes; git pre-commit hook runs the gate as fallback. Nothing is enforced",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None prescribed; warnings are advisory, 'the agent or developer decides'; the pre-commit hook reports but never blocks (strict mode optional for CI). Log is plain text reviewable in pull requests",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact set (project-memory/context files and the gate tool) in the authors' own routine use; full agent workflow not evaluated against outcomes",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (memory/context layer, not a specification; authors' wording: 'Memory-as-Governance', 'project memory')",
+   "p": "2, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (authors' own projects; pjm init backfills memory from git history); synthetic repository for latency; small scripted web-interface task for supersession",
+   "p": "5, 7, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Self-study: 27 projects, 3,228 events, 529 distinct issues (largest project 42% of events; 8 projects < 10 events). Synthetic repo: 4 source files, 60 commits over 200 days, logs of 100/400/1,500 events",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Machine learning, web and desktop applications, developer tools, research code",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "The two authors (single-user, local; author-run self-study on two machines, macOS and Windows)",
+   "p": "7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Gate analysis time (ms, median and range over 5 runs) and git subprocesses per check; session-start token cost only estimated (800-1,500 tokens MCP, ~2,500 bridge vs 5,000-20,000 without memory; not measured)",
+   "p": "7, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Acceptance suite pass/fail per client (T1 project resolution, T2 context retrieval, T3 supersession recording, T4 gate on 1,500-event log); gate warning output preserved across versions",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (share of events written explicitly vs captured automatically reported: 94% vs 6%)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Event composition and capture source; issues closed by a fix with a prior failed attempt (candidate histories for warnings); supersession references per period; cross-project lesson attribution correctness (manual audit of 46 lessons)",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: scan of event logs on both machines, de-duplicated by event id; timed runs on one workstation (Intel i5-7500, macOS 13.7, Python 3.12.2, git 2.39.3). Manual: one author judged lesson attribution; acceptance suite outcomes observed by authors",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No agent/model configurations with task outcomes; model never stated.\n- projectmem v0.3.3 gate (latency): 56.7 / 61.8 / 79.3 ms median at 100 / 400 / 1,500 events; 2 git calls. Quality: same warnings as v0.3.2. Cost works\n- projectmem v0.3.2 gate (baseline, latency): 2,748 / 11,286 / 42,047 ms; 100 / 400 / 1,500 git calls. Cost does not work\n- projectmem v0.3.3 + Antigravity 2.1.4 + model n.s.: T1-T4 pass. Works\n- projectmem v0.3.3 + Claude desktop app Code tab 2.9939.2 + model n.s.: T1 resolution only, T2 pass, T3 read path only, T4 pass after fix. Partly\n- projectmem v0.3.3 + Codex 26.908.40834 + model n.s.: T1-T4 pass. Works\n- Cursor 3.4.17: not run\n- Scripted reversal task, 1 run in each of two MCP clients (not named): agent recorded the supersession unprompted in both. Works (demonstration only)\n- Self-study (authors' use, agents n.s.): 3,228 events; 86 of 427 fixed issues (20%) had a failed attempt before the fix; prevention not measured. Not judgeable\n- Cross-project store: 12 of 46 lessons (26%) correctly attributed, 29 (63%) wrong. Does not work",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Only for latency: v0.3.2 vs v0.3.3 on the same synthetic repository, logs of 100/400/1,500 events, 5 runs after 1 warm-up, one file checked, interpreter start-up excluded. No with/without-memory comparison; no agents compared on tasks. Acceptance suite single runs per client; human intervention Not stated",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "v0.3.3 gate ~530x faster at 1,500 events (42.0 s -> 79.3 ms) and 1,500 -> 2 git subprocesses, same warnings; no significance testing. Supersession references: 0/81, 9/390, 4/119 decisions across periods (counts, not rates)",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the two gate versions clearly (non-overlapping ranges). Limitations stated: synthetic repository on one machine, absolute times will differ; client suite small and partly single-run; does not measure whether the gate prevents repeated failures",
+   "p": "9-11, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No measure of prevention (benchmark proposed); file-scoped advisory gate cannot tell whether a change repeats a failure; depends on capture completeness; no semantic recall; summary grows with history (~30,000 tokens in one project); non-atomic writes, fail-open redaction; schema and instructions changed during the study; self-study of own projects dominated by one project; token figures estimates; single-user. Future: repeat-failure benchmark, gate instrumentation, supersession traversal, better attribution, tool-call boundary gate, open event schema, shared team memory",
+   "p": "13-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Source code at github.com/riponcm/projectmem (MIT); reproducibility artifacts (benchmark code, raw latency results, anonymized self-study records) 'will be released' under paper/v2/. No pre-registration. Language: Python implementation; projects in various languages (not stated per project). Values from Table 2 (p. 9), Table 3 (p. 10), Table 4 (p. 10), Table 5 (p. 11; pdftotext jumbled the columns, rebuilt from row order and text p. 11). Event shares in Fig. 4 only partly in text (56% issue-lifecycle, 18% decisions, 26% notes). Relevant to SDD as an agent context/memory artefact (CLAUDE.md/AGENTS.md bridge, plan.md), not a specification approach",
+   "p": "8-11, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims stated as four contributions; system and feasibility report",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): latency setup described; self-study data collection described, but agent instructions, clients and models per run not given",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): projectmem and client versions given (Table 5); models not stated; reversal-task clients not named",
+   "p": "4, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): synthetic repository described; self-study projects private; artifacts announced, not yet available",
+   "p": "7, 9, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): latency and git-call counts objective; acceptance and lesson attribution judged by the authors",
+   "p": "9-11",
+   "verdict": "uncertain",
+   "why": "Partly is defensible: latency and git-call counts are objective measurements (p. 9-10), but the only outcome-type checks (acceptance suite T1-T4, lesson attribution) were judged by the authors themselves (p. 10-11), and no effectiveness of the approach is measured at all (p. 7, 13). A stricter reader could score No"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): latency defined; token cost only estimated; no quality-of-outcome metric for agent work",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): v0.3.2 vs v0.3.3 under same conditions for latency only; no baseline without memory",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 5 runs with median and range for latency; no statistics; other evaluations single runs",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims limited to feasibility; negative attribution result reported; no causal claims",
+   "p": "8, 10, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 limitations",
+   "p": "13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created projectmem",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): pip install, Python >= 3.10, three dependencies, local, no database or model call, open source",
+   "p": "5, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

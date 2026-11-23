@@ -1,0 +1,315 @@
+{
+"key": "rayyan-800486640",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 2,
+"fields": [
+{
+"f": "Reference",
+"v": "Ardic, B., Olsthoorn, M., Zaidman, A. (2026). Uncovering AGENTS.md: What Testing Guidance Open Source Projects Provide to Coding Agents. In 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), IEEE, pp. 23-34. doi:10.1109/SCAM71261.2026.00010",
+"p": "1, 12",
+"verdict": "corrected",
+"why": "The paper runs to printed page 34 (pages 33-34 carry the references, p. 11-12 of the PDF), so the page range is 23-34, not 23-32"
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Publication type",
+"v": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 23-34",
+"p": "1, 12",
+"verdict": "corrected",
+"why": "The paper runs to printed page 34 (pages 33-34 carry the references, p. 11-12 of the PDF), so the page range is 23-34, not 23-32"
+},
+{
+"f": "Author affiliation",
+"v": "Delft University of Technology, The Netherlands (all three authors)",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Nature of the study",
+"v": "Evaluates — empirical repository mining and qualitative content analysis of AI guidance files (how they are organised and what testing guidance they give to coding agents); no agent run",
+"p": "1-2",
+"verdict": "uncertain",
+"why": "Observational mining and content analysis of guidance files; 'Evaluates' is the nearest listed nature, but no approach's effect is evaluated. Same judgement as for other manifest content analyses; author to decide consistently"
+},
+{
+"f": "Approach(es): name and version",
+"v": "AI guidance files / agent context files: AGENTS.md (generic), CLAUDE.md, GEMINI.md and other tool-specific files (copilot, cursor, devin, windsurf, etc.), plus referred Markdown files (CONTRIBUTING.md, TESTING.md, nested AGENTS.md, SKILL.md); no versions",
+"p": "1-3, 5-6",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "Version-controlled Markdown file(s) at repository root ('READMEs for agents') specifying architecture, build commands, coding conventions and constraints; may delegate to referred Markdown files (one hop), including nested AGENTS.md, SKILL.md, CLAUDE.md, CONTRIBUTING.md, TESTING.md. Observed testing guidance themes: test commands, locations/placement, strategy, mentality, framework/environment, tips, types, coverage, avoidance, mocking, examples, naming/style",
+"p": "1, 3, 6-8",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Not stated (no flow; files are repository context read by agents)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human review points",
+"v": "Not stated",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Parts exercised",
+"v": "Single artefact (context/guidance files and referred files), observed in repositories, not run by the authors",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (context files, no specification); authors do not use SDD terms",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Task type",
+"v": "Existing code bases (popular open-source GitHub repositories with observed agent-authored PRs, AIDev-pop)",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Size",
+"v": "2,807 AIDev-pop repositories (2,786 accessible); root guidance corpus 975 repositories, 1,325 root files; extended corpus adds 533 referred files in 200 repositories; qualitative sample 300 repositories (stratified 100 low/medium/high testing-keyword buckets), 626 Markdown files, >3,300 coded quotations, >200 codes, 12 themes",
+"p": "1-2, 4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Domain",
+"v": "Popular open-source GitHub repositories (>100 stars) of any domain; languages Not stated",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no participants; files written by open-source maintainers, profile Not stated)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Cost metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "RQ1: prevalence of root guidance files; filename and family distributions; files per repository; generic/tool-specific/mixed patterns; within-repository duplication (exact hash, char n-gram TF-IDF cosine >=0.95 near-duplicate, 0.85-0.95 high similarity); symlinks; referred-file counts, locations, path depth, apparent scope. RQ2: number of repositories per testing-guidance theme; themes per repository",
+"p": "3-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: GitHub API scan (1 April 2026) of repository roots with predefined filename list; reference extraction (Markdown links and path mentions, allowlist, one hop); hashing and TF-IDF similarity; symlink metadata; whole-word keyword search for 'test' forms to stratify sample. Manual: open and axial coding of 300 repositories by one coder; second coder on 30-repository subset (331 code applications, 77 initial disagreements, 76.8% initial agreement, consensus)",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "N/A (observational mining study; no configuration run)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: design",
+"v": "N/A (no configurations compared)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: result",
+"v": "N/A. Descriptive: 975 of 2,786 accessible repositories have root guidance; AGENTS.md 666 files, CLAUDE.md 615, GEMINI.md 25; families Generic 683 (51.5%), Claude 615 (46.4%), Gemini 25 (1.9%), Other 2 (0.2%); 645 repos with one root file, 312 two, 16 three, 2 four; generic-only 353 (36.2%), mixed 327 (33.5%), tool-specific-only 295 (30.3%); 143 of 331 multi-file repos (43.2%) have a root-root pair >=0.85 similarity; 118 exact AGENTS.md-CLAUDE.md duplicate pairs; 161 symlinked guidance files. Testing themes (of 300): commands 249 (83.0%), locations 186 (62.0%), strategy 156 (52.0%), mentality 144 (48.0%), framework/environment 142 (47.3%), tips 109 (36.3%), types 74 (24.7%), coverage 71 (23.7%), avoidance 57 (19.0%), mocking 52 (17.3%), examples 39 (13.0%), naming/style 38 (12.7%); median 4 themes per repository",
+"p": "5-8",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Subjectivity of manual coding (single main coder, 10% double-coded); keyword detection may miss testing guidance, RQ2 only covers repos with testing keywords; filename allowlist excludes other files/non-Markdown/tool settings; one-hop referred-file boundary; path-based scope and similarity thresholds are approximations; only popular repos with agentic PRs; Markdown-only; conventions evolving rapidly. Future: whether explicit testing guidance changes agent behaviour (over-mocking, alignment with test patterns, superficial coverage); compare agent-facing vs human-facing docs; longitudinal studies",
+"p": "10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Notes",
+"v": "Printed page numbers 23-34 = PDF pages 1-12 (references on 11-12). Tables IV and V came out partly jumbled; values rebuilt from the text, consistent. Inter-coder agreement given as percent agreement (76.8% initial), no kappa. Data package on Figshare: doi:10.6084/m9.figshare.32653524 (frozen corpus, metadata, scripts, qualitative material). No pre-registration. Programming language: Not stated. Funded by SNSF and NWO",
+"p": "4-7, 10, 11",
+"verdict": "corrected",
+"why": "Printed page range is 23-34 (references on printed pages 33-34), not 23-32"
+},
+{
+"f": "Q1",
+"v": "Yes (1): RQ1 and RQ2 stated",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q2",
+"v": "Yes (1): repository selection, filename list, reference extraction, similarity thresholds, sampling strata and coding procedure described; data package available",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q3",
+"v": "Partly (0.5): no agent or model used (mining study); GitHub scan date given (1 April 2026) but AIDev-pop dataset version and analysis tool versions not stated",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q4",
+"v": "Yes (1): AIDev-pop corpus described; frozen corpus in Figshare data package",
+"p": "2, 4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q5",
+"v": "Partly (0.5): manual coding by authors with partial double-coding (76.8% initial agreement, then consensus); no external ground truth",
+"p": "4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): counts and similarity measures defined; no cost or quality metrics (not applicable to a content analysis)",
+"p": "3-5",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q7",
+"v": "No (0): no baseline or alternative evaluated (descriptive study)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q8",
+"v": "No (0): descriptive counts only; no statistical analysis; double-coding only on 10%",
+"p": "4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q9",
+"v": "Yes (1): findings follow the counts; prevalence of themes not generalised beyond sample; scope proxy flagged as approximation",
+"p": "4, 6-9",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q10",
+"v": "Yes (1): Section VII Threats to Validity (internal, external)",
+"p": "10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q11",
+"v": "Yes (1): IEEE SCAM 2026 conference proceedings",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q12",
+"v": "Yes (1): university authors, not vendors of the agents or file formats studied",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q13",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+}
+]
+}

@@ -1,226 +1,389 @@
 {
-"key": "rayyan-800485908",
-"model": "Claude Opus 5.5 (subagent)",
-"fields": [
-{
-"f": "Reference",
-"v": "Sharma, R. K. (2026). ContextCov: Bridging the Gap Between Developer Intent and Autonomous Agent Execution. arXiv:2603.00822v2 [cs.SE], 4 May 2026",
-"p": "1"
-},
-{
-"f": "Year",
-"v": "2026",
-"p": "1"
-},
-{
-"f": "Publication type",
-"v": "Preprint (arXiv; ACM-style layout, venue Not stated)",
-"p": "1"
-},
-{
-"f": "Author affiliation",
-"v": "University of Washington, Seattle, USA (single author)",
-"p": "1"
-},
-{
-"f": "Nature of the study",
-"v": "Proposes an approach (ContextCov: compiles agent instruction files such as AGENTS.md into executable guardrails) and compares it with two baselines (Vanilla, LLM Reflection) on SWE-bench Lite",
-"p": "1-2, 6"
-},
-{
-"f": "Approach(es): name and version",
-"v": "ContextCov (no version; code at github.com/reSHARMA/ContextCov). Input artefact: Agent Instruction files (AGENTS.md, CLAUDE.md, copilot-instructions.md)",
-"p": "1, 3"
-},
-{
-"f": "Artefacts prescribed",
-"v": "Input: agent instruction file (Markdown). Generated: refined standalone constraints with header path and stable hash IDs; JSON file of executable Python checks in four domains: Process (PATH shell shims blocking prohibited commands), Source (Tree-sitter AST queries), Architectural-Deterministic (NetworkX dependency-graph checks), Architectural-Semantic (LLM-as-judge rubrics, warnings only). Violation traces returned to the agent",
-"p": "3-6"
-},
-{
-"f": "Phases of the flow",
-"v": "Check generation: Markdown AST parse -> path-aware slicing -> LLM refinement of each constraint (gpt-5.2-chat) -> intent router to domain -> expert generators (Claude Code + Opus 4.5) with self-test loop, syntax check and dry run -> JSON of checks. Runtime enforcement: shims intercept commands; static/architectural checks on repo, diff or unstaged changes; violations fed back to the agent for self-correction (max 5 rounds in evaluation). Incremental re-generation when instruction file changes",
-"p": "3-6"
-},
-{
-"f": "Human review points",
-"v": "Developers can review and edit the generated JSON checks before deployment; semantic warnings flagged for human review; false positives resolved by refining the instruction file or marking exceptions",
-"p": "5-6"
-},
-{
-"f": "Parts exercised",
-"v": "Full workflow of the proposed tool (check generation + runtime enforcement) with generated AGENTS.md files",
-"p": "6"
-},
-{
-"f": "SDD level",
-"v": "Not stated in Böckeler terms. Author treats instruction files as 'executable specifications' compiled into enforcement checks ('documentation as code', 'living contract'); closest to spec-anchored (instructions kept and enforced continuously)",
-"p": "1, 9"
-},
-{
-"f": "Task type",
-"v": "Existing code bases (SWE-bench Lite issue resolution)",
-"p": "6"
-},
-{
-"f": "Size",
-"v": "SWE-bench Lite: 300 tasks, 12 repositories; 788 checks synthesised from generated instruction files (Table 1 totals: 1,498 lines, 788 checks)",
-"p": "6-7"
-},
-{
-"f": "Domain",
-"v": "Python open-source repositories (astropy, django, matplotlib, seaborn, flask, requests, xarray, pylint, pytest, scikit-learn, sphinx, sympy)",
-"p": "6"
-},
-{
-"f": "Team profile",
-"v": "N/A (no human participants; blind human annotation of 384 sampled violations, annotators Not stated)",
-"p": "6"
-},
-{
-"f": "Cost metrics",
-"v": "Feedback cost proxies: logged LLM input characters (mean 19,455 LLM Reflection vs 6,292 ContextCov), feedback-generation time (133.7 vs 27.7 s), end-to-end time (mean 461.4 / 422.4 / 327.9 s for LLM Refl. / ContextCov / Vanilla); feedback rounds; cost-efficiency (resolutions per feedback cost). No tokens or USD",
-"p": "7-8"
-},
-{
-"f": "Functional quality metrics",
-"v": "SWE-bench Lite resolution rate with official harness",
-"p": "7-8"
-},
-{
-"f": "Internal quality metrics",
-"v": "Constraint compliance: share of final patches with zero actionable violations (oracle clean rate); average violations",
-"p": "7-8"
-},
-{
-"f": "Human effort metrics",
-"v": "None",
-"p": "—"
-},
-{
-"f": "Other outcome metrics",
-"v": "Extraction precision of checks (human annotation of 384 sampled legacy violations: 82.81%); check parse success (780/781); LLM-judge agreement with humans (85.42%, Cohen's kappa 0.61); post-hoc LLM critic clean rate",
-"p": "6-8"
-},
-{
-"f": "How metrics are collected",
-"v": "Automatic: SWE-bench Lite harness, executable oracle (ContextCov checks applied post-hoc to baselines), logged characters and time, McNemar tests. LLM-as-judge (Claude Opus 4.5) for semantic checks, validated against blind human annotation of 384 samples",
-"p": "6-8"
-},
-{
-"f": "Evaluation (each configuration)",
-"v": "Criterion: SWE-bench Lite tests (resolution) and executable constraint oracle (compliance). All with OpenCode + GPT-5.2 (critic for LLM Reflection: Claude Opus 4.5)\n- Vanilla (AGENTS.md in context, no feedback) + OpenCode + GPT-5.2: resolved 159/300 (53.0%); compliance 201 (67.0%); end-to-end mean 327.9 s. Baseline\n- LLM Reflection + OpenCode + GPT-5.2 (critic Claude Opus 4.5): resolved 157 (52.3%); compliance 151 (50.3%); avg rounds 2.30, 85 hit cap (28%); feedback 19,455 chars, 133.7 s. Quality: does not work; cost: does not work\n- ContextCov + OpenCode + GPT-5.2: resolved 172 (57.3%); compliance 265 (88.3%); avg rounds 1.31, 29 hit cap (10%); feedback 6,292 chars, 27.7 s; end-to-end 422.4 s. Quality: works; cost: works vs LLM Reflection, partly vs Vanilla (end-to-end time higher)",
-"p": "6-8"
-},
-{
-"f": "Comparison: design",
-"v": "Tasks: SWE-bench Lite (300), with AGENTS.md files generated by a few-shot LLM from existing repo docs, lint configs and CI files. Configurations: Vanilla, LLM Reflection, ContextCov. Baselines: Vanilla and LLM Reflection. Held constant: agent scaffold (OpenCode), coding model (GPT-5.2), instruction files, 5-round feedback budget for both feedback methods. Acceptance tests: official SWE-bench harness; compliance via ContextCov's own oracle (post-hoc for baselines). Repetitions: Not stated (one run per task apparently). Human intervention: none during runs",
-"p": "6"
-},
-{
-"f": "Comparison: result",
-"v": "ContextCov best: resolution 57.3% vs 53.0% Vanilla (+4.3 pts, McNemar p=0.031; discordant 22/9) and 52.3% LLM Reflection (+5.0, p=0.046); Vanilla vs LLM Reflection n.s. (p=0.885). Compliance 88.3% vs 67.0% vs 50.3%. Feedback cost ~3x lower and latency ~80% lower than LLM Reflection; 3.4x higher cost-efficiency. Residual ContextCov violations only source-level",
-"p": "1, 7-8"
-},
-{
-"f": "Comparison: did the method work",
-"v": "Distinguished the configurations on resolution and compliance. Repeatability: code and results released; single run, no multiplicity correction (stated). Limitations: compliance measured with ContextCov's own checks (oracle favours the approach); generated instruction files may not match maintainer intent; single LLM judge; 12 Python-heavy repos",
-"p": "7-8, 10"
-},
-{
-"f": "Conclusions: limitations and gaps",
-"v": "False positives from LLM misinterpretation, overly strict checks or implicit exceptions; generated instruction files may not match maintainer intent; single LLM-judge configuration; SWE-bench Lite only (12 Python-heavy repos, 300 tasks); subgroup analyses underpowered; McNemar tests without multiplicity correction; replication on other benchmarks needed",
-"p": "10"
-},
-{
-"f": "Notes",
-"v": "Code and evaluation results: https://github.com/reSHARMA/ContextCov. Table 1 (per-repository) jumbled by pdftotext; totals rebuilt partly (1,498 lines, 788 checks). Figure 4 caption labels 'RQ5' and 'Self-Reflection' (= LLM Reflection). Compliance oracle is the proposed tool itself applied post-hoc to baselines. Motivating scenarios based on informal probing. No pre-registration. Programming language: Python (tasks); tool in Python, Tree-sitter grammars for Python, TS, JS, Go, Rust",
-"p": "1, 2, 5-8"
-},
-{
-"f": "Q1",
-"v": "Yes (1): RQ1-RQ4 explicit",
-"p": "2, 6"
-},
-{
-"f": "Q2",
-"v": "Partly (0.5): pipeline and setup described; prompts and generated instruction files not in the paper (code repository linked); number of runs not stated",
-"p": "3-6"
-},
-{
-"f": "Q3",
-"v": "Partly (0.5): GPT-5.2, gpt-5.2-chat, Claude Opus 4.5, OpenCode and Claude Code named; no versions of OpenCode or Claude Code",
-"p": "3, 6"
-},
-{
-"f": "Q4",
-"v": "Yes (1): SWE-bench Lite public; generated instruction files and results in the repository",
-"p": "1, 6"
-},
-{
-"f": "Q5",
-"v": "Partly (0.5): resolution by independent SWE-bench tests; compliance by the authors' own checks (82.81% precision against blind human annotation)",
-"p": "6-7"
-},
-{
-"f": "Q6",
-"v": "Yes (1): compliance, resolution, feedback cost (chars), latency defined",
-"p": "7-8"
-},
-{
-"f": "Q7",
-"v": "Yes (1): Vanilla and LLM Reflection baselines under the same scaffold, model and budget",
-"p": "6"
-},
-{
-"f": "Q8",
-"v": "Partly (0.5): McNemar paired tests; single run, no correction for multiple comparisons",
-"p": "8, 10"
-},
-{
-"f": "Q9",
-"v": "Partly (0.5): results support the claims, but compliance is measured with the proposed tool's own oracle; conclusions ('essential for maintaining repository integrity') strong for a single benchmark",
-"p": "8, 10"
-},
-{
-"f": "Q10",
-"v": "Yes (1): Section 7 Limitations with validity concerns",
-"p": "10"
-},
-{
-"f": "Q11",
-"v": "No (0): arXiv preprint",
-"p": "1"
-},
-{
-"f": "Q12",
-"v": "No (0): author proposes and evaluates his own tool",
-"p": "1"
-},
-{
-"f": "Q13",
-"v": "Partly (0.5): open-source, Python, standard tools (Tree-sitter, NetworkX, PATH shims), runtime checks need no LLM calls; but check generation needs Claude Code + Opus 4.5 and gpt-5.2-chat, cost in USD not stated",
-"p": "3, 5, 8"
-},
-{
-"f": "DARE1",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE2",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE3",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE4",
-"v": "N/A",
-"p": "—"
-}
-]
+ "key": "rayyan-800485908",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Sharma, R. K. (2026). ContextCov: Bridging the Gap Between Developer Intent and Autonomous Agent Execution. arXiv:2603.00822v2 [cs.SE], 4 May 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.00822v2 (4 May 2026), ACM-style layout; no published venue stated (arXiv export has no journal-ref or DOI)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> â€” <detail>'; type unchanged (Preprint)"
+    },
+    {
+     "round": 2,
+     "verdict": "confirmed",
+     "why": ""
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Washington, Seattle, USA (single author)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — ContextCov compiles agent instruction files such as AGENTS.md into executable guardrails; compared with two baselines (Vanilla, LLM Reflection) on SWE-bench Lite",
+   "p": "1-2, 6",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> â€” <detail>'; natures unchanged"
+    },
+    {
+     "round": 2,
+     "verdict": "confirmed",
+     "why": ""
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "ContextCov (no version; code at github.com/reSHARMA/ContextCov). Input artefact: Agent Instruction files (AGENTS.md, CLAUDE.md, copilot-instructions.md)",
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Input: agent instruction file (Markdown). Generated: refined standalone constraints with header path and stable hash IDs; JSON file of executable Python checks in four domains: Process (PATH shell shims blocking prohibited commands), Source (Tree-sitter AST queries), Architectural-Deterministic (NetworkX dependency-graph checks), Architectural-Semantic (LLM-as-judge rubrics, warnings only). Violation traces returned to the agent",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Check generation: Markdown AST parse -> path-aware slicing -> LLM refinement of each constraint (gpt-5.2-chat) -> intent router to domain -> expert generators (Claude Code + Opus 4.5) with self-test loop, syntax check and dry run -> JSON of checks. Runtime enforcement: shims intercept commands; static/architectural checks on repo, diff or unstaged changes; violations fed back to the agent for self-correction (max 5 rounds in evaluation). Incremental re-generation when instruction file changes",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Developers can review and edit the generated JSON checks before deployment; semantic warnings flagged for human review; false positives resolved by refining the instruction file or marking exceptions",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the proposed tool (check generation + runtime enforcement) with generated AGENTS.md files",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler terms. Author treats instruction files as 'executable specifications' compiled into enforcement checks ('documentation as code', 'living contract'); closest to spec-anchored (instructions kept and enforced continuously)",
+   "p": "1, 9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The author never uses SDD levels; the input is an agent instruction file, not a feature specification. 'Spec-anchored' rests on the author calling instruction files 'executable specifications' and a 'living contract' (p. 1, 9); a reader could equally record 'not classifiable' as for the other context-file studies"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The author never uses SDD levels; the input is an agent instruction file, not a feature specification. 'Spec-anchored' rests on the author calling instruction files 'executable specifications' and a 'living contract' (p. 1, 9); a reader could equally record 'not classifiable' as for the other context-file studies"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (SWE-bench Lite issue resolution)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Lite: 300 tasks, 12 repositories; 788 checks synthesised from generated instruction files (Table 1 totals: 1,498 lines, 788 checks)",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python open-source repositories (astropy, django, matplotlib, seaborn, flask, requests, xarray, pylint, pytest, scikit-learn, sphinx, sympy)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; blind human annotation of 384 sampled violations, annotators Not stated)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Feedback cost proxies: logged LLM input characters (mean 19,455 LLM Reflection vs 6,292 ContextCov), feedback-generation time (133.7 vs 27.7 s), end-to-end time (mean 461.4 / 422.4 / 327.9 s for LLM Refl. / ContextCov / Vanilla); feedback rounds; cost-efficiency (resolutions per feedback cost). No tokens or USD",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "SWE-bench Lite resolution rate with official harness",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Constraint compliance: share of final patches with zero actionable violations (oracle clean rate); average violations",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Extraction precision of checks (human annotation of 384 sampled legacy violations: 82.81%); check parse success (780/781); LLM-judge agreement with humans (85.42%, Cohen's kappa 0.61); post-hoc LLM critic clean rate",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-bench Lite harness, executable oracle (ContextCov checks applied post-hoc to the baselines), logged LLM input characters and wall-clock time, McNemar tests. Semi-automatic: blind human annotation of 384 sampled legacy violations (extraction precision); LLM-as-judge (Claude Opus 4.5) for the false-positive analysis, compared with the human annotation (85.42% agreement, kappa 0.61). Post-hoc LLM Reflection critic applied to all final patches. Runtime semantic architectural checks use an LLM-as-judge whose model is not stated",
+   "p": "6-8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft said Claude Opus 4.5 judges the semantic checks; the paper names Opus 4.5 only as the judge validated against humans for the false-positive analysis (p. 6, 10) and does not name the runtime semantic-check model; the human annotation was not listed as a collection method"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SWE-bench Lite tests (resolution) and executable constraint oracle (compliance). All with OpenCode + GPT-5.2 (critic for LLM Reflection: Claude Opus 4.5). One run per task (number of runs not stated). Verdicts judged on each configuration's own values: quality partly when it resolves part but not nearly all tasks; cost from feedback and end-to-end time (no cost threshold set by the author)\n- Vanilla (AGENTS.md in context, no feedback) + OpenCode + GPT-5.2 (baseline): resolved 159/300 (53.0%); compliance 201 (67.0%); end-to-end mean 327.9 s (median 184.7). Quality: partly; cost: works\n- LLM Reflection + OpenCode + GPT-5.2 (critic Claude Opus 4.5): resolved 157 (52.3%); compliance 151 (50.3%); avg rounds 2.30, 85 hit the 5-round cap (28%); feedback 19,455 chars and 133.7 s mean; end-to-end mean 461.4 s (median 379.2). Quality: partly; cost: partly (heavy-tailed feedback cost, 28% of tasks exhaust the round budget)\n- ContextCov + OpenCode + GPT-5.2: resolved 172 (57.3%); compliance 265 (88.3%); avg rounds 1.31, 29 hit cap (10%); feedback 6,292 chars and 27.7 s mean; end-to-end mean 422.4 s (median 240.0). Quality: partly (high compliance, resolution 57.3%); cost: works",
+   "p": "6-8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Values match Tables 2, 3 and 5. Unclear for the author: the Vanilla baseline has no quality or cost verdict, and the verdicts given are relative to the baselines, while Â§6 asks for each configuration judged on its own"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Verdicts were set relative to the baselines and the Vanilla baseline had none; draft-verify and §6 require each configuration, baseline included, to be judged on its own. Verdicts redone from each configuration's own values (Tables 2, 3, 5, p. 7-8); ContextCov quality lowered from works to partly because 42.7% of tasks stay unresolved; thresholds are the extractor's. LLM Reflection end-to-end time and medians added from Table 5"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Lite (300), with AGENTS.md files generated by a few-shot LLM from existing repo docs, lint configs and CI files. Configurations: Vanilla, LLM Reflection, ContextCov. Baselines: Vanilla and LLM Reflection. Held constant: agent scaffold (OpenCode), coding model (GPT-5.2), instruction files, 5-round feedback budget for both feedback methods. Acceptance tests: official SWE-bench harness; compliance via ContextCov's own oracle (post-hoc for baselines). Repetitions: Not stated (one run per task apparently). Human intervention: none during runs",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "ContextCov best: resolution 57.3% vs 53.0% Vanilla (+4.3 pts, McNemar p=0.031; discordant 22/9) and 52.3% LLM Reflection (+5.0, p=0.046); Vanilla vs LLM Reflection n.s. (p=0.885). Compliance 88.3% vs 67.0% vs 50.3%. Feedback cost ~3x lower and latency ~80% lower than LLM Reflection; 3.4x higher cost-efficiency. Residual ContextCov violations only source-level",
+   "p": "1, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the configurations on resolution and compliance. Repeatability: code and results released; number of runs not stated (apparently one); no multiplicity correction (stated). Limitations stated by the author: generated instruction files may not match maintainer intent; single LLM-judge configuration; SWE-bench Lite only (12 Python-heavy repos); subgroup analyses may be underpowered. Not stated by the author (reviewer observation): compliance is measured with ContextCov's own checks, applied post-hoc to the baselines, which favours the approach",
+   "p": "7-8, 10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft listed the own-oracle bias among the limitations stated by the author; Section 7 (p. 10) does not mention it. Kept as a reviewer observation, marked as such"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "False positives from LLM misinterpretation, overly strict checks or implicit exceptions; generated instruction files may not match maintainer intent; single LLM-judge configuration; SWE-bench Lite only (12 Python-heavy repos, 300 tasks); subgroup analyses underpowered; McNemar tests without multiplicity correction; replication on other benchmarks needed",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and evaluation results: https://github.com/reSHARMA/ContextCov. Table 1 (per-repository) jumbled by pdftotext; totals rebuilt (1,498 lines, 665 segments, 241 source / 296 process / 158 arch-deterministic / 93 arch-semantic = 788 checks). Reporting inconsistencies: abstract claims '3.4x lower feedback cost', while the body gives ~3x lower feedback cost (19,455 vs 6,292 chars) and 3.4x higher cost-efficiency (p. 8); '780/781' Python checks parsed (p. 6) does not match 788 checks of which 93 are semantic rubrics, not Python; Figure 4 caption labels 'RQ5' and 'Self-Reflection' (= LLM Reflection). Compliance oracle is the proposed tool itself applied post-hoc to baselines. Motivating scenarios based on informal probing. No pre-registration. Programming language: Python (tasks); tool in Python, Tree-sitter grammars for Python, TS, JS, Go, Rust",
+   "p": "1, 2, 5-8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Two reporting inconsistencies were missing: the abstract's 3.4x lower feedback cost (body: ~3x; 3.4x is cost-efficiency) and the 780/781 parsed checks vs 788 checks"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 explicit",
+   "p": "2, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline and setup described; prompts and generated instruction files not in the paper (code repository linked); number of runs not stated",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-5.2, gpt-5.2-chat, Claude Opus 4.5, OpenCode and Claude Code named; no versions of OpenCode or Claude Code",
+   "p": "3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-bench Lite public; source code and evaluation results released (github.com/reSHARMA/ContextCov); release of the generated AGENTS.md files not stated explicitly",
+   "p": "1, 6",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Value said the generated instruction files are in the repository; the paper says only that 'the source code and evaluation results are available' (p. 1). Score unchanged: the tasks (SWE-bench Lite) are public"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): resolution by independent SWE-bench tests; compliance by the authors' own checks (82.81% precision against blind human annotation)",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): compliance, resolution, feedback cost (chars), latency defined",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Vanilla and LLM Reflection baselines under the same scaffold, model and budget",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): McNemar paired tests; single run, no correction for multiple comparisons",
+   "p": "8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): results support the claims, but compliance is measured with the proposed tool's own oracle; conclusions ('essential for maintaining repository integrity') strong for a single benchmark",
+   "p": "8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 7 Limitations with validity concerns",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author proposes and evaluates his own tool",
+   "p": "1",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The author created ContextCov (No), but the study also evaluates Vanilla AGENTS.md and LLM Reflection as baselines, which he did not create; §5 gives Partly when vendorship applies to only some approaches. No holds if baselines are not counted as evaluated approaches"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source, Python, standard tools (Tree-sitter, NetworkX, PATH shims), runtime checks need no LLM calls; but check generation needs Claude Code + Opus 4.5 and gpt-5.2-chat, cost in USD not stated",
+   "p": "3, 5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
 }

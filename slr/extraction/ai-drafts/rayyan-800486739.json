@@ -1,46 +1,376 @@
-{"key": "rayyan-800486739", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Meawad, F. (2026). Design-First Governance for Reliable AI-Assisted Software Development. In 2026 IEEE 23rd International Conference on Software Architecture Companion (ICSA-C), pp. 194-198. IEEE. DOI: 10.1109/ICSA-C68850.2026.00048", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Conference companion (IEEE ICSA-C 2026; short paper, 5 pages)", "p": "1"},
-{"f": "Author affiliation", "v": "Research and Engineering, SOKNA, Egypt (single author; company)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (Design-First Governance: contract-driven toolchain + executable guardrails); secondary: compares (initial evaluation, governed vs non-governed, three LLMs, two studies)", "p": "1, 3-4"},
-{"f": "Approach(es): name and version", "v": "A: Design-First Governance (author's own), with the author's custom toolchain openapi-forge and openapi-js-generator plus agent skills for both; versions Not stated. B (baseline): non-governed prompting (no skills, tools or guardrails in Setup; tools present but not referenced in Extension)", "p": "1, 3-4"},
-{"f": "Artefacts prescribed", "v": "Prisma schema (schema.prisma) as single source of truth (domain models and relationships); generated OpenAPI 3.1 specification (openapi.json) with manual path/component overrides (specs/); forge.config.js and openapi-gen.config.js; generated TypeScript types and N-tier backend (routes, controllers, services, formatters, repositories, middleware, infrastructure); guardrail configs: Spectral rules, eslint.config.mjs (architectural rules), .dependency-cruiser.js (layer boundaries); API contract tests; agent skills for the two generators", "p": "3"},
-{"f": "Phases of the flow", "v": "Setup phase: developer defines Prisma schema -> openapi-forge generates OpenAPI 3.1 spec (validated with Spectral) -> openapi-js-generator scaffolds a functional N-tier app. Extension phase: specification update (Prisma schema or OpenAPI contract) -> regeneration (reconciles against protected files) -> AI agent implements business logic -> validation by guardrails on every commit (build fails on violations)", "p": "3"},
-{"f": "Human review points", "v": "Developer defines the domain schema and specification updates (strategic intent); no explicit human review gate described; enforcement is automatic via linters on every commit", "p": "2-3"},
-{"f": "Parts exercised", "v": "Full workflow (Setup with the generator toolchain; Extension with spec update, regeneration, implementation and lint validation)", "p": "3-4"},
-{"f": "SDD level", "v": "Spec-as-source (authors' wording: 'positioned firmly within the spec-as-source paradigm but extends it into a continuous governance model'; cites Piskala's levels)", "p": "2"},
-{"f": "Task type", "v": "Study 1: new project (bootstrapping a backend from a Prisma schema). Study 2: existing code base (feature extension of the Study 1 baseline repository)", "p": "3-4"},
-{"f": "Size", "v": "Two Prisma schemas: 14-model event management system and 118-model enterprise platform; extension baseline 1,936 lines; feature: review system across multiple layers", "p": "3-5"},
-{"f": "Domain", "v": "Full-stack/backend REST APIs (event management; enterprise platform)", "p": "3"},
-{"f": "Team profile", "v": "Not stated (agents run by the author; author's internal use of the toolchain for four months mentioned)", "p": "5"},
-{"f": "Cost metrics", "v": "Time per setup session (minutes); lines added ('bloat'); context tokens (DeepSeek overflow 177K vs 128K limit)", "p": "4-5"},
-{"f": "Functional quality metrics", "v": "Coverage of schema entities completed (e.g. 14/14, 18/118, 10/118); 'working feature logic' (functional tests not reported)", "p": "4"},
-{"f": "Internal quality metrics", "v": "Architectural violations (ESLint, Dependency Cruiser); OpenAPI lint score (Spectral); maintainability index (es6-plato, 0-100, Halstead volume, cyclomatic complexity, LOC) and change in MI; maximum cyclomatic complexity; code bloat (extra lines vs governed)", "p": "3-5"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Specification drift (endpoints created without updating the OpenAPI contract, qualitative); number of linter correction cycles (qualitative)", "p": "5"},
-{"f": "How metrics are collected", "v": "Automatic: es6-plato static analysis, ESLint, Dependency Cruiser, Spectral lint; coverage and structural observations by the author (manual inspection)", "p": "3-5"},
-{"f": "Evaluation (each configuration)", "v": "Agent/harness Not stated for all. Study 1 Setup, 14-model schema: (a) Governed + agent n.s. + DeepSeek-Chat: completed, 5 min, OpenAPI lint 97, 0 violations, MI 78.50. Quality works; cost works. (b) Governed + n.s. + GPT-5-mini: completed, 2 min, lint 97, 0 violations, MI 78.26. Works; works. (c) Governed + n.s. + Kimi K2: completed, 7.9 min, lint 91, 0 violations, MI 77.30. Works; works. (d)-(f) Non-governed + n.s. + DeepSeek-Chat / GPT-5-mini / Kimi K2: all failed coverage and quality (typically 5-8 of 14 entities, no layer separation); per-model values Not stated. Does not work. Study 1, 118-model schema (governed only): (g) DeepSeek-Chat: failed, context overflow. Does not work. (h) Kimi K2: 18/118, 0 violations, same MI. Partly. (i) GPT-5-mini: 10/118, 0 violations. Partly. Study 2 Extension (review feature, 1,936-line baseline): (j) Non-governed + Kimi K2: +244 lines, dMI -1.00, max complexity 13. Quality: partly (works functionally, degraded structure); cost: does not work. (k) Governed + Kimi K2: base lines, dMI +2.10, max CC 4. Works. (l) Non-governed + DeepSeek-Chat: +834 lines, dMI -1.99, CC 13. Partly / does not work. (m) Governed + DeepSeek-Chat: dMI +0.90, CC 4, fewest correction cycles. Works. (n) Non-governed + GPT-5-mini: +186, dMI -1.43, CC 13. Partly / does not work. (o) Governed + GPT-5-mini: dMI +1.04, CC 4. Works", "p": "4-5"},
-{"f": "Comparison: design", "v": "Two studies: Setup (bootstrap backend from Prisma schema; 4 repositories: governed/non-governed x small/large schema) and Extension (review system feature from the Study 1 baseline). Configurations: governed vs non-governed x 3 models (DeepSeek-Chat, Kimi K2, GPT-5-mini); large schema governed only. Baseline: non-governed prompt. Held constant: schema/task and model within comparison; prompts differ by condition (governed references toolchain and skills; Extension baseline had tools and linters present but not referenced); agent Not stated. Acceptance tests: none (linters and MI); functional correctness not tested. Repetitions: 1 per configuration (implied). Human intervention: Not stated", "p": "3-5"},
-{"f": "Comparison: result", "v": "Governed better than non-governed for all three models. Setup (14 models): governed all completed with 0 violations and MI 77-78 (<2% variance); non-governed all failed (5-8/14 entities). Extension: non-governed added 186-834 extra lines, MI -1.00 to -1.99, max CC 13; governed MI +0.90 to +2.10 (79.3-79.4), CC 4, 0 violations after linter feedback. Open-weight models comparable to GPT-5-mini under governance. No statistical tests", "p": "4-5"},
-{"f": "Comparison: did the method work", "v": "Distinguished governed from non-governed clearly on structural metrics; did not distinguish models under governance (by design, generators deterministic). Repeatability: single runs, not discussed. Limitations stated: preliminary, only initial development (one feature addition); longitudinal studies needed", "p": "4-5"},
-{"f": "Conclusions: limitations and gaps", "v": "Evaluation preliminary, captures only initial development and one feature addition; longitudinal studies over many collaboration cycles needed (only subjective internal use over four months). Large schemas need workflow orchestration for full coverage (context limits). Future work: design-review agents per tool, automated test generation from OpenAPI contracts as guardrails, extension beyond REST to stateful applications", "p": "4-5"},
-{"f": "Notes", "v": "Printed page numbers 194-198 correspond to PDF pages 1-5. Tables I and II layout jumbled by pdftotext; rebuilt row-wise (model order Kimi K2, DeepSeek, GPT-5-mini in Table II; Non-Gov then Gov rows), consistent with text (DeepSeek +834 lines). Text says governed MI 79.3-79.4 in Extension. Setup time measured for the LLM running two commands; author notes developers would run the deterministic flow directly. Agent harness/CLI used to run the models Not stated. Replication package (artifacts, prompts, scripts): https://anonymous.4open.science/r/icsa-replication-07BE/. No pre-registration. Language: JavaScript/TypeScript (Node.js/Express, Prisma ORM, OpenAPI 3.1)", "p": "1, 4-5"},
-{"f": "Q1", "v": "Partly (0.5): aim and claim clear; no explicit research questions", "p": "1-2"},
-{"f": "Q2", "v": "Partly (0.5): conditions and toolchain described; prompts and scripts in the replication package; agent harness and procedure details (runs, interventions) not stated", "p": "3-5"},
-{"f": "Q3", "v": "Partly (0.5): models named (DeepSeek-Chat, Kimi K2, GPT-5-mini) without versions; agent and tool versions not stated", "p": "4"},
-{"f": "Q4", "v": "Yes (1): schemas and feature described; artifacts available in the replication package", "p": "3-5"},
-{"f": "Q5", "v": "Partly (0.5): automatic static analysis (es6-plato, linters) independent of the author, but no functional acceptance tests; coverage judged by the author", "p": "3-5"},
-{"f": "Q6", "v": "Partly (0.5): internal quality metrics defined; cost only as time and lines, no tokens/money; no functional tests", "p": "3-5"},
-{"f": "Q7", "v": "Yes (1): non-governed condition with the same models and tasks (large schema governed only)", "p": "4"},
-{"f": "Q8", "v": "No (0): single run per configuration, no statistics", "p": "4-5"},
-{"f": "Q9", "v": "Partly (0.5): strong generalisations ('governance ensures quality remains invariant at any scale', 'aggressively rot') from single runs and one feature; partial 118-model results framed positively", "p": "4-5"},
-{"f": "Q10", "v": "Partly (0.5): short limitations section (preliminary, longitudinal needed); no threats to validity", "p": "5"},
-{"f": "Q11", "v": "Yes (1): IEEE ICSA 2026 Companion proceedings", "p": "1"},
-{"f": "Q12", "v": "No (0): author created the approach and toolchain evaluated", "p": "1, 3"},
-{"f": "Q13", "v": "Yes (1): built on standard open tools (Prisma, OpenAPI, Spectral, ESLint, Dependency Cruiser) and cheap/open-weight models; toolchain in replication package; limited to REST backends", "p": "2-5"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486739",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Meawad, F. (2026). Design-First Governance for Reliable AI-Assisted Software Development. In 2026 IEEE 23rd International Conference on Software Architecture Companion (ICSA-C), pp. 194-198. IEEE. DOI: 10.1109/ICSA-C68850.2026.00048",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 2026 IEEE 23rd International Conference on Software Architecture Companion (ICSA-C), pp. 194-198; short paper, 5 pages",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format fixed (the value must start with Conference/Workshop/...). The track within the companion volume (e.g. workshop or new-ideas track) is not stated in the text, so Workshop is possible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The track within the ICSA companion volume (workshop, new-ideas or main companion track) is not stated in the text; Workshop is possible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The text does not say which track of the ICSA companion volume this is (workshop, new-ideas or main companion track), so Workshop is possible."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Research and Engineering, SOKNA, Egypt (single author; company)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — Design-First Governance (contract-driven toolchain + executable guardrails); initial evaluation of governed vs non-governed prompting with three LLMs in two studies (Setup, Extension)",
+   "p": "1, 3-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: the value must start with the type, then ' — ' and detail (draft-verify rules)."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "A: Design-First Governance (author's own), with the author's custom toolchain openapi-forge and openapi-js-generator plus agent skills for both; versions Not stated. B (baseline): non-governed prompting (no skills, tools or guardrails in Setup; tools present but not referenced in Extension)",
+   "p": "1, 3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Prisma schema (schema.prisma) as single source of truth (domain models and relationships); generated OpenAPI 3.1 specification (openapi.json) with manual path/component overrides (specs/); forge.config.js and openapi-gen.config.js; generated TypeScript types and N-tier backend (routes, controllers, services, formatters, repositories, middleware, infrastructure); guardrail configs: Spectral rules, eslint.config.mjs (architectural rules), .dependency-cruiser.js (layer boundaries); API contract tests; agent skills for the two generators",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Setup phase: developer defines Prisma schema -> openapi-forge generates OpenAPI 3.1 spec (validated with Spectral) -> openapi-js-generator scaffolds a functional N-tier app. Extension phase: specification update (Prisma schema or OpenAPI contract) -> regeneration (reconciles against protected files) -> AI agent implements business logic -> validation by guardrails on every commit (build fails on violations)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Developer defines the domain schema and specification updates (strategic intent); no explicit human review gate described; enforcement is automatic via linters on every commit",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (Setup with the generator toolchain; Extension with spec update, regeneration, implementation and lint validation)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-as-source (authors' wording: 'positioned firmly within the spec-as-source paradigm but extends it into a continuous governance model'; cites Piskala's levels)",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Study 1: new project (bootstrapping a backend from a Prisma schema). Study 2: existing code base (feature extension of the Study 1 baseline repository)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Two Prisma schemas: 14-model event management system and 118-model enterprise platform; extension baseline 1,936 lines; feature: review system across multiple layers",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Full-stack/backend REST APIs (event management; enterprise platform)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated (agents run by the author; author's internal use of the toolchain for four months mentioned)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Time per setup session in minutes (Study 1 only, Table I); context tokens only as the DeepSeek-Chat overflow (177K vs 128K limit) on the 118-model schema. No cost metric in Study 2",
+   "p": "4-5",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Lines added ('bloat', Table II) is a size/internal-quality measure relative to the governed run, not a cost metric (§6: tokens, time, money); it is already under Internal quality metrics."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Coverage of schema entities completed (e.g. 14/14, 18/118, 10/118); 'working feature logic' (functional tests not reported)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Architectural violations (ESLint, Dependency Cruiser); OpenAPI lint score (Spectral); maintainability index (es6-plato, 0-100, Halstead volume, cyclomatic complexity, LOC) and change in MI; maximum cyclomatic complexity; code bloat (extra lines vs governed)",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Specification drift (endpoints created without updating the OpenAPI contract, qualitative); number of linter correction cycles (qualitative)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: es6-plato static analysis, ESLint, Dependency Cruiser, Spectral lint; coverage and structural observations by the author (manual inspection)",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent/harness Not stated for all. Study 1 Setup, 14-model schema: (a) Governed + agent n.s. + DeepSeek-Chat: completed, 5 min, OpenAPI lint 97, 0 violations, MI 78.50. Quality works; cost works. (b) Governed + n.s. + GPT-5-mini: completed, 2 min, lint 97, 0 violations, MI 78.26. Quality: works; cost: works. (c) Governed + n.s. + Kimi K2: completed, 7.9 min, lint 91, 0 violations, MI 77.30. Quality: works; cost: works. (d)-(f) Non-governed + n.s. + DeepSeek-Chat / GPT-5-mini / Kimi K2: all failed coverage and quality (typically 5-8 of 14 entities, no layer separation); per-model values Not stated. Quality: does not work; cost: not measured. Study 1, 118-model schema (governed only): (g) DeepSeek-Chat: failed, context overflow (177K tokens vs 128K limit). Quality: does not work; cost: does not work. (h) Kimi K2: 18/118, 0 violations, same MI. Quality: partly; cost: not measured. (i) GPT-5-mini: 10/118, 0 violations. Quality: partly; cost: not measured. Study 2 Extension (review feature, 1,936-line baseline): (j) Non-governed + Kimi K2: +244 lines vs governed, dMI -1.00, max complexity 13. Quality: partly (works functionally, degraded structure); cost: not measured. (k) Governed + Kimi K2: base lines, dMI +2.10, max CC 4. Quality: works; cost: not measured. (l) Non-governed + DeepSeek-Chat: +834 lines vs governed, dMI -1.99, CC 13. Quality: partly; cost: not measured. (m) Governed + DeepSeek-Chat: dMI +0.90, CC 4, fewest correction cycles. Quality: works; cost: not measured. (n) Non-governed + GPT-5-mini: +186 lines vs governed, dMI -1.43, CC 13. Quality: partly; cost: not measured. (o) Governed + GPT-5-mini: dMI +1.04, CC 4. Quality: works; cost: not measured",
+   "p": "4-5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Incomplete: cost verdicts were missing for (d)-(i) and verdicts for (a)-(c), (k)-(o) were not split into quality and cost. Values unchanged."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Study 2 cost verdicts (j)-(o) rested on 'bloat', which is lines added relative to the governed counterpart (a comparison, and not a cost metric); no time, tokens or money are reported for Study 2, so cost is 'not measured'. Values checked against Tables I-II."
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Two studies: Setup (bootstrap backend from Prisma schema; 4 repositories: governed/non-governed x small/large schema) and Extension (review system feature from the Study 1 baseline). Configurations: governed vs non-governed x 3 models (DeepSeek-Chat, Kimi K2, GPT-5-mini); large schema governed only. Baseline: non-governed prompt. Held constant: schema/task and model within comparison; prompts differ by condition (governed references toolchain and skills; Extension baseline had tools and linters present but not referenced); agent Not stated. Acceptance tests: none (linters and MI); functional correctness not tested. Repetitions: 1 per configuration (implied). Human intervention: Not stated",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Governed better than non-governed for all three models. Setup (14 models): governed all completed with 0 violations and MI 77-78 (<2% variance); non-governed all failed (5-8/14 entities). Extension: non-governed added 186-834 extra lines, MI -1.00 to -1.99, max CC 13; governed MI +0.90 to +2.10 (79.3-79.4), CC 4, 0 violations after linter feedback. Open-weight models comparable to GPT-5-mini under governance. No statistical tests",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished governed from non-governed clearly on structural metrics; did not distinguish models under governance (by design, generators deterministic). Repeatability: single runs, not discussed. Limitations stated: preliminary, only initial development (one feature addition); longitudinal studies needed",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Evaluation preliminary, captures only initial development and one feature addition; longitudinal studies over many collaboration cycles needed (only subjective internal use over four months). Large schemas need workflow orchestration for full coverage (context limits). Future work: design-review agents per tool, automated test generation from OpenAPI contracts as guardrails, extension beyond REST to stateful applications",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Printed page numbers 194-198 correspond to PDF pages 1-5. Tables I and II layout jumbled by pdftotext; rebuilt row-wise (model order Kimi K2, DeepSeek, GPT-5-mini in Table II; Non-Gov then Gov rows), consistent with text (DeepSeek +834 lines). Text says governed MI 79.3-79.4 in Extension. Setup time measured for the LLM running two commands; author notes developers would run the deterministic flow directly. Agent harness/CLI used to run the models Not stated. Replication package (artifacts, prompts, scripts): https://anonymous.4open.science/r/icsa-replication-07BE/. No pre-registration. Language: JavaScript/TypeScript (Node.js/Express, Prisma ORM, OpenAPI 3.1)",
+   "p": "1, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Partly (0.5): aim and claim clear; no explicit research questions",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): conditions and toolchain described; prompts and scripts in the replication package; agent harness and procedure details (runs, interventions) not stated",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (DeepSeek-Chat, Kimi K2, GPT-5-mini) without versions; agent and tool versions not stated",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): schemas and feature described; artifacts available in the replication package",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): automatic static analysis (es6-plato, linters) independent of the author, but no functional acceptance tests; coverage judged by the author",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): internal quality metrics defined (MI, violations, lint score, complexity); cost only as setup time in Study 1 (plus one context-overflow token figure), no tokens/money and no cost at all in Study 2; no functional tests",
+   "p": "3-5",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The justification counted 'lines' as a cost metric. Lines added (bloat) is internal quality, as the round-2 corrections to Cost metrics and Evaluation already say, and Study 2 reports no cost. The score stays Partly."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): non-governed condition with the same models and tasks (large schema governed only)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run per configuration, no statistics",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): strong generalisations ('governance ensures quality remains invariant at any scale', 'aggressively rot') from single runs and one feature; partial 118-model results framed positively",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section (preliminary, longitudinal needed); no threats to validity",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): IEEE ICSA 2026 Companion proceedings",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author created the approach and toolchain evaluated",
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): built on standard open tools (Prisma, OpenAPI, Spectral, ESLint, Dependency Cruiser) and cheap/open-weight models; toolchain in replication package; limited to REST backends",
+   "p": "2-5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The toolchain (openapi-forge, openapi-js-generator) is the author's own and available only through an anonymised replication package; money/token cost is not stated. Partly is defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The toolchain (openapi-forge, openapi-js-generator) is the author's own and available only through an anonymised replication package; money/token cost is not stated. Partly is defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The toolchain (openapi-forge, openapi-js-generator) is the author's own and available only through an anonymised replication package, and money/token cost is not stated. Partly is defensible."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

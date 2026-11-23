@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486442",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Kozyrev, M., Kozyrev, A., Podkopaev, A. (2026). Skill Issue: Lessons from Optimizing Repository SKILLs for Coding Agents. arXiv:2609.12742v1 [cs.AI], 11 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; footer 'Preprint.', no venue in the arXiv metadata",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "JetBrains Research (all); Technical University of Munich (M. Kozyrev); Constructor University Bremen (Podkopaev)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — SKILL.md documents produced by two optimizers (GEPA, SkillOpt) vs an empty seed SKILL, same agent and model, three Kotlin repositories; evaluation method: reverse-PR task mining at a single frozen base commit + paired rollout objective",
+   "p": "1-3",
+   "verdict": "uncertain",
+   "why": "Kept Compares + secondary evaluation method. Contribution (i) is the mining pipeline, so 'Proposes an evaluation method' as main nature is also defensible; reading reverse-PR mining + paired objective as a proposed approach for SKILL synthesis would make Q13 apply"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not an SDD approach. Repository SKILL (single SKILL.md loaded into agent context, agentskills.io / Anthropic SKILL spec), synthesized automatically by GEPA (Agrawal et al., 2025; 200 scored attempts) and SkillOpt (Yang et al., 2026; 3 epochs). Versions Not stated",
+   "p": "1, 3-4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One SKILL.md per repository (repository knowledge: module layout, build/test commands, conventions, e.g. multiplatform source-set rules, module registration); seed = empty document (header only)",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Optimization loop: run agent with candidate SKILL on mined tasks -> reflect over trajectories -> propose edits -> keep if paired score improves on validation; final SKILL evaluated on held-out test split",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the loop; post-hoc maintainer review of the koog SKILLs and of blinded patches; authors recommend reviewing any generated SKILL before merge",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (SKILL.md context file)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'repository knowledge', 'plain .md files versioned alongside the code')",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: merged pull requests reverted at a frozen base commit (bug fixes and features), plus two open issues in koog",
+   "p": "2, 4-5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "koog 119 tasks (from 660 PRs), ktor 131 (from 452), kotest 100 (sampled); held-out test splits 20-26 tasks (69 pooled); median task size 54 lines/3 files (koog), 27/2 (ktor), 16/1 (kotest)",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Kotlin/JVM open-source libraries: kotest (testing), ktor (web framework), koog (agentic framework, JetBrains)",
+   "p": "2, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; one koog maintainer as reviewer)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Agent API spend per optimization run (USD), wall-clock hours; mean $0.84 per rollout; cost and API/wall time per live issue",
+   "p": "3, 6, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved tasks (all hidden FAIL_TO_PASS tests pass, regression guards); paired score vs seed rollout (0.5 = no change)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Maintainer's qualitative reading of patches (minimalism, tidiness, strange comments); diff size as tie-breaker",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Task mining yield; maintainer judgment of SKILL content; honesty of final claim and test-file edits (in paired objective); sign-test detectable effect size",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests in per-repo Docker images, paired comparison of rollouts (test-file edits/false claims, F2P, then fraction passed, honesty, diff size, tool calls), sign test. Manual: one maintainer reviewed SKILLs and anonymized patches",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: Claude Code + Sonnet 4.6 (frozen) for all. Criterion: paired score vs empty-seed rollout on held-out split (0.5 = no change) and resolved tasks (all hidden FAIL_TO_PASS tests pass). Per-configuration run cost on the held-out split not reported; mean $0.84 per rollout over all runs.\n- Empty seed SKILL (baseline, Claude Code + Sonnet 4.6): resolves 40% koog, 51% kotest, 66% ktor (53% pooled); held-out 14/23, 13/20, 16/26. Quality: partly (about half the tasks resolved). Cost: works ($0.84 mean per rollout, no SKILL to produce)\n- GEPA SKILL, koog: paired 0.525; 14 -> 15 of 23; optimization spend $368.82, 4.7 h. Quality: partly (n.s.). Cost: partly (one-off optimization of hundreds of dollars on top of rollouts)\n- GEPA SKILL, kotest: 0.554; 13 -> 16 of 20; $182.48, 4.9 h. Quality: partly (n.s.). Cost: partly\n- GEPA SKILL, ktor: 0.567; 16 -> 20 of 26; $312.87, 13.0 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, koog: 0.546; +2 tasks; $401.44, 8.14 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, kotest: 0.519; +1; $263.56, 13.3 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, ktor: 0.437; -2; $484.81, 25.2 h. Quality: does not work. Cost: does not work (highest spend, regression)\n- Live koog issues #1275/#1354, no SKILL: $6.06/$4.85, wall 14m59s/20m29s; maintainer: 'does a bit extra', 'strange comments' (#1275), 'overall ok' (#1354); no integration test. Quality: partly. Cost: partly (highest of the three)\n- Live koog issues, GEPA SKILL: $2.48/$3.10, 5m32s/7m38s; maintainer: 'notably more minimalist', 'a bit tidier'; no integration test. Quality: works. Cost: works\n- Live koog issues, SkillOpt SKILL: $2.44/$4.20, 5m30s/8m24s; maintainer: 'looks fine', 'almost identical' to GEPA. Quality: works. Cost: works\n- Ablation (preliminary tracy sweep, Tables 3-4, generic-checklist seed): rejected objectives binary resolve, gold match, token price, judge, file scores; most shipped no file or overfit; not part of the reported results",
+   "p": "6-7, 12-14",
+   "verdict": "corrected",
+   "why": "Several configurations had no quality and/or cost verdict (the empty-seed baseline had neither; GEPA/SkillOpt entries after the first had no cost verdict; the three live-issue configurations, incl. no SKILL, shared one verdict). Each configuration now has its own verdicts; numbers unchanged (Table 1 p. 6, Table 2 p. 12, text p. 6-7)"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: reverse-PR mined tasks per repository split once into train/validation/test; GEPA 200 scored attempts, SkillOpt 3 epochs on same splits. Configurations: empty seed, GEPA SKILL, SkillOpt SKILL. Baseline: empty SKILL. Held constant: agent (Claude Code), model (Sonnet 4.6), tools, limits, Docker image, frozen base without .git. Acceptance tests: hidden FAIL_TO_PASS tests + up to 30 regression guards. Repetitions: seed run once per task; one candidate rollout per task. Human intervention: none",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GEPA +4.9 pp mean (wins on all 3 repos); SkillOpt +0.1 pp (loss on ktor cancels gains). Not significant: best sign test p = 0.29; at 20-26 tasks detectable only if document wins 4 of 5 disagreements (2 of 3 pooled over 69). Maintainer would take GEPA SKILL 'as a draft'; with either SKILL live issues solved in under half the time and at lower cost (2 issues, single runs). Total optimization spend $2,013.98, 69.2 h",
+   "p": "1, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "No (on the score): paired metric could not separate gains from agent run-to-run variance at feasible split sizes; reverse mining at frozen base fixed stale-claim SKILLs from forward mining. Limitations stated: few tasks per repository, cost per rollout, LLM reverter defects (static check rejected 56 of 280), single maintainer",
+   "p": "3, 7, 9, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "At least 100 graded tasks needed and still too few for significance; two repositories (tracy, http4k) failed to reach the floor; LLM reverter introduces defects; one maintainer of one repository; Kotlin only. Future: cheaper rollouts, evaluation not based on pass rate, developer study with many reviewers",
+   "p": "9, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Data/code release: Not stated. No pre-registration. Language: Kotlin/JVM. koog and ktor are JetBrains repositories (authors' employer; references JetBrains 2026a, 2026b); maintainer review on koog only. Table 1 (p. 6) and Table 2 (p. 12) jumbled in text extraction; rebuilt by row order (Table 1 delta test-set: koog GEPA +1, SkillOpt +2; kotest +3, +1; ktor +4, -2). Abstract '4.9pp' and '0.1pp' are mean gains; per-repo paired scores in Table 1. Paper is 72 pages, mostly appendix listings of generated SKILLs and patches (not extracted)",
+   "p": "6, 9, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): mining, validation and objective detailed; agent limits, reflection model and optimizer settings partly unspecified; no package",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Code + Sonnet 4.6 named; no Claude Code, GEPA or SkillOpt versions",
+   "p": "2, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): repositories and mining described; task datasets not released",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests plus blinded maintainer review",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): paired score, resolved tasks, spend and time",
+   "p": "5-6, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): empty-seed baseline under identical conditions",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): sign test and detectable-effect bound; single rollout per task, run-to-run variance not repeated",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): explicitly states gains not separable from variance",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section and Appendix C",
+   "p": "9, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): JetBrains Research; not vendors of GEPA, SkillOpt, Claude Code or Sonnet (two of the three test repositories, koog and ktor, are JetBrains projects)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "uncertain",
+   "why": "N/A kept, since the nature is compares / proposes an evaluation method. If the author reads the mining + optimization pipeline as a proposed approach for synthesising SKILLs, Q13 applies: costs are stated ($0.84 per rollout, $182-485 and 4.7-25.2 h per optimization run, Table 1), which would give Partly or Yes"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

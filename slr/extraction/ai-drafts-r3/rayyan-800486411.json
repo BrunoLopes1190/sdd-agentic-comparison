@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486411",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Canedo, A. (2026). Architecture as Capability Equalizer for Coding Agents. arXiv:2608.21747v1 [cs.SE], 22 Aug 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Siemens Digital Industries Software, Princeton, NJ, USA (single author)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — controlled experiment: 5 informationally equivalent architecture specification formats x 6 models, 90 trials, plus a no-architecture baseline; hybrid evaluation (automated static checking + LLM-as-judge + process metrics) listed as a contribution",
+   "p": "1, 2, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Five architecture specification formats (no SDD tool): (1) Prose (control); (2) Mermaid diagrams + numbered constraints + ADRs + route table; (3) OpenAPI 3.0 + Mermaid + constraints; (4) C4 / Structurizr DSL + Mermaid container diagram + constraints + ADRs; (5) TypeScript interface contracts + ArchUnit-style rules (pseudo-code). Baseline: requirements only, no architecture (Sonnet 4.6 only). Versions: OpenAPI 3.0; others Not stated",
+   "p": "3-4, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One architecture specification document per format, all encoding the same 7 elements: 7 components, communication patterns (event bus pub/sub), data ownership, 6 behavioral constraints, 25 HTTP routes, 3 ADRs (design rationale), prescribed file structure. Format-specific artefacts as listed under Approach",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Single multi-turn session per trial: agent receives the specification and an identical implementation prompt, then iteratively writes files, compiles (tsc), fixes errors, runs a demo, signals done. No separate spec/plan/tasks phases",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during trials (autonomous agent; specifications authored by the author beforehand and reviewed for information equivalence)",
+   "p": "4, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (architecture spec given as static context to a custom agent harness)",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD workflow: a human-authored architecture specification is given once as static context before generation and not maintained; closest to spec-first). Authors' wording: 'architecture specification', 'specification as implementation interface', specs should be 'compilable, not merely parseable'",
+   "p": "1, 11-12",
+   "verdict": "uncertain",
+   "why": "The study only varies the format of a human-authored architecture document given once as static context before generation (p. 2, 4), so 'not classifiable' fits; a reader could call it spec-first since the specification precedes and drives generation"
+  },
+  {
+   "f": "Task type",
+   "v": "New project (greenfield): each trial starts from a clean directory",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "One reference system: Task Management API, 7 components, 25 routes, 6 constraints, 3 ADRs; generated code mean ~590-1,504 LOC per model (Sonnet 1,504 LOC, 14.3 files; Gemini Flash 590 LOC, 9.7 files)",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Backend REST API (task management), TypeScript on Node.js built-in http, in-memory storage, no npm dependencies",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agent)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total tokens per trial (proxy for API cost); agent turns; score per 100K tokens. No money or wall-clock time",
+   "p": "6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "API route coverage (% of 25 routes with a handler); TypeScript compilation pass rate; demo run (no functional acceptance test suite)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "LLM-judge scores 1-10 (Sonnet 4.6, blind to format): architectural adherence, completeness, code quality, constraint compliance, overall; automated constraint violations (static import analysis); weighted architecture compliance score (components 20%, communication 20%, constraints 20%, routes 20%, data ownership 10%, file structure 10%; ~80% of the architecture machine-verifiable); LOC",
+   "p": "4, 6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Process metrics: tsc attempts and pass rate, demo run rate (self-validation), tool-call errors, file rewrite rate (debugging intensity); failure-mode taxonomy (compilation death spiral, premature termination, perfectionist iteration); judge-automation correlation, inter-judge agreement (GPT-5 re-judging), same-family bias",
+   "p": "7-9, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: harness logs (tokens, turns, tsc, demo, writes), static import analysis, route coverage script. LLM-as-judge (Claude Sonnet 4.6) for the four quality dimensions; 30 trials re-judged by GPT-5. No human scoring",
+   "p": "4, 7-8, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent = custom TypeScript harness (tools write_file, read_file, list_files, run_command, done; max 50 turns, 16,384 output tokens/turn, default temperature) for all. Criterion: judge overall (1-10), route coverage, compliance; 3 trials per cell. Values: overall (Table V); route %/compliance % (Table VIII); tokens mean (Table III for Sonnet; Haiku computed from Table IV). Draft verdict rule: quality works = overall >= 8 and route 100%; partly = 6-8; does not work = < 6 or route < 70%. Cost verdicts only where per-cell tokens are reported.\n- Prose + harness + Claude Sonnet 4.6: 8.42; 100/100; 433K, 0 violations. Quality works; cost works (most cost-efficient)\n- Mermaid+C+ADR + harness + Sonnet 4.6: 8.50; 100/97; 1,060K, 2 violations. Quality works; cost partly (2.4x prose)\n- OpenAPI + harness + Sonnet 4.6: 8.42; 100/100; 458K, 0 violations. Works; cost works\n- C4 + harness + Sonnet 4.6: 8.33; 100/97; 634K, 2 violations. Works; cost partly\n- TS contracts + harness + Sonnet 4.6: 8.42; 100/100; 615K, 0 violations. Works; cost partly\n- No architecture (baseline) + harness + Sonnet 4.6 (3 trials): 5.08 (arch 3.00, constr 3.00); route 100%, compliance 96.8%; 436K; no event bus built. Quality does not work (architecture); cost works\n- Prose + harness + Claude Haiku 4.5: 5.58; 100/88; ~644K, 10 violations. Does not work; cost partly\n- Mermaid + Haiku 4.5: 6.42; 100/93; ~605K, 4 violations. Partly; cost partly\n- OpenAPI + Haiku 4.5: 7.25; 100/97; ~881K, 2 violations. Partly; cost partly\n- C4 + Haiku 4.5: 6.42; 100/97; ~732K, 2 violations. Partly; cost partly\n- TS contracts + Haiku 4.5: 7.08; 100/100; ~814K, 0 violations. Partly; cost partly\n- Prose + GPT-5: 7.33; 100/100. Partly\n- Mermaid + GPT-5: 7.17; 100/100. Partly\n- OpenAPI + GPT-5: 6.58; 100/100. Partly\n- C4 + GPT-5: 6.83; 100/100. Partly\n- TS contracts + GPT-5: 7.50; 100/100. Partly\n- Prose + GPT-5-mini: 6.08; 85/97. Partly\n- Mermaid + GPT-5-mini: 6.92; 100/98. Partly\n- OpenAPI + GPT-5-mini: 6.83; 100/100. Partly\n- C4 + GPT-5-mini: 6.75; 100/98. Partly\n- TS contracts + GPT-5-mini: 6.83; 100/100. Partly\n- Prose + Gemini 2.5 Pro: 5.83; 100/93. Does not work\n- Mermaid + Gemini 2.5 Pro: 6.42; 100/95. Partly\n- OpenAPI + Gemini 2.5 Pro: 6.92; 100/100. Partly\n- C4 + Gemini 2.5 Pro: 6.67; 67/85. Does not work (routes)\n- TS contracts + Gemini 2.5 Pro: 4.50; 100/100. Does not work (judge; anomalous cell)\n- Prose + Gemini 2.5 Flash: 5.75; 33/71. Does not work\n- Mermaid + Gemini 2.5 Flash: 6.00; 33/73. Does not work\n- OpenAPI + Gemini 2.5 Flash: 6.50; 33/72. Does not work\n- C4 + Gemini 2.5 Flash: 6.83; 67/85. Does not work (routes)\n- TS contracts + Gemini 2.5 Flash: 6.67; 100/100. Partly\nPer-model mean tokens (all formats, Table IX): Sonnet 640K, GPT-5 248K, Gemini Pro 329K, Haiku 735K, GPT-5-mini 225K, Gemini Flash 223K",
+   "p": "4, 6-10",
+   "verdict": "uncertain",
+   "why": "Values re-checked against Tables III, IV (Haiku per-format tokens recomputed: 644/605/881/732/814K; violations 10/4/2/2/0), V, VIII and X: all match. The quality and cost verdicts rest on the draft's own thresholds (overall >= 8 and route 100% = works; < 6 or route < 70% = does not work; token levels for cost), which are a judgement for the author; GPT and Gemini cells have no per-cell tokens, so no cost verdict"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Task: one reference system (Task Management API). Configurations: 5 formats x 6 models (Claude Sonnet 4.6, Haiku 4.5; GPT-5, GPT-5-mini; Gemini 2.5 Pro, 2.5 Flash) = 30 cells, 90 trials, run as six sequential rounds; plus no-architecture baseline (Sonnet, 3 trials). Baseline: prose (control) for format; requirements-only for the premise. Held constant: information content of specs, implementation prompt, harness and tools, max turns/tokens, default temperature, clean directory, judge model (Sonnet 4.6). Acceptance tests: none functional; route coverage, static compliance and LLM judge. Repetitions: 3 per cell. Human intervention: none",
+   "p": "2-4, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Format x model interaction: format spread (max-min overall) Sonnet 0.17, GPT-5 0.92, GPT-5-mini 0.83, Haiku 1.67, Gemini Flash 1.08, Gemini Pro 2.42 (driven by TS 4.50). Best format varies: Mermaid (Sonnet), TS contracts (GPT-5), OpenAPI (Haiku, Gemini Pro), C4 (Gemini Flash); structured formats beat prose on Haiku, GPT-5-mini and Gemini Flash, but not on Gemini Pro, where TS contracts (4.50) is below prose (5.83), against the paper's claim that all structured formats outperform prose on smaller models. TS contracts the only format with 100% route coverage and compliance on all six models; Gemini Flash routes 33% (prose) -> 100% (TS). Architecture guidance vs none: +3.34 overall (5.08 -> 8.42). Cost: prose cheapest on Sonnet (433K vs 1,060K Mermaid); Haiku uses more tokens than Sonnet (735K vs 640K) for 1.9 points lower. Demo run rate 100% (Sonnet) to 0% (Gemini Flash). Significance: not tested (n = 3 per cell, stated as exploratory)",
+   "p": "1, 5, 7-10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on weaker models (judge spreads, route coverage) but not on frontier models (Sonnet spread 0.17 within noise; within-condition variance exceeds between-condition on Sonnet). Repeatable: 3 trials/cell; harness and all 93 transcripts released; rounds run sequentially (temporal confound). Judge validated: Sonnet vs GPT-5 r = 0.47-0.60, GPT-5 +0.42 more lenient, no same-family bias; judge vs automated compliance r = 0.21. Limitations stated: underpowered, no significance tests, single system, same author wrote all specs, LLM-judge construct validity",
+   "p": "4, 9, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "n = 3 per cell, no statistical tests; one system of moderate complexity (~7 components); only proprietary models; all specifications written by the same author; sequential rounds (API load, model updates); LLM judge not validated against humans, possible same-family bias; formats like UML, SysML v2, AADL, Terraform not tested. Future: capability continuum, hybrid formats, larger systems (10+ services), variance reduction, constraint checking in the agent loop, incremental development by a second agent",
+   "p": "12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Data and harness public: github.com/arquicanedo/architecture-as-equalizer (93 transcripts, codebases, specs, judge scores). No pre-registration. Language: TypeScript. Agent is a custom harness, not a commercial agent; model versions without snapshot dates. Inconsistencies: Haiku overall 6.50 in text and Table IX vs 6.55 in Table V; GPT-5-mini 6.72 (Table IX) vs 6.68 (Table V); format effect '10x larger on the smaller model' (p. 2, Sonnet vs Haiku) vs 'up to 14x' (p. 5); paper says specs 'written by the same authors' though single author; text says 'all structured formats outperform prose on smaller models' (p. 5), but Table V gives Gemini Pro TS contracts 4.50 < prose 5.83. Tables extracted with jumbled columns; Table V and VIII values mapped by order and checked against Fig. 2 (p. 8) and text. Haiku per-format tokens computed from Table IV trials (not given by the paper)",
+   "p": "1, 2, 5, 7-9, 12, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): hypothesis and three quality dimensions stated; contributions listed",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): formats, harness, tools, parameters, judge and metrics described; specifications and harness released",
+   "p": "3-4, 8, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names given without snapshot/version dates; custom harness (released) without version",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): reference system described in detail; specs and harness public",
+   "p": "3, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): automated route coverage and static compliance are independent, but main quality score is an LLM judge; no functional tests or human expert check",
+   "p": "4, 8, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): judge dimensions, compliance weights, route coverage and tokens defined; cost (tokens) and quality covered",
+   "p": "4, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): prose control under same conditions; requirements-only baseline (Sonnet only)",
+   "p": "3, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 trials per cell with ranges; no statistical tests (stated)",
+   "p": "6, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): framed as exploratory and mixed results reported, but 'strong interaction' and the decision guide rest on n = 3 without tests; Gemini Pro spread from one anomalous cell",
+   "p": "5, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity and limitations sections",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Siemens; formats are open standards, models from third parties; author not vendor of any compared format",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (compares formats; no approach proposed)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

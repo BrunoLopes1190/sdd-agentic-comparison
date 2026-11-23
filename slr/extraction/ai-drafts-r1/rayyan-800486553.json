@@ -1,0 +1,315 @@
+{
+"key": "rayyan-800486553",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Paixão, F. de S., Tavares, D., Almeida, E., Ahmed, I. (2026). Hidden in Plain Sight: an Empirical Study about The Instruction Stacks of Coding Agents. arXiv:2610.37332v1 [cs.SE], 27 Oct 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2610.37332v1 [cs.SE], 27 Oct 2026; no published venue (arXiv record has no journal_ref; not in ACM/IEEE/WoS exports); anonymised replication package suggests submission under double-blind review",
+"p": "1, 10",
+"verdict": "corrected",
+"why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint). Checked slr/exports: only the arXiv export lists it, with no journal_ref"
+},
+{
+"f": "Author affiliation",
+"v": "Federal University of Bahia (Paixão, Tavares, Almeida); University of California at Irvine (Ahmed)",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Nature of the study",
+"v": "Evaluates; secondary: Compares — longitudinal empirical mining study characterising the agent-supplied 'instruction stack' (first model request) of 1,886 releases of five coding agents, with cross-agent comparison (RQ4); also contributes a capture infrastructure and dataset",
+"p": "1-2",
+"verdict": "uncertain",
+"why": "Form fixed to '<nature>; secondary: <nature> — <detail>'. A descriptive repository-mining study of agent artefacts fits none of the natures cleanly: 'Evaluates' is the closest, but no approach is evaluated on a task; another reader could pick 'Compares' as main (cross-agent comparison) or 'Conceptual'"
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach. Object of study: the instruction stack (system prompt, agent-written messages, tool definitions) of five coding agents across 1,886 npm releases: Claude Code (494 releases, 02/25-08/26, e.g. 2.1.243), Codex CLI (175), Gemini CLI (192), OpenCode (930), Qwen Code (120)",
+"p": "1-2, 4-5",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "N/A (none prescribed). Artefacts analysed: instruction text (top-level instruction field, system/developer/user messages written by the agent) and tool definitions (names, descriptions, JSON schemas); repository guidance files (AGENTS.md, CLAUDE.md) discussed but not loaded (empty working directory)",
+"p": "1, 3-4, 10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Phases of the flow",
+"v": "N/A (not an SDD flow). Study pipeline: capture first request -> segmentation -> LLM coding (RQ1) -> transitions/edit size (RQ2) -> tracing to commits and motivation coding (RQ3) -> cross-agent comparison (RQ4)",
+"p": "4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human review points",
+"v": "N/A (no development workflow; human validation of LLM annotations only)",
+"p": "4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Parts exercised",
+"v": "Not an SDD approach; each agent release run once only to capture its first model request (fixed prompt 'I AM THE USER PROMPT', empty working directory); no task executed",
+"p": "4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (not SDD)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Task type",
+"v": "N/A (no development task; empty working directory)",
+"p": "4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Size",
+"v": "1,911 eligible releases, 1,886 captured requests; 349,404 segments; 1,867 measurable transitions; 496 change units (RQ3). Latest requests 29,387 (OpenCode) to 124,873 characters (Qwen Code)",
+"p": "4-5, 7-8",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Domain",
+"v": "Coding-agent harnesses (CLI agents); mining software repositories",
+"p": "1, 4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no human participants; annotators are the authors)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Cost metrics",
+"v": "None measured for task execution; request size in characters and share taken by tool definitions (e.g. tool definitions 77.4% of Claude Code's latest request). Cited: Qwen Code token expenditure per task rose ~70% across 35 releases [12]",
+"p": "1, 7-8",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "Composition of instruction text by function (12-code codebook, share of characters); request size growth; relative edit size (Levenshtein) per transition; segments added/removed/modified; share of change units explaining the stack change (yes/indirectly/no) and motivation categories; shared segments across agents (verbatim and near-duplicate)",
+"p": "4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic capture via local HTTP server intercepting the first request to the main model, in fresh containers; automatic segmentation and diffs. Coding: GLM 5.3 Flash (via OpenRouter) validated against two human coders (human kappa 0.75; LLM 93.4% agreement, kappa 0.92). Tracing: mini-swe-agent with Gemini 4 Argon, validated on 55 transitions (795/798 links correct); motivation coding by Gemini 4 Argon, kappa >= 0.82 vs reference",
+"p": "4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "N/A as an approach evaluation (no task, success criterion or quality/cost verdict). Agents run only to capture requests, with default or fixed models: (1) Claude Code + default model: 493/494 captured; tool definitions 77.4% of latest request; directive share fell to 54% after 2.1.154. (2) Codex CLI + o4-mini (to 0.19.0) then gpt-5: 174/175; request grew x7.8. (3) Gemini CLI + default model: 192/192; x1.4. (4) OpenCode + gpt-5: 907/930 (15 failed to initialise provider); size shrank ~25%. (5) Qwen Code + qwen3-coder-plus: 120/120; x4.5",
+"p": "4-5, 7-9",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: design",
+"v": "Cross-agent descriptive comparison: 5 agents, all stable npm releases before 25 Aug 2026; held constant: fixed user prompt, fresh linux/amd64 container, empty working directory, default settings except endpoint redirection and model selection; one run per release; no human intervention; no baseline (descriptive)",
+"p": "4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: result",
+"v": "Directive text 89-96% (median) of instruction text in all agents; tool definitions dominate Claude Code, Qwen Code, OpenCode latest requests (77.4%, 72.3%, 63.2%); 29% of transitions change a segment or tool, 5-10 transitions account for half of edits; only 48% of 496 units explain the stack change itself; safety cited by 13 units; by Aug 2026 >= 95% of each agent's segments unique; four open-source agents converge in directive share (84-87%). Descriptive; no significance tests",
+"p": "7-9",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "Distinguished agents descriptively; capture repeatable (fixed configuration, hashes stored, replication package). Limitations: first request only, empty directory, no user customisation or later turns; stated motivations may differ from actual; LLM-assisted annotation errors possible",
+"p": "4, 10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Construct: stated, not verified, motivations. Internal: labelling errors from human/LLM annotation. External: five CLI agents, controlled configuration, first request only, no repository guidance or later interactions; releases before 25 Aug 2026. Effects on correctness, tool use, latency, cost not established; future: controlled experiments varying stacks with fixed model/task, ablations, capturing later turns. Recommends reporting exact agent release and archiving captured stacks",
+"p": "10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Notes",
+"v": "Relevant to SDD only indirectly: argues the agent release is an experimental variable and that repository guidance (AGENTS.md/CLAUDE.md) operates inside the instruction stack. Fig. 3 table values partly jumbled by pdftotext (latest-release column); medians in text used. Replication package (anonymous 4open.science link) [1]. Codex switched from TypeScript to Rust implementation. No pre-registration",
+"p": "1, 7, 9-10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): RQ1-RQ4 stated",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q2",
+"v": "Yes (1): capture, segmentation, codebooks, sampling, LLM settings and validation described; replication package",
+"p": "4-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q3",
+"v": "Yes (1): every agent release enumerated; models named (o4-mini, gpt-5, qwen3-coder-plus; Claude Code and Gemini CLI default models not named); annotation LLMs named with settings",
+"p": "4-6",
+"verdict": "uncertain",
+"why": "Every agent release is enumerated (Table I) and the models of Codex, OpenCode and Qwen Code are named, but Claude Code and Gemini CLI ran with their unnamed default models (p. 4). Model identity matters little here (the request is captured before any model answers), so Yes is defensible; a strict reader could score Partly"
+},
+{
+"f": "Q4",
+"v": "Yes (1): release census (Table I), dataset and replication package available",
+"p": "1, 5",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q5",
+"v": "Yes (1): LLM annotations validated against independent double human coding with adjudication (kappa reported)",
+"p": "4-7",
+"verdict": "uncertain",
+"why": "No effectiveness of agent work is measured; the only independent criterion is the human-adjudicated reference used to validate the LLM coding (kappa 0.92, p. 5) and tracing (795/798 links, p. 6). Yes if annotation validity counts as the effectiveness criterion; otherwise N/A-like and scored No"
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): metrics defined (edit size, shares, motivation categories) but no cost or quality outcomes of agent work",
+"p": "5-7",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q7",
+"v": "No (0): descriptive cross-agent study; no baseline or alternative evaluated on a task",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): one capture per release (deterministic first request); sampling with margins of error for validation; no statistical tests of differences",
+"p": "4, 6",
+"verdict": "uncertain",
+"why": "No repetitions and no statistical tests of differences; variability is handled only by design (fixed configuration, masking of run-dependent values, p. 5) and by validation samples sized for a 10-point margin of error. Partly is defensible; a strict reader could score No"
+},
+{
+"f": "Q9",
+"v": "Yes (1): conclusions descriptive; explicitly states causal effects on performance or cost not established",
+"p": "10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q10",
+"v": "Yes (1): Section 7 threats to validity (construct, internal, external)",
+"p": "10",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q12",
+"v": "Yes (1): academic authors, not affiliated with any agent vendor",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q13",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+}
+]
+}

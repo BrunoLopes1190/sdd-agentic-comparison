@@ -1,226 +1,315 @@
 {
  "key": "rayyan-800498055",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
  "fields": [
   {
    "f": "Reference",
    "v": "Fu, S., Liu, O., Wang, S., Shi, J., Wei, C. (2026). BootstrapAgent: Distilling Repository Setup into Reusable Agent Knowledge. arXiv:2605.15815v1 [cs.SE], 15 May 2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
    "v": "Preprint (arXiv; marked 'Preprint', NeurIPS-style checklist appendices; venue Not stated)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "Zhejiang University (Fu, Shi, Wei); The Australian National University (Liu); Institute of Information Engineering, Chinese Academy of Sciences (Wang)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
    "v": "Proposes an approach (BootstrapAgent, multi-agent framework producing a verified .bootstrap contract); secondary: evaluates it (RQ1 effectiveness vs HerAgent, RQ2 downstream reuse by Claude Code, RQ3 ablation)",
-   "p": "1-2, 6"
+   "p": "1-2, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "BootstrapAgent (code at github.com/Vossera/BootstrapAgent), version Not stated; .bootstrap contract format. Compared with HerAgent (reported results)",
-   "p": "2, 6"
+   "p": "2, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": ".bootstrap directory: setup.sh (ordered setup commands), doctor.sh (read-only diagnostics), verify.sh (mandatory minimal verification + optional strongest verification), command metadata (commands.json) with provenance, evidence map, compressed agent context, failure playbook (repair knowledge), safety warnings. Intermediate: DiscoveryReport, CIEvidenceReport, schema-constrained BootstrapPlan",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Repository discovery (Discoverer Agent) -> bootstrap plan generation (Planner Agent) -> contract generation (Generator Agent) -> containerized verification in Docker (warm hot-reload during repair, clean replay for acceptance) -> trace-driven delta repair with sanity check (Generator Agent), looped under budgets; contract then frozen and consumed by downstream agents",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "None in the pipeline; 'maintainer review remains necessary before adopting generated setup instructions in production documentation' (recommendation, not part of the evaluated flow)",
-   "p": "9"
+   "p": "9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Full workflow of the proposed framework (generation and verification) plus reuse of the generated contract by a downstream agent (Claude Code)",
-   "p": "6-7"
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (agent-consumable setup contract / context artefact, no feature specification); authors do not use SDD terms",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing code bases: bootstrapping (environment setup and minimal verification) of unfamiliar public repositories",
-   "p": "1, 6"
+   "p": "1, 6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "212 repositories: Repo2Run-Bench 122 (subset of 420), ExecutionAgent-Bench 50, Installamatic-Bench 40; repository size Not stated",
-   "p": "6, 17"
+   "p": "6, 17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Open-source GitHub repositories; languages Python (Repo2Run, Installamatic all Python), ExecutionAgent: JavaScript 24%, Python 22%, C 20%, Java 18%, C++ 16%",
-   "p": "17"
+   "p": "17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (autonomous agents, no human participants)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "Generation: tokens and wall-clock time per repository (median 43.8K tokens, 24.6 min; P90 169.2K, 79.0 min). Downstream: wall time, active (median) tokens, total tokens per repository; API time, cache tokens, turns and estimated cost recorded (cost values not reported in the main text)",
-   "p": "6-8, 17"
+   "p": "6-8, 17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "Bootstrap success rate: clean replay in a fresh container with setup, doctor and minimal_verify passing",
-   "p": "6"
+   "p": "6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Reward-hacking/false-positive repairs caught by sanity check (5/122, 4/50, 2/40); extra time without warm repair",
-   "p": "7, 9"
+   "p": "7, 9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Automatic: deterministic Docker verifier (Ubuntu 24.04) stage outcomes and logs; Claude Code headless JSON output (time, tokens, turns, cost); agent self-reported final status, failed commands, search commands",
-   "p": "6, 17"
+   "p": "6, 17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "Criterion: clean replay passes setup + doctor + minimal_verify. -- BootstrapAgent + own multi-agent pipeline + DeepSeek-V4-Flash-2026-04-25 (temperature 1.0): success 197/212 (92.9%): ExecutionAgent 42/50, Installamatic 38/40, Repo2Run 117/122; median 43.8K tokens, 24.6 min per repository. Quality: works; cost: works (one-off cost). -- HerAgent (reported baseline; agent/model Not stated in this paper): 179/212 (84.4%): 41/50, 34/40, 104/122. Baseline. -- Downstream Claude Code (headless, model Not stated) cold (no .bootstrap, given verification commands): median wall time 346.3 s overall (285.2 / 337.8 / 391.9 s); median tokens 46.3K; total 710.7K. Baseline. -- Downstream Claude Code warm (with .bootstrap): median wall time 249.5 s (0.72x; 112.0 / 282.3 / 309.8 s); median tokens 36.9K (0.80x); total 419.4K (0.59x). Quality: N/A (success of downstream runs not reported); cost: works. -- Ablations (Repo2Run / ExecutionAgent / Installamatic): w/o repository discovery 76.2% / 52.0% / 70.0%; w/o clean replay 95.1% / 82.0% / 90.0%; w/o trace-driven repair 26.2% / 18.0% / 40.0%; full 95.9% / 84.0% / 95.0%; w/o warm repair +4,839.9 / +851.6 / +421.9 min total time",
-   "p": "6-9"
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "Tasks: 212 repositories from 3 public benchmarks. Configurations: BootstrapAgent vs HerAgent (strongest reported baseline; whether re-run is Not stated); downstream Claude Code cold vs warm (paired, same project, same verification commands); component ablations. Held constant: Docker Ubuntu 24.04 image, budgets (20 repair rounds, 3600 s), downstream timeout 1800 s and API budget 3 USD. Acceptance tests: clean replay with minimal verification command chosen by the system itself. Repetitions: 1 run per project and condition. Human intervention: none",
-   "p": "6, 16-17"
+   "p": "6, 16-17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "BootstrapAgent +8.5 points over HerAgent (92.9% vs 84.4%; +10.1% relative). Warm downstream: median time -28% overall (largest on ExecutionAgent 0.39x), median tokens -20%, total tokens -41%. Trace-driven repair is the largest contributor (-55 to -70 points without it). No significance tests",
-   "p": "1-2, 6-9"
+   "p": "1-2, 6-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "Distinguished BootstrapAgent from HerAgent and cold vs warm on cost; single run per condition; no variance. Limitations stated: local bootstrap readiness only, not full CI or semantic correctness; contracts need maintenance",
-   "p": "6-9"
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Establishes local bootstrap readiness, not full CI reproduction or semantic correctness; .bootstrap must be maintained as the project evolves; risk of over-trusting contracts (transient workarounds, weak validation); failures from missing or inconsistent version information. Future: stronger dependency solving, historical environment inference, external artifact recovery, repositories needing services, GPUs, large integration tests",
-   "p": "8-9"
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Abstract states downstream token usage -25.9% and build time -22.3%, which match none of the reported ratios (Table 2 median time 0.72x = -28%; Table 3 median tokens 0.80x = -20%, total 0.59x = -41%); source of abstract figures not explained. 'Over 10%' is relative (+8.5 points). Fig. 6 panel labels give n=40 for ExecutionAgent and n=50 for Installamatic, reversed vs Table 5. HerAgent numbers appear to be reported values, comparability of conditions not discussed. Minimal verification command is chosen by the system (guarded by sanity check). Downstream success rates and costs in USD not reported. Tables 1-4 jumbled by pdftotext; values rebuilt from text p. 6-7. Code, scripts, benchmark URL lists, generated contracts released. No pre-registration. Programming language: Python mainly, also JavaScript, C, Java, C++",
-   "p": "1-2, 6-8"
+   "p": "1-2, 6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): RQ1-RQ3 stated",
-   "p": "6"
+   "p": "6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Yes (1): pipeline, prompts (Appendix A), budgets and verifier environment described; code released",
-   "p": "3-5, 14-18"
+   "p": "3-5, 14-18",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Partly (0.5): DeepSeek-V4-Flash-2026-04-25 versioned; Claude Code version and model for downstream runs not stated; HerAgent setup not stated",
-   "p": "6, 17-18"
+   "p": "6, 17-18",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "Yes (1): three public benchmarks; URL lists released",
-   "p": "17-18"
+   "p": "17-18",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "Partly (0.5): success by deterministic clean replay, but the minimal verification command is generated by the system itself; no independent test criterion; downstream success not verified",
-   "p": "6, 18"
+   "p": "6, 18",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "Yes (1): success rate plus tokens and time for generation and downstream reuse",
-   "p": "6-8"
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "Yes (1): HerAgent baseline and paired cold/warm downstream comparison, ablations",
-   "p": "6, 17"
+   "p": "6, 17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "No (0): one run per project and condition, no statistical tests",
-   "p": "17"
+   "p": "17",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Partly (0.5): main success result follows; abstract cost-reduction figures do not match tables; 'significantly reduce' without tests",
-   "p": "1, 6-8"
+   "p": "1, 6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): short limitations and broader-impacts sections; no threats to validity",
-   "p": "9"
+   "p": "9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
    "v": "No (0): arXiv preprint",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Partly (0.5): authors created BootstrapAgent; the HerAgent baseline is from others (reported results)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "Yes (1): open-source, runs with an API LLM and Docker; median 43.8K tokens and 24.6 min per repository, one-off and reusable; stated as acceptable",
-   "p": "6, 18"
+   "p": "6, 18",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

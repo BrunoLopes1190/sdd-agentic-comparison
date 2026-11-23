@@ -1,226 +1,315 @@
 {
-"key": "rayyan-800486118",
-"model": "Claude Opus 5.5 (subagent)",
-"fields": [
-{
-"f": "Reference",
-"v": "Chen, T.-H. (P.) (2026). Towards Structured, State-Aware, and Execution-Grounded Reasoning for Software Engineering Agents. In 7th International Workshop on Bots and Agents in Software Engineering (BoatSE '26), Rio de Janeiro, Brazil. ACM. https://doi.org/10.1145/3786161.3788456. arXiv:2602.04640v1 [cs.SE], 4 Feb 2026",
-"p": "1"
-},
-{
-"f": "Year",
-"v": "2026",
-"p": "1"
-},
-{
-"f": "Publication type",
-"v": "Workshop (BoatSE '26, ACM; position paper, 4 pages); arXiv version used",
-"p": "1"
-},
-{
-"f": "Author affiliation",
-"v": "SPEAR lab, Concordia University, Montreal, Canada",
-"p": "1"
-},
-{
-"f": "Nature of the study",
-"v": "Conceptual (position paper with an initial roadmap for structured, state-aware, execution-grounded SE agents)",
-"p": "1, 3"
-},
-{
-"f": "Approach(es): name and version",
-"v": "No named approach; proposed paradigm: structured, state-aware, execution-grounded SE agent reasoning (cites the author's Agent-SAMA FSM representation as supporting evidence). Version N/A",
-"p": "2-3"
-},
-{
-"f": "Artefacts prescribed",
-"v": "Explicit intermediate representation (agent state) storing: understanding of relevant code elements and dependencies; assumptions and hypotheses; expected behaviour / invariants and pre/post-conditions of actions; alternative hypotheses. Not a specification of the software",
-"p": "2-3"
-},
-{
-"f": "Phases of the flow",
-"v": "Not a phased flow; loop: read state -> plan/generate action -> tool execution -> map execution feedback to hypotheses -> update state (Figure 1b)",
-"p": "2-3"
-},
-{
-"f": "Human review points",
-"v": "Not stated",
-"p": "—"
-},
-{
-"f": "Parts exercised",
-"v": "Not run (document-based position paper)",
-"p": "—"
-},
-{
-"f": "SDD level",
-"v": "Not classifiable (agent reasoning state, not a software specification)",
-"p": "—"
-},
-{
-"f": "Task type",
-"v": "Not stated (long-horizon SE tasks in general, e.g. debugging, fault localisation)",
-"p": "2-3"
-},
-{
-"f": "Size",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Domain",
-"v": "General software engineering",
-"p": "—"
-},
-{
-"f": "Team profile",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Cost metrics",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Functional quality metrics",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Internal quality metrics",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Human effort metrics",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Other outcome metrics",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "How metrics are collected",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Evaluation (each configuration)",
-"v": "N/A (document-based, no configuration run)",
-"p": "—"
-},
-{
-"f": "Comparison: design",
-"v": "N/A (no comparison; contrasts reactive vs structured agents conceptually, Figure 1)",
-"p": "2"
-},
-{
-"f": "Comparison: result",
-"v": "N/A. Argues, from prior literature, that reactive agents show inconsistent reasoning reconstructions, forgotten assumptions, feedback interpreted in isolation and full reset-and-retry",
-"p": "2-3"
-},
-{
-"f": "Comparison: did the method work",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "Conclusions: limitations and gaps",
-"v": "No limitations of the paper stated. Gaps: need for new agent memory representations and better integration with analysis and runtime tools for long-horizon reasoning",
-"p": "3"
-},
-{
-"f": "Notes",
-"v": "Short 4-page position paper; claims supported by citations only (incl. the author's own prior work). No data or replication package (none needed). Pre-registration: N/A. Programming language: N/A",
-"p": "1-3"
-},
-{
-"f": "Q1",
-"v": "Yes (1): position and three challenges clearly stated",
-"p": "1-2"
-},
-{
-"f": "Q2",
-"v": "No (0): no method; argument from literature",
-"p": "—"
-},
-{
-"f": "Q3",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q4",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q5",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q6",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q7",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q8",
-"v": "N/A (conceptual, no empirical evaluation)",
-"p": "—"
-},
-{
-"f": "Q9",
-"v": "Partly (0.5): conclusions consistent with the argument but rest on cited studies, no own evidence",
-"p": "3"
-},
-{
-"f": "Q10",
-"v": "No (0): limitations not discussed",
-"p": "—"
-},
-{
-"f": "Q11",
-"v": "Yes (1): ACM workshop paper (BoatSE '26)",
-"p": "1"
-},
-{
-"f": "Q12",
-"v": "Yes (1): no vendor tool evaluated; academic author",
-"p": "1"
-},
-{
-"f": "Q13",
-"v": "No (0): roadmap only; no implementation requirements (tools, compute, cost) stated",
-"p": "3"
-},
-{
-"f": "DARE1",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE2",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE3",
-"v": "N/A",
-"p": "—"
-},
-{
-"f": "DARE4",
-"v": "N/A",
-"p": "—"
-}
-]
+ "key": "rayyan-800486118",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, T.-H. (P.) (2026). Towards Structured, State-Aware, and Execution-Grounded Reasoning for Software Engineering Agents. In 7th International Workshop on Bots and Agents in Software Engineering (BoatSE '26), Rio de Janeiro, Brazil. ACM. https://doi.org/10.1145/3786161.3788456. arXiv:2602.04640v1 [cs.SE], 4 Feb 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop (BoatSE '26, ACM; position paper, 4 pages); arXiv version used",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "SPEAR lab, Concordia University, Montreal, Canada",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual (position paper with an initial roadmap for structured, state-aware, execution-grounded SE agents)",
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named approach; proposed paradigm: structured, state-aware, execution-grounded SE agent reasoning (cites the author's Agent-SAMA FSM representation as supporting evidence). Version N/A",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Explicit intermediate representation (agent state) storing: understanding of relevant code elements and dependencies; assumptions and hypotheses; expected behaviour / invariants and pre/post-conditions of actions; alternative hypotheses. Not a specification of the software",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not a phased flow; loop: read state -> plan/generate action -> tool execution -> map execution feedback to hypotheses -> update state (Figure 1b)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based position paper)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent reasoning state, not a software specification)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated (long-horizon SE tasks in general, e.g. debugging, fault localisation)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based, no configuration run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison; contrasts reactive vs structured agents conceptually, Figure 1)",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Argues, from prior literature, that reactive agents show inconsistent reasoning reconstructions, forgotten assumptions, feedback interpreted in isolation and full reset-and-retry",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations of the paper stated. Gaps: need for new agent memory representations and better integration with analysis and runtime tools for long-horizon reasoning",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Short 4-page position paper; claims supported by citations only (incl. the author's own prior work). No data or replication package (none needed). Pre-registration: N/A. Programming language: N/A",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): position and three challenges clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): no method; argument from literature",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions consistent with the argument but rest on cited studies, no own evidence",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): limitations not discussed",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM workshop paper (BoatSE '26)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no vendor tool evaluated; academic author",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "No (0): roadmap only; no implementation requirements (tools, compute, cost) stated",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
 }

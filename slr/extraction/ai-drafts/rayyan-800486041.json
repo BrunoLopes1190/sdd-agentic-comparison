@@ -1,226 +1,315 @@
 {
  "key": "rayyan-800486041",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
  "fields": [
   {
    "f": "Reference",
    "v": "Abebayew, F. W. (2025). The Gatekeeper Knows Enough. arXiv:2510.14881v1 [cs.AI], 16 Oct 2025",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2025",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
    "v": "Preprint (arXiv)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "BoA AI CoE (Bank of Abyssinia AI Center of Excellence, per e-mail domain bankofabyssinia.com); single author",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
    "v": "Proposes an approach (Gatekeeper Protocol, reference implementation Sage); secondary: compares (Sage vs four context-management strategies on 3 tasks x 7 LLMs)",
-   "p": "1, 4"
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "Gatekeeper Protocol, implemented in Sage (open-source agent, github.com/Fikresilase/sage); version Not stated. Baselines: Full Codebase, Recent Files, RAG (ChromaDB, 512-token chunks, cosine similarity), ReAct agent",
-   "p": "1, 4"
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "A single JSON object, the System State-Context Representation (SCR): a low-fidelity latent context map of the system (components may be 'unsummarized'), the authoritative state record, and the action interface (agent writes declarative intents such as provide/edit/write/delete into 'request' fields). No requirements or specification document",
-   "p": "2-4"
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Time-stepped cycle: agent receives SCR L_t + task T -> proposes modified SCR L'_t with a declarative action (e.g. provide to request high-fidelity content) -> system validates (IsValid) and executes (Phi) -> new ground-truth SCR L_t+1. Inference-first: reason on latent map before requesting content",
-   "p": "2-4"
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "Not stated (a trusted system layer validates and executes actions; no human checkpoint described)",
-   "p": "2, 4"
+   "p": "2, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Full workflow of the protocol (Sage run on 3 tasks)",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (state/context protocol, no specification); authors do not use SDD terms ('declarative, state-synchronized protocol', 'formal contract')",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Mixed: existing code (multi-file Python refactoring, function renaming) and new code (new React component with Next.js/Shadcn; new Python web-scraping script)",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "3 tasks; code-base sizes Not stated",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Python refactoring, frontend (React/Next.js/Shadcn UI), Python web scraping of a live website",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (no human participants)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "Average total tokens (cumulative input + output per task run)",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "Average task completion progress (%): share of binary sub-tasks completed (K sub-tasks per task; sub-tasks not described)",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Average grounding errors per run (actions based on a false state belief)",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Not stated how sub-task completion and grounding errors were judged (automatic or manual); tokens presumably logged. Averaged over 7 model runs per task, then over 3 tasks",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "Criterion: sub-task completion. Values averaged across 3 tasks and 7 LLMs (Gemini 2.0 Flash Exp, Qwen3 Coder 480B A35B, DeepSeek R1, MAI DS R1, gpt-oss-20b, Mistral Small 3.2 24B, Nemotron Nano 9B V2); per-model values not reported, so one entry per strategy. (a) Sage (Gatekeeper) + Sage + 7 models (avg): completion 73% +/- 8; grounding errors 0.8 +/- 0.4; tokens 6,200 +/- 1,200. Quality partly works; cost works. (b) Full Codebase + harness n.s. + 7 models: 48% +/- 18; 4.3 +/- 2.1; 19,100 +/- 3,500. Quality does not work; cost does not work. (c) Recent Files + n.s. + 7 models: 31% +/- 22; 5.8 +/- 2.5; 9,800 +/- 4,100. Quality does not work; cost partly. (d) RAG + n.s. + 7 models: 58% +/- 15; 3.1 +/- 1.5; 14,300 +/- 2,800. Quality partly; cost partly. (e) ReAct Agent + n.s. + 7 models: 55% +/- 17; 3.4 +/- 1.8; 15,200 +/- 3,100. Quality partly; cost partly",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "Tasks: 3 (Python refactoring, React component, Python web scraping); not released. Configurations: 5 strategies x 7 LLMs. Baselines: Full Codebase, Recent Files, RAG, ReAct agent. Held constant: standardized prompts; ReAct given identical imperative toolset to Sage; model across strategies. Acceptance tests: Not stated (sub-task completion). Repetitions: Not stated (R = 7 refers to the 7 model runs, apparently one run per model per task). Human intervention: Not stated",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "Sage best on all three metrics: completion 73% vs RAG 58% (next best), ReAct 55%, Full 48%, Recent 31%; grounding errors 0.8 vs 3.1-5.8 ('an order of magnitude fewer'); tokens 6,200 vs 9,800-19,100 ('over twice as token-efficient'). No significance tests",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "Distinguished strategies on means (no statistical test). Repeatability not addressed (no repetitions, no task release). Limitations stated: only three tasks; RAG sensitive to chunking/embedding configuration",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Protocol limits: needs structured knowledge; adds latency (multi-turn); bounded by LLM reasoning; initial latent-map generation can be costly for very large systems. Evaluation: only three tasks, larger benchmark needed; RAG configuration sensitivity. Future: hierarchical 'latent map tree', model chaining/query transformation, universal Gatekeeper specification",
-   "p": "5-6"
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Values from Table 1 (p. 5), columns rebuilt from pdftotext (layout flattened, order of rows matches strategy list). Grounding errors defined as actions on a false state belief, but how they were counted is not stated. Std devs computed across models and tasks. Sage code available on GitHub; tasks, prompts and logs not released. Short paper (6 pages). No pre-registration. Languages: Python, TypeScript/React. Claim that 'architecture, not the model, is the primary driver' not supported by per-model data",
-   "p": "4-6"
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Partly (0.5): problem and contribution stated; no explicit research questions",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "No (0): tasks, sub-task decomposition, prompts, grounding-error judging and run settings not described in enough detail",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Partly (0.5): seven models named (no versions/dates); Sage and baseline harness versions Not stated",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "Partly (0.5): three tasks described in one line each; not available",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "No (0): sub-task completion and grounding errors judged in an unstated way, apparently by the author; no tests or ground truth described",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "Yes (1): completion, grounding errors and tokens defined with formulas; covers cost (tokens) and quality",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "Yes (1): four baselines with standardized prompts and the same models",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "Partly (0.5): mean +/- SD across models and tasks; no repetitions per configuration, no statistical tests",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Partly (0.5): ranking follows Table 1, but claims such as 'architecture, not the model, is the primary driver' and 'strong evidence for its general effectiveness' go beyond 3 tasks with no significance testing",
-   "p": "5-6"
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): short threats paragraph (3 tasks, RAG configuration) and protocol limitations",
-   "p": "5-6"
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
    "v": "No (0): arXiv preprint",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Partly (0.5): author created the Gatekeeper Protocol and Sage, the main approach evaluated; the baseline strategies (Full Codebase, Recent Files, RAG, ReAct) are generic, not the author's",
-   "p": "1, 4"
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "Partly (0.5): Sage is open source and runs with common hosted or open models, token cost reduced; but compute/cost requirements, setup and the cost of building the latent map for large systems are not stated",
-   "p": "4-6"
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

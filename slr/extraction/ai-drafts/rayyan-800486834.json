@@ -1,46 +1,375 @@
-{"key": "rayyan-800486834", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Villani, T. S., Kellogg, M. (2026). Command Coding: A Methodological Framework for AI-Accelerated Software Development. In Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany, October 12-16, 2026. ACM, pp. 4493-4503. doi:10.1145/3832783.3834536", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Conference (ASE '26, ACM/IEEE)", "p": "1"},
-{"f": "Author affiliation", "v": "New Jersey Innovation Institute, Newark, USA (Villani); New Jersey Institute of Technology, Newark, USA (Kellogg)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (command coding methodology); secondary: evaluates it in a single-case exploratory case study (all2md library)", "p": "1-2, 5"},
-{"f": "Approach(es): name and version", "v": "Command coding (authors' own methodology); no version. Related to but distinguished from SDD: 'The most important novelty of command coding is its reliance on cross-model review'", "p": "1-2, 10"},
-{"f": "Artefacts prescribed", "v": "Human-written design artefacts before implementation, serving as a 'constitution': system architecture document (component diagram, data flow, technology stack, interface contracts), pattern library (base classes, configuration patterns, naming conventions), security requirements (threat model, input validation policies), quality standards (coverage targets, documentation, code style). Worklist of atomic work items (identifier, description, dependencies, acceptance criteria, complexity estimate, context files), a human-maintained living document. Cross-model AI review documents. Tests, CI quality gates (linter, type checker, static analysis, security scanners)", "p": "2-3, 6"},
-{"f": "Phases of the flow", "v": "Phase 1 Architecture, design, scaffolding and environment setup (human-led) -> Phase 2 Select work items (design decomposed by LLMs into a worklist, human-curated and prioritised) -> Phase 3 Implementation cycles (AI-executed; context packing, then TDD-style loop) -> Phase 4 Code and documentation review cycles (automated gates every commit, cross-model review every 3-5 work items, human review); findings become new work items. In practice daily sprints (morning planning of 3-5 items, AI implementation, afternoon cross-model review, end-of-day integration) and weekly holistic subsystem reviews (Fig. 2, Fig. 3)", "p": "3-4"},
-{"f": "Human review points", "v": "Human authors architecture and design artefacts; human reviews LLM-generated worklist in detail and sets priorities; human approval for architecture changes, security implementations, API design; intervention when agents are stuck, tests pass but approach seems wrong, or architectural deviation; human review of security-critical code, API design, architectural alignment and test adequacy (including test logic); weekly holistic reviews", "p": "2-4, 7"},
-{"f": "Parts exercised", "v": "Full workflow (applied over the whole all2md development, 504 commits, 150+ review cycles)", "p": "2, 5-6"},
-{"f": "SDD level", "v": "Not classifiable / Not stated in Boeckeler's terms; authors relate command coding to SDD (humans as architects, AI as implementers) but do not classify it. Design documents act as a 'constitution' guiding AI work (closest to spec-first)", "p": "2, 10"},
-{"f": "Task type", "v": "Essentially greenfield: a small existing internal utility (~3,300 lines) extended into a comprehensive library ('essentially greenfield - no legacy constraints')", "p": "2, 4-5"},
-{"f": "Size", "v": "Single project: ~88,000 logical SLOC production (88,352) + ~90,000 test SLOC + ~37,000 lines documentation; 41 parsers, 25+ renderers, 233 test files; 504 commits over 48 calendar days (41 working days). Text also says 'about 45 working days' and 'over 170,000 total lines' (p. 5)", "p": "2, 5-7"},
-{"f": "Domain", "v": "Document conversion library (all2md: 40+ formats to/from Markdown, AST, plugin system, MCP server) for AI/LLM workflows; Python", "p": "2, 4-5"},
-{"f": "Team profile", "v": "One senior engineer (the first author); methodology requires senior-level skills (5-10+ years)", "p": "1, 4, 9"},
-{"f": "Cost metrics", "v": "Calendar time (48 days) and working days (41, counted as 2.0 person-months); commits per day (12.3); AI API cost (~$550); total actual cost ~$41,500 vs estimated traditional cost $1.2M-$2.4M; estimated traditional effort (COCOMO II 81-164 PM, FPA 40-80 PM, triangulated 60-120 PM); acceleration factor 25-40x. No token counts", "p": "6-7"},
-{"f": "Functional quality metrics", "v": "Test coverage (pytest-cov, 87%); downloads as adoption indicator (2,300+). No acceptance-test pass rate against an independent oracle", "p": "6"},
-{"f": "Internal quality metrics", "v": "Type coverage (mypy strict 100%, 0 errors); lint violations (ruff, 0); security issues (Bandit/Semgrep/CodeQL, 0 high/critical); cyclomatic complexity (radon, grade A, avg 5.04); maintainability index (radon, grade A, avg 54.7); test-to-code ratio 1.02:1", "p": "5-6"},
-{"f": "Human effort metrics", "v": "Self-reported engineer effort: 41 working days, treated as 2.0 person-months", "p": "7, 9"},
-{"f": "Other outcome metrics", "v": "Qualitative: share of critical issues found by multiple models (~80%) vs only one model (~20%); review-finding variability across reruns; failure patterns (test quality, complex refactoring, cascading fixes, options drift); evidence for 'contextual quality contagion' hypothesis", "p": "7-8"},
-{"f": "How metrics are collected", "v": "Automatic: git history (timestamps, diff stats), static analysis tools (radon, mypy, ruff), pytest coverage, security scanners, PyPI download statistics (ClickPy). Manual: effort self-reported; COCOMO II and FPA estimation with analyst-chosen parameters; qualitative analysis of 150+ AI review documents and development notes", "p": "5, 7, 9"},
-{"f": "Evaluation (each configuration)", "v": "Criterion: production-quality outcomes (static metrics) and acceleration vs estimated traditional effort; no independent acceptance tests. - Command coding + Claude Code + Claude Sonnet 4 / 4.5 (implementation; Sonnet 4 for docs), with GPT-4.1/5/5.1 and Gemini 2.5 Pro / 3 Pro via direct API for cross-model review: 88k SLOC in 41 working days; coverage 87%, type coverage 100%, 0 lint, 0 security issues, CC grade A (5.04), MI grade A (54.7); cost ~$41,500 (AI API ~$550); 25-40x estimated acceleration. Quality verdict: works (by authors' static metrics). Cost verdict: works (vs parametric estimate, no real counterfactual)", "p": "5-7"},
-{"f": "Comparison: design", "v": "No controlled comparison. Single-case exploratory case study; 'baseline' is estimated traditional (non-AI) effort from COCOMO II and FPA (no counterfactual team). Sensitivity check (estimate 50% too high, actual effort 50% higher -> >15x). Held constant: N/A. Acceptance tests: N/A (project's own test suite, 87% coverage). Repetitions: 1. Human intervention: by design (methodology)", "p": "5, 7"},
-{"f": "Comparison: result", "v": "Against parametric estimates only: 25-40x acceleration (conservative; >15x under aggressive adjustments); cost reduction 96-98% ($41,500 vs $1.2M-$2.4M). No significance testing", "p": "7"},
-{"f": "Comparison: did the method work", "v": "Partly: estimate-based comparison only; authors note no counterfactual exists; COCOMO II calibrated on 1990s-2000s projects with subjective parameters; FPA designed for business applications; methods 'agree within a factor of two'; not repeatable beyond the single case", "p": "7, 9-10"},
-{"f": "Conclusions: limitations and gaps", "v": "Single senior engineer (first author, motivation bias); self-reported effort; single-case, favourable conditions (pattern-based, well-documented domain, clear testable requirements, modular, greenfield); may not generalise to legacy projects, other domains, engineers or models; COCOMO/FPA construct validity; coverage is not test quality; static analysis unsound. Contextual quality contagion is a hypothesis needing controlled experiments. Future: replicate in other domains, other engineers/teams, tighter control; which quality gates are most effective", "p": "8-10"},
-{"f": "Notes", "v": "Printed page numbers 4493-4503 = PDF pages 1-11. Table 1 and Table 2 came out jumbled; values rebuilt by order of metric names. Inconsistencies: 'about 45 working days' (p. 5) vs 41 working days (pp. 1, 6); development period stated as Sept 24 - Nov 11 2025 but phase list ends Oct 26. Agent versions: Claude Code version not stated. Code public on GitHub (thomas-villani/all2md); data, prompt templates, checklists, tool configs and estimation details in Zenodo artefact (appendices A-F). No pre-registration. Language: Python", "p": "5-7, 10"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ3 stated", "p": "2"},
-{"f": "Q2", "v": "Partly (0.5): methodology, tooling, models and review cadence described and prompts/checklists in artefact, but a single practitioner's case study is inherently hard to replicate; estimation parameters in artefact", "p": "3-7"},
-{"f": "Q3", "v": "Partly (0.5): models with versions (Sonnet 4/4.5, GPT-4.1/5/5.1, Gemini pro-2.5/pro-3) and Claude Code named; no Claude Code version", "p": "5-6"},
-{"f": "Q4", "v": "Yes (1): project described and public on GitHub; data on Zenodo", "p": "4-5, 10"},
-{"f": "Q5", "v": "Partly (0.5): objective tool metrics (coverage, mypy, ruff, scanners, radon), but no independent acceptance tests or expert review; effort baseline estimated by the authors", "p": "5-7"},
-{"f": "Q6", "v": "Yes (1): cost (time, effort, USD) and quality metrics, defined by tools", "p": "6-7"},
-{"f": "Q7", "v": "No (0): no baseline under the same conditions; only parametric estimates of traditional effort", "p": "7"},
-{"f": "Q8", "v": "No (0): single case, no repetitions; only a sensitivity analysis of the estimate", "p": "7"},
-{"f": "Q9", "v": "Partly (0.5): failures and limitations reported and contagion framed as hypothesis, but 'validated through empirical application' and 25-40x claim rest on one self-run case and estimates", "p": "7-10"},
-{"f": "Q10", "v": "Yes (1): Section 6 Threats to Validity (internal, external, construct)", "p": "9-10"},
-{"f": "Q11", "v": "Yes (1): ASE '26 conference proceedings", "p": "1"},
-{"f": "Q12", "v": "No (0): authors created the approach evaluated; first author is the engineer of the case study", "p": "1, 9"},
-{"f": "Q13", "v": "Partly (0.5): uses common tools (Claude Code, API models, open-source linters/scanners), low AI cost (~$550), but requires senior-level expertise, which the authors state limits who can apply it", "p": "4, 6-7"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486834",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Villani, T. S., Kellogg, M. (2026). Command Coding: A Methodological Framework for AI-Accelerated Software Development. In Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany, October 12-16, 2026. ACM, pp. 4493-4503. doi:10.1145/3832783.3834536",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ASE '26, 41st IEEE/ACM International Conference on Automated Software Engineering, Munich (ACM proceedings, pp. 4493-4503)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Conference) was right."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "New Jersey Innovation Institute, Newark, USA (Villani); New Jersey Institute of Technology, Newark, USA (Kellogg)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — proposes the command coding methodology and evaluates it in a single-case exploratory case study (all2md library, one senior engineer)",
+   "p": "1-2, 5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form (main nature from the list; 'secondary: <value from the list>'; then ' — ' and detail). Natures themselves were right."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Command coding (authors' own methodology); no version. Related to but distinguished from SDD: 'The most important novelty of command coding is its reliance on cross-model review'",
+   "p": "1-2, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Human-written design artefacts before implementation, serving as a 'constitution': system architecture document (component diagram, data flow, technology stack, interface contracts), pattern library (base classes, configuration patterns, naming conventions), security requirements (threat model, input validation policies), quality standards (coverage targets, documentation, code style). Worklist of atomic work items (identifier, description, dependencies, acceptance criteria, complexity estimate, context files), a human-maintained living document. Cross-model AI review documents. Tests, CI quality gates (linter, type checker, static analysis, security scanners)",
+   "p": "2-3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Phase 1 Architecture, design, scaffolding and environment setup (human-led) -> Phase 2 Select work items (design decomposed by LLMs into a worklist, human-curated and prioritised) -> Phase 3 Implementation cycles (AI-executed; context packing, then TDD-style loop) -> Phase 4 Code and documentation review cycles (automated gates every commit, cross-model review every 3-5 work items, human review); findings become new work items. In practice daily sprints (morning planning of 3-5 items, AI implementation, afternoon cross-model review, end-of-day integration) and weekly holistic subsystem reviews (Fig. 2, Fig. 3)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Human authors architecture and design artefacts; human reviews LLM-generated worklist in detail and sets priorities; human approval for architecture changes, security implementations, API design; intervention when agents are stuck, tests pass but approach seems wrong, or architectural deviation; human review of security-critical code, API design, architectural alignment and test adequacy (including test logic); weekly holistic reviews",
+   "p": "2-4, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (applied over the whole all2md development, 504 commits, 150+ review cycles)",
+   "p": "2, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable / Not stated in Boeckeler's terms; authors relate command coding to SDD (humans as architects, AI as implementers) but do not classify it. Design documents act as a 'constitution' guiding AI work (closest to spec-first)",
+   "p": "2, 10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Authors do not use Boeckeler's levels. Design docs act as a 'constitution' and the worklist is a living document updated as work progresses, so a reader could argue spec-anchored rather than closest to spec-first; 'not classifiable' is the safe value."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Authors never use Boeckeler's levels; design documents act as a 'constitution' (p. 2) and the worklist is a living document updated as work progresses (p. 3), so spec-anchored is also arguable. 'Not classifiable' remains the safe value."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Authors never use Boeckeler's levels; design documents act as a 'constitution' (p. 2) and the worklist is a living document updated as work progresses (p. 3), so spec-anchored is also arguable. 'Not classifiable' remains the safe value."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Task type",
+   "v": "Essentially greenfield: a small existing internal utility (~3,300 lines) extended into a comprehensive library ('essentially greenfield - no legacy constraints')",
+   "p": "2, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Single project: ~88,000 logical SLOC production (88,352) + ~90,000 test SLOC + ~37,000 lines documentation; 41 parsers, 25+ renderers, 233 test files; 504 commits over 48 calendar days (41 working days). Text also says 'about 45 working days' and 'over 170,000 total lines' (p. 5)",
+   "p": "2, 5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Document conversion library (all2md: 40+ formats to/from Markdown, AST, plugin system, MCP server) for AI/LLM workflows; Python",
+   "p": "2, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "One senior engineer (the first author); methodology requires senior-level skills (5-10+ years)",
+   "p": "1, 4, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Calendar time (48 days) and working days (41, counted as 2.0 person-months); commits per day (12.3); AI API cost (~$550); total actual cost ~$41,500 vs estimated traditional cost $1.2M-$2.4M; estimated traditional effort (COCOMO II 81-164 PM, FPA 40-80 PM, triangulated 60-120 PM); acceleration factor 25-40x. No token counts",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Test coverage (pytest-cov, 87%); downloads as adoption indicator (2,300+). No acceptance-test pass rate against an independent oracle",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Type coverage (mypy strict 100%, 0 errors); lint violations (ruff, 0); security issues (Bandit/Semgrep/CodeQL, 0 high/critical); cyclomatic complexity (radon, grade A, avg 5.04); maintainability index (radon, grade A, avg 54.7); test-to-code ratio 1.02:1",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Self-reported engineer effort: 41 working days, treated as 2.0 person-months",
+   "p": "7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Qualitative: share of critical issues found by multiple models (~80%) vs only one model (~20%); review-finding variability across reruns; failure patterns (test quality, complex refactoring, cascading fixes, options drift); evidence for 'contextual quality contagion' hypothesis",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: git history (timestamps, diff stats), static analysis tools (radon, mypy, ruff), pytest coverage, security scanners, PyPI download statistics (ClickPy). Manual: effort self-reported; COCOMO II and FPA estimation with analyst-chosen parameters; qualitative analysis of 150+ AI review documents and development notes",
+   "p": "5, 7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: production-quality outcomes (static metrics) and acceleration vs estimated traditional effort; no independent acceptance tests. - Command coding + Claude Code + Claude Sonnet 4 / 4.5 (implementation; Sonnet 4 for docs), with GPT-4.1/5/5.1 and Gemini 2.5 Pro / 3 Pro via direct API for cross-model review: 88k SLOC in 41 working days; coverage 87%, type coverage 100%, 0 lint, 0 security issues, CC grade A (5.04), MI grade A (54.7); cost ~$41,500 (AI API ~$550); 25-40x estimated acceleration. Quality verdict: works (by authors' static metrics). Cost verdict: works (vs parametric estimate, no real counterfactual)",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No controlled comparison. Single-case exploratory case study; 'baseline' is estimated traditional (non-AI) effort from COCOMO II and FPA (no counterfactual team). Sensitivity check (estimate 50% too high, actual effort 50% higher -> >15x). Held constant: N/A. Acceptance tests: N/A (project's own test suite, 87% coverage). Repetitions: 1. Human intervention: by design (methodology)",
+   "p": "5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Against parametric estimates only: 25-40x acceleration (conservative; >15x under aggressive adjustments); cost reduction 96-98% ($41,500 vs $1.2M-$2.4M). No significance testing",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: estimate-based comparison only; authors note no counterfactual exists; COCOMO II calibrated on 1990s-2000s projects with subjective parameters; FPA designed for business applications; methods 'agree within a factor of two'; not repeatable beyond the single case",
+   "p": "7, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single senior engineer (first author, motivation bias); self-reported effort; single-case, favourable conditions (pattern-based, well-documented domain, clear testable requirements, modular, greenfield); may not generalise to legacy projects, other domains, engineers or models; COCOMO/FPA construct validity; coverage is not test quality; static analysis unsound. Contextual quality contagion is a hypothesis needing controlled experiments. Future: replicate in other domains, other engineers/teams, tighter control; which quality gates are most effective",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Printed page numbers 4493-4503 = PDF pages 1-11. Table 1 and Table 2 came out jumbled; values rebuilt by order of metric names. Inconsistencies: 'about 45 working days' (p. 5) vs 41 working days (pp. 1, 6); development period stated as Sept 24 - Nov 11 2025 but phase list ends Oct 26. Agent versions: Claude Code version not stated. Code public on GitHub (thomas-villani/all2md); data, prompt templates, checklists, tool configs and estimation details in Zenodo artefact (appendices A-F). No pre-registration. Language: Python",
+   "p": "5-7, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): methodology, tooling, models and review cadence described and prompts/checklists in artefact, but a single practitioner's case study is inherently hard to replicate; estimation parameters in artefact",
+   "p": "3-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models with versions (Sonnet 4/4.5, GPT-4.1/5/5.1, Gemini pro-2.5/pro-3) and Claude Code named; no Claude Code version",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): project described and public on GitHub; data on Zenodo",
+   "p": "4-5, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): objective tool metrics (coverage, mypy, ruff, scanners, radon), but no independent acceptance tests or expert review; effort baseline estimated by the authors",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost (time, effort, USD) and quality metrics, defined by tools",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline under the same conditions; only parametric estimates of traditional effort",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single case, no repetitions; only a sensitivity analysis of the estimate",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): failures and limitations reported and contagion framed as hypothesis, but 'validated through empirical application' and 25-40x claim rest on one self-run case and estimates",
+   "p": "7-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: failures, threats and the contagion hypothesis are framed cautiously (Partly or even Yes), but the conclusion claims the method is 'validated through empirical application' and 25-40x rests on one self-run case versus parametric estimates (Partly)."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Failures (p. 7-8) and the contagion hypothesis are framed cautiously (p. 9), but the conclusion says the method is 'validated through empirical application' (p. 10) and the 25-40x figure rests on one self-run case against parametric estimates. Partly vs Yes is a reader's judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Failures (pp. 7-8) are reported and contagion is framed as a hypothesis (p. 9), but the conclusion says the framework is 'validated through empirical application' (p. 10) and the 25-40x figure rests on one self-run case against parametric estimates. Partly vs Yes is a reader's judgement."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 Threats to Validity (internal, external, construct)",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ASE '26 conference proceedings",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created the approach evaluated; first author is the engineer of the case study",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): uses common tools (Claude Code, API models, open-source linters/scanners), low AI cost (~$550), but requires senior-level expertise, which the authors state limits who can apply it",
+   "p": "4, 6-7",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: tools are common and AI cost low (~$550), which supports Yes; the stated need for senior engineers (5-10+ years) is what lowers it to Partly. Depends on whether a 'typical development team' is assumed to have seniors."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Tools are common and AI API cost ~$550 (p. 7), which supports Yes; the stated need for senior engineers with 5-10+ years (p. 4) lowers it. Depends on whether a typical team is assumed to have such seniors."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Tools are common and AI API cost ~$550 (p. 7), which supports Yes; the stated need for senior engineers with 5-10+ years (p. 4) lowers it. Depends on whether a typical team is assumed to have such seniors."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,46 +1,337 @@
-{"key": "rayyan-800485930", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Zarzycki, P. (2026). What Open-Source Projects Tell Their Coding Agents: A Census of AGENTS.md and CLAUDE.md. arXiv:2610.31715v2 [cs.SE], 26 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v2, 26 Oct 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Not stated (no affiliation or e-mail given)", "p": "1"},
-{"f": "Nature of the study", "v": "Evaluates (census / repository-mining study of root AGENTS.md and CLAUDE.md in 22,854 popular active GitHub repositories, statement-level LLM-assisted annotation, prespecified and exploratory association tests); secondary: releases a dataset (annotations, taxonomies, file-version pointers)", "p": "1-4, 11"},
-{"f": "Approach(es): name and version", "v": "Agent instruction files AGENTS.md (open format) and CLAUDE.md (Claude Code), treated together as one instruction set per repository; other formats (copilot-instructions.md, GEMINI.md, Cursor rules) counted only for adoption. No version; no SDD framework", "p": "1-3, 15-16"},
-{"f": "Artefacts prescribed", "v": "None prescribed. Observed: root instruction set (median 818 words; 10th-90th pct 163-3,010) mixing project knowledge (86.2% of sets), rules (98.2%; 52.6% of statements), descriptions (29.8%) and references (17.6%); rule subjects: code conventions (74.4%), build/environment/delivery (72.6%), agent workflow (67.3%), documentation, testing; CLAUDE.md usually a pointer to AGENTS.md", "p": "3-5"},
-{"f": "Phases of the flow", "v": "Not stated (files read by agents; rules tied to workflow moments in 54.7% of sets, e.g. verification before declaring work done in 49.7%)", "p": "5-6"},
-{"f": "Human review points", "v": "Not stated as a flow; rules on pull-request descriptions and code review observed (e.g. test plan required in 27.2% of files with PR-description rules)", "p": "5-6"},
-{"f": "Parts exercised", "v": "Not run; observational analysis of single artefacts (context files) in repositories", "p": "2-3"},
-{"f": "SDD level", "v": "Not classifiable (context files without a specification flow)", "p": "—"},
-{"f": "Task type", "v": "N/A (no task run); existing repositories", "p": "—"},
-{"f": "Size", "v": "Census 22,854 repositories (>=1,000 stars, push within 90 days, not fork/archived, 13 languages, snapshot 2026-10-16); 6,006 adopters (26.3%); 5,998 instruction sets; 6,578 coded files; 341,852 statements; Sonnet sample 1,198 files / 992 repositories; 8,393 files with history, 106,279 commits touching agent files; 4,699 matched non-adopters", "p": "1-4, 6, 15-17"},
-{"f": "Domain", "v": "Popular open-source GitHub projects in Python, JavaScript, TypeScript, Java, C#, C++, C, Go, Rust, PHP, Ruby, Kotlin, Swift; project types incl. LLM/agent projects, libraries, applications, developer tools", "p": "2, 8"},
-{"f": "Team profile", "v": "N/A (repositories; human authors among latest 100 commits used as predictor)", "p": "16, 18"},
-{"f": "Cost metrics", "v": "None measured for agents; annotation cost reported: $13.83 (existing-taxonomy comparison) and $195.68 (statement extraction and annotation)", "p": "4"},
-{"f": "Functional quality metrics", "v": "None measured", "p": "—"},
-{"f": "Internal quality metrics", "v": "None measured", "p": "—"},
-{"f": "Human effort metrics", "v": "None measured", "p": "—"},
-{"f": "Other outcome metrics", "v": "Adoption rate by star tier and language; file relationships (pointer, link, separate); statement function, subject, binding force, polarity, conditions, rationale, addressee, actionability; required/prohibited elements for four collaboration subjects; generator signatures, tool-inserted blocks, shared text, AI-marked commits; edits after creation; associations with stars, language, activity, age, AI share, project type (IRR/OR)", "p": "3-9"},
-{"f": "How metrics are collected", "v": "Automatic: GitHub GraphQL/REST APIs (no cloning); deterministic structure/wording features, MinHash. LLM-assisted: codebook via Sonnet/Opus in Claude Code (350 + 80 documents); segmentation and corpus coding by Claude Haiku 5.5, sample coding by Sonnet 5.5, reliability with Opus 5.5 (Amazon Bedrock, Oct 2026; Opus-Sonnet kappa 0.76-0.89, Haiku-Sonnet 0.47-0.81); Rogan-Gladen correction against 324 human-labelled reference files. Manual: author reviewed 60 statements blind (single coder)", "p": "3-4, 16-20"},
-{"f": "Evaluation (each configuration)", "v": "N/A (observational census; no configuration run)", "p": "—"},
-{"f": "Comparison: design", "v": "No configuration comparison. Six hypotheses committed before fitting (after viewing descriptives; commit a08c5b7), 11 tests on 5,587 repositories (negative binomial / logistic, HC1, Benjamini-Hochberg); 99 exploratory tests on 5,586 sets; adopters vs 4,699 matched non-adopters by star tier and language; paired AGENTS.md vs CLAUDE.md comparison (484 repositories)", "p": "3-4, 7-8, 18-19"},
-{"f": "Comparison: result", "v": "N/A for configurations. Adoption 26.3% overall, 23.2% (lowest tier) to 59.6% (89 most-starred); 40.8% TypeScript to 13.0% C. Of 2,388 with both files, CLAUDE.md defers to AGENTS.md in 1,540, reverse 182, separate 598; new adopters shifted to AGENTS.md first. 74.0% of directives give no reason; 10.8% cite an incident; AI attribution in commits prohibited by 7.5% vs required by 59 repos; PR AI disclosure required 5.8% vs prohibited 1.9%. 15.8% match an /init signature (11.5% claude /init); 33.1% carry some origin trace; 81.8% edited after creation. Hypotheses: H3 (compiled languages -> build statements, OR 1.68), H5 (CLAUDE.md more descriptive, +6.3 pp), H6 (stars -> PR/AI-policy rules, OR 1.36) supported; H2 mixed; H1, H4 not supported. LLM/agent projects over-represented among adopters (OR 2.76; 1.54 post hoc)", "p": "1, 4-8"},
-{"f": "Comparison: did the method work", "v": "N/A for configurations. Method caveat: models agree with each other much more than with the human reviewer (subject area 43-50%, kind kappa 0.33-0.40), so topic results are model-defined. Limitations stated: presence/content of root files only, not run-time instructions; AI-marked commits partial; LLM categories diverge from human reading; 60-statement single-coder review stopped early; vendor models analysing their own format; survivorship and renames in history; cross-sectional; one snapshot; stars gameable; many small effects significant", "p": "9-10, 20"},
-{"f": "Conclusions: limitations and gaps", "v": "Threats: construct, measurement, internal, external validity (as above). Open questions: whether reasons or emphasis change agent behaviour; whether repositories follow their own instructions (e.g. AI-attribution rules); confirmatory tests of exploratory associations on fresh data", "p": "9-10"},
-{"f": "Notes", "v": "Values from text and appendix tables; Figures 1-4 values partly jumbled in extraction. Deviations from analysis plan listed (A.11): GEE instead of mixed model, changed exploratory set, corrected paired-test population, post hoc checks. 341,852 statements in 6,577 files vs 6,578 coded files; Haiku coded 339,810 statements (75 files incomplete). Claude Code began reading AGENTS.md four weeks before the snapshot. Dataset on Hugging Face (no URL in text); corpus texts not redistributed. Hypotheses committed in repository history (partial pre-registration, after descriptives). AI tools used for analysis code, drafting and review. Programming language: 13 languages", "p": "4, 9, 11, 17-18, 28"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ5 stated", "p": "2"},
-{"f": "Q2", "v": "Yes (1): population, collection, codebook development, models, estimators and tests described in detail in appendix", "p": "2-4, 14-20"},
-{"f": "Q3", "v": "Yes (1): annotation models and platform identified (Claude Haiku/Sonnet/Opus 5.5 via Bedrock, Oct 2026); no agent run", "p": "4, 19"},
-{"f": "Q4", "v": "Yes (1): census criteria and snapshot date given; file-version pointers and annotations released", "p": "2, 11, 15"},
-{"f": "Q5", "v": "Partly (0.5): calibration against 324 human-labelled reference files and a 60-statement blind check by the author; low human agreement on subjects; single coder", "p": "3, 16, 20"},
-{"f": "Q6", "v": "Partly (0.5): content and adoption measures defined; no cost or quality outcomes of agents", "p": "3-4"},
-{"f": "Q7", "v": "Partly (0.5): matched non-adopter controls only for the adoption analysis; no baseline for content findings", "p": "8, 19"},
-{"f": "Q8", "v": "Yes (1): bootstrap intervals, robust regression, FDR control, robustness repetitions", "p": "3-4, 18-19"},
-{"f": "Q9", "v": "Yes (1): no effect claims; cross-sectional caveats; unsupported hypotheses and model-human disagreement reported", "p": "7-10"},
-{"f": "Q10", "v": "Yes (1): Section 5 threats to validity", "p": "9"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): no vendor tool evaluated; independent author (note: Anthropic models used to annotate CLAUDE.md files, flagged as a threat)", "p": "1, 9"},
-{"f": "Q13", "v": "N/A", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800485930",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zarzycki, P. (2026). What Open-Source Projects Tell Their Coding Agents: A Census of AGENTS.md and CLAUDE.md. arXiv:2610.31715v2 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 26 Oct 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.31715v2 [cs.SE], marked 'Preprint.'; no venue stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Not stated (no affiliation or e-mail given)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — census / repository-mining study of root AGENTS.md and CLAUDE.md in 22,854 popular active GitHub repositories (6,006 adopters), statement-level LLM-assisted annotation, prespecified hypothesis tests and exploratory associations, adopters vs matched non-adopters; releases annotations, taxonomies and file-version pointers",
+   "p": "1-4, 11",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Secondary 'releases a dataset' is not one of the allowed natures; dropped and moved to the detail, and put into the required '<nature> — <detail>' form. Note: 'Evaluates' is the closest value for an observational census of a practice (no approach or configuration evaluated); the author may judge otherwise"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Observational repository-mining census of a practice; no approach or configuration is evaluated and no nature on the list fits exactly. 'Evaluates' kept as the closest value (not Conceptual or Review); author to decide"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Observational repository-mining census of a practice (adoption and content of AGENTS.md/CLAUDE.md); no approach or configuration is run, so no nature on the list fits exactly. 'Evaluates' kept as closest (it evaluates a practice, not Conceptual or Review); author to decide"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent instruction files AGENTS.md (open format) and CLAUDE.md (Claude Code), treated together as one instruction set per repository; other formats (copilot-instructions.md, GEMINI.md, Cursor rules) counted only for adoption. No version; no SDD framework",
+   "p": "1-3, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed. Observed: root instruction set (median 818 words; 10th-90th pct 163-3,010) mixing project knowledge (86.2% of sets), rules (98.2%; 52.6% of statements), descriptions (29.8%) and references (17.6%); rule subjects: code conventions (74.4%), build/environment/delivery (72.6%), agent workflow (67.3%), documentation, testing; CLAUDE.md usually a pointer to AGENTS.md",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (files read by agents; rules tied to workflow moments in 54.7% of sets, e.g. verification before declaring work done in 49.7%)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as a flow; rules on pull-request descriptions and code review observed (e.g. test plan required in 27.2% of files with PR-description rules)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run; observational analysis of single artefacts (context files) in repositories",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context files without a specification flow)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no task run); existing repositories",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Census 22,854 repositories (>=1,000 stars, push within 90 days, not fork/archived, 13 languages, snapshot 2026-10-16); 6,006 adopters (26.3%); 5,998 instruction sets; 6,578 coded files; 341,852 statements; Sonnet sample 1,198 files / 992 repositories; 8,393 files with history, 106,279 commits touching agent files; 4,699 matched non-adopters",
+   "p": "1-4, 6, 15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Popular open-source GitHub projects in Python, JavaScript, TypeScript, Java, C#, C++, C, Go, Rust, PHP, Ruby, Kotlin, Swift; project types incl. LLM/agent projects, libraries, applications, developer tools",
+   "p": "2, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (repositories; human authors among latest 100 commits used as predictor)",
+   "p": "16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured for agents; annotation cost reported: $13.83 (existing-taxonomy comparison) and $195.68 (statement extraction and annotation)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Adoption rate by star tier and language; file relationships (pointer, link, separate); statement function, subject, binding force, polarity, conditions, rationale, addressee, actionability; required/prohibited elements for four collaboration subjects; generator signatures, tool-inserted blocks, shared text, AI-marked commits; edits after creation; associations with stars, language, activity, age, AI share, project type (IRR/OR)",
+   "p": "3-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: GitHub GraphQL/REST APIs (no cloning); deterministic structure/wording features, MinHash. LLM-assisted: codebook via Sonnet/Opus in Claude Code (350 + 80 documents); segmentation and corpus coding by Claude Haiku 5.5, sample coding by Sonnet 5.5, reliability with Opus 5.5 (Amazon Bedrock, Oct 2026; Opus-Sonnet kappa 0.76-0.89, Haiku-Sonnet 0.47-0.81); Rogan-Gladen correction against 324 human-labelled reference files. Manual: author reviewed 60 statements blind (single coder)",
+   "p": "3-4, 16-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational census; no configuration run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No configuration comparison. Six hypotheses committed before fitting (after viewing descriptives; commit a08c5b7), 11 tests on 5,587 repositories (negative binomial / logistic, HC1, Benjamini-Hochberg); 99 exploratory tests on 5,586 sets; adopters vs 4,699 matched non-adopters by star tier and language; paired AGENTS.md vs CLAUDE.md comparison (484 repositories)",
+   "p": "3-4, 7-8, 18-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A for configurations. Adoption 26.3% overall, 23.2% (lowest tier) to 59.6% (89 most-starred); 40.8% TypeScript to 13.0% C. Of 2,388 with both files, CLAUDE.md defers to AGENTS.md in 1,540, reverse 182, separate 598; new adopters shifted to AGENTS.md first. 74.0% of directives give no reason; 10.8% cite an incident; AI attribution in commits prohibited by 7.5% vs required by 59 repos; PR AI disclosure required 5.8% vs prohibited 1.9%. 15.8% match an /init signature (11.5% claude /init); 33.1% carry some origin trace; 81.8% edited after creation. Hypotheses: H3 (compiled languages -> build statements, OR 1.68), H5 (CLAUDE.md more descriptive, +6.3 pp), H6 (stars -> PR/AI-policy rules, OR 1.36) supported; H2 mixed; H1, H4 not supported. LLM/agent projects over-represented among adopters (OR 2.76; 1.54 post hoc)",
+   "p": "1, 4-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A for configurations. Method caveat: models agree with each other much more than with the human reviewer (subject area 43-50%, kind kappa 0.33-0.40), so topic results are model-defined. Limitations stated: presence/content of root files only, not run-time instructions; AI-marked commits partial; LLM categories diverge from human reading; 60-statement single-coder review stopped early; vendor models analysing their own format; survivorship and renames in history; cross-sectional; one snapshot; stars gameable; many small effects significant",
+   "p": "9-10, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Threats: construct, measurement, internal, external validity (as above). Open questions: whether reasons or emphasis change agent behaviour; whether repositories follow their own instructions (e.g. AI-attribution rules); confirmatory tests of exploratory associations on fresh data",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from text and appendix tables; Figures 1-4 values partly jumbled in extraction. Deviations from analysis plan listed (A.11): GEE instead of mixed model, changed exploratory set, corrected paired-test population, post hoc checks. 341,852 statements in 6,577 files vs 6,578 coded files; Haiku coded 339,810 statements (75 files incomplete). Claude Code began reading AGENTS.md four weeks before the snapshot. Dataset on Hugging Face (no URL in text); corpus texts not redistributed. Hypotheses committed in repository history (partial pre-registration, after descriptives). AI tools used for analysis code, drafting and review. Programming language: 13 languages",
+   "p": "4, 9, 11, 17-18, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ5 stated",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): population, collection, codebook development, models, estimators and tests described in detail in appendix",
+   "p": "2-4, 14-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): annotation models and platform identified (Claude Haiku/Sonnet/Opus 5.5 via Bedrock, Oct 2026); no agent run",
+   "p": "4, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): census criteria and snapshot date given; file-version pointers and annotations released",
+   "p": "2, 11, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): calibration against 324 human-labelled reference files and a 60-statement blind check by the author; low human agreement on subjects; single coder",
+   "p": "3, 16, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): content and adoption measures defined; no cost or quality outcomes of agents",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): matched non-adopter controls only for the adoption analysis; no baseline for content findings",
+   "p": "8, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): bootstrap intervals, robust regression, FDR control, robustness repetitions",
+   "p": "3-4, 18-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): no effect claims; cross-sectional caveats; unsupported hypotheses and model-human disagreement reported",
+   "p": "7-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 5 threats to validity",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no vendor tool evaluated; independent author (note: Anthropic models used to annotate CLAUDE.md files, flagged as a threat)",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

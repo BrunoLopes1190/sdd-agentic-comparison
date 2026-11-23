@@ -1,46 +1,349 @@
-{"key": "rayyan-800486798", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Liu, Q., Zhang, H., Zou, M., Du, D., Xia, Y., Chen, H. (2026). Generative File Systems: Specification-Driven Synthesis and Evolution via LLMs. ACM Transactions on Storage (TOS), 2026 (article, 1553-3093/2026/9-ART). https://doi.org/10.1145/3844149. Extends the USENIX FAST'26 conference version", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Journal (ACM Transactions on Storage); extended version of a USENIX FAST'26 paper", "p": "1"},
-{"f": "Author affiliation", "v": "Institute of Parallel and Distributed Systems (IPADS), Shanghai Jiao Tong University, Shanghai, China (all authors)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (SysSpec: formal-methods-inspired specification + DAG-structured spec patches + LLM agent toolchain; case SpecFS); secondary: compares (generation accuracy vs few-shot 'normal' and 'oracle' baselines across four LLMs, plus ablations, Rust retargeting, productivity, cost and performance evaluations). Also includes a mining study of 3,157 Ext4 commits as motivation", "p": "1-4, 18-22"},
-{"f": "Approach(es): name and version", "v": "A: SysSpec framework and toolchain (authors' own; agents SpecAssistant, SpecCompiler, SpecReviewer, SpecValidator), version Not stated. Baselines: few-shot 'normal' prompting (file correspondence logic + dependency APIs) and few-shot 'oracle' prompting (+ ground-truth code of dependency modules)", "p": "8, 13-15, 18"},
-{"f": "Artefacts prescribed", "v": "Multi-part specification per module: (1) functionality specification: Hoare-style pre/post-conditions, invariants, system algorithm or intent (levels 1-3 by complexity), in structured natural language with type annotations; (2) modularity specification: Rely-Guarantee interface contracts, modules ≤500 LoC; (3) concurrency specification: locking protocols as pre/post-conditions. Evolution: DAG-structured spec patch (leaf, intermediate, root nodes). Toolchain: shared SysSpec template, role-specific skills, interface pool of Guarantees", "p": "8-14"},
-{"f": "Phases of the flow", "v": "Design phase: developer writes specs with SpecAssistant (automated Rely derivation, spec extraction from existing code, NL-guided authoring, spec validation). Implementation phase: SpecCompiler generates each module (sequential version first, then a second pass adds concurrency from the concurrency spec) -> SpecReviewer checks conformance and feeds back until compliant or attempt limit -> SpecValidator system-level cross-module checks and CI-style unit/integration/regression tests; implementation defects go back to the module loop, spec gaps to the developer. Evolution: spec patch applied leaf -> intermediate -> root, implementation regenerated", "p": "8, 12-15"},
-{"f": "Human review points", "v": "Developer authors and approves specifications; approves SpecAssistant's suggested refinements; spec gaps found by SpecValidator are reported to the developer and the revised spec must be approved before regeneration; debugging mostly at specification level. C implementation of SpecFS generated 'without any manual intervention'", "p": "4, 8, 14-16"},
-{"f": "Parts exercised", "v": "Full workflow (spec authoring, generation with toolchain, validation, evolution via spec patches); ablations of specification parts and of the Compile-Review loop", "p": "15-20"},
-{"f": "SDD level", "v": "Not stated in Böckeler's terms; code is (re)generated from the specification and features are added by patching the spec, not the C code ('shifts the developer's focus from writing low-level code to designing high-level specification'): spec-as-source (classification by the drafter)", "p": "3, 8, 24"},
-{"f": "Task type", "v": "New project (SpecFS generated from scratch as a reimplementation of AtomFS's design) and evolution of the generated system (10 Ext4 features via spec patches)", "p": "15-17"},
-{"f": "Size", "v": "SpecFS: 45 modules, ~4,300 lines of C (ranks 42nd of 82 Linux 6.1.10 file systems by LoC); modules ≤500 LoC (~30K tokens per generation); 10 features = 64 functional modules; xfstests 754 test cases; specifications fewer lines than generated C (Fig. 12)", "p": "10, 16, 19-21"},
-{"f": "Domain", "v": "Systems software: concurrent in-memory FUSE file system (based on the verified AtomFS); Ext4 features", "p": "15-17"},
-{"f": "Team profile", "v": "Authors as specification developers; productivity study with two CS master's students and two PhD students; Rust retargeting by a developer without prior Rust experience", "p": "17, 20"},
-{"f": "Cost metrics", "v": "Development time in hours (manual vs SysSpec, Table 5); API calls, tokens (cache hit/miss/output) and US$ for one SpecFS generation (Table 6); generation latency (minutes to tens of minutes, qualitative); specification LoC vs C LoC (Fig. 12)", "p": "20-21"},
-{"f": "Functional quality metrics", "v": "Generation accuracy: share of modules correct, i.e. passing all AtomFS functional tests and judged logically equivalent to manually authored ground truth; pass@k of the toolchain; xfstests results (failed test cases)", "p": "16, 18-20"},
-{"f": "Internal quality metrics", "v": "None measured (generated code described as 'highly comprehensible', qualitative); Rust output not idiomatic/unsafe style noted", "p": "16-17"},
-{"f": "Human effort metrics", "v": "Development time of students for two patches (Extent, Rename), manual vs SysSpec; specification LoC (≈30% less with automated Rely derivation)", "p": "20"},
-{"f": "Other outcome metrics", "v": "File-system performance of generated features: storage reduction (inline data), uncontiguous read/write ratio (pre-allocation), block-pool accesses (rbtree), I/O operation counts (extent, delayed allocation); Ext4 commit categories (mining study)", "p": "4-5, 21-22"},
-{"f": "How metrics are collected", "v": "Automatic: AtomFS functional tests and xfstests via SpecValidator; token/API counts; micro-benchmarks for performance. Manual: logical equivalence inspection against hand-written ground-truth modules; development time of four students (procedure not described)", "p": "16, 18, 20-22"},
-{"f": "Evaluation (each configuration)", "v": "Agent: SysSpec toolchain (authors' own) for SysSpec configurations; baselines are few-shot prompts (no agent). AtomFS generation, 45 modules (criterion: functional tests + manual equivalence): (a) SysSpec + Gemini-2.5-Pro: 100%. Works. (b) SysSpec + DeepSeek-V3.1 Reasoning: 100%. Works. (c) SysSpec + GPT-5-minimal: value in Fig. 11a only; text says it generates the C implementation correctly. Works (to check). (d) SysSpec + Qwen3-32B: value in Fig. 11a only; failed to resolve some C errors. Partly. (e) Normal few-shot + each of the 4 models: values in Fig. 11a only (lower). (f) Oracle few-shot + Gemini-2.5-Pro: 81.8%; other models value in Fig. 11a only. Features (64 modules): SysSpec higher than baselines for all models, values in Fig. 11b only. Rust retargeting: SysSpec + Gemini-2.5-Pro / GPT-5-minimal / DS-V3.1 / Qwen3-32B all correct. Ablation (spec parts, DS-V3.1): Func only 40.00% (12/40) concurrency-agnostic, 0/5 thread-safe; +Mod 100% (40/40), 0/5; +Con 100%, 100% (5/5); automated Rely derivation equals manual modularity spec. Ablation (Compile-Review passes, pass@1/2/3): Gemini-2.5-Pro 60.8/76.5/100%; DS-V3.1 76.5/76.5/100%; GPT-5-minimal 66.7/78.4/100%. Cost: SysSpec + DeepSeek-V4-Pro-0813: 68 API calls, US$0.52. Cost works. SysSpec + DeepSeek-V4-Flash-0731: 136 calls, US$0.94. Cost works. SpecFS (C): fails 64 of 754 xfstests, all due to unimplemented functionality, equivalent to AtomFS. Productivity (model n.s.): Extent 4.5 h manual vs 1.5 h (3.0x); Rename 13 h vs 2.4 h (5.4x)", "p": "16, 18-21"},
-{"f": "Comparison: design", "v": "Tasks: generate AtomFS's 45 modules (40 concurrency-agnostic, 5 thread-safe) and 10 Ext4 features (64 modules). Configurations: SysSpec vs normal and oracle few-shot baselines x 4 LLMs ranked by LiveCodeBench (Gemini-2.5-Pro, DeepSeek-V3.1 Reasoning, GPT-5-minimal, Qwen3-32B). Baseline: few-shot prompting. Held constant: model and module set per comparison; same specification for all models. Acceptance: AtomFS functional tests + manual logical-equivalence check vs hand-written ground truth; xfstests at system level. Repetitions: Not stated (single generation implied; pass@k for toolchain). Human intervention: none during generation (stated for C SpecFS). Productivity: manual vs SysSpec development of 2 patches by 4 students (assignment and design Not stated)", "p": "18-20"},
-{"f": "Comparison: result", "v": "SysSpec 100% vs oracle 81.8% with Gemini-2.5-Pro on AtomFS; SysSpec higher across all models for features (Fig. 11). Ablation: modularity spec lifts concurrency-agnostic modules from 40% to 100%; concurrency spec lifts thread-safe from 0% to 100%. Three Compile-Review passes reach 100% for three models. Productivity 3.0x (Extent) and 5.4x (Rename). Generation under US$1. No significance tests", "p": "18-21"},
-{"f": "Comparison: did the method work", "v": "Distinguished SysSpec from baselines and ablation variants clearly; repeatability not addressed (no repetitions or variance); many values only in Fig. 11; correctness partly by manual inspection. Limitations stated concern SpecFS scope (FUSE, no kernel mode, storage stack or crash consistency; no apples-to-apples performance comparison), not the comparison method", "p": "18-22"},
-{"f": "Conclusions: limitations and gaps", "v": "SpecFS is a user-space FUSE file system: no kernel mode, storage stack/direct disk access or crash consistency; no throughput comparison with native file systems. Rust output not idiomatic (C-compatible unsafe style). Simplified specs can sometimes still work (trade-off accuracy vs effort). Upfront design effort higher. Future work: apply to industrial file systems (SpecFS-Ext4 from documentation, starting from Ext2), bootstrap specs from docs/source with SpecAssistant, push-button formal verification integration", "p": "3, 16-17, 22-23"},
-{"f": "Notes", "v": "Printed page numbers = PDF pages (1-27; references from p. 24). Fulltext has ligature losses (fi/fl missing) and non-UTF-8 bytes; figures 1-3, 11-13 unreadable as text. Accuracy per model/baseline mostly in Fig. 11 only; text gives only SysSpec 100% for Gemini-2.5-Pro and DS-V3.1 and oracle 81.8% for Gemini. Tables 3-6 jumbled by pdftotext, rebuilt; Table 6 token split (Pro: hit 5,760, miss 53,153, output 244,784; Flash: 80,256 / 37,557 / 1,403,286) checked against stated prices and costs. Model for features and productivity runs not stated; module count behind Table 4 percentages not stated. Abstract: 'equivalent level of correctness ... across hundreds of regression tests' = 64/754 xfstests failed, same as AtomFS. Initial design used DeepSeek-R1. Artifacts: SysSpec and SpecFS at https://ipads.se.sjtu.edu.cn/projects/specfs/. No pre-registration. Languages: C (primary), Rust (retargeting); specifications in C-style structured natural language", "p": "1, 4, 16-21"},
-{"f": "Q1", "v": "Yes (1): goals and three technical challenges explicitly stated; contributions clear (no numbered RQs)", "p": "2-4"},
-{"f": "Q2", "v": "Partly (0.5): specification design, toolchain and evaluation criteria described in detail; baseline prompts, generation settings, number of runs and productivity-study protocol not given; artefacts on the project page", "p": "8-20"},
-{"f": "Q3", "v": "Partly (0.5): models named (some with dated versions, e.g. DeepSeek-V4-Pro-0813); toolchain is the authors' own; no versions for Gemini-2.5-Pro, GPT-5-minimal, Qwen3-32B settings or toolchain", "p": "18-21"},
-{"f": "Q4", "v": "Yes (1): AtomFS modules, 10 Ext4 features and xfstests described; SysSpec and SpecFS released at the project page", "p": "4, 15-16, 18"},
-{"f": "Q5", "v": "Yes (1): AtomFS functional tests and xfstests, plus manual equivalence check against hand-written ground truth", "p": "16, 18"},
-{"f": "Q6", "v": "Yes (1): accuracy defined; cost in tokens/US$ and development hours; performance metrics", "p": "18-21"},
-{"f": "Q7", "v": "Yes (1): normal and oracle few-shot baselines with the same four models and module set", "p": "18"},
-{"f": "Q8", "v": "No (0): no repetitions, variance or statistical tests reported (pass@k only for the toolchain ablation)", "p": "18-20"},
-{"f": "Q9", "v": "Partly (0.5): accuracy and ablation conclusions follow; productivity claims (3.0x/5.4x) rest on four students with undescribed design; 'highly effective' generalisation from one FUSE file system", "p": "1, 20, 24"},
-{"f": "Q10", "v": "Partly (0.5): Section 7.6 discusses scope limitations of SpecFS, not threats to validity of the evaluation", "p": "22-23"},
-{"f": "Q11", "v": "Yes (1): ACM Transactions on Storage (journal); FAST/TOS reviewers acknowledged", "p": "1, 24"},
-{"f": "Q12", "v": "No (0): authors created SysSpec, the approach evaluated (baselines are generic few-shot prompts, not a third-party tool)", "p": "1, 18"},
-{"f": "Q13", "v": "Partly (0.5): generation cost under US$1 and artefacts released, but requires writing Hoare-style, rely-guarantee and concurrency specifications (formal-methods expertise and upfront design effort); demonstrated only for a FUSE file system", "p": "8-11, 21-22"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486798",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, Q., Zhang, H., Zou, M., Du, D., Xia, Y., Chen, H. (2026). Generative File Systems: Specification-Driven Synthesis and Evolution via LLMs. ACM Transactions on Storage (TOS), 2026 (article, 1553-3093/2026/9-ART). https://doi.org/10.1145/3844149. Extends the USENIX FAST'26 conference version",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — ACM Transactions on Storage (TOS), 2026; extends the USENIX FAST'26 conference paper",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: the value must start with the type, then ' — ' and detail (draft-verify rules)."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Institute of Parallel and Distributed Systems (IPADS), Shanghai Jiao Tong University, Shanghai, China (all authors)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — SysSpec (formal-methods-inspired specification + DAG-structured spec patches + LLM agent toolchain; case SpecFS); generation accuracy vs few-shot 'normal' and 'oracle' baselines across four LLMs, plus ablations, Rust retargeting, productivity, cost and performance evaluations; motivated by a mining study of 3,157 Ext4 commits",
+   "p": "1-4, 18-22",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: the value must start with the type, then ' — ' and detail (draft-verify rules)."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "A: SysSpec framework and toolchain (authors' own; agents SpecAssistant, SpecCompiler, SpecReviewer, SpecValidator), version Not stated. Baselines: few-shot 'normal' prompting (file correspondence logic + dependency APIs) and few-shot 'oracle' prompting (+ ground-truth code of dependency modules)",
+   "p": "8, 13-15, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Multi-part specification per module: (1) functionality specification: Hoare-style pre/post-conditions, invariants, system algorithm or intent (levels 1-3 by complexity), in structured natural language with type annotations; (2) modularity specification: Rely-Guarantee interface contracts, modules ≤500 LoC; (3) concurrency specification: locking protocols as pre/post-conditions. Evolution: DAG-structured spec patch (leaf, intermediate, root nodes). Toolchain: shared SysSpec template, role-specific skills, interface pool of Guarantees",
+   "p": "8-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Design phase: developer writes specs with SpecAssistant (automated Rely derivation, spec extraction from existing code, NL-guided authoring, spec validation). Implementation phase: SpecCompiler generates each module (sequential version first, then a second pass adds concurrency from the concurrency spec) -> SpecReviewer checks conformance and feeds back until compliant or attempt limit -> SpecValidator system-level cross-module checks and CI-style unit/integration/regression tests; implementation defects go back to the module loop, spec gaps to the developer. Evolution: spec patch applied leaf -> intermediate -> root, implementation regenerated",
+   "p": "8, 12-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Developer authors and approves specifications; approves SpecAssistant's suggested refinements; spec gaps found by SpecValidator are reported to the developer and the revised spec must be approved before regeneration; debugging mostly at specification level. C implementation of SpecFS generated 'without any manual intervention'",
+   "p": "4, 8, 14-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (spec authoring, generation with toolchain, validation, evolution via spec patches); ablations of specification parts and of the Compile-Review loop",
+   "p": "15-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler's terms; code is (re)generated from the specification and features are added by patching the spec, not the C code ('shifts the developer's focus from writing low-level code to designing high-level specification'): spec-as-source (classification by the drafter)",
+   "p": "3, 8, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (SpecFS generated from scratch as a reimplementation of AtomFS's design) and evolution of the generated system (10 Ext4 features via spec patches)",
+   "p": "15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SpecFS: 45 modules, ~4,300 lines of C (ranks 42nd of 82 Linux 6.1.10 file systems by LoC); modules ≤500 LoC (~30K tokens per generation); 10 features = 64 functional modules; xfstests 754 test cases; specifications fewer lines than generated C (Fig. 12)",
+   "p": "10, 16, 19-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Systems software: concurrent in-memory FUSE file system (based on the verified AtomFS); Ext4 features",
+   "p": "15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Authors as specification developers; productivity study with two CS master's students and two PhD students; Rust retargeting by a developer without prior Rust experience",
+   "p": "17, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Development time in hours (manual vs SysSpec, Table 5); API calls, tokens (cache hit/miss/output) and US$ for one SpecFS generation (Table 6); generation latency (minutes to tens of minutes, qualitative); specification LoC vs C LoC (Fig. 12)",
+   "p": "20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Generation accuracy: share of modules correct, i.e. passing all AtomFS functional tests and judged logically equivalent to manually authored ground truth; pass@k of the toolchain; xfstests results (failed test cases)",
+   "p": "16, 18-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured (generated code described as 'highly comprehensible', qualitative); Rust output not idiomatic/unsafe style noted",
+   "p": "16-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Development time of students for two patches (Extent, Rename), manual vs SysSpec; specification LoC (≈30% less with automated Rely derivation)",
+   "p": "20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "File-system performance of generated features: storage reduction (inline data), uncontiguous read/write ratio (pre-allocation), block-pool accesses (rbtree), I/O operation counts (extent, delayed allocation); Ext4 commit categories (mining study)",
+   "p": "4-5, 21-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: AtomFS functional tests and xfstests via SpecValidator; token/API counts; micro-benchmarks for performance. Manual: logical equivalence inspection against hand-written ground-truth modules; development time of four students (procedure not described)",
+   "p": "16, 18, 20-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: SysSpec toolchain (authors' own) for SysSpec configurations; baselines are few-shot prompts (no agent). AtomFS generation, 45 modules (criterion: functional tests + manual equivalence): (a) SysSpec + Gemini-2.5-Pro: 100%. Quality: works; cost: not measured for this run. (b) SysSpec + DeepSeek-V3.1 Reasoning: 100%. Quality: works; cost: not measured. (c) SysSpec + GPT-5-minimal: value in Fig. 11a only; text lists it among the models that generate the C implementation correctly (p. 19). Quality: works; cost: not measured. (d) SysSpec + Qwen3-32B: value in Fig. 11a only; failed to resolve some C errors. Quality: partly; cost: not measured. (e) Normal few-shot + each of the 4 models: values in Fig. 11a only (lower than SysSpec). Quality: not determinable from the text; cost: not measured. (f) Oracle few-shot + Gemini-2.5-Pro: 81.8%; other models value in Fig. 11a only. Quality: partly; cost: not measured. Features (64 modules): SysSpec higher than baselines for all models, values in Fig. 11b only. Rust retargeting: SysSpec + Gemini-2.5-Pro / GPT-5-minimal / DS-V3.1 / Qwen3-32B all correct. Quality: works. Ablation (spec parts, DS-V3.1): Func only 40.00% (12/40, as printed) concurrency-agnostic, 0/5 thread-safe: does not work; +Mod 100% (40/40), 0/5: partly; +Con 100%, 100% (5/5): works; automated Rely derivation equals manual modularity spec. Ablation (Compile-Review passes, pass@1/2/3): Gemini-2.5-Pro 60.8/76.5/100%; DS-V3.1 76.5/76.5/100%; GPT-5-minimal 66.7/78.4/100%: works at 3 passes. Cost: SysSpec + DeepSeek-V4-Pro-0813: 68 API calls, US$0.52. Cost works. SysSpec + DeepSeek-V4-Flash-0731: 136 calls, US$0.94. Cost works. SpecFS (C): fails 64 of 754 xfstests, all due to unimplemented functionality, equivalent to AtomFS. Productivity (model n.s.): Extent 4.5 h manual vs 1.5 h (3.0x); Rename 13 h vs 2.4 h (5.4x). Cost: works",
+   "p": "16, 18-21",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Incomplete: baselines, ablation entries and the SysSpec accuracy entries lacked quality and/or cost verdicts; '(to check)' on (c) resolved by p. 19. Values unchanged."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The values in the text and in Tables 3-6 are copied correctly. The normal and oracle baseline values, and the SysSpec values for GPT-5-minimal and Qwen3-32B, are only in Fig. 11a, which pdftotext cannot read. So (e) has no allowed verdict ('not determinable'), and (c) works and (d) partly rest on the text alone. The author should read Fig. 11 in the PDF (p. 18)."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: generate AtomFS's 45 modules (40 concurrency-agnostic, 5 thread-safe) and 10 Ext4 features (64 modules). Configurations: SysSpec vs normal and oracle few-shot baselines x 4 LLMs ranked by LiveCodeBench (Gemini-2.5-Pro, DeepSeek-V3.1 Reasoning, GPT-5-minimal, Qwen3-32B). Baseline: few-shot prompting. Held constant: model and module set per comparison; same specification for all models. Acceptance: AtomFS functional tests + manual logical-equivalence check vs hand-written ground truth; xfstests at system level. Repetitions: Not stated (single generation implied; pass@k for toolchain). Human intervention: none during generation (stated for C SpecFS). Productivity: manual vs SysSpec development of 2 patches by 4 students (assignment and design Not stated)",
+   "p": "18-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "SysSpec 100% vs oracle 81.8% with Gemini-2.5-Pro on AtomFS; SysSpec higher across all models for features (Fig. 11). Ablation: modularity spec lifts concurrency-agnostic modules from 40% to 100%; concurrency spec lifts thread-safe from 0% to 100%. Three Compile-Review passes reach 100% for three models. Productivity 3.0x (Extent) and 5.4x (Rename). Generation under US$1. No significance tests",
+   "p": "18-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished SysSpec from baselines and ablation variants clearly; repeatability not addressed (no repetitions or variance); many values only in Fig. 11; correctness partly by manual inspection. Limitations stated concern SpecFS scope (FUSE, no kernel mode, storage stack or crash consistency; no apples-to-apples performance comparison), not the comparison method",
+   "p": "18-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "SpecFS is a user-space FUSE file system: no kernel mode, storage stack/direct disk access or crash consistency; no throughput comparison with native file systems. Rust output not idiomatic (C-compatible unsafe style). Simplified specs can sometimes still work (trade-off accuracy vs effort). Upfront design effort higher. Future work: apply to industrial file systems (SpecFS-Ext4 from documentation, starting from Ext2), bootstrap specs from docs/source with SpecAssistant, push-button formal verification integration",
+   "p": "3, 16-17, 22-23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Printed page numbers = PDF pages (1-27; references from p. 24). Fulltext has ligature losses (fi/fl missing) and non-UTF-8 bytes; figures 1-3, 11-13 unreadable as text. Accuracy per model/baseline mostly in Fig. 11 only; text gives only SysSpec 100% for Gemini-2.5-Pro and DS-V3.1 and oracle 81.8% for Gemini. Tables 3-6 jumbled by pdftotext, rebuilt; Table 6 token split (Pro: hit 5,760, miss 53,153, output 244,784; Flash: 80,256 / 37,557 / 1,403,286) checked against stated prices and costs. Model for the productivity study and for the xfstests run of SpecFS not stated (feature accuracy is per model for the same four LLMs, Fig. 11b); module count behind Table 4 percentages not stated. Abstract: 'equivalent level of correctness ... across hundreds of regression tests' = 64/754 xfstests failed, same as AtomFS. Initial design used DeepSeek-R1. Artifacts: SysSpec and SpecFS at https://ipads.se.sjtu.edu.cn/projects/specfs/. No pre-registration. Languages: C (primary), Rust (retargeting); specifications in C-style structured natural language. Further inconsistencies: Table 3 prints 'Func 40.00% (12/40)' but 12/40 = 30%; value copied as printed. Oracle 81.8% is not k/45 for any integer k (36/45 = 80.0%, 37/45 = 82.2%), so its denominator is unclear. Table 4 percentages (60.8, 76.5, 66.7, 78.4) all fit a denominator of 51, not 45",
+   "p": "1, 4, 16-21",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Incomplete: arithmetic inconsistencies in Tables 3-4 and the 81.8% oracle value added (pp. 19-20)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Wrong statement: the feature-generation accuracy is reported for the same four models (Fig. 11b axis, p. 18; text p. 19 'across all evaluated models'); only the productivity study and the xfstests run lack a named model."
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goals and three technical challenges explicitly stated; contributions clear (no numbered RQs)",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): specification design, toolchain and evaluation criteria described in detail; baseline prompts, generation settings, number of runs and productivity-study protocol not given; artefacts on the project page",
+   "p": "8-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (some with dated versions, e.g. DeepSeek-V4-Pro-0813); toolchain is the authors' own; no versions for Gemini-2.5-Pro, GPT-5-minimal, Qwen3-32B settings or toolchain",
+   "p": "18-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): AtomFS modules, 10 Ext4 features and xfstests described; SysSpec and SpecFS released at the project page",
+   "p": "4, 15-16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): AtomFS functional tests and xfstests, plus manual equivalence check against hand-written ground truth",
+   "p": "16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): accuracy defined; cost in tokens/US$ and development hours; performance metrics",
+   "p": "18-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): normal and oracle few-shot baselines with the same four models and module set",
+   "p": "18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions, variance or statistical tests reported (pass@k only for the toolchain ablation)",
+   "p": "18-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): accuracy and ablation conclusions follow; productivity claims (3.0x/5.4x) rest on four students with undescribed design; 'highly effective' generalisation from one FUSE file system",
+   "p": "1, 20, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): Section 7.6 discusses scope limitations of SpecFS, not threats to validity of the evaluation",
+   "p": "22-23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM Transactions on Storage (journal); FAST/TOS reviewers acknowledged",
+   "p": "1, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created SysSpec, the approach evaluated (baselines are generic few-shot prompts, not a third-party tool)",
+   "p": "1, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): generation cost under US$1 and artefacts released, but requires writing Hoare-style, rely-guarantee and concurrency specifications (formal-methods expertise and upfront design effort); demonstrated only for a FUSE file system",
+   "p": "8-11, 21-22",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

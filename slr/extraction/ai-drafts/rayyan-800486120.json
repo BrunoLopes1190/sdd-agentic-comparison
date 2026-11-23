@@ -1,46 +1,377 @@
-{"key": "rayyan-800486120", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Zhu, J., Wu, J., Hu, M., Zhu, S., Pan, J., Shen, W., Yang, Y., Liu, F., Hao, J., Jin, Y., Ho, Q., Xu, M. (2026). SWE Context Bench: A Benchmark for Context Learning in Coding. arXiv:2602.08316v3 [cs.SE], 6 May 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v3, 6 May 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; marked 'Preprint')", "p": "1"},
-{"f": "Author affiliation", "v": "Mostly academia: University of Oxford, University of Edinburgh, TU Munich, National University of Singapore, MBZUAI, Carnegie Mellon University; one independent researcher; industry: MemoraX AI (one author)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an evaluation method (benchmark SWE-ContextBench and SWE-ContextBench Lite for cross-task context learning); secondary: compares (five coding agents with/without oracle summaries; five context-reuse settings; memory retrieval frameworks)", "p": "1-2, 6-8"},
-{"f": "Approach(es): name and version", "v": "No SDD approach. Context-reuse settings: No-Context (baseline), Free Context Learning, Oracle Context Learning, Free Summary Learning, Oracle Summary Learning; memory retrieval frameworks: Mem0, OpenViking, LangMem, Supermemory (no versions)", "p": "7-8, 13-14"},
-{"f": "Artefacts prescribed", "v": "Context pool of prior agent trajectories (tool calls, file navigation, reasoning) from 1,100 experience tasks; summary context pool (final summary paragraph of each trajectory, avg 217.1 tokens vs 25,633.7 for full trajectories); memories extracted/indexed by memory frameworks", "p": "3, 6-7, 13-14"},
-{"f": "Phases of the flow", "v": "Benchmark: run base agent (Claude Code + Sonnet 4.5) on experience tasks -> store trajectories -> for each related task, agent receives repo, base commit, problem statement (+ retrieved or oracle context depending on setting) -> generates patch -> FAIL_TO_PASS / PASS_TO_PASS evaluation", "p": "3, 5-7, 12"},
-{"f": "Human review points", "v": "None in agent runs; related task instances identified and verified manually by the authors", "p": "3-4"},
-{"f": "Parts exercised", "v": "Single artefact type (prior-experience context/memory given to the agent); no spec workflow", "p": "6-8"},
-{"f": "SDD level", "v": "Not classifiable (context reuse/memory, not specifications)", "p": "—"},
-{"f": "Task type", "v": "Existing code bases: bug fixing of real GitHub issues (SWE-bench-derived)", "p": "3, 5"},
-{"f": "Size", "v": "1,476 tasks (1,100 experience + 376 related) from 51 repositories, 9 languages; Lite: 300 + 99 tasks, 12 Python repos; related tasks avg 4.8 FAIL_TO_PASS and 211.5 PASS_TO_PASS tests", "p": "1-2, 4-5"},
-{"f": "Domain", "v": "Open-source repositories from SWE-bench Lite, Multilingual and Verified (e.g. django); Python ~73% of tasks, plus JavaScript, Ruby, Rust, Java, Go, PHP, C, C++", "p": "3-5"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Average tool calls, tokens, runtime (s or min) and API cost (USD) per task; ingestion time and cost of memory frameworks", "p": "6-8, 13-14"},
-{"f": "Functional quality metrics", "v": "Resolved rate (%); FAIL_TO_PASS and PASS_TO_PASS at test and task level; patch not applicable rate; file-, function- and line-level localization correctness", "p": "6-8"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Retrieval quality: retrieval score, retrieved context length, match rate with the gold related experience task (top-1/2/3, overall)", "p": "8-9"},
-{"f": "How metrics are collected", "v": "Automatic (test execution in fresh environments, agent logs, API cost, retrieval match against known task relations)", "p": "5-9"},
-{"f": "Evaluation (each configuration)", "v": "Criterion: task resolved (FAIL_TO_PASS and PASS_TO_PASS pass). Study 1 (related tasks; task set implied 376), resolved % / cost USD, baseline -> oracle summary: (a) Claude Code + Claude Sonnet 4.5: 19.68 / 0.67 -> 23.40 / 0.55; (b) Codex + GPT-5.3 Codex: 22.60 / 0.31 -> 23.94 / 0.27; (c) Qwen Code + Qwen3.5-plus: 16.22 / 0.33 -> 21.54 / 0.18; (d) Qwen Code + GLM-5: 18.35 / 0.58 -> 19.41 / 0.48; (e) Claude Code + MiniMax 2.7: 19.68 / 0.65 -> 22.07 / 0.46. Oracle summary: quality works (modest), cost works for all. Study 2 (SWE-ContextBench Lite, 99 tasks, Claude Sonnet 4.5; agent not restated), resolved % / time min / cost USD: No-Context 26.26 / 6.37 / 0.79 (baseline); Free Context 26.26 / 6.78 / 0.98 (quality does not work, cost does not work); Oracle Context 27.27 / 5.95 / 0.77 (partly, works); Free Summary 22.22 / 6.28 / 0.91 (does not work, does not work); Oracle Summary 34.34 / 6.66 / 0.85 (works, partly); Mem0 24.24 / 4.72 / 0.62 (does not work, works); OpenViking 29.20 / 4.20 / 0.53 (partly, works); Supermemory 30.30 / 5.04 / 0.58 (works, works); LangMem: retrieval match only (73.34% overall), no resolution reported", "p": "6-9"},
-{"f": "Comparison: design", "v": "Study 1: 5 agent+model configurations x {baseline, oracle summary}. Study 2: Claude Sonnet 4.5 x 5 context settings on 99 Lite tasks (495 runs) + memory frameworks. Baseline: No-Context. Held constant: task prompt template (repo, base commit, problem statement), fresh isolated environment, git history removed, no state carryover. Acceptance tests: FAIL_TO_PASS and PASS_TO_PASS from the PR test patch. Repetitions: not stated (apparently one run per task). Human intervention: none", "p": "5-8, 12"},
-{"f": "Comparison: result", "v": "Oracle summaries improved resolution for all five agents (+1.1 to +5.3 points) and lowered cost; best GPT-5.3 Codex 23.94%. On Lite: Oracle Summary best resolution (34.34% vs 26.26%, +8.08); Oracle Context lowest time and cost (5.95 min, 0.77 USD); Free Context +27.3% cost with no gain; Free Summary below baseline; Supermemory best framework (30.30%), OpenViking cheapest (0.53 USD). No significance tests despite 'significantly improve' in the abstract", "p": "1, 6-8"},
-{"f": "Comparison: did the method work", "v": "Distinguished oracle vs free context and frameworks on resolution and cost. Repeatability: single runs, no variance reported; prompt template given. Limitations stated: no comprehensive human validation of problem statements, test patches or solvability; context pool quality not filtered (noisy trajectories)", "p": "7-8, 15"},
-{"f": "Conclusions: limitations and gaps", "v": "Context helps only when compact and correctly selected; free retrieval can hurt. Gaps: summarization quality, structured context management, adaptive decisions on when to reuse, adaptive retrieval, critical use of retrieved context; limitation: lack of human validation of tasks", "p": "9-10, 14-15"},
-{"f": "Notes", "v": "Tables 3, 4 and 5 jumbled by pdftotext; values rebuilt by column order and cross-checked with text (e.g. GPT-5.3 Codex 22.60/23.94, Claude 23.40, Oracle Summary 34.34, costs 0.77/0.98/0.79/0.91/0.85). Table 4 includes Mem0, OpenViking, Supermemory only, although the text says it compares four frameworks (LangMem missing). Task set for Table 3 (376 related vs other) is not stated explicitly. Agent for Study 2 not restated (only Claude Sonnet 4.5). Abstract claims 'significantly' without statistical tests. Name misspelled 'SWE-ContxetBench' in headings. Benchmark said to be released (Lite) but no URL in the text. No pre-registration. Languages: 9 (Python dominant)", "p": "1, 5-9"},
-{"f": "Q1", "v": "Yes (1): aim and evaluation dimensions stated (accuracy variation, time, cost)", "p": "2-3"},
-{"f": "Q2", "v": "Partly (0.5): construction and framework implementations described, prompt template given; repetitions, task set for Table 3 and agent settings partly unclear", "p": "3-7, 12-14"},
-{"f": "Q3", "v": "Partly (0.5): agents and models named; no agent/CLI versions", "p": "6"},
-{"f": "Q4", "v": "Partly (0.5): benchmark construction described in detail; no availability link given", "p": "3-5"},
-{"f": "Q5", "v": "Yes (1): FAIL_TO_PASS / PASS_TO_PASS tests from the PRs", "p": "5"},
-{"f": "Q6", "v": "Yes (1): resolution, localization, tokens, time and USD cost", "p": "6-8"},
-{"f": "Q7", "v": "Yes (1): No-Context baseline under same conditions", "p": "6-7"},
-{"f": "Q8", "v": "No (0): single runs, no statistical tests; runtime distributions only descriptive", "p": "6-8"},
-{"f": "Q9", "v": "Partly (0.5): mixed results reported (free retrieval hurts, summaries do not reduce cost on Lite), but 'significantly' claims and 'confirm' language lack statistics", "p": "1, 8-10"},
-{"f": "Q10", "v": "Partly (0.5): short limitations appendix (human validation) and context-pool noise; no threats section", "p": "15"},
-{"f": "Q11", "v": "No (0): preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): authors do not develop the agents or memory frameworks evaluated (one author at MemoraX AI, whose product is not evaluated)", "p": "1"},
-{"f": "Q13", "v": "N/A", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486120",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhu, J., Wu, J., Hu, M., Zhu, S., Pan, J., Shen, W., Yang, Y., Liu, F., Hao, J., Jin, Y., Ho, Q., Xu, M. (2026). SWE Context Bench: A Benchmark for Context Learning in Coding. arXiv:2602.08316v3 [cs.SE], 6 May 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 6 May 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2602.08316v3, marked 'Preprint'; no published venue stated (access log: arXiv record)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself is right (no venue in the text or the access log)"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Mostly academia: University of Oxford, University of Edinburgh, TU Munich, National University of Singapore, MBZUAI, Carnegie Mellon University; one independent researcher; industry: MemoraX AI (one author, J. Hao)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "confirmed",
+     "why": ""
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark SWE-ContextBench (and Lite) for cross-task context learning; compares five coding agents with/without oracle summaries, five context-reuse settings and memory retrieval frameworks",
+   "p": "1-2, 6-8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>' (secondary was lowercase with detail in brackets); classification unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Context-reuse settings: No-Context (baseline), Free Context Learning, Oracle Context Learning, Free Summary Learning, Oracle Summary Learning; memory retrieval frameworks: Mem0, OpenViking, LangMem, Supermemory (no versions)",
+   "p": "7-8, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Context pool of prior agent trajectories (tool calls, file navigation, reasoning) from 1,100 experience tasks; summary context pool (final summary paragraph of each trajectory, avg 217.1 tokens vs 25,633.7 for full trajectories); memories extracted/indexed by memory frameworks",
+   "p": "3, 6-7, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark: run base agent (Claude Code + Sonnet 4.5) on experience tasks -> store trajectories -> for each related task, agent receives repo, base commit, problem statement (+ retrieved or oracle context depending on setting) -> generates patch -> FAIL_TO_PASS / PASS_TO_PASS evaluation",
+   "p": "3, 5-7, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs; related task instances identified and verified manually by the authors",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact type (prior-experience context/memory given to the agent); no spec workflow",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context reuse/memory, not specifications)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: bug fixing of real GitHub issues (SWE-bench-derived)",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "1,476 tasks (1,100 experience + 376 related) from 51 repositories, 9 languages; Lite: 300 + 99 tasks, 12 Python repos; related tasks avg 4.8 FAIL_TO_PASS and 211.5 PASS_TO_PASS tests",
+   "p": "1-2, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories from SWE-bench Lite, Multilingual and Verified (e.g. django); Python ~73% of tasks, plus JavaScript, Ruby, Rust, Java, Go, PHP, C, C++",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average tool calls, tokens, runtime (s or min) and API cost (USD) per task; ingestion time and cost of memory frameworks",
+   "p": "6-8, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved rate (%); FAIL_TO_PASS and PASS_TO_PASS at test and task level; patch not applicable rate; file-, function- and line-level localization correctness",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Retrieval quality: retrieval score, retrieved context length, match rate with the gold related experience task (top-1/2/3, overall)",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic (test execution in fresh environments, agent logs, API cost, retrieval match against known task relations)",
+   "p": "5-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: task resolved (FAIL_TO_PASS and PASS_TO_PASS pass). Verdicts judged on each configuration's own values; the study sets no threshold. Quality: every configuration resolves a minority of tasks (16-34%) with few regressions (PASS_TO_PASS task level 86-90% on Lite) -> partly. Cost: every configuration costs under 1 USD and about 4-13 min per task -> works. Study 1 (SWE-ContextBench related tasks; 376 implied, the resolved % are multiples of 1/376), resolved % / avg cost USD / avg time s: (1) Claude Code + Claude Sonnet 4.5, baseline (no context): 19.68 / 0.67 / 344.47 (quality partly, cost works); (2) Claude Code + Claude Sonnet 4.5, oracle summary: 23.40 / 0.55 / 280.62 (partly, works); (3) Codex + GPT-5.3 Codex, baseline: 22.60 / 0.31 / 349.41 (partly, works); (4) Codex + GPT-5.3 Codex, oracle summary: 23.94 / 0.27 / 362.39 (partly, works); (5) Qwen Code + Qwen3.5-plus, baseline: 16.22 / 0.33 / 523.47 (partly, works); (6) Qwen Code + Qwen3.5-plus, oracle summary: 21.54 / 0.18 / 455.18 (partly, works); (7) Qwen Code + GLM-5, baseline: 18.35 / 0.58 / 800.99 (partly, works); (8) Qwen Code + GLM-5, oracle summary: 19.41 / 0.48 / 629.34 (partly, works); (9) Claude Code + MiniMax 2.7, baseline: 19.68 / 0.65 / 691.28 (partly, works); (10) Claude Code + MiniMax 2.7, oracle summary: 22.07 / 0.46 / 420.92 (partly, works). Study 2 (SWE-ContextBench Lite, 99 related tasks; Claude Sonnet 4.5, agent not stated), resolved % / time min / cost USD: (11) No-Context (baseline): 26.26 / 6.37 / 0.79 (partly, works); (12) Free Context Learning: 26.26 / 6.78 / 0.98 (partly, works); (13) Oracle Context Learning: 27.27 / 5.95 / 0.77 (partly, works); (14) Free Summary Learning: 22.22 / 6.28 / 0.91 (partly, works); (15) Oracle Summary Learning: 34.34 / 6.66 / 0.85 (partly, works); (16) Mem0: 24.24 / 4.72 / 0.62, ingestion of 300 trajectories about 21 min, 0.24 USD (partly, works); (17) OpenViking: 29.20 / 4.20 / 0.53, ingestion about 570 min, 18.96 USD (partly, works); (18) Supermemory: 30.30 / 5.04 / 0.58, ingestion 369.6k tokens, under 1 h (partly, works); (19) LangMem: no resolution or run cost reported, only retrieval match (73.34% overall) and ingestion (about 58 min, 0.98 USD): quality and cost not assessable",
+   "p": "6-9, 13-14",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "All numbers checked against Tables 3 and 4 (rebuilt by column order) and the text. Verdicts are judgement calls: Oracle Summary cost 'partly' although its time and cost are both above baseline (6.66 vs 6.37 min, 0.85 vs 0.79 USD), and Oracle Context quality 'partly' for +1.01 points; the author should settle the thresholds"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Section 6 requires a verdict for every configuration, baseline included, judged on its own: r1 gave no verdict to the baselines of Study 1 and Study 2, gave one pooled verdict to the five oracle-summary configurations, and justified the Study 2 verdicts by the difference from the baseline. Values unchanged (re-checked against Tables 3 and 4); times, ingestion costs and one entry per configuration added. The absolute cut-off is a judgement: a stricter reader could rate the configurations under 20% resolved (5, 7, 8, 1, 9) as does not work"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Study 1: 5 agent+model configurations x {baseline, oracle summary}. Study 2: Claude Sonnet 4.5 x 5 context settings on 99 Lite tasks (495 runs) + memory frameworks. Baseline: No-Context. Held constant: task prompt template (repo, base commit, problem statement), fresh isolated environment, git history removed, no state carryover. Acceptance tests: FAIL_TO_PASS and PASS_TO_PASS from the PR test patch. Repetitions: not stated (apparently one run per task). Human intervention: none",
+   "p": "5-8, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Oracle summaries improved resolution for all five agents (+1.1 to +5.3 points) and lowered cost; best GPT-5.3 Codex 23.94%. On Lite: Oracle Summary best resolution (34.34% vs 26.26%, +8.08); Oracle Context lowest time and cost (5.95 min, 0.77 USD); Free Context most expensive (0.98 USD, +27.3% over Oracle Context, about +24% over the baseline) with no gain in resolution; Free Summary below baseline (22.22%); both summary settings cost more than baseline on Lite (0.91, 0.85 vs 0.79 USD); Supermemory best framework (30.30%), OpenViking cheapest and fastest (0.53 USD, 4.20 min). No significance tests despite 'significantly improve' in the abstract",
+   "p": "1, 6-8",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added that on Lite summary-based reuse did not reduce cost against the baseline (text p. 8: 'summary-based reuse does not reduce cost relative to the baseline'), a result the value left out while saying oracle summaries lowered cost in Study 1"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The 27.3% increase in the text (p. 8) is Free Context (0.98) relative to Oracle Context (0.77), not relative to the baseline (0.79, which gives about 24%); r1 left the reference ambiguous"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished oracle vs free context and frameworks on resolution and cost. Repeatability: single runs, no variance reported; prompt template given. Limitations stated: no comprehensive human validation of problem statements, test patches or solvability; context pool quality not filtered (noisy trajectories)",
+   "p": "7-8, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Context helps only when compact and correctly selected; free retrieval can hurt. Gaps: summarization quality, structured context management, adaptive decisions on when to reuse, adaptive retrieval, critical use of retrieved context; limitation: lack of human validation of tasks",
+   "p": "9-10, 14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 3, 4 and 5 jumbled by pdftotext; values rebuilt by column order and cross-checked with text (e.g. GPT-5.3 Codex 22.60/23.94, Claude 23.40, Oracle Summary 34.34, costs 0.77/0.98/0.79/0.91/0.85); Table 3 resolved rates are all multiples of 1/376, supporting the 376 related tasks as its task set. Table 4 includes Mem0, OpenViking, Supermemory only, although the text says it compares four frameworks (LangMem missing). OpenViking's 29.20% resolved on 99 tasks is not a possible value (k/99 gives 29.29), likely a typo. Task set for Table 3 (376 related vs other) is not stated explicitly. Agent for Study 2 not restated (only Claude Sonnet 4.5). Abstract claims 'significantly' without statistical tests, and says summarized experience reduces token cost, while on Lite summary reuse cost more than the baseline (p. 8). Text says oracle summaries improve 'most models' while Table 3 shows all five improve. Name misspelled 'SWE-ContxetBench' in headings. Benchmark said to be released (Lite) but no URL in the text. No pre-registration. Languages: 9 (Python dominant)",
+   "p": "1, 5-9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added two reporting inconsistencies: abstract's cost-reduction claim vs the Lite result (summary settings 0.91/0.85 vs 0.79 USD), and 'most models' vs all five improving in Table 3"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Added a reporting inconsistency: OpenViking 29.20% resolved cannot occur on 99 tasks (29/99 = 29.29%); and noted that the Table 3 rates fit a 376-task denominator"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and evaluation dimensions stated (accuracy variation, time, cost)",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction and framework implementations described, prompt template given; repetitions, task set for Table 3 and agent settings partly unclear",
+   "p": "3-7, 12-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agents and models named; no agent/CLI versions",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark construction described in detail; no availability link given",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): FAIL_TO_PASS / PASS_TO_PASS tests from the PRs",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolution, localization, tokens, time and USD cost",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No-Context baseline under same conditions",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single runs, no statistical tests; runtime distributions only descriptive",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mixed results reported (free retrieval hurts, summaries do not reduce cost on Lite), but 'significantly' claims and 'confirm' language lack statistics",
+   "p": "1, 8-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: negative results are reported in the body, but the abstract overstates (significance, cost reduction from summaries); Partly vs No depends on how much weight the abstract gets"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: negative results are reported in the body (free retrieval hurts, summaries cost more on Lite), but the abstract overstates (significance without tests, cost reduction from summaries); Partly vs No depends on how much weight the abstract gets"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations appendix (human validation) and context-pool noise; no threats section",
+   "p": "15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors do not develop the agents or memory frameworks evaluated (one author at MemoraX AI, whose product is not evaluated)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

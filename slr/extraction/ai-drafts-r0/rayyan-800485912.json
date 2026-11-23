@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800485912",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ma, J., Wang, S., Kung, J. H., Chilton, L. B. (2026). Zoro: Active Controls to Support Rule Following in Vibe Coding. In The 39th Annual ACM Symposium on User Interface Software and Technology (UIST '26), Detroit, MI, USA. ACM. doi:10.1145/3830398.3830629. arXiv:2604.15625v3 [cs.HC], 19 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference (UIST '26, ACM; read from arXiv v3)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Columbia University, New York, USA (all authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (Zoro system and Enrich-Enforce-Evolve framework) and evaluates it: technical evaluation with 4 conditions incl. component ablations (36 sessions) and qualitative user study (N=12); formative interviews (N=10)",
+   "p": "1-3, 7-9"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Zoro (no version; github.com/jennygzma/zoro): Enrich-Enforce-Evolve framework; zoro-cli Python package + visual interface; works with Codex, Claude Code, Cline, Cursor",
+   "p": "1-4"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Rules files (AGENTS.md/CLAUDE.md) converted to a structured JSON ruleset (enforcement level, category, confidence, decay score, scope); agent-generated plan enriched with rules per step; ZORO.md instruction file prepended to AGENTS.md; .zoro shared directory; enforcement evidence per rule (summary, code artefact, unit test for testable rules); in-situ notes; refined rules",
+   "p": "3-5, 13"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent generates plan -> Enrich (GPT-5.3 rewrites plan, decomposes steps, attaches rules, proposes enforcement level) -> user edits plan and sets enforcement (non-strict / strict / testable) -> Enforce (agent executes step by step; must call zoro prove-rule with evidence and tests before zoro update-step; CLI blocks completion if strict rules unverified) -> user reviews evidence and adds in-situ notes -> Evolve (notes aggregated, LLM proposes refined rules, user accepts/edits/rejects)",
+   "p": "2-6"
+  },
+  {
+   "f": "Human review points",
+   "v": "User edits enriched plan and sets enforcement levels; agent pauses for user decisions when rules require it; user reviews enforcement evidence and adds in-situ notes; user approves refined rules in a diff view (Rule Review)",
+   "p": "4-6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow in the user study (Enrich-Enforce-Evolve); technical evaluation exercises Enrich and Enforce only",
+   "p": "7-9"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler terms; rules are persistent, enforced at every plan step and refined over time ('living and evolving' ruleset), closest to spec-anchored for the ruleset; plans are not kept as specifications",
+   "p": "2, 6"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: feature additions to full-stack repositories built by the authors (technical evaluation); user study on participants' own repositories (7) or the provided Poneglyph app (5)",
+   "p": "7-9"
+  },
+  {
+   "f": "Size",
+   "v": "Technical evaluation: 9 tasks, each 500-5,000 lines of code, in NoteSense (22k LOC) and SnakeGame (11k LOC); user study: 2 tasks per participant, 30-45 min each",
+   "p": "7, 9"
+  },
+  {
+   "f": "Domain",
+   "v": "Full-stack web apps (TypeScript/React, Flask or Node/Express, SQLite): note-taking/sensemaking app, browser game; user study: ML research code, graphics heatmaps, econ analysis, journaling app, iOS app",
+   "p": "7, 18"
+  },
+  {
+   "f": "Team profile",
+   "v": "User study: 12 expert vibe coders (>=5 years coding; 8 industry engineers/analysts, 4 PhD students; 10 use rules files daily). Formative: 10 expert programmers (5-10 years). Technical evaluation: no human operator beyond minimal compile patches",
+   "p": "3, 9, 18"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Token overhead only reported qualitatively (~4x tokens for Full Zoro vs standard vibe coding); no time or money",
+   "p": "7, 10"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Feature completeness (task-specific rubric, 0-1)",
+   "p": "7"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Rules followed (task-specific rubric: pass/fail per rule per session, any violation = not followed); by rule type (process vs coding)",
+   "p": "7-8, 17"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "User study: number of rules enforced (166, 110 unique; 9.17 per session); self-reported cognitive load; preferences",
+   "p": "9"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Rule pass rate in user study (Task 1 77.9%, Task 2 94.4%); refined rules re-applied correctly (12/13); qualitative themes (auditability, trust, shift to 'rule engineering')",
+   "p": "9-10"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: two annotators (software engineers, >=5 years) graded code and chat history with task rubrics (Cohen's kappa 0.97 rules, 0.82 features); one-way ANOVA and Holm-Bonferroni paired t-tests. User study: think-aloud, interviews, open coding by one author refined with team",
+   "p": "7-9"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: task-specific rubrics graded by 2 annotators. All with Cline + Claude Sonnet 4.6, 9 tasks, 1 run each (Table 1, mean ± 95% CI)\n- No Zoro (rules in AGENTS.md) + Cline + Sonnet 4.6: features 0.64±0.144; rules 0.51±0.08. Baseline\n- Basic Zoro (ablation: mark steps, no enrich, no enforce): features 0.65±0.17; rules 0.55±0.11. Quality: does not work (n.s.)\n- Partial Zoro (ablation: enrich, no enforce): features 0.61±0.11; rules 0.68±0.07 (significant vs baseline). Quality: partly\n- Full Zoro (enrich + enforce): features 0.77±0.13 (n.s.); rules 0.80±0.08 (significant vs all); process rules 0.87 vs 0.35, coding rules 0.75 vs 0.59. Quality: works (rules), partly (features); cost: does not work / partly (~4x tokens)\n- User study (full Enrich-Enforce-Evolve + Codex, model Not stated): rule pass rate 77.9% (60/77) task 1, 94.4% (84/89) task 2; no baseline",
+   "p": "7-9, 17"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 9 multi-step feature tasks (5 NoteSense, 4 SnakeGame), repositories and rules built by the authors. Configurations: No / Basic / Partial / Full Zoro. Baseline: No Zoro (rules only in AGENTS.md). Held constant: agent (Cline), model (Claude Sonnet 4.6), task description and development plan provided. Acceptance criteria: task rubrics graded by 2 annotators (no automated tests mentioned). Repetitions: 1 run per task per condition ('breadth rather than repeated data points'). Human intervention: minimal patches applied for compiler errors (counts recorded)",
+   "p": "7"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Full Zoro follows rules most: 0.80 vs 0.51 baseline (+29 pts; ANOVA p<0.05; Full significantly better than all others; Partial better than No Zoro, Holm-Bonferroni). Feature completeness 0.77 vs 0.61-0.65 (n.s.). Largest gain for process rules (35% -> 87%) vs coding rules (59% -> 75%). Cost: ~4x token usage",
+   "p": "2, 8, 17"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on rule following, not on features. Repeatability: one run per task; tasks and repos built by the authors; code open-source. Limitations stated: only 36 cases due to cost; scoped to Cline (technical) and Codex (user study); evidence is not a formal guarantee",
+   "p": "7, 10"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "User study: 12 sessions, two tasks, single-developer codebases; need longitudinal, more diverse studies. Technical evaluation limited to 36 cases (cost); ~4x token overhead (prompt caching, deterministic checks as remedies); enforcement evidence not a formal guarantee (over-trust risk); static rule retrieval; manual setup, cognitive load of separate interface; code/tests insufficient evidence for performance or UI rules; ruleset management (conflicts, organisation) open",
+   "p": "10"
+  },
+  {
+   "f": "Notes",
+   "v": "Code: https://github.com/jennygzma/zoro. Table 1 values rebuilt from pdftotext text (order matched to conditions). Rubrics graded by annotators paid by the authors; feature completeness also annotator-judged, not test-based. Model used by Codex in the user study Not stated; GPT-5.3 used inside Zoro for enrichment and refinement. Number of compile patches 'recorded' but not reported. No pre-registration. Programming language: TypeScript, Python, JavaScript (full-stack apps)",
+   "p": "3, 7-8, 13"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): design goals, technical evaluation question and user-study RQ1-RQ3 stated",
+   "p": "3, 7-8"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): system and conditions described, tasks in appendix; rubrics, rules and repositories not shown in full; prompts of the enrichment LLM not given",
+   "p": "3-7, 16-17"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Cline + Claude Sonnet 4.6, GPT-5.3 named; no Cline version; Codex model in user study not stated",
+   "p": "7, 9, 13"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described (Appendix B.1); repositories built by the authors, availability not stated",
+   "p": "7, 16-17"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): two independent annotators with high agreement, but rubrics defined by the authors; no automated acceptance tests",
+   "p": "7"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): rule following and feature completeness defined; cost only as approximate token overhead",
+   "p": "7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No Zoro baseline and component ablations under the same agent and model",
+   "p": "7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): ANOVA and corrected paired t-tests with CIs; one run per task (n=9 per condition)",
+   "p": "7-8"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions match results; non-significant feature result and 80% ceiling reported; user-study claims framed as perceptions",
+   "p": "8-10"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (sample, cost, evidence not a guarantee, setup)",
+   "p": "10"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): UIST '26 (ACM) [Check: the record has a published DOI (https://doi.org/10.1145/3830398.3830629); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors propose and evaluate their own system",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source Python package working with common agents; but ~4x token overhead, GPT-5.3 dependency and manual setup; monetary cost not stated",
+   "p": "3-4, 7, 10, 13"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

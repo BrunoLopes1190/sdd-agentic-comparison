@@ -1,0 +1,226 @@
+{
+"key": "rayyan-800485915",
+"model": "Claude Opus 5.5 (subagent)",
+"fields": [
+{
+"f": "Reference",
+"v": "Treude, C., Baltes, S. (2026). Context Rot in AI-Assisted Software Development: Repurposing Documentation Consistency for AI Configuration Artifacts. arXiv:2606.09090v1 [cs.SE], 8 Jun 2026",
+"p": "1"
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1"
+},
+{
+"f": "Publication type",
+"v": "Preprint (arXiv; short paper, ACM-style layout, venue Not stated)",
+"p": "1"
+},
+{
+"f": "Author affiliation",
+"v": "Singapore Management University, Singapore (Treude); Heidelberg University, Germany (Baltes)",
+"p": "1"
+},
+{
+"f": "Nature of the study",
+"v": "Conceptual (introduces 'context rot' and a research roadmap mapping documentation-consistency techniques to AI configuration artifacts, RQ1-RQ4); secondary: evaluates (preliminary mining study applying the unmodified DOCER checker to 612 configuration files in 356 repositories)",
+"p": "1-4"
+},
+{
+"f": "Approach(es): name and version",
+"v": "AI configuration artifacts / context files (CLAUDE.md, AGENTS.md, copilot-instructions.md, GEMINI.md, .cursorrules), no version. Detection approach: DOCER (README/wiki stale-reference checker, Tan, Wagner, Treude 2024), applied unchanged",
+"p": "1-2"
+},
+{
+"f": "Artefacts prescribed",
+"v": "Context files: versioned Markdown files in the repository, read at session start, describing code elements, architecture, build commands, conventions, dependency versions. Detection: DOCER regex list, two-snapshot git grep procedure",
+"p": "1-2"
+},
+{
+"f": "Phases of the flow",
+"v": "Not stated (no SDD flow). Detection procedure: clone -> extract candidate elements from HEAD config file -> verify at first commit -> verify at HEAD -> classify stale / valid / noise",
+"p": "2-3"
+},
+{
+"f": "Human review points",
+"v": "Not stated (authors recommend reviewing configuration files alongside refactors that rename or delete elements)",
+"p": "3"
+},
+{
+"f": "Parts exercised",
+"v": "Single artefact (context files), observed in repositories; not run with an agent",
+"p": "2-3"
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (context files, no specification); authors do not use SDD terms. Treats configuration files 'as code' that must stay consistent with the codebase",
+"p": "3"
+},
+{
+"f": "Task type",
+"v": "Existing code bases (public GitHub repositories with AI configuration files)",
+"p": "2"
+},
+{
+"f": "Size",
+"v": "356 randomly sampled repositories (of 4,420 eligible; 8,213 files) with 612 configuration files; 29,454 candidate elements; 18,048 verified references",
+"p": "2-3"
+},
+{
+"f": "Domain",
+"v": "Not stated (public GitHub repositories of any domain; examples: microsoft/pr-metrics, dagu, rolldown, mistral.rs)",
+"p": "2, 4"
+},
+{
+"f": "Team profile",
+"v": "N/A (no participants; one author performed manual inspection)",
+"p": "3"
+},
+{
+"f": "Cost metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Functional quality metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Other outcome metrics",
+"v": "Stale code element references (present at first commit of the config file, absent at HEAD): repositories with >=1 stale reference (82/356 = 23.0%, 95% CI 18.8-27.2%); per-reference stale rate 1.27% (230/18,048); by file type (CLAUDE.md 1.42%, AGENTS.md 1.04%, Copilot 1.42%, GEMINI.md 0.75%, .cursorrules 0%, other 2.99%); manual precision: 32/50 (64%) genuine, 12 false positive, 6 ambiguous",
+"p": "2-3"
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: DOCER regular expressions with git grep at two snapshots. Manual: one author inspected 50 random stale classifications (no inter-rater agreement)",
+"p": "2-3"
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "N/A (no agent configuration run; observational detection study)",
+"p": "—"
+},
+{
+"f": "Comparison: design",
+"v": "N/A (no configurations compared; differences across file types not tested)",
+"p": "3"
+},
+{
+"f": "Comparison: result",
+"v": "N/A. Feasibility result: an unmodified documentation-consistency tool surfaces referential rot in 23.0% of repositories, with 64% precision on a manual sample",
+"p": "1, 3"
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Two opposing biases in the 23.0% estimate: two-snapshot design misses references added after the first commit (deflates); broad regexes match non-code tokens, 36% false positive or ambiguous (inflates); single annotator, no agreement; public GitHub only. Gaps (roadmap): RQ1 taxonomy of context rot; RQ2 transfer of comment, API-doc, architecture and installation checkers (e.g., MCP tool descriptions); RQ3 which forms of rot affect assistant behaviour (controlled experiments with injected rot); RQ4 repair (deterministic detection + LLM repair) and prevention",
+"p": "3-5"
+},
+{
+"f": "Notes",
+"v": "Short vision paper with preliminary study. Online appendix (doi:10.5281/zenodo.20588740): script, per-element results, repo versions, DOCER regexes, 230 stale references, 50 annotations; input dataset Galster et al. on Zenodo. Random seed 42 for sampling. Co-author Treude is a co-author of DOCER and of the cited Lulla et al. AGENTS.md study. No pre-registration. Programming language: Not stated (mixed)",
+"p": "1-3, 5"
+},
+{
+"f": "Q1",
+"v": "Yes (1): three contributions and roadmap RQ1-RQ4 stated",
+"p": "1, 4"
+},
+{
+"f": "Q2",
+"v": "Yes (1): dataset filtering, sampling, DOCER procedure and classification described; script and data in the online appendix",
+"p": "2-3, 5"
+},
+{
+"f": "Q3",
+"v": "Yes (1): no agent or model involved; DOCER (unchanged) and git grep commands identified, regex list in appendix",
+"p": "2, 5"
+},
+{
+"f": "Q4",
+"v": "Yes (1): input dataset (Galster et al., Zenodo) and analysed repository versions available",
+"p": "2, 5"
+},
+{
+"f": "Q5",
+"v": "Partly (0.5): precision checked by manual inspection of 50 elements by a single author; no ground truth for recall",
+"p": "3"
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): stale-reference metric defined; no cost or behavioural outcome (effect on assistants left to RQ3)",
+"p": "2-4"
+},
+{
+"f": "Q7",
+"v": "No (0): no baseline or alternative (not applicable to a feasibility check)",
+"p": "—"
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): representative sample with 95% CI; per-type differences not tested",
+"p": "2-3"
+},
+{
+"f": "Q9",
+"v": "Yes (1): 23.0% explicitly framed as a feasibility signal with opposing biases",
+"p": "3"
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): biases and single-annotator threat discussed within results; no dedicated threats section",
+"p": "3"
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint",
+"p": "1"
+},
+{
+"f": "Q12",
+"v": "No (0): co-author Treude co-created DOCER, the tool evaluated",
+"p": "1, 5"
+},
+{
+"f": "Q13",
+"v": "Yes (1): proposed check needs only git grep and DOCER's regexes, runs in CI, no new tooling or compute",
+"p": "3"
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—"
+}
+]
+}

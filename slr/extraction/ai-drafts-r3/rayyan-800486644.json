@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486644",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Garg, N., Mohindra, R., Maru, S. (2026). Specifications as Governance Artifacts: Human-AI Collaboration and Oversight for AI-Generated Code. In 2026 IEEE Conference on Generative AI for Secure Systems (GAISS), 28-30 October 2026, University of Texas at Austin. IEEE. DOI: 10.1109/GAISS66401.2026.11779695 (6 pages)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — IEEE Conference on Generative AI for Secure Systems (GAISS 2026), Austin, 28-30 October 2026; 6 pages",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researchers (Bothell, Redmond, Bentonville, United States; personal gmail addresses); no institutional affiliation",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — specification-driven governance framework (spec review gate, explicit baseline, drift detection, human reconciliation, RACI, audit trail, standards mapping); evaluated by a within-subject human study of baseline-anchored vs code-only drift review, an automated-reviewer replication, a supporting case study and controlled model studies",
+   "p": "1, 3-5",
+   "verdict": "uncertain",
+   "why": "Secondary nature is a judgement: the human, automated-reviewer and model studies all set the framework against a code-only / direct-generation condition, so 'Compares' is as defensible as 'Evaluates' for the secondary nature."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Specification-driven governance framework (authors' own, unnamed), version Not stated. In the model studies: 'one-shot' spec-then-code, 'staged' spec then fresh-generation implementation, spec-first prompting, chain-of-thought and direct generation arms",
+   "p": "1, 3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Specification, high-level design (HLD) and low-level design (LLD), approved together as the auditable baseline (invariants/clauses); RACI responsibility matrix (Table I); audit trail: approved baseline with approver and timestamp, drift log (each divergence and violated invariant/clause), reconciliation record (code or document changed, by whom, why)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Five control points: (1) spec authoring (spec, HLD, LLD before code); (2) specification review gate (approve as baseline); (3) guided generation (model generates code from approved documents); (4) drift detection (code vs baseline); (5) reconciliation (human resolves each drift by correcting code or updating documents and re-approving the baseline)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Specification review gate modelled on HLD/LLD reviews (criteria: completeness, clear interfaces, explicit constraints, testable behaviour); drift review against the baseline; human reconciliation of every flagged drift; accountability always with a named human (Owner accountable, Table I)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Human and automated-reviewer studies: drift review step only (reviewing AI-generated code against an approved spec/HLD/LLD vs code only). Case study: full workflow (author walkthrough). Model studies: spec delivery modes (specification as separate artefact vs prompt text)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler's terms; cites Piskala's spec-first to spec-as-source levels; framework treats the approved specification as source of truth and baseline kept in sync by reconciliation (closest to spec-anchored, classification by the drafter); long-term source-of-truth use is future work",
+   "p": "2, 5",
+   "verdict": "uncertain",
+   "why": "No BÃ¶ckeler terms used. Reconciliation updates code or documents and re-approves the baseline (spec-anchored), but using the spec as the long-term source of truth after check-in is left to future work (p. 5)."
+  },
+  {
+   "f": "Task type",
+   "v": "New code generated from specifications (synthetic AI-generated banking services reviewed; insurance premium payment microservice in the case study; single-function families in model studies)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Human study: 2 services; Service A 1,040-line multi-file build with 11 verified drifts, Service B smaller with 10 verified drifts. Model studies: banking service with 20 invariants; 10 single-function families; 'three task scales'",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Banking services (human and model studies); insurance premium payment microservice (case study)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Five reviewers with 3-10 years of experience (human study); case study by one author",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Review time per review in minutes (human study)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Drift-review recall against adjudicated ground truth (verified drifts); model studies: pass rate on held-out invariants scored by an executable checker; failed-to-assemble builds",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Review time (≈48 vs 27 min); mean drifts found; reviewer confidence (1-5); inter-reviewer agreement (Fleiss' kappa)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Attribution rate: share of findings tied to a specific named requirement/invariant (traceability/accountability)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: reviewers record each drift, violated rule, location, start/end time and confidence; ground truth by adjudicating every distinct reviewer claim against the source code; paired Wilcoxon (human), Mann-Whitney (machine). Automatic: executable checker for model studies (validated with known correct and naive references)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Human study (criterion: adjudicated ground-truth drifts): (a) baseline-anchored review (spec+HLD+LLD) + human reviewers, n=5: recall 0.525, attribution 0.81, 5.6 drifts, 48.4 min, confidence 4.2. Quality: partly (attribution works, recall about half of verified drifts); cost: does not work (+21.7 min per review). (b) code-only review + human reviewers (comparison condition): recall 0.518, attribution 0.00, 5.4 drifts, 26.7 min, confidence 3.4. Quality: partly (recall about half, no attribution); cost: works. Automated-reviewer replication, 90 reviews by Claude Opus 4.8, GPT-5.4, Gemini 3.1 Pro (agent Not stated; per-model values Not stated): (c) baseline-anchored: recall 0.376, attribution 0.67. Quality: partly; cost: not measured. (d) code-only: recall 0.377, attribution 0.00. Quality: does not work (low recall, no attribution); cost: not measured. Model studies (models and agent Not stated): (e) staged spec then fresh generation + weak model: pass rate 45.0%, failed builds -50%. Quality: partly (n.s., n=4); cost: not measured. (f) one-shot spec+code + weak model: 23.8%. Quality: does not work; cost: not measured. (g) direct generation + weak model (baseline): 23.8%. Quality: does not work; cost: not measured. (h) spec-first + two strong assistants: e.g. 92%. Quality: works; cost: not measured. (i) chain-of-thought + two strong assistants: e.g. 95%. Quality: works; cost: not measured. (j) direct + two strong assistants (baseline): e.g. 59%. Quality: partly; cost: not measured. Case study: framework caught 2 issues at the review gate and 2 by drift detection; unconstrained run kept both defects (illustrative, author-conducted; no verdict)",
+   "p": "4-5",
+   "verdict": "uncertain",
+   "why": "Values match Table IV, Table V and Section V. The verdicts are judgements: the cost verdict 'does not work' for (a) rests on the +21.7 min difference to code-only, but the form judges each configuration on its own (48.4 min per review could be 'partly'), and (c) partly vs (d) does not work at almost the same recall rests on attribution alone."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Human study: within-subject, counterbalanced 2x2 (condition x service); 5 reviewers each did one review per condition; both services reviewed in each condition; no code execution, AI tools or web; baseline condition = code-only (public API only). Held constant: services, ground truth, attribution definition. Acceptance criterion: adjudicated ground truth (11 + 10 verified drifts), not the test suite. Repetitions: one review per reviewer per condition. Automated replication: same 2x2 design with 3 models, 90 reviews. Model studies: held-out scored criteria withheld from prompts; arms one-shot vs staged vs direct (n=4) and CoT vs spec-first vs direct over 10 function families and 2 assistants",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Baseline-anchored vs code-only (human): recall 0.525 vs 0.518 (p=0.69, n.s.); attribution 0.81 vs 0.00 (p=0.043); time 48.4 vs 26.7 min (p=0.043); confidence 4.2 vs 3.4 (p=0.068); Fleiss' kappa 0.20-0.63. Machine: recall 0.376 vs 0.377 (p=0.95); attribution 0.67 vs 0.00 (p<10^-4), consistent across models. Model studies: staged 45.0% vs direct/one-shot 23.8% (p≈0.18, n=4, n.s.); spec-first vs CoT not significant (p≈0.28-0.32), CoT captures almost all spec-first gain",
+   "p": "1, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on attribution and time, not on recall. Repeatable: pattern reproduced by the automated replication. Limitations stated: n=5, signed-rank test floor p=0.043; confidence subjective; agreement on small groups; ground truth by adjudication because a test suite missed real drift; attribution measures traceability, not fix correctness; machine replication is convergent, not confirmatory; case study author-conducted; staged result has second-pass confound; model strength a dominant confound",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Human study intentionally small (5 reviewers, 2 services, one domain); effects significant only for tested tasks; results 'preliminary and directional', 'strong pilot finding'. Framework adds upfront review cost; less value for short-lived or low-risk work; deployment difficulties: authoring discipline and spec-code synchronisation. Future work: spec as long-term source of truth after check-in, automated drift detection against LLD data contracts and state machines, LLM pre-screen (untested), larger human study with more reviewers, tasks and mid-strength models",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "No printed page numbers; PDF pages used. Tables I-V layout jumbled by pdftotext; Table IV values rebuilt (Baseline / Code-only / delta / p per row) and consistent with text. Abstract says attribution 'increased from 0.00 to 0.67' while body says it 'dropped from 0.67 under the baseline to exactly 0.00 without it' (same values, wording only). Abstract claims an 'anonymized artifact released with the study includes the complete set of materials', but no URL appears in the text. Models in the controlled model studies are not named ('weak model', 'two strong assistants', 'frontier and free-tier models'). Coding agent/generator of the reviewed services Not stated. Programming language Not stated. No pre-registration. Ethics statement: generated services synthetic. Further inconsistencies: Section IV says 'We used the two services from Section V', but Section V does not describe them; 90 machine reviews is not a multiple of the 12 model x service x condition cells, reviews per cell Not stated; abstract says the baseline 'raised confidence' although p = 0.068",
+   "p": "1, 4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1 (governance) and RQ2 (oversight) stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): human-study design described (conditions, counterbalancing, ground truth, measures); services, specs, prompts and model-study setups only briefly described; artefact mentioned without link",
+   "p": "1, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): reviewer models named (Claude Opus 4.8, GPT-5.4, Gemini 3.1 Pro); generator models, agents and model-study models not identified",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): services described briefly (size, drift counts); availability claimed in the abstract without a link",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): ground truth adjudicated against source code; executable checker for model studies (adjudication by the authors, but independent of the condition)",
+   "p": "4-5",
+   "verdict": "uncertain",
+   "why": "Ground truth was set by adjudicating claims against the source code. That is independent of the condition, but the adjudicators are not named and are probably the authors. The model-study checker is executable and independent. Yes or Partly both defensible."
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): recall, attribution, time, confidence, agreement defined; covers effort cost and quality",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): code-only condition under the same services and reviewers; direct-generation baselines in model studies",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): paired Wilcoxon and Mann-Whitney tests, counterbalancing, but n=5 humans and n=4 model runs; no correction for multiple tests",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): null recall result reported plainly and results called preliminary, but the abstract presents confidence as raised (p = 0.068), the conclusion says the replication reproduced the pattern 'exactly', and the Discussion claims the framework moves review cost 'from per output to per spec', which was not measured (the study shows +21.7 min per review)",
+   "p": "1, 4-6",
+   "verdict": "uncertain",
+   "why": "The null recall result is reported plainly. Partly rests on the abstract's 'raised confidence' (p = 0.068), on 'reproduced this pattern exactly', and on 'from per output to per spec', which was not measured. Yes is also arguable."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VI threats (construct, internal, external, ethics)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): IEEE GAISS 2026 conference proceedings",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created the governance framework they evaluate",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): framework reuses existing HLD/LLD review practice and needs no special tools, but adds substantial review time (≈+22 min per review) and drift detection tooling is not specified/automated",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

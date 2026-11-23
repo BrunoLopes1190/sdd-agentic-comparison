@@ -1,46 +1,382 @@
-{"key": "rayyan-800486605", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Luo, L., Mao, K., Yang, X., Li, R., Chen, L., Wong, K., Guo, Y., Wang, X., Zhu, J., Yao, P., Simiu, G., Xu, S., Fang, C. (2026). Coding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation. arXiv:2611.14009v2 [cs.LG], 12 Nov 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv, v2); venue not stated (code 'will be released with the camera-ready version')", "p": "1, 26"},
-{"f": "Author affiliation", "v": "Peking University; JD.com; Sichuan University; Beijing Institute of Technology; Renmin University of China; HKUST (industry co-authors from JD.com)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (CAMP-II: on-policy distillation of file-based memory behaviour into small LLM agents); secondary: proposes an evaluation method (CAMG-II: suite of five long-horizon agentic-RL environments)", "p": "1-3"},
-{"f": "Approach(es): name and version", "v": "No SDD approach. CAMP-II (Coding Agent Memory Post-Training II): trains Qwen3.5-4B/9B students by fully asynchronous on-policy distillation from a frozen Qwen3.8-27B teacher to use ordinary Bash/file operations as memory (notes.md, bounded CONTINUATION.md) across context replacements. Compared with CAMP-I (predecessor, task-reward RL), MemOPD, CompactOPD, ACM, HELM, Hy-Memory", "p": "1-3, 5, 7"},
-{"f": "Artefacts prescribed", "v": "N/A (no spec artefacts). Memory files written by the agent in an episode-persistent workspace (.agent_memory/): free-form notes and a bounded CONTINUATION.md carrying task state, mandatory before each context replacement", "p": "2, 4, 19"},
-{"f": "Phases of the flow", "v": "N/A (not SDD). Agent loop: act in environment -> write/revise memory files -> at context boundary write CONTINUATION.md -> context cleared -> read file back -> continue; training: teacher scores student tokens, learner updates weights", "p": "4-5, 19"},
-{"f": "Human review points", "v": "None", "p": "—"},
-{"f": "Parts exercised", "v": "Not an SDD approach; model post-training for agent memory, evaluated on agentic tasks", "p": "—"},
-{"f": "SDD level", "v": "Not classifiable (not SDD)", "p": "—"},
-{"f": "Task type", "v": "Mixed: Coding environment = repository repair of existing code (SWE-smith issues); Visual = new static website; also shopping, ML development (AutoResearch), enterprise document tasks. External: Terminal-Bench 2.1, SWE-Bench Pro V2", "p": "4-5, 7"},
-{"f": "Size", "v": "Test set 128 tasks per domain, 640 total; Coding pool 11,218 tasks from 93 repositories; AutoResearch 931 tasks; Shop 720 products, six-session tasks. Training 6,400 episodes per run", "p": "4-5, 7"},
-{"f": "Domain", "v": "Shopping (WebShop), software repair (SWE-smith), ML model development (OpenMLE), enterprise knowledge work (MiMo), website construction (MiMo)", "p": "4-5"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "None per task. Training compute: ~250 GPU-hours on eight GPUs for CAMP-II-4B", "p": "31"},
-{"f": "Functional quality metrics", "v": "Task success rate per domain (Coding: hidden issue and regression tests; Shop: full valid purchase sequence; AutoResearch: private grader; General: rubric judge accept/reject; Visual: rubric score x100); success rate on Terminal-Bench 2.1 and SWE-Bench Pro V2", "p": "7, 18-19"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Surprisal (NLL per token) of each memory interface for teacher and student; memory actions as share of all actions; mean negative advantage; teacher preference accuracy for own-task memory writes (76.5% file vs 70.0%/63.8%)", "p": "6-9"},
-{"f": "How metrics are collected", "v": "Automatic: environment graders and hidden tests; LLM/rubric judges for General and Visual (judge model not identified in main text); log-probabilities from models", "p": "7, 18"},
-{"f": "Evaluation (each configuration)", "v": "Success criterion: per-domain task success on CAMG-II test set (Shop/Coding/AutoResearch/General/Visual/Avg, %); harness: CAMG-II bash interface (mini-swe-agent style) for all. Frozen Qwen3.5-4B: 77.3/27.3/46.1/56.2/36.0/45.3 (control). Frozen Qwen3.5-9B: 90.6/26.6/39.8/60.9/36.5/54.2 (as rebuilt; to check). Frozen teacher Qwen3.8-27B: 100/63.3/83.6/93.0/40.3/76.0 (values for AutoResearch/General columns of frozen rows rebuilt from jumbled text, to check). MemOPD (4B): 0.0 all (does not work). MemOPD w/ SFT: 93.0/27.3/39.1/62.5/37.3/51.8. CompactOPD: 93.8/24.2/37.5/61.7/23.6/48.2. ACM: 94.5/21.9/11.7/59.4/8.5/39.2. HELM: 87.5/0.0/9.4/53.1/33.1/36.6. HELM single-model: 87.5/29.7/46.9/46.9/38.0/49.8. Hy-Memory: 92.2/27.3/35.9/63.3/25.8/48.9. CAMP-I (4B): 85.2/32.0/38.3/68.8/46.5/54.2. CAMP-II-4B: 100/37.5/64.1/81.2/40.2/64.6 (works; 5 seeds mean 64.9, SD 0.5). CAMP-II-9B: 100/36.7/73.4/82.0/40.2/66.5 (works). Ablations (4B, avg): compaction 48.2; memory tools 48.2; gradient masked 47.3; budget-matched mask 63.3. External (TB2.1 / SWE-Pro V2): Qwen3.5-4B 23.1/11.2; Qwen3.5-9B 23.1/23.1; Qwen3.5-35B-A3B 33.8/27.4; CAMP-II-4B 30.0/18.1; CAMP-II-9B 38.0/30.1. Cost verdict: not assessed (no per-task cost)", "p": "6, 9-10, 33"},
-{"f": "Comparison: design", "v": "Same 640 test tasks for all methods; all trainable methods trained from fresh Qwen3.5 students for 100 learner updates x 64 episodes, equal domain mixture, by reverse-KL OPD from the same frozen Qwen3.8-27B teacher (except CAMP-I, task rewards), so systems differ only in memory mechanism. Baselines: frozen students and four memory-learning methods. Ablations of interface and supervision. Repetitions: one training seed per method in main table; five seeds for CAMP-II-4B only. Human intervention: none", "p": "7, 33"},
-{"f": "Comparison: result", "v": "CAMP-II-4B highest average (64.6% vs 54.2% CAMP-I and 51.8% best OPD baseline MemOPD w/ SFT); claimed 2.97x the gain of the strongest OPD baseline over the frozen student; 9B reaches 66.5%, closing 63% of the student-teacher gap. Replacing file interface by memory tools or compaction costs 16-17 points. Transfer: CAMP-II-4B +6.9 points over Qwen3.5-4B on both external suites. No significance tests", "p": "1, 7, 9-10"},
-{"f": "Comparison: did the method work", "v": "Distinguished methods clearly on CAMG-II; seed robustness shown only for CAMP-II-4B (SD 0.5); memory interventions (intact/shuffled/removed) support causal role of memory content. Limitations of comparison not discussed beyond scale", "p": "7-9, 33"},
-{"f": "Conclusions: limitations and gaps", "v": "Students only up to Qwen3.5-9B and a single frozen teacher; whether gains persist at larger scales or with multi-teacher OPD is untested", "p": "10"},
-{"f": "Notes", "v": "Not SDD; relevant only as agent memory (persistent notes files) for long-horizon coding. Table 1 rows for frozen models jumbled by pdftotext (column values for AutoResearch/General interleaved); learned-method rows rebuilt from column order, check against PDF. Table 2 also jumbled; values mapped from text ('4B policy by 6.9 points on each'). Code: 'will be released with the camera-ready version'; project website given. LLM use statement: GPT-6.1 Sol (Codex) and DeepSeek-V4.1-Flash used to polish writing and write experiment code. No threats-to-validity section", "p": "1, 6, 10-11, 26"},
-{"f": "Q1", "v": "Yes (1): question stated (can a teacher teach memory control through operations both models have a prior for) and contributions listed", "p": "2-3"},
-{"f": "Q2", "v": "Partly (0.5): environments and training configuration detailed in appendices, but code not yet released and judge details partial", "p": "16-33"},
-{"f": "Q3", "v": "Yes (1): student and teacher models named (Qwen3.5-4B/9B, Qwen3.8-27B); bash-only harness specified", "p": "7, 19"},
-{"f": "Q4", "v": "Partly (0.5): environments and task sources described; availability deferred to camera-ready", "p": "4-5, 16-19, 26"},
-{"f": "Q5", "v": "Yes (1): hidden tests, private graders and rubric verifiers per environment; external benchmarks", "p": "7, 16-19"},
-{"f": "Q6", "v": "Partly (0.5): success metrics defined; no cost metric per task (only training compute)", "p": "7, 31"},
-{"f": "Q7", "v": "Yes (1): frozen students and several baselines trained under the same teacher and budget", "p": "7"},
-{"f": "Q8", "v": "Partly (0.5): five seeds for CAMP-II-4B only; baselines single run; no statistical tests", "p": "7, 33"},
-{"f": "Q9", "v": "Yes (1): conclusions follow the tables; scale limitation stated", "p": "7-10"},
-{"f": "Q10", "v": "Partly (0.5): two-sentence limitations paragraph", "p": "10"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): CAMP-II and CAMP-I are the authors' own methods; other baselines from other groups", "p": "7"},
-{"f": "Q13", "v": "Partly (0.5): compute stated (~250 GPU-hours, 8 GPUs, 27B teacher) but post-training models is beyond a typical development team; code not yet released", "p": "26, 31"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486605",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Luo, L., Mao, K., Yang, X., Li, R., Chen, L., Wong, K., Guo, Y., Wang, X., Zhu, J., Yao, P., Simiu, G., Xu, S., Fang, C. (2026). Coding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation. arXiv:2611.14009v2 [cs.LG], 12 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.14009v2 [cs.LG], 12 Nov 2026; no published venue (arXiv record has no journal_ref; not in ACM/IEEE/WoS exports); code 'will be released with the camera-ready version'",
+   "p": "1, 26",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint). Checked slr/exports: only the arXiv export lists it, with no journal_ref"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Peking University; JD.com; Sichuan University; Beijing Institute of Technology; Renmin University of China; HKUST (industry co-authors from JD.com)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — CAMP-II (on-policy distillation of file-based memory behaviour into small LLM agents, compared with frozen models and six memory-learning baselines) and CAMG-II (suite of five long-horizon agentic-RL environments)",
+   "p": "1-3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>'; natures unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. CAMP-II (Coding Agent Memory Post-Training II): trains Qwen3.5-4B/9B students by fully asynchronous on-policy distillation from a frozen Qwen3.8-27B teacher to use ordinary Bash/file operations as memory (notes.md, bounded CONTINUATION.md) across context replacements. Compared with CAMP-I (predecessor, task-reward RL), MemOPD, CompactOPD, ACM, HELM, Hy-Memory",
+   "p": "1-3, 5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no spec artefacts). Memory files written by the agent in an episode-persistent workspace (.agent_memory/): free-form notes and a bounded CONTINUATION.md carrying task state, mandatory before each context replacement",
+   "p": "2, 4, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (not SDD). Agent loop: act in environment -> write/revise memory files -> at context boundary write CONTINUATION.md -> context cleared -> read file back -> continue; training: teacher scores student tokens, learner updates weights",
+   "p": "4-5, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not an SDD approach; model post-training for agent memory, evaluated on agentic tasks",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not SDD)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: Coding environment = repository repair of existing code (SWE-smith issues); Visual = new static website; also shopping, ML development (AutoResearch), enterprise document tasks. External: Terminal-Bench 2.1, SWE-Bench Pro V2",
+   "p": "4-5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Test set 128 tasks per domain, 640 total; Coding pool 11,218 tasks from 93 repositories; AutoResearch 931 tasks; Shop 720 products, six-session tasks. Training 6,400 episodes per run",
+   "p": "4-5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Shopping (WebShop), software repair (SWE-smith), ML model development (OpenMLE), enterprise knowledge work (MiMo), website construction (MiMo)",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None per task. Training compute: ~250 GPU-hours on eight GPUs for CAMP-II-4B",
+   "p": "31",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success rate per domain (Coding: hidden issue and regression tests; Shop: full valid purchase sequence; AutoResearch: private grader; General: rubric judge accept/reject; Visual: rubric score x100); success rate on Terminal-Bench 2.1 and SWE-Bench Pro V2",
+   "p": "7, 18-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Surprisal (NLL per token) of each memory interface for teacher and student; memory actions as share of all actions; mean negative advantage; teacher preference accuracy for own-task memory writes (76.5% file vs 70.0%/63.8%)",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: environment graders and hidden tests; LLM/rubric judges for General and Visual (judge model not identified in main text); log-probabilities from models",
+   "p": "7, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: per-domain task success on CAMG-II test set (Shop/Coding/AutoResearch/General/Visual/Avg, %; Visual is a rubric score x100, not a success rate); harness: CAMG-II bash interface (mini-swe-agent style) for all. Frozen Qwen3.5-4B: 77.3/27.3/46.1/39.8/36.0/45.3 (control; quality partly). Frozen Qwen3.5-9B: 90.6/26.6/56.2/60.9/36.5/54.2 (partly). Frozen teacher Qwen3.8-27B: 100/63.3/83.6/93.0/40.3/76.0 (works). AutoResearch/General values of the frozen rows rebuilt from jumbled text: the row averages confirm which pair belongs to which row, not the order within the pair (column order followed; see Notes). MemOPD (4B): 0.0 all (does not work). MemOPD w/ SFT: 93.0/27.3/39.1/62.5/37.3/51.8 (partly). CompactOPD: 93.8/24.2/37.5/61.7/23.6/48.2 (partly). ACM: 94.5/21.9/11.7/59.4/8.5/39.2 (partly; AutoResearch 11.7, Visual 8.5). HELM: 87.5/0.0/9.4/53.1/33.1/36.6 (partly; Coding 0.0). HELM single-model: 87.5/29.7/46.9/46.9/38.0/49.8 (partly). Hy-Memory: 92.2/27.3/35.9/63.3/25.8/48.9 (partly). CAMP-I (4B): 85.2/32.0/38.3/68.8/46.5/54.2 (partly). CAMP-II-4B: 100/37.5/64.1/81.2/40.2/64.6 (works; 5 seeds mean 64.9, SD 0.5). CAMP-II-9B: 100/36.7/73.4/82.0/40.2/66.5 (works). Ablations (4B, avg): compaction 48.2; memory tools 48.2; gradient masked 47.3; budget-matched mask 63.3. External (TB2.1 / SWE-Pro V2): Qwen3.5-4B 23.1/11.2; Qwen3.5-9B 23.1/23.1; Qwen3.5-35B-A3B 33.8/27.4; CAMP-II-4B 30.0/18.1; CAMP-II-9B 38.0/30.1. Cost verdict for every configuration: not assessable (no per-task tokens, time or money; only training compute for CAMP-II-4B, about 250 GPU-hours)",
+   "p": "6, 9-10, 18-19, 33",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Frozen-row AutoResearch/General values were mis-assigned. pdftotext gives the pairs '46.1 39.8', '56.2 60.9', '83.6 93.0' (p. 6), one pair per row; only this reading reproduces the printed averages (4B: (77.3+27.3+46.1+39.8+36.0)/5=45.3; 9B: (90.6+26.6+56.2+60.9+36.5)/5=54.2). The draft's values give 48.6 and 49.9. All learned-method rows, ablations and Table 2 values checked against their averages and correct"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Quality verdicts were given only for MemOPD and the two CAMP-II rows; protocol §6 requires one per configuration, the frozen baselines included. Added (judged on each row's own success: >= 64.6 average works, 36.6-54.2 partly, 0 does not work; the threshold between works and partly is a judgement). Also noted that the Visual column is a rubric score x100 (p. 18-19), and that the row averages cannot confirm the AutoResearch/General order within a frozen-row pair (swapping the two gives the same average). All values rechecked against Tables 1, 2 and 8"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Same 640 test tasks for all methods; all trainable methods trained from fresh Qwen3.5 students for 100 learner updates x 64 episodes, equal domain mixture, by reverse-KL OPD from the same frozen Qwen3.8-27B teacher (except CAMP-I, task rewards), so systems differ only in memory mechanism. Baselines: frozen students and four memory-learning methods. Ablations of interface and supervision. Repetitions: one training seed per method in main table; five seeds for CAMP-II-4B only. Human intervention: none",
+   "p": "7, 33",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CAMP-II-4B highest average (64.6% vs 54.2% CAMP-I and 51.8% best OPD baseline MemOPD w/ SFT); claimed 2.97x the gain of the strongest OPD baseline over the frozen student; 9B reaches 66.5%, closing 63% of the student-teacher gap. Replacing file interface by memory tools or compaction costs 16-17 points. Transfer: CAMP-II-4B +6.9 points over Qwen3.5-4B on both external suites. No significance tests",
+   "p": "1, 7, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods clearly on CAMG-II; seed robustness shown only for CAMP-II-4B (SD 0.5); memory interventions (intact/shuffled/removed) support causal role of memory content. Limitations of comparison not discussed beyond scale",
+   "p": "7-9, 33",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Students only up to Qwen3.5-9B and a single frozen teacher; whether gains persist at larger scales or with multi-teacher OPD is untested",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not SDD; relevant only as agent memory (persistent notes files) for long-horizon coding. Table 1 rows for frozen models jumbled by pdftotext (AutoResearch/General values printed as one pair per row); all rows rebuilt and checked against the printed row averages; the averages fix which pair belongs to which row but not the AutoResearch/General order within a pair (pdftotext column order followed: 4B 46.1/39.8, 9B 56.2/60.9, teacher 83.6/93.0); author to check in the PDF. Reporting inconsistency: '9B ... closing 63% of the student–teacher gap' (p. 7) does not follow from Table 1 ((66.5-54.2)/(76.0-54.2)=56%; measured from the 4B student 69%). Table 2 also jumbled; values mapped from text ('4B policy by 6.9 points on each'). Code: 'will be released with the camera-ready version'; project website given. LLM use statement: GPT-6.1 Sol (Codex) and DeepSeek-V4.1-Flash used to polish writing and write experiment code. No threats-to-validity section",
+   "p": "1, 6, 10-11, 26",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Frozen rows are now settled by the row averages (see Evaluation), so the 'check against PDF' note is replaced; added a reporting inconsistency the draft missed: the 63% gap-closing claim does not match Table 1 values"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft said the frozen rows were confirmed by the row averages, but swapping AutoResearch and General within a row leaves the average unchanged, so only the pair-to-row assignment is confirmed (p. 6)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question stated (can a teacher teach memory control through operations both models have a prior for) and contributions listed",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): environments and training configuration detailed in appendices, but code not yet released and judge details partial",
+   "p": "16-33",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Environments (App. A) and training configuration (Table 6) are described in detail, but the General/Visual judge model is not named and code is deferred to the camera-ready (p. 26). Partly is defensible; another reader could score Yes on the level of detail"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Environments (App. A) and training configuration (Table 6) are detailed, but the General/Visual judge model is not named and code is deferred to the camera-ready (p. 26). Partly defensible; Yes also arguable"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): student and teacher models named (Qwen3.5-4B/9B, Qwen3.8-27B); bash-only harness specified",
+   "p": "7, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): environments and task sources described; availability deferred to camera-ready",
+   "p": "4-5, 16-19, 26",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests, private graders and rubric verifiers per environment; external benchmarks",
+   "p": "7, 16-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): success metrics defined; no cost metric per task (only training compute)",
+   "p": "7, 31",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): frozen students and several baselines trained under the same teacher and budget",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): five seeds for CAMP-II-4B only; baselines single run; no statistical tests",
+   "p": "7, 33",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the tables; scale limitation stated",
+   "p": "7-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Conclusions mostly follow Tables 1-2 and the ablations, but the '63% of the student–teacher gap' claim does not match Table 1 (56%), and the intervention in Fig. 6 is described in causal terms ('is caused by the memory it wrote'). Yes is defensible; a stricter reader could score Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Conclusions mostly follow Tables 1-2 and ablations, but the '63% of the student-teacher gap' claim does not match Table 1 (56%, p. 7) and Fig. 6 is described causally. Yes defensible; a stricter reader could score Partly"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): two-sentence limitations paragraph",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): CAMP-II and CAMP-I are the authors' own methods; other baselines from other groups",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): compute stated (~250 GPU-hours, 8 GPUs, 27B teacher) but post-training models is beyond a typical development team; code not yet released",
+   "p": "26, 31",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Requirements are stated (about 250 GPU-hours on eight GPUs, a frozen 27B teacher served during training, p. 31), but whether post-training a model is 'within reach of a typical development team' is a judgement: Partly as drafted, No for a reader who treats model post-training as out of reach for the decision guide's audience"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Requirements stated (about 250 GPU-hours on eight GPUs, a frozen 27B teacher served during training, p. 31); whether post-training a model is within reach of a typical development team is a judgement: Partly as drafted, No for a stricter reader"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,46 +1,381 @@
-{"key": "rayyan-800485919", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Grabowski, H. (2026). The Spec Growth Engine: Spec-Anchored, Code-Coupled, Drift-Enforced Architecture for AI-Assisted Software Development. arXiv:2606.27045v2 [cs.SE], 9 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v2, 9 Oct 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Hochschule Offenburg (Germany)", "p": "1"},
-{"f": "Nature of the study", "v": "Conceptual (proposes the Spec Growth Engine framework, illustrated with a worked e-commerce example; no empirical evaluation; implementation described in a companion paper)", "p": "1, 10-11, 13"},
-{"f": "Approach(es): name and version", "v": "Spec Growth Engine (author's own; open-source implementation: engine, CLI, cockpit, Apache 2.0, github.com/grabow/spec-growth-engine); version Not stated. Kiro, Spec Kit, Tessl discussed only as related work", "p": "1, 11-13"},
-{"f": "Artefacts prescribed", "v": "One SPEC.md per architectural node (C4 levels system/container/component/code), each with a Contract (public interfaces, invariants, types, error behaviour, acceptance criteria) and a Design (internal approach, children, code ownership, constraints); one transversal ARCHITECTURE.md (Layer-1 invariants, principles, ADRs, security policies, naming); derived (not hand-written) index, dependency graph, drift report; Capability Registry (cap:<name> -> one provider); short front-matter headers in source files", "p": "5-9, 13"},
-{"f": "Phases of the flow", "v": "Two-layer growth: Layer 1 invariants specified up front; Layer 2 features as hardest-first vertical slices. Per feature: 1 Select story/target node (Planner proposal); 2 run growth rules (6 rules) to update minimal specs; 3 assemble context deterministically (Spine: root invariants + spine contracts + node spec + dependency contracts + own code); 4 Implement (code + same-commit spec delta); 5 Validate (drift check Intent Graph vs Evidence Graph); 6 Gate (HARD/SOFT/AUTO); 7 Update spec graph (index regenerated)", "p": "4-5, 9-10"},
-{"f": "Human review points", "v": "Human Architect approves outward-surface changes: HARD gate (root invariant change, new container boundary, breaking contract change) before merge; SOFT gate (new component, additive contract change) asynchronous review; AUTO gate no human (internal design, refactoring). Human reviews only contract-level lines of the agent's spec delta", "p": "6-8, 10"},
-{"f": "Parts exercised", "v": "Not run, document-based (worked example traced on paper)", "p": "10-11"},
-{"f": "SDD level", "v": "Spec-anchored (authors' wording: 'spec-anchored, code-coupled, drift-enforced'; code primary, spec verified; explicitly not spec-as-source); positions Kiro as spec-first, Spec Kit spec-first (aspires to anchored), Tessl anchored/as-source (Table 5, after Böckeler)", "p": "1-2, 11-12"},
-{"f": "Task type", "v": "N/A (no study run; worked example grows a new e-commerce checkout from Hello World)", "p": "10-11"},
-{"f": "Size", "v": "N/A", "p": "—"},
-{"f": "Domain", "v": "N/A (illustrative e-commerce checkout with payment and discount)", "p": "10-11"},
-{"f": "Team profile", "v": "N/A (roles defined: Human Architect, Planner Agent, Coding Agent, Engine)", "p": "6"},
-{"f": "Cost metrics", "v": "None measured (overhead discussed qualitatively: one SPEC.md per node; context savings claimed)", "p": "13"},
-{"f": "Functional quality metrics", "v": "None measured", "p": "—"},
-{"f": "Internal quality metrics", "v": "None measured (drift validator reports orphan code, undeclared dependencies, contract bypass, duplicate capabilities as mechanisms, not as study metrics)", "p": "7-9"},
-{"f": "Human effort metrics", "v": "None measured", "p": "—"},
-{"f": "Other outcome metrics", "v": "None measured", "p": "—"},
-{"f": "How metrics are collected", "v": "N/A", "p": "—"},
-{"f": "Evaluation (each configuration)", "v": "N/A (document-based, no configuration run)", "p": "—"},
-{"f": "Comparison: design", "v": "N/A (no empirical comparison); qualitative positioning against Kiro, Spec Kit, Tessl on Böckeler's maturity axis (Table 5)", "p": "11-12"},
-{"f": "Comparison: result", "v": "N/A. Qualitative: spec-first tools let the spec go stale (Kiro deletes specs; Spec Kit branches per change, ~8 files per spec, agents ignore instructions); spec-as-source (Tessl, MDA) suffers nondeterminism; the engine claims the middle ground with a blocking drift gate (relies on Böckeler's review)", "p": "11-12"},
-{"f": "Comparison: did the method work", "v": "N/A", "p": "—"},
-{"f": "Conclusions: limitations and gaps", "v": "Requires a static dependency graph derivable from source (imports, routes, events); highly dynamic systems (runtime DI, plugins) need explicit annotation of late-bound dependencies; governance gate overhead real for fast-moving teams (SOFT gate mitigates). No empirical evaluation reported (implementation in companion paper arXiv:2610.11725)", "p": "13"},
-{"f": "Notes", "v": "Context-degradation figures (Dumb Zone 40% fill heuristic, LongCodeBench 29%->3%) cited as motivation, flagged by the author as heuristic. Paper organisation mentions Sections 9-10 but skips 7-8 in the outline. Implementation and method documents available (Apache 2.0, GitHub link). No pre-registration. Programming language: N/A (language-agnostic, static import analysis)", "p": "2, 13"},
-{"f": "Q1", "v": "Yes (1): two failure modes (context explosion, silent drift) and the framework's aim stated", "p": "1-2"},
-{"f": "Q2", "v": "Yes (1): components, actors, growth rules, drift checks, gates and workflow specified in detail; implementation released", "p": "5-10, 13"},
-{"f": "Q3", "v": "N/A", "p": "—"},
-{"f": "Q4", "v": "N/A", "p": "—"},
-{"f": "Q5", "v": "N/A", "p": "—"},
-{"f": "Q6", "v": "N/A", "p": "—"},
-{"f": "Q7", "v": "N/A", "p": "—"},
-{"f": "Q8", "v": "N/A", "p": "—"},
-{"f": "Q9", "v": "Partly (0.5): conclusions summarise the design, but claims that it 'addresses' both failure modes and makes drift 'a structural impossibility' are not demonstrated beyond a worked example", "p": "8, 13"},
-{"f": "Q10", "v": "Partly (0.5): short limitations paragraph (static dependency graph, gate overhead); no threats to validity, no evaluation limitations", "p": "13"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): academic affiliation; no tool evaluated (the engine is the author's own but is not evaluated)", "p": "1"},
-{"f": "Q13", "v": "Yes (1): lightweight (one SPEC.md per node, one ARCHITECTURE.md), open-source engine/CLI available; constraint stated (static dependency graph); no special compute. Agent/model requirements not stated", "p": "13"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800485919",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Grabowski, H. (2026). The Spec Growth Engine: Spec-Anchored, Code-Coupled, Drift-Enforced Architecture for AI-Assisted Software Development. arXiv:2606.27045v2 [cs.SE], 9 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 9 Oct 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.27045v2; no published venue",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Hochschule Offenburg (Germany)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach — proposes the Spec Growth Engine framework, illustrated with a worked e-commerce example; no empirical evaluation; implementation described in a companion paper",
+   "p": "1, 10-11, 13",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Round 0 filed it as 'Conceptual (proposes the Spec Growth Engine framework...)'; since the 2026-11-23 change a study whose contribution is its own approach is 'Proposes an approach'. Put into the required '<nature> — <detail>' form"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Spec Growth Engine (author's own; open-source implementation: engine, CLI, cockpit, Apache 2.0, github.com/grabow/spec-growth-engine); version Not stated. Kiro, Spec Kit, Tessl discussed only as related work",
+   "p": "1, 11-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One SPEC.md per architectural node (C4 levels system/container/component/code), each with a Contract (public interfaces, invariants, types, error behaviour, acceptance criteria) and a Design (internal approach, children, code ownership, constraints); one transversal ARCHITECTURE.md (Layer-1 invariants, principles, ADRs, security policies, naming); derived (not hand-written) index, dependency graph, drift report; Capability Registry (cap:<name> -> one provider); short front-matter headers in source files",
+   "p": "5-9, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Two-layer growth: Layer 1 invariants specified up front; Layer 2 features as hardest-first vertical slices. Per feature: 1 Select story/target node (Planner proposal); 2 run growth rules (6 rules) to update minimal specs; 3 assemble context deterministically (Spine: root invariants + spine contracts + node spec + dependency contracts + own code); 4 Implement (code + same-commit spec delta); 5 Validate (drift check Intent Graph vs Evidence Graph); 6 Gate (HARD/SOFT/AUTO); 7 Update spec graph (index regenerated)",
+   "p": "4-5, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Human Architect approves outward-surface changes: HARD gate (root invariant change, new container boundary, breaking contract change) before merge; SOFT gate (new component, additive contract change) asynchronous review; AUTO gate no human (internal design, refactoring). Human reviews only contract-level lines of the agent's spec delta",
+   "p": "6-8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (worked example traced on paper)",
+   "p": "10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-anchored (authors' wording: 'spec-anchored, code-coupled, drift-enforced'; code primary, spec verified; explicitly not spec-as-source); positions Kiro as spec-first, Spec Kit spec-first (aspires to anchored), Tessl anchored/as-source (Table 5, after Böckeler)",
+   "p": "1-2, 11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no study run; worked example grows a new e-commerce checkout from Hello World)",
+   "p": "10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "N/A (illustrative e-commerce checkout with payment and discount)",
+   "p": "10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (roles defined: Human Architect, Planner Agent, Coding Agent, Engine)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (overhead discussed qualitatively: one SPEC.md per node; context savings claimed)",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured (drift validator reports orphan code, undeclared dependencies, contract bypass, duplicate capabilities as mechanisms, not as study metrics)",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based, no configuration run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no empirical comparison); qualitative positioning against Kiro, Spec Kit, Tessl on Böckeler's maturity axis (Table 5)",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Qualitative: spec-first tools let the spec go stale (Kiro deletes specs; Spec Kit branches per change, ~8 files per spec, agents ignore instructions); spec-as-source (Tessl, MDA) suffers nondeterminism; the engine claims the middle ground with a blocking drift gate (relies on Böckeler's review)",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Requires a static dependency graph derivable from source (imports, routes, events); highly dynamic systems (runtime DI, plugins) need explicit annotation of late-bound dependencies; governance gate overhead real for fast-moving teams (SOFT gate mitigates). No empirical evaluation reported (implementation in companion paper arXiv:2610.11725)",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: the introduction lists Tessl among spec-first frameworks ('Spec-first frameworks (e.g. AWS Kiro [1], Tessl)', p. 1), while Table 5 and the related work place Tessl at spec-anchored / spec-as-source (p. 12); paper organisation mentions Sections 9-10 but skips 7-8 in the outline. Context-degradation figures (Dumb Zone 40% fill heuristic, LongCodeBench 29%->3%) cited as motivation, flagged by the author as heuristic. Implementation and method documents available (Apache 2.0, GitHub link). No pre-registration. Programming language: N/A (language-agnostic, static import analysis)",
+   "p": "1-2, 12-13",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missed reporting inconsistency added: Tessl is called spec-first in the introduction (p. 1) but anchored/as-source in Table 5 (p. 12)"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two failure modes (context explosion, silent drift) and the framework's aim stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): components, actors, growth rules, drift checks, gates and workflow specified in detail; implementation released",
+   "p": "5-10, 13",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The approach itself is specified in replicable detail and released, but the paper describes no study method (how the framework was derived or how the worked example was produced; Table 1 only maps building blocks to origins). Another reader could score Partly, as Q2 was read for other proposal papers (e.g. rayyan-800485913, No: no method for deriving the framework)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The approach is specified in replicable detail and released, but no study method is described (how the framework was derived, how the worked example was produced). Partly or No is defensible; rayyan-800485913 scored No for the lack of a derivation method"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The approach is specified in replicable detail and the implementation is released, but no study method is described (how the framework was derived, how the worked example was produced). Partly or No is defensible; rayyan-800485913 scored No for the lack of a derivation method, but there the framework is also far less specified"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions summarise the design, but claims that it 'addresses' both failure modes and makes drift 'a structural impossibility' are not demonstrated beyond a worked example",
+   "p": "8, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph (static dependency graph, gate overhead); no threats to validity, no evaluation limitations",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): the author created the Spec Growth Engine (its vendor under §5) and the only assessment of it is his own worked example and positioning against Kiro, Spec Kit and Tessl (Table 5); academic affiliation, no commercial tie stated",
+   "p": "1, 10-12",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The author created the engine (counts as its vendor under §5) and the worked example and Table 5 positioning argue for it over Kiro, Spec Kit and Tessl. Whether an illustrative worked example counts as the study 'evaluating' the approach (which would make this No) is a judgement for the author"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The author created the engine (its vendor under §5) and argues for it over Kiro, Spec Kit and Tessl through a worked example and Table 5. Whether that counts as evaluating it (No) is a judgement; rayyan-800485913 got No in an analogous case, so the two should be aligned"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Round 2 gave Yes (nothing evaluated empirically) and flagged the need to align with rayyan-800485913 (No). Aligned here to No, since the claims of merit ('addresses' both failure modes, drift a 'structural impossibility') come only from the approach's creator. If 'evaluated' is read as empirical evaluation only, both records become Yes"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): lightweight (one SPEC.md per node, one ARCHITECTURE.md), open-source engine/CLI available; constraint stated (static dependency graph); no special compute implied. But agent/model, compute and cost requirements are not stated",
+   "p": "13",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Round 0 gave Yes while noting that agent/model requirements are not stated; Q13 asks for requirements (tools, compute, cost) to be stated, and missing information is not credited (§5), so Partly fits better and matches how Q13 was scored for similar papers. Feasibility for a typical team is otherwise plausible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Lightweight and open source, with the static-dependency-graph constraint stated; agent/model, compute and cost requirements are not stated, so Partly. Yes is defensible if the released tooling is taken as stating the requirements"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Lightweight and open source, with the static-dependency-graph constraint stated; agent/model, compute and cost requirements are not stated, so Partly. Yes is defensible if the released tooling is taken as stating the requirements"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

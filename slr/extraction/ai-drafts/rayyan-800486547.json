@@ -1,46 +1,344 @@
-{"key": "rayyan-800486547", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Vallecillos-Ruiz, F., Bouzenia, I., Pradel, M., Moonen, L. (2026). The Hidden Costs of Forgetting: A Study of Trajectory Deletion in Software Engineering Agents. arXiv:2610.35496v1 [cs.SE], 26 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv), venue not stated", "p": "1"},
-{"f": "Author affiliation", "v": "Simula Research Laboratory, Norway (Vallecillos-Ruiz, Moonen); CISPA Helmholtz Center for Information Security, Germany (Bouzenia, Pradel)", "p": "1"},
-{"f": "Nature of the study", "v": "Compares (42 trajectory-deletion configurations against an uncompressed baseline on two agents, 9,400 runs); secondary: evaluates (agent behaviour and cost of trajectory reduction)", "p": "1-3"},
-{"f": "Approach(es): name and version", "v": "Random trajectory deletion (online trajectory reduction / context management), built on AgentDiet's random baseline; 42 configurations varying scope (reasoning, tool output, both), granularity (turn-level, token-level), amount (25/50/75/100% turn; 25/50/75% token) and timing (two-turn delay vs immediate). Version: N/A. Not an SDD approach", "p": "2-3"},
-{"f": "Artefacts prescribed", "v": "None (no specification or context file); the artefact manipulated is the agent's trajectory (reasoning text, tool calls, tool outputs of past turns), replaced by a one-line deletion note or token fragments", "p": "3"},
-{"f": "Phases of the flow", "v": "Not stated as a flow (per turn: agent reasons and calls tools -> tool executes -> eligible old turns rewritten per configuration before next model call)", "p": "3"},
-{"f": "Human review points", "v": "None (autonomous runs)", "p": "3"},
-{"f": "Parts exercised", "v": "N/A (not an SDD approach; context-management mechanism run in full inside two agents)", "p": "3"},
-{"f": "SDD level", "v": "Not classifiable (no specification; trajectory/context reduction)", "p": "-"},
-{"f": "Task type", "v": "Existing code bases: SWE-bench Verified GitHub issues (repository-level bug fixing)", "p": "3"},
-{"f": "Size", "v": "100-task fixed subset of SWE-bench Verified (AgentDiet's subset); 9,400 runs (4,700 per agent); 200-turn budget; repository sizes not stated", "p": "1, 3, 4"},
-{"f": "Domain", "v": "Open-source Python repositories (SWE-bench Verified; e.g. Django in Fig. 2)", "p": "3"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "-"},
-{"f": "Cost metrics", "v": "Run length (median turns, change vs baseline); capped runs; token counts; estimated cost ratio vs baseline under flat pricing and caching-aware pricing (input : cached : output = 1 : 0.1 : 5; cached-prefix model ignores cache-write premiums, a lower bound); cost decomposition (cached input, new input, re-billed input, output). No metered money (self-hosted)", "p": "3-4, 8-9"},
-{"f": "Functional quality metrics", "v": "Tasks solved of 100 (patch passes hidden SWE-bench test suite; failing patch, no patch or context-length error = not solved)", "p": "3"},
-{"f": "Internal quality metrics", "v": "Not measured", "p": "-"},
-{"f": "Human effort metrics", "v": "Not measured", "p": "-"},
-{"f": "Other outcome metrics", "v": "Loops (identical tool call >=10 times in a row); runs without patch; re-fetch rate (reads where >=80% of distinct lines appeared in an earlier read, per read, as ratio to baseline); re-fetch of retained vs deleted outputs; reasoning length (words per turn); tool calls per turn; how far back agents reach (turns)", "p": "4, 7-8"},
-{"f": "How metrics are collected", "v": "Automatic: hidden tests, full prompt/response logs, token counts from logs, rule-based tool-call labeler (manually verified on 10 logs: 851/855 labels correct, 99.5%), cost computed from logs under two pricing models", "p": "3-4"},
-{"f": "Evaluation (each configuration)", "v": "Criterion: tasks solved vs mean of 5 uncompressed runs (paired bootstrap 95% CI); cost ratios vs baseline. Model: DeepSeek-V4-Flash (self-hosted vLLM, temperature 0) for all. 84 evaluations (42 configs x 2 agents); grouped here, full values in Tables I-II. Table I rebuilt from jumbled pdftotext text, checked against text. - Baseline uncompressed + Mini-SWE-agent: 72.6 solved (71-76), 31.5 median turns; re-fetch 19/100 reads. - Baseline + Trae agent: 74.6 (74-76), 42.5 turns; re-fetch 9/100. - Delayed reasoning deletion (14 evals): solved -5 to +4, no significant loss; Mini 69-75, Trae 70-79; turns Mini -11% to +11%, Trae -15% to -3%; flat cost 0.74-1.05, caching cost 1.05-1.48. Quality works; cost partly (works flat, does not work caching-aware). - Delayed tool-output deletion (14 evals): Mini 69-73, Trae 67-74 (one significant loss: Trae token 75%, 67); turns +3% to +73%, 21 of 28 tool-output/both evals significantly longer; re-fetch up to 4.6x (Trae turn 100%); caching cost 1.03-1.70. Quality works; cost does not work. - Delayed both-scope deletion (14 evals): Mini 59-74, Trae 43-77; significant losses Mini turn 100% (59), Mini token 50% (66), Trae turn 100% (43), Trae token 75% (60); re-fetch up to 7.5x; caching cost up to 4.94 (Trae token 75%). Partly (<=75% turn-level) / does not work (100%, token 75%); cost does not work. - Immediate reasoning deletion (14 evals): 13 of 14 no significant loss; turns up to +105% (Mini turn 100%); no eval cheaper under either pricing; up to 4x cost (Mini turn 100%). Quality works; cost does not work. - Immediate tool-output deletion (14 evals): Mini 14-75, Trae 0-73 (Trae 0 at turn 100%, 5 at token 75%); runs up to cap. Does not work (except turn-level <=50% partly); cost does not work. - Immediate both-scope deletion (14 evals): Mini 2-72, Trae 0-74. Does not work beyond turn-level 25-50%; cost does not work. Overall: 19 of 42 immediate evaluations lose tasks significantly vs 5 of 42 delayed; caching-aware cost ratio >1 in all 42 delayed evaluations (26 significant)", "p": "3-9"},
-{"f": "Comparison: design", "v": "Tasks: 100 SWE-bench Verified tasks (AgentDiet subset). Configurations: 42 deletion configurations x 2 agents (Mini-SWE-agent: single shell tool; Trae agent: file viewer, editor, shell). Baseline: 5 uncompressed runs per agent. Held constant: model DeepSeek-V4-Flash, temperature 0, high reasoning effort, ~262k context, 8,192 output tokens per call, default agent prompts and tools, 200-turn cap, Apptainer containers. Acceptance tests: hidden human-validated SWE-bench tests. Repetitions: 1 run per configuration/agent/task with one random deletion draw; 5 for baseline. Human intervention: none. Statistics: paired bootstrap (10,000 resamples) CIs; Holm correction as sensitivity analysis", "p": "3-4, 9"},
-{"f": "Comparison: result", "v": "Delayed deletion: 37 of 42 evaluations no significant loss in tasks solved; runs significantly longer in 21 (all deleting tool output). Immediate: 19 of 42 significant losses, 34 longer runs; immediate fewer tasks than delayed in 16 of 42 paired comparisons. Granularity: token-level longer runs than turn-level in 10 of 12 tool-output pairs. Re-fetch: tool-output deletion raises re-fetch up to 7.5x (delayed) and 10.6x (immediate); deleted outputs re-fetched 1.5-5x as often as kept (significant in 23 of 24). Cost (delayed): flat pricing cheaper in 26 of 42 (6 significant, 3 significantly more expensive); caching-aware none cheaper, 26 significantly more expensive; tokens billed at full input price 1.25 to ~10x baseline. Comparison with AgentDiet on Trae: 15 and 32 fewer tasks vs AgentDiet's 1 and 7 (design differences)", "p": "1-2, 4-9"},
-{"f": "Comparison: did the method work", "v": "Distinguished timing, scope and granularity effects on effectiveness, run length, re-fetching and cost. Repeatability: temperature 0 but non-deterministic; single run and single deletion draw per configuration; CIs cover task sampling only; replication package with all runs. Limitations stated: multiple comparisons (Holm sensitivity: fewer significant, trends hold); scope confounded with number of tokens removed; data leakage possible; tests are a correctness proxy (patches not manually validated); caching cost model simplified (no cache-write premium, minimum prefix, expiry); re-fetch line-overlap measure (thresholds 50%/90% checked)", "p": "9-10"},
-{"f": "Conclusions: limitations and gaps", "v": "One open-weight model, two agents, 100-task subset (9,400 runs, >2,000 GPU hours); random deletion does not represent learned selection or summarization; infrequent rewriting not evaluated; settings (default prompts, 200-turn cap, two-turn delay) fixed. Implications: evaluate trajectory reduction on tasks solved, execution length, retrieval behaviour and caching-aware cost; token counts and flat pricing overstate savings. Future: longer retention delays, selection by observed reuse, less frequent rewriting, cost per task solved, memory management", "p": "2, 9-11"},
-{"f": "Notes", "v": "Not about SDD or specifications (context/trajectory management). Table I and Table II columns jumbled by pdftotext; values rebuilt from column order (delayed then immediate per scope block, turn 25/50/75/100 then token 25/50/75) and checked against text values; bold significance markers lost in extraction (reviewer to check in PDF). Replication package (all runs, deleted-turn text, analysis code, classifier): https://figshare.com/s/72fce511c3ebe14d9dde. No pre-registration stated. Language: Python (SWE-bench). Compute: NVIDIA GH200 cluster, vLLM, no API charges", "p": "4-5, 7, 10-11"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ3 stated", "p": "1-2"},
-{"f": "Q2", "v": "Yes (1): configurations, metrics, statistics, implementation settings described; replication package", "p": "3-4"},
-{"f": "Q3", "v": "Partly (0.5): model (DeepSeek-V4-Flash) and inference settings given; Mini-SWE-agent and Trae agent versions not stated", "p": "3-4"},
-{"f": "Q4", "v": "Yes (1): fixed 100-task SWE-bench Verified subset from AgentDiet; package includes all runs", "p": "3, 11"},
-{"f": "Q5", "v": "Yes (1): hidden human-validated SWE-bench test suites", "p": "3"},
-{"f": "Q6", "v": "Yes (1): tasks solved, run length, re-fetch rate, cost under two pricing models, all defined", "p": "3-4"},
-{"f": "Q7", "v": "Yes (1): uncompressed baseline per agent, same tasks and settings", "p": "3-4"},
-{"f": "Q8", "v": "Partly (0.5): 5 baseline runs and paired bootstrap CIs with Holm sensitivity, but one run and one random deletion draw per configuration", "p": "4, 9"},
-{"f": "Q9", "v": "Yes (1): mixed results reported (effectiveness preserved but cost higher); interpretations hedged", "p": "5-10"},
-{"f": "Q10", "v": "Yes (1): Section VII threats to validity (internal, external, construct)", "p": "9-10"},
-{"f": "Q11", "v": "No (0): arXiv preprint, venue not stated", "p": "1"},
-{"f": "Q12", "v": "Yes (1): research institutes; no vendor relation to Trae agent, Mini-SWE-agent or DeepSeek stated; deletion configurations are study conditions, not a product", "p": "1, 3"},
-{"f": "Q13", "v": "N/A", "p": "-"},
-{"f": "DARE1", "v": "N/A", "p": "-"},
-{"f": "DARE2", "v": "N/A", "p": "-"},
-{"f": "DARE3", "v": "N/A", "p": "-"},
-{"f": "DARE4", "v": "N/A", "p": "-"}
-]}
+{
+ "key": "rayyan-800486547",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Vallecillos-Ruiz, F., Bouzenia, I., Pradel, M., Moonen, L. (2026). The Hidden Costs of Forgetting: A Study of Trajectory Deletion in Software Engineering Agents. arXiv:2610.35496v1 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.35496v1 [cs.SE], 26 Oct 2026; no published venue (arXiv record has no journal_ref; not in ACM/IEEE/WoS exports)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint). Checked slr/exports: only the arXiv export lists it, with no journal_ref"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Simula Research Laboratory, Norway (Vallecillos-Ruiz, Moonen); CISPA Helmholtz Center for Information Security, Germany (Bouzenia, Pradel)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — 42 random trajectory-deletion configurations (scope, granularity, amount, timing) against an uncompressed baseline on two agents (Mini-SWE-agent, Trae agent), 9,400 runs; also analyses agent behaviour (re-fetching) and estimated cost",
+   "p": "1-3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>'; natures unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Random trajectory deletion (online trajectory reduction / context management), built on AgentDiet's random baseline; 42 configurations varying scope (reasoning, tool output, both), granularity (turn-level, token-level), amount (25/50/75/100% turn; 25/50/75% token) and timing (two-turn delay vs immediate). Version: N/A. Not an SDD approach",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None (no specification or context file); the artefact manipulated is the agent's trajectory (reasoning text, tool calls, tool outputs of past turns), replaced by a one-line deletion note or token fragments",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a flow (per turn: agent reasons and calls tools -> tool executes -> eligible old turns rewritten per configuration before next model call)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous runs)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (not an SDD approach; context-management mechanism run in full inside two agents)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; trajectory/context reduction)",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-bench Verified GitHub issues (repository-level bug fixing)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "100-task fixed subset of SWE-bench Verified (AgentDiet's subset); 9,400 runs (4,700 per agent); 200-turn budget; repository sizes not stated",
+   "p": "1, 3, 4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (SWE-bench Verified; e.g. Django in Fig. 2)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Run length (median turns, change vs baseline); capped runs; token counts; estimated cost ratio vs baseline under flat pricing and caching-aware pricing (input : cached : output = 1 : 0.1 : 5; cached-prefix model ignores cache-write premiums, a lower bound); cost decomposition (cached input, new input, re-billed input, output). No metered money (self-hosted)",
+   "p": "3-4, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Tasks solved of 100 (patch passes hidden SWE-bench test suite; failing patch, no patch or context-length error = not solved)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Loops (identical tool call >=10 times in a row); runs without patch; re-fetch rate (reads where >=80% of distinct lines appeared in an earlier read, per read, as ratio to baseline); re-fetch of retained vs deleted outputs; reasoning length (words per turn); tool calls per turn; how far back agents reach (turns)",
+   "p": "4, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests, full prompt/response logs, token counts from logs, rule-based tool-call labeler (manually verified on 10 logs: 851/855 labels correct, 99.5%), cost computed from logs under two pricing models",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: tasks solved vs mean of 5 uncompressed runs (paired bootstrap 95% CI); cost ratios vs baseline. Model: DeepSeek-V4-Flash (self-hosted vLLM, temperature 0) for all. 84 evaluations (42 configs x 2 agents); grouped here, full values in Tables I-II. Table I rebuilt from jumbled pdftotext text, checked against text. - Baseline uncompressed + Mini-SWE-agent: 72.6 solved (71-76), 31.5 median turns; re-fetch 19/100 reads. Quality works; cost partly (no absolute token or money figure, only cost shares: cached 50%, new 14%, output 36%). - Baseline + Trae agent: 74.6 (74-76), 42.5 turns; re-fetch 9/100. Quality works; cost partly (no absolute figure; cached 52%, new 14%, output 34%). - Delayed reasoning deletion (14 evals): solved -5 to +4, no significant loss; Mini 69-75, Trae 70-79; turns Mini -11% to +11%, Trae -15% to -3%; flat cost 0.74-1.05, caching cost 1.05-1.48. Quality works; cost partly (works flat, does not work caching-aware). - Delayed tool-output deletion (14 evals): Mini 69-73, Trae 67-74 (one significant loss, 8 tasks: Trae token 75%, 67); turns +3% to +73%, 21 of 28 tool-output/both evals significantly longer; re-fetch up to 4.6x (Trae turn 100%); caching cost 1.03-1.70. Quality works; cost does not work. - Delayed both-scope deletion (14 evals): Mini 59-74, Trae 43-77; significant losses Mini turn 100% (59), Mini token 50% (66), Trae turn 100% (43), Trae token 75% (60); re-fetch up to 7.5x; caching cost up to 4.94 (Trae token 75%). Partly (<=75% turn-level) / does not work (100%, token 75%); cost does not work. - Immediate reasoning deletion (14 evals): 13 of 14 no significant loss; turns up to +105% (Mini turn 100%); no eval cheaper under either pricing; up to 4x cost (Mini turn 100%). Quality works; cost does not work. - Immediate tool-output deletion (14 evals): Mini 14-75, Trae 0-73 (Trae 0 at turn 100%, 5 at token 75%); runs up to cap. Does not work (except turn-level <=50% partly); cost does not work. - Immediate both-scope deletion (14 evals): Mini 2-72, Trae 0-74. Does not work beyond turn-level 25-50%; cost does not work. Overall: 19 of 42 immediate evaluations lose tasks significantly vs 5 of 42 delayed; caching-aware cost ratio >1 in all 42 delayed evaluations (26 significant)",
+   "p": "3-9",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The two baseline entries had no quality or cost verdict (protocol §6: the baseline gets its own verdicts). Added: quality works (72.6 and 74.6 of 100 solved); cost partly is a judgement, since the paper gives no absolute cost, only ratios to the baseline and cost shares (p. 8). Also noted the size of the one significant delayed tool-output loss (8 tasks, p. 4)"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 SWE-bench Verified tasks (AgentDiet subset). Configurations: 42 deletion configurations x 2 agents (Mini-SWE-agent: single shell tool; Trae agent: file viewer, editor, shell). Baseline: 5 uncompressed runs per agent. Held constant: model DeepSeek-V4-Flash, temperature 0, high reasoning effort, ~262k context, 8,192 output tokens per call, default agent prompts and tools, 200-turn cap, Apptainer containers. Acceptance tests: hidden human-validated SWE-bench tests. Repetitions: 1 run per configuration/agent/task with one random deletion draw; 5 for baseline. Human intervention: none. Statistics: paired bootstrap (10,000 resamples) CIs; Holm correction as sensitivity analysis",
+   "p": "3-4, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Delayed deletion: 37 of 42 evaluations no significant loss in tasks solved; runs significantly longer in 21 (all deleting tool output). Immediate: 19 of 42 significant losses, 34 longer runs; immediate fewer tasks than delayed in 16 of 42 paired comparisons. Granularity: token-level longer runs than turn-level in 10 of 12 tool-output pairs. Re-fetch: tool-output deletion raises re-fetch up to 7.5x (delayed) and 10.6x (immediate); deleted outputs re-fetched 1.5-5x as often as kept (significant in 23 of 24). Cost (delayed): flat pricing cheaper in 26 of 42 (6 significant, 3 significantly more expensive); caching-aware none cheaper, 26 significantly more expensive; tokens billed at full input price 1.25 to ~10x baseline. Comparison with AgentDiet on Trae: 15 and 32 fewer tasks vs AgentDiet's 1 and 7 (design differences)",
+   "p": "1-2, 4-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished timing, scope and granularity effects on effectiveness, run length, re-fetching and cost. Repeatability: temperature 0 but non-deterministic; single run and single deletion draw per configuration; CIs cover task sampling only; replication package with all runs. Limitations stated: multiple comparisons (Holm sensitivity: fewer significant, trends hold); scope confounded with number of tokens removed; data leakage possible; tests are a correctness proxy (patches not manually validated); caching cost model simplified (no cache-write premium, minimum prefix, expiry); re-fetch line-overlap measure (thresholds 50%/90% checked)",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "One open-weight model, two agents, 100-task subset (9,400 runs, >2,000 GPU hours); random deletion does not represent learned selection or summarization; infrequent rewriting not evaluated; settings (default prompts, 200-turn cap, two-turn delay) fixed. Implications: evaluate trajectory reduction on tasks solved, execution length, retrieval behaviour and caching-aware cost; token counts and flat pricing overstate savings. Future: longer retention delays, selection by observed reuse, less frequent rewriting, cost per task solved, memory management",
+   "p": "2, 9-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD or specifications (context/trajectory management). Table I and Table II columns jumbled by pdftotext; values rebuilt from column order (delayed then immediate per scope block, turn 25/50/75/100 then token 25/50/75) and checked against text values; bold significance markers lost in extraction (reviewer to check in PDF). Replication package (all runs, deleted-turn text, analysis code, classifier): https://figshare.com/s/72fce511c3ebe14d9dde. No pre-registration stated. Language: Python (SWE-bench). Compute: NVIDIA GH200 cluster, vLLM, no API charges",
+   "p": "4-5, 7, 10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): configurations, metrics, statistics, implementation settings described; replication package",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model (DeepSeek-V4-Flash) and inference settings given; Mini-SWE-agent and Trae agent versions not stated",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): fixed 100-task SWE-bench Verified subset from AgentDiet; package includes all runs",
+   "p": "3, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden human-validated SWE-bench test suites",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): tasks solved, run length, re-fetch rate, cost under two pricing models, all defined",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): uncompressed baseline per agent, same tasks and settings",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 5 baseline runs and paired bootstrap CIs with Holm sensitivity, but one run and one random deletion draw per configuration",
+   "p": "4, 9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: 5 baseline runs and paired bootstrap CIs (10,000 resamples) with Holm sensitivity analysis, but each deletion configuration is run once with one random deletion draw and the CIs cover task sampling only (p. 9). Partly is defensible; another reader could score Yes given the statistical analysis"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: 5 baseline runs and paired bootstrap CIs with Holm sensitivity, but one run and one deletion draw per configuration, and CIs cover task sampling only (p. 9). Partly defensible; Yes also arguable"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): mixed results reported (effectiveness preserved but cost higher); interpretations hedged",
+   "p": "5-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VII threats to validity (internal, external, construct)",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, venue not stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): research institutes; no vendor relation to Trae agent, Mini-SWE-agent or DeepSeek stated; deletion configurations are study conditions, not a product",
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

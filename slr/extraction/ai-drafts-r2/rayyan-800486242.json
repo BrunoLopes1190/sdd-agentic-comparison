@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486242",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "De La Cruz, E. (2026). From Code-Centric to Intent-Centric Software Engineering: A Reflexive Thematic Analysis of Generative AI, Agentic Systems, and Engineering Accountability. arXiv:2605.11027v1 [cs.SE], 10 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; manuscript prepared for journal submission (competing-interest statement 'should be updated before submission'); no venue stated",
+   "p": "1, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: University of the Cumberlands, United States (single author)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual — qualitative public-discourse and document analysis (reflexive thematic analysis, IPA-informed) of peer-reviewed literature, preprints/benchmarks and public thought-leadership artefacts (talks, interviews, X posts); produces themes, a dichotomy matrix, a maturity pathway and a research agenda. Not a review: no search sources or procedure described",
+   "p": "1-3, 6-7",
+   "verdict": "uncertain",
+   "why": "Judgement: a qualitative document/discourse analysis with inclusion/exclusion criteria (p. 3-4) but no sources searched, search procedure or dates, so not a review under the 2026-11-23 rule; a reader could file it as an empirical qualitative study rather than conceptual. Q3-Q8 stay N/A either way (no agent, model or tasks)"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "N/A: no SDD approach or tool studied; general 'intent-centric software engineering' paradigm ('prompt as specification' appears only as a code)",
+   "p": "2, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed. Recommends machine-readable context for agents: decision records, dependency maps, interface contracts, threat models, non-functional requirements; 'requirements and architecture decisions become machine-readable context' (Stage 4)",
+   "p": "18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no workflow; generic agent loop 'plan, retrieve context, edit files, run commands, observe test results, repair errors, prepare a pull request' described in Theme 2)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not specified as a flow. Argues for review gates, approval workflows and humans as 'accountable operators' deciding acceptance of generated artefacts",
+   "p": "12, 15-16, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no tasks)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "N/A. Corpus size not stated; theme support counts 7-25 artefacts per theme (Table 5)",
+   "p": "14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; public figures such as Karpathy, Ng, Ozkaya, Willison, Dohmke, Cherny analysed as cases)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None (qualitative themes; source-support counts per theme, explicitly 'not statistical weight')",
+   "p": "13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual qualitative coding by the single author: semantic and latent coding, idiographic case memos, recursive theme development, triangulation with peer-reviewed literature, 'structured adversarial audit'; no inter-rater reliability by design",
+   "p": "4, 9, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison of approaches)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Findings: eight themes (natural language as programming interface; agentic workflow over single prompt; humans as architects/verifiers/accountable operators; democratisation vs professionalisation; reasoning/autonomy contested; safety/governance/provenance debt; convergence with AI systems engineering; essential complexity and technical debt persist); core dichotomy acceleration vs accountability; 5-stage maturity pathway",
+   "p": "12-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Not a participant interview study; themes are propositions to be tested. Public discourse is performative/strategic, over-represents prominent voices and under-represents ordinary engineers; X/YouTube sources unstable; maturity pathway is a projection, not a prediction; rapid tool change; tool heterogeneity; mixed productivity evidence. Research agenda: long-term technical debt of AI code, review practices, repository structures for safe agentic development, junior learning, governance models, benchmarks covering architecture/security/maintainability",
+   "p": "11, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Corpus size, search procedure and dates of collection not reported. Supplemental package (corpus register, codebook, coding matrix, etc.) 'prepared for' Zenodo/GitHub release, no DOI or URL given. Generative AI used for consistency and writing support. No pre-registration. Not specific to SDD; mentions agentic tools (Claude Code, Copilot coding agent, Codex) only as public product artefacts. Programming language: N/A",
+   "p": "8, 20-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): workflow, inclusion/exclusion criteria and coding framework described; corpus size, search procedure and the corpus itself not available",
+   "p": "3-4, 7-10, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): themes framed as propositions, but abstract states 'the analysis shows' and claims such as bounded autonomy preserving quality are not supported by evidence in the paper",
+   "p": "1, 13, 20",
+   "verdict": "uncertain",
+   "why": "Judgement: themes are framed as 'propositions' and limitations are stated (could be Yes), but the abstract says 'the analysis shows' and that bounded autonomy 'can preserve quality', which the paper does not show (Partly)"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): §6.11 methodological limitations and §12 threats to validity",
+   "p": "11, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no tool evaluated; no competing interests declared",
+   "p": "21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: proposes no implementable approach (maturity pathway is an analytic framing)",
+   "p": "—",
+   "verdict": "uncertain",
+   "why": "Protocol §5 table applies Q13 to conceptual studies, the draft-verify rule only to studies that propose an approach. The paper proposes a maturity pathway as a 'diagnostic and research framing tool' (p. 18), not an implementable approach, so N/A; if Q13 is applied to all conceptual studies, the answer is No (0): no requirements stated"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

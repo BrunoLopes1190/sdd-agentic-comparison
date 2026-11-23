@@ -1,46 +1,359 @@
-{"key": "rayyan-800486360", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Ying, S., Cao, X., Ma, Y., Dong, Y., Chen, W., Song, B., Zhu, L. (2026). Alipay-PIBench: A Realistic Payment Integration Benchmark for Coding Agents. arXiv:2607.14573v4 [cs.AI], 13 Aug 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v4, 13 Aug 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Ant Group (all authors; Alipay)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an evaluation method (repository-level payment-integration benchmark with rubric-derived evaluation); secondary: compares (paired without-skill vs with-skill conditions for the vendor's alipay-payment-integration skill across six models)", "p": "1-3"},
-{"f": "Approach(es): name and version", "v": "alipay-payment-integration skill (official Alipay agent skill: payment-product guidance, integration procedures, interface explanations, SDK and sandbox guidance, code examples, pitfalls; version Not stated) vs without-skill baseline (task instruction only)", "p": "2-3, 8"},
-{"f": "Artefacts prescribed", "v": "Skill (reusable integration guidance, not task-specific). Benchmark side: per task a developer-facing natural-language instruction (business objective, repository context, payment behavior, constraints, interfaces) and scenario-specific rubrics; no spec artefact produced by the agent", "p": "6, 8"},
-{"f": "Phases of the flow", "v": "Not stated (agent receives repository + instruction, with or without the skill, and modifies the repository in one trial; no spec/plan/tasks phases)", "p": "5, 8, 10"},
-{"f": "Human review points", "v": "None during trials (autonomous); rubrics, mocks and LLM criteria manually reviewed by the authors during benchmark construction", "p": "7-8"},
-{"f": "Parts exercised", "v": "Single artefact (a domain skill loaded into Claude Code)", "p": "8"},
-{"f": "SDD level", "v": "Not classifiable (domain skill; authors call rubrics 'the source specification for evaluation', which concerns the benchmark, not the agent workflow)", "p": "7"},
-{"f": "Task type", "v": "Existing code base: integrating Alipay payment products into existing business repositories (Basic: complete payment loop; Advanced: risk-aware hardening on a snapshot that already has the core integration)", "p": "5-6"},
-{"f": "Size", "v": "9 product-specific projects x 2 scenarios = 18 task instances; 13-41 rubric items per scenario (Table 1); repositories are open-source business apps (sizes Not stated)", "p": "1, 5"},
-{"f": "Domain", "v": "Payment integration (Alipay Open Platform: In-App, Usage-Based, Mobile Web, JSAPI/Mini Program, Authorization Hold, PC Web, Order QR, QR Code, Merchant-Initiated); stacks Node.js/Express, Next.js/TypeScript, PHP, Laravel, Java Spring Boot; MySQL, SQLite, MongoDB, Postgres", "p": "4-5"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Output tokens per unit RPR (output tokens in K / mean RPR on 0-1 scale) and with/without ratio; authors note it is not an estimate of integration time or cost", "p": "12-13"},
-{"f": "Functional quality metrics", "v": "Rubric Pass Rate (RPR): weighted fraction of rubric items passed, combining static checks (weight 1), unit tests (1), integration tests (2), E2E tests (2), LLM-assisted domain assessment (1); macro-averaged over task instances; evaluator errors count as fail", "p": "8-9"},
-{"f": "Internal quality metrics", "v": "Partly within RPR: static checks of credential handling, signature verification, idempotency guards, secret management; LLM-assisted review of security-sensitive logic placement and state-machine coherence. No maintainability metrics", "p": "8-9"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Method-level RPR (static vs unit vs integration vs E2E vs LLM) for failure localization; payment safety and payment-business state consistency via rubric items", "p": "13-14"},
-{"f": "How metrics are collected", "v": "Automatic: deterministic static/unit/integration/E2E checks in fresh Docker containers, Alipay sandbox or deterministic mocks; LLM-assisted rubric assessment (judge model Not stated); manual inspection of traces for decreases", "p": "7-11"},
-{"f": "Evaluation (each configuration)", "v": "Agent = Claude Code 2.1.200 for all. Criterion: mean RPR over 18 tasks (overall = mean of Basic and Advanced averages in Table 2, computed for this draft except with-skill values given in text); cost = output tokens (K) per unit RPR, Basic / Advanced averages (Table 3). Verdict rule (draft): quality works >= 85%, partly 65-85%, does not work < 65%; cost relative to the paired condition.\n- Without skill + Claude Code + Claude Opus 4.8: Basic 84.0, Advanced 85.2 (overall ~84.6); tokens/RPR 64.6 / 77.3. Quality partly; cost baseline\n- With skill + Claude Code + Claude Opus 4.8: 92.6 / 90.2 (91.37); 60.3 / 74.1 (ratio 0.93 / 0.96). Quality works; cost works\n- Without skill + Claude Code + GLM-5.2: 76.7 / 80.4 (~78.6); 45.5 / 62.5. Partly; baseline\n- With skill + Claude Code + GLM-5.2: 87.0 / 87.2 (87.12); 42.8 / 54.5 (0.94 / 0.87). Works; works\n- Without skill + Claude Code + Kimi K2.7 Code: 66.5 / 66.8 (~66.7); 50.3 / 67.7. Partly; baseline\n- With skill + Claude Code + Kimi K2.7 Code: 80.3 / 84.0 (82.18); 39.8 / 46.6 (0.79 / 0.69). Partly; works\n- Without skill + Claude Code + DeepSeek-V4-Pro: 55.5 / 71.3 (~63.4); 49.9 / 41.0. Does not work; baseline\n- With skill + Claude Code + DeepSeek-V4-Pro: 71.1 / 79.3 (75.23); 35.6 / 28.8 (0.71 / 0.70). Partly; works\n- Without skill + Claude Code + MiniMax M3: 61.5 / 59.7 (~60.6); 65.5 / 82.0. Does not work; baseline\n- With skill + Claude Code + MiniMax M3: 70.2 / 67.0 (68.58); 52.7 / 65.0 (0.80 / 0.79). Partly; works\n- Without skill + Claude Code + Qwen3.7-Max: 60.4 / 68.9 (~64.7); 55.2 / 53.8. Does not work / partly; baseline\n- With skill + Claude Code + Qwen3.7-Max: 70.9 / 80.7 (75.78); 42.1 / 43.3 (0.76 / 0.80). Partly; works", "p": "10-13"},
-{"f": "Comparison: design", "v": "Tasks: 18 task instances (9 projects x Basic/Advanced). Configurations: 6 models x {without skill, with skill} in Claude Code 2.1.200. Baseline: without skill. Held constant: agent, project, instruction, execution environment (fresh Docker container per trial), rubrics and evaluators. Acceptance tests: rubric-derived static, unit, integration, E2E checks + LLM-assisted criteria. Repetitions: 'repeated trials' averaged per task instance, number Not stated. Human intervention: none stated", "p": "8-10"},
-{"f": "Comparison: result", "v": "With skill improves mean RPR by +10.31 points on average; positive in 101 of 108 model-product-scenario cells (4 lower, 3 unchanged); Basic +11.27 vs Advanced +9.35; per model +6.81 (Claude Opus 4.8) to +15.51 (Kimi K2.7 Code). Larger gains when baseline < 40% (+17.64) than 80-100% (+4.52). Output tokens per unit RPR lower with skill in all 12 model-scenario aggregates (ratio 0.69-0.96, mean 0.81), but > 1 in some product cells. Model ranking with skill: Claude Opus 4.8 91.37% > GLM-5.2 87.12 > Kimi 82.18 > Qwen 75.78 > DeepSeek 75.23 > MiniMax 68.58. No significance tests", "p": "3, 10-12"},
-{"f": "Comparison: did the method work", "v": "Distinguished conditions and models; method-level diagnostics separate structural completion (static 92.79% Basic) from executable behavior (integration 73.16%, E2E 78.24%) and domain requirements (Advanced E2E 97.03% vs LLM 61.05%). Repeatability: fresh containers; number of trials and variance not reported. Limitations stated: results grounded in Alipay products, these tasks and agent configurations; LLM rubric verification noted as noisy in related work; method scores cover different rubric subsets", "p": "4, 13-14"},
-{"f": "Conclusions: limitations and gaps", "v": "Results limited to Alipay Open Platform products, the 18 task instances and the coding-agent configuration studied; ceiling effect possible at high baselines; output-token metric is only a relative generation-efficiency measure. Future: more models and agent frameworks, broader repository coverage, longer-horizon executable payment workflows", "p": "11-12, 14-15"},
-{"f": "Notes", "v": "Code public: github.com/inclusionAI/PIBench. No pre-registration. Languages: JavaScript/TypeScript, PHP, Java. Inconsistencies: Fig. 3 includes a 'Kimi K3' row not mentioned in the text or Table 2; product names differ between text and tables (App / In-App, Pre-Authorization / Auth., Barcode / Order QR); Fig. 1 project names (edoc, SaaS Starter) differ slightly from Table 1, and the text cites repositories (Hi.Events, opensourcepos) not listed in Table 1. Number of trials per configuration and LLM judge model not stated. Tables 1-3 extracted with jumbled columns; Table 3 Advanced Claude row rebuilt by ratio check (77.3 -> 74.1, 0.96). Overall without-skill means computed by this draft from Table 2. Authors are the vendor of the evaluated skill", "p": "1, 4-5, 9-13, 17"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ3 stated", "p": "9"},
-{"f": "Q2", "v": "Partly (0.5): task construction, metric and weights described; number of trials, LLM judge model, prompts and skill content not given in the paper (code released)", "p": "6-10"},
-{"f": "Q3", "v": "Yes (1): Claude Code 2.1.200 and six named model versions", "p": "10"},
-{"f": "Q4", "v": "Yes (1): projects, products, stacks and rubric counts listed; benchmark code public", "p": "1, 5"},
-{"f": "Q5", "v": "Yes (1): deterministic rubric-derived tests (integration and E2E weighted highest), supplemented by LLM assessment", "p": "7-9"},
-{"f": "Q6", "v": "Yes (1): RPR defined formally; output tokens per RPR as cost proxy", "p": "9, 12"},
-{"f": "Q7", "v": "Yes (1): paired without-skill baseline under identical conditions", "p": "8, 11"},
-{"f": "Q8", "v": "No (0): repeated trials mentioned but number not stated; no variance or statistical tests", "p": "9, 11"},
-{"f": "Q9", "v": "Partly (0.5): results reported with decreases and ceiling caveat, but 'helps more effectively and efficiently' stated without statistical support", "p": "11-12"},
-{"f": "Q10", "v": "Partly (0.5): scope limits in conclusion only; no threats-to-validity section", "p": "14-15"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "No (0): Ant Group/Alipay authors evaluate their own official skill", "p": "1, 8"},
-{"f": "Q13", "v": "N/A (proposes a benchmark, not a development approach)", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486360",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ying, S., Cao, X., Ma, Y., Dong, Y., Chen, W., Song, B., Zhu, L. (2026). Alipay-PIBench: A Realistic Payment Integration Benchmark for Coding Agents. arXiv:2607.14573v4 [cs.AI], 13 Aug 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v4, 13 Aug 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.14573v4 [cs.AI], 13 Aug 2026; no published venue stated",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form 'Type — detail'; no venue named in the text, so Preprint stands."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Ant Group (all authors; Alipay)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — repository-level payment-integration benchmark (Alipay-PIBench) with rubric-derived evaluation; paired without-skill vs with-skill conditions for the vendor's alipay-payment-integration skill across six models",
+   "p": "1-3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form 'Nature; secondary: X — detail' (secondary value was lower-case and detail in parentheses); natures themselves unchanged."
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "alipay-payment-integration skill (official Alipay agent skill: payment-product guidance, integration procedures, interface explanations, SDK and sandbox guidance, code examples, pitfalls; version Not stated) vs without-skill baseline (task instruction only)",
+   "p": "2-3, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill (reusable integration guidance, not task-specific). Benchmark side: per task a developer-facing natural-language instruction (business objective, repository context, payment behavior, constraints, interfaces) and scenario-specific rubrics; no spec artefact produced by the agent",
+   "p": "6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (agent receives repository + instruction, with or without the skill, and modifies the repository in one trial; no spec/plan/tasks phases)",
+   "p": "5, 8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during trials (autonomous); rubrics, mocks and LLM criteria manually reviewed by the authors during benchmark construction",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (a domain skill loaded into Claude Code)",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (domain skill; authors call rubrics 'the source specification for evaluation', which concerns the benchmark, not the agent workflow)",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: integrating Alipay payment products into existing business repositories (Basic: complete payment loop; Advanced: risk-aware hardening on a snapshot that already has the core integration)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "9 product-specific projects x 2 scenarios = 18 task instances; 13-41 rubric items per scenario (Table 1); repositories are open-source business apps (sizes Not stated)",
+   "p": "1, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Payment integration (Alipay Open Platform: In-App, Usage-Based, Mobile Web, JSAPI/Mini Program, Authorization Hold, PC Web, Order QR, QR Code, Merchant-Initiated); stacks Node.js/Express, Next.js/TypeScript, PHP, Laravel, Java Spring Boot; MySQL, SQLite, MongoDB, Postgres",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Output tokens per unit RPR (output tokens in K / mean RPR on 0-1 scale) and with/without ratio; authors note it is not an estimate of integration time or cost",
+   "p": "12-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Rubric Pass Rate (RPR): weighted fraction of rubric items passed, combining static checks (weight 1), unit tests (1), integration tests (2), E2E tests (2), LLM-assisted domain assessment (1); macro-averaged over task instances; evaluator errors count as fail",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Partly within RPR: static checks of credential handling, signature verification, idempotency guards, secret management; LLM-assisted review of security-sensitive logic placement and state-machine coherence. No maintainability metrics",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Method-level RPR (static vs unit vs integration vs E2E vs LLM) for failure localization; payment safety and payment-business state consistency via rubric items",
+   "p": "13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic static/unit/integration/E2E checks in fresh Docker containers, Alipay sandbox or deterministic mocks; LLM-assisted rubric assessment (judge model Not stated); manual inspection of traces for decreases",
+   "p": "7-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent = Claude Code 2.1.200 for all. Criterion: mean RPR over the 18 task instances (rubric-derived static, unit, integration, E2E checks + LLM-assisted criteria); Basic / Advanced averages from Table 2, overall = their mean (computed for this draft for without-skill; with-skill overall given in the text, p. 10). Cost: output tokens (K) per unit RPR, Basic / Advanced averages (Table 3); no time or money reported, and the authors say the metric is not a cost estimate (p. 12). Verdict rule (extractor's, not the protocol's or the authors'): quality works >= 85%, partly 65-85%, does not work < 65%; cost judged on each configuration's own token level (no threshold set by the authors).\n- Without skill + Claude Code + Claude Opus 4.8: Basic 84.0, Advanced 85.2 (overall ~84.6); tokens/RPR 64.6 / 77.3. Quality partly; cost works\n- With skill + Claude Code + Claude Opus 4.8: 92.6 / 90.2 (91.37); 60.3 / 74.1. Quality works; cost works\n- Without skill + Claude Code + GLM-5.2: 76.7 / 80.4 (~78.6); 45.5 / 62.5. Quality partly; cost works\n- With skill + Claude Code + GLM-5.2: 87.0 / 87.2 (87.12); 42.8 / 54.5. Quality works; cost works\n- Without skill + Claude Code + Kimi K2.7 Code: 66.5 / 66.8 (~66.7); 50.3 / 67.7. Quality partly; cost works\n- With skill + Claude Code + Kimi K2.7 Code: 80.3 / 84.0 (82.18); 39.8 / 46.6. Quality partly; cost works\n- Without skill + Claude Code + DeepSeek-V4-Pro: 55.5 / 71.3 (~63.4); 49.9 / 41.0. Quality does not work; cost works\n- With skill + Claude Code + DeepSeek-V4-Pro: 71.1 / 79.3 (75.23); 35.6 / 28.8. Quality partly; cost works\n- Without skill + Claude Code + MiniMax M3: 61.5 / 59.7 (~60.6); 65.5 / 82.0. Quality does not work; cost works\n- With skill + Claude Code + MiniMax M3: 70.2 / 67.0 (68.58); 52.7 / 65.0. Quality partly; cost works\n- Without skill + Claude Code + Qwen3.7-Max: 60.4 / 68.9 (~64.7); 55.2 / 53.8. Quality does not work (Basic does not work, Advanced partly); cost works\n- With skill + Claude Code + Qwen3.7-Max: 70.9 / 80.7 (75.78); 42.1 / 43.3. Quality partly; cost works",
+   "p": "10-13",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "All numbers checked against Table 2, Table 3 (Advanced Claude row rebuilt: 77.3 / 74.1 / 0.96 holds) and the text. The works/partly/does-not-work thresholds (85% / 65%) are the draft's own, not set by the protocol or the authors; verdicts near a threshold (Claude Opus without skill 84.6, Qwen without skill 64.7, DeepSeek without skill 63.4) could go either way. Author to confirm the rule."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Round 1 gave the without-skill configurations no cost verdict ('baseline') and justified the with-skill cost verdicts by the paired ratio, i.e. against the baseline, which §6 rules out (each configuration judged on its own). Cost now judged on each configuration's own output tokens per unit RPR (28.8-82.0K, Table 3); 'works' is the extractor's judgement, since only an output-token proxy is reported and no threshold is set. All RPR and token values re-checked against Tables 2-3 (Advanced Claude Opus row of Table 3 rebuilt: 77.3 / 74.1 / 0.96 holds). Quality thresholds remain the extractor's; verdicts near 85% / 65% (Claude Opus without skill 84.6, Qwen without skill 64.7, DeepSeek without skill 63.4) could go either way."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All RPR values re-checked against Table 2 Avg. columns and all tokens/RPR values against Table 3 Avg. columns (Advanced Claude Opus row rebuilt from the jumbled table: product values average to 77.3 / 74.1, ratio 0.96, so the values hold); with-skill overall means match p. 10 and the computed without-skill means are correct. The verdicts are judgements: quality thresholds (85% / 65%) are the extractor's, with Claude Opus without skill (84.6), Qwen without skill (64.7) and DeepSeek without skill (63.4) close to a boundary; cost 'works' for every configuration rests only on an output-token proxy the authors say is not a cost estimate (p. 12), with no time or money reported."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 18 task instances (9 projects x Basic/Advanced). Configurations: 6 models x {without skill, with skill} in Claude Code 2.1.200. Baseline: without skill. Held constant: agent, project, instruction, execution environment (fresh Docker container per trial), rubrics and evaluators. Acceptance tests: rubric-derived static, unit, integration, E2E checks + LLM-assisted criteria. Repetitions: 'repeated trials' averaged per task instance, number Not stated. Human intervention: none stated",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "With skill improves mean RPR by +10.31 points on average; positive in 101 of 108 model-product-scenario cells (4 lower, 3 unchanged); Basic +11.27 vs Advanced +9.35; per model +6.81 (Claude Opus 4.8) to +15.51 (Kimi K2.7 Code). Larger gains when baseline < 40% (+17.64) than 80-100% (+4.52). Output tokens per unit RPR lower with skill in all 12 model-scenario aggregates (ratio 0.69-0.96, mean 0.81), but > 1 in some product cells. Model ranking with skill: Claude Opus 4.8 91.37% > GLM-5.2 87.12 > Kimi 82.18 > Qwen 75.78 > DeepSeek 75.23 > MiniMax 68.58. No significance tests",
+   "p": "3, 10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions and models; method-level diagnostics separate structural completion (static 92.79% Basic) from executable behavior (integration 73.16%, E2E 78.24%) and domain requirements (Advanced E2E 97.03% vs LLM 61.05%). Repeatability: fresh containers; number of trials and variance not reported. Limitations stated: results grounded in Alipay products, these tasks and agent configurations; LLM rubric verification noted as noisy in related work; method scores cover different rubric subsets",
+   "p": "4, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Results limited to Alipay Open Platform products, the 18 task instances and the coding-agent configuration studied; ceiling effect possible at high baselines; output-token metric is only a relative generation-efficiency measure. Future: more models and agent frameworks, broader repository coverage, longer-horizon executable payment workflows",
+   "p": "11-12, 14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code public: github.com/inclusionAI/PIBench. No pre-registration. Languages: JavaScript/TypeScript, PHP, Java. Inconsistencies: Fig. 3 includes a 'Kimi K3' row not mentioned in the text or Table 2; product names differ between text and tables (App / In-App, Pre-Authorization / Auth., Barcode / Order QR); Fig. 1 project names (edoc, SaaS Starter) differ slightly from Table 1, and the text cites repositories (Hi.Events, opensourcepos) not listed in Table 1. Number of trials per configuration and LLM judge model not stated. Tables 1-3 extracted with jumbled columns; Table 3 Advanced Claude row rebuilt by ratio check (77.3 -> 74.1, 0.96). Overall without-skill means computed by this draft from Table 2. Authors are the vendor of the evaluated skill",
+   "p": "1, 4-5, 9-13, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): task construction, metric and weights described; number of trials, LLM judge model, prompts and skill content not given in the paper (code released)",
+   "p": "6-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.200 and six named model versions",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): projects, products, stacks and rubric counts listed; benchmark code public",
+   "p": "1, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): deterministic rubric-derived tests (integration and E2E weighted highest), supplemented by LLM assessment",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): RPR defined formally; output tokens per RPR as cost proxy",
+   "p": "9, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): paired without-skill baseline under identical conditions",
+   "p": "8, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): repeated trials mentioned but number not stated; no variance or statistical tests",
+   "p": "9, 11",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The text describes aggregation 'for repeated trials of the same task instance' (p. 9) but never says how many trials were run or whether more than one was; under the missing-information rule No stands, but Partly is arguable if the author reads repeated trials as done."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The aggregation describes 'repeated trials of the same task instance' (p. 9), but the number of trials is never stated and no variance or statistical test is reported. Under the missing-information rule No stands; Partly is arguable if the author reads repeated trials as done."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Aggregation mentions 'repeated trials of the same task instance' (p. 9) but the number of trials is never stated and no variance or statistical test is reported. The missing-information rule gives No; Partly is arguable if repeated trials are read as done."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): results reported with decreases and ceiling caveat, but 'helps more effectively and efficiently' stated without statistical support",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): scope limits in conclusion only; no threats-to-validity section",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): Ant Group/Alipay authors evaluate their own official skill",
+   "p": "1, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes a benchmark, not a development approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

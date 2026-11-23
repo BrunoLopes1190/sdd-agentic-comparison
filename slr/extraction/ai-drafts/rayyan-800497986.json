@@ -1,226 +1,357 @@
 {
  "key": "rayyan-800497986",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
  "fields": [
   {
    "f": "Reference",
-   "v": "Santos, H. V. F., Costa, V., Montandon, J. E., Valente, M. T. (2026). Decoding the Configuration of AI Coding Agents: Insights from Claude Code Projects. arXiv:2511.09268v2 [cs.SE], 25 May 2026",
-   "p": "1"
+   "v": "Santos, H. V. F., Costa, V., Montandon, J. E., Valente, M. T. (2026). Decoding the Configuration of AI Coding Agents: Insights from Claude Code Projects. In Proceedings of the 2026 International Workshop on Agentic Engineering (AGENT '26), ACM, pp. 63-67. https://doi.org/10.1145/3786167.3788412. Read from arXiv:2511.09268v2 [cs.SE], 25 May 2026",
+   "p": "1; ACM export (slr/exports/acm-S2-2026-11-18.bib)",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "r0 cited only the arXiv version; the record's DOI resolves (ACM search export) to the AGENT '26 workshop proceedings. The arXiv full text itself carries only the ACM placeholder venue 'Conference'17'."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Year",
    "v": "2026 (v2, 25 May 2026; v1 2025)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; ACM template with placeholder venue 'Conference'17', 5 pages; venue Not stated)",
-   "p": "1"
+   "v": "Workshop — AGENT '26, 2026 International Workshop on Agentic Engineering (ACM, Rio de Janeiro), 5 pages; full text read from arXiv v2 (ACM placeholder venue 'Conference'17' in the PDF)",
+   "p": "1; ACM export",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "r0 said Preprint with venue not stated; the ACM export of this record (DOI 10.1145/3786167.3788412) gives booktitle 'Proceedings of the 2026 International Workshop on Agentic Engineering', so per the rules a published paper read from arXiv keeps the venue type."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Author affiliation",
    "v": "Universidade Federal de Minas Gerais (UFMG), Belo Horizonte, Brazil (all four authors)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates (empirical repository-mining study of the content of 328 Claude.md configuration files: RQ1 concerns and practices, RQ2 code examples/links/diagrams, RQ3 co-occurrence patterns). No agent run; effect of the files not measured",
-   "p": "1-2"
+   "v": "Evaluates — empirical repository-mining study of the content of 328 Claude.md configuration files (RQ1 concerns and practices, RQ2 code examples/links/diagrams, RQ3 co-occurrence patterns); no agent run, effect of the files not measured",
+   "p": "1-2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format corrected to ' — '. The nature list has no value for a descriptive mining study of artefacts; 'Evaluates' kept as closest, but nothing is evaluated for effect. Author to decide."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Approach(es): name and version",
    "v": "Claude Code configuration files (Claude.md / CLAUDE.md); no version",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "A single Markdown configuration file read by Claude Code for each request: bash commands, code style, workflow guidelines, project structure (Fig. 1 example). Observed concerns (Fig. 2, text): Software Architecture 72.6% (238 files), Development Guidelines 44.8%, Project Overview 39%, Testing 35.4%, Commands 33.2%, Dependencies 30.8%, General Guidelines 25.6%, Integration and Usage Guidelines 18% each, Configuration 17.4%. 45 files were 'memory banks' pointing to other Markdown files",
-   "p": "2-5"
+   "p": "2-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Not stated (no flow; the file is read by the agent at each request)",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "Not stated",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Single artefact (context/configuration file Claude.md), observed in repositories, not run by the authors",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (context file, no specification); authors do not use SDD terms",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing code bases (popular open-source GitHub repositories using Claude Code)",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "328 Claude.md files from the top-100 most-starred repositories (4,724 found before filtering); repositories median 950 stars, 488 commits, 58 months age; files median 7 level-2 sections (min 0, Q1 4, Q3 10, max 213); 2,492 section titles analysed",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Open-source real-world applications of any domain; 23 programming languages (JavaScript/TypeScript 35 projects, Python 16, Go 9)",
-   "p": "2"
+   "p": "2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (no participants; files written by open-source developers, profile Not stated)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Share of files mentioning each concern/practice (Fig. 2); share of instances per category with code examples and links (Table 2: code examples Architecture 10.98%, Development Guidelines 17.68%, Testing 15.24%, Commands 15.55%; links 1.83%, 0.61%, 0.0%, 0.3%); Mermaid diagrams (2 instances); top-5 co-occurrence patterns with % files (Table 3: Architecture+Dependencies+Project Overview 21.6%, Architecture+General Guidelines 20.1%, Architecture+Development Guidelines+Project Overview 19.8%, Architecture+Development Guidelines+Testing 18.9%, Architecture+Integration 17.7%)",
-   "p": "3-5"
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Automatic: GitHub Search API (28-30 Aug 2025), filters (>=100 stars, English, manual removal of non-applications), parsing of section titles; FP-Max (MLxtend, min support 0.15) for patterns. Manual: one author grouped 2,492 section titles into categories; two other authors inspected and confirmed in a meeting",
-   "p": "2-3"
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "N/A (observational mining study; no configuration run)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "N/A (no configurations compared)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "N/A. Descriptive only: architecture is the most specified concern (72.6%) and appears in all top-5 patterns; code examples non-negligible (up to 17.68% in Development Guidelines); links and diagrams rare",
-   "p": "3-5"
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Initial study; classification by one author (reviewed by two); results may change as agents evolve. Future work: PR discussions about agent configuration, evolution of the files, a tool recommending best practices for writing configuration files",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Short paper (5 pages). Abstract and Section 3 mention two RQs while the introduction lists three (RQ1-RQ3). Fig. 2 percentages partly given in text only for the top categories; full distribution value in Fig. 2 only. Table 2 caption: percentages 'of the instances classified in this category', text says 'of the files' for links (unclear unit). Replication package: Zenodo doi:10.5281/zenodo.17388127. No pre-registration. Programming language: 23 languages in the repositories; no agent run",
-   "p": "1-5"
+   "p": "1-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): aim and RQ1-RQ3 stated (although the count of RQs is inconsistent)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Yes (1): data collection, filters, grouping procedure and FP-Max settings described; classification and data in replication package",
-   "p": "2-3"
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Partly (0.5): Claude Code named without version; MLxtend named without version; no model involved",
-   "p": "2-3"
+   "p": "2-3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "No agent or model was run (Claude.md files are only mined), so the question barely applies; Claude Code and MLxtend are named without versions, which on a strict reading (missing = No) would give No (0). Partly kept."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Q4",
    "v": "Yes (1): repository selection described and dataset available on Zenodo",
-   "p": "2, 5"
+   "p": "2, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
-   "v": "Partly (0.5): categories by one author, confirmed by two others; no independent coding or agreement statistic; no effectiveness measured",
-   "p": "3"
+   "v": "No (0): no effectiveness measured; the classification of section titles rests only on the authors (one author, confirmed by two co-authors in a meeting), no independent criterion or agreement statistic",
+   "p": "3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Q5 asks for a criterion independent of the authors' judgement; the only check is by two co-authors, so the text gives no independent criterion and the answer is No, not Partly."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Q6",
    "v": "Partly (0.5): frequency and co-occurrence measures defined; no cost or quality outcomes (out of scope)",
-   "p": "3-5"
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "No (0): descriptive study, no baseline or alternative",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "No (0): descriptive statistics only",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
-   "v": "Yes (1): descriptive conclusions follow from the counts; the claim of the 'importance' of architecture is based on frequency only",
-   "p": "4-5"
+   "v": "Partly (0.5): descriptive counts are reported faithfully, but the abstract and summaries claim the 'importance' of specifying architecture from frequency alone, without any measure of effect",
+   "p": "4-5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: r0 gave Yes; the descriptive results follow, but the 'importance' claim goes beyond frequency data. Author to decide between Yes and Partly."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): short threats section with two threats",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
-   "v": "No (0): arXiv preprint [Check: the record has a published DOI (https://doi.org/10.1145/3786167.3788412); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "p": "1"
+   "v": "Yes (1): published in the AGENT '26 workshop proceedings (ACM, DOI 10.1145/3786167.3788412); read from arXiv",
+   "p": "1; ACM export",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "r0 scored No as an arXiv preprint but flagged the DOI; the ACM export confirms the workshop publication, so the paper was peer-reviewed."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
   },
   {
    "f": "Q12",
    "v": "Yes (1): academic authors (UFMG); no tool by the authors evaluated",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

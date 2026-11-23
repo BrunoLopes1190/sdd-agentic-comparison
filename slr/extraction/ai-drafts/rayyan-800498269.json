@@ -1,46 +1,315 @@
-{"key": "rayyan-800498269", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Song, X., Haque, H., Somasundaram, J., Turner, R., Zhu, B., Zhao, L. (2026). Skill Dreaming: Evolving Repository Skills through Pull Request Streams. arXiv:2610.36188v1 [cs.AI], 26 Oct 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv; ACM template, venue Not stated)", "p": "1"},
-{"f": "Author affiliation", "v": "Causal Dynamics Lab, USA (all six authors)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an approach (Skill Dreaming, PR-driven evolving repository skill library for coding agents); evaluated on SWE-bench Pro/Verified and six repositories against skill-learning baselines and ablations", "p": "1-2, 5-6"},
-{"f": "Approach(es): name and version", "v": "Skill Dreaming (no version). Baselines: base mini-swe-agent without skills, append-only skills, Trace2Skill, Learning to Commit, SkillLens, CODESKILL, Socratic-SWE; BM25/dense/hybrid retrieval listed as baselines", "p": "2, 5-7"},
-{"f": "Artefacts prescribed", "v": "Repository-specific skill library: skills written by a fixed-weight LLM writer from predefined templates (when it applies, how to implement, how to validate), in five families (PR Detection, PR Construction, Feature Implementation, Maintenance Completion, Skill Evolution); each skill keeps supporting PR records, repository-version info, dependencies, related skills; PR-record index with labels usable/repairable/outdated/irrelevant/unsafe. No requirements specification", "p": "4-5"},
-{"f": "Phases of the flow", "v": "Per request (Algorithm 1): (1) PR record construction: feature localization, retrieve/segment historical PRs, classify, construct candidates by reuse/repair/synthesis, verify with tests; (2) skill generation and alignment (Add, Update, Specialize, Extend, Conflict, Supersede, Keep); (3) skill-guided implementation: retrieve bounded skills, inject into actor, implement code + tests/docs/config, verify, bounded repair; record outcomes for next round", "p": "3-5"},
-{"f": "Human review points", "v": "Not stated (review and CI feedback from historical PRs used as input; no human checkpoint in the flow)", "p": "4-5"},
-{"f": "Parts exercised", "v": "Full workflow (skill construction, evolution and skill-guided implementation) plus component evaluations (localization, PR classification) and ablations", "p": "5-9"},
-{"f": "SDD level", "v": "Not classifiable (evolving skill library / context mechanism, no specification); authors' terms: 'repository-specific skills', 'skill evolution'", "p": "1-2"},
-{"f": "Task type", "v": "Existing code bases: issue resolution and feature/maintenance PRs on historical base commits", "p": "5-6"},
-{"f": "Size", "v": "SWE-bench Pro subset (Ansible, qutebrowser, Open Library; number of tasks Not stated; 1,000 Ansible PRs for classification and evolution); SWE-bench Verified instances from 12 repositories (number Not stated); six repositories for cross-repo (Click, Black, Rich, HTTPX, Arrow, Agents; number of PRs Not stated)", "p": "5-8"},
-{"f": "Domain", "v": "Open-source Python repositories: CLI/dev tools, formatter, rendering, web/HTTP, data/scientific, agent frameworks, Ansible, qutebrowser, Open Library", "p": "5-7"},
-{"f": "Team profile", "v": "N/A (no human participants)", "p": "—"},
-{"f": "Cost metrics", "v": "Average tokens (input + output) and wall-clock execution time per task (Table 12, Skill Dreaming vs SkillLens only); offline skill construction cost 'reported separately when excluded' (not found reported)", "p": "6, 8-9"},
-{"f": "Functional quality metrics", "v": "Official resolved rate (benchmark harness); Task Success (TS); Safe rate (safety constraints with valid non-empty test execution); historical existing-test pass rate", "p": "6-7"},
-{"f": "Internal quality metrics", "v": "Maintenance Surface F1 (coverage of required change categories: code, tests, docs, config, examples, changelogs; correctness not verified)", "p": "6"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Localization Top-k hit rate, Recall@k, MRR (module/file/function); PR classification precision/recall/F1; skill reuse precision/recall; historical alignment (Algn., not defined)", "p": "6-7"},
-{"f": "How metrics are collected", "v": "Automatic: official SWE-bench harness in Docker, tests, category matching for Surface F1, token/time logs. How TS, 'Algn.' and PR-category ground truth labels were obtained is Not stated", "p": "5-7"},
-{"f": "Evaluation (each configuration)", "v": "Agent: mini-swe-agent; models Claude Opus 5, Sonnet 4.6 (Anthropic SDK). Criterion: official harness resolution. SWE-bench Pro: (a) Base + mini-swe-agent + Opus 5: 0.79. Baseline. (b) Skill Dreaming + mini-swe-agent + Opus 5: 0.88. Works; cost Not stated. SWE-bench Verified (Table 3/4, resolved / safe / Surf. F1): (c) Base + Opus 5: 0.83 / 0.83 / 0.62. Baseline. (d) Skill Dreaming + Opus 5: 0.92 / 1.00 / 0.74. Works; cost Not stated. (e) Append-only (ablation) + Opus 5: 0.88 / 0.94 / 0.72. Works. (f) Trace2Skill + Opus 5: 0.76 / 0.78 / 0.60. Does not work. (g) Learning to Commit + Opus 5: 0.72 / 0.67 / 0.64. Does not work. (h) SkillLens + Opus 5: 0.90 / 0.61 / 0.59. Partly. (i) CODESKILL + Opus 5: 0.79 / 0.56 / 0.46. Does not work. (j) Socratic-SWE + Opus 5: 0.91 / 0.72 / 0.64. Partly. (k) Base + Sonnet 4.6: 0.77. Baseline. (l) Skill Dreaming + Sonnet 4.6: 0.79. Partly. Cross-repo (Table 5, Opus 5, TS base -> ours): Click 0.72 -> 0.83, Black 0.53 -> 0.60, Rich 0.90 -> 1.00, HTTPX 0.80 -> 0.93, Arrow 0.58 -> 0.75, Agents 0.50 -> 0.70. Works. Efficiency (Table 12): Skill Dreaming TS 0.93, 26,894 tokens, 36.0 s/task vs SkillLens 0.61, 14,300 tokens, 32.9 s. Cost partly (+88% tokens). Ablations (Tables 10-11): full TS 0.93 vs no supersession 0.67, no stale filtering 0.72, neither 0.78, append-only 0.89 (skill filtering setting)", "p": "5-9"},
-{"f": "Comparison: design", "v": "Tasks: SWE-bench Pro subset and SWE-bench Verified subset (historical base commits, only prior PR information used to avoid leakage); six repositories with historical PR split into skill-construction and evaluation sets. Configurations: base agent, skill-learning baselines, ablations, with Claude Opus 5 (and Sonnet 4.6 for Verified). Baseline: base mini-swe-agent without skills. Held constant: agent (mini-swe-agent), model within comparison, retrieval settings (top-8, threshold 0.20, text-embedding-3-small). Acceptance tests: official benchmark harness. Repetitions: Not stated. Human intervention: Not stated", "p": "5-6"},
-{"f": "Comparison: result", "v": "Skill Dreaming best resolved rate on Verified (0.92 vs Socratic-SWE 0.91, SkillLens 0.90, append-only 0.88, base 0.83) and Pro (0.88 vs 0.79); Sonnet 4.6 +2 points; Safe rate 1.00 and Surf. F1 0.74 highest; Algn. 0.44 below Learning to Commit 0.49 and Socratic 0.45. Cross-repo TS gains 0.07-0.20. Tokens +88% vs SkillLens. No significance tests or variance", "p": "6-9"},
-{"f": "Comparison: did the method work", "v": "Distinguished configurations on point estimates only; several differences are 1-2 points with no repetitions or statistics, so repeatability unknown. No limitations of the comparison stated by the authors", "p": "6-9"},
-{"f": "Conclusions: limitations and gaps", "v": "Not stated (no limitations or threats section). Only metric caveats: Surface F1 does not verify correctness; logging and compatibility not evaluated; staged process does not guarantee optimality", "p": "4, 6, 9"},
-{"f": "Notes", "v": "Table 4 Safe Rate and Existing columns identical for every row (possible reporting error). Surface F1 for full Skill Dreaming differs across tables (0.74 Table 4, 0.75/0.77 Table 10, 0.80 Table 12, 0.871/0.867 in text for Table 8 setting); TS 1.00 in Table 8 vs 0.93 elsewhere; settings not clearly distinguished. BM25/dense/hybrid retrieval baselines announced but no results reported. Number of tasks per benchmark not stated. 'Algn.' metric undefined. Tables 9-10 jumbled by pdftotext; values rebuilt in row order (Table 9 TS: positive-only 0.84, review-only 0.67, Trace2Skill 0.78, Socratic 0.83, Skill Dreaming 0.89). SkillLens baseline is by overlapping authors (Zhao, Zhu, Haque). Code or data availability Not stated. No pre-registration. Language: Python", "p": "5-9"},
-{"f": "Q1", "v": "Yes (1): aims and contributions clearly stated", "p": "1-2"},
-{"f": "Q2", "v": "Partly (0.5): framework and settings described at a high level; prompts, skill templates, task subsets, run counts and baseline configurations not given; no code release stated", "p": "3-6"},
-{"f": "Q3", "v": "Partly (0.5): Claude Opus 5, Sonnet 4.6, text-embedding-3-small named; mini-swe-agent version Not stated", "p": "5-6"},
-{"f": "Q4", "v": "Partly (0.5): public benchmarks and repositories named, but exact task subsets and splits not given", "p": "5-6"},
-{"f": "Q5", "v": "Yes (1): official SWE-bench harness tests for resolved rate (other metrics less independent)", "p": "6"},
-{"f": "Q6", "v": "Yes (1): resolved rate, TS, safe rate, Surface F1, tokens and time defined (cost only for one comparison)", "p": "6, 9"},
-{"f": "Q7", "v": "Yes (1): base agent and several skill-learning baselines with the same model and agent", "p": "5-7"},
-{"f": "Q8", "v": "No (0): no repetitions, variance or statistical tests reported", "p": "6-9"},
-{"f": "Q9", "v": "Partly (0.5): positive claims follow headline numbers, but small differences are presented as 'consistent' and inconsistencies across tables are not discussed; Algn. where it is not best not commented", "p": "6-9"},
-{"f": "Q10", "v": "No (0): no threats to validity or limitations section", "p": "—"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): authors created Skill Dreaming and (in part) the SkillLens baseline; other baselines are external", "p": "1, 9"},
-{"f": "Q13", "v": "Partly (0.5): needs PR history, Docker, mini-swe-agent and a frontier model (Claude Opus 5); per-task tokens (26,894) and time (36 s) stated, but offline skill-construction cost and implementation availability not stated", "p": "5-6, 9"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800498269",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Song, X., Haque, H., Somasundaram, J., Turner, R., Zhu, B., Zhao, L. (2026). Skill Dreaming: Evolving Repository Skills through Pull Request Streams. arXiv:2610.36188v1 [cs.AI], 26 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv; ACM template, venue Not stated)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Causal Dynamics Lab, USA (all six authors)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (Skill Dreaming, PR-driven evolving repository skill library for coding agents); evaluated on SWE-bench Pro/Verified and six repositories against skill-learning baselines and ablations",
+   "p": "1-2, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Skill Dreaming (no version). Baselines: base mini-swe-agent without skills, append-only skills, Trace2Skill, Learning to Commit, SkillLens, CODESKILL, Socratic-SWE; BM25/dense/hybrid retrieval listed as baselines",
+   "p": "2, 5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Repository-specific skill library: skills written by a fixed-weight LLM writer from predefined templates (when it applies, how to implement, how to validate), in five families (PR Detection, PR Construction, Feature Implementation, Maintenance Completion, Skill Evolution); each skill keeps supporting PR records, repository-version info, dependencies, related skills; PR-record index with labels usable/repairable/outdated/irrelevant/unsafe. No requirements specification",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per request (Algorithm 1): (1) PR record construction: feature localization, retrieve/segment historical PRs, classify, construct candidates by reuse/repair/synthesis, verify with tests; (2) skill generation and alignment (Add, Update, Specialize, Extend, Conflict, Supersede, Keep); (3) skill-guided implementation: retrieve bounded skills, inject into actor, implement code + tests/docs/config, verify, bounded repair; record outcomes for next round",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (review and CI feedback from historical PRs used as input; no human checkpoint in the flow)",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (skill construction, evolution and skill-guided implementation) plus component evaluations (localization, PR classification) and ablations",
+   "p": "5-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (evolving skill library / context mechanism, no specification); authors' terms: 'repository-specific skills', 'skill evolution'",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution and feature/maintenance PRs on historical base commits",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Pro subset (Ansible, qutebrowser, Open Library; number of tasks Not stated; 1,000 Ansible PRs for classification and evolution); SWE-bench Verified instances from 12 repositories (number Not stated); six repositories for cross-repo (Click, Black, Rich, HTTPX, Arrow, Agents; number of PRs Not stated)",
+   "p": "5-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories: CLI/dev tools, formatter, rendering, web/HTTP, data/scientific, agent frameworks, Ansible, qutebrowser, Open Library",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average tokens (input + output) and wall-clock execution time per task (Table 12, Skill Dreaming vs SkillLens only); offline skill construction cost 'reported separately when excluded' (not found reported)",
+   "p": "6, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Official resolved rate (benchmark harness); Task Success (TS); Safe rate (safety constraints with valid non-empty test execution); historical existing-test pass rate",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Maintenance Surface F1 (coverage of required change categories: code, tests, docs, config, examples, changelogs; correctness not verified)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Localization Top-k hit rate, Recall@k, MRR (module/file/function); PR classification precision/recall/F1; skill reuse precision/recall; historical alignment (Algn., not defined)",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-bench harness in Docker, tests, category matching for Surface F1, token/time logs. How TS, 'Algn.' and PR-category ground truth labels were obtained is Not stated",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: mini-swe-agent; models Claude Opus 5, Sonnet 4.6 (Anthropic SDK). Criterion: official harness resolution. SWE-bench Pro: (a) Base + mini-swe-agent + Opus 5: 0.79. Baseline. (b) Skill Dreaming + mini-swe-agent + Opus 5: 0.88. Works; cost Not stated. SWE-bench Verified (Table 3/4, resolved / safe / Surf. F1): (c) Base + Opus 5: 0.83 / 0.83 / 0.62. Baseline. (d) Skill Dreaming + Opus 5: 0.92 / 1.00 / 0.74. Works; cost Not stated. (e) Append-only (ablation) + Opus 5: 0.88 / 0.94 / 0.72. Works. (f) Trace2Skill + Opus 5: 0.76 / 0.78 / 0.60. Does not work. (g) Learning to Commit + Opus 5: 0.72 / 0.67 / 0.64. Does not work. (h) SkillLens + Opus 5: 0.90 / 0.61 / 0.59. Partly. (i) CODESKILL + Opus 5: 0.79 / 0.56 / 0.46. Does not work. (j) Socratic-SWE + Opus 5: 0.91 / 0.72 / 0.64. Partly. (k) Base + Sonnet 4.6: 0.77. Baseline. (l) Skill Dreaming + Sonnet 4.6: 0.79. Partly. Cross-repo (Table 5, Opus 5, TS base -> ours): Click 0.72 -> 0.83, Black 0.53 -> 0.60, Rich 0.90 -> 1.00, HTTPX 0.80 -> 0.93, Arrow 0.58 -> 0.75, Agents 0.50 -> 0.70. Works. Efficiency (Table 12): Skill Dreaming TS 0.93, 26,894 tokens, 36.0 s/task vs SkillLens 0.61, 14,300 tokens, 32.9 s. Cost partly (+88% tokens). Ablations (Tables 10-11): full TS 0.93 vs no supersession 0.67, no stale filtering 0.72, neither 0.78, append-only 0.89 (skill filtering setting)",
+   "p": "5-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Pro subset and SWE-bench Verified subset (historical base commits, only prior PR information used to avoid leakage); six repositories with historical PR split into skill-construction and evaluation sets. Configurations: base agent, skill-learning baselines, ablations, with Claude Opus 5 (and Sonnet 4.6 for Verified). Baseline: base mini-swe-agent without skills. Held constant: agent (mini-swe-agent), model within comparison, retrieval settings (top-8, threshold 0.20, text-embedding-3-small). Acceptance tests: official benchmark harness. Repetitions: Not stated. Human intervention: Not stated",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Skill Dreaming best resolved rate on Verified (0.92 vs Socratic-SWE 0.91, SkillLens 0.90, append-only 0.88, base 0.83) and Pro (0.88 vs 0.79); Sonnet 4.6 +2 points; Safe rate 1.00 and Surf. F1 0.74 highest; Algn. 0.44 below Learning to Commit 0.49 and Socratic 0.45. Cross-repo TS gains 0.07-0.20. Tokens +88% vs SkillLens. No significance tests or variance",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on point estimates only; several differences are 1-2 points with no repetitions or statistics, so repeatability unknown. No limitations of the comparison stated by the authors",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Not stated (no limitations or threats section). Only metric caveats: Surface F1 does not verify correctness; logging and compatibility not evaluated; staged process does not guarantee optimality",
+   "p": "4, 6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 4 Safe Rate and Existing columns identical for every row (possible reporting error). Surface F1 for full Skill Dreaming differs across tables (0.74 Table 4, 0.75/0.77 Table 10, 0.80 Table 12, 0.871/0.867 in text for Table 8 setting); TS 1.00 in Table 8 vs 0.93 elsewhere; settings not clearly distinguished. BM25/dense/hybrid retrieval baselines announced but no results reported. Number of tasks per benchmark not stated. 'Algn.' metric undefined. Tables 9-10 jumbled by pdftotext; values rebuilt in row order (Table 9 TS: positive-only 0.84, review-only 0.67, Trace2Skill 0.78, Socratic 0.83, Skill Dreaming 0.89). SkillLens baseline is by overlapping authors (Zhao, Zhu, Haque). Code or data availability Not stated. No pre-registration. Language: Python",
+   "p": "5-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and contributions clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): framework and settings described at a high level; prompts, skill templates, task subsets, run counts and baseline configurations not given; no code release stated",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Opus 5, Sonnet 4.6, text-embedding-3-small named; mini-swe-agent version Not stated",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks and repositories named, but exact task subsets and splits not given",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): official SWE-bench harness tests for resolved rate (other metrics less independent)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolved rate, TS, safe rate, Surface F1, tokens and time defined (cost only for one comparison)",
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): base agent and several skill-learning baselines with the same model and agent",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions, variance or statistical tests reported",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): positive claims follow headline numbers, but small differences are presented as 'consistent' and inconsistencies across tables are not discussed; Algn. where it is not best not commented",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations section",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created Skill Dreaming and (in part) the SkillLens baseline; other baselines are external",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): needs PR history, Docker, mini-swe-agent and a frontier model (Claude Opus 5); per-task tokens (26,894) and time (36 s) stated, but offline skill-construction cost and implementation availability not stated",
+   "p": "5-6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,226 +1,365 @@
 {
  "key": "rayyan-800486053",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
-   "v": "Cito, J., Bork, D. (2026). Lost in Code Generation: Reimagining the Role of Software Models in AI-driven Software Engineering. arXiv:2511.02475v3 [cs.SE], 27 Aug 2026",
-   "p": "1"
+   "v": "Cito, J., Bork, D. (2026). Lost in Code Generation: Reimagining the Role of Software Models in AI-driven Software Engineering. In Proceedings of the ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems (MODELS '26), Málaga, Spain, pp. 470-475. ACM. doi:10.1145/3822455.3838778. Full text read from arXiv:2511.02475v3 [cs.SE], 27 Aug 2026",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The record is the published MODELS '26 paper (DOI and venue from the ACM export slr/exports/acm-S2-2026-11-18.bib and dedup-2026-11-18.csv; slr/fulltext-access.csv: 'arXiv version of the DOI record'); the draft cited only the arXiv version. The arXiv text itself names no venue"
+    }
+   ],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026 (v3; v1 2025)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; ACM format, venue Not stated)",
-   "p": "1"
+   "v": "Conference — MODELS '26 (ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems), 6 pages; read from the arXiv v3 version",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said Preprint with venue not stated; the DOI record is an ACM inproceedings in MODELS '26 (ACM export), and the rule keeps the venue type for a published paper read from arXiv"
+    }
+   ],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "TU Wien, Austria: Software Engineering Group (Cito), Business Informatics Group (Bork)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual (position/vision paper: argues for a renewed role of software models recovered from AI-generated systems; illustrated by an anecdote and a hardening scenario; no evaluation)",
-   "p": "1-2, 4"
+   "v": "Conceptual; secondary: Proposes an approach — position/vision paper arguing for a renewed role of software models recovered from AI-generated systems; proposes model-mediated feedback loops (agentic and human reflective), illustrated by a public anecdote and a hardening scenario; no evaluation",
+   "p": "1-2, 4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Required form not followed; the paper explicitly proposes model-mediated feedback loops ('We propose model-mediated feedback loops', p. 3), so a secondary 'Proposes an approach' is added. Main vs secondary is a judgement (the paper calls itself a conceptual reframing, p. 5); Q13 applies either way"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main vs secondary is a judgement: the paper proposes model-mediated feedback loops (\"We propose\", p. 3) with model types and a scenario, which could make Proposes an approach the main nature; it also calls itself a conceptual reframing with no evaluation (p. 5), which supports Conceptual"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main vs secondary is a judgement: the paper proposes model-mediated feedback loops ('We propose', p. 3) with model types (Table 1) and a scenario, which could make Proposes an approach the main nature; it also describes itself as a conceptual reframing needing empirical evaluation (p. 5), which supports Conceptual"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Approach(es): name and version",
    "v": "Model-mediated feedback loops for AI-generated software (no name or version): software models recovered post hoc from generated code, used in an agentic loop (automated checking and repair) and a human reflective loop (inspection and revision of assumptions)",
-   "p": "1, 3"
+   "p": "1, 3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "Recovered software models (Table 1): domain and data model, behavioural model, architectural model, constraint model, runtime model; linked to code, tests, traces and prompts with evidence and confidence markers; derived regression tests, static checks, repair prompts, model edits",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Human intent/prompts -> agent generates system -> recover models from code -> symbolic checks (model checking, analysis, tests, policy checks) -> refinement (repair prompts, model edits) -> recovery and checking repeat; human reflective loop in parallel. Runs at natural pauses: before deployment, after agentic change, on test failure, when a prototype gains users, during review",
-   "p": "3"
+   "p": "3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "Human inspects recovered models in the reflective loop; inferred constraints must be validated by the creator or an authoritative policy before enforcement",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Not run (document-based, illustrative scenario only)",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable: reverse direction, models recovered from code (code first, models after); authors state recovered models are not substitutes for upfront specifications",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing generated systems and agent changes to existing repositories (hardening of AI-generated prototypes)",
-   "p": "2-3"
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "Not stated",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "General; illustrative SaaS application with subscriptions, API keys, payments",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "Not stated; targets non-expert creators, junior and experienced developers",
-   "p": "2, 5"
+   "p": "2, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None measured; proposed evaluation of inspection effort and speed/accuracy vs code review",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "None; proposed fidelity measures for recovered models",
-   "p": "4"
+   "p": "4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "N/A: conceptual; no configuration run",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Open problems: fidelity and traceability of recovered models (cannot reconstruct absent evidence; not equivalent to validated forward models, esp. regulated/safety-critical); model choice and abstraction level; verifying models themselves; usability for non-experts; process integration (e.g. CI service); empirical evaluation needed (models vs code review, comprehension, effort, across expertise levels)",
-   "p": "4-5"
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Motivation from public anecdotes (vibe-coding SaaS, Replit incident), explicitly not used as empirical evidence. Funded by FWF and FFG (Smart GLSP). No artefacts or code. Pre-registration: N/A",
-   "p": "1-2, 5"
+   "p": "1-2, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): central claim and scope stated",
-   "p": "1-2"
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Partly (0.5): loops, model types and scenario described; no method of inquiry",
-   "p": "3-4"
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "N/A (not empirical)",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Yes (1): claims hedged; anecdotes not presented as evidence; need for evaluation stated",
-   "p": "1-2, 5"
+   "p": "1-2, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): scope of the claim and structural limits of model recovery discussed; no limitations section",
-   "p": "2, 4"
+   "p": "2, 4",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
-   "v": "No (0): arXiv preprint, venue not stated [Check: the record has a published DOI (https://doi.org/10.1145/3822455.3838778); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "p": "1"
+   "v": "Yes (1): published in the MODELS '26 conference proceedings (ACM/IEEE), doi:10.1145/3822455.3838778; full text read from arXiv v3",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft scored No as an arXiv preprint while flagging the DOI; the ACM export confirms the conference publication, which is peer-reviewed"
+    }
+   ],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Yes (1): no tool evaluated; authors propose a research direction (Bork's GLSP tooling cited)",
-   "p": "5"
+   "p": "5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "No tool or approach is evaluated, so Yes is defensible; but the authors propose the loops and illustrate them with their own scenario, and Bork's GLSP tooling is pointed to as the path to implementation (p. 5). Another reader could apply the 'author who created the approach' rule and score No, as done for proposal papers with an illustrative case"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No tool or approach is evaluated, so Yes is defensible; but the authors propose the loops and illustrate them with their own scenario, and Bork's GLSP tooling is cited as the path to integration (p. 5); applying the \"author who created the approach\" rule would give No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No tool or approach is evaluated, so Yes is defensible; but the authors propose the loops themselves and point to Bork's own GLSP-based tooling and the Smart GLSP project for integration (p. 5); applying the 'author who created the approach' rule would give No"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
   },
   {
    "f": "Q13",
    "v": "No (0): no concrete tooling; requirements and cost not stated; model recovery acknowledged as hard",
-   "p": "3-5"
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

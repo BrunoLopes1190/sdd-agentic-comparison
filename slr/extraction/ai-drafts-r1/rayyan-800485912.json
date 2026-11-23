@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800485912",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ma, J., Wang, S., Kung, J. H., Chilton, L. B. (2026). Zoro: Active Controls to Support Rule Following in Vibe Coding. In The 39th Annual ACM Symposium on User Interface Software and Technology (UIST '26), Detroit, MI, USA. ACM. doi:10.1145/3830398.3830629. arXiv:2604.15625v3 [cs.HC], 19 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — UIST '26, 39th Annual ACM Symposium on User Interface Software and Technology, Detroit, MI, USA, ACM, doi:10.1145/3830398.3830629; full text read from arXiv:2604.15625v3",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>'. Type unchanged (p. 1 carries the ACM rights block, ISBN and DOI)"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Columbia University, New York, USA (all authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — Zoro system and Enrich-Enforce-Evolve framework, evaluated by a technical evaluation with 4 conditions incl. component ablations (36 sessions) and a qualitative user study (N=12); formative interviews (N=10)",
+   "p": "1-3, 7-9",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<main>; secondary: <one> — <detail>' ('and evaluates it' was free text). Substance unchanged"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Zoro (no version; github.com/jennygzma/zoro): Enrich-Enforce-Evolve framework; zoro-cli Python package + visual interface; works with Codex, Claude Code, Cline, Cursor",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Rules files (AGENTS.md/CLAUDE.md) converted to a structured JSON ruleset (enforcement level, category, confidence, decay score, scope); agent-generated plan enriched with rules per step; ZORO.md instruction file prepended to AGENTS.md; .zoro shared directory; enforcement evidence per rule (summary, code artefact, unit test for testable rules); in-situ notes; refined rules",
+   "p": "3-5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent generates plan -> Enrich (GPT-5.3 rewrites plan, decomposes steps, attaches rules, proposes enforcement level) -> user edits plan and sets enforcement (non-strict / strict / testable) -> Enforce (agent executes step by step; must call zoro prove-rule with evidence and tests before zoro update-step; CLI blocks completion if strict rules unverified) -> user reviews evidence and adds in-situ notes -> Evolve (notes aggregated, LLM proposes refined rules, user accepts/edits/rejects)",
+   "p": "2-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "User edits enriched plan and sets enforcement levels; agent pauses for user decisions when rules require it; user reviews enforcement evidence and adds in-situ notes; user approves refined rules in a diff view (Rule Review)",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow in the user study (Enrich-Enforce-Evolve); technical evaluation exercises Enrich and Enforce only",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (rules files and per-task plans, not specifications); authors' wording: rules made 'active controls', a 'living and evolving' ruleset. If classified, the persistent, enforced ruleset is closest to spec-anchored; plans are not kept as specifications",
+   "p": "2, 6",
+   "verdict": "uncertain",
+   "why": "The paper never uses SDD terms and the artefact is a rules file, which other drafts (e.g. rule-file studies) record as Not classifiable; the draft leaned to spec-anchored. Judgement call for the author"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: feature additions to full-stack repositories built by the authors (technical evaluation); user study on participants' own repositories (7) or the provided Poneglyph app (5)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Technical evaluation: 9 tasks, each 500-5,000 lines of code, in NoteSense (22k LOC) and SnakeGame (11k LOC); user study: 2 tasks per participant, 30-45 min each",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Full-stack web apps (TypeScript/React, Flask or Node/Express, SQLite): note-taking/sensemaking app, browser game; user study: ML research code, graphics heatmaps, econ analysis, journaling app, iOS app",
+   "p": "7, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "User study: 12 expert vibe coders (>=5 years coding; 8 industry engineers/analysts, 4 PhD students; 10 use rules files daily). Formative: 10 expert programmers (5-10 years). Technical evaluation: no human operator beyond minimal compile patches",
+   "p": "3, 9, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Token overhead only reported qualitatively (~4x tokens for Full Zoro vs standard vibe coding); no time or money",
+   "p": "7, 11",
+   "verdict": "corrected",
+   "why": "Page: the ~4x token statement is on p. 7 and in the Limitations (Section 9) on p. 11, not p. 10"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Feature completeness (task-specific rubric, 0-1)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Rules followed (task-specific rubric: pass/fail per rule per session, any violation = not followed); by rule type (process vs coding)",
+   "p": "7-8, 17",
+   "verdict": "uncertain",
+   "why": "'Rules followed' mixes coding rules (conventions, API structure: internal quality) and process rules (agent behaviour, e.g. ask before installing a package, p. 7-8), which are not internal code quality; the author may move it, or its process part, to Other outcome metrics"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "User study: number of rules enforced (166, 110 unique; 9.17 per session); self-reported cognitive load; preferences",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Rule pass rate in user study (Task 1 77.9%, Task 2 94.4%); refined rules re-applied correctly (12/13); qualitative themes (auditability, trust, shift to 'rule engineering')",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: two annotators (software engineers, >=5 years) graded code and chat history with task rubrics (Cohen's kappa 0.97 rules, 0.82 features); one-way ANOVA and Holm-Bonferroni paired t-tests. User study: think-aloud, interviews, open coding by one author refined with team",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: task-specific rubrics graded by 2 annotators. All with Cline + Claude Sonnet 4.6, 9 tasks, 1 run each (Table 1, mean ± 95% CI)\n- No Zoro (rules in AGENTS.md) + Cline + Sonnet 4.6: features 0.64±0.144; rules 0.51±0.08. Baseline\n- Basic Zoro (ablation: mark steps, no enrich, no enforce): features 0.65±0.17; rules 0.55±0.11. Quality: does not work (n.s.); cost: not measured\n- Partial Zoro (ablation: enrich, no enforce): features 0.61±0.11; rules 0.68±0.07 (significant vs baseline). Quality: partly; cost: not measured\n- Full Zoro (enrich + enforce): features 0.77±0.13 (n.s.); rules 0.80±0.08 (significant vs all); process rules 0.87 vs 0.35, coding rules 0.75 vs 0.59 (Appendix B.3). Quality: works (rules), partly (features); cost: partly (about 4x tokens vs standard vibe coding; no absolute tokens, time or money)\n- User study (full Enrich-Enforce-Evolve + Codex, model Not stated): rule pass rate 77.9% (60/77) task 1, 94.4% (84/89) task 2; no baseline",
+   "p": "7-9, 17",
+   "verdict": "uncertain",
+   "why": "Cost verdict for Full Zoro was two values ('does not work / partly'); set to one (partly), but whether a 4x token overhead with no absolute figure is 'partly' or 'does not work' is a judgement. Basic/Partial cost verdicts added as 'not measured' (token overhead reported only for the full workflow, p. 7). Values checked against Table 1 and Appendix B.3"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 9 multi-step feature tasks (5 NoteSense, 4 SnakeGame), repositories and rules built by the authors. Configurations: No / Basic / Partial / Full Zoro. Baseline: No Zoro (rules only in AGENTS.md). Held constant: agent (Cline), model (Claude Sonnet 4.6), task description and development plan provided. Acceptance criteria: task rubrics graded by 2 annotators (no automated tests mentioned). Repetitions: 1 run per task per condition ('breadth rather than repeated data points'). Human intervention: minimal patches applied for compiler errors (counts recorded)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Full Zoro follows rules most: 0.80 vs 0.51 baseline (+29 pts; ANOVA p<0.05; Full significantly better than all others; Partial better than No Zoro, Holm-Bonferroni). Feature completeness 0.77 vs 0.61-0.65 (n.s.). Largest gain for process rules (35% -> 87%) vs coding rules (59% -> 75%). Cost: ~4x token usage",
+   "p": "2, 8, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on rule following, not on features. Repeatability: one run per task; tasks and repos built by the authors; code open-source. Limitations stated: only 36 cases due to cost; scoped to Cline (technical) and Codex (user study); evidence is not a formal guarantee",
+   "p": "7, 11",
+   "verdict": "corrected",
+   "why": "Page: limitations (36 cases due to cost; evidence not a formal guarantee) are in Section 9 on p. 11, not p. 10. Content confirmed"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "User study: 12 sessions, two tasks, single-developer codebases; need longitudinal, more diverse studies. Technical evaluation limited to 36 cases (cost); ~4x token overhead (prompt caching, deterministic checks as remedies); enforcement evidence not a formal guarantee (over-trust risk); static rule retrieval; manual setup, cognitive load of separate interface; code/tests insufficient evidence for performance or UI rules; ruleset management (conflicts, organisation) open",
+   "p": "11",
+   "verdict": "corrected",
+   "why": "Page: Section 9 Limitations is on p. 11, not p. 10. Content confirmed"
+  },
+  {
+   "f": "Notes",
+   "v": "Code: https://github.com/jennygzma/zoro. Table 1 values rebuilt from pdftotext text (order matched to conditions). Rubrics graded by annotators paid by the authors; feature completeness also annotator-judged, not test-based. Model used by Codex in the user study Not stated; GPT-5.3 used inside Zoro for enrichment and refinement. Number of compile patches 'recorded' but not reported. No pre-registration. Programming language: TypeScript, Python, JavaScript (full-stack apps)",
+   "p": "3, 7-8, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): design goals, technical evaluation question and user-study RQ1-RQ3 stated",
+   "p": "3, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): system and conditions described, tasks in appendix; rubrics, rules and repositories not shown in full; prompts of the enrichment LLM not given",
+   "p": "3-7, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Cline + Claude Sonnet 4.6, GPT-5.3 named; no Cline version; Codex model in user study not stated",
+   "p": "7, 9, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described (Appendix B.1); repositories built by the authors, availability not stated",
+   "p": "7, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): two independent annotators (software engineers, paid, not authors) graded each session with Cohen's kappa 0.97/0.82; rubrics were defined by the authors and no automated acceptance tests are used",
+   "p": "7",
+   "verdict": "uncertain",
+   "why": "§5 lists expert review as an independent criterion; grading was by two external annotators with high agreement, which supports Yes. The draft gave Partly because the rubrics are author-defined; another reader could keep Partly (0.5)"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): rule following and feature completeness defined; cost only as approximate token overhead",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No Zoro baseline and component ablations under the same agent and model",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): ANOVA and corrected paired t-tests with CIs; one run per task (n=9 per condition)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions match results; non-significant feature result and 80% ceiling reported; user-study claims framed as perceptions",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (sample, cost, evidence not a guarantee, setup)",
+   "p": "11",
+   "verdict": "corrected",
+   "why": "Page: Section 9 Limitations is on p. 11, not p. 10"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): UIST '26 (ACM), doi:10.1145/3830398.3830629; the arXiv v3 read carries the ACM rights block and ISBN of the published version",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "Draft's Check note resolved from p. 1 of the full text; score unchanged"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors propose and evaluate their own system",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source Python package working with common agents; but ~4x token overhead, GPT-5.3 dependency and manual setup; monetary cost not stated",
+   "p": "3-4, 7, 11, 13",
+   "verdict": "corrected",
+   "why": "Page: the token overhead and manual setup limitations are on p. 11 (Section 9), not p. 10. Score confirmed"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

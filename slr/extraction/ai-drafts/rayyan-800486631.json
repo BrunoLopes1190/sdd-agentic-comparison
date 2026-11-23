@@ -1,46 +1,360 @@
-{"key": "rayyan-800486631", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Dong, G., Wei, Y., Zhu, Z., Han, Y., Miao, J., Jia, X., Li, G. (2026). SkillBuffBench: Measuring What Agent Skills Contribute across Harnesses, Models, Skill Access Modes and Memory. arXiv:2611.22017v1 [cs.AI], 17 Nov 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv); 'living document', results pending; venue not stated", "p": "1, 3-4"},
-{"f": "Author affiliation", "v": "University of Oxford (Dong, Wei); Imperial College London (Zhu, Han); University College London (Miao); Nanyang Technological University (Jia); BraneMatrix AI, Shanghai (Li, corresponding)", "p": "1"},
-{"f": "Nature of the study", "v": "Proposes an evaluation method (benchmark and paired factorial evaluation protocol for Agent Skills); design only, no results yet", "p": "1, 3-4"},
-{"f": "Approach(es): name and version", "v": "No SDD approach. Agent Skills (open Agent Skills format: directory with SKILL.md name/description, instructions, optional scripts and references, loaded on demand) under three access conditions: none, curated (human-selected), automatic invocation from an installed library; crossed with memory off/on (CLAUDE.md/AGENTS.md instruction files and agent notes). Harnesses: Ginkley (BraneMatrix), Codex, Claude Code, OpenCode, each 'at its latest release', exact version to be recorded", "p": "1, 4-6"},
-{"f": "Artefacts prescribed", "v": "Skill packages (SKILL.md plus scripts, templates, reference material) contributed by domain experts; Skill content not disclosed (property of contributors), only purpose described. Task package: prompt, input assets, pinned toolset, reference solution, golden values, deterministic verifier", "p": "5-7, 10-14"},
-{"f": "Phases of the flow", "v": "N/A (not SDD). Run protocol: reset workspace/session/memory -> agent run under fixed budgets -> collect artefacts, logs, tokens, cost, time -> verify -> aggregate repeats", "p": "4"},
-{"f": "Human review points", "v": "None in runs (Skills selected by a person in the curated condition only)", "p": "6"},
-{"f": "Parts exercised", "v": "Not run yet (design-only); planned: single artefact type (Skills) and memory files", "p": "3-4"},
-{"f": "SDD level", "v": "Not classifiable (not SDD)", "p": "—"},
-{"f": "Task type", "v": "Research data-analysis tasks (not software projects): new analyses on supplied data with professional software", "p": "3, 10-14"},
-{"f": "Size", "v": "4 tasks (2 materials science, 2 biology); planned 288 runs per model (4 harnesses x 3 Skill conditions x 2 memory modes x 4 tasks x 3 repeats), 3,168 runs for 11 models (1,584 under memory off)", "p": "2, 8"},
-{"f": "Domain", "v": "Scientific research: SIMS oxygen tracer diffusion, XRD phase identification and Le Bail refinement (GSAS-II), regulatory target prioritisation (CRISPR data), 3D spheroid microscopy", "p": "10-14"},
-{"f": "Team profile", "v": "N/A (no human participants; tasks and Skills from expert co-authors)", "p": "7, 10"},
-{"f": "Cost metrics", "v": "Planned: input/output tokens, monetary cost, wall-clock time, agent rounds, tool calls, retries; cost per successful run", "p": "8, 10"},
-{"f": "Functional quality metrics", "v": "Planned: deterministic verifier score in [0,1] per task (e.g. residual RMS and CI coverage for SIMS; Rwp, chi2 and cell parameters gated by phase match for XRD; average precision for target ranking; mask overlap and nucleus matching for spheroids); pass if score >= threshold; macro-average P, absolute and normalised gains", "p": "8-14"},
-{"f": "Internal quality metrics", "v": "None", "p": "—"},
-{"f": "Human effort metrics", "v": "None", "p": "—"},
-{"f": "Other outcome metrics", "v": "Planned: pass^k and pass@k (reliability), Skill invocation rate under automatic condition, failure taxonomy (8 types), boundary violations", "p": "8, 10-11"},
-{"f": "How metrics are collected", "v": "Planned: automatic, deterministic verifiers (no LLM judge); trajectories and Skill loads logged; hashes of harness, toolset, inputs, verifier recorded; paired task-level bootstrap (B=10,000)", "p": "7-10"},
-{"f": "Evaluation (each configuration)", "v": "N/A (no runs reported; evaluation in progress). Planned configurations: 4 harnesses x 11 models (Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Argon, Gemini 3.8 Flash, GPT-6 Astra, GPT-6.1 Sol, DeepSeek-V4-Pro, Qwen3.8, Kimi K3.1 Pro, GLM-5.3, MiniMax-M3) x 3 Skill conditions x 2 memory modes", "p": "1, 5, 8"},
-{"f": "Comparison: design", "v": "Planned full factorial, paired on task, harness and model: Skill condition (none = baseline, curated, automatic) x memory (M0 isolated, M1 on) x 4 harnesses x 11 models; held constant within configuration: model version, temperature 0/top-p 1/seed where exposed, output-token limit, toolset (task-defined, mapped equally to all harnesses), inputs, budgets, task order; 3 repeats per cell; network restricted; infrastructure failures re-run, never charged", "p": "4-9"},
-{"f": "Comparison: result", "v": "N/A (results pending)", "p": "4"},
-{"f": "Comparison: did the method work", "v": "Not yet known (no results). Authors note three repeats are too few for standard errors over repeats, hence task-level bootstrap; with only 4 tasks the bootstrap over tasks will be wide (reviewer's note, not the authors')", "p": "10"},
-{"f": "Conclusions: limitations and gaps", "v": "Evaluation in progress; tasks, results, analysis and related-work discussion to be added on a rolling basis. Gaps motivating the work: prior evidence uses hand-picked Skills and blank-slate agents; memory uncontrolled; model and harness effects confounded", "p": "2-4"},
-{"f": "Notes", "v": "Design-only benchmark paper (v1); no data. Skill texts not released (contributors' property), limiting replication; per-task results promised in full. Related evidence cited: SkillsBench, curated Skills +16.6 pp over 87 tasks, 13 tasks worse. One evaluated harness (Ginkley) is developed by the corresponding author's company (BraneMatrix). Memory mode includes CLAUDE.md/AGENTS.md project instruction files. No pre-registration claimed, although design and thresholds fixed before runs", "p": "2, 4-6, 9"},
-{"f": "Q1", "v": "Yes (1): RQ1-RQ3 stated", "p": "4"},
-{"f": "Q2", "v": "Partly (0.5): protocol, metrics and verifiers detailed, but Skill contents withheld and harness versions not yet fixed", "p": "4-14"},
-{"f": "Q3", "v": "N/A (no runs reported; design names models, harness versions to be recorded)", "p": "5"},
-{"f": "Q4", "v": "N/A (no runs reported; tasks described in full, availability not stated)", "p": "10-14"},
-{"f": "Q5", "v": "N/A (no runs reported; design uses deterministic verifiers against reference values and withheld labels)", "p": "7"},
-{"f": "Q6", "v": "N/A (no runs reported; design defines quality and cost metrics)", "p": "8-10"},
-{"f": "Q7", "v": "N/A (no runs reported; design has a no-Skill baseline)", "p": "6"},
-{"f": "Q8", "v": "N/A (no runs reported; design has 3 repeats and paired bootstrap)", "p": "8-10"},
-{"f": "Q9", "v": "Yes (1): no claims of results; states evaluation is in progress", "p": "1, 3-4"},
-{"f": "Q10", "v": "No (0): no threats or limitations section", "p": "—"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Partly (0.5): corresponding author's company develops Ginkley, one of the four harnesses; others independent", "p": "1, 4"},
-{"f": "Q13", "v": "N/A", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800486631",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Dong, G., Wei, Y., Zhu, Z., Han, Y., Miao, J., Jia, X., Li, G. (2026). SkillBuffBench: Measuring What Agent Skills Contribute across Harnesses, Models, Skill Access Modes and Memory. arXiv:2611.22017v1 [cs.AI], 17 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.22017v1 [cs.AI], 17 Nov 2026; 'living document', results pending; no published venue stated",
+   "p": "1, 3-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required format 'Preprint — detail'; substance unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Oxford (Dong, Wei); Imperial College London (Zhu, Han); University College London (Miao); Nanyang Technological University (Jia); BraneMatrix AI, Shanghai (Li, corresponding)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method — benchmark (SkillBuffBench) and paired factorial evaluation protocol for Agent Skills across harnesses, models, Skill access modes and memory; design only, no results yet",
+   "p": "1, 3-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required format '<nature> — detail'; substance unchanged"
+    }
+   ],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent Skills (open Agent Skills format: directory with SKILL.md name/description, instructions, optional scripts and references, loaded on demand) under three access conditions: none, curated (human-selected), automatic invocation from an installed library; crossed with memory off/on (CLAUDE.md/AGENTS.md instruction files and agent notes). Harnesses: Ginkley (BraneMatrix), Codex, Claude Code, OpenCode, each 'at its latest release', exact version to be recorded",
+   "p": "1, 4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill packages (SKILL.md plus scripts, templates, reference material) contributed by domain experts; Skill content not disclosed (property of contributors), only purpose described. Task package: prompt, input assets, pinned toolset, reference solution, golden values, deterministic verifier",
+   "p": "5-7, 10-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (not SDD). Run protocol: reset workspace/session/memory -> agent run under fixed budgets -> collect artefacts, logs, tokens, cost, time -> verify -> aggregate repeats",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in runs (Skills selected by a person in the curated condition only)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run yet (design-only); planned: single artefact type (Skills) and memory files",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not SDD)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Research data-analysis tasks (not software projects): new analyses on supplied data with professional software",
+   "p": "3, 10-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "4 tasks (2 materials science, 2 biology); planned 288 runs per model (4 harnesses x 3 Skill conditions x 2 memory modes x 4 tasks x 3 repeats), 3,168 runs for 11 models (1,584 under memory off)",
+   "p": "2, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Scientific research: SIMS oxygen tracer diffusion, XRD phase identification and Le Bail refinement (GSAS-II), regulatory target prioritisation (CRISPR data), 3D spheroid microscopy",
+   "p": "10-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; tasks and Skills from expert co-authors)",
+   "p": "7, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Planned: input/output tokens, monetary cost, wall-clock time, agent rounds, tool calls, retries; cost per successful run",
+   "p": "8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Planned: deterministic verifier score in [0,1] per task (e.g. residual RMS and CI coverage for SIMS; Rwp, chi2 and cell parameters gated by phase match for XRD; average precision for target ranking; mask overlap and nucleus matching for spheroids); pass if score >= threshold; macro-average P, absolute and normalised gains",
+   "p": "8-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Planned: pass^k and pass@k (reliability), Skill invocation rate under automatic condition, failure taxonomy (8 types), boundary violations",
+   "p": "8, 10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Planned: automatic, deterministic verifiers (no LLM judge); trajectories and Skill loads logged; hashes of harness, toolset, inputs, verifier recorded; paired task-level bootstrap (B=10,000)",
+   "p": "7-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (no runs reported; evaluation in progress). Planned configurations: 4 harnesses x 11 models (Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Argon, Gemini 3.8 Flash, GPT-6 Astra, GPT-6.1 Sol, DeepSeek-V4-Pro, Qwen3.8, Kimi K3.1 Pro, GLM-5.3, MiniMax-M3) x 3 Skill conditions x 2 memory modes",
+   "p": "1, 5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Planned full factorial, paired on task, harness and model: Skill condition (none = baseline, curated, automatic) x memory (M0 isolated, M1 on) x 4 harnesses x 11 models; held constant within configuration: model version, temperature 0/top-p 1/seed where exposed, output-token limit, toolset (task-defined, mapped equally to all harnesses), inputs, budgets, task order; 3 repeats per cell; network restricted; infrastructure failures re-run, never charged",
+   "p": "4-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (results pending)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Not yet known (no results). Authors note three repeats are too few for standard errors over repeats, hence task-level bootstrap; with only 4 tasks the bootstrap over tasks will be wide (reviewer's note, not the authors')",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Evaluation in progress; tasks, results, analysis and related-work discussion to be added on a rolling basis. Gaps motivating the work: prior evidence uses hand-picked Skills and blank-slate agents; memory uncontrolled; model and harness effects confounded",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Design-only benchmark paper (v1); no data. Skill texts not released (contributors' property), limiting replication; per-task results promised in full. Related evidence cited: SkillsBench, curated Skills +16.6 pp over 87 tasks, 13 tasks worse. One evaluated harness (Ginkley) is developed by the corresponding author's company (BraneMatrix). Memory mode includes CLAUDE.md/AGENTS.md project instruction files. No pre-registration claimed, although design and thresholds fixed before runs",
+   "p": "2, 4-6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol, metrics and verifiers detailed, but Skill contents withheld and harness versions not yet fixed",
+   "p": "4-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (no runs reported; design names models, harness versions to be recorded)",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (no runs reported; tasks described in full, availability not stated)",
+   "p": "10-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (no runs reported; design uses deterministic verifiers against reference values and withheld labels)",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (no runs reported; design defines quality and cost metrics)",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (no runs reported; design has a no-Skill baseline)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (no runs reported; design has 3 repeats and paired bootstrap)",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): no claims of results; states evaluation is in progress",
+   "p": "1, 3-4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "No results or conclusions are reported (evaluation in progress), so the question has little to check; Yes rests on the paper making no result claims, but a reader could score No (missing information) instead"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No results or conclusions are reported (evaluation in progress), so the question has little to check; Yes rests on the paper making no result claims, but a reader could score No (missing information) instead"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats or limitations section",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): corresponding author's company develops Ginkley, one of the four harnesses; others independent",
+   "p": "1, 4",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Partly kept, but the non-independence is wider than one harness: Ginkley is developed by the corresponding author's company (BraneMatrix), and the curated Skills are those of the domain-expert co-authors who contributed the tasks (p. 7, 10); Codex, Claude Code, OpenCode and the no-Skill baseline are independent. Could be read as No"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly kept, but the non-independence is wider than one harness: Ginkley is developed by the corresponding author's company (BraneMatrix), and the curated Skills are those of the domain-expert co-authors who contributed the tasks (p. 7, 10); Codex, Claude Code, OpenCode and the no-Skill baseline are independent. Could be read as No"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "N/A kept because the nature is 'proposes an evaluation method', not an approach or conceptual study; but with no runs the paper is non-empirical (Q3-Q8 N/A), and a reader could treat it as conceptual and score Q13 (cost of the 3,168-run matrix is not stated)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "N/A kept because the nature is 'proposes an evaluation method', not an approach or conceptual study; but with no runs the paper is non-empirical (Q3-Q8 N/A), and a reader could treat it as conceptual and score Q13 (cost of the 3,168-run matrix is not stated)"
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,226 +1,315 @@
 {
  "key": "rayyan-800497948",
  "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 0,
  "fields": [
   {
    "f": "Reference",
    "v": "Xu, X., Wu, W. (2026). Stale Instruction Files Override the Code in Coding Agents: A One-Sentence Fix. arXiv:2610.30571v1 [cs.SE], 22 Oct 2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Year",
    "v": "2026",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Publication type",
    "v": "Preprint (arXiv)",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Author affiliation",
    "v": "College of Computing, Georgia Institute of Technology, USA (Xu); Department of Computer Science, University of Colorado Boulder, USA (Wu); gmail contact addresses",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Nature of the study",
    "v": "Proposes an approach (one sentence in the user-level instruction file giving existing code precedence over stale documentation); secondary: compares (with vs without the sentence, Claude Code and Codex CLI, 320 runs) and evaluates agents' behaviour with stale instruction files",
-   "p": "1, 5-6"
+   "p": "1, 5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
    "v": "Precedence sentence in user-level instruction file (~/.claude/CLAUDE.md or ~/.codex/AGENTS.md): \"When a repository's documentation and its existing code disagree, follow the conventions used in the existing code, and in your final reply point out each inconsistency ...\"; no version. Context: project instruction files CLAUDE.md / AGENTS.md",
-   "p": "5-6, 10"
+   "p": "5-6, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Artefacts prescribed",
    "v": "Project instruction file (CLAUDE.md/AGENTS.md, stale by design) plus user-level instruction file with the precedence sentence",
-   "p": "4-6"
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Phases of the flow",
    "v": "Not stated as a flow; agent receives feature request, reads instruction files and code, implements feature in a single unattended run; teams then use reported conflicts to correct the instruction file",
-   "p": "6, 10"
+   "p": "6, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human review points",
    "v": "None in the experiment (non-interactive, edits auto-approved); recommended: teams correct the instruction file using conflicts the agent reports",
-   "p": "6, 10"
+   "p": "6, 10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Parts exercised",
    "v": "Single artefact (instruction/context file) run end-to-end with Claude Code and Codex CLI; no specification",
-   "p": "5-6"
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "SDD level",
    "v": "Not classifiable (instruction-file conflict handling; no specification); authors do not use SDD terms",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Task type",
    "v": "Existing code base: add a feature to 40 synthetic Python projects with existing modules and tests",
-   "p": "5"
+   "p": "5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Size",
    "v": "40 small synthetic Python projects, each 3-8 working modules with passing test suite; each feature requires 4-5 convention choices from 16 kinds; 720 choices per condition; 320 runs",
-   "p": "5-7"
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Domain",
    "v": "Python; small utility applications (e.g., inventory/stockroom, kanban); conventions such as logging vs print, pathlib vs os.path, money as integer cents vs Decimal",
-   "p": "3, 6, 9"
+   "p": "3, 6, 9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Team profile",
    "v": "N/A (no human participants)",
-   "p": "11"
+   "p": "11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Cost metrics",
    "v": "Number of tool calls and running time recorded; only reported as \"slightly fewer\" with the sentence (no values in text)",
-   "p": "6, 9"
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
    "v": "Original test files restored and run with held-out tests for the new feature: test pass rate per run",
-   "p": "6, 9"
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Internal quality metrics",
    "v": "Convention conformance: share of choices matching the instruction file, the existing code or neither (script classification); rewriting existing code (>=20 lines removed from pre-existing Python files)",
-   "p": "6"
+   "p": "6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Human effort metrics",
    "v": "None",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Other outcome metrics",
    "v": "Whether the final reply names the conflict (LLM judge, blinded); results per kind of choice (16 kinds)",
-   "p": "6-8"
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
    "v": "Automatic: script classifies each choice in added code; line-removal count; tests run after restoring originals; blinded LLM judge (Claude Opus 5.5, criterion fixed before first run) for conflict reporting; bootstrap CIs (2,000 resamples of projects)",
-   "p": "6-7, 12"
+   "p": "6-7, 12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
    "v": "Criterion: share of choices following existing code; tests pass; no rewrites. (1) Stale file, no sentence + Claude Code 2.1.302 + Claude Sonnet 5.5 (80 runs): 86.4% of choices match stale file, 7.5% match code; conflict named in 79/80 runs yet file followed; no rewrites; tests pass (Claude Code failures not reported, overall 89.4% without sentence). Quality: does not work (conformance). (2) Sentence + Claude Code + Claude Sonnet 5.5 (80 runs): 94.4% match code [CI 91.9-96.9]; conflicts reported in all runs; tests pass 100%. Works; cost works (slightly fewer tool calls, less time). (3) No sentence + Codex CLI 0.163.0 + GPT-6 Sol (80 runs): 93.9% match file, 0.8% match code; conflict named in 2/80; rewrote existing code in 20 runs (median 198 lines, 9 files), original tests failed in 17; test pass 78.8%. Does not work. (4) Sentence + Codex CLI + GPT-6 Sol (80 runs): 88.3% match code [84.8-91.8]; no rewrites; tests 100%; conflicts reported. Works; cost works (directional)",
-   "p": "6-9"
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: design",
    "v": "Tasks: 40 synthetic Python projects with a stale instruction file contradicting consistent code on 4-5 conventions (16 kinds, both directions balanced). Configurations: 2 agents x {with, without sentence}. Baseline: without sentence. Held constant: project copy, stale file wording and place, prompt (feature request only), non-interactive mode, auto-approved edits, 1,800 s limit, environment variables. Acceptance tests: original tests restored + held-out feature tests. Repetitions: 2 runs per project, agent and condition (320 runs). Human intervention: none; reruns only for usage limits/login/sandbox",
-   "p": "5-6, 11-12"
+   "p": "5-6, 11-12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: result",
    "v": "Sentence raised share of choices following code from 4.2% to 91.4% (+87.2 points, 95% CI 83.6-90.9); Claude Code 7.5 -> 94.4%, Codex CLI 0.8 -> 88.3%; stopped rewrites (20 -> 0 for Codex); test pass 89.4% -> 100% (Codex 78.8 -> 100%); slightly fewer tool calls and less time. Without sentence file prevailed in 14 of 16 kinds (exceptions Money, Configuration for Claude Code). Bootstrap CIs; no formal test beyond CIs",
-   "p": "7-9"
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
    "v": "Distinguished conditions clearly with non-overlapping CIs; repeatable design (2 runs per cell, fresh copies, fixed judge criterion). Limitations of the comparison: only a Scope section (40 Python projects, file as stale source, 16 conventions, single unattended run, two agent-model pairs)",
-   "p": "7, 11"
+   "p": "7, 11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
    "v": "Scope only: 40 synthetic Python projects, instruction file as the outdated source, 16 kinds of convention, single unattended run, two agents/models. Gaps: agent makers should put the precedence rule in system prompts; model makers should train models to check descriptions against code",
-   "p": "10-11"
+   "p": "10-11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Notes",
    "v": "Figures 5-6 values partly given in text; per-kind values (Fig. 5b) in figure only. Tool-call and time values not reported numerically. Projects are synthetic and built by the authors. Data and code: github.com/WenJing95/stale-docs-data (projects, tasks, run records, scripts, judge criterion). Pre-registration: not claimed (judge criterion fixed before first run). Language: Python. Claude Code failing-test count without sentence not stated separately (inferred from overall 89.4% vs Codex 78.8%)",
-   "p": "6-9, 11-12"
+   "p": "6-9, 11-12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q1",
    "v": "Yes (1): purpose and two predictions stated",
-   "p": "1, 5"
+   "p": "1, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q2",
    "v": "Yes (1): project construction, sentence text, agent commands, environment, measures and retry rules given (Appendix A); data and scripts published",
-   "p": "5-6, 11-12"
+   "p": "5-6, 11-12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q3",
    "v": "Yes (1): Claude Code 2.1.302 + Claude Sonnet 5.5; Codex CLI 0.163.0 + GPT-6 Sol; judge Claude Opus 5.5",
-   "p": "6"
+   "p": "6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q4",
    "v": "Yes (1): projects and tasks described and available",
-   "p": "5-6, 11"
+   "p": "5-6, 11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q5",
    "v": "Yes (1): original and held-out tests, scripted classification, blinded judge with pre-fixed criterion",
-   "p": "6, 12"
+   "p": "6, 12",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q6",
    "v": "Partly (0.5): quality metrics defined; cost (tool calls, time) recorded but not reported numerically",
-   "p": "6, 9"
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q7",
    "v": "Yes (1): without-sentence condition under identical settings",
-   "p": "5-6"
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q8",
    "v": "Yes (1): 2 runs per project-condition, bootstrap 95% CIs over projects",
-   "p": "6-8"
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q9",
    "v": "Yes (1): conclusions follow; mechanism (instruction hierarchy) presented as attribution consistent with results",
-   "p": "9, 11"
+   "p": "9, 11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q10",
    "v": "Partly (0.5): only a short Scope section; no threats to validity discussion (e.g., synthetic projects, author-built tasks, LLM judge)",
-   "p": "11"
+   "p": "11",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q11",
    "v": "No (0): arXiv preprint",
-   "p": "1"
+   "p": "1",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q12",
    "v": "Partly (0.5): independent of Claude Code/Codex vendors, but authors proposed the sentence they evaluate",
-   "p": "1, 5"
+   "p": "1, 5",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "Q13",
    "v": "Yes (1): one sentence added to an existing user-level file; no extra tools or cost",
-   "p": "9-10"
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE1",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE2",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE3",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   },
   {
    "f": "DARE4",
    "v": "N/A",
-   "p": "—"
+   "p": "—",
+   "rev": [],
+   "warn": ""
   }
  ]
 }

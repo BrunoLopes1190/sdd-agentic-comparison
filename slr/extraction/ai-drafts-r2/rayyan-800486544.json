@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486544",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Treude, C., Baltes, S. (2026). How Do Coding-Agent Harnesses Self-Evolve? An Empirical Study of Retrospective Adaptation. arXiv:2610.34938v1 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.34938v1 [cs.SE], 26 Oct 2026; short paper (4 pages + references), venue not stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Singapore Management University (Treude); Heidelberg University (Baltes)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — empirical study of the /retro retrospective skill: qualitative coding of its proposals (RQ1) and with/without transfer evaluation of implemented harness changes on later issues (RQ2)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "/retro skill (from mattpocock/skills, source commit b0618bc), a skill that asks the agent to review a completed session and propose numbered harness changes for human approval ('harness self-evolution' via retrospectives). The adaptations it produced (CLAUDE.md lines, known-failures files, AGENTS.md, scripts, pre-commit config) are the treatments evaluated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Harness changes in permitted files and settings: context files (CLAUDE.md, AGENTS.md), hooks, lint or CI configuration, known-failures files, helper scripts. Mechanism codes of the 125 proposals: executable check 38, navigation pointer 24, instruction 21, information access 20, tool or configuration 12, none 10 (Table I)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Task session (Claude Code resolves issue, verifies with existing tests) -> same session resumed with /retro -> numbered proposals -> proposals coded and selected (human) -> Claude Code implements approved proposals in original container -> changed files copied into fresh sessions on later issues of the same repository",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "/retro proposals require human approval; in the study the authors selected which proposals to implement (eligibility rules), chose later issues and labelled outcomes; first author resolved coder disagreements. Process is 'self-evolution with human selection and evaluation rather than an autonomous loop'",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact per evaluation (one harness adaptation at a time, e.g. a CLAUDE.md line or a known-failures file); /retro proposal generation run in full on 30 sessions",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (harness/context-file adaptation, no specification); authors use 'harness self-evolution'",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-bench Verified issues (bug fixing) in open-source repositories",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "30 issues for proposal generation (10 exploratory, random from '15 min-1 hour' category; 20 purposively chosen); 125 proposals; 24 implemented; 12 adaptations evaluated in 13 transfer events (5 sessions per harness each) + 3 control tasks; 120 traces labelled for pre-existing-failure events. Repository size not stated",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories: Django, SymPy, Matplotlib, Astropy, Sphinx, pytest",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent sessions; authors act as approvers/labellers)",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Median elapsed time per session (secondary outcome). No tokens or money",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success (secondary outcome; hidden benchmark tests implied, not detailed)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Primary: recurrence (session performs the action the adaptation was meant to prevent, e.g. trying pytest when not installed, or baseline comparison for pre-existing failures); encountered vs covered problem; loaded and consulted adaptation; RQ1: trigger code (experience-driven / prior-driven / weak) and mechanism code of each proposal",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Proposal coding: two LLM coders (Claude Code with claude-fable-5-1, full traces; GPT gpt-6.1-sol, excerpts), same codebook; trigger agreement 109/125 (kappa 0.67), mechanism 109/125 (kappa 0.84); first author resolved 91 disagreements. Recurrence: for the 9 pre-existing-failure events + controls, two LLM labelers then first author labelled 120 traces blind to harness labels (agreement with LLM 119/120, kappa 0.98); elapsed time and success automatic",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: recurrence of the targeted action (valid sessions) under original vs adapted harness; transfer event informative if >=3/5 original sessions encountered the problem. All configurations: Claude Code 2.1.295 + Opus 5.5. Original/adapted/consulted (Table II): - Original harness (baseline, 7 informative events): recurrence 3/5 to 5/5 in every event; quality does not work on this criterion; cost not judgeable (median times given only for SymPy, 88 s, and the Sphinx control, 82 s). - SymPy CLAUDE.md line naming bin/test: 5/5 -> 0/5, consulted 5/5; median time 88 -> 156 s (bundled lint instruction). Quality works; cost does not work. - Astropy known-failures file (3 tests): 3/5 -> 0/5, consulted 5/5; control task 0/5 -> 0/5 (consulted 0/5). Quality works; cost works (time fell, within 5-28 s range given for four events). - Sphinx known-failures + AGENTS.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 1/5. Quality does not work; cost works (time fell 5-28 s). - Sphinx known-failures + CLAUDE.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 4/5 (added work); time fell 5-28 s on the transfer issue, rose 82 -> 245 s on the Sphinx control task (text does not say which of the two Sphinx files). Quality does not work; cost partly. - SymPy 2-package known-failures + script: 4/5 -> 4/4, consulted 4/4; time rose (amount not given). Quality does not work; cost does not work. - pytest known-failures (3 tests): 5/5 -> 5/5, consulted 5/5; time rose (amount not given). Quality does not work; cost does not work. - Astropy cache repair plugin + script: 5/5 -> 2/5, consulted 5/5; time fell 5-28 s. Quality partly; cost works. - Pre-commit config (author-written, prior-driven comparison): present in all 5 adapted sessions, never read or run. Quality does not work; cost N/A. - 5 further events non-informative (problem reproduced but encountered in 0/5 or 1/5 original sessions): N/A. Task success differed by at most one session in every event (absolute values not reported)",
+   "p": "3-4",
+   "verdict": "uncertain",
+   "why": "Recurrence and consulted counts checked against Table II and the time statements on p. 3-4. Absolute elapsed times are given only for the SymPy CLAUDE.md event (88 -> 156 s) and the Sphinx control (82 -> 245 s), so cost verdicts for the other configurations rest on the direction of change vs the original harness, not on their own values as §6 asks; 'not judgeable' (original harness) and 'N/A' (pre-commit) are outside works/partly/does not work. Verdict levels are for the author"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: per transfer event another SWE-bench Verified issue from the same repository, verified to reproduce the targeted problem; 3 control tasks (unrelated issues). Configurations: original harness vs adapted harness (one adaptation at a time). Baseline: original harness. Held constant: agent and version, model, task prompt template, fresh Docker container, changed files copied unmodified. Acceptance: recurrence labels (primary); task success secondary. Repetitions: 5 sessions per harness per event. Human intervention: none in sessions (non-interactive); one adapted session excluded (authentication error)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Of 7 informative events: 2 adaptations eliminated the targeted action (5/5 -> 0/5; 3/5 -> 0/5), 1 reduced it (5/5 -> 2/5), 4 showed no reduction; one Sphinx file added work on its control task (0/5 -> 4/5). Task success: no consistent difference (<=1 session). Elapsed time: rose in SymPy CLAUDE.md (88 -> 156 s), SymPy and pytest uncovered events, Sphinx control (82 -> 245 s); fell 5-28 s in the other four informative events. No significance tests (counts described only). RQ1: 101/125 experience-driven, 19 prior-driven (18 lint), 5 weak; only 9 of 38 executable checks could report failure as written",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished adaptations that covered the encountered instances from those that did not; 6 of 13 events not informative (5 where the original sessions did not encounter the problem, plus the pre-commit comparison that no session read). Repeatability: 5 sessions per harness, no statistics; full artifact published. Limitations stated: targeted task selection may overestimate benefit; implementations may contain information absent from proposal text; labelling not fully blind (traces show reading transferred files); 5 sessions and 7 informative events do not establish that coverage explains differences; adaptations differ in several properties and were grouped after labelling",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Implementing an adaptation does not guarantee it reduces repeated work; scope of retained experience matters (test command generalises, a list of failing tests may not); evaluation must check whether the problem arose, whether the adaptation was consulted, and whether actions changed; retained changes need continued evaluation and removal. Evidence covers one agent, one /retro version and environment problems. Future: other agents, navigation and convention adaptations, components of bundled adaptations one at a time, untargeted later issues",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Replication artifact (scripts, prompts, traces, codebook, labels, harness changes): https://doi.org/10.5281/zenodo.23653700. No pre-registration stated. Language: Python repositories. Table II rebuilt from jumbled pdftotext columns (Original/Adapted/Consulted order). Per-event elapsed times only given for some events in text. Second sample of 20 issues not random (chosen for environment problems)",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1 and RQ2 stated explicitly",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): sampling, coding, eligibility, transfer procedure described; procedural details, prompts and codebook in artifact",
+   "p": "2-3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.295 with Opus 5.5; /retro commit b0618bc; coder models named",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-bench Verified issues and repositories named; artifact on Zenodo",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): primary outcome (recurrence) is a behavioural label by the first author with LLM cross-check, not fully blind; task success via benchmark tests only secondary",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): recurrence, encountered, covered, loaded, consulted defined; cost only elapsed time (no tokens/money); quality only task success, briefly",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): original harness vs adapted harness, same prompt and container",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 5 sessions per harness; inter-rater agreement reported; no statistical test of differences",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): mixed and negative results reported; claims limited to these cases",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section V threats to validity, plus scope limits in conclusion",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, venue not stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): /retro is from a third-party repository (mattpocock/skills); authors at universities; Claude Code from Anthropic",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

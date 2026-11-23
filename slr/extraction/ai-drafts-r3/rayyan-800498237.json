@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800498237",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Cheng, Y., Chen, H., Gao, P., Cheng, W. (2026). SpecForge: Recursive Self-Improvement for Coding Agents via Behavioral Specifications. 40th Conference on Neural Information Processing Systems (NeurIPS 2026). arXiv:2610.15708v1 [cs.AI], 11 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — NeurIPS 2026, 40th Conference on Neural Information Processing Systems (camera-ready footer on p. 1); read from arXiv:2610.15708v1 [cs.AI]",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Virginia Tech (Y. Cheng, P. Gao); NEC Laboratories America (H. Chen, W. Cheng); first author's work done as NEC intern",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — SpecForge, a multi-frontier tree search that refines per-entity behavioral specifications from execution feedback, compared against 5 groups of baselines (static docs, prompt optimizers, Cursor/Claude Code, iterative refinement, DocSearch) on 5 backbones on DevEval+, plus downstream transfer (Java translation, SWE-Dev)",
+   "p": "1-3, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SpecForge (code github.com/ccsnow127/SpecForge; version Not stated). Baselines: RepoAgent, DocAgent (static docs); MIPROv2, GEPA, ACE (monolithic prompt optimization); Cursor and Claude Code (base, +Topo, +Test, +Topo+Test); Iterative, Iterative+Topo; DocSearch (same first authors, ICML 2026). Agent versions Not stated",
+   "p": "1, 6-7, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Behavioral specification bundle: one natural-language specification per program entity (function/class/method: inputs, outputs, behavioral constraints); call graph; LLM-generated unit tests validated on the reference implementation (branch coverage >= 90%); Pareto archive of specification states",
+   "p": "1-4, 36-37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Initial specs from existing code -> loop (budget B = 50 rollouts): select archive state (Pareto, frequency-weighted) -> select eligible entity (callees solved, discounted-UCB) -> W = 3 refinements from different failing-test subsets (diagnosis + prescription prompts) -> regenerate full module code from specs only -> run tests -> update archive and bandit; return bundle with most resolved entities. Downstream: specs used for cross-language translation and new-feature implementation",
+   "p": "2-5, 23, 28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the SpecForge loop (automatic, execution feedback). Commercial-agent +Test baselines ran with a budget of 50 manual action approvals; two authors verified the Java test translations",
+   "p": "32, 35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full SpecForge loop (spec generation, code regeneration, test, refinement); downstream tasks use only the resulting specifications",
+   "p": "3-4, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (code is regenerated from the specifications alone, close to spec-as-source, but the specifications are recovered from existing code and judged by reconstruction rather than used to develop); authors' wording: 'behavioral specifications', 'specification-mediated recursive self-improvement'",
+   "p": "2-3",
+   "verdict": "uncertain",
+   "why": "Code is regenerated from the specifications alone (pp. 2-3), which points to spec-as-source, but the specs are reverse-engineered from a reference implementation and judged by reconstruction, not used to build new software; 'not classifiable' is equally defensible."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code: specs derived from existing Python modules and judged by code reconstruction; downstream cross-language translation (Python to Java) and new-feature implementation in existing packages (SWE-Dev)",
+   "p": "2, 6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "DevEval+: 20 Python modules, 247 entities, 760 tests, avg 12.4 entities/module, dependency depth 4.2 (max 10). DevEval+-Java: 16 modules, 208 entities, 680 tests. SWE-Dev: 10 packages, 27 instances (15 easy, 12 hard)",
+   "p": "6, 9, 33",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Diverse open-source Python modules (finance, NLP, bioinformatics, signal processing, scheduling, compilers, data validation, etc.)",
+   "p": "6, 33",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Budget in rollouts (B = 50 spec->code->test cycles; baselines matched); convergence per rollout. No tokens, money or time reported. Compute: APIs from CPU desktops; Qwen on 8x H100",
+   "p": "7-8, 32, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Solve rate |S| (share of entities passing all hidden ground-truth tests); pass rate (share of test cases passed); Pass@1 on SWE-Dev",
+   "p": "7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Convergence curves (pass rate vs rollouts); ablation drops per component; sensitivity to feedback signal (LLM tests vs ground truth vs LLM judge vs reduced coverage)",
+   "p": "8-9, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden ground-truth tests (never seen during search); search guided by LLM-generated tests (GPT-4o, temperature 0.7) validated on reference implementation; JUnit 5 harness for Java; SWE-Dev developer tests",
+   "p": "7, 9, 35-37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: solve rate / pass rate on hidden tests (DevEval+), 50 rollouts. Values |S| / pass rate per backbone: Qwen3-235B-A22B; Gemini-2.5-Flash; GPT-4o; Gemini-3.1-Pro; Claude-4.5-Sonnet (Table 1). Agent = authors' pipeline unless Cursor/Claude Code. Quality verdict: works >= 85% solve, partly 50-85%, does not < 50%. Cost: not measured (equal rollout budget), no cost verdict.\n- SpecForge (5 models): 88.9/91.5; 89.6/92.1; 90.9/93.2; 91.0/93.1; 94.9/96.1. Works on all\n- DocSearch (5 models): 81.5/84.9; 82.2/85.7; 85.5/88.4; 87.2/89.5; 90.4/91.8. Partly (Qwen, Flash), works (others)\n- RepoAgent: 22.3/34.9; 19.2/30.6; 27.8/39.9; 33.7/45.5; 35.3/47.3. Does not work\n- DocAgent: 16.1/31.1; 14.5/27.2; 22.2/37.2; 26.8/41.8; 28.9/44.7. Does not work\n- MIPROv2: 28.5/30.4; 30.3/32.3; 29.8/31.4; 42.8/43.8; 50.0/52.0. Does not work (partly on Claude)\n- GEPA: 34.8/35.6; 32.1/33.1; 35.6/37.6; 40.7/42.5; 50.4/52.9. Does not work (partly on Claude)\n- ACE: 58.9/59.8; 61.5/62.4; 62.8/64.3; 68.6/70.1; 74.9/76.6. Partly\n- Cursor base / +Topo / +Test / +Topo+Test on Gemini-2.5-Flash: 15.8, 21.2, 31.0, 39.4 solve. Does not work\n- Cursor same four on Gemini-3.1-Pro: 27.5, 37.6, 44.9, 51.1. Does not work / partly (+Topo+Test)\n- Cursor same four on Claude-4.5-Sonnet: 30.6, 37.7, 47.8, 52.1. Does not work / partly (+Topo+Test)\n- Claude Code base / +Topo / +Test / +Topo+Test on Claude-4.5-Sonnet: 40.1/50.1, 45.1/55.0, 55.3/62.2, 61.9/68.4. Does not work / partly\n- Iterative: 41.0/45.0; 37.8/45.1; 49.7/53.8; 57.5/59.9; 59.5/60.6. Does not work / partly\n- Iterative+Topo: 43.5/46.8; 40.5/46.9; 54.3/57.9; 67.5/68.8; 64.4/64.5. Partly\n- Ablations on GPT-4o, 10-module subset (ablation): without reverse topological order -18.6; without D-UCB -10.4; without error diversity -9.5; without Pareto archive -5.2 (solve rate points)\n- Feedback-signal variants on GPT-4o (ablation): pass rate 93.2 (LLM tests), 94.8 (ground-truth tests), 73.6 (LLM judge), 93.4/92.6/87.5 (coverage 0.7/0.5/0.3)\n- Java translation, GPT-4o (|S|/pass): Source-only 39.7/50.5; RepoAgent 33.5/44.6; Claude Code* (Claude-4.5-Sonnet) 45.9/53.1; ACE 49.7/56.0; SpecForge 65.7/71.3; SpecForge Spec+Source 76.2/80.4\n- SWE-Dev new features, GPT-4o (Pass@1 easy/hard): PRD+Source 55.7/44.6; RepoAgent 22.0/14.0; Claude Code* 38.0/27.0; ACE 50.0/38.0; SpecForge 74.5/51.7",
+   "p": "7-10, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: DevEval+ (20 modules) for the main comparison; DevEval+-Java and SWE-Dev subset for downstream transfer. Configurations: 11 methods/variants x 5 backbones (commercial agents only on supported models). Baselines: static docs, prompt optimizers, commercial agents, iterative refinement, DocSearch. Held constant: rollout budget (50) for optimizers, same LLM-generated test suite during search, hidden ground-truth tests for evaluation, backbone per column. Acceptance tests: hidden ground-truth tests. Repetitions: Not stated in body (checklist claims multiple seeds with mean/SD in appendix; not found). Human intervention: none in loop; up to 50 manual approvals for commercial-agent +Test",
+   "p": "6-7, 9, 32, 41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "SpecForge best on all 5 backbones; +3.8 to +7.4 solve-rate points over DocSearch (avg +5.7), +3.6 to +6.6 pass rate; +23.5 to +49.1 points over best iterative baseline; Claude Code+Topo+Test and Cursor+Topo+Test trail by 33.0 and 42.8 points on Claude-4.5-Sonnet. Convergence: SpecForge 41% -> 93% pass rate over 50 rollouts while baselines oscillate. Transfer: Java +26.0 solve-rate points over Source-only; SWE-Dev beats benchmark PRD by +18.8 (easy) and +7.1 (hard). Significance: not tested",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods clearly (large gaps), consistent across 5 backbones. Repeatability: code and data released; variance not reported in body. Limitations stated: loop requires a reference implementation; fixed search procedure; only 20 Python modules; DocSearch re-run on revised benchmark deviates 5.6 points from its original paper",
+   "p": "7, 38, 41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Recursion is over specifications, not the improver (fixed search procedure); requires a reference implementation to validate self-generated tests; evaluation of the loop on 20 Python modules only, other languages only as downstream target. Execution-grounded feedback essential (LLM judge drops pass rate 19.6 points)",
+   "p": "27, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and data: github.com/ccsnow127/SpecForge. No pre-registration. Language: Python (Java downstream). Inconsistencies: checklist (p. 41) says experiments repeated across seeds with mean and SD in appendix, but no SD found; text says 'two' prompt optimizers adapted (p. 32) while three are compared; Claude Code* downstream runs on Claude-4.5-Sonnet while other downstream methods use GPT-4o; the ablation (Fig. 3c, p. 8) is said to run on a 10-module subset, yet its full-model reference line (|S| 90.9, pass 93.2) equals the 20-module GPT-4o values of Table 1, so the subset base value is not reported or the label is wrong. Author overlap: DocSearch (strongest baseline) is by the same first and senior authors. Table 1 values taken from p. 7 (extraction kept row order)",
+   "p": "7-9, 32, 41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem, challenge (output coupling) and claims tested stated",
+   "p": "2-3, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithm, hyperparameters, prompts and baseline setups given; code released",
+   "p": "3-6, 23, 27-32, 37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): backbone names given without snapshot; Cursor and Claude Code versions not stated",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): DevEval+ module list and construction described; released",
+   "p": "6, 33-34, 41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden ground-truth tests never seen during search",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; cost only as rollout budget, no tokens or money",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): many baselines at matched rollout budget and backbone",
+   "p": "6-7, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions, variance or significance reported in the paper (checklist claim not substantiated)",
+   "p": "7, 41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): gains large and consistent, but no variance; strongest baseline by same authors re-run on a revised benchmark",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): two-sentence limitations appendix; no threats section",
+   "p": "38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): NeurIPS 2026 (footer)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created SpecForge and DocSearch; independent of other baselines",
+   "p": "1, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): runs via APIs on CPU machines (open models need 8x H100); needs a reference implementation; token/money cost not stated",
+   "p": "38",
+   "verdict": "uncertain",
+   "why": "API calls from CPU desktops (p. 38) and a 50-rollout budget support Yes; the need for a reference implementation (p. 38) and no token or money figures support Partly. In the paper's use cases (existing code) a reference exists, so a reader could score Yes."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

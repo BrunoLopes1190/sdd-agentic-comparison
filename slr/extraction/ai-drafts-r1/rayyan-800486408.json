@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486408",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, L., Shi, J. (2026). An Empirical Cost Attribution of Context-Compression Gateways in Multi-Turn Coding Agents: Why Compression Rate Is Not the End-to-End Saving. arXiv:2609.22114v1 [cs.CL], 19 Aug 2026 (paper dated 22 Sep 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.22114v1 [cs.CL], 19 Aug 2026; no published venue (access log: arXiv only)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the protocol form '<type> — <detail>' (was 'Preprint (arXiv)'); type unchanged"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Paritok (both authors; same name as the open-source gateway evaluated; gmail contact address, no institution stated)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "The draft called Paritok a 'company that makes the gateway'; the paper only gives 'Paritok' and a gmail address as affiliation and never says it is a company"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — cost attribution of the three levers of the Paritok context-compression gateway in real Claude Code and Codex sessions; cost model (§2) and methodology for reproducible agent-cost measurement (§7)",
+   "p": "1-2, 8",
+   "verdict": "corrected",
+   "why": "Value did not follow the protocol form '<nature>; secondary: <nature> — <detail>' (details in parentheses, secondary in lower case). Natures unchanged; 'Compares' (levers against each other) would also be a defensible secondary"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not an SDD approach. Paritok context-compression gateway (open source, version Not stated) with three levers: (i) tool-schema filtering, (ii) content compression of file reads/tool output with Paritok-4B (LoRA over Qwen3-4B), (iii) history summarization; non-destructive with recall tools (read_original, gateway_search_tools)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None (no specification or context file; the gateway is a proxy that rewrites requests)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (proxy intercepts every request: filter tools, compress reads tagged [REF:id], summarize stale history; agent may recall originals)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD artefact; gateway levers toggled one at a time)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not an SDD approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: read-only 'find the bug' and code-change tasks (e.g. sparkline, set max_retries=-1, single-file edits) on real repositories",
+   "p": "3-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Sessions of 5 to 46 turns: one 5-turn cumulative session; whole-task runs of 7-18 turns; a 12-request jinja2 and a 34-request rich session; 46 turns in the no-recall ablation. Repos textual, jinja2, werkzeug, rich, httpx, tox; files e.g. filters.py 14K, text.py 10K tokens; number of tasks and runs Not stated",
+   "p": "2-5, 7",
+   "verdict": "corrected",
+   "why": "'Sessions of 5-34 requests' left out the 7-18-turn whole-task runs (p. 2, 4) and the 46-turn ablation (p. 7)"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries",
+   "p": "3, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input tokens per turn and per session (by cache tier: cached, fresh, output), tokens saved per lever, USD per session at provider prices (Sonnet $3 / $0.30 / $15 per M), turn count",
+   "p": "3-5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Single-shot SWE-bench Lite quality retained (normalised to uncompressed baseline) for the compressor (reported separately); otherwise none in the multi-turn study",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Recall count (agent retrieving original bytes); Edit exact-match failures and reflow typos; compression rate; scaling fit of cumulative saving (≈3,350 N^2) vs tool filter (≈21,000 N)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: provider-reported usage priced per tier, deduplicated by message id; gateway logs for server-side recall; A/B runs toggling one lever (min_tokens floor 512 vs 49999; filter toggle; --strict-mcp-config)",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: tokens/USD saved vs the no-op arm; correctness only as zero Edit failures. Agents: Claude Code + Claude Sonnet; Codex + GPT-5 (model versions Not stated).\n- Tool-schema filtering + Claude Code + Sonnet (MCP attached): 392,000 tokens saved over a jinja2 session (~32K/request x 12); 1,220,000 over a 34-request rich session; ~21K/turn fixed (29K -> 8K); cancels ~17K/turn 'proxy tax'; $0.043 vs $0.057 direct on a Sonnet edit task. Quality: Not measured; cost works\n- Tool-schema filtering + Codex + GPT-5: saves 128-256 tokens; without core-tool whitelist the agent is paralysed. Quality partly (needs whitelist); cost does not work (nothing to save)\n- Content compression + Claude Code + Sonnet (turn-aligned): ~1.5-2K tokens/turn (~2% of cache-priced prefix); 5-turn session cumulative 83,710 tokens (22.2%); whole-task runs dominated by turn count ($0.638/18 turns vs $0.230/7 uncompressed local; $0.268/10 vs $0.469/16 GPU). Quality: zero Edit failures after bug fix; cost partly (positive only on long sessions with few recalls)\n- Content compression with recalls (sparkline change): 2 recalls, each costs one compressed segment; recall-free change ~6.5% fewer input tokens (dollar-neutral). Cost partly\n- Content compression without recall tool (ablation): 46 turns / $1.85, 3.2x the cost with recall. Cost does not work\n- History summarization: not quantified (value is capacity, not dollars)\n- Paritok-4B compressor, single-shot SWE-bench Lite: 86.5% quality retained at 25.7% rate (gpt-4.1-mini 85.6% at 50.2%; gpt-5 93.6% at 61.9%); authors say it is orthogonal to multi-turn cost",
+   "p": "3-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Controlled A/B runs on real repositories: compress vs no-op for content (tool filter held fixed), filter on vs off, MCP block pinned with --strict-mcp-config; 2 agent families; 5-turn cumulative experiment in one --resume session. Baseline: no-op arm / direct no-proxy connection. Held constant: agent, model, task, other levers. Acceptance tests: none (Edit exact-match failures only). Repetitions: '>= 3 trials per arm' recommended/stated; exact counts Not stated. Human intervention: Not stated",
+   "p": "3-5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Tool filtering dominates per session (20:1 to 33:1 vs content compression saving) and is the only reliably positive lever; content compression ~2%/turn but cumulative quadratic, overtaking the tool filter near N ≈ 6 and capped by the ~200K window around turn 12-15; each recall costs one compressed segment; removing recall costs 3.2x. Significance: not tested (no statistics); turn-count variance (7-18 turns) larger than the compression effect",
+   "p": "4-7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: isolated per-lever savings were distinguishable; whole-task compress vs no-op comparisons reversed sign between runs (variance-dominated). Authors: 'conclusions drawn from one run repeatedly reversed themselves'; only distributions over >= 3 runs trustworthy. Limitations stated: quadratic fit rests on five turns; MCP tool-block jitter; one compressor, two agents",
+   "p": "4, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Specific 4B compressor, two agent families, Python-heavy repos; constants will not generalise; quadratic fit on five turns; cap depends on window size and client compaction; Codex-on-Windows shell-encoding noise. Future: symbol map / directed retrieval instead of body deletion",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Gateway, 4B model and evaluation harness open source (Apache 2.0, github.com/Paritok-official/paritok-4b-v1). No pre-registration. Language: Python repositories. Authors work for the vendor of the gateway evaluated. Number of runs per configuration and number of tasks not reported; no statistics. Some inconsistency in the headline end-to-end saving: '~25% on a single turn and ~39% by turn five' (p. 2) vs 22.2% cumulative at N=5 in Table 3 (p. 5). Compression ratio reported inconsistently: segment ratio ≈ 0.44 on line-numbered reads (p. 3) vs '∼26% of its size' (p. 3) and 25.7% rate (Table 4). Equation (1) and Fig. 1 garbled in text extraction",
+   "p": "2-3, 5, 8, 10",
+   "verdict": "corrected",
+   "why": "Added a second reporting inconsistency (compression ratio 0.44 vs ~26%/25.7%); the rest checks out, including the 39% vs 22.2% inconsistency"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): six contributions and the question of where tokens go stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): lever toggles and settings described; tasks, number of runs and prompts not specified",
+   "p": "2-3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Code, Codex, Claude Sonnet, GPT-5 named; no versions",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): repositories named and harness open source; tasks only sketched",
+   "p": "3, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): cost measured; no acceptance tests for the multi-turn tasks (single-shot SWE-bench only for the compressor)",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): cost metrics defined; quality not measured in the multi-turn study",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-op / no-proxy arms under the same conditions",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): claims >= 3 trials per arm and distributions; no counts or statistical tests reported",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): deflationary results reported; quadratic law and crossover generalised from a 5-turn single-session fit",
+   "p": "5-6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors are from Paritok, the gateway evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

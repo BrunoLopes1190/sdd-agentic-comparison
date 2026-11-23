@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800486853",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, H., Lin, H., Yang, Z., Zhang, L., Li, A., Li, J., Li, M., Chen, Y., Zan, D. (2026). EnvPilot: Systematic Design and Evaluation of an Experience-Augmented Agent for Software Environment Setup. arXiv:2609.07357v1 [cs.SE], 7 Sep 2026 (ACM TOSEM template, 49 pages)",
+   "p": "1-2"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv), formatted for ACM Trans. Softw. Eng. Methodol. (template placeholders Vol. 1, No. 1; acceptance not stated)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Shenzhen Technology University (H. Chen, Z. Yang, J. Li, M. Li, Y. Chen); Shenzhen University (H. Lin); Shandong University (L. Zhang); Huazhong University of Science and Technology (A. Li); Institute of Software, Chinese Academy of Sciences (D. Zan); all China",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (EnvPilot, experience-augmented environment-setup agent with Trajectory-Derived Memory and Context-aware Retrieval), evaluated against baselines with ablations; secondary: proposes an evaluation method (AES-Bench benchmark, 112 instances, plus LLM-as-a-Judge evaluation)",
+   "p": "1, 3-4"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "EnvPilot (no version), built on an adapted SWE-Agent framework. Baselines: SWE-Agent (adapted for environment setup), RepoLaunch (SWE-bench-Live), ExecutionAgent, Repo2Run (adapted, Python only), Installamatic (non-agentic), Bash-based Agent (EnvBench, adapted); no versions given",
+   "p": "4, 12-14"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Trajectory-Derived Memory (TDM): 667 JSON entries <problem, solution, action> distilled from 781 SWE-Agent trajectories by DeepSeek-R1-0528, stored in Milvus; structured codebase profile (JSON schema: language/version, package manager, build tools, test framework, system dependencies) extracted from README, config and CI files; 3-5 hypothetical queries per task. Outputs: command sequence, trajectory, test log. Not specifications",
+   "p": "4-8, 13, 35-36"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Learn-Retrieve-Act-Evaluate cycle: (1) Learn: distil trajectories into TDM; (2) Retrieve: codebase-profile extraction, hypothetical query generation, multi-query cosine retrieval + Reciprocal Rank Fusion (top k = 10); (3) Act: ReAct-style setup in Ubuntu 22.04 container (max 50 turns), run tests; (4) Evaluate: LLM-as-a-Judge (DeepSeek-V3) on test lifecycle; new experiences added to TDM (TDM frozen during evaluation)",
+   "p": "4-9, 14"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs. One-time: 3-5 expert-annotated seed examples for the distillation prompt; manual audit of a random 5% sample (~34) of TDM entries",
+   "p": "6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow except continuous learning (TDM frozen at the initial 667 entries during evaluation); ablations remove or replace TDM, retrieval and memory format",
+   "p": "14, 17"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (experience memory / retrieval-augmented agent; no specification); authors use no SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: environment setup and test execution for open-source GitHub repositories at fixed commits",
+   "p": "4, 9-10"
+  },
+  {
+   "f": "Size",
+   "v": "AES-Bench: 112 instances from 99 repositories (>=1000 stars), 9 languages, 12-13 per language; average files per repo by language 1,013 (JavaScript) to 7,255 (Java). ExecutionAgent-Bench: 50 tasks. Max 50 interaction turns per task",
+   "p": "10-11, 14-16"
+  },
+  {
+   "f": "Domain",
+   "v": "Software environment setup for open-source projects in C, C++, Go, Java, JavaScript, PHP, Python, Rust, TypeScript (server-side and library projects; no monorepos, mobile or embedded)",
+   "p": "11, 27"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent, no participants); human experts labelled 460 trajectories (profile not stated)",
+   "p": "19"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average API calls (interactions) per task; average tokens per task (K); average dollar cost per task (based on token usage). No wall-clock time",
+   "p": "13"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Environment Configuration Success Rate (ECSR, Pass@1): task succeeds if the project's tests run a full lifecycle (compilation passes, test runner starts and finishes, report produced), regardless of test pass/fail",
+   "p": "9, 13"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "LLM-judge agreement with human labels (accuracy, precision, recall, F1; N = 460); effect of number of retrieved experiences (k = 0-20); stability over 3 trials (mean ± SD); failure taxonomy of 25 failed cases; qualitative case study (Nuxt.js)",
+   "p": "18-24"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: LLM-as-a-Judge (DeepSeek-V3) reads trajectory and test log; API calls, tokens and cost from logs. Judge validated against human expert labels (460 trajectories). Manual: failure-mode inspection of execution logs; manual checks of sampled baseline trajectories",
+   "p": "9, 13, 19, 23, 27"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: ECSR (test lifecycle complete, LLM judge). Values ECSR; API; tokens; $ per task. AES-Bench, DeepSeek-V3-0324 (EnvPilot and SWE-Agent median of 3 runs, others 1 run): EnvPilot + SWE-Agent framework: 75.00% (84/112); 28; 220K; $0.063. Quality works, cost works. | SWE-Agent (adapted): 62.50% (70/112); 31; 200K; $0.058. Partly; works. | RepoLaunch: 55.36% (62/112); 34; 250K; $0.071. Partly; works. | ExecutionAgent: 43.75% (49/112); 28; 420K; $0.130. Partly; partly. | Repo2Run (Python subset only): 66.67% (8/12); 20; 1,000K; $0.281. Partly; partly. | Bash-Agent: not run (model lacks the tool-calling format). | Installamatic: 0.00% (text only; model not stated). Does not work. AES-Bench, GPT-4o-mini: EnvPilot 46.43% (52/112); 26; 214K; $0.034. Partly; works. | SWE-Agent 24.11%; 29; 192K; $0.030. Does not work; works. | RepoLaunch 40.18%; 44; 387K; $0.060. Partly; works. | ExecutionAgent 23.21%; 44; 643K; $0.105. Does not work; partly. | Repo2Run 25.00% (3/12); 45; 1,273K; $0.193. Does not work; partly. | Bash-Agent 20.54%; 33; 380K; $0.059. Does not work; works. ExecutionAgent-Bench (50 tasks), DeepSeek-V3: EnvPilot 72.00%; 26; 198K; $0.057 | SWE-Agent 56.00%; 29; 185K; $0.054 | RepoLaunch 50.00%; 35; 280K; $0.080 | ExecutionAgent 36.00%; 27; 422K; $0.131 | Repo2Run 54.54% (6/11); 15; 847K; $0.238. GPT-4o-mini: EnvPilot 46.00%; 32; 227K; $0.036 | SWE-Agent 28.00%; 33; 209K; $0.033 | RepoLaunch 30.00%; 39; 365K; $0.056 | ExecutionAgent 18.00%; 31; 480K; $0.079 | Repo2Run 27.27% (3/11); 43; 1,356K; $0.206 | Bash-Agent 36.00%; 33; 466K; $0.071. Ablations (AES-Bench, DeepSeek-V3, temperature 0, k = 10): w/o TDM 62.50%; 31; 200K | naive query 66.96%; 28; 219K | unstructured memory 66.96%; 29; 217K | problem+solution 66.96%; 28; 204K | problem+action 66.96%; 29; 206K. Retrieval size (ablation): k = 0 64.29%, 5 68.75%, 10 75.00%, 15 74.11%, 20 71.43% (tokens 202K-230K). Stability (3 trials): w/ TDM 74.11 ± 4.09%, $0.062 ± 0.001; w/o TDM 62.20 ± 2.25%, $0.057 ± 0.001",
+   "p": "14-21, 48-49"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmarks: AES-Bench (112, disjoint from TDM repositories) and ExecutionAgent-Bench (50). Configurations: EnvPilot vs 6 baselines x 2 models (DeepSeek-V3-0324, GPT-4o-mini) + 5 ablations + retrieval size k = 0-20. Baseline: adapted SWE-Agent (EnvPilot's base framework; = w/o TDM). Held constant: same container image, hardware, resource limits, shared tools, temperature 0.0, top-p 1.0, max 50 turns; official baseline prompts where possible. Acceptance: project's own test suite run to completion, judged by LLM judge. Repetitions: 3 runs (median) for EnvPilot and SWE-Agent, 1 for other baselines; 3 trials for stability. Human intervention: none during runs",
+   "p": "12-15, 17, 20-21, 27"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "EnvPilot best on success in both benchmarks and both models: AES-Bench DeepSeek-V3 75.00% vs SWE-Agent 62.50% (+12.5 pts) for +$0.005 per task; vs RepoLaunch +19.6 pts; GPT-4o-mini 46.43% vs RepoLaunch 40.18%; ExecutionAgent-Bench 72.00% vs 56.00%. Ablation: full system +8.04 pts over best ablation; removing TDM -12.5 pts; fewest API calls (28) but slightly more tokens (220K vs 200K). Stability: +11.91 pts mean (19.14% relative). Exceptions: C/C++ best without TDM (68.00% vs 60.00%); JS/TS best with unstructured memory; RepoLaunch stronger on Java/C/C++ with GPT-4o-mini. No statistical significance test",
+   "p": "15-18, 20-21, 46-47"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished EnvPilot from baselines and ablations (ablations B-E tied at 66.96%). Repeatable: only EnvPilot and SWE-Agent repeated 3 times (SD up to 4.09 pts); LLM judge agrees with humans (accuracy 98.04%, F1 98.34%). Limitations stated: binary success coarse; possible bugs in baseline reimplementations; pre-training leakage; single Linux distribution/hardware; repeated trials expensive",
+   "p": "14-15, 19, 21, 27-28"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Open-source repos with public registries only (industrial private mirrors, network limits not covered); one Linux distribution and hardware profile; no very large monorepos, data-intensive, hardware-dependent, mobile or embedded projects; binary success metric ignores partial setups; residual failures (toolchain/runtime 60%, native dependencies 16%, platform constraints 16%, repo-config mismatch 8%); over-thinking on trivial tasks; retrieved experience misapplied in C/C++. Future: larger repositories, richer execution feedback, collaboration with developers, release of trajectories and evaluation scripts",
+   "p": "17-18, 23-24, 27-28"
+  },
+  {
+   "f": "Notes",
+   "v": "Table 4 (p. 16) jumbled by pdftotext: values rebuilt by column order and cross-checked with text p. 15 and Tables 19-20 (pp. 48-49). Inconsistencies: p. 14 says EnvPilot and SWE-Agent ran 3 times (median reported), Threats p. 27 says one attempt per method; text p. 15 says \"three baseline agents\" while Table 4 lists five; Installamatic 0.00% only in text (p. 16), not in Table 4; Table 7 k = 0 (64.29%) differs from Table 5 w/o TDM (62.50%); \"significantly outperforms\" without statistical test. Prompts in Appendix A (pp. 32-39), SWE-Agent adaptation in Appendix B, full AES-Bench instance list with commits in Appendix C (pp. 42-46). No replication package: authors \"plan to release trajectories and evaluation scripts\"; TDM not released. No pre-registration. Languages: 9 (benchmark)",
+   "p": "14-16, 20, 27-28, 32-49"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): seven RQs stated",
+   "p": "12"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): prompts, hyperparameters, base image and benchmark list given; TDM entries, code and trajectories not released",
+   "p": "13-15, 28, 32-46"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models with versions (DeepSeek-V3-0324, DeepSeek-R1-0528, Qwen3-Embedding-8B; GPT-4o-mini without snapshot); SWE-Agent and baseline versions not stated",
+   "p": "13-15"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): AES-Bench construction described and all 112 instances with commits listed; ExecutionAgent-Bench is public",
+   "p": "9-11, 42-46"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): projects' own test suites run to completion, judged by an LLM judge validated against human labels (98.04% accuracy)",
+   "p": "9, 13, 19"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): ECSR, API calls, tokens and dollar cost defined",
+   "p": "13"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six baselines in the same containers and model settings",
+   "p": "12-13, 27"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 runs and mean ± SD for EnvPilot and SWE-Agent only; others single run; no statistical tests",
+   "p": "14-15, 21"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions mostly follow and exceptions (C/C++, JS/TS) are reported, but \"significantly outperforms\" without tests and repetition statements conflict",
+   "p": "15-18, 27"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8, external, internal and construct validity",
+   "p": "27-28"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint; TOSEM template but acceptance not stated (check) [Check: the record has a published DOI (https://doi.org/10.1145/3846187); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created EnvPilot and AES-Bench; independent of the baseline tools",
+   "p": "1, 3-4"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): requirements stated (DeepSeek-V3 API ~$0.06 per task, Milvus, Qwen3-Embedding-8B, Docker) and affordable, but TDM and code not released, so a team must rebuild the memory from trajectories with DeepSeek-R1",
+   "p": "13-15, 28"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

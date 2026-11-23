@@ -1,46 +1,358 @@
-{"key": "rayyan-800485926", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Agarwal, S., Singhal, A., Macvean, A., Vasilescu, B., Breaux, T. (2026). Spec-Driven Development as Prescribed and as Practiced. arXiv:2608.25202v5 [cs.SE], 16 Nov 2026", "p": "1"},
-{"f": "Year", "v": "2026 (v5, 16 Nov 2026)", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv)", "p": "1"},
-{"f": "Author affiliation", "v": "Carnegie Mellon University (Agarwal, Singhal, Vasilescu, Breaux); Google (Macvean). Funding: NSF, CMU S3D fellowship, Google research gift", "p": "1, 14"},
-{"f": "Nature of the study", "v": "Evaluates (empirical study of SDD practice: thematic analysis of Reddit, 21 interviews, mining of 266 repositories; prescribed vs practised); secondary: proposes an evaluation resource (SpecMine corpus of spec files, released)", "p": "1-4, 16-18"},
-{"f": "Approach(es): name and version", "v": "SDD as practised with any tool; documentation of five tools read: OpenSpec v1.5.0, Spec Kit (main branch), MoAI-ADK (main branch), Conductor v0.4.1, Kiro (unversioned docs, Oct 2026). Sample covers 12 named tools (OpenSpec, Spec Kit, OpenCode, Kiro, MoAI-ADK, Codex, spec-kitty, Conductor, .specs, Trae, Claude Code, Cursor); interviewees also used Superpowers, BMAD, own tools", "p": "5, 23-24, 29"},
-{"f": "Artefacts prescribed", "v": "As prescribed by tools: Markdown spec, plan/design, task list. OpenSpec: capability specs (living) + change specs per change, archived; design in separate file. Spec Kit: numbered feature directory per change request, plan file. Kiro: requirements.md, design.md, tasks.md per feature under .kiro/specs/. Conductor: change 'tracks' with spec and plan. MoAI-ADK: spec per change, plan file. Observed content taxonomy: what (goals, requirements, acceptance, constraints, context) vs how (design, plan, code level, cross-cutting) (Table III)", "p": "2, 4-7, 24"},
-{"f": "Phases of the flow", "v": "Observed workflow types: (1) human-gated per change (approve each tool phase); (2) spec-gated then autonomous (approve spec, agents implement with tests, CI, reviewer agents); (3) system-level design-first. Common practice: agent drafts spec from human intent, iterative refinement, verification mainly through agent-written end-to-end/acceptance tests. Prescribed: spec -> plan/design -> tasks before implementation", "p": "2, 6-7, 28-29"},
-{"f": "Human review points", "v": "Prescribed: OpenSpec none required; Spec Kit user runs each step; Kiro between phases; Conductor spec, plan, each phase; MoAI-ADK spec before implementation. Observed: most tool users read specs partially or delegated review to agents; some (mostly tool makers, organisational settings) reviewed in full; 98.3% of spec files single author, 68.5% of inline spec comments by bots", "p": "7, 24-25, 29"},
-{"f": "Parts exercised", "v": "Not run by the authors; observed practice (full workflows as reported by practitioners; spec artefacts in repositories)", "p": "2-4"},
-{"f": "SDD level", "v": "Not classified in Böckeler terms by the authors; observed retention practices: living spec (spec-anchored), accumulated change record, discard after implementation (spec-first); 81.5% of spec files have a single recorded commit", "p": "7-8"},
-{"f": "Task type", "v": "Mostly new features (82.0% of judged specs labelled feat); SDD skipped for small tasks, bugs, hotfixes, one-off scripts; specs also reverse-engineered in brownfield projects", "p": "6-7, 25, 29"},
-{"f": "Size", "v": "21 interviews; 154 Reddit records (99 relevant) from 1,497 filtered; repository sample 266 repos / 36,890 files (13 Kiro repos, 654 requirements docs); SpecMine 470,795 spec files / 73,030 repos + 98,574 Kiro artefacts / 12,910 repos; 5,979 spec-touching PRs; 1,000 specs LLM-judged. Median 19 specs per repository, 673 words each", "p": "1-6, 9-10, 17"},
-{"f": "Domain", "v": "Open-source GitHub repositories (various); interviewees from industry (domains not stated)", "p": "4-5"},
-{"f": "Team profile", "v": "21 practitioners: 8 tool makers, 13 tool users; experience <10 y (6), 10-19 (7), 20-29 (5), >=30 (3); software developer (11), founder/manager/PM (6), architect/consultant (3), researcher (1); tools: OpenSpec or derivative (7), Spec Kit or derivative (3), Superpowers (3), own tool (3), none (3), Kiro (1), BMAD (1). Solo developers and teams", "p": "5"},
-{"f": "Cost metrics", "v": "None measured. Reported qualitatively: SDD runs 2-3x tokens and ~2x time vs direct prompting (one Reddit team, R41); '80% of tokens ... to make a plan' (P3); time shifts to specification", "p": "10"},
-{"f": "Functional quality metrics", "v": "None measured (reported: more reliable agent work, not separable from model improvements; 'We couldn't prove it improved the code', R41)", "p": "9-10"},
-{"f": "Internal quality metrics", "v": "None measured", "p": "—"},
-{"f": "Human effort metrics", "v": "None measured (cognitive load reported qualitatively: more for some users, less for some makers)", "p": "10"},
-{"f": "Other outcome metrics", "v": "Repository measures: share of specs with implementation detail (77.6%; 58.2% a section or more); purpose labels (82.0% feat); commits per spec (81.5% single commit); authorship concentration (98.3% single author; owners + top-3 committers 90% of spec commits); bot share of inline comments (68.5%); spec count and length; section headings per template. Qualitative codes: benefits, challenges (drift, decay, evaluation effort, inertia)", "p": "6-10, 24-25"},
-{"f": "How metrics are collected", "v": "Manual: inductive thematic analysis of Reddit and interview transcripts (merged codebook 427 codes; saturation tracked; no inter-rater agreement). Automatic: GitHub API mining, Markdown heading parsing, commit/PR history. LLM-as-judge (gemini-2.5-pro, temperature 0, verbatim quotes required; quotes matched 98.3%/99.4%) for content and purpose labels on 1,000 specs. Transcripts grammar-corrected by gpt-5.4-mini and checked", "p": "3-5, 23"},
-{"f": "Evaluation (each configuration)", "v": "N/A (observational practice study; no configuration run)", "p": "—"},
-{"f": "Comparison: design", "v": "No configuration comparison. Compares prescribed (tool documentation, tool makers) vs practised (tool users, repositories); concurrent triangulation of three sources; comparisons across tools on repository measures. No acceptance tests, repetitions or intervention rules (N/A)", "p": "2-5"},
-{"f": "Comparison: result", "v": "Makers keep 'how' out of specs, users put it in (77.6% of repository specs contain implementation detail, though OpenSpec/Spec Kit tell users not to); SDD used selectively, mainly for new features; spec review partial or delegated to agents, code verified mainly through agent-written tests; retention divided (living spec / change record / discard); almost no one uses a tool as published; collaboration benefit only where specs cross roles; reliability gains reported but confounded with model improvements; cost shifts to planning (tokens, time, cognitive load); implementation drift and spec decay common; evaluation effort outgrows human review; team inertia. No statistical tests", "p": "6-11"},
-{"f": "Comparison: did the method work", "v": "Triangulation corroborated content and workflow findings; sources disagreed in places (Findings 3, 4), reported and interpreted. Repository evidence cannot measure benefits, effort or challenges. Limitations stated: associations not causation; single coder per source, no inter-rater agreement; self-report; volunteer and OpenSpec-heavy samples (OpenSpec 78.4% of specs); commit counts understate revision; LLM labels may be wrong; early adoption period", "p": "3, 13-14"},
-{"f": "Conclusions: limitations and gaps", "v": "Difficulties of earlier spec-first practice persist (writing cost, staleness, traceability). Future work: how practitioners identify needed spec updates; whether human involvement in acceptance criteria improves verification; how SDD benefits change as models improve and teams adopt; controlled study varying implementation detail; compare spec given / spec withheld / no spec across model versions; measure drift in SpecMine. Threats: internal (associations, coder influence), construct (self-report, indirect repository measures), external (engaged volunteers, Reddit ranking, public popular repos, single-repo-dominated types, early period)", "p": "11-14"},
-{"f": "Notes", "v": "Values from text and Appendices C-D, H; figure values (Figs 2-6) jumbled in extraction. Replication package: github.com/shyamagarwal13/spec-paper-replication-package (protocol, keywords, codebook); SpecMine on Zenodo with DOI (5.4 GB). Transcripts not released (participant protection). IRB-approved. No pre-registration stated. Programming language: N/A (multi-language repositories). Abstract cites 266 repositories; SpecMine count of named tools given as 18 (main text) and 17 named + Kiro (appendix), consistent", "p": "3, 14, 16-18"},
-{"f": "Q1", "v": "Yes (1): main RQ and RQ1-RQ4 stated", "p": "2"},
-{"f": "Q2", "v": "Yes (1): data collection, filtering, coding, merging, saturation, mining filters and LLM-judging described; protocol, keywords, codebook and corpus released", "p": "2-5, 22-23"},
-{"f": "Q3", "v": "Partly (0.5): versions of tool documentation and LLM judge/corrector models given; agents and models used by practitioners not identified (not controlled)", "p": "4-5, 24"},
-{"f": "Q4", "v": "Yes (1): data sources and sample construction described; SpecMine and replication package released", "p": "3-6, 14, 17"},
-{"f": "Q5", "v": "Partly (0.5): triangulation across three sources and LLM labels with verbatim quotes; no ground truth or expert validation of LLM labels beyond quote matching; qualitative coding by single coders", "p": "3, 23"},
-{"f": "Q6", "v": "Partly (0.5): repository measures defined; no cost or quality outcomes measured (only reported)", "p": "5, 10"},
-{"f": "Q7", "v": "No (0): observational; no baseline or alternative under the same conditions (makers vs users is a comparison of groups, not conditions)", "p": "—"},
-{"f": "Q8", "v": "No (0): no statistical analysis of differences; saturation tracked for interviews only", "p": "4"},
-{"f": "Q9", "v": "Yes (1): conclusions framed as associations, negative and mixed findings reported (no proven code improvement, cost shift, drift)", "p": "10-14"},
-{"f": "Q10", "v": "Yes (1): Section VI threats to validity (internal, construct, external)", "p": "13-14"},
-{"f": "Q11", "v": "No (0): arXiv preprint", "p": "1"},
-{"f": "Q12", "v": "Yes (1): academic authors plus one Google author; no tool is evaluated as such and none is by the authors (note: Conductor, a Gemini CLI workflow, is among the tools described; Google research gift)", "p": "1, 14, 24"},
-{"f": "Q13", "v": "N/A", "p": "—"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800485926",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Agarwal, S., Singhal, A., Macvean, A., Vasilescu, B., Breaux, T. (2026). Spec-Driven Development as Prescribed and as Practiced. arXiv:2608.25202v5 [cs.SE], 16 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v5, 16 Nov 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.25202v5 [cs.SE], no published venue stated (the SpecMine dataset is announced as an MSR 2027 Mining Challenge dataset, not this paper)",
+   "p": "1, 19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required 'Type — detail' form. No venue for the paper found in the text, so Preprint stands; p19 says SpecMine is a Mining Challenge dataset, which is not a publication of this paper. Outside this text: rayyan-800485929 ref [3] cites arXiv:2608.25202 as 'SPECMINE: A Large-Scale Corpus of Spec-Driven Development Artifacts, Proceedings of the 24th MSR' (likely an earlier version with another title and scope); author may check whether any version is published, which would affect Q11."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "This text gives no venue, so Preprint is the best value. But pp. 16-19 embed a SpecMine dataset paper ('In this paper, we present SpecMine'; 'one of the two datasets of the MSR 2027 Mining Challenge'), and rayyan-800485929 ref [3] cites arXiv:2608.25202 as MSR proceedings. If that version is published, the type would be Conference and Q11 would change; author to check the venue."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "This text (arXiv v5) names no venue, so Preprint stands. But the embedded SpecMine part (pp. 16-19) says 'In this paper, we present SpecMine' and 'SpecMine is one of the two datasets of the MSR 2027 Mining Challenge', and record 800485929 cites arXiv:2608.25202 as MSR proceedings. If a published version exists, type becomes Conference and Q11 Yes; author to check."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Carnegie Mellon University (Agarwal, Singhal, Vasilescu, Breaux); Google (Macvean). Funding: NSF, CMU S3D fellowship, Google research gift",
+   "p": "1, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — empirical study of SDD as practised (thematic analysis of Reddit, 21 interviews, mining of 266 repositories; prescribed vs practised); SpecMine corpus of 470,795 spec files released as a research resource (a dataset, closest to the 'benchmark' sense of evaluation method)",
+   "p": "1-4, 16-18",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "'proposes an evaluation resource' is not one of the allowed values and the form was not 'Type; secondary: Type — detail'. SpecMine is a dataset/corpus, not a benchmark or evaluation method in the strict sense; the author should decide whether to keep the secondary nature or drop it."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "r1 value had two 'secondary:' parts; merged into one as the rule allows one secondary. Still a judgement: SpecMine is a dataset/corpus, not a benchmark in the strict sense; the author may drop the secondary nature. 'Evaluates' fits an observational practice study only loosely (no approach is run)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: an observational practice study (Reddit, interviews, repository mining) runs no approach, so 'Evaluates' fits only loosely; its core contrast is prescribed vs practised, which could also be read as 'Compares'. The secondary 'Proposes an evaluation method' rests on the released SpecMine corpus, a dataset rather than a benchmark; the author may drop it."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SDD as practised with any tool; documentation of five tools read: OpenSpec v1.5.0, Spec Kit (main branch), MoAI-ADK (main branch), Conductor v0.4.1, Kiro (unversioned docs, Oct 2026). Sample covers 12 named tools (OpenSpec, Spec Kit, OpenCode, Kiro, MoAI-ADK, Codex, spec-kitty, Conductor, .specs, Trae, Claude Code, Cursor); interviewees also used Superpowers, BMAD, own tools",
+   "p": "5, 23-24, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "As prescribed by tools: Markdown spec, plan/design, task list. OpenSpec: capability specs (living) + change specs per change, archived; design in separate file. Spec Kit: numbered feature directory per change request, plan file. Kiro: requirements.md, design.md, tasks.md per feature under .kiro/specs/. Conductor: change 'tracks' with spec and plan. MoAI-ADK: spec per change, plan file. Observed content taxonomy: what (goals, requirements, acceptance, constraints, context) vs how (design, plan, code level, cross-cutting) (Table III)",
+   "p": "2, 4-7, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Observed workflow types: (1) human-gated per change (approve each tool phase); (2) spec-gated then autonomous (approve spec, agents implement with tests, CI, reviewer agents); (3) system-level design-first. Common practice: agent drafts spec from human intent, iterative refinement, verification mainly through agent-written end-to-end/acceptance tests. Prescribed: spec -> plan/design -> tasks before implementation",
+   "p": "2, 6-7, 28-29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Prescribed: OpenSpec none required; Spec Kit user runs each step; Kiro between phases; Conductor spec, plan, each phase; MoAI-ADK spec before implementation. Observed: most tool users read specs partially or delegated review to agents; some (mostly tool makers, organisational settings) reviewed in full; 98.3% of spec files single author, 68.5% of inline spec comments by bots",
+   "p": "7, 24-25, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run by the authors; observed practice (full workflows as reported by practitioners; spec artefacts in repositories)",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classified in Böckeler terms by the authors; observed retention practices: living spec (spec-anchored), accumulated change record, discard after implementation (spec-first); 81.5% of spec files have a single recorded commit",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mostly new features (82.0% of judged specs labelled feat); SDD skipped for small tasks, bugs, hotfixes, one-off scripts; specs also reverse-engineered in brownfield projects",
+   "p": "6-7, 25, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "21 interviews; 154 Reddit records (99 relevant) from 1,497 filtered; repository sample 266 repos / 36,890 files (13 Kiro repos, 654 requirements docs); SpecMine 470,795 spec files / 73,030 repos + 98,574 Kiro artefacts / 12,910 repos; 5,979 spec-touching PRs; 1,000 specs LLM-judged. Median 19 specs per repository, 673 words each",
+   "p": "1-6, 9-10, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source GitHub repositories (various); interviewees from industry (domains not stated)",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "21 practitioners: 8 tool makers, 13 tool users; experience <10 y (6), 10-19 (7), 20-29 (5), >=30 (3); software developer (11), founder/manager/PM (6), architect/consultant (3), researcher (1); tools: OpenSpec or derivative (7), Spec Kit or derivative (3), Superpowers (3), own tool (3), none (3), Kiro (1), BMAD (1). Solo developers and teams",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured. Reported qualitatively: SDD runs 2-3x tokens and ~2x time vs direct prompting (one Reddit team, R41); '80% of tokens ... to make a plan' (P3); time shifts to specification",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured (reported: more reliable agent work, not separable from model improvements; 'We couldn't prove it improved the code', R41)",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (cognitive load reported qualitatively: more for some users, less for some makers)",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Repository measures: share of specs with implementation detail (77.6%; 58.2% a section or more); purpose labels (82.0% feat); commits per spec (81.5% single commit); authorship concentration (98.3% single author; owners + top-3 committers 90% of spec commits); bot share of inline comments (68.5%); spec count and length; section headings per template. Qualitative codes: benefits, challenges (drift, decay, evaluation effort, inertia)",
+   "p": "6-10, 24-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: inductive thematic analysis of Reddit and interview transcripts (merged codebook 427 codes; saturation tracked; no inter-rater agreement). Automatic: GitHub API mining, Markdown heading parsing, commit/PR history. LLM-as-judge (gemini-2.5-pro, temperature 0, verbatim quotes required; quotes matched 98.3%/99.4%) for content and purpose labels on 1,000 specs. Transcripts grammar-corrected by gpt-5.4-mini and checked",
+   "p": "3-5, 23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational practice study; no configuration run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No configuration comparison. Compares prescribed (tool documentation, tool makers) vs practised (tool users, repositories); concurrent triangulation of three sources; comparisons across tools on repository measures. No acceptance tests, repetitions or intervention rules (N/A)",
+   "p": "2-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Makers keep 'how' out of specs, users put it in (77.6% of repository specs contain implementation detail, though OpenSpec/Spec Kit tell users not to); SDD used selectively, mainly for new features; spec review partial or delegated to agents, code verified mainly through agent-written tests; retention divided (living spec / change record / discard); almost no one uses a tool as published; collaboration benefit only where specs cross roles; reliability gains reported but confounded with model improvements; cost shifts to planning (tokens, time, cognitive load); implementation drift and spec decay common; evaluation effort outgrows human review; team inertia. No statistical tests",
+   "p": "6-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Triangulation corroborated content and workflow findings; sources disagreed in places (Findings 3, 4), reported and interpreted. Repository evidence cannot measure benefits, effort or challenges. Limitations stated: associations not causation; single coder per source, no inter-rater agreement; self-report; volunteer and OpenSpec-heavy samples (OpenSpec 78.4% of specs); commit counts understate revision; LLM labels may be wrong; early adoption period",
+   "p": "3, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Difficulties of earlier spec-first practice persist (writing cost, staleness, traceability). Future work: how practitioners identify needed spec updates; whether human involvement in acceptance criteria improves verification; how SDD benefits change as models improve and teams adopt; controlled study varying implementation detail; compare spec given / spec withheld / no spec across model versions; measure drift in SpecMine. Threats: internal (associations, coder influence), construct (self-report, indirect repository measures), external (engaged volunteers, Reddit ranking, public popular repos, single-repo-dominated types, early period)",
+   "p": "11-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from text and Appendices C-D, H; figure values (Figs 2-6) jumbled in extraction. Replication package: github.com/shyamagarwal13/spec-paper-replication-package (protocol, keywords, codebook); SpecMine on Zenodo with DOI (5.4 GB). Transcripts not released (participant protection). IRB-approved. No pre-registration stated. Programming language: N/A (multi-language repositories). Abstract cites 266 repositories; SpecMine count of named tools given as 18 (main text) and 17 named + Kiro (appendix), consistent",
+   "p": "3, 14, 16-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): main RQ and RQ1-RQ4 stated",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data collection, filtering, coding, merging, saturation, mining filters and LLM-judging described; protocol, keywords, codebook and corpus released",
+   "p": "2-5, 22-23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): versions of tool documentation and LLM judge/corrector models given; agents and models used by practitioners not identified (not controlled)",
+   "p": "4-5, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): data sources and sample construction described; SpecMine and replication package released",
+   "p": "3-6, 14, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): triangulation across three sources and LLM labels with verbatim quotes; no ground truth or expert validation of LLM labels beyond quote matching; qualitative coding by single coders",
+   "p": "3, 23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): repository measures defined; no cost or quality outcomes measured (only reported)",
+   "p": "5, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): observational; no baseline or alternative under the same conditions (makers vs users is a comparison of groups, not conditions)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no statistical analysis of differences; saturation tracked for interviews only",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions framed as associations, negative and mixed findings reported (no proven code improvement, cost shift, drift)",
+   "p": "10-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VI threats to validity (internal, construct, external)",
+   "p": "13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No (0) on this text (arXiv v5, no venue). Same open point as Publication type: record 800485929 cites this arXiv ID as MSR proceedings; check whether a peer-reviewed version exists."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No (0) on this text (arXiv v5, no venue stated). Depends on the same open point as Publication type: a peer-reviewed MSR 2027 version may exist (record 800485929 cites this arXiv ID as MSR proceedings)."
+    }
+   ],
+   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors plus one Google author; no tool is evaluated as such and none is by the authors (note: Conductor, a Gemini CLI workflow, is among the tools described; Google research gift)",
+   "p": "1, 14, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}
