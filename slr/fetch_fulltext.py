@@ -3,7 +3,7 @@
 Run: python slr/fetch_fulltext.py   (from the repository root; re-runnable, skips files already there)
 PDFs and text go to slr/fulltext/ (git-ignored: copyrighted). The access log, slr/fulltext-access.csv,
 records where each full text came from (protocol §4.2 step 7, IC4) and is committed. Records with no arXiv version are
-logged "to fetch by hand": save the PDF as slr/fulltext/<key>.pdf, set the row to ok with its source, and re-run.
+logged "to fetch by hand": save the PDF as slr/fulltext/<key>.pdf and re-run; the row is set to ok with the publisher as source.
 """
 import csv
 import json
@@ -89,6 +89,10 @@ if __name__ == "__main__":
         log[key] = {"key": key, "source": "arXiv" if key not in alt else "arXiv version of the DOI record", "url": src, "status": status, "date": time.strftime("%Y-%m-%d")}
         print(key, status, flush=True)
         time.sleep(3)  # arXiv: one request every 3 s
+    for k, row in log.items():  # hand-fetched PDF saved as <key>.pdf: mark it ok
+        if row["status"] == "to fetch by hand" and os.path.exists(f"{OUT}/{k}.pdf"):
+            pub = "ACM DL" if "10.1145" in row["url"] else "IEEE Xplore (ISEP)" if "10.1109" in row["url"] else "publisher (ISEP)"
+            row.update(source=f"manual: {pub}", status="ok", date=time.strftime("%Y-%m-%d"))
     for f in os.listdir(OUT):
         txt = f"{OUT}/{f[:-4]}.txt"
         if f.endswith(".pdf") and not os.path.exists(txt):
