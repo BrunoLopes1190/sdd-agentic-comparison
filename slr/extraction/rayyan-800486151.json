@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486151",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Rehan, T. (2026). Test-Driven AI Agent Definition (TDAD): Compiling Tool-Using Agents from Behavioral Specifications. arXiv:2603.08806v1 [cs.SE], 9 Mar 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Rehan, T. (2026). Test-Driven AI Agent Definition (TDAD): Compiling Tool-Using Agents from Behavioral Specifications. arXiv:2603.08806v1 [cs.SE], 9 Mar 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv v1 (9 Mar 2026); no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv v1 (9 Mar 2026); no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: Fiverr Labs (single author)",
+   "p": "1",
+   "ok": true,
+   "ai": "Industry: Fiverr Labs (single author)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — TDAD methodology with reference implementation, evaluated on 4 specs x 2 versions x 3 trials; SpecSuite-Core benchmark (4 specs + generators + harness) as an explicit contribution. No comparison with other approaches",
+   "p": "1-2, 5",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Proposes an evaluation method — TDAD methodology with reference implementation, evaluated on 4 specs x 2 versions x 3 trials; SpecSuite-Core benchmark (4 specs + generators + harness) as an explicit contribution. No comparison with other approaches",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "TDAD (Test-Driven AI Agent Definition); version Not stated (reference implementation in github.com/f-labs-io/tdad-paper-code)",
+   "p": "1, 8",
+   "ok": true,
+   "ai": "TDAD (Test-Driven AI Agent Definition); version Not stated (reference implementation in github.com/f-labs-io/tdad-paper-code)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "YAML specification (tools with schemas/failure modes/sequencing, prioritised policies, decision tree, response contract via a 'respond' tool, optional test_guidance, mutation intents); executable pytest tests split visible (40-70%) / hidden (30-60%), typed MFT/INV/DIR; deterministic fixtures with canary values; compiled artefact = system prompt + tool-description overrides; mutation-intent catalog; v1->v2 spec for evolution with held-out v1 invariant tests",
+   "p": "2-5",
+   "ok": true,
+   "ai": "YAML specification (tools with schemas/failure modes/sequencing, prioritised policies, decision tree, response contract via a 'respond' tool, optional test_guidance, mutation intents); executable pytest tests split visible (40-70%) / hidden (30-60%), typed MFT/INV/DIR; deterministic fixtures with canary values; compiled artefact = system prompt + tool-description overrides; mutation-intent catalog; v1->v2 spec for evolution with held-out v1 invariant tests",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Human writes spec (PRD + decision tree) -> TestSmith (coding agent) generates visible + hidden tests and fixtures from the spec -> PromptSmith (coding agent) iterates the prompt until visible tests pass (Algorithm 1: outer loop, focused inner loop when <10 failures) -> hidden tests measure generalisation (HPR) -> MutationSmith (evaluation only) generates faulty prompt variants, harness checks visible tests kill them (MS) -> spec evolution: v2 compiled from the v1 artefact against v2 tests, v1 invariant tests held out (SURS)",
+   "p": "2-5",
+   "ok": true,
+   "ai": "Human writes spec (PRD + decision tree) -> TestSmith (coding agent) generates visible + hidden tests and fixtures from the spec -> PromptSmith (coding agent) iterates the prompt until visible tests pass (Algorithm 1: outer loop, focused inner loop when <10 failures) -> hidden tests measure generalisation (HPR) -> MutationSmith (evaluation only) generates faulty prompt variants, harness checks visible tests kill them (MS) -> spec evolution: v2 compiled from the v1 artefact against v2 tests, v1 invariant tests held out (SURS)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as review gates. Human (product team / engineer) writes the spec and test guidance; pipeline otherwise automated. Production mode: failing hidden tests promoted to visible and agent recompiled. Human clarification of conflicting tests suggested only as future extension",
+   "p": "1, 3, 4, 7",
+   "ok": true,
+   "ai": "Not stated as review gates. Human (product team / engineer) writes the spec and test guidance; pipeline otherwise automated. Production mode: failing hidden tests promoted to visible and agent recompiled. Human clarification of conflicting tests suggested only as future extension",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (all roles run end to end on 4 specs, v1 and v2)",
+   "p": "6",
+   "ok": true,
+   "ai": "Full workflow (all roles run end to end on 4 specs, v1 and v2)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler terms. Authors: 'The specification is the single source of truth. Tests implement the specification; they don't define it'; prompt treated as a 'compiled artifact' regenerated from the spec. Closest to spec-as-source (draft, to check)",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Not stated in Böckeler terms. Authors: 'The specification is the single source of truth. Tests implement the specification; they don't define it'; prompt treated as a 'compiled artifact' regenerated from the spec. Closest to spec-as-source (draft, to check)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New artefact compiled from a spec (an LLM agent's prompt and tool descriptions, not application code); v2 evolves the v1 artefact. No existing code base",
+   "p": "2, 5",
+   "ok": true,
+   "ai": "New artefact compiled from a spec (an LLM agent's prompt and tool descriptions, not application code); v2 evolves the v1 artefact. No existing code base",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "4 specs, 10-14 decision nodes each; V1 visible tests 34-47 per spec (median over 3 trials, ±10-30%); 5-7 mutation intents per spec. Other Table 3 columns jumbled in text extraction (check PDF)",
+   "p": "5-6",
+   "ok": true,
+   "ai": "4 specs, 10-14 decision nodes each; V1 visible tests 34-47 per spec (median over 3 trials, ±10-30%); 5-7 mutation intents per spec. Other Table 3 columns jumbled in text extraction (check PDF)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Tool-using LLM agents: customer support (SupportOps), SQL analytics (DataInsights), incident on-call runbook (IncidentRunbook), expense approval (ExpenseGuard)",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Tool-using LLM agents: customer support (SupportOps), SQL analytics (DataInsights), incident on-call runbook (IncidentRunbook), expense approval (ExpenseGuard)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Pipeline cost in USD per spec version (Anthropic API pricing, Jan 2026); compilation iterations; wall-clock time stated approximately (30-60 min per spec version, 1-2 h for v1+v2), not measured per run",
+   "p": "5, 7",
+   "ok": true,
+   "ai": "Pipeline cost in USD per spec version (Anthropic API pricing, Jan 2026); compilation iterations; wall-clock time stated approximately (30-60 min per spec version, 1-2 h for v1+v2), not measured per run",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Compilation success (all visible tests pass within budget); VPR (visible pass rate); HPR (hidden pass rate); SURS (share of held-out v1 invariant tests passing after v2 compilation)",
+   "p": "5-6, 9",
+   "ok": true,
+   "ai": "Compilation success (all visible tests pass within budget); VPR (visible pass rate); HPR (hidden pass rate); SURS (share of held-out v1 invariant tests passing after v2 compilation)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (authoring learning curve explicitly not quantified)",
+   "p": "8",
+   "ok": true,
+   "ai": "None (authoring learning curve explicitly not quantified)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Mutation score MS (test-suite strength); mutation activation rate (87% of intents activated); RPR (reliability pass rate over N reruns) defined but not computed",
+   "p": "5, 9",
+   "ok": true,
+   "ai": "Mutation score MS (test-suite strength); mutation activation rate (87% of intents activated); RPR (reliability pass rate over N reruns) defined but not computed",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: pytest harness asserting on tool-call traces with deterministic fixtures and PII canary detection; no LLM judge or user simulator; mutants killed by harness; cost from API pricing",
+   "p": "3, 5, 7",
+   "ok": true,
+   "ai": "Automatic: pytest harness asserting on tool-call traces with deterministic fixtures and PII canary detection; no LLM judge or user simulator; mutants killed by harness; cost from API pricing",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "TDAD + Claude Code (version n.s.) + Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) for all roles; Built Agent run with Claude Agent SDK. Criterion: compilation success (visible tests all pass within 6 outer / 8 inner iterations), HPR, MS, SURS. Values (Table 4-5, successful runs): v1 compile 11/12 (92%), HPR 97.3±2.6%, MS 95.9±7.1%, cost $2.32±0.96, 3.1±0.8 iterations; v2 compile 7/12 (58%), HPR 77.7±13.9% (lowest 51.1%), MS 100%, SURS 97.2±3.5%, cost $2.81±1.71, 2.9±1.1 iterations; total $45.15 for 18 successful runs. Quality: works (v1), partly (v2). Cost: works ($2-3 per spec version)",
+   "p": "6-7",
+   "ok": true,
+   "ai": "TDAD + Claude Code (version n.s.) + Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) for all roles; Built Agent run with Claude Agent SDK. Criterion: compilation success (visible tests all pass within 6 outer / 8 inner iterations), HPR, MS, SURS. Values (Table 4-5, successful runs): v1 compile 11/12 (92%), HPR 97.3±2.6%, MS 95.9±7.1%, cost $2.32±0.96, 3.1±0.8 iterations; v2 compile 7/12 (58%), HPR 77.7±13.9% (lowest 51.1%), MS 100%, SURS 97.2±3.5%, cost $2.81±1.71, 2.9±1.1 iterations; total $45.15 for 18 successful runs. Quality: works (v1), partly (v2). Cost: works ($2-3 per spec version)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No comparison of configurations. Single configuration on 4 specs x 2 versions x 3 trials = 24 runs. Baseline: none (seed prompts said to reach 0-90% VPR before compilation, not tabulated; DSPy, TextGrad, APE not compared). Held constant: same model and default temperature for all roles, budget 6 outer / 8 inner iterations, Docker isolation. Acceptance tests: hidden tests generated per trial by TestSmith, withheld from PromptSmith. Repetitions: 3 per spec version. Human intervention: none stated",
+   "p": "2, 6-8",
+   "ok": true,
+   "ai": "No comparison of configurations. Single configuration on 4 specs x 2 versions x 3 trials = 24 runs. Baseline: none (seed prompts said to reach 0-90% VPR before compilation, not tabulated; DSPy, TextGrad, APE not compared). Held constant: same model and default temperature for all roles, budget 6 outer / 8 inner iterations, Docker isolation. Acceptance tests: hidden tests generated per trial by TestSmith, withheld from PromptSmith. Repetitions: 3 per spec version. Human intervention: none stated",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (no comparison). Only qualitative claim that compilation improves on seed prompts in all cases; no numbers, no significance test",
+   "p": "7",
+   "ok": true,
+   "ai": "N/A (no comparison). Only qualitative claim that compilation improves on seed prompts in all cases; no numbers, no significance test",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A as a comparison. The evaluation method (hidden tests, mutation testing, SURS) surfaced test gaps (2 surviving v1 mutants) and showed variance across 3 trials (v1 HPR ±2-4%, v2 ±4-16%). Limitations stated: tests regenerated per trial; excluding non-activating mutants may overstate MS; no ablation of anti-gaming mechanisms; RPR not computed",
+   "p": "5, 7-8",
+   "ok": true,
+   "ai": "N/A as a comparison. The evaluation method (hidden tests, mutation testing, SURS) surfaced test gaps (2 surviving v1 mutants) and showed variance across 3 trials (v1 HPR ±2-4%, v2 ±4-16%). Limitations stated: tests regenerated per trial; excluding non-activating mutants may overstate MS; no ablation of anti-gaming mechanisms; RPR not computed",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Requirements must be encodable as behavioural tests ('be empathetic' resists); mutation testing cannot guarantee completeness; gaming risk reduced not eliminated; stochastic variation; 30-60 min and $2-3 per spec version may be prohibitive for rapid prototyping; TestSmith self-censors hostile inputs (human-curated corpora needed); only 4 specs, 3 trials, one model (Claude Sonnet 4.5), no ablation, no comparison to DSPy/TextGrad/APE; scaling to 50+ nodes and authoring learning curve not quantified. Future: PromptSmith escalating to TestSmith for conflicting tests",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Requirements must be encodable as behavioural tests ('be empathetic' resists); mutation testing cannot guarantee completeness; gaming risk reduced not eliminated; stochastic variation; 30-60 min and $2-3 per spec version may be prohibitive for rapid prototyping; TestSmith self-censors hostile inputs (human-curated corpora needed); only 4 specs, 3 trials, one model (Claude Sonnet 4.5), no ablation, no comparison to DSPy/TextGrad/APE; scaling to 50+ nodes and authoring learning curve not quantified. Future: PromptSmith escalating to TestSmith for conflicting tests",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 3 and 4 columns jumbled in pdftotext; values used are from the text (§6, abstract) where they match Table 4 aggregates (92%/58%, 97.3%/77.7%, SURS 97.2%). Inconsistencies: (1) text says all failed runs with logs reached >95% VPR but lists IncidentRunbook/v1 at 36/38 (94.7%) (p. 7); (2) hidden-test share given as 30-60% in §4.1 (p. 4) but 40-60% in §5.1 (p. 5); (3) convergence 'typically 2-5 iterations' (§3.6, p. 4) vs 'most converge in 2-4' (§6.5, p. 7). Abstract '97% mean hidden pass rate' = Table 4 97.3%. V2 failures: 2 conflicting tests, 3 budget exhausted. Table 6 shows only 4 of 5-7 mutation intents per spec. Built object is an LLM agent prompt, not program code. Replication package: GitHub repo with all 4 specs, harness, Docker; generated tests/fixtures/results only for SupportOps. Pre-registration: not claimed. Language: Python (pytest), YAML specs",
+   "p": "1, 4-9",
+   "ok": true,
+   "ai": "Tables 3 and 4 columns jumbled in pdftotext; values used are from the text (§6, abstract) where they match Table 4 aggregates (92%/58%, 97.3%/77.7%, SURS 97.2%). Inconsistencies: (1) text says all failed runs with logs reached >95% VPR but lists IncidentRunbook/v1 at 36/38 (94.7%) (p. 7); (2) hidden-test share given as 30-60% in §4.1 (p. 4) but 40-60% in §5.1 (p. 5); (3) convergence 'typically 2-5 iterations' (§3.6, p. 4) vs 'most converge in 2-4' (§6.5, p. 7). Abstract '97% mean hidden pass rate' = Table 4 97.3%. V2 failures: 2 conflicting tests, 3 budget exhausted. Table 6 shows only 4 of 5-7 mutation intents per spec. Built object is an LLM agent prompt, not program code. Replication package: GitHub repo with all 4 specs, harness, Docker; generated tests/fixtures/results only for SupportOps. Pre-registration: not claimed. Language: Python (pytest), YAML specs",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims stated as five explicit contributions (no formal RQs)",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): aims stated as five explicit contributions (no formal RQs)",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithm, budgets, model ID, temperature, isolation set-up described; open repo with specs, harness and Docker. Role prompts/guidelines document not in the paper",
+   "p": "3-4, 6-8",
+   "ok": true,
+   "ai": "Yes (1): algorithm, budgets, model ID, temperature, isolation set-up described; open repo with specs, harness and Docker. Role prompts/guidelines document not in the paper",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): exact model ID given; Claude Code and Claude Agent SDK versions not stated",
+   "p": "2, 6-7",
+   "ok": true,
+   "ai": "Partly (0.5): exact model ID given; Claude Code and Claude Agent SDK versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 4 specs described (Tables 2-3, §5.3) and available in the repository",
+   "p": "5-6, 8",
+   "ok": true,
+   "ai": "Yes (1): 4 specs described (Tables 2-3, §5.3) and available in the repository",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): hidden tests are held out from the compiler but are generated by the same LLM pipeline (TestSmith), not independent human-written acceptance tests or expert review",
+   "p": "4, 6",
+   "ok": true,
+   "ai": "Partly (0.5): hidden tests are held out from the compiler but are generated by the same LLM pipeline (TestSmith), not independent human-written acceptance tests or expert review",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): metrics formally defined (App. A); cost (USD, iterations) and quality (HPR, MS, SURS)",
+   "p": "5, 7, 9",
+   "ok": true,
+   "ai": "Yes (1): metrics formally defined (App. A); cost (USD, iterations) and quality (HPR, MS, SURS)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline or alternative evaluated; seed-prompt VPR only mentioned qualitatively",
+   "p": "2, 7-8",
+   "ok": true,
+   "ai": "No (0): no baseline or alternative evaluated; seed-prompt VPR only mentioned qualitatively",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 trials per spec version with mean ± std; no statistical analysis; RPR not computed",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Partly (0.5): 3 trials per spec version with mean ± std; no statistical analysis; RPR not computed",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): v2 weakness reported, but 'compilation consistently adds value' not backed by reported numbers, anti-gaming claims not ablated, and '>95% VPR' claim contradicted by 94.7% case",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Partly (0.5): v2 weakness reported, but 'compilation consistently adds value' not backed by reported numbers, anti-gaming claims not ablated, and '>95% VPR' claim contradicted by 94.7% case",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): §8 Limitations",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Yes (1): §8 Limitations",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author created TDAD and SpecSuite-Core and evaluates them",
+   "p": "1-2",
+   "ok": true,
+   "ai": "No (0): author created TDAD and SpecSuite-Core and evaluates them",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): requirements stated (Claude Code, Claude Agent SDK, Docker, pytest, Sonnet 4.5), $2-3 and 30-60 min per spec version, open repo; within reach of a typical team",
+   "p": "2, 7-8",
+   "ok": true,
+   "ai": "Yes (1): requirements stated (Claude Code, Claude Agent SDK, Docker, pytest, Sonnet 4.5), $2-3 and 30-60 min per spec version, open repo; within reach of a typical team",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-23T16:43:00"
+}
