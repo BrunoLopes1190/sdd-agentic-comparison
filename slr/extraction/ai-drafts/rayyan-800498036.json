@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800498036",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Iscan, M. (2026). Learning When to Remember: Risk-Sensitive Contextual Bandits for Abstention-Aware Memory Retrieval in LLM-Based Coding Agents. arXiv:2604.27283v1 [cs.CL], 30 Apr 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv; Springer-style template; text mentions future 'final journal claims', venue Not stated)",
+   "p": "1, 22"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "PythaLab, Yildiz Technical University, Istanbul, Türkiye (single author)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (RSCB-MC, a risk-sensitive contextual-bandit memory controller for coding agents); secondary: evaluates it against retrieval and bandit baselines on deterministic smoke-scale proxy benchmarks",
+   "p": "4"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "RSCB-MC (Risk-Sensitive Contextual Bandit with Memory Control), implemented in the pythalab-codex-issue-memory artifact (commit 227bbe3, Python 3.12.3); no release version",
+   "p": "4, 12"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Pattern-variant-episode issue-memory records (canonical root-cause pattern, context-specific variants with command/path/stack signatures, validated episodes); fixed 16-feature state vector (Table 1); action set of 7 actions (no memory, top1 resolution, top3 summary, high-precision retrieval, high-recall retrieval, abstain, ask feedback); risk-sensitive reward (false-positive penalty γ=4.0 > verified α=2.0 > accepted β=1.0). No specification document",
+   "p": "5-9"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Normalize debugging context to query profile; retrieve candidate memories; build 16-feature state; score each action (Eq. 17); safety override (replace unsafe injection by abstain/no memory); apply action; observe feedback; compute reward; update policy (Algorithm 1)",
+   "p": "5-6, 13"
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as review points; 'ask feedback' action requests clarification or external feedback before reuse (in the evaluation, feedback comes from replay metadata)",
+   "p": "9"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Memory controller only, evaluated offline on deterministic replay/proxy artifacts; no LLM or coding agent run",
+   "p": "12"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent memory-gating method, no specification); author does not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Not applicable in the evaluation (memory decisions for debugging; motivating setting: debugging an existing Python repository)",
+   "p": "1, 12"
+  },
+  {
+   "f": "Size",
+   "v": "Smoke scale: 24 canonical retrieval queries, 96 paraphrases, 32 hard-negative cases, 40 replay events per seed (2 seeds), 16 memory records, 32 variants, 24 context-budget cases, 56 abstention cases, 200-case hot-path validation per method (full target scale exists but not reported)",
+   "p": "13"
+  },
+  {
+   "f": "Domain",
+   "v": "Local Python development/debugging failures (SQLite locking, stale migrations, wrong virtual environment, PYTHONPATH, configuration keys, etc.)",
+   "p": "12-13"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Estimated memory token cost and latency (context-budget proxy); mean and p95 decision latency (µs) in hot-path validation",
+   "p": "13, 17-18"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Proxy metrics only: Recall@1/3, MRR, nDCG@3, top-1 accuracy; replay success rate (accepted/verified reuse or safe abstention per proxy labels); expected success proxy",
+   "p": "13"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Safety: false-positive rate, unsafe injection rate, correct safe non-injection, correct/wrong abstention rate; average and cumulative reward, regret proxy; risk-adjusted utility",
+   "p": "13-14"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: local deterministic scripts over seeded artifacts (data/paper_seed); labels from replay/proxy metadata, not live LLM or user feedback",
+   "p": "12, 15, 18"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Configurations are memory-control methods, no agent or model (none run). Offline replay, success / FP / abstention / cumulative reward (Table 6): Lexical 50.0% / 17.5% / 0.0% / -70.800; Static hybrid 50.0% / 17.5% / 0.0% / -70.800; Static+abstention 35.0% / 2.5% / 75.0% / -33.350; Epsilon-greedy 53.8% / 8.7% / 30.0% / -49.818; UCB1 55.0% / 2.5% / 50.0% / -35.865; Thompson 53.7% / 2.5% / 38.8% / -52.315; LinUCB 37.5% / 10.0% / 50.0% / -76.775; Risk-sensitive TS 60.0% / 0.0% / 37.5% / -33.700; RSCB-MC 62.5% / 0.0% / 35.0% / -31.740 (quality: works on proxy; cost: works, p95 331 µs); Oracle 67.5% / 0.0% / 50.0% / -5.900. Hard negatives (32, Table 5): Static hybrid FP 75.0%, RSCB-MC and Risk-TS 0.0% FP with 100% correct non-injection. Abstention benchmark (56): RSCB-MC correct abstention 57.1%, wrong abstention 42.9% (over-conservative). Hot-path (200 cases, Table 9): RSCB-MC 60.5% success, 0.0% FP, p95 331.466 µs; Risk-TS 60.0%, p95 411.821 µs; LinUCB p95 3567.384 µs. Ablations (Table 7): no abstention FP 17.5%, reward -87.800; no failure-family features reward -41.740. Context-budget proxy (Table 8): no memory utility 60.8% best, short hint success 74.5% / FP influence 12.0%",
+   "p": "14-18"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: seeded smoke-scale artifacts (queries, paraphrases, hard negatives, replay events). Configurations: retrieval baselines (lexical, static hybrid, static hybrid + abstention, full retriever) and bandit baselines (epsilon-greedy, UCB1, Thompson, LinUCB, risk-sensitive Thompson) vs RSCB-MC, oracle upper bound. Held constant: same artifacts and seeds, deterministic scripts. Acceptance criterion: proxy labels from replay metadata. Repetitions: 2 deterministic seeds. Human intervention: none",
+   "p": "12-15"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "RSCB-MC best non-oracle replay success (62.5% vs 60.0% risk-sensitive TS, 50.0% static) with 0.0% FP (static 17.5%); 5 points below oracle; 0% FP on hard negatives vs 75% static hybrid; sub-millisecond p95 latency. No significance tests",
+   "p": "14-18"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods on FP and proxy success; canonical retrieval saturated (all 100%), so it did not distinguish retrieval methods. Deterministic, so repeatable. Limitations stated: smoke scale, offline replay not causal, proxy labels, reward magnitude may not alter action selection",
+   "p": "14-17, 22"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Smoke-scale evidence only; offline replay is not a causal online evaluation; hot-path labels are proxies; context-budget and dry-run experiments are proxy tasks; single-step bandit does not model delayed multi-turn effects or memory aging; controller over-conservative (wrong abstentions); inherits stale/contradictory memory. Future: full-scale benchmark, live LLM-agent evaluation, calibration, off-policy evaluation, long-horizon modeling",
+   "p": "17, 19-23"
+  },
+  {
+   "f": "Notes",
+   "v": "Abstract and conclusion highlight 62.5% / 0.0% FP; the 'agent dry-run' experiment mentioned in limitations (p. 22) is not reported in results. Abstention text (p. 15) says RSCB-MC 'answers 0.0% of cases' and p. 19 says it 'refuses all cases', yet Table 7 gives correct abstention 5.0%; different benchmarks, not reconciled. Tables partly jumbled by pdftotext; values read in column order. No LLM or coding agent used in any experiment. Code and artifacts at github.com/PhiniteLab/codex-issue-memory. No pre-registration. Programming language: Python",
+   "p": "1, 15, 17, 19, 22"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem and contributions clearly stated; no formal RQs",
+   "p": "4"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): method formalised (features, actions, reward coefficients, algorithm), commit and seed given, code released",
+   "p": "4-13"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): artifact commit and Python version given; no agent or model involved, so the agent claim is not tested",
+   "p": "12"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): artifact sizes and failure families described and available, but synthetic smoke-scale proxy data",
+   "p": "12-13"
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): success and FP judged by author-built replay/proxy labels, no independent criterion",
+   "p": "12, 15"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): proxy quality, safety, token and latency metrics defined",
+   "p": "13"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): several retrieval and bandit baselines and an oracle on the same artifacts",
+   "p": "13"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): deterministic, 2 seeds, no variance or statistical analysis",
+   "p": "15"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): claims explicitly scoped to proxy evidence, but framed as relevant to coding agents without any agent evaluation; abstention inconsistency",
+   "p": "12, 19, 22"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): 'Where this evidence stops' section",
+   "p": "22"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): sole author created RSCB-MC",
+   "p": "1, 22"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): lightweight, local, no hosted LLM or GPU, sub-millisecond decisions; but not integrated with or tested in a real coding agent, and requires a curated memory bank with feedback labels",
+   "p": "4, 12, 21"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

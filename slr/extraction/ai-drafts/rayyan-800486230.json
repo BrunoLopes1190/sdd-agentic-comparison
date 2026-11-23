@@ -1,0 +1,226 @@
+{
+"key": "rayyan-800486230",
+"model": "Claude Opus 5.5 (subagent)",
+"fields": [
+{
+"f": "Reference",
+"v": "Iscan, M. (2026). Feedback-Normalized Developer Memory for Reinforcement-Learning Coding Agents: A Safety-Gated MCP Architecture. arXiv:2605.01567v1 [cs.SE], 2 May 2026",
+"p": "1"
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1"
+},
+{
+"f": "Publication type",
+"v": "Preprint (arXiv)",
+"p": "1"
+},
+{
+"f": "Author affiliation",
+"v": "PythaLab, Yildiz Technical University, Istanbul, Türkiye",
+"p": "1"
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an approach (RL Developer Memory: local-first MCP developer-memory server with feedback normalization, delayed-reward linking, contextual-bandit shadow policy, OPE gate, theory-to-code metadata) with a component-level evaluation (secondary: evaluates)",
+"p": "1, 3, 11"
+},
+{
+"f": "Approach(es): name and version",
+"v": "RL Developer Memory (github.com/PhiniteLab/rl-developer-memory; version Not stated; 'revised implementation'). Configurations: C0 deterministic control path vs V5 full shadow/OPE; V0-V4 ablations defined but not run",
+"p": "3, 13-14, 21"
+},
+{
+"f": "Artefacts prescribed",
+"v": "No specification artefacts. Developer-memory records (failure pattern, variant/fix, audit and validation metadata, feedback/governance state); canonical feedback events; delayed-reward links; RL/control theory-to-code metadata and registry mapping obligations to code anchors (file, symbol, line, check); OPE reports",
+"p": "4-5, 9"
+},
+{
+"f": "Phases of the flow",
+"v": "Per query: issue_match (normalise -> retrieve -> deterministic rank -> match/ambiguous/abstain; shadow bandit scoring, log propensities) -> issue_feedback (normalise to canonical reward) -> issue_record_resolution (link delayed verified fix to retrieval event). Training/deployment phases: offline bootstrap -> online shadow -> OPE -> active canary (disabled unless gate passes)",
+"p": "3-4, 9-11"
+},
+{
+"f": "Human review points",
+"v": "Explicit developer feedback via issue_feedback; review-gated governance (retain/merge/split/demote/review) and validation-tier promotion for RL/control memories",
+"p": "6, 9"
+},
+{
+"f": "Parts exercised",
+"v": "Memory-control layer only (MCP tools via local stdio JSON-RPC fallback); no coding agent or LLM run end to end",
+"p": "11, 15, 20"
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification; developer memory)",
+"p": "—"
+},
+{
+"f": "Task type",
+"v": "Not applicable to code generation: memory retrieval decisions for RL code bug cases (deterministic benchmark); no repository task",
+"p": "11-12, 15"
+},
+{
+"f": "Size",
+"v": "200-case benchmark (160 RL-family, 40 non-RL; 80 hard negatives); 11 static checks; 10 dynamic integration cases",
+"p": "11-12"
+},
+{
+"f": "Domain",
+"v": "Reinforcement-learning code (DQN, PPO, SAC, TD3, GAE, A2C, V-trace, generic RL) plus non-RL developer-memory failures",
+"p": "12"
+},
+{
+"f": "Team profile",
+"v": "N/A (no human participants; deterministic benchmark)",
+"p": "—"
+},
+{
+"f": "Cost metrics",
+"v": "Latency (mean and p95 ms per MCP tool and per live case); no tokens or money",
+"p": "16-17"
+},
+{
+"f": "Functional quality metrics",
+"v": "Expected-decision accuracy; hard-negative suppression / FP rate; failure/abstain rate; offline pass rate; recall delta; static (11) and dynamic (10) check pass",
+"p": "13-16"
+},
+{
+"f": "Internal quality metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—"
+},
+{
+"f": "Other outcome metrics",
+"v": "Telemetry completion rates (retrieval events, bandit decisions, delayed reward, feedback write, contextual-statistics update); claim-gate status; residual failure families",
+"p": "13, 15, 18"
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic, from a deterministic benchmark replay and the system's own telemetry/evidence package; expected decisions labelled in the author's benchmark",
+"p": "11, 15"
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Criterion: expected-decision accuracy and hard-negative suppression on the 200-case benchmark. No coding agent or LLM: memory server only (agent and model N/A)\n- C0 deterministic control (offline, 200 cases): accuracy 0.800, hard-negative FP 0.000, failure/abstain 0.200, issue_match p95 66.53 ms; contextual-statistics update 0.000. Quality partly, cost works\n- V5 full shadow/OPE (offline, 200): accuracy 0.800, FP 0.000, failure/abstain 0.200, p95 66.34 ms; contextual-statistics update 0.605; feedback write 80%. Live: issue_match p95 67.44 vs 65.95 ms (control), total-case p95 852.45 vs 447.05 ms. Quality partly, cost partly (latency regression)\n- Patch-replay audit (earlier vs revised implementation, 200): offline pass 0.715 -> 0.800; decision accuracy 0.790 -> 0.800; hard-negative suppression 0.975 -> 1.000; online/live recall delta -0.065/-0.075 -> 0.000; offline p95 60.58 -> 66.34 ms (regressed). Not a method baseline\n- V0-V4 ablations (static RAG, ranker only, +feedback norm, +delayed link, +theory metadata): not run",
+"p": "13-17"
+},
+{
+"f": "Comparison: design",
+"v": "Same-commit offline comparison C0 vs V5 on the 200-case deterministic benchmark, also online-shadow and live MCP modes; patch-replay audit of earlier vs revised implementation on paired cases. Baseline: deterministic control. Held constant: commit, cases. Acceptance: expected decision labels and hard-negative cases. Repetitions: Not stated (deterministic). Human intervention: none",
+"p": "11-14"
+},
+{
+"f": "Comparison: result",
+"v": "No accuracy difference between C0 and V5 (both 0.800 accuracy, 1.000 hard-negative suppression); V5 adds learning telemetry (stats update 0.605) at the cost of live latency (total-case p95 +405 ms). Patch-replay deltas favorable but 'unconfirmed'. No significance tests or CIs reported",
+"p": "13-16"
+},
+{
+"f": "Comparison: did the method work",
+"v": "Did not distinguish C0 and V5 on decisions; ablations missing. Deterministic benchmark makes runs repeatable by construction. Limitations stated: V0-V4 not collected, no end-to-end coding evaluation, official MCP client not tested, latency not decomposed",
+"p": "13-16, 20-21"
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Active learned-policy deployment unsupported; official-client MCP interoperability unsupported; p95 latency regresses; 40 residual failures (non-RL path, scope, alias); no V0-V4 ablations; no end-to-end repository/SWE-bench evaluation; contextual bandit estimates memory utility not downstream trajectory; no proof of mathematical correctness; future: real developer traces, canaries, normalisation coverage",
+"p": "1, 15, 18, 20-21"
+},
+{
+"f": "Notes",
+"v": "Table 1, 3, 6 columns jumbled by pdftotext; values rebuilt from text (pp. 13, 15-16) and checked. Benchmark is deterministic and author-constructed. Code and supplementary artefacts at github.com/PhiniteLab/rl-developer-memory. Pre-registration: Not stated. Language: Python (SQLite store)",
+"p": "11-17, 21"
+},
+{
+"f": "Q1",
+"v": "Yes (1): contributions and claim boundaries explicit",
+"p": "3"
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): formalism and algorithms detailed, code released; benchmark construction and thresholds/weights not described in text",
+"p": "4-11, 21"
+},
+{
+"f": "Q3",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): benchmark composition given; cases themselves described only by family; availability presumably in repository (not stated explicitly)",
+"p": "12, 21"
+},
+{
+"f": "Q5",
+"v": "Partly (0.5): expected decisions from the author's own benchmark labels; no external criterion",
+"p": "11-13"
+},
+{
+"f": "Q6",
+"v": "Yes (1): accuracy, FP/FN, latency defined",
+"p": "13-17"
+},
+{
+"f": "Q7",
+"v": "Yes (1): same-commit deterministic control vs full configuration",
+"p": "13-14"
+},
+{
+"f": "Q8",
+"v": "No (0): deterministic single runs, no CIs or tests (claim gate notes CIs missing)",
+"p": "15"
+},
+{
+"f": "Q9",
+"v": "Yes (1): conclusions explicitly limited to component level; negative results (no accuracy gain, latency regression) reported",
+"p": "15, 19-21"
+},
+{
+"f": "Q10",
+"v": "Yes (1): limitations and unsupported claims stated (claim gate, Discussion)",
+"p": "15, 18-21"
+},
+{
+"f": "Q11",
+"v": "No (0): preprint",
+"p": "1"
+},
+{
+"f": "Q12",
+"v": "No (0): author created RL Developer Memory",
+"p": "1, 21"
+},
+{
+"f": "Q13",
+"v": "Partly (0.5): local-first Python/SQLite MCP server, open source, low compute; but official MCP client unsupported and RL-specific metadata must be maintained; not shown with a real agent",
+"p": "11, 15, 19"
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—"
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—"
+}
+]
+}

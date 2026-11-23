@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800497946",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, Y., Jiang, Z., Wang, R., Gong, N. Z. (2026). Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files. arXiv:2610.09264v1 [cs.CR], 7 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Duke University, USA (all four authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files); secondary: evaluates (attack success across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors)",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "PackHallu (attack framework; no version). Target artefact: coding rule files (AGENTS.md, CLAUDE.md, .cursorrules) shared via open-source platforms and marketplaces",
+   "p": "1-3, 5"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not a development approach. Artefacts: benign coding rule file with an injected malicious prompt (default at the beginning); attacker-controlled malicious package (interface-compatible, suffix _hl) on a local PyPI mirror",
+   "p": "4, 10, 12"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Attack: seed prompt -> evolutionary loop (surrogate agent simulated by an LLM produces trajectory; trajectory-level signal scores occurrences of malicious package; attack LLM self-attributed critique -> strategy -> rewrite of offspring; top-k selection) for R rounds -> best prompt injected into rule file -> victim agent loads rule file and generates code",
+   "p": "5-8"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (victim agents run in autonomous mode with manual confirmation disabled)",
+   "p": "8"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (rule/context file) as attack vector, loaded by real agent frameworks; no specification",
+   "p": "8, 12"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (rule-file security attack, no specification); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New code (file-level code generation from scratch: BigCodeBench, DS-1000) and existing code base (repository-level multi-file refactoring: RefactorBench)",
+   "p": "9-10"
+  },
+  {
+   "f": "Size",
+   "v": "BigCodeBench 981 tasks (5 packages, 80% victim / 20% surrogate), DS-1000 772 tasks (4 packages), RefactorBench (5 packages; count in appendix Table 17); 10 victim packages; detection benchmark 200 rule files (100 benign, 100 malicious)",
+   "p": "9-10, 18"
+  },
+  {
+   "f": "Domain",
+   "v": "Python; data science and general third-party packages (pandas, numpy, matplotlib, scipy, seaborn; kombu, twisted, urllib3, asgiref, werkzeug); software supply-chain security",
+   "p": "10"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None reported (prompt optimized once per agent on numpy pair \"to reduce computational cost\"; cost not measured)",
+   "p": "12"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "SASR (share of tasks where malicious package imported) and DASR (malicious package imported and code executes, malicious behaviour triggered), computed only on tasks the agent solves correctly under benign conditions; agent capability score (share of executable correct solutions benign)",
+   "p": "11-12, 14"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR",
+   "p": "12-17, 19"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: import detection in generated code, execution with print-based malicious behaviour from local PyPI mirror, attention extraction, detectors' outputs. Manual (presumably): categorization of 87 Claude Code trajectories (procedure Not stated)",
+   "p": "10-12, 16-17, 19"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SASR/DASR on BigCodeBench (attack effectiveness, i.e., vulnerability of agent). (1) PackHallu + OpenHands + 5 backbones (Qwen2.5-Coder-7B, Qwen3-Coder-30B, Devstral-Small-2-24B, GLM4.7-Flash-30B, Gemma4-31B), same surrogate and victim: avg SASR 79.29%, DASR 67.68% (per package SASR 70.02-86.19%). Attack works. (2) Baselines on same settings: Combined Attack avg 14.99/11.35; Repeat, GCG, ObliInjection lower; TAP strongest baseline (e.g., Qwen3-Coder-30B Pandas 34.62/26.92 vs PackHallu 98.72/89.74). Do not work / partly (TAP). (3) Transfer to other backbones on OpenHands (12 LLMs incl. GPT-5.5, GPT-5.3-Codex, DeepSeek-V4-Flash, Llama-4-Maverick): >90% SASR on >=3 of 5 packages for 8 of 12; Qwen2.5-Coder-7B only 22.73-50.00% SASR. Works. (4) Transfer to other frameworks with Qwen3-Coder-30B (OpenCode, Aider, Pi, Cline, Kilo Code): avg SASR 71.55%, DASR 62.99%. Works. (5) Claude Code + Claude Sonnet 4.6: SASR 31.03-58.95%, DASR 31.03-57.89%. Partly (most resistant). (6) Cursor + Auto: SASR 69.35-98.00%; Cursor + Composer 2.5: 81.40-95.65%; OpenCode + DeepSeek-V4-Flash: 75.32-93.94%. Works. (7) Dataset transfer: DS-1000 SASR 53.33/DASR 45.00; RefactorBench 18.60/16.28. Partly / does not work (repository level). Ablations: injection at beginning best (avg SASR 82.63 vs 74.03 middle, 77.29 end); 4 paraphrased initializations 98.00±2.09 SASR; removing trajectory-level signal drops SASR 83.87->56.99. Cost verdict: not measured",
+   "p": "11-18"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: BigCodeBench (main), DS-1000, RefactorBench adapted by package. Configurations: PackHallu vs 5 prompt-injection baselines (Combined, Repeat, GCG and ObliInjection with white-box advantage, TAP with same surrogate); 8 frameworks x 13 LLMs for transfer. Held constant: rule-file loading per framework recommendation, autonomous mode, injection position, local PyPI mirror, single prompt optimized on numpy pair reused for all packages. Acceptance: execution and import checks. Repetitions: Not stated (single runs apparently; std only for initialization ablation). Human intervention: none (autonomous)",
+   "p": "8-12, 17-18"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "PackHallu outperforms all baselines on all packages and victim agents: avg 79.29/67.68 vs best simple baseline Combined 14.99/11.35 (5.29x SASR, 5.96x DASR). More capable backbones more vulnerable (r=0.785 for SASR vs capability); no relation across frameworks (r=-0.186). Popular packages harder to attack (median r=-0.69). No significance tests. Detectors: ProtectAI-DeBERTa FNR 100%; PromptGuard 46%/5% FPR; DataSentinel 49%/16%; PromptArmor 20%/34%; PIShield 21%/11%",
+   "p": "12-15, 19"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished attacks clearly (large gaps). Repeatability: initialization ablation shows stability; repetitions per configuration not stated; no statistical tests. Authors state no limitations of the comparison method",
+   "p": "12, 17-18"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps: robust defences for the collaborative rule-file pipeline; existing detectors inadequate; attack weaker at repository level (RefactorBench)",
+   "p": "16, 19-20"
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 2, 4-6, 8, 11 flattened by pdftotext into row runs; values mapped by column order (Table 2 rows per attack in order Combined, Repeat, GCG, ObliInjection, TAP, PackHallu; pairs SASR/DASR per LLM); check against PDF. Attack evaluated in a controlled simulation (local PyPI mirror; benign print payload). Code or data release: Not stated. Pre-registration: not claimed. Language: Python. Security paper: rule files as an attack surface, relevant to context-file artefacts only",
+   "p": "10-17"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): attack defined, threat model and contributions stated",
+   "p": "3-5"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): algorithm, hyperparameters, datasets and metrics described; implementation details and configurations in appendix; no code release stated, repetitions not stated",
+   "p": "7-12"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): LLMs named (some with versions, e.g., Claude Sonnet 4.6, GPT-5.5); agent framework versions in appendix Table 19 not checked; Cursor \"Auto\" backbone unspecified",
+   "p": "8, 16"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks adapted and split described; adapted task sets and malicious rule files availability not stated",
+   "p": "9-10"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): automatic import and execution checks of generated code",
+   "p": "11-12"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): SASR/DASR defined; no cost metrics",
+   "p": "11-12"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five baseline attacks under the same setting",
+   "p": "8-9"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistical tests reported except std over 5 initializations",
+   "p": "17-18"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results; weaker results (RefactorBench, Claude Code) reported",
+   "p": "15-16, 19-20"
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations section",
+   "p": "—"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created PackHallu, the approach evaluated; independent of agent vendors",
+   "p": "1-3"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): attack needs only a locally deployed surrogate agent (open models, e.g., Qwen3-Coder-30B) and black-box access; compute and cost not stated",
+   "p": "5, 8, 12"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}
