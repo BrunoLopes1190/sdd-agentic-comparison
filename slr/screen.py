@@ -5,6 +5,8 @@ Queue:       slr/passN-queue.csv           (records to screen; pass 3 from build
              ft: the pass-3 includes, AI group (a), (b), (c) order, with a view extracted from slr/fulltext/<key>.txt
 Suggestions: slr/passN-ai-suggestions.csv  (AI suggestion, shown only AFTER the author decides; ft: ft-ai-suggestions.csv)
 Decisions:   slr/passN-decisions.csv       (append-only; the last row per key wins; ft: ft-decisions.csv)
+Extraction:  ft only. After an Include, the AI draft slr/extraction/ai-drafts/<key>.json (protocol §5-6) is shown for
+             the author to check; the checked record is saved to slr/extraction/<key>.json
 """
 import csv, datetime, json, os, re, sys, webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -19,6 +21,15 @@ AI = os.path.join(HERE, f"{NAME}-ai-suggestions.csv")
 DEC = os.path.join(HERE, f"{NAME}-decisions.csv")
 FT = os.path.join(HERE, "fulltext")
 FIELDS = ["time", "key", "first", "final", "ai", "agree", "note"]
+XDIR = os.path.join(HERE, "extraction")
+# Extraction form (protocol §6) and quality checklist (§5; DARE-4 for reviews, Kitchenham & Charters 2007)
+XFIELDS = ["Reference", "Year", "Publication type", "Author affiliation", "Nature of the study",
+           "Approach(es): name and version", "Artefacts prescribed", "Phases of the flow", "Human review points",
+           "Parts exercised", "SDD level", "Task type", "Size", "Domain", "Team profile",
+           "Cost metrics", "Functional quality metrics", "Internal quality metrics", "Human effort metrics",
+           "Other outcome metrics", "How metrics are collected", "Evaluation (each configuration)",
+           "Comparison: design", "Comparison: result", "Comparison: did the method work",
+           "Conclusions: limitations and gaps", "Notes"] + [f"Q{n}" for n in range(1, 14)] + [f"DARE{n}" for n in range(1, 5)]
 ALLOWED = ({"Include", "IC1", "IC4", "EC1", "EC2", "EC3", "EC4", "EC5", "EC6", "Other"} if PASS == "ft" else
            {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"} | ({"EC6"} if PASS == "3" else set()))
 
@@ -124,6 +135,11 @@ class H(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(b)))
             self.end_headers()
             self.wfile.write(b)
+        elif u.path == "/draft":
+            key = os.path.basename(parse_qs(u.query).get("key", [""])[0])
+            load = lambda f: json.load(open(f, encoding="utf-8")) if os.path.exists(f) else None  # noqa: E731
+            self.send(json.dumps({"fields": XFIELDS, "draft": load(os.path.join(XDIR, "ai-drafts", key + ".json")),
+                                  "saved": load(os.path.join(XDIR, key + ".json"))}))
         elif u.path == "/ai":
             key = parse_qs(u.query).get("key", [""])[0]
             s = next((a for a in read(AI) if a["key"] == key), None)  # read fresh: suggestions may still be arriving
@@ -133,6 +149,15 @@ class H(BaseHTTPRequestHandler):
 
     def do_POST(self):
         d = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+        if self.path == "/extract" and PASS == "ft":
+            key = os.path.basename(d.get("key", ""))
+            if not key or decisions().get(key, {}).get("final") != "Include":
+                return self.send('{"ok": false}', code=400)
+            d["time"] = datetime.datetime.now().isoformat(timespec="seconds")
+            os.makedirs(XDIR, exist_ok=True)
+            with open(os.path.join(XDIR, key + ".json"), "w", encoding="utf-8") as f:
+                json.dump(d, f, ensure_ascii=False, indent=1)
+            return self.send('{"ok": true}')
         if d.get("first") not in ALLOWED or d.get("final") not in ALLOWED:
             return self.send('{"ok": false}', code=400)
         d["time"] = datetime.datetime.now().isoformat(timespec="seconds")
@@ -166,6 +191,11 @@ q{font-style:italic}
 #ftv .heads{font-size:13px;color:#444;columns:2}
 #ftv .terms span{display:inline-block;margin:2px 8px 2px 0;font-size:13px;background:#eee;padding:1px 6px;border-radius:4px}
 #ftv .terms b{color:#c00}
+#xp{margin:14px 0;padding:10px 14px;border:2px solid #36c;border-radius:8px;background:#fff;display:none}
+#xp table{width:100%;border-collapse:collapse;font-size:14px}#xp td{border-top:1px solid #eee;padding:3px 4px;vertical-align:top}
+#xp td.f{width:190px;font-weight:600}#xp textarea{width:100%;font:14px/1.4 system-ui;box-sizing:border-box}
+#xp input.p{width:60px}#xp tr.ok td.f{color:#080}#xp tr.sec td{background:#eef3ff;font-weight:700}
+#xp button{font-size:15px;padding:6px 12px;margin:6px 6px 0 0}
 </style></head><body>
 <div id="bar"><span id="pos"></span><span id="counts"></span><span id="saved"></span></div>
 <h1 id="title"></h1><div class="meta" id="meta"></div>
@@ -174,6 +204,7 @@ q{font-style:italic}
 <div id="keys"></div>
 <div id="ai"></div>
 <div id="hint"></div>
+<div id="xp"></div>
 <div id="card">__CARD__</div>
 <script>
 const PASS="__PASS__";
@@ -196,7 +227,25 @@ function show(){const x=Q[i];const prev=done[x.key];first=prev?prev.first:null;f
   const link=x.url||("https://scholar.google.com/scholar?q="+encodeURIComponent(x.title));
   $("meta").innerHTML=`${x.flag?'<b style="color:#c00">⚠ DISCORDÂNCIA no passo 2: aplica primeiro o fluxo do passo 2, depois o EC6.</b><br>':""}${x.p2?"Passo 2: "+esc(x.p2)+" · ":""}${esc(x.year)} · ${esc(x.sources)} · <a href="${esc(link)}" target="_blank">abrir</a>`+(x.keywords?`<br>Palavras-chave: ${esc(x.keywords)}`:"");
   $("abs").innerHTML=x.abstract?esc(x.abstract):'<span class="noabs">SEM RESUMO.</span> Decide pelo título; se não chegar, carrega em "abrir" ou escolhe Maybe.';
-  $("ai").className="";$("ai").innerHTML="";counts();render();if(prev)reveal();if(PASS==="ft")ftview(x);}
+  $("ai").className="";$("ai").innerHTML="";counts();render();if(prev)reveal();$("xp").style.display="none";
+  if(PASS==="ft"){ftview(x);if(prev&&prev.final==="Include")xpanel(x);}}
+const XSEC={"Reference":"Identificação","Approach(es): name and version":"Abordagem (RQ1)","Task type":"Contexto (O5)","Cost metrics":"Medição (RQ2)",
+  "Evaluation (each configuration)":"Avaliação e comparação (RQ3, RQ4)","Conclusions: limitations and gaps":"Conclusões e notas","Q1":"Qualidade (§5): Sim 1 / Parcial 0.5 / Não 0 / N/A","DARE1":"DARE (só revisões)"};
+async function xpanel(x){const k=x.key;const r=await (await fetch("/draft?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;
+  const src=r.saved||r.draft;const by={};((src&&src.fields)||[]).forEach(f=>by[f.f]=f);
+  const el=$("xp");el.style.display="block";
+  el.innerHTML=`<b>Extração e qualidade</b> · ${r.saved?"gravada a "+esc(r.saved.time)+" (podes corrigir)":r.draft?"rascunho da IA: confirma (✓) ou corrige cada campo; página do PDF ao lado":"<span class=noabs>ainda sem rascunho da IA</span>: preenche à mão ou grava mais tarde"}
+   <table>${r.fields.map(f=>(XSEC[f]?`<tr class="sec"><td colspan="3">${XSEC[f]}</td></tr>`:"")+`<tr class="${by[f]&&by[f].ok?"ok":""}"><td class="f">${esc(f)}</td>
+   <td><textarea rows="${Math.min(6,Math.max(1,Math.ceil(((by[f]&&by[f].v)||"").length/110)))}" data-f="${esc(f)}">${esc(by[f]?by[f].v:"")}</textarea></td>
+   <td><input class="p" data-p="${esc(f)}" value="${esc(by[f]?by[f].p:"")}" title="página(s)"><br><label><input type="checkbox" data-ok="${esc(f)}" ${by[f]&&by[f].ok?"checked":""}>✓</label></td></tr>`).join("")}</table>
+   <button id="xall">✓ em todos</button><button id="xsave"><b>Gravar extração e avançar</b></button><button id="xlater">Gravar mais tarde (avançar)</button>`;
+  $("xall").onclick=()=>el.querySelectorAll("[data-ok]").forEach(c=>c.checked=true);
+  $("xlater").onclick=()=>next();
+  $("xsave").onclick=async()=>{const dv={};((r.draft&&r.draft.fields)||[]).forEach(f=>dv[f.f]=f.v);
+    const fields=r.fields.map(f=>{const v=el.querySelector(`[data-f="${CSS.escape(f)}"]`).value;return {f,v,p:el.querySelector(`[data-p="${CSS.escape(f)}"]`).value,
+      ok:el.querySelector(`[data-ok="${CSS.escape(f)}"]`).checked,ai:f in dv?dv[f]:null,changed:f in dv?v!==dv[f]:null};});
+    const s=await fetch("/extract",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({key:k,fields})});
+    if(!s.ok){alert("ERRO ao gravar a extração.");return;}$("saved").textContent="extração gravada ✓";setTimeout(()=>$("saved").textContent="",1200);next();};}
 async function ftview(x){const el=$("ftv");el.innerHTML="";const k=x.key;
   const head=`<div class="meta">Grupo (IA, passo 3): <b>${esc(x.g)}</b> · <a href="/pdf?key=${encodeURIComponent(k)}" target="_blank">abrir PDF</a> (tecla P)</div>`;
   if(!x.ft){el.innerHTML=head+'<p class="noabs">SEM TEXTO INTEGRAL em slr/fulltext/. Descarrega o PDF (ver fulltext-access.csv) ou, se não houver acesso, [X] IC4.</p>';return;}
@@ -220,9 +269,11 @@ async function commit(){if(first===null)return;if(final==="Other"&&!note){askNot
   const r=await fetch("/decide",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
   if(!r.ok){alert("ERRO ao gravar. Não avances; verifica se o screen.py está a correr.");return;}
   done[x.key]=d;$("saved").textContent="gravado ✓";setTimeout(()=>$("saved").textContent="",800);
-  const nx=Q.findIndex((y,j)=>j>i&&!done[y.key]);if(nx<0){alert("Fim da fila! Avisa o Claude.");counts();return;}i=nx;show();}
-document.onkeydown=e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key.toUpperCase();
+  if(PASS==="ft"&&final==="Include"){counts();xpanel(x);$("xp").scrollIntoView();return;}next();}
+function next(){const nx=Q.findIndex((y,j)=>j>i&&!done[y.key]);if(nx<0){alert("Fim da fila! Avisa o Claude.");counts();return;}i=nx;show();window.scrollTo(0,0);}
+document.onkeydown=e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest("textarea,input"))return;const k=e.key.toUpperCase();
   const o=OPTS.find(([a])=>a===k);if(o){pick(o[1]);e.preventDefault();return;}
+  if(k==="ENTER"&&$("xp").style.display==="block"&&final==="Include"){e.preventDefault();return;}  // extraction open: save it with its button
   if(k==="ENTER"){commit();e.preventDefault();}else if(k==="N"&&first!==null){askNote();render();}
   else if(k==="P"&&PASS==="ft"){window.open("/pdf?key="+encodeURIComponent(Q[i].key),"_blank");}
   else if(e.key==="ArrowLeft"&&i>0){i--;show();}else if(e.key==="ArrowRight"&&i<Q.length-1){i++;show();}};
