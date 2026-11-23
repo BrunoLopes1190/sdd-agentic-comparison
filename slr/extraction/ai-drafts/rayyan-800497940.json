@@ -1,46 +1,226 @@
-{"key": "rayyan-800497940", "model": "Claude Opus 5.5 (subagent)", "fields": [
-{"f": "Reference", "v": "Treude, C., Baltes, S., Cheong, M. (2026). Operationalizing Ethics for AI Agents: How Developers Encode Values into Repository Context Files. arXiv:2605.05584v1 [cs.SE], 7 May 2026", "p": "1"},
-{"f": "Year", "v": "2026", "p": "1"},
-{"f": "Publication type", "v": "Preprint (arXiv); short vision paper (4 pages incl. references), venue not stated", "p": "1"},
-{"f": "Author affiliation", "v": "Singapore Management University (Treude); Ruprecht-Karls-Universität Heidelberg (Baltes); University of Melbourne (Cheong)", "p": "1"},
-{"f": "Nature of the study", "v": "Conceptual (vision paper and research agenda on encoding ethics/values in repository context files such as AGENTS.md), supported by a small preliminary investigation (25 repositories inspected, 6 illustrative examples). Not a review", "p": "1, 3"},
-{"f": "Approach(es): name and version", "v": "Repository-level context files for AI coding agents (AGENTS.md) used to encode ethical principles and values as natural-language directives ('developer-authored governance layer'). Version: N/A", "p": "1-3"},
-{"f": "Artefacts prescribed", "v": "None prescribed by the authors; observed artefact is the repository context file (AGENTS.md) holding behavioural rules (e.g. ethical-AI guidelines, bias test data with names, tone and inclusive-language rules, accessibility and sustainability principles). Roadmap mentions other configuration artefacts: agent skills, tool permission settings, hook scripts, system prompt files", "p": "2-3"},
-{"f": "Phases of the flow", "v": "Not stated (no flow; context file read by the agent during development workflows)", "p": "—"},
-{"f": "Human review points", "v": "Not stated; one example file asks the agent to keep 'the human in the loop'; negotiation of the files in pull requests raised as a research question", "p": "3"},
-{"f": "Parts exercised", "v": "Single artefact (context file), examined as documents only; no agent run (document-based)", "p": "3"},
-{"f": "SDD level", "v": "Not classifiable (context files, not specifications; authors do not use SDD terms)", "p": "—"},
-{"f": "Task type", "v": "Existing code bases (open-source repositories containing AGENTS.md); no task executed", "p": "3"},
-{"f": "Size", "v": "Not stated (25 repositories inspected, 6 presented; repository sizes not given)", "p": "3"},
-{"f": "Domain", "v": "Open-source repositories of various domains (e.g. recipe web app, home-assistant/core, accessibility guidance magentaA11y, github/awesome-copilot)", "p": "2"},
-{"f": "Team profile", "v": "Not stated (open-source contributors)", "p": "—"},
-{"f": "Cost metrics", "v": "None measured. Cited: AGENTS.md can lower agent runtime and token consumption without degrading task completion (Lulla et al. [17])", "p": "2"},
-{"f": "Functional quality metrics", "v": "None measured", "p": "—"},
-{"f": "Internal quality metrics", "v": "None measured", "p": "—"},
-{"f": "Human effort metrics", "v": "None measured", "p": "—"},
-{"f": "Other outcome metrics", "v": "None measured; qualitative identification of ethical categories encoded (fairness, accessibility, sustainability, tone, privacy, accountability, inclusivity). Adherence of agents to encoded constraints proposed as future work", "p": "1, 3"},
-{"f": "How metrics are collected", "v": "N/A (no metrics); repositories found by GitHub code search and ChatGPT web search, then manually inspected by the authors", "p": "3"},
-{"f": "Evaluation (each configuration)", "v": "N/A (document-based; no configuration run)", "p": "—"},
-{"f": "Comparison: design", "v": "N/A (proposed as future work: compare agent behaviour with and without context files, measuring compliance with bias, tone, accessibility and regulatory constraints)", "p": "3"},
-{"f": "Comparison: result", "v": "N/A", "p": "—"},
-{"f": "Comparison: did the method work", "v": "N/A", "p": "—"},
-{"f": "Conclusions: limitations and gaps", "v": "Sample small and illustrative, 'not a comprehensive empirical account'. High-level directives (e.g. 'follow all guidelines for ethical AI') specify no executable conditions, triggers or enforcement; unclear what behaviour agents derive. Open: large-scale mapping of encoded ethical categories; how developers decide and negotiate directives (PRs, mining histories); whether agents adhere (experiments with/without context files); longitudinal evolution; whether machine-oriented representations differ from human codes of conduct; other configuration artefacts (skills, permissions, hooks, system prompts)", "p": "3-4"},
-{"f": "Notes", "v": "4-page vision paper; Table 1 gives verbatim excerpts from six repositories (links listed in the table; columns slightly jumbled by pdftotext, mapping of excerpts to repositories to check). Search for repositories used GitHub code search plus ChatGPT web search; selection criteria for the 25 and the 6 not stated. No data or replication package. No programming language focus. Two authors (Treude, Baltes) have prior empirical studies on AGENTS.md cited here", "p": "2-3"},
-{"f": "Q1", "v": "Yes (1): aim stated (how ethics/values are translated into context-file instructions) and research agenda outlined", "p": "1, 3"},
-{"f": "Q2", "v": "No (0): preliminary investigation described in one sentence; search queries, selection criteria and analysis not given", "p": "3"},
-{"f": "Q3", "v": "N/A (not empirical; no agent run)", "p": "—"},
-{"f": "Q4", "v": "N/A (not empirical)", "p": "—"},
-{"f": "Q5", "v": "N/A (not empirical)", "p": "—"},
-{"f": "Q6", "v": "N/A (not empirical)", "p": "—"},
-{"f": "Q7", "v": "N/A (not empirical)", "p": "—"},
-{"f": "Q8", "v": "N/A (not empirical)", "p": "—"},
-{"f": "Q9", "v": "Yes (1): claims limited to 'developers are already embedding' such guidance; states examples are illustrative and adherence is unknown", "p": "3-4"},
-{"f": "Q10", "v": "Partly (0.5): no limitations section; notes small exploratory sample and that it is not comprehensive", "p": "3"},
-{"f": "Q11", "v": "No (0): arXiv preprint, venue not stated", "p": "1"},
-{"f": "Q12", "v": "Yes (1): no tool evaluated; authors not vendors of AGENTS.md", "p": "1-2"},
-{"f": "Q13", "v": "Partly (0.5): encoding values in a plain-text context file needs no special tools or compute, but requirements are not stated explicitly and whether agents comply is open", "p": "3"},
-{"f": "DARE1", "v": "N/A", "p": "—"},
-{"f": "DARE2", "v": "N/A", "p": "—"},
-{"f": "DARE3", "v": "N/A", "p": "—"},
-{"f": "DARE4", "v": "N/A", "p": "—"}
-]}
+{
+ "key": "rayyan-800497940",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Treude, C., Baltes, S., Cheong, M. (2026). Operationalizing Ethics for AI Agents: How Developers Encode Values into Repository Context Files. arXiv:2605.05584v1 [cs.SE], 7 May 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv); short vision paper (4 pages incl. references), venue not stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Singapore Management University (Treude); Ruprecht-Karls-Universität Heidelberg (Baltes); University of Melbourne (Cheong)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual (vision paper and research agenda on encoding ethics/values in repository context files such as AGENTS.md), supported by a small preliminary investigation (25 repositories inspected, 6 illustrative examples). Not a review",
+   "p": "1, 3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Repository-level context files for AI coding agents (AGENTS.md) used to encode ethical principles and values as natural-language directives ('developer-authored governance layer'). Version: N/A",
+   "p": "1-3"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by the authors; observed artefact is the repository context file (AGENTS.md) holding behavioural rules (e.g. ethical-AI guidelines, bias test data with names, tone and inclusive-language rules, accessibility and sustainability principles). Roadmap mentions other configuration artefacts: agent skills, tool permission settings, hook scripts, system prompt files",
+   "p": "2-3"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no flow; context file read by the agent during development workflows)",
+   "p": "—"
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated; one example file asks the agent to keep 'the human in the loop'; negotiation of the files in pull requests raised as a research question",
+   "p": "3"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file), examined as documents only; no agent run (document-based)",
+   "p": "3"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context files, not specifications; authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (open-source repositories containing AGENTS.md); no task executed",
+   "p": "3"
+  },
+  {
+   "f": "Size",
+   "v": "Not stated (25 repositories inspected, 6 presented; repository sizes not given)",
+   "p": "3"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories of various domains (e.g. recipe web app, home-assistant/core, accessibility guidance magentaA11y, github/awesome-copilot)",
+   "p": "2"
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated (open-source contributors)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured. Cited: AGENTS.md can lower agent runtime and token consumption without degrading task completion (Lulla et al. [17])",
+   "p": "2"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None measured; qualitative identification of ethical categories encoded (fairness, accessibility, sustainability, tone, privacy, accountability, inclusivity). Adherence of agents to encoded constraints proposed as future work",
+   "p": "1, 3"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no metrics); repositories found by GitHub code search and ChatGPT web search, then manually inspected by the authors",
+   "p": "3"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based; no configuration run)",
+   "p": "—"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (proposed as future work: compare agent behaviour with and without context files, measuring compliance with bias, tone, accessibility and regulatory constraints)",
+   "p": "3"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Sample small and illustrative, 'not a comprehensive empirical account'. High-level directives (e.g. 'follow all guidelines for ethical AI') specify no executable conditions, triggers or enforcement; unclear what behaviour agents derive. Open: large-scale mapping of encoded ethical categories; how developers decide and negotiate directives (PRs, mining histories); whether agents adhere (experiments with/without context files); longitudinal evolution; whether machine-oriented representations differ from human codes of conduct; other configuration artefacts (skills, permissions, hooks, system prompts)",
+   "p": "3-4"
+  },
+  {
+   "f": "Notes",
+   "v": "4-page vision paper; Table 1 gives verbatim excerpts from six repositories (links listed in the table; columns slightly jumbled by pdftotext, mapping of excerpts to repositories to check). Search for repositories used GitHub code search plus ChatGPT web search; selection criteria for the 25 and the 6 not stated. No data or replication package. No programming language focus. Two authors (Treude, Baltes) have prior empirical studies on AGENTS.md cited here",
+   "p": "2-3"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim stated (how ethics/values are translated into context-file instructions) and research agenda outlined",
+   "p": "1, 3"
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): preliminary investigation described in one sentence; search queries, selection criteria and analysis not given",
+   "p": "3"
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (not empirical; no agent run)",
+   "p": "—"
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (not empirical)",
+   "p": "—"
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (not empirical)",
+   "p": "—"
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (not empirical)",
+   "p": "—"
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (not empirical)",
+   "p": "—"
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (not empirical)",
+   "p": "—"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims limited to 'developers are already embedding' such guidance; states examples are illustrative and adherence is unknown",
+   "p": "3-4"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no limitations section; notes small exploratory sample and that it is not comprehensive",
+   "p": "3"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, venue not stated [Check: the record has a published DOI (https://doi.org/10.1145/3805760.3814899); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no tool evaluated; authors not vendors of AGENTS.md",
+   "p": "1-2"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): encoding values in a plain-text context file needs no special tools or compute, but requirements are not stated explicitly and whether agents comply is open",
+   "p": "3"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

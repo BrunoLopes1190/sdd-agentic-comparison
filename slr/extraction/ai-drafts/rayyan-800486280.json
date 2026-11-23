@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800486280",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Hrubec, N., Cito, J. (2026). Reducing Token Usage of State-in-Context Agents using Minification. arXiv:2606.01326v1 [cs.SE], 31 May 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint (arXiv)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "TU Wien, Vienna, Austria",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach (semantics-preserving Python code minification for the repair prompt) and evaluates it against the non-minified agent; secondary: evaluates (independent replication of the DirectSolve state-in-context agent of Jiang et al.)",
+   "p": "1-2"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Re-implemented DirectSolve state-in-context agent (Jiang et al. 2025; clean-room, authors' own implementation, github.com/ipa-lab/minified-state-in-context-agent) with minification transformations based on pyminifier (version Not stated): remove/merge imports, remove blank lines, remove comments, remove docstrings, dedent, reduce operators, short identifiers (vars/funcs/classes, with or without lookup map)",
+   "p": "1-4"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "No specification artefacts. Ranked file list from tree view; repair context of top-ranked (minified) files capped at 100k tokens; identifier mapping table prepended to prompt; SEARCH/REPLACE patch",
+   "p": "2-4"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "LLM ranks repository files from paths -> aggregate files up to token budget -> apply minification -> LLM generates SEARCH/REPLACE patch (up to 5 resamples if invalid) -> reverse identifier renaming -> tolerant matching and patch application -> git diff",
+   "p": "2-4"
+  },
+  {
+   "f": "Human review points",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full (single-call, tool-free) pipeline; minification as input transformation of the repair prompt",
+   "p": "2-4"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; context compression for issue repair)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (SWE-bench Verified GitHub issues)",
+   "p": "5"
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified full benchmark (500 instances, 12 Python repositories) for end-to-end; 100 random instances for ablations; repair context capped at 100,000 tokens",
+   "p": "5"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries (astropy, django, matplotlib, requests, xarray, pylint, pytest, scikit-learn, sphinx, sympy, ...)",
+   "p": "5-6"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input and output tokens (tiktoken GPT-4 tokenizer); cost in USD from OpenAI API pricing; token reduction %",
+   "p": "5-7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolution rate (official SWE-bench harness, tests); target-file recall for context budget choice",
+   "p": "5"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (formatting artefacts in diffs noted qualitatively)",
+   "p": "9"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Instance-level resolved overlap (baseline vs dedent); failure analysis of invalid patches",
+   "p": "6-8"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: SWE-bench evaluation harness (GCP instance); token counts via tiktoken; cost computed from API pricing; manual inspection of failure logs",
+   "p": "5, 7"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SWE-bench Verified resolution rate; cost by input tokens/USD. Agent = authors' re-implemented DirectSolve (no commercial agent), temperature 0.8, single run\n- DirectSolve no-minification + GPT-5-mini (full benchmark): 252 resolved (50.0%), avg input 90,535 tokens (SD 16,795). Quality partly, cost partly\n- DirectSolve + minification (all except dedent) + GPT-5-mini (full): 188 resolved (38.0%), avg input 52,776 (SD 13,697), -42% tokens. Quality partly, cost works. By difficulty: <15 min 65.0 -> 48.0%; 15 min-1 h 45.0 -> 35.0%; 1-4 h 19.0 -> 7.0%; >4 h 0 -> 0% (token reduction 39.4-42.8%)\n- Single-transformation ablations + GPT-4.1 (100 instances): no-minification 46% / 87,325 tokens / $0.1867; remove-imports 39% / $0.1775; merge-imports 45% / $0.1838; remove-blank-lines 41% / $0.1834; remove-comments 45% / 77,849 / $0.1674; remove-docstrings 43% / 68,202 / $0.1475; dedent 36% / $0.1828; reduce-operators 41% / 80,132 / $0.1715; short-vars 38%; short-funcs 42%; short-classes 45%; short-vars-map 43%; short-funcs-map 47%; short-classes-map 46% (ablation)\n- Stacked transformations + GPT-4.1 and + GPT-5-mini (100 instances): values in Fig. 3 only; text: with dedent resolution falls to 27% vs 47% baseline (model not specified) (ablation)",
+   "p": "5-8"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Verified (full for GPT-5-mini; 100-instance subset for ablations). Configurations: no-minification baseline vs minification (combined, single, stacked). Held constant: agent implementation, model per comparison, temperature 0.8, 100k repair budget, preprocessing (tests, docs, build files excluded), tokenizer. Acceptance tests: SWE-bench harness. Repetitions: single run per configuration. Human intervention: none",
+   "p": "4-5"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Minification cuts input tokens by 42% (about 93% of repair cost is input) with a 12 pp drop in resolution (50.0% -> 38.0%) on GPT-5-mini; drop consistent across difficulty (10-17 pp) and mostly 10-20 pp across repositories (outlier psf/requests 75 -> 25%). Remove-docstrings gives lowest cost ($0.1475 vs $0.1867) at -3 pp; dedent worst (-10 pp; resolved set a strict subset of baseline). No significance tests. Replication: 50.0% vs 50.8% reported for DirectSolve with Gemini-2.5-Pro",
+   "p": "2, 5-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished transformations on cost; small resolution differences within run-to-run variability, which authors acknowledge (variation across runs observed, single run per configuration). Limitations stated: stochastic variability, single code-heavy agent, test-based validity only, formatting artefacts in diffs",
+   "p": "6-7, 9"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Stochastic variability (file selection differs between runs; multiple runs needed); single agent heavy on code input, may not generalise; patch validity only by tests (no human check); REPLACE blocks keep minified formatting (formatter or source maps needed); dedent needs indentation post-processing",
+   "p": "8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1: 252 resolved reported as 50.0% and 188 as 38.0%, but 252/500 = 50.4% and 188/500 = 37.6% (denominator not stated). Abstract says '12 percentage-point drop', text '12% absolute decrease'. Stacked-ablation baseline 47% (text) vs single-ablation baseline 46% (Table 4). Tables 2-4 rebuilt from pdftotext column order. Code public at github.com/ipa-lab/minified-state-in-context-agent. Pre-registration: Not stated. Language: Python",
+   "p": "1, 5-7"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): replication goal and research question on token-reducing transformations stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, deviations, transformations, budgets, temperature and code release described",
+   "p": "2-5"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-5-mini and GPT-4.1 named without snapshot versions; own agent released",
+   "p": "5"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-bench Verified, public; subset selection random (instance list not stated)",
+   "p": "5"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): official SWE-bench harness tests",
+   "p": "5"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolution rate, tokens and USD cost",
+   "p": "5"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-minification baseline under same agent, model and budget",
+   "p": "5"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run per configuration, no statistical tests; variability acknowledged",
+   "p": "9"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): negative trade-off reported honestly, but 'generalize well' and small ablation differences interpreted despite single runs",
+   "p": "6, 9"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 5 limitations",
+   "p": "9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint [Check: the record has a published DOI (https://doi.org/10.1145/3794763.3798174); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created the minification approach; independent of DirectSolve (replication) and of OpenAI models",
+   "p": "1-2"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): lightweight preprocessing, runs on a laptop, API cost reported (~$0.15-0.19 per instance with GPT-4.1), code public",
+   "p": "5, 7"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}
