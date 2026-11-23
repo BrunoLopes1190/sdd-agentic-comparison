@@ -212,7 +212,7 @@ function render(){$("keys").innerHTML=OPTS.map(([k,v])=>`<button data-v="${v}" c
 async function reveal(){const x=Q[i];const k=x.key;const r=await (await fetch("/ai?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;ai=r;
   const el=$("ai");if(!r){el.className="none";el.innerHTML="Sem sugestão da IA para este registo (ainda). Decide só por ti.";return;}
   const same=r.s===first;el.className=same?"agree":"disagree";
-  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>`;}
+  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>${r.sec?" ("+esc(r.sec)+")":""}${r.q_ok==="False"?' <b style="color:#c00">citação não verificada</b>':""}`;}
 function pick(v){if(first===null){first=v;final=v;if(v==="Other"&&!note)askNote();render();reveal();}else{final=v;if(v==="Other"&&!note)askNote();render();}}
 function askNote(){const t=prompt(PASS==="ft"?"Nota (o que decidiu; ex.: grupo a, SDD com Kiro; EC6 é issue repair; EC4 duplicado de …):":"Nota (ex.: poster EC3, não está em inglês, anterior a 2023, duplicado):",note||"");if(t!==null)note=t.trim();}
 async function commit(){if(first===null)return;if(final==="Other"&&!note){askNote();if(!note)return;}
