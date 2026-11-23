@@ -96,7 +96,7 @@
      "why": "The authors place neither approach on an SDD level. A (the harness) is an execution-control layer, so not classifiable fits; but B is GitHub Spec Kit, which Böckeler classifies as spec-first, so a reader classifying by the approaches compared could record B as spec-first (the paper itself gives no detail of how Spec Kit was used)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os autores não classificam nenhuma abordagem; o harness não é formato de especificação, mas a linha de base é o GitHub Spec Kit (spec-first segundo Böckeler). Decide se classificas pela abordagem proposta ou pelas comparadas."
   },
   {
    "f": "Task type",
@@ -170,9 +170,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: implement the customer registration function satisfying the business specification. Agent/harness for the LLM Not stated beyond the approach. (a) GitHub Spec Kit + agent Not stated + GPT-5 (baseline): 65 correction iterations, 9.0 h, regressions frequent, major specification violations observed. Quality: does not work; cost: does not work. (b) Execution control harness (LLM Harness DSL) + agent Not stated + GPT-5: 3 correction iterations, 0.5 h, 0 regressions, major specification violations not observed. Quality: works; cost: works",
+   "v": "Task: implement the customer registration function satisfying the business specification; no success criterion stated by the authors (no acceptance tests or pass condition). Agent/harness for the LLM Not stated beyond the approach. (a) GitHub Spec Kit + agent Not stated + GPT-5 (baseline): 65 correction iterations, 9.0 h, regressions frequent, major specification violations observed. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (b) Execution control harness (LLM Harness DSL) + agent Not stated + GPT-5: 3 correction iterations, 0.5 h, 0 regressions, major specification violations not observed. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "3",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "The paper states no pass condition for the function nor a target for iterations or hours; quality and cost verdicts are now 'no criterion stated by the authors'; values kept"
+    }
+   ],
    "warn": ""
   },
   {
@@ -315,7 +321,7 @@
      "why": "Requirements are only partly stated: YAML DSL, Git, build/test gates and GPT-5 are named, but the harness is not released and compute, cost and tooling needs are not given; under 'missing information scores No' a stricter reader could score No (0)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "São nomeados DSL YAML, Git, gates de build/teste e GPT-5, mas o harness não é publicado e custo e computação não são indicados. Decide entre Partly e No."
   },
   {
    "f": "DARE1",

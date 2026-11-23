@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486484",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -31,9 +31,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Only evidence of the venue is the NeurIPS 2026 camera-ready footer on p. 1 of the arXiv copy (no DOI, no proceedings reference). Author to confirm acceptance; if not accepted, Preprint"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Only evidence of the venue is the NeurIPS 2026 camera-ready footer on p. 1 of the arXiv copy (no DOI, no proceedings reference). Author to confirm acceptance; if not accepted, Preprint"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A única prova da venue é o rodapé 'NeurIPS 2026' na p. 1 da cópia arXiv. Confirma se o artigo foi aceite; se não, muda para Preprint."
   },
   {
    "f": "Author affiliation",
@@ -169,7 +174,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: pass rate on 100-sample test sets; values PR BCB/BCB-H/HE; tokens BCB (Tables 5-6); rules evolved per backbone. OpenAI SDK agent: - gpt-4.1-mini: No rule 0.47/0.25/0.97, 623.5 tok; Manual 0.46/0.20/0.92, 852.0; Prompt-Ops 0.45/0.24/0.92, 540.5; RuleEvolve 0.46/0.24/0.93, 479.3. - gpt-5-mini: No rule 0.36/0.20/0.95, 2185; Manual 0.31/0.20/0.68, 2799; Prompt-Ops 0.38/0.20/0.99, 1884; RuleEvolve 0.46/0.20/0.99, 1717. - gpt-5.3-codex: No rule 0.46/0.26/0.97, 790.8; Manual 0.45/0.23/0.98, 1022; Prompt-Ops 0.48/0.23/0.89, 581.7; RuleEvolve 0.49/0.26/0.99, 544.5. - Qwen-Coder-30B: No rule 0.17/0.12/0.90, 932.4; Manual 0.19/0.09/0.69, 1083; Prompt-Ops 0.32/0.18/0.67, 799.0; RuleEvolve 0.38/0.19/0.88, 715.5. OpenHands (rules via AGENTS.md): - gpt-4.1-mini: No rule 0.48/0.27/0.96, 1079; Manual 0.48/0.28/0.95, 1320; Prompt-Ops 0.43/0.22/0.71, 903.1; RuleEvolve 0.50/0.28/0.98, 991.6. - gpt-5-mini: No rule 0.40/0.18/0.97, 1793; Manual 0.38/0.22/0.96, 2047; Prompt-Ops 0.33/0.19/0.99, 1392; RuleEvolve 0.41/0.25/0.98, 1498. - gpt-5.3-codex: No rule 0.49/0.29/0.99, 1143; Manual 0.49/0.29/0.99, 1293; Prompt-Ops 0.40/0.25/0.91, 1009; RuleEvolve 0.52/0.27/0.99, 1016. - Qwen-Coder-30B: No rule 0.43/0.27/0.97, 1250; Manual 0.44/0.28/0.99, 1262; Prompt-Ops 0.35/0.19/0.91, 1119; RuleEvolve 0.44/0.27/0.96, 1028. Verdicts, each configuration on its own: RuleEvolve (all 8 framework-model cells): quality partly (BCB 0.38-0.52, BCB-H 0.19-0.28, HE 0.88-0.99); cost works (about 480-1,720 tokens and 3-23 s per task; cost of the evolution runs not reported). No rule (all 8): quality partly (BCB 0.17-0.49, BCB-H 0.12-0.29, HE 0.90-0.99); cost works. Manual rule (all 8): quality partly (HE falls to 0.68-0.69 with SDK gpt-5-mini and Qwen); cost works (highest or near-highest tokens, up to 2,799). Prompt-Ops (all 8): quality partly (BCB 0.32-0.48, HE down to 0.67); cost works. Multi-seed (gpt-4.1-mini, BCB, 10 seeds; framework not stated): No rule PR 0.502 +/- 0.015, 1181 tok, 8.66 s; Public rule 0.498, 2049; Prompt-Ops 0.502, 1130; RuleEvolve 0.502 +/- 0.026, 1019 tok, 9.67 s; all four quality partly (PR about 0.50), cost works. SWE-Bench Lite (gpt-4.1-mini, framework not stated): No rule PR 0.330, 131.17 s, 911 tok (quality partly; cost works); Public rule 0.190, 166.45 s, 867 tok (quality does not work; cost works); Prompt-Ops 0.080, 175.24 s, 684 tok (quality does not work; cost works); RuleEvolve 0.340, 297.46 s, 722 tok (quality partly; cost partly, time more than double No rule). Ablation (mutation allocation; backbone, framework and benchmark not stated for Fig. 2b): even, proportional, OCBA all PR 0.500; tokens 980.9 / 998.6 / 975.2; time 20.47 / 17.37 / 15.48 s (value labels in Fig. 2b)",
+   "v": "Success criterion: none stated by the authors (correctness threshold tau in Eq. 2-3 is 'predefined' but no value is given; the judge penalises PR below No rule). Metrics: pass rate on 100-sample test sets; values PR BCB/BCB-H/HE; tokens BCB (Tables 5-6); rules evolved per backbone. OpenAI SDK agent: - gpt-4.1-mini: No rule 0.47/0.25/0.97, 623.5 tok; Manual 0.46/0.20/0.92, 852.0; Prompt-Ops 0.45/0.24/0.92, 540.5; RuleEvolve 0.46/0.24/0.93, 479.3. - gpt-5-mini: No rule 0.36/0.20/0.95, 2185; Manual 0.31/0.20/0.68, 2799; Prompt-Ops 0.38/0.20/0.99, 1884; RuleEvolve 0.46/0.20/0.99, 1717. - gpt-5.3-codex: No rule 0.46/0.26/0.97, 790.8; Manual 0.45/0.23/0.98, 1022; Prompt-Ops 0.48/0.23/0.89, 581.7; RuleEvolve 0.49/0.26/0.99, 544.5. - Qwen-Coder-30B: No rule 0.17/0.12/0.90, 932.4; Manual 0.19/0.09/0.69, 1083; Prompt-Ops 0.32/0.18/0.67, 799.0; RuleEvolve 0.38/0.19/0.88, 715.5. OpenHands (rules via AGENTS.md): - gpt-4.1-mini: No rule 0.48/0.27/0.96, 1079; Manual 0.48/0.28/0.95, 1320; Prompt-Ops 0.43/0.22/0.71, 903.1; RuleEvolve 0.50/0.28/0.98, 991.6. - gpt-5-mini: No rule 0.40/0.18/0.97, 1793; Manual 0.38/0.22/0.96, 2047; Prompt-Ops 0.33/0.19/0.99, 1392; RuleEvolve 0.41/0.25/0.98, 1498. - gpt-5.3-codex: No rule 0.49/0.29/0.99, 1143; Manual 0.49/0.29/0.99, 1293; Prompt-Ops 0.40/0.25/0.91, 1009; RuleEvolve 0.52/0.27/0.99, 1016. - Qwen-Coder-30B: No rule 0.43/0.27/0.97, 1250; Manual 0.44/0.28/0.99, 1262; Prompt-Ops 0.35/0.19/0.91, 1119; RuleEvolve 0.44/0.27/0.96, 1028. Multi-seed (gpt-4.1-mini, BCB, 10 seeds; framework not stated): No rule PR 0.502 +/- 0.015, 1181 tok, 8.66 s; Public rule 0.498 +/- 0.032, 2049 tok, 10.21 s; Prompt-Ops 0.502 +/- 0.027, 1130 tok, 6.81 s; RuleEvolve 0.502 +/- 0.026, 1019 tok, 9.67 s. SWE-Bench Lite (gpt-4.1-mini, 100 tasks, framework not stated): No rule PR 0.330, 131.17 s, 911 tok; Public rule 0.190, 166.45 s, 867 tok; Prompt-Ops 0.080, 175.24 s, 684 tok; RuleEvolve 0.340, 297.46 s, 722 tok. Ablation (mutation allocation; backbone, framework and benchmark not stated for Fig. 2b): even, proportional, OCBA all PR 0.500; tokens 980.9 / 998.6 / 975.2; time 20.47 / 17.37 / 15.48 s (value labels in Fig. 2b). Quality and cost verdict for every configuration above: no criterion stated by the authors",
    "p": "6-9, 12",
    "rev": [
     {
@@ -181,9 +186,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Multi-seed entry was attributed to the OpenAI SDK, but p. 7 and Table 3 name only the backbone and benchmark (the No rule values, 1181 tokens and 8.66 s, are closer to the OpenHands than to the SDK single run); the ablation entry's setting (gpt-4.1-mini, BCB) is not stated for Fig. 2b. Numbers re-checked against Tables 3-6 and Fig. 2b; verdict levels remain a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Previous rounds gave quality/cost verdicts (works/partly/does not work) on cut-offs the paper does not state. The authors define a correctness threshold tau (Eq. 2-3, p. 3) but give no value, and the judge's penalty is relative to No rule; under the 2026-11-23 rule every configuration is 'no criterion stated by the authors'. Metric values kept (re-checked against Tables 3-6 and Fig. 2b)"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -196,7 +206,7 @@
      "why": "The 10-seed run (Table 3) covers all four methods (No rule, Public rule, Prompt-Ops, RuleEvolve), not one configuration, and its framework is not stated"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -222,7 +232,7 @@
      "why": "The 10-seed check covers four configurations (methods) in one backbone/benchmark setting, not one configuration"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
@@ -233,16 +243,21 @@
   },
   {
    "f": "Notes",
-   "v": "Not about SDD (coding rules / AGENTS.md optimisation). Text claims RuleEvolve 'consistently achieves the highest or equal PR across all benchmarks', but Tables 5-6 show lower PR in some cells (e.g. SDK gpt-4.1-mini HE 0.93 vs 0.97 no rule; OpenHands gpt-5.3-codex BCB-H 0.27 vs 0.29; OpenHands Qwen HE 0.96 vs 0.99 manual). Tables 1-2 ('backbone with the highest pass rate') do not use one backbone: Table 1 No rule is the gpt-4.1-mini row, the other Table 1 rows gpt-5.3-codex; Table 2 Prompt-Ops row mixes backbones per benchmark (BCB gpt-4.1-mini, BCB-H gpt-5.3-codex, HE gpt-5-mini), so the text's Prompt-Ops vs RuleEvolve comparison (0.43 vs 0.52) crosses backbones. Values in this form taken from Tables 5-6. Figure 2 labels the method 'RuleRefine'. Table 4 values rebuilt from interleaved pdftotext text (Public rule CLn 9.1, CC 413, time 166.45 s, tok 867; Prompt-Ops CLn 5.4, CC 236, 175.24 s, 684). App. D 'reduces Halstead volume by 47%' matches 53.0 -> 28.0. Efficiency metrics averaged only over correct code. Code/data availability not stated. No pre-registration. Language: Python",
+   "v": "Not about SDD (coding rules / AGENTS.md optimisation). Text claims RuleEvolve 'consistently achieves the highest or equal PR across all benchmarks', but Tables 5-6 show lower PR in some cells (e.g. SDK gpt-4.1-mini HE 0.93 vs 0.97 no rule; OpenHands gpt-5.3-codex BCB-H 0.27 vs 0.29; OpenHands Qwen HE 0.96 vs 0.99 manual). Tables 1-2 ('backbone with the highest pass rate') do not use one backbone: Table 1 No rule is the gpt-4.1-mini row, the other Table 1 rows gpt-5.3-codex; Table 2 Prompt-Ops row mixes backbones (BCB values = gpt-4.1-mini; BCB-H PR 0.25 = gpt-5.3-codex but its CLn/CC/Time/Tok = gpt-4.1-mini; HE = gpt-5-mini), so the text's Prompt-Ops vs RuleEvolve comparison (0.43 vs 0.52) crosses backbones. Values in this form taken from Tables 5-6. Figure 2 labels the method 'RuleRefine'. Table 4 values rebuilt from interleaved pdftotext text (Public rule CLn 9.1, CC 413, time 166.45 s, tok 867; Prompt-Ops CLn 5.4, CC 236, 175.24 s, 684). App. D 'reduces Halstead volume by 47%' matches 53.0 -> 28.0. Efficiency metrics averaged only over correct code. Code/data availability not stated. No pre-registration. Language: Python",
    "p": "6-9, 12, 14",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Draft said Tables 1-2 report the best backbone (gpt-5.3-codex); Table 1's No rule row is gpt-4.1-mini and Table 2's Prompt-Ops row mixes three backbones (checked against Tables 5-6). Figure label inconsistency added"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Table 2 Prompt-Ops BCB-H cell was attributed to gpt-5.3-codex; only its PR (0.25) matches that backbone, its CLn/CC/Time/Tok (27.5/880.2/41.4/986.9) are the gpt-4.1-mini values of Table 6, so the row mixes backbones even within one benchmark"
     }
    ],
-   "warn": ""
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -304,7 +319,7 @@
      "why": "Score unchanged; the 10-seed evaluation covers four methods in one setting, not one configuration"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q9",
@@ -334,9 +349,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Rests only on the p. 1 NeurIPS 2026 footer of the arXiv copy. Author to confirm acceptance; if not accepted, No (0) and Publication type Preprint"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Rests only on the p. 1 NeurIPS 2026 footer of the arXiv copy. Author to confirm acceptance; if not accepted, No (0) and Publication type Preprint"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Depende só do rodapé NeurIPS 2026 na p. 1. Se confirmares a aceitação fica Yes; caso contrário No (0) e tipo Preprint."
   },
   {
    "f": "Q12",

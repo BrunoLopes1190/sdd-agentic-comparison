@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486456",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Kept. The paper's motivating question is whether documentation helps issue resolution (Sec. 7, 'the question that motivated the work'), so 'Evaluates' as main or secondary nature is also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: contributions (1)-(2) are the benchmark and the describe-prompt optimizer, but the paper calls the downstream test 'the question that motivated the work' (p. 1, 6), so 'Evaluates' as main or secondary nature is also defensible; Q13 applies either way because an approach (the optimized describe prompt) is proposed"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo propõe o benchmark e o otimizador, mas a pergunta que o motivou é se a documentação ajuda a resolver issues (p. 1, 6). Decide se a natureza principal é Proposes an evaluation method ou Evaluates."
   },
   {
    "f": "Approach(es): name and version",
@@ -104,9 +109,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Authors do not classify; 'treats a description as durable software source' (p. 9) supports a spec-as-source reading for the benchmark, but the downstream use is documentation added to context; Not classifiable is also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Authors do not classify; 'treats a description as durable software source' (p. 9) supports a spec-as-source reading for the roundtrip benchmark, but the downstream use is a description added to the agent's context next to the code; Not classifiable is also defensible"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os autores não classificam. A frase 'description as durable software source' (p. 9) sugere spec-as-source, mas no uso real a descrição é só contexto extra junto ao código. Escolhe spec-as-source ou not classifiable."
   },
   {
    "f": "Task type",
@@ -180,16 +190,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent harness not named for any configuration (models only; local Qwen agent unnamed). Criteria: original / official tests (fidelity = fraction of tests passed by regenerated code; resolved = all FAIL_TO_PASS and PASS_TO_PASS pass). No run cost (tokens, money, time) reported except qualitatively in Sec. 7.3; density = description tokens / code tokens. Verdicts judged on each configuration's own values.\n- Boundary tasks, Flash-lite, no description (Table 2): contract only in description 0/3; contract visible in code 3/3; 1/3/5 of 5 facts 0/5. Quality: does not work where the contract or facts are only in documentation; works where the contract is visible. Cost: not measured\n- Boundary tasks, Flash-lite + Pro-written (hand-written for the 3 codebases) description: contract 3/3 per codebase; contract visible 3/3; facts 1/5, 3/5, 5/5 by completeness; compact 38w and verbose 664w both 5/5. Quality: works when the description is complete. Cost: not measured\n- Five-fact task, Flash-lite / Gemma 4 31B / Gemma 3 4B (Table 9): no description 0/8 each; compact 8/8; verbose 8/8. No description: does not work; with description: works. Harder 28-key task (Table 10): compact and fair verbose 8/8, 4/4, 8/8 (works); verbose without exact keys 0/8, 0/4, 0/8 (does not work). Cost: not measured\n- Roundtrip benchmark, base describe prompt, gemini3.5-flash describe + regenerate (3 runs, Table 3): mean fidelity 0.32 +/- 0.35, density 0.69; 4 of 11 fixtures 0.00. Quality: partly. Cost: not measured\n- OpenWiki documentation + same Gemini family regenerate (Table 5): fidelity saferepr 0.00, contains 0.67, unitsystem 0.00; deny-override task, Flash-lite, 0/4 (Table 6). Quality: does not work. Cost: not measured\n- Own description, same 3 fixtures: 0.73, 1.00, 0.85; deny-override 4/4. Quality: works. Cost: not measured. (No documentation on deny-override: 0/4, does not work)\n- Optimized describe prompt (optimizer proposer gemini-2.5-pro, T 0.4; 3 training / 2 held-out fixtures): training fidelity 1.0 then shorter descriptions; held-out fidelity 0.5 (base prompt) -> 1.0, fewer words (Fig. 3 only; 3 runs). Quality: works (proof of concept, 2 held-out fixtures); base prompt on held-out: partly. Cost: not measured\n- Source withheld, Flash, mean test-pass fraction over 3 attempts (Table 7): issue only 0.08 (does not work); + baseline description 0.21 (partly); + optimized description 0.71, best on 10 of 11, rings 0.09 and lambdify 0.10 (partly). Cost: not measured\n- Source present (Table 8, resolved / paired): Kind-B multi-file, local Qwen 3.6 agent: issue only 14/43, + full description 11/43 (both partly). Kind-B django, Gemini 3.1 Pro: issue 9/15, + compact 8/15, + full 4/15 (all partly). SCB django control, Gemini 3.1 Pro: issue 14/29, + retrieved context 15/29 (both partly). SCB django, Gemini 3.1 Pro: issue 15/32, + compact 16/32 (both partly). SCB Lite, Gemini 3.8 Flash: issue 33/58, + compact 29/58, + context 30/58 (all partly; McNemar p = 0.22 and 0.25 vs issue). Cost: not measured\n- Editing without loading the file (single files, targeted-symbol protocol): with optimized description 17 of 33 runs, without 14 of 33; mean pass fraction 0.94 in both. Quality: partly (both). Cost: with description does not work (costs more prompt tokens than it saves, except lambdify, where it resolves all three at fewer tokens than loading the file); without description works (the targeted protocol saves tokens; qualitative, no numbers)",
+   "v": "Agent harness not named for any configuration (models only; local Qwen agent unnamed). Metrics: original / official tests (fidelity = fraction of tests passed by regenerated code; resolved = all FAIL_TO_PASS and PASS_TO_PASS pass; boundary tasks = attempts or facts passed). No run cost (tokens, money, time) reported except qualitatively in Sec. 7.3; density = description tokens / code tokens. No success criterion for a configuration is stated by the authors.\n- Boundary tasks, Flash-lite, no description (Table 2): contract only in description 0/3; contract visible in code 3/3; 1/3/5 of 5 facts 0/5. Quality: no criterion stated by the authors; cost: not measured\n- Boundary tasks, Flash-lite + description (hand-written for the 3 codebases; Pro-written otherwise): contract only in description 3/3 on each codebase; contract visible 3/3; facts 1/5, 3/5, 5/5 by completeness; compact 38w and verbose 664w both 5/5. Quality: no criterion stated by the authors; cost: not measured\n- Five-fact task, Flash-lite / Gemma 4 31B / Gemma 3 4B (Table 9): no description 0/8 each; compact 8/8; verbose 8/8. Harder 28-key task, Flash-lite / Gemini 2.5 Flash / Gemma 3 4B (Table 10): compact and fair (buried) verbose 8/8, 4/4, 8/8; verbose without exact keys 0/8, 0/4, 0/8. Quality: no criterion stated by the authors; cost: not measured\n- Roundtrip benchmark, base describe prompt, gemini3.5-flash describe + regenerate (3 runs, Table 3): mean fidelity 0.32 +/- 0.35, density 0.69 +/- 0.48; 4 of 11 fixtures 0.00. Quality: no criterion stated by the authors; cost: not measured (density only)\n- OpenWiki documentation + same Gemini family regenerate (Table 5): fidelity saferepr 0.00, contains 0.67, unitsystem 0.00; deny-override task, Flash-lite, 0/4 (Table 6). Quality: no criterion stated by the authors; cost: not measured\n- Own description, same 3 fixtures: 0.73, 1.00, 0.85; deny-override 4/4. No documentation on deny-override: 0/4. Quality: no criterion stated by the authors; cost: not measured\n- Optimized describe prompt (proposer gemini-2.5-pro, T 0.4; 3 training / 2 held-out fixtures; 3 independent runs): training fidelity 1.0 then shorter descriptions; held-out fidelity 0.5 (base prompt) -> 1.0 with fewer words (Fig. 3 only). Quality: no criterion stated by the authors; cost: not measured (word count only)\n- Source withheld, Flash, mean test-pass fraction over 3 attempts (Table 7): issue only 0.08; + baseline description 0.21; + optimized description 0.71, best on 10 of 11, rings 0.09 and lambdify 0.10. Quality: no criterion stated by the authors (each condition); cost: not measured\n- Source present (Table 8, resolved / paired): Kind-B multi-file, local Qwen 3.6 agent: issue only 14/43, + full description 11/43. Kind-B django, Gemini 3.1 Pro: issue 9/15, + compact 8/15, + full 4/15. SCB django control, Gemini 3.1 Pro: issue 14/29, + retrieved context 15/29. SCB django, Gemini 3.1 Pro: issue 15/32, + compact 16/32. SCB Lite, Gemini 3.8 Flash: issue 33/58, + compact 29/58, + context 30/58 (McNemar p = 0.22 and 0.25 vs issue); full issue-only run 37/68 scored (Table 11). Quality: no criterion stated by the authors (each condition); cost: not measured\n- Editing without loading the file (single files, targeted-symbol protocol): with optimized description 17 of 33 runs, without 14 of 33; mean pass fraction 0.94 in both; the description costs more prompt tokens than it saves except on lambdify (resolves all three at fewer tokens than loading the file); no token numbers given. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "2-8, 10-11",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Values checked and right (Tables 2-3, 5-9, pp. 3-8, 10), but verdicts were relative ('works when description adds a contract', 'compact: does not work' against issue-only), the no-description / issue-only baselines had none, and no configuration had a cost verdict. Each configuration now judged on its own values; cost is 'not measured' where the paper gives no run cost. Thresholds are the extractor's (paper sets none): quality partly when it resolves part but not nearly all tasks. Also source-withheld optimized lowered from works to partly on its own value (0.71, two fixtures near 0.1)"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 rebuilt the verdicts on its own cut-off ('quality partly when it resolves part but not nearly all tasks', admitted in its 'why') and gave 'works'/'does not work' on cost from qualitative token remarks. The paper states no success criterion for any configuration (tests define per-task pass, not a configuration threshold), so per the 2026-11-23 rule every verdict is 'no criterion stated by the authors'. Values re-checked against Tables 2-3, 5-10 and pp. 3-8, 10-11 and kept"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -202,7 +217,7 @@
      "why": "Repetitions for the source-present runs were given as '1 per task on SWE-ContextBench', which the paper does not state (p. 7, App. C); now 'not stated'. Also added the editing-without-loading experiment (Sec. 7.3, 33 runs), missing from the list"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -330,9 +345,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Partly is a judgement: the optimizer's requirements (hosted Gemini models, Docker, fixtures) are named and seem within reach, but compute and money cost are not stated, which under the missing-information rule could also give No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Partly is a judgement: the optimizer's requirements (hosted Gemini models, Docker, fixtures) are named and seem within reach, but compute and money cost are not stated, which under the missing-information rule could also give No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os requisitos do otimizador (modelos Gemini alojados, Docker, fixtures) estão indicados e parecem acessíveis, mas o custo e o compute não são dados; pela regra da informação em falta podia ser No. Decide entre Partly e No."
   },
   {
    "f": "DARE1",

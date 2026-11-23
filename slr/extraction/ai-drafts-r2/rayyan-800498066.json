@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498066",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, Y., Zhang, Y., Zhang, X., Liu, X., Liu, Y. (2026). CodeSkill: Learning Self-Evolving Skills for Coding Agents. arXiv:2605.25430v2 [cs.AI], 25 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 25 Sep 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.25430v2 [cs.AI], pages marked 'Preprint'; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Nanyang Technological University (Li, Zhang, Zhang, Liu); Zhejiang University (Liu)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — CodeSkill, an RL-trained LLM policy that extracts, evolves and maintains a skill bank for coding agents; evaluated against no-skill, subtask memory and prompt-based skill management on EnvBench, SWE-Bench Verified and Terminal-Bench 2 under two frozen coding policies",
+   "p": "1-2",
+   "verdict": "uncertain",
+   "why": "Main nature (proposes an approach) is clear; the secondary is a judgement: most of the evaluation is a head-to-head comparison with no-skill, prompt-based and subtask-memory baselines under two frozen policies, so 'Compares' is also defensible",
+   "doubt": "A natureza secundária pode ser Evaluates ou Compares: a avaliação é sobretudo uma comparação com baselines (sem skills, prompt-based, subtask memory). Decide qual usar."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CodeSkill (Qwen3.5-4B fine-tuned with SFT then GPRO); SFT-CodeSkill (warmup only); baselines: prompt-based skill management (same pipeline with fixed prompts, after SkillRL/AutoSkill) with Qwen3.5-4B or GPT-5.4-mini, subtask-level memory (re-implementation of Shen et al. 2026). No release version",
+   "p": "2, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill bank of Markdown skill files (title, trigger condition / when to apply, actionable rules), two granularities: task-level skills (high-level strategies) and event-driven skills (reactions to execution events such as command failures, error messages); retrieved skills inserted into the agent prompt. No specification document",
+   "p": "3-4, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Skill extraction from trajectories (task-level / event-driven / skip) -> skill evolution with new or failed evidence -> maintenance (add / merge / drop) -> retrieval (dense similarity, all-MiniLM-L6-v2) and injection into the frozen coding agent prompt. Training: supervised warmup with GPT-5.4-mini teacher, then 3-stage GRPO curriculum with hybrid reward (rubric quality + alignment-gated execution improvement). Test time: two preparatory passes over the test set build and evolve the bank, then final evaluation",
+   "p": "3-4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automatic; LLM-as-judge for quality)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full proposed pipeline (training, test-time skill-bank construction, skill use by frozen coding agents)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent skill/memory management, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases and environments: environment setup and dependency repair (EnvBench), repository-level issue resolution (SWE-Bench Verified), terminal-based problem solving (Terminal-Bench 2)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Evaluation: SWE-Bench Verified 150 of 500 instances (350 for RL training); EnvBench 150 of 994 repositories (107 JVM, 43 Python); Terminal-Bench 2 (held out, count Not stated in main text, apparently 85 tasks given percentages). Skill bank 676 skills (full lifecycle)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python and Java/JVM repositories; terminal tasks",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average reasoning steps on instances solved by all methods; skill-bank size; training cost (4×H100 80GB, SFT ~20 h, RL ~210 h). No tokens or money for inference",
+   "p": "6-8, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task pass rate per benchmark (benchmark verifiers); EnvBench average issue count",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Skill-bank maintenance dynamics (cumulative add/merge/drop, value in Fig. 3 only); RL reward dynamics (execution reward 0.004 to 0.158 over training)",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark verifiers for pass rate; step counts from trajectories; LLM-as-judge (GPT-5.4-mini) rubrics for quality and alignment rewards during training",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success = benchmark verifier pass rate (%) per task; the authors state no success threshold for a configuration and no cost criterion. Values EnvBench-Python / EnvBench-Java / SWE-Bench Verified / Terminal-Bench 2 / Avg pass rate; steps = avg reasoning steps on instances solved by all methods (Table 1). Agents: mini-SWE-agent (SWE, TB2), ReAct-style bash agent (EnvBench); agent versions not stated. Frozen policy Qwen3.5-35B-A3B: (1) No-skill (baseline): 6.98 / 27.10 / 57.33 / 25.88 / 29.32; steps 44.12. (2) Subtask memory (re-implementation) + GPT-5.4-mini: 9.30 / 32.71 / 61.33 / 30.59 / 33.48; steps 39.76. (3) Prompt skill mgmt + Qwen3.5-4B: 4.65 / 30.84 / 58.67 / 24.71 / 29.72; steps 39.08. (4) Prompt skill mgmt + GPT-5.4-mini: 11.63 / 36.45 / 64.67 / 28.24 / 35.25; steps 37.02. (5) SFT-CodeSkill + Qwen3.5-4B: 13.95 / 35.51 / 64.00 / 24.71 / 34.54; steps 38.04. (6) CodeSkill + Qwen3.5-4B: 18.60 / 38.32 / 68.00 / 36.47 / 40.35; steps 35.99. Frozen policy GPT-5.4-mini: (7) No-skill (baseline): 4.65 / 15.89 / 46.67 / 20.00 / 21.80; steps 9.64. (8) Subtask memory + GPT-5.4-mini: 9.30 / 25.23 / 52.67 / 22.35 / 27.39; steps 8.56. (9) Prompt skill mgmt + Qwen3.5-4B: 6.98 / 22.43 / 50.67 / 23.53 / 25.90; steps 8.12. (10) Prompt skill mgmt + GPT-5.4-mini: 9.30 / 24.30 / 56.67 / 21.18 / 27.86; steps 8.11. (11) SFT-CodeSkill: 6.98 / 23.36 / 54.67 / 23.53 / 27.14; steps 7.98. (12) CodeSkill: 13.95 / 27.10 / 56.00 / 29.41 / 31.62; steps 8.03. Lifecycle ablations, Qwen3.5-35B-A3B policy (Table 2; avg computed from the four values where the text gives none): (13) event-driven only (ablation): 16.28 / 32.71 / 62.00 / 29.41 / (35.10), 916 skills; (14) task-level only (ablation): 11.63 / 30.84 / 58.67 / 28.24 / (32.35), 336 skills; (15) extraction only (ablation): 13.95 / 41.12 / 64.67 / 31.76 / 37.88, 1,252 skills; (16) extraction + evolution (ablation): 18.60 / 39.25 / 67.33 / 32.94 / 39.53, 1,252 skills; full lifecycle = (6), 676 skills. Quality and cost for every configuration: no criterion stated by the authors. Training cost of CodeSkill (one-off): 4×H100, SFT ~20 h, RL ~210 h",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: held-out splits of SWE-Bench Verified and EnvBench, Terminal-Bench 2 out-of-distribution. Configurations: 6 methods x 2 frozen downstream policies + lifecycle ablations. Baseline: no-skill (same frozen policy, no prior-knowledge section). Held constant: downstream policy, agent wrapper per benchmark, retrieval procedure, prompts, decoding, operation space (for prompt-based baseline). Acceptance tests: benchmark verifiers. Repetitions: Not stated (apparently one evaluation run). Human intervention: none. Skill bank built from two passes over the test set, excluding skills derived from the current test instance",
+   "p": "6-7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Qwen3.5-35B-A3B policy: CodeSkill best on all four benchmark groups; avg 40.35 vs 29.32 no-skill (+11.03, ~37.6% relative) and vs 35.25 best baseline (+5.10, ~14.5%); fewest steps (35.99 vs 44.12). GPT-5.4-mini policy: avg 31.62 vs 21.80 (+9.82) and vs 27.86 (+3.76), but below prompt-based GPT-5.4-mini on SWE-Bench Verified (56.00 vs 56.67). Full lifecycle reduces bank 1,252 to 676 skills with higher pass rate. No significance tests",
+   "p": "2, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods on average pass rate; differences on 150-instance splits and Terminal-Bench are a few tasks; no repetitions or variance reported; RL reward described as noisy. No limitations of the comparison method stated",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Future work: strictly streaming task settings and evaluating the end-to-end cost of skill acquisition, maintenance and use",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 and Table 2 jumbled by pdftotext (last five columns printed as separate blocks for the Qwen-policy rows); values rebuilt by column order and checked against the averages in the text. Claim 'best pass rate on all benchmark groups' holds for the Qwen policy only. Test-time skill bank constructed over the test set itself (two passes, same-instance provenance filter), a transductive setting. Subtask-memory baseline is the authors' own re-implementation. Code or model release Not stated. AI use statement: language polishing. No pre-registration. Programming language: Python and Java (EnvBench), Python (SWE-Bench)",
+   "p": "2, 7-8, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and contributions clear; no formal RQs",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): method, rewards, hyperparameters (Table 4), retrieval and prompts (Appendix E) described",
+   "p": "3-6, 14-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (Qwen3.5-4B, Qwen3.5-35B-A3B, GPT-5.4-mini); mini-SWE-agent without version; ReAct agent unspecified",
+   "p": "6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks and split sizes given, but random splits not listed; code/data availability not stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark verifiers",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): pass rate and steps defined; no token or money cost for skill construction or use (future work)",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-skill, prompt-based and memory baselines under the same frozen policies",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single evaluation run, no variance or statistical tests",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions mostly follow, but 'best on all benchmark groups' and 'state-of-the-art' overstated given the GPT policy results and no variance",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats section",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created CodeSkill; baselines (no-skill, prompt-based adaptation, subtask memory re-implementation) are not their own tools",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "No (0): requires training a 4B model with RL on 4×H100 for ~230 h plus frozen 35B policy rollouts; model release not stated; test-time bank construction needs two passes over tasks",
+   "p": "14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

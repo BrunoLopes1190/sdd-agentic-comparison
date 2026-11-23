@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Model Claude 3.5 Sonnet for both; agent/harness Not stated. Criterion: first-attempt compile + tests pass; violations; tokens. One run per feature, 15 features (Table I).\n- Monolithic Context (baseline) + agent n.s. + Claude 3.5 Sonnet: 48,500 tokens/feature; first-attempt success 40%; 12 architectural violations (5 rewrites of core files). Quality partly; cost partly\n- MicroSkill Architecture + agent n.s. + Claude 3.5 Sonnet: 3,200 tokens/feature (-93.4%); 86.6%; 0 violations; 7 new capsules. Quality works; cost works",
+   "v": "Model Claude 3.5 Sonnet for both; agent/harness Not stated. Criterion: first-attempt compile + tests pass; violations; tokens. One run per feature, 15 features (Table I).\n- Monolithic Context (baseline) + agent n.s. + Claude 3.5 Sonnet: 48,500 tokens/feature; first-attempt success 40%; 12 architectural violations (5 rewrites of core files)\n- MicroSkill Architecture + agent n.s. + Claude 3.5 Sonnet: 3,200 tokens/feature (-93.4%); 86.6%; 0 violations; 7 new capsules\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "6-7",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Values match Table I and the text (p. 6-7). The baseline verdict is a judgement: judged on its own (§6), 48,500 tokens per feature is modest in absolute terms and 40% first-attempt success with 12 violations is weak but not nil, so partly/partly is given; another reader could say quality does not work"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -238,7 +243,7 @@
      "why": "No kept as best value (no prompts, agent, test suite, feature list, router budget or embedding model, violation-counting procedure), but the two conditions, model, metrics and capsule schema are described (p. 4-6), so another reader could give Partly"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Faltam prompts, agente, suite de testes, lista de funcionalidades, parâmetros do router e o método de contar violações, mas as condições, o modelo, as métricas e o esquema das cápsulas estão descritos (p. 4-6). Decide entre No e Partly."
   },
   {
    "f": "Q3",

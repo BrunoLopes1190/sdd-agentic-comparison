@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486403",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Coding-agent harness: Not stated (runner not named). Each model x 60 items x 3 rounds. Criterion: rule-level verdicts (deterministic + LLM judge). Cost verdict N/A for every entry (no cost measured). Values Acc / F-Acc / DW-Acc / AP-Acc / gap (Table 2; AP-Acc and gap columns jumbled, mapped by row order and checked against Fig. 7):\n- n.s. + Claude-Opus-4.7 (20260416, 1M ctx): 85.9 / 79.3 / 88.5 / 78.6 / +7.3. Quality works (best)\n- n.s. + GPT-5.5: 83.1 / 75.5 / 81.2 / 77.0 / +6.1. Works\n- n.s. + Claude-Sonnet-4.6 (20260217, 1M ctx): 82.5 / 73.9 / 82.2 / 78.5 / +4.0. Works\n- n.s. + Claude-Haiku-4.5 (20251001, 1M ctx): 79.0 / 69.4 / 75.9 / 71.9 / +7.2. Partly\n- n.s. + GLM-5.1: 78.8 / 67.9 / 75.6 / 75.2 / +3.6. Partly\n- n.s. + Qwen-3.6-Max (preview): 76.7 / 65.9 / 70.5 / 71.7 / +5.1. Partly\n- n.s. + Hy3 (preview): 76.2 / 65.2 / 69.7 / 70.8 / +5.4. Partly\n- n.s. + Kimi-K2.6: 76.1 / 65.0 / 70.3 / 70.0 / +6.1. Partly\n- n.s. + Gemini-3.1-Pro (preview): 75.4 / 64.0 / 70.0 / 69.8 / +5.6. Partly\n- n.s. + MiniMax-M2.7: 73.6 / 61.2 / 65.1 / 67.7 / +5.9. Partly\n- n.s. + Seed-2.0-Pro: 73.6 / 61.1 / 63.2 / 66.1 / +7.4. Partly\n- n.s. + StepFun-3.5 (step-3.5-flash): 72.1 / 59.1 / 62.5 / 66.2 / +5.9. Partly\n- By surface (pooled): TD 83.1%, PF (project file) 79.1%, SD 78.6%, SP 73.6%, UI 54.5% (UI all against-prior)\n- E0 conflict pilot (9 older builds): mean rank SP = PF = UI 2.22, TD 3.78, SD 4.56",
+   "v": "Coding-agent harness: Not stated (runner not named). Each model x 60 items x 3 rounds. Criterion: rule-level verdicts (deterministic checks + GPT-5.2 judge). The authors set no success threshold for a model, so quality verdict for every entry: no criterion stated by the authors; cost: not measured for any entry. Values Acc / F-Acc / DW-Acc / AP-Acc / gap (Table 2; AP-Acc and gap columns jumbled, mapped by row order and checked against Fig. 7):\n- n.s. + Claude-Opus-4.7 (20260416, 1M ctx): 85.9 / 79.3 / 88.5 / 78.6 / +7.3 (best on all four columns)\n- n.s. + GPT-5.5: 83.1 / 75.5 / 81.2 / 77.0 / +6.1\n- n.s. + Claude-Sonnet-4.6 (20260217, 1M ctx): 82.5 / 73.9 / 82.2 / 78.5 / +4.0\n- n.s. + Claude-Haiku-4.5 (20251001, 1M ctx): 79.0 / 69.4 / 75.9 / 71.9 / +7.2\n- n.s. + GLM-5.1: 78.8 / 67.9 / 75.6 / 75.2 / +3.6\n- n.s. + Qwen-3.6-Max (preview): 76.7 / 65.9 / 70.5 / 71.7 / +5.1\n- n.s. + Hy3 (preview): 76.2 / 65.2 / 69.7 / 70.8 / +5.4\n- n.s. + Kimi-K2.6: 76.1 / 65.0 / 70.3 / 70.0 / +6.1\n- n.s. + Gemini-3.1-Pro (preview): 75.4 / 64.0 / 70.0 / 69.8 / +5.6\n- n.s. + MiniMax-M2.7: 73.6 / 61.2 / 65.1 / 67.7 / +5.9\n- n.s. + Seed-2.0-Pro: 73.6 / 61.1 / 63.2 / 66.1 / +7.4\n- n.s. + StepFun-3.5 (step-3.5-flash): 72.1 / 59.1 / 62.5 / 66.2 / +5.9\n- By surface (pooled): TD 83.1%, PF (project file) 79.1%, SD 78.6%, SP 73.6%, UI 54.5% (UI all against-prior)\n- E0 conflict pilot (9 older builds): mean rank SP = PF = UI 2.22, TD 3.78, SD 4.56",
    "p": "7, 17-19",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Table 2 values re-checked against p. 7 (AP-Acc/gap columns rebuilt by row order; consistent with Fig. 7 and Acc minus AP-Acc) and model identifiers against Table 3 (p. 18). Still uncertain: the works/partly quality cut (about 80% Acc) is the draft's own; the authors give no success threshold"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 kept works/partly quality verdicts on a cut at about 80% Acc that it set itself; the rule of 2026-11-23 forbids extractor thresholds and the authors give none. Verdicts replaced by 'no criterion stated by the authors'; values unchanged (Table 2 and Table 3 re-checked)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -301,9 +306,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Judgement: the benchmark is the authors' own (evaluation method, not an evaluated approach), and ByteDance Seed authors include their own Seed-2.0-Pro among 12 models; Partly follows the 'only some' rule, but a reader could treat the models as not 'the tool evaluated' and score Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The benchmark is the authors' own (an evaluation method, not an evaluated approach), and ByteDance Seed authors include their own Seed-2.0-Pro among 12 models; Partly follows the 'only some' rule, but a reader could treat the models as not 'the tool evaluated' and score Yes."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os autores são da ByteDance Seed e avaliam o seu próprio Seed-2.0-Pro entre 12 modelos; o benchmark é deles, mas não é uma abordagem avaliada. Decide entre Partly e Yes."
   },
   {
    "f": "Q13",

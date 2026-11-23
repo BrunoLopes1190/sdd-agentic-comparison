@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: all hidden gold PR tests pass. Values: pass rate over 3 repeats per task; Codex borderline subset (4 tasks) in brackets. No absolute cost totals are reported for any configuration (efficiency only as paired within-task tests; Claude capped at $6/run), so cost is 'not reported' except the exploratory opshin values.\n- NONE + Claude Code (CLI, --bare) + claude-sonnet-4-6 (baseline): 53.3% (24/45); opshin (exploratory): duration 2,689 s, 3.67 blind full-suite runs per cell. Quality: partly; cost: not reported\n- ALWAYS ON + Claude Code + claude-sonnet-4-6: 55.6% (25/45); opshin: 2,066 s, 2.44 full-suite runs. Quality: partly; cost: not reported\n- SELECTIVE + Claude Code + claude-sonnet-4-6: 55.6% (25/45); cache-creation tokens lower than NONE on 11/11 tasks (p_Holm=0.012); opshin: 2,032 s, 1.67 full-suite runs. Quality: partly; cost: not reported\n- NONE + Codex CLI + gpt-5.5 (baseline): 58.8% (30/51) [58%]. Quality: partly; cost: not reported (tool calls 32/32/32 across strategies, output tokens and duration within ±3.8%)\n- ALWAYS ON + Codex CLI + gpt-5.5: 56.9% (29/51) [42%]. Quality: partly; cost: not reported\n- SELECTIVE + Codex CLI + gpt-5.5: 52.9% (27/51) [42%]. Quality: partly; cost: not reported\n- Probe (2 near-miss tasks, 36 cells): Codex 0/3 for all strategies on both tasks; Claude task 907 2/3 (NONE), 1/3 (ALWAYS ON), 0/3 (SELECTIVE), task 554 0/3 all",
+   "v": "Criterion (per task): all hidden gold PR tests pass; no pass-rate criterion stated for a configuration. Values: pass rate over 3 repeats per task; Codex borderline subset (4 tasks) in brackets. No absolute cost totals are reported for any configuration (efficiency only as paired within-task tests; Claude capped at $6/run), so cost is 'not reported' except the exploratory opshin values.\n- NONE + Claude Code (CLI, --bare) + claude-sonnet-4-6 (baseline): 53.3% (24/45); opshin (exploratory): duration 2,689 s, 3.67 blind full-suite runs per cell. Quality: no criterion stated by the authors; cost: not reported\n- ALWAYS ON + Claude Code + claude-sonnet-4-6: 55.6% (25/45); opshin: 2,066 s, 2.44 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Claude Code + claude-sonnet-4-6: 55.6% (25/45); cache-creation tokens lower than NONE on 11/11 tasks (p_Holm=0.012); opshin: 2,032 s, 1.67 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- NONE + Codex CLI + gpt-5.5 (baseline): 58.8% (30/51) [58%]. Quality: no criterion stated by the authors; cost: not reported (tool calls 32/32/32 across strategies, output tokens and duration within ±3.8%)\n- ALWAYS ON + Codex CLI + gpt-5.5: 56.9% (29/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Codex CLI + gpt-5.5: 52.9% (27/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- Probe (2 near-miss tasks, 36 cells): Codex 0/3 for all strategies on both tasks; Claude task 907 2/3 (NONE), 1/3 (ALWAYS ON), 0/3 (SELECTIVE), task 554 0/3 all",
    "p": "4-7",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 3,
      "verdict": "corrected",
      "why": "§6 and the round rules require every configuration, baseline included, to get its own quality and cost verdict judged on its own result. The draft gave the two NONE baselines no verdict and judged the others against NONE ('does not work (n.s.)'). On their own, pass rates of 53-59% are partly; no configuration has absolute cost figures, so cost is not reported. Numbers unchanged (Tables 1-2, 4; p. 5)."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: 'partly' for 53-59% pass rates was the extractor's cut-off; the authors give a per-task pass criterion but none for a configuration. All values kept."
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -298,7 +303,7 @@
      "why": "Nulls are reported with power caveats and the reconciliation is framed as a hypothesis (p. 6-7), so Yes is defensible; but contribution 3 and the conclusion say agent-specific difficulty 'explains' prior contradictions, and the mechanism rests on a triage of 4 near-miss tasks. Another reader could score Partly (0.5)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Yes é defensável (resultados nulos com ressalvas de potência), mas a contribuição 3 e a conclusão dizem que a dificuldade específica do agente 'explica' as contradições, com base em 4 tarefas. Decide entre Yes e Partly."
   },
   {
    "f": "Q10",
@@ -330,7 +335,7 @@
      "why": "Independent researcher evaluating vendor agents, so Yes is defensible; but SELECTIVE is the author's own construction ('Selective is our construction', p. 9) and is one of the evaluated conditions. If it counts as an approach the author created, §5 gives Partly (0.5)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O autor é independente dos fornecedores dos agentes, mas a estratégia SELECTIVE é construção sua (p. 9, limitação 5) e é avaliada. Decide se conta como abordagem própria (Partly) ou só condição experimental (Yes)."
   },
   {
    "f": "Q13",

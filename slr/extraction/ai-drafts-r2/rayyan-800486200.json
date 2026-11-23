@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486200",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ustynov, D. (2026). Beyond Human-Readable: Rethinking Software Engineering Conventions for the Agentic Development Era. arXiv:2604.07502v1 [cs.SE], 8 Apr 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2604.07502v1 [cs.SE], 8 Apr 2026; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Military Institute of Telecommunications and Information Technologies (MITIT)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual; secondary: Compares — semantic density principle, taxonomy of conventions under agentic pressure and program skeleton (CODEMAP.md) proposal; small controlled experiment comparing four log formats on token economy",
+   "p": "1, 3-5",
+   "verdict": "uncertain",
+   "why": "Main nature is a judgement: the paper proposes a principle and the CODEMAP.md artefact (could be 'Proposes an approach'), but CODEMAP.md is not implemented or run and most of the paper is argument (Conceptual). The secondary 'Compares' fits the four-format log experiment.",
+   "doubt": "O artigo propõe um princípio e o artefacto CODEMAP.md, que não é testado; a experiência só compara formatos de log. Decide se a natureza principal é Conceptual ou 'Proposes an approach'."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Semantic density principle; program skeleton (CODEMAP.md) proposed as new artefact; experiment compares four log formats (A human-readable, B structured, C compressed, D compressed + decoder tool). Version N/A",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Program skeleton CODEMAP.md (module topology, entry points, call chains with one-line descriptions, signatures with docstrings, data flow summary, file locations; omits bodies, imports, boilerplate); rich commit messages; context files discussed. Not a requirements/spec artefact",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no workflow prescribed)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as flow steps; discusses human reviewer cognitive debt and calibrating consolidation to the review workflow",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run for the skeleton (proposal only; evaluation planned). Experiment exercised only log data formats in a diagnostic Q&A task",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; CODEMAP.md is a code-derived navigation artefact)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Experiment: log analysis (diagnostic questions over a generated log file); no code base modified",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "200 synthetic log events (30-minute e-commerce window); 6,695-8,072 tokens per file; 5 questions",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Simulated e-commerce application logs; discussion covers Java/Spring Boot, Go, Angular",
+   "p": "5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "File-level tokens (cl100k_base); session tokens; wall-clock time; tool calls",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Correctness of answers to 5 diagnostic questions (of 5); not code tests",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured (ceremony-to-logic ratio proposed as informal metric)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Number of HIGH-confidence answers; session-to-file token ratio",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic token counts via tiktoken (cl100k_base); session tokens, wall-clock time and tool calls from the session (tool not stated); how answer correctness was judged and by whom Not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent not stated (isolated fresh sessions, 15.1k baseline tokens) + claude-sonnet-4-6, no extended thinking; single session per format. Metrics: file tokens, session tokens, time, tool calls, correctness of 5 diagnostic answers, HIGH-confidence answers.\n- Format A human-readable + n.s. + claude-sonnet-4-6: file 8,072 tokens; session 18.9k tokens, 1m36s, 1 tool call, 5/5 correct, 4/5 high confidence\n- Format B structured + n.s. + claude-sonnet-4-6: file 7,106 (-12.0%); session 24.0k, 5m24s, 1 call, 5/5, 4/5\n- Format C compressed + n.s. + claude-sonnet-4-6: file 6,695 (-17.1%); session 31.6k (+67.2% vs A), 7m00s, 1 call, 5/5, 3/5\n- Format D compressed + decoder tool + n.s. + claude-sonnet-4-6: session 28.3k, 4m05s, ~5-7 calls (one execution error), 5/5, 4/5\nQuality and cost verdicts for all entries: no criterion stated by the authors",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Same 200 events encoded in 4 formats; same 5 questions; same model (claude-sonnet-4-6), fresh isolated session per format, no extended thinking. Baseline: Format A. Acceptance: answer correctness (criteria Not stated). Repetitions: 1 session per format. Human intervention: Not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "All formats 5/5 correct; human-readable cheapest in session tokens (18.9k) and time; compressed C +67.2% session tokens despite -17.1% input tokens; decoder tool reduces C's cost to 28.3k but adds tool overhead. No statistical test",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished cost, not correctness (ceiling 5/5). Not repeatable as reported (single run per format). Limitations stated: single model, single dataset, crossover point not established; experiment covers data retrieval, not code architecture (proxy gap)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Training distribution paradox (agent-optimal structures underrepresented); Lost-in-the-Middle challenges large files; human reviewer cognitive debt; proxy gap (architectural claims not experimentally validated); single model and dataset. Future: compression crossover, controlled CODEMAP.md evaluation, file consolidation, ceremony-to-logic formalisation, LLM-native language",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 and Table 2 columns jumbled by pdftotext; values rebuilt from text order (Tokens/Lines/Tok-per-line per format) and checked against text (17.1% input reduction, 67.2% session increase, 28.3k vs 31.6k). Format D file tokens not reported. Agent/harness not named. Cites grey literature heavily. Data and replication package: Not stated. Pre-registration: Not stated. Language: N/A (log text); Python decoder script",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims (systematic analysis, semantic density principle, experiment) stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): formats and questions procedure described, but questions, logs and harness not provided",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model claude-sonnet-4-6 named; agent/tool and version Not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): log dataset described in general terms; not available",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): correctness of the 5 diagnostic answers is reported, but neither the reference answers nor who judged them are described",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): token, time and correctness metrics cover cost and quality",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): four formats under same model and questions",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single session per format, no statistics",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): log result reported fairly, but a single-run experiment is called validation of a general principle; architectural claims flagged as hypotheses",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8.4 limitations and open challenges",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no vendor tool evaluated; author's own principle is not a tool",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): CODEMAP.md is cheap to adopt as a file, but no generator or requirements given (relies on future IDE vendor support); untested",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

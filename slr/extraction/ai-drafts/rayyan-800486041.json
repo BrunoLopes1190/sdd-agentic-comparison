@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486041",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2510.14881v1 [cs.AI], 16 Oct 2025; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (Gatekeeper Protocol, reference implementation Sage); secondary: compares (Sage vs four context-management strategies on 3 tasks x 7 LLMs)",
+   "v": "Proposes an approach; secondary: Compares — Gatekeeper Protocol with reference implementation Sage, compared with four context-management strategies (Full Codebase, Recent Files, RAG, ReAct) on 3 tasks x 7 LLMs",
    "p": "1, 4",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: sub-task completion. Values averaged across 3 tasks and 7 LLMs (Gemini 2.0 Flash Exp, Qwen3 Coder 480B A35B, DeepSeek R1, MAI DS R1, gpt-oss-20b, Mistral Small 3.2 24B, Nemotron Nano 9B V2); per-model values not reported, so one entry per strategy. (a) Sage (Gatekeeper) + Sage + 7 models (avg): completion 73% +/- 8; grounding errors 0.8 +/- 0.4; tokens 6,200 +/- 1,200. Quality partly works; cost works. (b) Full Codebase + harness n.s. + 7 models: 48% +/- 18; 4.3 +/- 2.1; 19,100 +/- 3,500. Quality does not work; cost does not work. (c) Recent Files + n.s. + 7 models: 31% +/- 22; 5.8 +/- 2.5; 9,800 +/- 4,100. Quality does not work; cost partly. (d) RAG + n.s. + 7 models: 58% +/- 15; 3.1 +/- 1.5; 14,300 +/- 2,800. Quality partly; cost partly. (e) ReAct Agent + n.s. + 7 models: 55% +/- 17; 3.4 +/- 1.8; 15,200 +/- 3,100. Quality partly; cost partly",
+   "v": "Values averaged across 3 tasks and 7 LLMs (Gemini 2.0 Flash Exp, Qwen3 Coder 480B A35B, DeepSeek R1, MAI DS R1, gpt-oss-20b, Mistral Small 3.2 24B, Nemotron Nano 9B V2); per-model values not reported, so one entry per strategy. Metrics: avg task completion (share of sub-tasks done), grounding errors, total tokens. (a) Sage (Gatekeeper) + Sage + 7 models (avg): completion 73% +/- 8; grounding errors 0.8 +/- 0.4; tokens 6,200 +/- 1,200. (b) Full Codebase + harness n.s. + 7 models: 48% +/- 18; 4.3 +/- 2.1; 19,100 +/- 3,500. (c) Recent Files + n.s. + 7 models: 31% +/- 22; 5.8 +/- 2.5; 9,800 +/- 4,100. (d) RAG + n.s. + 7 models: 58% +/- 15; 3.1 +/- 1.5; 14,300 +/- 2,800. (e) ReAct Agent + n.s. + 7 models: 55% +/- 17; 3.4 +/- 1.8; 15,200 +/- 3,100. Quality and cost verdicts for all entries: no criterion stated by the authors",
    "p": "4-5",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave works/partly/does-not-work verdicts, but the paper states no success threshold for completion, grounding errors or tokens (rule of 2026-11-23); metric values kept."
+    }
+   ],
    "warn": ""
   },
   {
@@ -203,8 +221,14 @@
    "f": "Q2",
    "v": "No (0): tasks, sub-task decomposition, prompts, grounding-error judging and run settings not described in enough detail",
    "p": "4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The method gives models, strategies, RAG settings and metric formulas, but the tasks, their sub-tasks, the prompts and how grounding errors were counted are not given; No and Partly are both defensible."
+    }
+   ],
+   "warn": "O método indica modelos, estratégias, configuração do RAG e fórmulas das métricas, mas não as tarefas, sub-tarefas, prompts nem como se contaram os grounding errors. Decide entre No e Partly."
   },
   {
    "f": "Q3",
@@ -273,8 +297,19 @@
    "f": "Q12",
    "v": "Partly (0.5): author created the Gatekeeper Protocol and Sage, the main approach evaluated; the baseline strategies (Full Codebase, Recent Files, RAG, ReAct) are generic, not the author's",
    "p": "1, 4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Author created Gatekeeper/Sage, the main approach; the four baselines are generic strategies not by the author. Partly fits the \"only some approaches\" clause, but other drafts scored own-tool-vs-generic-baseline studies No (0)."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The author created Gatekeeper/Sage, the main approach evaluated; the four baselines are generic strategies not by the author. The 'only some approaches' clause gives Partly, but own-tool-vs-generic-baseline studies may be scored No elsewhere."
+    }
+   ],
+   "warn": "O autor criou o Gatekeeper/Sage; as quatro baselines são estratégias genéricas. Decide entre Partly (só algumas abordagens) e No, de forma coerente com outros estudos que comparam a própria ferramenta com baselines."
   },
   {
    "f": "Q13",

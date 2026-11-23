@@ -106,7 +106,7 @@
      "why": "The paper studies a requirements step, not a development flow; the document is carried into code only in RQ5, once, and never maintained (pp. 17-18). Spec-first versus not classifiable is a judgement."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo estuda um passo de requisitos, não um fluxo: o documento só passa a código na RQ5, uma vez, e nunca é mantido (pp. 17-18). Escolhe spec-first ou não classificável."
   },
   {
    "f": "Task type",
@@ -180,7 +180,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: ReqAlign and BERTScore vs human-validated ground truth (averaged over 3 personas); code score per source benchmark. Single run per configuration, evaluated LLMs at temperature 0. Draft verdict rule (quality): ReqAlign >= 0.6 works, 0.4-0.6 partly, < 0.4 does not. Cost: not measured, no cost verdict.\n- Clarification + no agent + GPT-5.6-Sol: EQR 0.196, AvgClarified 0.650, BERTScore 0.774, ReqAlign 0.727 (EN 0.842, VR 0.681, MC 0.659). Works\n- Clarification + no agent + Claude Opus 5: 0.277, 1.007, 0.718, 0.577. Partly\n- Clarification + no agent + Gemini-3.1-Pro: 0.334, 1.702, 0.703, 0.357. Does not work\n- Clarification + no agent + DeepSeek-V4-Pro: 0.270, 1.052, 0.719, 0.498. Partly\n- Clarification + no agent + Qwen3-235B-A22B: 0.323, 1.639, 0.637, 0.282. Does not work\n- Clarification + no agent + GLM-5.3: 0.266, 1.039, 0.717, 0.521. Partly\n- Direct doc without clarification (ablation) + no agent, six models: mean BERTScore 0.664, ReqAlign 0.212 (per model only in Fig. 7). Does not work\n- Clarification + Claude Code + Claude Opus 5: higher EQR/AvgClarified than base model, lower ReqAlign (EN -15.2%); values only in Fig. 8. Partly\n- Clarification + Codex + GPT-5.6-Sol: higher EQR/AvgClarified, lower ReqAlign (EN -24.0%); values only in Fig. 8. Partly/works (reviewer to read Fig. 8)\n- Code from initial intent + Codex + GPT-5.6-Sol: GameCraft 0.012, MiniApp 0.451, WebGen 0.271. Does not work\n- Code from direct requirement doc + Codex + GPT-5.6-Sol: 0.273, 0.543, 0.384. Partly\n- Code from clarified requirement doc + Codex + GPT-5.6-Sol: 0.418, 0.943, 0.659. Partly (works on MiniAppBench)",
+   "v": "Criterion: ReqAlign and BERTScore vs human-validated ground truth (averaged over 3 personas); code score per source benchmark. Single run per configuration, evaluated LLMs at temperature 0. Cost: not measured.\n- Clarification + no agent + GPT-5.6-Sol: EQR 0.196, AvgClarified 0.650, BERTScore 0.774, ReqAlign 0.727 (EN 0.842, VR 0.681, MC 0.659)\n- Clarification + no agent + Claude Opus 5: 0.277, 1.007, 0.718, 0.577\n- Clarification + no agent + Gemini-3.1-Pro: 0.334, 1.702, 0.703, 0.357\n- Clarification + no agent + DeepSeek-V4-Pro: 0.270, 1.052, 0.719, 0.498\n- Clarification + no agent + Qwen3-235B-A22B: 0.323, 1.639, 0.637, 0.282\n- Clarification + no agent + GLM-5.3: 0.266, 1.039, 0.717, 0.521\n- Direct doc without clarification (ablation) + no agent, six models: mean BERTScore 0.664, ReqAlign 0.212 (per model only in Fig. 7)\n- Clarification + Claude Code + Claude Opus 5: higher EQR/AvgClarified than base model, lower ReqAlign (EN -15.2%); values only in Fig. 8\n- Clarification + Codex + GPT-5.6-Sol: higher EQR/AvgClarified, lower ReqAlign (EN -24.0%); values only in Fig. 8\n- Code from initial intent + Codex + GPT-5.6-Sol: GameCraft 0.012, MiniApp 0.451, WebGen 0.271\n- Code from direct requirement doc + Codex + GPT-5.6-Sol: 0.273, 0.543, 0.384\n- Code from clarified requirement doc + Codex + GPT-5.6-Sol: 0.418, 0.943, 0.659\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "11-12, 15-17",
    "rev": [
     {
@@ -192,9 +192,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Table 4 (p. 11) and Table 5 (p. 17) values check out. The two harness entries (Claude Code, Codex) rest on Fig. 8 only, whose values did not survive extraction (p. 16); the text gives only the EN ReqAlign drops (-15.2%, -24.0%, p. 16). The 'Partly/works' verdict for Codex + GPT-5.6-Sol cannot be settled without reading Fig. 8 in the PDF."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's cut-off (ReqAlign >= 0.6 / 0.4-0.6 / < 0.4) and the verdicts based on it removed: the authors state no success criterion for quality; cost not measured; metric values kept (rule 1)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Sem veredictos, a dúvida sobre Partly/works deixa de existir. Os valores das entradas Claude Code e Codex só estão na Fig. 8 (p. 16), ilegível no texto; se os quiseres registar, lê-os no PDF."
   },
   {
    "f": "Comparison: design",
@@ -308,7 +313,7 @@
      "why": "Findings are descriptive and match Tables 4-5, which supports Yes; but the harness trade-off (Finding 7, p. 16) rests on 2 models read from a figure, and the code gains (Finding 8, p. 17) on one configuration, single runs, no significance test. Partly vs Yes is a reader's judgement."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os resultados descritivos batem com as Tabelas 4-5 (Yes), mas o trade-off dos harnesses assenta em 2 modelos lidos de uma figura e os ganhos de código numa só configuração, sem repetições nem testes. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

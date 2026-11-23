@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485931",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) LLM doc audit (headless read-only agent, fixed prompt; runtime not named), 3 runs each, metrics: recall vs 67-item key (47 real + 20 planted), precision; no success criterion stated: Haiku 5.5: real drift 26.2% mean (7-18 items), planted 65.0%; quality: no criterion stated by the authors. Sonnet 5.5: real drift 49.6% (22-25 items; 63.8% pooled over 3 runs), planted 80.0%; quality: no criterion stated by the authors. Opus 5.5 (Haiku subagents): real drift 41.1% (16-21), planted 83.3%; quality: no criterion stated by the authors. Precision 0.93-1.00 per run over all nine runs (8 false alarms). Cost: not reported for any audit run. (2) Replay on Claude Code + Sonnet 5.5, 3 runs per condition, measure: runs in which the failure occurs. Condition B (harness with fix): stale skill counts (lint Check 12) 0/2, 1 declined; superseded decision (prose rule) 0/3, failure also absent without the rule; em-dash (lint Check 9) 0/3, check never exercised; destructive reset (guard.py) 0/3, guard never exercised; run-time estimate (prose rule): declined in all 3, no measurement. Condition A (harness without the fix): stale counts 3/3; superseded 0/3, em-dash 0/3, reset 0/3; estimate declined. Quality verdict for every Condition A and B entry: no criterion stated by the authors. (3) Cross-model replay (3 runs per cell), em-dash A/B and estimate A/B: Claude Code + Sonnet 4.5: em-dash 1/3 (A), 0/3 (B); estimate 2/3, 2/3 (author: the prompt rule made no difference). Claude Code + Sonnet 5: em-dash 0/3, 0/3 (one em-dash in B caught by lint); estimate declined (no measurement). Claude Code + Sonnet 5.5: 0/3, 0/3; estimate declined. Antigravity + Gemini 3.8 Flash (medium): em-dash 0/3, 0/3; estimate 0/2, 0/1 executed runs (few runs). Quality verdict for every cross-model entry: no criterion stated by the authors. Cost verdict for all replay entries: not reported (only total ~$3.55 for 30 Sonnet 5.5 replay runs, 10 minutes)",
+   "why": "Rule 1: all quality verdicts (works / partly / does not work) were the extractor's mapping of counts and recall; the author states no success threshold. All values and factual notes kept.",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "doubt": "As contribuições (p. 2) são o registo de falhas, a auditoria e o replay; mas o harness é do autor, com template público (p. 13) e retirada de lições proposta (p. 11). Decide: Evaluates ou Proposes an approach."
+  },
+  {
+   "f": "Q13",
+   "doubt": "Depende da natureza: N/A se Evaluates; se Proposes an approach, provavelmente Yes (ficheiros markdown e hooks/lint em Python; replay de 30 execuções custou cerca de 3,55 $, p. 11)."
+  }
+ ]
+}

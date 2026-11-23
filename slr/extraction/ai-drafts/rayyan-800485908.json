@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485908",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -109,9 +109,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "The author never uses SDD levels; the input is an agent instruction file, not a feature specification. 'Spec-anchored' rests on the author calling instruction files 'executable specifications' and a 'living contract' (p. 1, 9); a reader could equally record 'not classifiable' as for the other context-file studies"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The author never uses SDD levels; the input is an agent instruction file, not a feature specification. 'Spec-anchored' rests on the author calling instruction files 'executable specifications' and a 'living contract' (p. 1, 9); a reader could equally record 'not classifiable', as for the other context-file studies"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O autor nunca usa os níveis de Böckeler; o artefacto é um AGENTS.md, não uma especificação de funcionalidade. Decide entre spec-anchored (instruções 'executable specifications', p. 9) e not classifiable, como nos outros estudos de context files."
   },
   {
    "f": "Task type",
@@ -191,7 +196,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: SWE-bench Lite tests (resolution) and executable constraint oracle (compliance). All with OpenCode + GPT-5.2 (critic for LLM Reflection: Claude Opus 4.5). One run per task (number of runs not stated). Verdicts judged on each configuration's own values: quality partly when it resolves part but not nearly all tasks; cost from feedback and end-to-end time (no cost threshold set by the author)\n- Vanilla (AGENTS.md in context, no feedback) + OpenCode + GPT-5.2 (baseline): resolved 159/300 (53.0%); compliance 201 (67.0%); end-to-end mean 327.9 s (median 184.7). Quality: partly; cost: works\n- LLM Reflection + OpenCode + GPT-5.2 (critic Claude Opus 4.5): resolved 157 (52.3%); compliance 151 (50.3%); avg rounds 2.30, 85 hit the 5-round cap (28%); feedback 19,455 chars and 133.7 s mean; end-to-end mean 461.4 s (median 379.2). Quality: partly; cost: partly (heavy-tailed feedback cost, 28% of tasks exhaust the round budget)\n- ContextCov + OpenCode + GPT-5.2: resolved 172 (57.3%); compliance 265 (88.3%); avg rounds 1.31, 29 hit cap (10%); feedback 6,292 chars and 27.7 s mean; end-to-end mean 422.4 s (median 240.0). Quality: partly (high compliance, resolution 57.3%); cost: works",
+   "v": "Metrics: SWE-bench Lite resolution (official harness) and constraint compliance (ContextCov's executable oracle, post-hoc for baselines). The author states no success threshold, so no verdict is given. All with OpenCode + GPT-5.2 (critic for LLM Reflection: Claude Opus 4.5). Number of runs per task not stated\n- Vanilla (AGENTS.md in context, no feedback) + OpenCode + GPT-5.2 (baseline): resolved 159/300 (53.0%); compliance 201 (67.0%); end-to-end mean 327.9 s (median 184.7). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- LLM Reflection + OpenCode + GPT-5.2 (critic Claude Opus 4.5): resolved 157 (52.3%); compliance 151 (50.3%); avg rounds 2.30, 85 hit the 5-round cap (28%); feedback 19,455 chars and 133.7 s mean; end-to-end mean 461.4 s (median 379.2). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- ContextCov + OpenCode + GPT-5.2: resolved 172 (57.3%); compliance 265 (88.3%); avg rounds 1.31, 29 hit cap (10%); feedback 6,292 chars and 27.7 s mean; end-to-end mean 422.4 s (median 240.0). Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "6-8",
    "rev": [
     {
@@ -203,9 +208,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Verdicts were set relative to the baselines and the Vanilla baseline had none; draft-verify and §6 require each configuration, baseline included, to be judged on its own. Verdicts redone from each configuration's own values (Tables 2, 3, 5, p. 7-8); ContextCov quality lowered from works to partly because 42.7% of tasks stay unresolved; thresholds are the extractor's. LLM Reflection end-to-end time and medians added from Table 5"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The works/partly verdicts rested on thresholds set by the extractor (the r2 'why' says so); the paper states no success criterion for resolution, compliance or cost, so per the 2026-11-23 rule each verdict is 'no criterion stated by the authors'. Metric values (Tables 2, 3, 5) kept unchanged"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -286,7 +296,7 @@
      "why": "Value said the generated instruction files are in the repository; the paper says only that 'the source code and evaluation results are available' (p. 1). Score unchanged: the tasks (SWE-bench Lite) are public"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q5",
@@ -339,16 +349,21 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): author proposes and evaluates his own tool",
+   "v": "Partly (0.5): the author created ContextCov (vendor of the proposed approach); the baselines (Vanilla AGENTS.md, LLM Reflection with Claude Opus 4.5) are not his",
    "p": "1",
    "rev": [
     {
      "round": 2,
      "verdict": "uncertain",
      "why": "The author created ContextCov (No), but the study also evaluates Vanilla AGENTS.md and LLM Reflection as baselines, which he did not create; §5 gives Partly when vendorship applies to only some approaches. No holds if baselines are not counted as evaluated approaches"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "draft-verify rule of 2026-11-23 and §5: when the authors' own approach is compared with external baselines, Q12 is Partly, not No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",

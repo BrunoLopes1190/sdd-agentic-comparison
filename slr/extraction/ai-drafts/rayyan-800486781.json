@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486781",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Journal (Journal of Logical and Algebraic Methods in Programming, Elsevier; position paper in a volume dedicated to G. Ferrari)",
+   "v": "Journal — Journal of Logical and Algebraic Methods in Programming 152 (2027) 101192, Elsevier; position paper in a volume dedicated to G. Ferrari",
    "p": "1, 12",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then ' — ' and detail (draft-verify rules); content unchanged."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,21 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual (position paper: conceptual analysis and an illustrative multi-agent code-review scenario, 'rather than through a new experimental study'); secondary: proposes an approach (runtime coordination contract C = <R, T, Sigma, E, A> with a lightweight runtime monitor)",
+   "v": "Conceptual; secondary: Proposes an approach — position paper ('develops a thesis through conceptual analysis and an illustrative scenario rather than through a new experimental study'), proposing the runtime coordination contract C = <R, T, Sigma, E, A> with a lightweight runtime monitor, illustrated on a multi-agent code-review scenario",
    "p": "1-2, 6",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main vs secondary nature is a judgement: the author calls it a position paper (p. 2), but also states 'the central construct proposed in this paper is the runtime coordination contract' (p. 2) and gives a semiformal definition and monitor (pp. 6-8), so 'Proposes an approach; secondary: Conceptual' is also defensible. Q13 applies either way."
+    }
+   ],
+   "warn": "O artigo diz ser um position paper, mas o contributo central é o coordination contract (pp. 2, 6-8). Decide se a natureza principal é Conceptual ou Proposes an approach; o Q13 aplica-se nos dois casos."
   },
   {
    "f": "Approach(es): name and version",
@@ -187,9 +204,15 @@
   },
   {
    "f": "Notes",
-   "v": "Printed page numbers 1-12 = PDF pages 1-12 (article number 101192). Mathematical symbols garbled in the text extraction (tuple and formulas reconstructed from prose). Position paper; no data, no implementation, no replication package; no pre-registration. GenAI (Claude Sonnet) used for language revision (declared). No competing interests declared. Programming language: N/A",
-   "p": "1-12",
-   "rev": [],
+   "v": "Printed page numbers 1-13 = PDF pages 1-13 (article number 101192; references end on p. 13). Mathematical symbols garbled in the text extraction (tuple and formulas reconstructed from prose). Position paper; no data ('No data was used'), no implementation, no replication package; no pre-registration. GenAI (Claude Sonnet) used for language revision and manuscript organisation (declared). No competing interests declared. Programming language: N/A",
+   "p": "1-13",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The article has 13 pages, not 12 (references continue on p. 13)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -271,17 +294,34 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): academic author; no tool evaluated; no competing interests declared",
+   "v": "N/A: the paper proposes an approach (coordination contract) and evaluates none; no tool is evaluated",
    "p": "1, 12",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Author's rule of 2026-11-23: a study that proposes an approach and evaluates none is N/A on Q12 (draft had Yes)."
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Q13",
-   "v": "Partly (0.5): lightweight monitor with deterministic checks is plausibly within reach, but no implementation, contract language or requirements stated; specification language is an open problem",
+   "v": "Partly (0.5): the monitor is described as lightweight, using deterministic checks (schema validation, role and permission checks, scope membership, audit fields), plausibly within reach of a typical team; but no implementation, tools, cost or contract language are given, and the specification language is left as an open problem",
    "p": "8, 11-12",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: requirements are only described qualitatively ('lightweight', deterministic checks); a strict reading of the missing-information rule could give No."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: requirements are only described qualitatively ('lightweight', deterministic checks such as schema validation and permission checks, p. 8); no implementation, tools or cost are given, and the contract language is an open problem (p. 11). A strict reading of the missing-information rule could give No."
+    }
+   ],
+   "warn": "O artigo só descreve o monitor como 'leve' com verificações determinísticas, sem ferramentas, custos nem implementação (pp. 8, 11). Decide se isto chega para Parcial ou se é No por falta de informação."
   },
   {
    "f": "DARE1",

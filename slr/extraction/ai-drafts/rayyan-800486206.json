@@ -58,7 +58,7 @@
      "why": "A specific driver-navigator workflow is proposed (p. 1), which fits 'Proposes an approach', but the paper is a two-page doctoral plan with one paragraph of design and no evaluation, so 'Conceptual' as main nature is also defensible. Q13 applies either way."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo é um plano de doutoramento de duas páginas que descreve o fluxo driver-navigator num só parágrafo, sem avaliação. Decide entre 'Proposes an approach' e 'Conceptual'; se escolheres Conceptual, revê Q12."
   },
   {
    "f": "Approach(es): name and version",
@@ -116,7 +116,7 @@
      "why": "No SDD terms used. 'tests and specifications constrain changes to preserve validated behavior' (p. 2) reads as spec-anchored, but the plan is too thin to classify firmly; 'not classifiable' is equally defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O autor não usa termos de SDD; especificações e testes que 'constrain changes' na manutenção (p. 2) sugerem spec-anchored, mas o plano é demasiado curto. Escolhe spec-anchored ou não classificável."
   },
   {
    "f": "Task type",
@@ -307,7 +307,7 @@
      "why": "The paper has no results of its own; 'Initial results show that verifier-guided ... specification synthesis ... improves correctness and completeness' (p. 1) rests on the author's prior papers [2, 3], whose figures it reports (p. 2). No or Yes are also arguable; Partly kept."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não tem resultados próprios; 'Initial results show' (p. 1) apoia-se em trabalhos anteriores do autor [2, 3]. Decide entre Partly, No e Yes."
   },
   {
    "f": "Q10",
@@ -325,9 +325,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): author proposes the workflow and its building blocks (AutoReSpec, AutoJML)",
+   "v": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; prior results of AutoReSpec/AutoJML are only cited"
+    }
+   ],
    "warn": ""
   },
   {

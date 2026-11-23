@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486772",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Angarita, M., Acosta Buitrago, L. M., Pérez, J. M. (2026). Cross-interface persistent memory for large language model-assisted radiology research workflows: a Claude-based proof-of-concept technical development. Frontiers in Radiology, 6:1890122. doi:10.3389/fradi.2026.1890122 (article type: Methods; published 17 Aug 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — Frontiers in Radiology 6:1890122 (article type: Methods; peer-reviewed, editor and two reviewers named), DOI 10.3389/fradi.2026.1890122",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "LaCardio - Fundación Cardioinfantil, Bogotá, Colombia (all three); Universidad del Rosario, Bogotá, Colombia (Acosta Buitrago, Pérez)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — file-based cross-interface persistent-memory system (MEMORY.md + CLAUDE.md per project, synchronised between a web chat and a local coding agent), with a single-user proof-of-concept functional demonstration (n = 1)",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Authors' cross-interface persistent-memory system (unnamed; no version), built on Created.app/Supabase web app, self-hosted n8n v1.121.0, Claude API (claude-sonnet-4, not pinned), GitHub, Obsidian + Obsidian Git plugin, Claude Code MCP plugin; extends Karpathy's LLM Wiki pattern (April 2026 Gist)",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per project, two Markdown files in a Git-versioned Obsidian vault: MEMORY.md (Session + Project Memory: six fields summary, decisions, pending tasks, artifacts, errors, continuation point; append-only) and CLAUDE.md (Technical Memory: architecture, APIs, code decisions; append-with-timestamp, revised policy). Not specifications",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) User copies a web conversation into the web app and submits it; (2) n8n webhook, JavaScript preprocessing, Claude API extracts six-field JSON; (3) primary pathway updates session status and appends to MEMORY.md via GitHub Contents API (fallback: raw text to Google Drive); (4) Obsidian Git pulls every 5 min; (5) local coding agent (Claude Code) reads MEMORY.md and CLAUDE.md on launch; (6) user types /done at end of a coding session to update CLAUDE.md",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None implemented. User-triggered steps only (submit conversation; /done). A human verification gate (user confirms extracted decisions/tasks) is recommended for clinically adjacent use but not implemented; Git history as audit trail",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the proposed memory pipeline, run once end-to-end (single artefacts: context/memory files MEMORY.md and CLAUDE.md read by the coding agent)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (persistent context/memory files for a coding agent, no specification); authors use no SDD terms (\"persistent memory\", \"integration pattern\")",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: three concurrent software-development projects in progress (memory carried across sessions); system also used to organise development of a separate radiology report QC tool",
+   "p": "3, 7",
+   "verdict": "uncertain",
+   "why": "The paper only says 'three concurrent software-development projects' over multi-week work; it does not say whether they started from an empty repository or an existing code base",
+   "doubt": "O artigo fala de três projetos de software em curso, mas não diz se partiram do zero ou de código existente. Confirma na secção 2.1 e 2.4.1 e escolhe new project, existing code base ou não indicado."
+  },
+  {
+   "f": "Size",
+   "v": "Not stated for the projects; one representative 558-token session tested; create/edit repeated 5 times",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Radiology research and tool development (software-engineering and research-organisation layer, no patient data); test projects: physician messaging agent platform, hospital shift-scheduling tool, telemedicine connectivity service",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Single user, single operator: the first author (radiology researcher/developer; experience not stated)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Single-run elapsed times: webhook to GitHub write ~47 s, session status ~45 s, manual vault sync <~30 s (n = 1). Cost model: fixed ~USD 12/month VPS plus variable per-token Claude API cost (not quantified) and Created.app commercial tier (Table 3)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Binary functional checks: pipeline executed end-to-end; all six fields populated; GitHub create/edit success over consecutive runs; coding agent reports known project state without user context. No precision/recall/F1",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (manual steps described qualitatively: paste and submit conversation, type /done; \"zero manual operations\" claim withdrawn)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Context retrieval by the coding agent (project identity, decisions, pending tasks, continuation point reported; no incorrect item, n = 1); absence of overwrite/data-loss errors",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual observation by the first author during one functional test on 24 April 2026; timings single-run; agent output checked against the known project state by the author; no ground truth for extraction",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "One configuration: memory system + Claude Code (version n.s.; coding-agent model n.s.) + claude-sonnet-4 for extraction. Criterion stated by the authors (§2.8): functional checks (end-to-end run, six fields populated, GitHub create/edit success over consecutive runs, agent reports the known project state); no cost criterion stated. Values: complete six-field extraction (1 summary, 1 decision, 4 pending tasks, 1 artifact, 0 errors, 1 continuation point); 5/5 create/edit runs without overwrite; ~47 s to GitHub write; agent reported project state with no incorrect item (n = 1); cost: fixed ~USD 12/month VPS plus variable per-token API cost (not quantified). Quality verdict: works (feasibility only, n = 1). Cost verdict: no criterion stated by the authors",
+   "p": "3, 6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison group, baseline, multi-user evaluation or hypothesis test). Only qualitative architectural comparison with the LLM Wiki pattern (Fig. 3) and commercial memory features",
+   "p": "3, 5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (qualitative: adds web-conversation capture, six-field extraction, cross-environment sync, swappable extraction model vs LLM Wiki; no superiority claimed on retrieval quality)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single user/operator; Claude-based only (generality by design, not shown); text-only (no DICOM/images); extraction quality not benchmarked (no precision, recall, F1, omission, hallucination rates); single-run timings; failure modes not tested; no memory compression (scaling unaddressed); security hardening (webhook signing, secrets vault, port binding) not implemented; conceptual frame partly on non-peer-reviewed sources; Latin-American benefit not demonstrated. Future: benchmarked extraction study, open-weights self-hosted configuration, verification gate, multi-user evaluation, memory compression",
+   "p": "2, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Replication repository: https://github.com/angaritamd/ia-memory-radiology-resources (n8n workflow, Supabase schema, API docs, prompt template, memory-file templates); extraction prompt reproduced in the Appendix (p. 10). Text is a revised version that responds to reviewers (\"zero manual operations\" and \"free-tier\" claims corrected). Coding agent named Claude Code only in Table 2 and via the Claude Code MCP plugin. No pre-registration. Language: JavaScript preprocessing in n8n; project languages not stated. pdftotext interleaves columns on pp. 6-8 (sections 2.7/2.8, 4.1/4.3, 4.7/4.8 split); text order rebuilt",
+   "p": "3, 5-8, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): objective stated (can project context be transferred automatically between web chat and local coding agent with available components)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): architecture, versions, prompt (Appendix) and replication repository given; test procedure described (test session content not provided)",
+   "p": "3-6, 8, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): n8n v1.121.0 and claude-sonnet-4 (not pinned) named; Claude Code version and coding-agent model not stated",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): three projects described only by type; 558-token test session not available",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): no ground truth for extraction; agent recall judged by the author against the known project state",
+   "p": "6",
+   "verdict": "uncertain",
+   "why": "The authors call the agent's report 'consistent with the known ground-truth project state' (§3.4), but that state was checked by the first author on one run, and extraction had no ground truth at all",
+   "doubt": "O artigo fala em 'ground-truth project state', mas quem verificou foi o próprio autor numa única execução, e a extração não tem ground truth. Decide entre No e Partly (secções 2.8 e 3.4)."
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): binary functional checks and single-run timings; cost model described but variable cost not measured; no defined quality metric",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline or comparison group",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): n = 1 observations; only create/edit repeated 5 times; no statistics",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions limited to technical feasibility; no efficacy claim",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 4.7 lists ten limitations",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): Frontiers in Radiology, editor and reviewers named",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created the memory system they evaluate (independent of Anthropic)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): components and costs stated (~USD 12/month VPS, per-token API, free tiers); self-hosting n8n and a VPS within reach of a typical team; security hardening still required",
+   "p": "3, 6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

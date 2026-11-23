@@ -1,0 +1,319 @@
+{
+ "key": "rayyan-800498142",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yang, R., Fu, M., Tantithamthavorn, K., Arora, C., Chua, J. (2026). Towards a Risk Assessment of Malicious Skill Files in Coding Agents. arXiv:2608.05223v1 [cs.SE], 5 Aug 2026 (formatted as ACM Trans. Softw. Eng. Methodol., vol. 0, placeholder DOI)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.05223v1 [cs.SE], 5 Aug 2026; typeset in the ACM TOSEM template with placeholder volume, article number and DOI (XXXXXXX); acceptance not stated",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "Format fixed to '<type> — <detail>'. The TOSEM template with 'Publication rights licensed to ACM' and a placeholder DOI may mean the paper is accepted or only submitted; the paper and the access log (arXiv only) do not settle it",
+   "doubt": "O PDF usa o template da ACM TOSEM com DOI provisório, mas não diz se foi aceite. Verifica se já há versão publicada na TOSEM; se houver, o tipo passa a Journal e o Q11 a Sim."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Monash University (Yang, Tantithamthavorn, Arora); Transurban, Australia (Yang, Chua; industrial partner); The University of Melbourne (Fu); CSIRO RAISE programme support",
+   "p": "1, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — adversarial skill-synthesis benchmark of 2,826 malicious skill files and a three-judge exploitability-labelling pipeline, used to characterise the exploitability of Gemini CLI and Qwen Code over 5,629 runs",
+   "p": "1, 4",
+   "verdict": "uncertain",
+   "why": "Format fixed to '<nature>; secondary: <nature> — <detail>'. Main vs secondary is a judgement: the paper lists benchmark and pipeline as contributions, but frames itself as a 'large-scale empirical characterization' (RQ1–RQ3 are all about the agents), so 'Evaluates' as main nature is also defensible",
+   "doubt": "O artigo oferece benchmark e pipeline de avaliação, mas as três RQs medem a vulnerabilidade dos dois agentes. Decide se a natureza principal é método de avaliação ou Evaluates (com método como secundária)."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not an SDD approach: agent skill files (SKILL.md/skills.md with YAML metadata, instructions and scripts) as the attack surface. Agents: Gemini CLI (gemini-3-flash) and Qwen Code (qwen3-coder-plus); agent versions Not stated",
+   "p": "5, 9, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill file (skills.md / repo_dev_skills) injected in the repository, with a 'mandatory preflight' section carrying an Atomic Red Team command behind a <= 25-word benign LLM-generated description, mixed with legitimate skills (lint-code, parse-repo); README with task",
+   "p": "5, 9-10, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow; single fixed task: agent inspects repository and skills, then scaffolds a web app non-interactively within 120 s)",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (agents run with auto-approved delegated privileges); authors recommend human approval for high-risk actions",
+   "p": "11, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (skill file, as agent context/instructions) inside an agent run",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not about specifications; authors call SKILL.md a 'specification' of a skill package)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (scaffold a simple web app in a sandbox repository containing the malicious skill)",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "471 Linux attack commands x 6 generator LLMs = 2,826 skill files; 5,629 completed runs (2,816 Gemini, 2,813 Qwen); small web app task",
+   "p": "1, 8-9, 12, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Agent security (enterprise setting, transport infrastructure company Transurban); MITRE ATT&CK tactics (11)",
+   "p": "2, 8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs); one author labelled the human gold standard and the failure taxonomy",
+   "p": "15, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None for the coding task (web app not assessed)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Exploitability Rate (completed runs labelled exploited: declared intent or confirmed execution of the preflight) with Wilson 95% CI, per agent, generator and tactic; failure-mode taxonomy (recognized attack, irrelevant to task, acknowledged but not executed, no acknowledgment); verified execution; inter-judge agreement (Fleiss' kappa)",
+   "p": "12-15, 20, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: run stratification, three local open-weight LLM judges (Llama-3-8B, Mistral-7B, Gemma-2-9B) by majority with evidence anchoring, regex refusal veto and declared-intent override; PATH audit shim for execution. Manual: one author's blind labels on 240 runs (kappa 0.83-0.85) and failure-taxonomy labels",
+   "p": "12-15, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "ER = exploited / completed runs (higher = less secure). Temperature 0, top-p 1, 120 s limit, auto-approve. The authors state no success criterion for an agent (no acceptable ER), so no verdicts are given.\n- Gemini CLI + gemini-3-flash + malicious skills: ER 95.5% raw majority, 96.1% with override [95.3, 96.7] (2,705/2,816); per generator 95.5-96.8%; explicit refusal in 17 of 111 failures; Exfiltration 95.5%. Security (quality): no criterion stated by the authors. Cost: not measured; no criterion stated by the authors\n- Qwen Code + qwen3-coder-plus + malicious skills: ER 71.6% raw, 74.0% with override [72.3, 75.6] (2,081/2,813); per generator 67.7% (DeepSeek-R1) to 76.9%; refusals 95 of 732 failures; Exfiltration 38.5%, Impact 56.2%. Security (quality): no criterion stated by the authors. Cost: not measured; no criterion stated by the authors\n- Human gold standard: Gemini 95.5% (94.2-96.3), Qwen 70.9% (65.6-75.7)\n- Verified execution: 1 run of 5,629 (harness-limited)",
+   "p": "15-16, 18, 20, 22",
+   "verdict": "corrected",
+   "why": "The draft applied its own rule ('works if ER low') and gave 'does not work' verdicts; the authors set no acceptable exploitability threshold (they only call a 67.2% pooled exfiltration rate 'unacceptably high' for critical infrastructure, p. 24), so per the 2026-11-23 rule the verdict is 'no criterion stated'. Metric values checked against Tables 3-5: all correct"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Two agents (Gemini CLI, Qwen Code) chosen by availability at Transurban; same 471 commands x 6 generators, same task prompt, sandbox, 120 s limit, temperature 0, auto-approve. No benign-skill control. One run per skill per agent. Acceptance: judge panel validated against human labels. Human intervention: none",
+   "p": "10-12, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Gemini CLI more exploitable than Qwen Code by 22-24 points (non-overlapping Wilson CIs); exploitability nearly invariant to generator model; tactic gap largest for Exfiltration (95.5% vs 38.5%); Qwen-only off-task rejection (10.1% of its failures). Explicit safety recognition 1.99% of all runs",
+   "p": "18, 20, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the agents clearly. Single judges disagree strongly on Qwen (Fleiss' kappa -0.06; flag rates 22.4-94.8%), motivating the panel; panel vs human kappa 0.83-0.85. Limitations: single masking template, synthetic not in-the-wild skills, single task, 120 s limit, two agents, residual non-determinism",
+   "p": "15, 18, 25-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Commands do not cover all payloads or obfuscations; synthetic descriptions and one 'mandatory preflight' template (rates as lower bound for this pattern); only two CLI agents (not Claude Code, Cursor, Copilot); one task; 120 s cap; verified execution harness-limited; future: in-the-wild skills, more tasks, long-horizon runs, pre-ingestion skill scanner evaluation",
+   "p": "10, 15, 25-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and dataset: github.com/awsm-research/AgentJailbreak (per-run logs, prompts, regexes, unit tests). No pre-registration. Language: shell commands; web app language chosen by agent (e.g. Python/Flask). Values from Table 3 and Table 4 (p. 16, layout rebuilt from pdftotext), Table 5 (p. 22), Table 6 (p. 24) and text pp. 18-22. Inconsistency: 2 x 2,826 = 5,652 planned runs minus 5,629 completed = 23 missing (10 Gemini, 13 Qwen per Table 3 totals), but the text reports 24 empty runs excluded plus two commands with no run recorded (p. 12). Relevance to SDD: skill files as agent instruction artefacts and their security risk",
+   "p": "1, 12, 16, 18-24",
+   "verdict": "corrected",
+   "why": "The draft stated '24 empty runs excluded' as consistent; the Table 3 totals imply 23 missing runs, not 24 plus two missing commands. Table 6 per-tactic counts sum to 5,629 (checked)"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): generation prompt, task prompt, settings and full labelling pipeline described; released",
+   "p": "8-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agent models named; Gemini CLI and Qwen Code versions not given",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): Atomic Red Team source and released benchmark of 2,826 skills",
+   "p": "1, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM judge panel validated against one author's blind labels; execution check largely uninformative",
+   "p": "15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): ER defined with CIs; no cost metrics",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): two agents evaluated under identical conditions (same 2,826 skills, task prompt, sandbox, time limit, decoding); no benign-skill control",
+   "p": "10-11",
+   "verdict": "uncertain",
+   "why": "Q7 asks for 'a baseline or an alternative evaluated under the same conditions'; the second agent is such an alternative, so Yes fits the wording. The draft's Partly rested on the missing benign-skill control, which a careful reader could also see as the needed baseline",
+   "doubt": "Há dois agentes avaliados nas mesmas condições (alternativa), mas não há controlo com skills benignas. Decide se a alternativa chega para Sim ou se a falta de controlo baixa para Parcial."
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Wilson CIs and agreement statistics; one run per skill, no formal test of differences",
+   "p": "11, 13, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): rates presented as a range and lower bound; limits of verified execution stated",
+   "p": "15, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 threats to validity",
+   "p": "25-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint; TOSEM template but acceptance not stated",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "Depends on whether the TOSEM-formatted manuscript has been accepted (see Publication type); nothing in the paper confirms peer review",
+   "doubt": "Depende de o artigo já estar aceite na TOSEM. Se encontrares a versão publicada, muda para Sim (1)."
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors independent of Google and Alibaba",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -58,7 +58,7 @@
      "why": "Value is defensible (Cortex layer proposed, Gauntlet protocol defined, p. 2), but most of the body (pp. 3-12) is formal theory and the pilots are declared historical, descriptive and non-causal (pp. 15, 18), so a reader could take Conceptual as the main nature. Scoring is unaffected: Q13 applies either way and the pilots keep Q3-Q8 applicable."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A maior parte do artigo (pp. 3-12) é teoria formal e os pilotos são descritivos e não causais (pp. 15, 18). Decide se a natureza principal é 'Proposes an approach' ou 'Conceptual'; Q13 aplica-se nos dois casos."
   },
   {
    "f": "Approach(es): name and version",
@@ -116,7 +116,7 @@
      "why": "The paper never says how the requirement set relates to a specification over time: it is an append-only ledger within a task (pp. 3-4), with no statement on whether it persists or drives later changes. 'Not classifiable' is the closest value, but spec-first is arguable."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O conjunto de requisitos é um registo append-only dentro de uma tarefa (pp. 3-4); o artigo não diz se persiste ou orienta alterações futuras. Escolhe 'não classificável' ou spec-first."
   },
   {
    "f": "Task type",
@@ -190,10 +190,16 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Models not identified for any arm (configuration labels only). One outcome per task/case and arm (single run). Criteria: classified ASR (safety), behavioral test coverage (quality), resolved issues (repair), passed checks (to-do), build-gated composite (storefront). Cost: not reported, no cost verdict.\n- Codex CLI raw: ASR 42.37% (25/59); quality 0.8125; repair 6/6; to-do 3/5; storefront 0.6507 (2-arm pool), 0.7212 (5-arm pool). Quality partly; safety does not work\n- Cortex over Codex: ASR 24.14% (14/58); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6799. Partly (safety improved, storefront lower)\n- Claude Code raw: ASR 3.39% (2/59); quality 0.8125; repair 6/6; to-do 5/5; storefront 0.7489 (2-arm), 0.6737 (5-arm). Works/partly\n- Cortex over Claude: ASR 1.67% (1/60); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6533. Works/partly (storefront lowest)\n- OpenCode raw: ASR 42.59% (23/54); quality 0.3333 (4 generation failures); repair 5/6; to-do 5/5; storefront 0.7071. Does not work (safety, quality)\nBenign controls: zero refusals on 2 controls for the four paired arms; OpenCode refused 1 of 2",
+   "v": "Models not identified for any arm (configuration labels only). One outcome per task/case and arm (single run). Criteria: classified ASR (safety), behavioral test coverage (quality), resolved issues (repair), passed checks (to-do), build-gated composite (storefront). Cost: not reported.\n- Codex CLI raw: ASR 42.37% (25/59); quality 0.8125; repair 6/6; to-do 3/5; storefront 0.6507 (2-arm pool), 0.7212 (5-arm pool)\n- Cortex over Codex: ASR 24.14% (14/58); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6799\n- Claude Code raw: ASR 3.39% (2/59); quality 0.8125; repair 6/6; to-do 5/5; storefront 0.7489 (2-arm), 0.6737 (5-arm)\n- Cortex over Claude: ASR 1.67% (1/60); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6533\n- OpenCode raw: ASR 42.59% (23/54); quality 0.3333 (4 generation failures); repair 5/6; to-do 5/5; storefront 0.7071\nBenign controls: zero refusals on 2 controls for the four paired arms; OpenCode refused 1 of 2\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "15-17, 23-26",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)"
+    }
+   ],
+   "warn": "O avaliador de projeto define sucesso de uma seed (build e cobertura funcional de pelo menos 0,999, p. 10), mas os resultados históricos não o aplicam. Confirma que nenhum veredicto devia apoiar-se nesse critério."
   },
   {
    "f": "Comparison: design",
@@ -300,7 +306,7 @@
      "why": "Single runs per cell (pp. 14-15, 24) and no test of raw-vs-governed differences point to No; stored Wilson intervals on single-arm safety rates (Table 3, p. 15) are the only basis for Partly. Author to decide whether per-arm intervals count as handling variability."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Há uma só execução por célula (pp. 14-15) e nenhum teste às diferenças raw vs governed; os intervalos de Wilson por braço (Tabela 3, p. 15) são a única base para Partly. Decide entre Partly e No."
   },
   {
    "f": "Q9",
@@ -334,7 +340,7 @@
      "why": "Previous value No (0). The rule (protocol §5) gives Partly when the author created only some of the approaches evaluated; here three of five arms are unwrapped third-party harnesses (p. 15). Same reading as SpecForge (rayyan-800498237, Q12 Partly). Whether raw-harness baselines count as 'approaches evaluated' is the author's call; No if Cortex is taken as the only approach."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 3; confirma-o no texto."
+   "warn": "Os autores são da Alpha Omega Labs, que distribui o Cortex; três dos cinco braços são harnesses de terceiros sem Cortex (p. 15). Decide se contam como abordagens avaliadas (Partly) ou se o Cortex é a única (No)."
   },
   {
    "f": "Q13",
@@ -357,7 +363,7 @@
      "why": "Tools are named (Cortex CLI downloadable, wraps Codex CLI / Claude Code, pp. 12, 18), but compute, cost and setup needs are never stated; under the missing-information rule a reader could score No instead of Partly."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O Cortex CLI é descarregável e envolve Codex CLI e Claude Code (pp. 12, 18), mas os requisitos de computação, custo e configuração nunca são indicados. Pela regra da informação em falta, decide entre Partly e No."
   },
   {
    "f": "DARE1",

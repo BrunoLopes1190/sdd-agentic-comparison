@@ -58,7 +58,7 @@
      "why": "Secondary nature is a judgement: the human, automated-reviewer and model studies all set the framework against a code-only / direct-generation condition, so 'Compares' is as defensible as 'Evaluates' for the secondary nature."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os estudos humano, automático e de modelos opõem o framework a uma condição code-only ou direct. Decide se a natureza secundária é Evaluates ou Compares."
   },
   {
    "f": "Approach(es): name and version",
@@ -116,7 +116,7 @@
      "why": "No BÃ¶ckeler terms used. Reconciliation updates code or documents and re-approves the baseline (spec-anchored), but using the spec as the long-term source of truth after check-in is left to future work (p. 5)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não usa os termos de Böckeler; a reconciliação mantém spec e código alinhados (spec-anchored), mas usar a spec como fonte de verdade a longo prazo fica para trabalho futuro (p. 5). Confirma a classificação."
   },
   {
    "f": "Task type",
@@ -190,7 +190,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Human study (criterion: adjudicated ground-truth drifts): (a) baseline-anchored review (spec+HLD+LLD) + human reviewers, n=5: recall 0.525, attribution 0.81, 5.6 drifts, 48.4 min, confidence 4.2. Quality: partly (attribution works, recall about half of verified drifts); cost: does not work (+21.7 min per review). (b) code-only review + human reviewers (comparison condition): recall 0.518, attribution 0.00, 5.4 drifts, 26.7 min, confidence 3.4. Quality: partly (recall about half, no attribution); cost: works. Automated-reviewer replication, 90 reviews by Claude Opus 4.8, GPT-5.4, Gemini 3.1 Pro (agent Not stated; per-model values Not stated): (c) baseline-anchored: recall 0.376, attribution 0.67. Quality: partly; cost: not measured. (d) code-only: recall 0.377, attribution 0.00. Quality: does not work (low recall, no attribution); cost: not measured. Model studies (models and agent Not stated): (e) staged spec then fresh generation + weak model: pass rate 45.0%, failed builds -50%. Quality: partly (n.s., n=4); cost: not measured. (f) one-shot spec+code + weak model: 23.8%. Quality: does not work; cost: not measured. (g) direct generation + weak model (baseline): 23.8%. Quality: does not work; cost: not measured. (h) spec-first + two strong assistants: e.g. 92%. Quality: works; cost: not measured. (i) chain-of-thought + two strong assistants: e.g. 95%. Quality: works; cost: not measured. (j) direct + two strong assistants (baseline): e.g. 59%. Quality: partly; cost: not measured. Case study: framework caught 2 issues at the review gate and 2 by drift detection; unconstrained run kept both defects (illustrative, author-conducted; no verdict)",
+   "v": "Human study (criterion: adjudicated ground-truth drifts): (a) baseline-anchored review (spec+HLD+LLD) + human reviewers, n=5: recall 0.525, attribution 0.81, 5.6 drifts, 48.4 min, confidence 4.2. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (b) code-only review + human reviewers (comparison condition): recall 0.518, attribution 0.00, 5.4 drifts, 26.7 min, confidence 3.4. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. Automated-reviewer replication, 90 reviews by Claude Opus 4.8, GPT-5.4, Gemini 3.1 Pro (agent Not stated; per-model values Not stated): (c) baseline-anchored: recall 0.376, attribution 0.67. Quality: no criterion stated by the authors; cost: not measured. (d) code-only: recall 0.377, attribution 0.00. Quality: no criterion stated by the authors; cost: not measured. Model studies (models and agent Not stated): (e) staged spec then fresh generation + weak model: pass rate 45.0% (n.s., n=4), failed builds -50%. Quality: no criterion stated by the authors; cost: not measured. (f) one-shot spec+code + weak model: 23.8%. Quality: no criterion stated by the authors; cost: not measured. (g) direct generation + weak model (baseline): 23.8%. Quality: no criterion stated by the authors; cost: not measured. (h) spec-first + two strong assistants: e.g. 92%. Quality: no criterion stated by the authors; cost: not measured. (i) chain-of-thought + two strong assistants: e.g. 95%. Quality: no criterion stated by the authors; cost: not measured. (j) direct + two strong assistants (baseline): e.g. 59%. Quality: no criterion stated by the authors; cost: not measured. Case study: framework caught 2 issues at the review gate and 2 by drift detection; unconstrained run kept both defects (illustrative, author-conducted; no verdict)",
    "p": "4-5",
    "rev": [
     {
@@ -207,9 +207,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Values match Table IV, Table V and Section V. The verdicts are judgements: the cost verdict 'does not work' for (a) rests on the +21.7 min difference to code-only, but the form judges each configuration on its own (48.4 min per review could be 'partly'), and (c) partly vs (d) does not work at almost the same recall rests on attribution alone."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: the authors state no success criterion for recall, attribution, review time or pass rate, so every quality verdict and every cost verdict that was given is replaced by 'no criterion stated by the authors'; metric values and 'not measured' kept"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -301,7 +306,7 @@
      "why": "Ground truth was set by adjudicating claims against the source code. That is independent of the condition, but the adjudicators are not named and are probably the authors. The model-study checker is executable and independent. Yes or Partly both defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A ground truth foi adjudicada contra o código-fonte, mas os adjudicadores não são nomeados (provavelmente os autores); o verificador dos estudos de modelos é independente. Decide entre Yes e Partly."
   },
   {
    "f": "Q6",
@@ -345,7 +350,7 @@
      "why": "The null recall result is reported plainly. Partly rests on the abstract's 'raised confidence' (p = 0.068), on 'reproduced this pattern exactly', and on 'from per output to per spec', which was not measured. Yes is also arguable."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O resultado nulo de recall é reportado, mas o resumo diz que a confiança subiu (p = 0,068) e a discussão afirma passar o custo 'per output to per spec', o que não foi medido. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

@@ -1,0 +1,27 @@
+{
+ "key": "rayyan-800486377",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "A nota 'Copyright © 2027 AAAI' (p. 1) vem do modelo da AAAI e aparece também em submissões. Verifica se o artigo foi publicado na AAAI-27; se sim, passa a Conference e Q11 a Yes."
+  },
+  {
+   "f": "SDD level",
+   "doubt": "As especificações executáveis são geradas por funcionalidade e aplicadas em cada iteração (Algoritmo 1, p. 4), mas não são mantidas após a tarefa. Confirma spec-first ou escolhe spec-anchored."
+  },
+  {
+   "f": "Domain",
+   "doubt": "O artigo só indica Python para o NL2Repo-Bench (p. 7); a linguagem do FeatureBench não é dada (o exemplo MLflow é Python). Confirma no artigo do FeatureBench, se a linguagem importar."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: benchmark tests. FeatureBench, DeepSeek-V4-Pro (max thinking), %Passed / #Resolved / $ per task for Lite | Fast | Full: OpenHands 60.0/6/0.15 | 41.4/10/0.13 | 37.1/18/0.11; Claude Code (with DeepSeek backbone) 59.8/6/0.11 | 47.0/14/0.12 | 41.1/23/0.10; Mini-SWE-Agent 62.6/7/0.09 | 49.6/24/0.09 | 43.4/25/0.09; RTADev 65.3/6/0.17 | 49.7/15/0.16 | 46.1/26/0.15; CodeSpec 70.7/9/0.18 | 55.0/17/0.19 | 49.9/28/0.16. FeatureBench Lite, GPT-5.4-mini (medium thinking): Mini-SWE-Agent 47.5/2/0.7; OpenHands 48.1/3/1.2; RTADev 45.9/3/1.3; Codex 51.7/4/0.7; CodeSpec 54.7/5/1.3. Ablations (Lite, DeepSeek): w/o all specs 62.6/7/0.09; w/o behaviour spec 64.0/6/0.13; w/o architecture spec 66.6/7/0.16; w/o evidence 64.8/6/0.16; CodeSpec (Text) 43.8% vs CodeSpec 71.8% on 3,000-5,000-word instructions, ~51% vs 65.2% beyond 200 turns. NL2Repo, DeepSeek, overall %Passed/#Resolved/$: OpenHands 26.4/2/0.10; Claude Code 41.6/5/0.11; Mini-SWE-Agent 35.5/4/0.08; RTADev 41.3/7/0.14; CodeSpec 46.6/8/0.17 (Easy 70.0, Medium 51.7, Hard 20.4). Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "doubt": "Confirma a Tabela 1 no PDF: o mapeamento dá Mini-SWE-Agent 24 vs CodeSpec 17 tarefas resolvidas em Fast, contra 'the highest number of resolved tasks' (p. 5). 'Language: Python' só está indicado para o NL2Repo-Bench."
+  }
+ ]
+}

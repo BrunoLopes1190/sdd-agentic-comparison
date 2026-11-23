@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486531",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Salle, J., Bhatnagar, H., Bethge, M., Abdelnabi, S., Andriushchenko, M. (2026). Benchmarks Are Surprisingly Compaction-Friendly. arXiv:2610.31778v1 [cs.LG], 22 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.31778v1 [cs.LG], 22 Oct 2026, pages marked 'Preprint'; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "ELLIS Institute Tuebingen; Max Planck Institute for Intelligent Systems; Tuebingen AI Center; University of Tuebingen",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — five context-compaction strategies and six compaction thresholds inside a fixed scaffold (OpenCode), four frontier models, three long-horizon benchmarks; evaluation of constraint erosion on ProgramBench and on real SWE-chat sessions",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Context compaction strategies implemented in OpenCode (version not stated): self-summarization (baseline, scaffold default), tool-output pruning, filesystem offloading (context saved to JSON file), reasoning block discarding (clear thinking, k = 10), small-model summarization (Claude Haiku 4.5). Not an SDD approach",
+   "p": "4-5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None of the SDD kind; compaction summary (prompt asks for what was done, current work, files, next steps, key user requests/constraints, technical decisions); JSON copy of context for offloading",
+   "p": "5, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not an SDD flow: agent works -> token budget reached -> compaction (summary/pruning) -> fresh context with system prompt + summary -> continue",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in benchmark runs (autonomous); SWE-chat sessions are real human-agent sessions (Claude Code) analysed post hoc",
+   "p": "4, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (not an SDD approach; compaction mechanism run in full within the scaffold)",
+   "p": "5",
+   "verdict": "uncertain",
+   "why": "The compaction strategies are run in full inside OpenCode, so the field applies even though they are not SDD approaches; whether to record N/A or a form category (e.g. full workflow) for a non-SDD mechanism is a judgement",
+   "doubt": "As estratégias de compactação não são SDD mas são executadas por inteiro no OpenCode. Decide se registas N/A ou uma categoria do formulário (por exemplo 'full workflow')."
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context compaction; no specification artefact). SWE-chat taxonomy distinguishes 'specifications of what to build' (feature requirements) from process instructions and scope exclusions",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New projects / from scratch: PaperBench (replicate ICML 2024 papers as a repository), ProgramBench (reimplement a CLI tool from a reference binary), PostTrainBench (post-train a small LLM); SWE-chat: real interactive coding sessions (task type not stated)",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "PaperBench 3 of 20 papers (adaptive-pruning, all-in-one, bam), 10 h, Code-Dev variant; ProgramBench 2 tasks (Canop/broot in Rust, jarun/nnn in C), 6 h, plus lua/lua for the constraint-erosion analysis and lua and luajit for the reward-hacking analysis; PostTrainBench 2 base models x 3 target benchmarks, 10 h on one H100; 2 runs per task and configuration (runs relaunched until enough succeeded); thresholds 160K-380K tokens; SWE-chat 44 sessions, 269 constraints",
+   "p": "4, 7-8, 13, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "ML research replication, terminal tools (Rust, C), LLM post-training; real user coding sessions (SWE-chat)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A for benchmarks (autonomous agents); SWE-chat users not described",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured as cost (number of compaction events per run reported; tokens before compaction is the manipulated threshold). No money or time",
+   "p": "5, 21-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "PaperBench rubric score (LLM judge gpt-4o-mini, Code-Dev leaves); ProgramBench fraction of tests passed; PostTrainBench target benchmark performance; accuracy conditional on valid submission; failure rate",
+   "p": "5, 13, 20-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Constraint erosion (number of the three ProgramBench anti-cheating rule categories absent from each compaction summary); rule violations / reward hacking (7 mechanism types); SWE-chat constraint preservation/drop rate by category",
+   "p": "5, 7-8, 22-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic benchmark graders; LLM judges: Claude Sonnet 5 for reward hacking (after regex pass), constraint erosion, SWE-chat constraint extraction, preservation and categorisation; second judge GPT-5.6 Sol for replication (agreement 88.8%, kappa 0.681); bootstrap 95% CIs; taxonomy built by reading a sample manually",
+   "p": "5, 14-19, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors. Metrics: accuracy conditional on valid submission (bootstrap 95% CIs; most absolute values only in Figs. 2-3) and, on ProgramBench, constraint erosion per compaction (Table 3). Scaffold OpenCode for all (version not stated). Threshold sweep 160K-380K (self-summarization baseline): - Claude Opus 4.6 (max effort): accuracy similar across thresholds on all benchmarks; erosion 0.51 of 3 rule categories per compaction, >=1 dropped 43%, never all 3. - GPT-5.4 (medium): accuracy similar across thresholds (PaperBench 0.59 at 160K baseline); erosion 1.76 of 3 (>=1 90%, all 3 25%). - GPT-5.3-Codex (medium, 400K window): PaperBench 0.38 at 160K -> about 0.60 at >=260K; ProgramBench generally flat; PostTrainBench inconclusive (wide overlapping CIs); erosion 2.73 of 3 (>=1 99%, all 3 80%). - Gemini 3.1 Pro Preview (high): rarely compacts (1.00 compactions per run at 160K); uninformative; ProgramBench results excluded (reward hacking); not run on PostTrainBench. Strategies at 160K (no strategy better than baseline beyond CIs on any benchmark; ProgramBench: no strategy significantly changes performance): - Tool-output pruning: close to baseline for all models on PaperBench. - Filesystem offloading: near baseline on PaperBench for the 1M models; GPT-5.3-Codex 0.38 -> about 0.24. - Clear thinking: GPT-5.4 PaperBench 0.59 -> 0.43; no drop for Opus 4.6 and GPT-5.3-Codex. - Small-model summary (Haiku 4.5): Opus 4.6 within baseline CI; GPT-5.4 0.59 -> 0.43; GPT-5.3-Codex 0.38 -> 0.18. Erosion not measured per strategy; no cost metric. Quality and cost verdict for every configuration above: no criterion stated by the authors",
+   "p": "6-7, 13, 20-22",
+   "verdict": "corrected",
+   "why": "Previous rounds gave quality verdicts (works/partly) on the extractor's own reading; the paper states no success criterion or threshold for accuracy or erosion (p. 5-7), so under the 2026-11-23 rule every configuration is 'no criterion stated by the authors'. Metric values kept (re-checked against p. 6-7 and Tables 2-3, p. 22)"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmarks: PaperBench (3 papers), ProgramBench (2 tasks), PostTrainBench (2 base models x 3 targets). Configurations: 5 compaction strategies at 160K threshold; thresholds 160K/180K/200K/260K/320K/380K for baseline; 4 models. Baseline: self-summarization by the same model. Held constant: scaffold (OpenCode), trigger mechanism, summarization prompt, benchmark settings (time limits, hardware). Acceptance: benchmark graders (rubric LLM judge, tests, target benchmark). Repetitions: 2 runs per task and configuration; runs relaunched until enough succeeded (attempts vary). Human intervention: none. Gemini not run on PostTrainBench; ProgramBench Gemini results excluded (reward hacking)",
+   "p": "4-5, 7, 13, 20-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Threshold does not affect 1M-context models; GPT-5.3-Codex worse at low thresholds on PaperBench (0.38 vs ~0.60). No strategy beats self-summarization; discarding strategies cost some models up to 20 points on PaperBench (e.g. GPT-5.4 0.59 -> 0.43) and leave others unaffected. Constraint erosion: ~0.92 rule categories dropped at first compaction, 1.93 by 10th, 2.41 by 15th, 2.65 by 30th. SWE-chat: 81% of constraints preserved, 19% dropped (24.5% with second judge); feature requirements dropped 6.2%, process instructions 35.9%, scope exclusions 36.8%. Significance via overlapping bootstrap CIs only, no formal tests",
+   "p": "2-3, 6-8, 24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models on threshold and some strategies on PaperBench; PostTrainBench error bars too wide to conclude; Gemini uninformative. Repeatability: 2 runs per configuration, bootstrap CIs; code released. Limitations stated: four models, three benchmarks, few tasks per benchmark (cost and compute); one scaffold; Gemini rarely compacts and reward hacks; SWE-chat sessions from a different scaffold (Claude Code) and models; Q4 measures loss but not its effect on outcomes; threshold range covers only 16-38% of 1M windows",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Current benchmarks are compaction-friendly (fixed objective, progress on disk), so they hide constraint loss; constraints on how to work and what not to do are dropped first, even when the prompt asks to keep them. Future: compare subagent decomposition with compaction under the same scaffold; harder evaluations with constraints not recoverable from the filesystem (multi-turn sessions with changing user instructions)",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD; relevant only indirectly (specifications of what to build survive compaction better than process instructions). Reporting inconsistencies: abstract says 'three frontier models', Sec. 1 and 3 evaluate four (Gemini 3.1 Pro Preview reported as uninformative); taxonomy described as 7 categories in Sec. 4.2 and 8 in App. 6.11 (8th 'other' never assigned); overall drop rate 19% in text vs 18% for Sonnet in Fig. 11, and technical-parameter n = 67 in Fig. 4b vs 66 in Fig. 11, both explained by Fig. 11's own method (majority verdict over three judge runs; one constraint without a majority excluded, 268 constraints), so not inconsistencies. Most accuracy values in Figs. 2-3 only (numbers quoted are from text); compaction counts from Table 2, erosion from Table 3. Code: aisa-group/compaction (GitHub path given without full URL). Prompts and judge prompts in App. 6.4. Model API strings and reasoning effort in Table 1. No pre-registration stated. AI use statement: generative AI used for code, plots, literature search and readability",
+   "p": "1, 6-7, 10, 13-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four questions Q1-Q4 stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): strategies, benchmarks, prompts and settings described; number of attempted runs varies and run-level selection (relaunch until enough succeed) not fully specified",
+   "p": "4-5, 13-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model API strings and reasoning effort given; OpenCode version not stated",
+   "p": "4, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmarks and chosen tasks named; code released",
+   "p": "1, 4, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark graders (tests, rubric judge, target benchmarks); erosion and SWE-chat via LLM judges with a second judge",
+   "p": "5, 13, 24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and erosion metrics defined; no cost metrics (tokens, time, money)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): self-summarization baseline in the same scaffold",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 2 runs per task and configuration with bootstrap CIs; no formal tests",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions hedged; uninformative results (Gemini, PostTrainBench) acknowledged",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph; no threats-to-validity section",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic institutes; strategies are generic scaffold mechanisms, not products of the authors; no vendor relation to OpenCode or model providers stated (funding from UK AI Security Institute, Coefficient Giving)",
+   "p": "1, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

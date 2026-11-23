@@ -1,0 +1,27 @@
+{
+ "key": "rayyan-800486663",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "Não usa os termos de Böckeler; erros substantivos levam a regenerar a partir da spec revista (lê-se como spec-as-source por módulo), mas falhas de UI são corrigidas por prompts (spec-first, p. 2). Decide o nível."
+  },
+  {
+   "f": "Team profile",
+   "doubt": "O texto refere um 'instructor' na aprovação e 'our experiments' (p. 2), mas não diz que os autores são os docentes que escreveram as specs e correram os agentes. Confirma ou marca como inferido."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: analytical audit (physical/numerical correctness) and teacher acceptance. Mapping of module to agent/model Not stated ('three distinct agentic development environments'; Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM listed; models Not stated). (a) Workflow + agent n.s. + model n.s.: RLC commutation simulator, passed audit without correction (18.0 V vs 18.1 V predicted, maxima 202 ms apart vs 201 ms period); 5-10 min, 3-5 cycles. Quality: works; cost: no criterion stated by the authors. (b) Workflow + agent n.s. + model n.s.: eddy-current laboratory, values consistent, loss quantity mislabelled (peak vs averaged). Quality: partly; cost: no criterion stated by the authors. (c) Workflow + agent n.s. + model n.s.: iterative solvers module, CG converged in 2 steps as predicted. Quality: works; cost: no criterion stated by the authors",
+   "why": "Rule 1: quality verdicts kept, since the authors state the criterion (analytical acceptance criteria, phase 4, and the physical/numerical audit, phase 7); no cost criterion is stated, so the cost verdicts are replaced; values kept",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "doubt": "Não há questões de investigação, mas o objetivo (uma metodologia de autoria) e três contribuições numeradas estão claros (p. 1). Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q13",
+   "doubt": "Ferramentas e tempo de geração estão indicados (pp. 1-2), mas não o custo em dinheiro, tokens ou subscrições. Pela regra da informação em falta, decide entre Yes e Partly."
+  }
+ ]
+}

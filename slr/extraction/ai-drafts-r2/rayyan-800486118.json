@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486118",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, T.-H. (P.) (2026). Towards Structured, State-Aware, and Execution-Grounded Reasoning for Software Engineering Agents. In 7th International Workshop on Bots and Agents in Software Engineering (BoatSE '26), Rio de Janeiro, Brazil. ACM. https://doi.org/10.1145/3786161.3788456. arXiv:2602.04640v1 [cs.SE], 4 Feb 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop — 7th International Workshop on Bots and Agents in Software Engineering (BoatSE '26), Rio de Janeiro, ACM, 4 pages (position paper); read from arXiv:2602.04640v1",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "SPEAR lab, Concordia University, Montreal, Canada",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual — position paper with an initial roadmap for structured, state-aware, execution-grounded SE agents",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named approach; proposed paradigm: structured, state-aware, execution-grounded SE agent reasoning (cites the author's Agent-SAMA FSM representation as supporting evidence). Version N/A",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Explicit intermediate representation (agent state) storing: understanding of relevant code elements and dependencies; assumptions and hypotheses; expected behaviour / invariants and pre/post-conditions of actions; alternative hypotheses. Not a specification of the software",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not a phased flow; loop: read state -> plan/generate action -> tool execution -> map execution feedback to hypotheses -> update state (Figure 1b)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based position paper)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent reasoning state, not a software specification)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated (long-horizon SE tasks in general, e.g. debugging, fault localisation)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based, no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison; contrasts reactive vs structured agents conceptually, Figure 1)",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Argues, from prior literature, that reactive agents show inconsistent reasoning reconstructions, forgotten assumptions, feedback interpreted in isolation and full reset-and-retry",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations of the paper stated. Gaps: need for new agent memory representations and better integration with analysis and runtime tools for long-horizon reasoning",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Short 4-page position paper; claims supported by citations only (incl. the author's own prior work). No data or replication package (none needed). Pre-registration: N/A. Programming language: N/A",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): position and three challenges clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): no method; argument from literature",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (conceptual, no empirical evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions consistent with the argument but rest on cited studies, no own evidence",
+   "p": "3",
+   "verdict": "uncertain",
+   "why": "Conceptual position paper: the conclusions restate the argument, which rests on cited studies (some by the author); Yes (they follow from the argument) and Partly (no own evidence) are both defensible.",
+   "doubt": "Artigo de posição: as conclusões repetem o argumento, apoiado só em estudos citados (alguns do próprio autor). Decide entre Yes e Partly, de forma coerente com os outros artigos conceptuais."
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): limitations not discussed",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM workshop paper (BoatSE '26)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: no tool or approach is evaluated (position paper); the author is academic, but cites his own Agent-SAMA as supporting evidence",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "The draft gave Yes (1), but no tool is evaluated. The 2026-11-23 rule makes Q12 N/A when an approach is proposed and none is evaluated; whether that extends to a conceptual position paper is a judgement.",
+   "doubt": "Nenhuma ferramenta é avaliada; a regra de 2026-11-23 dá N/A a quem propõe sem avaliar. Decide se se aplica também a este artigo conceptual (N/A) ou se fica Yes (autor académico)."
+  },
+  {
+   "f": "Q13",
+   "v": "No (0): roadmap only; no implementation requirements (tools, compute, cost) stated",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

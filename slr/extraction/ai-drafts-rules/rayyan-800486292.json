@@ -1,0 +1,15 @@
+{
+ "key": "rayyan-800486292",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Model Claude 3.5 Sonnet for both; agent/harness Not stated. Criterion: first-attempt compile + tests pass; violations; tokens. One run per feature, 15 features (Table I).\n- Monolithic Context (baseline) + agent n.s. + Claude 3.5 Sonnet: 48,500 tokens/feature; first-attempt success 40%; 12 architectural violations (5 rewrites of core files)\n- MicroSkill Architecture + agent n.s. + Claude 3.5 Sonnet: 3,200 tokens/feature (-93.4%); 86.6%; 0 violations; 7 new capsules\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "doubt": "Faltam prompts, agente, suite de testes, lista de funcionalidades, parâmetros do router e o método de contar violações, mas as condições, o modelo, as métricas e o esquema das cápsulas estão descritos (p. 4-6). Decide entre No e Partly."
+  }
+ ]
+}

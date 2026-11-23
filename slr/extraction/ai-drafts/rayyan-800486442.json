@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486442",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Kept Compares + secondary evaluation method. Contribution (i) is the mining pipeline, so 'Proposes an evaluation method' as main nature is also defensible; reading reverse-PR mining + paired objective as a proposed approach for SKILL synthesis would make Q13 apply"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: contribution (i) is the reverse-PR mining pipeline with the paired objective (p. 3), so 'Proposes an evaluation method' as main nature is also defensible; reading the mining + optimization pipeline as a proposed approach for SKILL synthesis would make Q13 apply"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A contribuição (i) é o pipeline de mineração de PRs revertidos com a métrica emparelhada (p. 3). Decide se a natureza principal é Compares ou Proposes an evaluation method, e se conta como abordagem proposta (afeta Q13)."
   },
   {
    "f": "Approach(es): name and version",
@@ -169,16 +174,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent: Claude Code + Sonnet 4.6 (frozen) for all. Criterion: paired score vs empty-seed rollout on held-out split (0.5 = no change) and resolved tasks (all hidden FAIL_TO_PASS tests pass). Per-configuration run cost on the held-out split not reported; mean $0.84 per rollout over all runs.\n- Empty seed SKILL (baseline, Claude Code + Sonnet 4.6): resolves 40% koog, 51% kotest, 66% ktor (53% pooled); held-out 14/23, 13/20, 16/26. Quality: partly (about half the tasks resolved). Cost: works ($0.84 mean per rollout, no SKILL to produce)\n- GEPA SKILL, koog: paired 0.525; 14 -> 15 of 23; optimization spend $368.82, 4.7 h. Quality: partly (n.s.). Cost: partly (one-off optimization of hundreds of dollars on top of rollouts)\n- GEPA SKILL, kotest: 0.554; 13 -> 16 of 20; $182.48, 4.9 h. Quality: partly (n.s.). Cost: partly\n- GEPA SKILL, ktor: 0.567; 16 -> 20 of 26; $312.87, 13.0 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, koog: 0.546; +2 tasks; $401.44, 8.14 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, kotest: 0.519; +1; $263.56, 13.3 h. Quality: partly (n.s.). Cost: partly\n- SkillOpt SKILL, ktor: 0.437; -2; $484.81, 25.2 h. Quality: does not work. Cost: does not work (highest spend, regression)\n- Live koog issues #1275/#1354, no SKILL: $6.06/$4.85, wall 14m59s/20m29s; maintainer: 'does a bit extra', 'strange comments' (#1275), 'overall ok' (#1354); no integration test. Quality: partly. Cost: partly (highest of the three)\n- Live koog issues, GEPA SKILL: $2.48/$3.10, 5m32s/7m38s; maintainer: 'notably more minimalist', 'a bit tidier'; no integration test. Quality: works. Cost: works\n- Live koog issues, SkillOpt SKILL: $2.44/$4.20, 5m30s/8m24s; maintainer: 'looks fine', 'almost identical' to GEPA. Quality: works. Cost: works\n- Ablation (preliminary tracy sweep, Tables 3-4, generic-checklist seed): rejected objectives binary resolve, gold match, token price, judge, file scores; most shipped no file or overfit; not part of the reported results",
+   "v": "Agent: Claude Code + Sonnet 4.6 (frozen) for all. Authors' criterion for an optimized SKILL: paired score vs the empty-seed rollout on the held-out split must beat 0.5 ('the number a candidate has to beat', p. 5), with a sign test at p=0.05 to attribute the gain to the document (p. 7); also reported: resolved tasks (all hidden FAIL_TO_PASS tests pass). No cost criterion stated. Per-configuration run cost on the held-out split not reported; mean $0.84 per rollout over all runs.\n- Empty seed SKILL (baseline, Claude Code + Sonnet 4.6): resolves 40% koog, 51% kotest, 66% ktor (53% pooled); held-out 14/23, 13/20, 16/26; paired score 0.5 by definition. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- GEPA SKILL, koog: paired 0.525; 14 -> 15 of 23; optimization spend $368.82, 4.7 h. Quality: partly (beats 0.5, sign test n.s.); cost: no criterion stated by the authors\n- GEPA SKILL, kotest: 0.554; 13 -> 16 of 20; $182.48, 4.9 h. Quality: partly (beats 0.5, n.s.); cost: no criterion stated by the authors\n- GEPA SKILL, ktor: 0.567; 16 -> 20 of 26; $312.87, 13.0 h. Quality: partly (beats 0.5, n.s.); cost: no criterion stated by the authors\n- SkillOpt SKILL, koog: 0.546; +2 tasks; $401.44, 8.14 h. Quality: partly (beats 0.5, n.s.); cost: no criterion stated by the authors\n- SkillOpt SKILL, kotest: 0.519; +1; $263.56, 13.3 h. Quality: partly (beats 0.5, n.s.); cost: no criterion stated by the authors\n- SkillOpt SKILL, ktor: 0.437; -2; $484.81, 25.2 h. Quality: does not work (below 0.5); cost: no criterion stated by the authors\n- (Best sign test over all runs p = 0.29; none clears p = 0.05)\n- Live koog issues #1275/#1354, no SKILL: $6.06/$4.85, API 8m21s/7m21s, wall 14m59s/20m29s; maintainer: 'does a bit extra', 'strange comments' (#1275), 'overall ok' (#1354); no integration test. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Live koog issues, GEPA SKILL: $2.48/$3.10, API 3m35s/4m52s, wall 5m32s/7m38s; maintainer: 'notably more minimalist', 'a bit tidier'; no integration test. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Live koog issues, SkillOpt SKILL: $2.44/$4.20, API 3m43s/5m33s, wall 5m30s/8m24s; maintainer: 'looks fine', 'almost identical' to GEPA; no integration test. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Ablation (preliminary tracy sweep, Tables 3-4, generic-checklist seed): rejected objectives binary resolve, gold match, token price, judge, file scores; most shipped no file or overfit; not part of the reported results",
    "p": "6-7, 12-14",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Several configurations had no quality and/or cost verdict (the empty-seed baseline had neither; GEPA/SkillOpt entries after the first had no cost verdict; the three live-issue configurations, incl. no SKILL, shared one verdict). Each configuration now has its own verdicts; numbers unchanged (Table 1 p. 6, Table 2 p. 12, text p. 6-7)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Round 2 gave verdicts from the extractor's own cut-offs: seed 'partly (about half resolved)', cost 'works'/'partly'/'does not work' from spend size, live-issue 'works' from maintainer remarks; the paper states no criterion for any of these, so per the 2026-11-23 rule they become 'no criterion stated by the authors' (a correction). Kept quality verdicts only for the optimized SKILLs, because the authors state that 0.5 is 'the number a candidate has to beat' (p. 5) and test attribution with a sign test at p=0.05 (p. 7): above 0.5 but n.s. = partly, below 0.5 = does not work. Whether that counts as a stated success criterion is the open point. Values unchanged (Table 1 p. 6, Table 2 p. 12, pp. 6-7)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "Os autores dizem que 0,5 é 'o número a bater' e usam um sign test a p=0,05; mantive partly/does not work só para os SKILLs otimizados. Decide se isto conta como critério de sucesso ou se todos passam a 'no criterion stated by the authors'. O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -325,9 +335,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "N/A kept, since the nature is compares / proposes an evaluation method. If the author reads the mining + optimization pipeline as a proposed approach for synthesising SKILLs, Q13 applies: costs are stated ($0.84 per rollout, $182-485 and 4.7-25.2 h per optimization run, Table 1), which would give Partly or Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "N/A kept, since the nature is compares / proposes an evaluation method. If the author reads the mining + optimization pipeline as a proposed approach for synthesising SKILLs, Q13 applies: costs are stated ($0.84 per rollout, $182-485 and 4.7-25.2 h per optimization run, Table 1), which would give Partly or Yes"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Fica N/A se a natureza for Compares ou avaliação; se considerares o pipeline de geração de SKILLs uma abordagem proposta, Q13 aplica-se (custos de 182-485 USD por otimização, Tabela 1) e seria Partly ou Yes."
   },
   {
    "f": "DARE1",

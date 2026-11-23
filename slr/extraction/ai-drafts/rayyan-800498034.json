@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498034",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -28,7 +28,7 @@
      "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -46,9 +46,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Form fixed to '<nature>; secondary: <nature> — <detail>'. Judgement: Brief is the authors' own product and its workflow (spec generation, mid-build consultation) is described, so a reader could file it as 'Proposes an approach' (which would make Q13 apply); the paper presents its contribution as the benchmark and the comparison, not Brief itself"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: Brief is the authors' own product and its workflow (spec generation, mid-build consultation) is described, so a reader could file the study as 'Proposes an approach' (then Q13 applies); the paper presents its contribution as the benchmark and the comparison (abstract, p. 1-2), not Brief itself"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: Brief is the authors' own product and its workflow (spec generation, mid-build consultation) is described, so a reader could file the study as 'Proposes an approach' (then Q13 applies); the paper presents its contribution as the benchmark and the comparison (abstract, p. 1-2), not Brief itself"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "A Brief é produto dos autores e o fluxo é descrito, mas o artigo apresenta como contributo o benchmark e a comparação. Decide se a natureza inclui 'Proposes an approach' (então a Q13 aplica-se)."
   },
   {
    "f": "Approach(es): name and version",
@@ -102,7 +112,7 @@
   {
    "f": "Size",
    "v": "8 tasks, 41 weighted decision points (2-3 gotchas per task, weights 1-3); one repository (size Not stated); LOC added per reported task run 0 (TASK-003 baseline, zero files changed) to ~408 (TASK-009 CC + Brief); totals ~1,276 vs 3,068 LOC added",
-   "p": "3-4, 6, 8, 10-11",
+   "p": "3-4, 6-11",
    "rev": [
     {
      "round": 1,
@@ -110,7 +120,7 @@
      "why": "Lower bound of the per-task LOC range was wrong: the baseline changed zero files on TASK-003 (p. 8); 41 LOC is the baseline on TASK-006"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Domain",
@@ -170,16 +180,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: weighted decision compliance (regex + human check), merge-readiness. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 (Opus 4.6 planning per p. 4/12): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: does not work (misses decisions invisible in code, 6/8 tasks need rework); cost: partly (low total spend, but $2.07 per merge-ready task since most output needs rework). Baseline. -- Claude Code + Brief (brief build, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works; cost: works ($0.66 per merge-ready task, ~15 min per task). Config C (external orchestrator) not reported",
+   "v": "Criteria stated by the authors: weighted decision compliance (regex + human check) and merge-readiness (binary human judgement: would merge as-is vs requires rework); no cost criterion stated. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 coding (Opus 4.6 planning per p. 4/12, see Notes): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; per-task cost $0.13-0.67 where reported; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: partly (authors' merge-readiness criterion met on 2/8 tasks; authors: its runs 'predominantly produce output that requires human rework'); cost: no criterion stated by the authors. Baseline. -- Claude Code + Brief (brief build --confirm, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works (merge-ready on 8/8 tasks); cost: no criterion stated by the authors. Config C (external orchestrator) not reported",
    "p": "5-11",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "CC + Brief cost verdict gave two values ('works / partly') and the 'partly' rested on comparison with the baseline (+28% cost, +194% time); §6 asks for one verdict judged on its own. Baseline cost reason reworded away from 'cheaper' for the same reason (verdict unchanged). Added cost per correct decision, and per-task costs from §6"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Both cost verdicts ('partly' for the baseline, 'works' for CC + Brief) rested on thresholds set by the extractor; the authors state no cost criterion, so replaced by 'no criterion stated by the authors' (rule of 2026-11-23). Quality verdicts now cite the authors' merge-readiness criterion; 'does not work' for 2/8 merge-ready is a reading of that criterion. Added baseline per-task costs (p. 7-11)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors' criterion is per task (merge-ready as-is vs requires rework, p. 5); turning 2/8 merge-ready into 'does not work' (r2) needs a cut-off the paper does not give (rule of 2026-11-23). Without a threshold, all tasks = works, none = does not work, some = partly; set to 'partly', but a reader could weigh the authors' 'predominantly ... requires human rework' (p. 6) as 'does not work'. All metric values re-checked against Tables 2-4 and pp. 7-12, unchanged"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O critério dos autores é por tarefa (merge-ready); o baseline cumpre-o em 2 de 8 tarefas. Decide se isso é 'partly' ou 'does not work' (os autores dizem que o output 'predominantly' precisa de retrabalho). O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -211,16 +231,21 @@
   },
   {
    "f": "Notes",
-   "v": "Vendor study (authors from Brief). Title and abstract '49%' are percentage points. Model use for the baseline unclear: p. 4 says Sonnet 4.6 handles all code generation with no spec, while p. 4/12 say Opus 4.6 drives planning 'in both configurations'. Timeouts differ (5 vs 30 min). Table 3 gives CC + Brief TASK-004 3/4 (75%) while Table 10 shows both decisions PASS, and p. 6 says the augmented configuration achieves 100% 'across the board' (Table 5) despite 5/6 and 3/4 in Table 3. TASK-001 CC + Brief: p. 8 says only one of three runs lost credit (2 of 3 weight points on D-002), which averages to 5.67/6, yet the score is given as 5/6. Table 2 'Avg Merge-Ready' delta '+75%' is a difference in points (25% to 100%). Tables 2-4 jumbled by pdftotext; values rebuilt from text p. 5-6. LLM-as-judge rubric scores not reported. Benchmark repository, 16 PRs and harness released (github.com/brief-hq/dcbench). No pre-registration. Programming language: TypeScript",
-   "p": "4-8",
+   "v": "Vendor study (authors from Brief). Title and abstract '49%' are percentage points. Model use for the baseline unclear: p. 4 says Sonnet 4.6 handles all code generation with no spec, while p. 4/12 say Opus 4.6 drives planning 'in both configurations'. Timeouts differ (5 vs 30 min). Table 3 gives CC + Brief TASK-004 3/4 (75%) while Table 10 shows both decisions PASS, and p. 6 says the augmented configuration achieves 100% 'across the board' (Table 5) despite 5/6 and 3/4 in Table 3. TASK-001 CC + Brief: p. 8 says only one of three runs lost credit (2 of 3 weight points on D-002), which averages to 5.67/6, yet the score is given as 5/6. Abstract (p. 1) says the baseline achieves 100% on decisions visible in the codebase, but Table 5 marks D-004 (50%), D-009 (0%) and D-013 (0%) as visible in code ('Yes', 'Yes (skipped)', 'Yes (missed)'); the text on p. 6 lists only the visible decisions at 100%. Table 2 'Avg Merge-Ready' delta '+75%' is a difference in points (25% to 100%). Tables 2-4 jumbled by pdftotext; values rebuilt from text p. 5-6. LLM-as-judge rubric scores not reported. Benchmark repository, 16 PRs and harness released (github.com/brief-hq/dcbench). No pre-registration. Programming language: TypeScript",
+   "p": "1, 4-10",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Incomplete: added the TASK-001 averaging inconsistency (one partial run of three cannot average to 5/6)"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Incomplete: added the contradiction between the abstract's claim (100% on code-visible decisions) and Table 5, where three decisions marked visible score 0-50% for the baseline"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -287,9 +312,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement: the discussion and conclusion hedge carefully (directional evidence, confound stated), so a reader could give Yes; the title and the reported-score inconsistencies support Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: the discussion and conclusion hedge carefully (directional evidence, confound stated), so a reader could give Yes; the title, the 'driven by product context' framing and the reported-score inconsistencies (Tables 3, 5, 10; abstract vs Table 5 on visible decisions) support Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: the discussion and conclusion hedge carefully (directional evidence, confound stated), so a reader could give Yes; the title, the 'driven by product context' framing and the reported-score inconsistencies (Tables 3, 5, 10; abstract vs Table 5 on visible decisions) support Partly"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "As conclusões são cautelosas e o confound é admitido, mas o título atribui o ganho ao contexto e há inconsistências entre o resumo e as Tabelas 3, 5 e 10. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -321,9 +356,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Q13 applies only to conceptual studies and studies that propose an approach (§5); the r0 nature did not include 'Proposes an approach', so the score was inconsistent with it. Depends on the nature judgement (see Nature of the study)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Q13 applies only to conceptual studies and studies that propose an approach (§5); depends on the nature judgement (see Nature of the study)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Q13 applies only to conceptual studies and studies that propose an approach (§5); depends on the nature judgement (see Nature of the study)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Depende da natureza: só se aplica se classificares o estudo como 'Proposes an approach'. Nesse caso Partly (custo por tarefa indicado, preço da Brief não); caso contrário N/A."
   },
   {
    "f": "DARE1",

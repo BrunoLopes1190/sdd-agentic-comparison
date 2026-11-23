@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800485918",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "As verificações corrigiram o formato e retiraram 'registered-report-style', que o texto não usa. Confirma nas p. 1 e 6 que é um preprint arXiv sem venue indicada."
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — repository mining: planned large-scale mining study of Agent Context File evolution and its association with agent-generated code quality; protocol only, no results reported",
+   "why": "Rule 3: a mining study of Agent Context Files in repositories is \"Evaluates — repository mining\"",
+   "doubt": "A regra classifica estudos de mineração de repositórios como Evaluates, mas este é só um protocolo, sem dados analisados (p. 6). Decide se um protocolo conta como Evaluates."
+  },
+  {
+   "f": "Q5",
+   "doubt": "É um protocolo: os critérios previstos (deltas de métricas estáticas, CCP, dois anotadores com kappa ≥ 0,70) são independentes, mas nada foi medido. Decide como pontuar protocolos (Yes, Partly ou No) e aplica o mesmo ao Q8."
+  },
+  {
+   "f": "Q8",
+   "doubt": "Os testes não paramétricos, o delta de Cliff e a correção de Holm-Bonferroni estão só planeados (p. 5-6). Decide entre Yes por plano e No pela regra da informação em falta, com o mesmo critério do Q5."
+  }
+ ]
+}

@@ -106,7 +106,7 @@
      "why": "Only one sentence (p. 5) mentions SDD: research findings enable 'a spec-driven development workflow where specifications become executable, directly generating working implementations' (spec-as-source wording), while the described flow (research notes and plans in .agents/ consumed by one implementation, then validation) reads as spec-first. Nothing says whether plans are maintained after implementation; 'not classifiable' is also defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os autores falam em especificações \"executáveis\" (p. 5), o que soa a spec-as-source, mas o fluxo descrito parece spec-first. Decide entre spec-first e não classificável."
   },
   {
    "f": "Task type",
@@ -236,7 +236,7 @@
      "why": "No research questions, but the aims are explicit as four contributions (p. 3). Q1 accepts aims or RQs, so Yes fits; Partly remains defensible if a reader expects RQs from an experience report."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não há perguntas de investigação, mas os objetivos estão claros como quatro contribuições (p. 3). Decide se basta para Yes ou se dás Partly."
   },
   {
    "f": "Q2",
@@ -310,9 +310,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors built the platform and plugins they report on",
+   "v": "N/A (proposes an approach and evaluates none; no tool is evaluated)",
    "p": "2-3, 8",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 2: the study proposes LLMoxie/RSE-Plugins and evaluates no approach, so Q12 is N/A (was No)."
+    }
+   ],
    "warn": ""
   },
   {

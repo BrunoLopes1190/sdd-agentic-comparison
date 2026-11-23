@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486282",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "doubt": "Compara quatro vistas de handoff (p. 1), mas também cria um benchmark de takeover (Tabela 1, p. 4) e propõe um esquema estruturado (p. 2). Escolhe a natureza principal e a secundária; Q13 aplica-se sempre."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent = OpenHands-style runtime (native tool calling disabled; 4 h timeout, 500 steps) for all; predecessor Qwen3.6-27B. Criterion: official SWE-bench resolution; cost = median agent events and prompt tokens per takeover (local vLLM serving, no money cost). Values: solved rate; median events; median prompt tokens (Table 2). Main study (181 runs each):\n- Repository only + OpenHands + Qwen3.6-27B (baseline): 46.4%; 99 events; 1.63M tokens\n- Raw trace + OpenHands + Qwen3.6-27B: 52.5% (+6.1 pp, p=0.035); 41 (-59%); 811k (-50%)\n- Summary notes + OpenHands + Qwen3.6-27B: 51.4% (+5.0, p=0.093); 53 (-46%); 602k (-63%)\n- Structured notes + OpenHands + Qwen3.6-27B: 50.8% (+4.4, p=0.134); 55 (-44%); 660k (-60%)\n- Repository only + OpenHands + gemma-4-31B-it (baseline): 42.5%; 49; 738k\n- Raw trace + OpenHands + gemma-4-31B-it: 49.2% (+6.6, p=0.029); 21 (-57%); 300k (-59%)\n- Summary notes + OpenHands + gemma-4-31B-it: 44.2% (+1.7, p=0.678); 33 (-33%); 319k (-57%)\n- Structured notes + OpenHands + gemma-4-31B-it: 43.6% (+1.1, p=0.815); 39 (-20%); 317k (-57%)\n- Repository only + OpenHands + Devstral-Small-2-24B (baseline): 34.3%; 175; 3.94M\n- Raw trace + OpenHands + Devstral-Small-2-24B: 49.2% (+14.9, p<.001); 73 (-58%); 1.66M (-58%)\n- Summary notes + OpenHands + Devstral-Small-2-24B: 43.6% (+9.4, p=0.005); 123 (-30%); 2.30M (-42%)\n- Structured notes + OpenHands + Devstral-Small-2-24B: 44.8% (+10.5, p<.001); 125 (-29%); 2.30M (-42%)\nRobustness (Qwen->Qwen, 40 points x 3 repeats, events/tokens only): repo only 102.5 events, 1.62M; raw trace 42 (-59%), 906k; summary 52 (-49%), 591k; structured 58 (-43%), 677k (Table 4). Predecessor robustness (Devstral successor): Gemma and Devstral predecessors also show 21-46% event reductions (Table 6)\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "As notas estruturadas exigem uma só chamada e correm com modelos abertos (Anexo B, p. 15), mas o custo de gerar as notas é excluído e não há requisitos para equipas. Decide entre Partly e Yes."
+  }
+ ]
+}

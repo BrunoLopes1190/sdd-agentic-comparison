@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates — census / repository-mining study of root AGENTS.md and CLAUDE.md in 22,854 popular active GitHub repositories (6,006 adopters), statement-level LLM-assisted annotation, prespecified hypothesis tests and exploratory associations, adopters vs matched non-adopters; releases annotations, taxonomies and file-version pointers",
+   "v": "Evaluates — repository mining: census of root AGENTS.md and CLAUDE.md in 22,854 popular active GitHub repositories (6,006 adopters), statement-level LLM-assisted annotation, prespecified hypothesis tests and exploratory associations, adopters vs matched non-adopters; releases annotations, taxonomies and file-version pointers",
    "p": "1-4, 11",
    "rev": [
     {
@@ -56,9 +56,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Observational repository-mining census of a practice (adoption and content of AGENTS.md/CLAUDE.md); no approach or configuration is run, so no nature on the list fits exactly. 'Evaluates' kept as closest (it evaluates a practice, not Conceptual or Review); author to decide"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 3: mining study of AGENTS.md/CLAUDE.md files is 'Evaluates — repository mining'; classification unchanged, wording aligned."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",

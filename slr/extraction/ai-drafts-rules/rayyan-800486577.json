@@ -1,0 +1,15 @@
+{
+ "key": "rayyan-800486577",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All entries Claude Code (version n.s.) + claude-haiku-4-5-20251001, effort=low; k=1 run per task. Format: LinuxFL recall@10 / tokens; SWE-Pro resolved / tokens; SWT reproducing / tokens; SecBench resolved / tokens. No money reported. (1) Baseline (no MCP): 0.717 / 1.01M; 49.0% / 3.12M; 44.7% / 1.67M; 28.9% / 684K; wall 66-269 s. (2) AST: 0.757 / 755K; 50.6% / 2.45M; 45.3% / 1.77M; 25.3% / 656K; wall 105-209 s. (3) Callgraph: 0.770 / 683K; 46.2% / 2.31M; 37.9% / 1.69M; 34.3% / 614K; wall 105-201 s (best SecBench, worst SWT). (4) Deps: 0.757 / 628K; 49.4% / 2.41M; 42.9% / 1.77M; 31.9% / 651K; wall 88-205 s. (5) Docs: 0.770 / 663K; 44.3% / 2.53M; 47.2% / 1.82M; 31.3% / 698K; wall 106-290 s (slowest on SecBench, 290 s). (6) Hybrid: 0.829 / 611K; 50.6% / 2.59M; 47.8% / 1.87M; 29.5% / 658K; wall 82-204 s (best FL, zero FL losses). Relative to baseline, wall time rises with all workflows on LinuxFL, SWT, SecBench (SecBench 66 s vs 136-290 s) and falls on SWE-Pro (269 s vs 194-209 s). Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "doubt": "Os cinco servidores MCP comparados são dos autores (p. 4); só a linha de base sem MCP (ferramentas nativas do Claude Code) não é. Decide Partly (a linha de base conta como abordagem avaliada) ou No (só contam os tratamentos)."
+  }
+ ]
+}

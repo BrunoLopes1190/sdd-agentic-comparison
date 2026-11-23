@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486326",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — repository mining: AI agent skills mined as software artefacts from the skills.sh registry and 5,876 GitHub repositories (SWEBOK classification, packaging and spec conformance, content taxonomy, customisation and evolution), comparing registry vs personal-use skills and customisation vs evolution; no agent configuration run",
+   "why": "Rule 3: a descriptive repository-mining study is 'Evaluates', noted 'repository mining'; this settles the round doubt on the main nature",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "doubt": "Não há execução de agentes; os LLM classificadores estão identificados (Qwen3.6-27b, Gemma-4-31b-it, temperatura 0, p. 4) e a especificação Agent Skills só por URL e data de acesso. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q5",
+   "doubt": "O gold standard (dois anotadores, kappa 0.85; classificador kappa 0.82, p. 4-5) e a auditoria das ligações são feitos pelos próprios autores. Decide se isso conta como critério independente (Yes) ou não (Partly)."
+  }
+ ]
+}

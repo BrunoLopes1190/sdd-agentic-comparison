@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800485904",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "O local só aparece no bloco ACM do próprio artigo, com DOI provisório (XXXXXXX) (pp. 1, 5); os exports não têm DOI. Verifica se está nos proceedings do ICSE JAWs 2026; se não, passa a Preprint."
+  },
+  {
+   "f": "Nature of the study",
+   "doubt": "Uma só abordagem (AGENTS.md) é corrida contra uma base sem ficheiro (p. 3). Decide se a base conta como configuração (Compares) ou se o estudo é 'Evaluates'."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: efficiency (tokens, time); no correctness criterion (manual sanity check of 50 outputs that they are non-trivial). Values: Table 1 (mean / median)\n- No AGENTS.md + Codex CLI + gpt-5.2-codex (baseline): time 162.94 s / 98.57 s; output tokens 5,744.81 / 2,925.00; input tokens 353,010.01 / 116,609.00; cached input 328,877.31 / 103,424.00; total tokens 687,632.13 / 223,707.00. Quality: not measured (sanity check only)\n- AGENTS.md + Codex CLI + gpt-5.2-codex: time 129.91 s / 70.34 s; output tokens 4,591.46 / 2,440.00; input 318,651.51 / 120,587.00; cached input 296,078.73 / 104,448.00; total 619,321.70 / 226,582.00. Quality: not measured (sanity check only)\nVerdicts: quality and cost: no criterion stated by the authors (both configurations)",
+   "why": "Extractor's cost verdicts ('works', no threshold set by the authors) removed; quality was not measured; metric values kept (rule 1)",
+   "doubt": "Os valores da Tabela 1 (p. 4) foram reconstruídos do texto porque o pdftotext baralhou a tabela. Confirma no PDF, sobretudo os tokens de input em cache acrescentados na verificação 1."
+  },
+  {
+   "f": "Q11",
+   "doubt": "Depende do local de publicação: Yes se o artigo estiver nos proceedings do ICSE JAWs 2026, No se for só o preprint do arXiv (DOI provisório, p. 1). Decide junto com o tipo de publicação."
+  }
+ ]
+}

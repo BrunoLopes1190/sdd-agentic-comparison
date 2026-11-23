@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486331",
+ "fields": [
+  {
+   "f": "Q12",
+   "v": "N/A (proposes an approach and evaluates none; no tool is evaluated)",
+   "why": "Rule 2: the study proposes LLMoxie/RSE-Plugins and evaluates no approach, so Q12 is N/A (was No).",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "doubt": "Os autores falam em especificações \"executáveis\" (p. 5), o que soa a spec-as-source, mas o fluxo descrito parece spec-first. Decide entre spec-first e não classificável."
+  },
+  {
+   "f": "Q1",
+   "doubt": "Não há perguntas de investigação, mas os objetivos estão claros como quatro contribuições (p. 3). Decide se basta para Yes ou se dás Partly."
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486620",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Harness: mini-swe-agent (98K window) for all; success criterion: overall resolve rate on the ChainSWE test boundaries (hidden tests of the next task). Values: Res% / steps / total cache-aware K tokens per session (Table 1; Table 3 adds list-price USD per session). Verdicts judged on each configuration's own values (extractor's thresholds, the paper sets none): quality does not work below 20% resolve, partly 20-60%; cost works when a session stays at or below about 170K tokens or USD 0.41 at list prices (all configurations do).\nQwen3.5-9B (post-trained rows: LoRA): no memory (baseline) 14.0/98.2/98.3; full history 14.2/72.8/85.9; Mem0 16.4/93.8/111.4; MemOp 15.0/94.9/131.7; ReasoningBank 14.6/94.3/166.1; CoReMem w/o training 15.5/95.1/111.7; CoReMem (post-trained) 17.7/72.4/79.9. Each: quality does not work; cost works.\nQwen3.8-27B-FP8: no memory (baseline) 21.0/35.1/32.2; full history 22.4/32.6/39.0; Mem0 21.5/35.9/68.7; MemOp 23.4/33.5/50.4; ReasoningBank 25.2/34.3/67.5; CoReMem w/o training 23.4/31.8/32.4; CoReMem 25.7/29.2/28.5. Each: quality partly; cost works.\nGemma-4-31B: no memory (baseline) 11.5/29.9/32.4; full history 11.8/27.2/31.8; Mem0 10.8/28.1/47.2; MemOp 12.8/28.8/49.6; ReasoningBank 13.2/30.4/65.3; CoReMem w/o training 12.5/28.3/33.9; CoReMem (8 updates) 14.2/28.5/29.3. Each: quality does not work; cost works.\nClaude Opus 5.5 (frozen, 1 replay; Res% / steps / total K / USD): no memory (baseline) 38.5/12.6/21.5/0.2370; full history 40.6/10.4/27.0/0.2384; Mem0 39.6/13.0/35.4/0.2893; MemOp 39.6/17.8/36.1/0.3630; ReasoningBank 40.6/14.2/48.8/0.4028; CoReMem w/o training 38.5/11.8/20.1/0.2048. Each: quality partly; cost works.\nGPT-5.6 Luna (frozen): no memory (baseline) 23.6/17.9/51.7/0.0176; full history 24.0/18.6/79.8/0.0263; Mem0 22.6/17.5/62.7/0.0199; MemOp 22.9/17.5/63.8/0.0204; ReasoningBank 23.3/17.9/85.3/0.0258; CoReMem w/o training 25.7/16.3/52.5/0.0181. Each: quality partly; cost works.\nDeepSeek-V4-Flash (frozen, off-peak price): no memory (baseline) 21.9/90.0/84.4/0.0363; full history 22.4/76.6/75.8/0.0319; Mem0 21.9/94.2/100.0/0.0393; MemOp 21.4/87.5/110.5/0.0396; ReasoningBank 23.1/97.2/150.7/0.0468; CoReMem w/o training 23.6/78.2/82.3/0.0330. Each: quality partly; cost works.\nAblations (27B, ablation): resolve-only RL 30.4 steps; M1+M2 29.7 steps; full 29.2; misplaced-memory cost +2.1 steps without value credit vs +0.3 with it; memory benefit +1.7 vs +2.3 points. 9B: resolve-only RL 75.5 steps, M1+M2 63.8, full 72.4. No verdicts (variants of the same configuration)",
+   "v": "Harness: mini-swe-agent (98K window) for all. Metrics: overall resolve rate on the ChainSWE test boundaries (hidden tests of the next task), steps, total cache-aware K tokens per session (Table 1; Table 3 adds list-price USD per session). Success criterion: none stated by the authors per configuration (their objective, Eq. 1, is relative: fewer steps without resolving less often than the base actor). Values Res% / steps / total K tokens; every configuration: quality and cost verdict: no criterion stated by the authors.\nQwen3.5-9B (post-trained rows: LoRA): no memory (baseline) 14.0/98.2/98.3; full history 14.2/72.8/85.9; Mem0 16.4/93.8/111.4; MemOp 15.0/94.9/131.7; ReasoningBank 14.6/94.3/166.1; CoReMem w/o training 15.5/95.1/111.7; CoReMem (post-trained) 17.7/72.4/79.9.\nQwen3.8-27B-FP8: no memory (baseline) 21.0/35.1/32.2; full history 22.4/32.6/39.0; Mem0 21.5/35.9/68.7; MemOp 23.4/33.5/50.4; ReasoningBank 25.2/34.3/67.5; CoReMem w/o training 23.4/31.8/32.4; CoReMem 25.7/29.2/28.5.\nGemma-4-31B: no memory (baseline) 11.5/29.9/32.4; full history 11.8/27.2/31.8; Mem0 10.8/28.1/47.2; MemOp 12.8/28.8/49.6; ReasoningBank 13.2/30.4/65.3; CoReMem w/o training 12.5/28.3/33.9; CoReMem (8 updates) 14.2/28.5/29.3.\nClaude Opus 5.5 (frozen, 1 replay; Res% / steps / total K / USD): no memory (baseline) 38.5/12.6/21.5/0.2370; full history 40.6/10.4/27.0/0.2384; Mem0 39.6/13.0/35.4/0.2893; MemOp 39.6/17.8/36.1/0.3630; ReasoningBank 40.6/14.2/48.8/0.4028; CoReMem w/o training 38.5/11.8/20.1/0.2048.\nGPT-5.6 Luna (frozen): no memory (baseline) 23.6/17.9/51.7/0.0176; full history 24.0/18.6/79.8/0.0263; Mem0 22.6/17.5/62.7/0.0199; MemOp 22.9/17.5/63.8/0.0204; ReasoningBank 23.3/17.9/85.3/0.0258; CoReMem w/o training 25.7/16.3/52.5/0.0181.\nDeepSeek-V4-Flash (frozen, off-peak price): no memory (baseline) 21.9/90.0/84.4/0.0363; full history 22.4/76.6/75.8/0.0319; Mem0 21.9/94.2/100.0/0.0393; MemOp 21.4/87.5/110.5/0.0396; ReasoningBank 23.1/97.2/150.7/0.0468; CoReMem w/o training 23.6/78.2/82.3/0.0330.\nAblations (27B, ablation): resolve-only RL 30.4 steps; M1+M2 29.7 steps; full 29.2; misplaced-memory cost +2.1 steps without value credit vs +0.3 with it; memory benefit +1.7 vs +2.3 points. 9B: resolve-only RL 75.5 steps, M1+M2 63.8, full 72.4. No criterion stated by the authors",
    "p": "7-8, 14-17",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "§6 and draft-verify require every configuration, baseline included, to get its own quality and cost verdict: r1 gave none to the no-memory and full-history baselines or to CoReMem w/o training on the open-weight actors, pooled the three memory layers into one verdict, and justified the verdicts relative to no memory (CoReMem 9B 'works' at 17.7% resolve; memory layers' cost 'does not work' because they use more tokens than no memory). Re-judged on each configuration's own values; API rows for full history, Mem0, MemOp and ReasoningBank added from Table 3 (p. 17), with USD per session. Values in Table 3 were read by column order from jumbled text: check against the PDF. Thresholds are the extractor's, for the author to check"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "r2 gave quality and cost verdicts based on thresholds the extractor set (20%/60% resolve, about 170K tokens or USD 0.41), which the author's rule of 2026-11-23 forbids. The authors state no per-configuration success criterion: their objective (Eq. 1) is only relative, fewer steps without resolving less often than the base actor. Verdicts replaced by 'no criterion stated by the authors'; values rechecked against Tables 1 and 3 and kept"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -198,7 +203,7 @@
      "why": "r1 gave post-trained steps as -17% to -26%; Gemma's post-trained steps fall only 5% (Table 1, p. 7; text says 'by up to 26%'). Added the further step drop against the untrained actor with memory (p. 8)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -216,8 +221,8 @@
   },
   {
    "f": "Notes",
-   "v": "Not SDD; relevant as a structured cross-task memory artefact (anchors = where to look, what to run). Table 1 rebuilt from jumbled pdftotext output (columns interleaved); overall Res/steps/total tokens taken from the 'Overall' and 'Tokens' blocks in row order and cross-checked against the percentages in text; verify against PDF. Inconsistencies: 27B frozen no-memory resolve is 21.0% / 35.1 steps in Table 1 but 21.3% / 35.3 steps in the ablation reads (App. C, different replays); App. E cites 'Table E' for what is Table 5; App. E text says SWEContextBench runs on the inherited tree and SWE-Bench-CL with the tree reset, but the Table 5 caption says the SCB next task opens at an independent checkout so only memory crosses; Table 5 writer instructions were adapted after observing the first runs on that set. Code 'available at an anonymous link' (no URL in text). Post-training: LoRA rank 16; 27B at update 20, 9B at a checkpoint after 12 updates ('pre-registered checkpoint', rule fixed in advance, no link), Gemma 8 updates; GPU compute not stated. Pre-registration: only of the checkpoint rule, no link. Programming language: Python",
-   "p": "2, 7, 9, 14, 16-18",
+   "v": "Not SDD; relevant as a structured cross-task memory artefact (anchors = where to look, what to run). Table 1 rebuilt from jumbled pdftotext output (columns interleaved); overall Res/steps/total tokens taken from the 'Overall' and 'Tokens' blocks in row order and cross-checked against the percentages in text; verify against PDF. Inconsistencies: 27B frozen no-memory resolve is 21.0% / 35.1 steps in Table 1 but 21.3% / 35.3 steps in the ablation reads (App. C, different replays); likewise the ablation's frozen with-memory steps (32.6 on 27B, 91.9 on 9B) differ from Table 1's CoReMem w/o training (31.8, 95.1); App. E cites 'Table E' for what is Table 5; App. E text says SWEContextBench runs on the inherited tree and SWE-Bench-CL with the tree reset, but the Table 5 caption says the SCB next task opens at an independent checkout so only memory crosses; Table 5 writer instructions were adapted after observing the first runs on that set. Code 'available at an anonymous link' (no URL in text). Post-training: LoRA rank 16; 27B at update 20, 9B at a checkpoint after 12 updates ('pre-registered checkpoint', rule fixed in advance, no link), Gemma 8 updates; GPU compute not stated. Pre-registration: only of the checkpoint rule, no link. Programming language: Python",
+   "p": "2, 7-9, 14, 16-18",
    "rev": [
     {
      "round": 1,
@@ -228,9 +233,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Added a further reporting inconsistency: App. E text (p. 16-17) says SWEContextBench runs with the inherited tree and SWE-Bench-CL with the tree reset, while the Table 5 caption (p. 18) says the SCB next task opens at an independent checkout so only memory crosses; also the Table 5 writer instruction was changed after observing first runs on that set"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added one more reporting inconsistency of the same kind: the ablation's frozen with-memory steps (32.6 on 27B, 91.9 on 9B, p. 8) differ from Table 1's CoReMem w/o training (31.8, 95.1), from different replay windows"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -330,9 +340,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Requirements of the full method (LoRA post-training of open-weight actors, GPU/compute) are not stated, which could score No under the missing-information rule; Partly rests on the memory template alone being usable with any frozen agent at no training cost"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Requirements of the full method (LoRA post-training of open-weight actors with groups of 8 sessions per boundary, GPU/compute) are not stated, which could score No under the missing-information rule; Partly rests on the memory template alone being usable with any frozen agent at no training cost"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não indica o custo de computação do pós-treino LoRA; só o template de memória é usável sem treino. Decide se isso vale Partly ou se a falta de requisitos dá No."
   },
   {
    "f": "DARE1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498202",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2609.36319v1 [cs.AI], 28 Sep 2026 (pages headed 'Preprint'); no published venue found (no journal_ref in the arXiv export, not in the other exports)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (StateTape, write-conditioned context maintenance for coding agents via a symbol-level code graph, a tape of graph diffs and a small manager model); secondary: proposes an evaluation method (TraceBench benchmark of held vs needed context). Includes theoretical analysis and comparison with four baselines",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — StateTape, write-conditioned context maintenance for coding agents via a symbol-level code graph, a tape of graph diffs and a small manager model; plus TraceBench, a benchmark of held vs needed context. Includes a theoretical analysis and a comparison with Control and four baselines",
    "p": "1, 3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and the detail was in brackets)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: resolve rate % SWE-EVO / SlopCode / SWE-Pro (Table 1). Claude Code + Haiku 4.5: Control 25.0/4.6/26.3; Obs. masking 27.1/5.1/27.1; LLM summary 27.1/6.1/26.7; CORVUS 25.0/5.6/26.3; Text-only mgr 25.0/7.1/27.1; StateTape 29.2/8.1/27.8. Claude Code + Sonnet 5: Control 41.7/9.2/63.5; masking 41.7/10.2/65.0; summary 43.8/9.7/63.9; CORVUS 45.8/11.2/63.5; text-only 43.8/10.7/65.4; StateTape 47.9/12.8/68.4. Claude Code + Opus 4.8: Control 58.3/9.7/69.2; masking 58.3/10.7/71.1; summary 58.3/11.2/69.5; CORVUS 60.4/10.7/69.2; text-only 60.4/12.2/68.4; StateTape 62.5/12.8/71.4. Codex CLI + GPT-5.6 luna: Control 56.3/4.1/64.3; masking 58.3/4.6/65.8; summary 56.3/5.1/64.7; CORVUS 58.3/6.1/64.3; text-only 58.3/5.1/66.2; StateTape 60.4/6.6/67.7. Codex CLI + GPT-5.6 terra: Control 52.1/6.6/65.8; masking 54.2/7.1/67.7; summary 54.2/7.7/66.2; CORVUS 52.1/7.1/65.8; text-only 56.3/7.1/67.7; StateTape 58.3/8.2/68.4. Codex CLI + GPT-5.6 sol: Control 58.3/8.2/64.6; masking 60.4/8.7/69.2; summary 58.3/9.2/67.7; CORVUS 58.3/9.7/67.3; text-only 60.4/9.7/68.1; StateTape 62.5/10.2/69.5. StateTape quality: works (best in 18/18 cells, small gains); cost: works (manager 0.8-4.7% of agent tokens, Haiku 4.5 manager for Claude agents, GPT-5.4 nano for GPT agents). Ablations (Sonnet 5, ablation): w/o code graph 43.8/10.2/65.0 (CE 3.14); w/o tape 43.8/10.7/65.4 (CE 2.86); w/o manager 45.8/11.2/66.2 (CE 4.91). TraceBench: StateTape CE 6.18, RE 10.47, clears 74.2% unneeded, finds 68.1% missing with 6,502 added tokens per DP",
+   "v": "No success criterion for a configuration stated by the authors (resolve rate is reported per benchmark without a target), so quality and cost: no criterion stated by the authors for every entry. Resolve rate % SWE-EVO / SlopCode / SWE-Pro (Table 1). Claude Code + Haiku 4.5: Control 25.0/4.6/26.3; Obs. masking 27.1/5.1/27.1; LLM summary 27.1/6.1/26.7; CORVUS 25.0/5.6/26.3; Text-only mgr 25.0/7.1/27.1; StateTape 29.2/8.1/27.8. Claude Code + Sonnet 5: Control 41.7/9.2/63.5; masking 41.7/10.2/65.0; summary 43.8/9.7/63.9; CORVUS 45.8/11.2/63.5; text-only 43.8/10.7/65.4; StateTape 47.9/12.8/68.4. Claude Code + Opus 4.8: Control 58.3/9.7/69.2; masking 58.3/10.7/71.1; summary 58.3/11.2/69.5; CORVUS 60.4/10.7/69.2; text-only 60.4/12.2/68.4; StateTape 62.5/12.8/71.4. Codex CLI + GPT-5.6 luna: Control 56.3/4.1/64.3; masking 58.3/4.6/65.8; summary 56.3/5.1/64.7; CORVUS 58.3/6.1/64.3; text-only 58.3/5.1/66.2; StateTape 60.4/6.6/67.7. Codex CLI + GPT-5.6 terra: Control 52.1/6.6/65.8; masking 54.2/7.1/67.7; summary 54.2/7.7/66.2; CORVUS 52.1/7.1/65.8; text-only 56.3/7.1/67.7; StateTape 58.3/8.2/68.4. Codex CLI + GPT-5.6 sol: Control 58.3/8.2/64.6; masking 60.4/8.7/69.2; summary 58.3/9.2/67.7; CORVUS 58.3/9.7/67.3; text-only 60.4/9.7/68.1; StateTape 62.5/10.2/69.5. StateTape token cost (Table 4): manager 0.8-4.7% of main-agent tokens per cell, 2.6% summed (manager Haiku 4.5 for Claude agents, GPT-5.4 nano for GPT agents); only StateTape's cost is reported, not the baselines'. Ablations (Sonnet 5, ablation): w/o code graph 43.8/10.2/65.0 (CE 3.14); w/o tape 43.8/10.7/65.4 (CE 2.86); w/o manager 45.8/11.2/66.2 (CE 4.91). TraceBench: StateTape CE 6.18, RE 10.47, clears 74.2% unneeded, finds 68.1% missing with 6,502 added tokens per DP",
    "p": "8-10",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave StateTape 'quality: works (best in 18/18 cells)' and 'cost: works', judged against the other configurations and on the extractor's own threshold; the authors state no success criterion, so per the rule of 2026-11-23 the verdicts are replaced. All resolve-rate values checked against Table 1 (jumbled rows of Haiku 4.5, luna and terra resolved by column order); noted that Table 4 gives cost for StateTape only"
+    }
+   ],
    "warn": ""
   },
   {
@@ -173,9 +191,15 @@
   },
   {
    "f": "Comparison: did the method work",
-   "v": "Distinguished StateTape from baselines consistently in direction, but differences are a few points with no variance or significance reported; on SWE-EVO a gain of 2.1 points equals one instance (48 instances). Authors note resolve rate is a loose one-bit-per-instance signal, motivating TraceBench. TraceBench limitations: silver labels (LLM judge, no human verification yet), one agent on one suite, gold relative to reference patch",
+   "v": "Distinguished StateTape from baselines consistently in direction, but differences are a few points with no variance, repetitions or significance reported; the SWE-EVO end-to-end instance count is not stated, though all SWE-EVO values are multiples of 1/48 (2.08 points), which suggests 48 instances, i.e. about one instance per 2.1 points (extractor's inference). Authors note resolve rate is a loose one-bit-per-instance signal that moves 'by a few points', motivating TraceBench. TraceBench limitations: silver labels (LLM judge, human review queue not yet filled), one agent on one suite, base rates may not transfer, gold relative to the reference patch",
    "p": "18-19",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft stated 'one instance (48 instances)' as if from the text; the paper gives 48 SWE-EVO instances only for TraceBench (Claude Code + Opus 4.8), not for the end-to-end runs (the draft's own Size field says that count is Not stated). Kept as an inference and labelled so"
+    }
+   ],
    "warn": ""
   },
   {
@@ -271,10 +295,16 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors propose and evaluate their own approach",
+   "v": "Partly (0.5): authors created StateTape and TraceBench; the agents and models (Claude Code, Codex CLI, Claude and GPT-5.6 models) and the baselines (observation masking and LLM summary from Lindenbauer et al., CORVUS, AgentDiet-style manager) are not theirs, although the baselines were reimplemented in the authors' shim",
    "p": "1, 3",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The study evaluates Control and four third-party baselines besides StateTape (p. 8, App. D); §5 gives Partly when the author is vendor of only some of the approaches evaluated (same reading as other own-method-vs-third-party-baseline drafts)"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Q13",

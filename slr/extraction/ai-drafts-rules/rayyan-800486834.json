@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800486834",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "Os autores não usam os níveis de Böckeler; os documentos de design são uma 'constitution' (p. 2) e a worklist é atualizada ao longo do trabalho (p. 3). Escolhe não classificável, spec-first ou spec-anchored."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: production-quality outcomes (static metrics) and acceleration vs estimated traditional effort, with no success level stated; no independent acceptance tests. - Command coding + Claude Code + Claude Sonnet 4 / 4.5 (implementation; Sonnet 4 for docs), with GPT-4.1/5/5.1 and Gemini 2.5 Pro / 3 Pro via direct API for cross-model review: 88k SLOC in 41 working days; coverage 87%, type coverage 100%, 0 lint, 0 security issues, CC grade A (5.04), MI grade A (54.7); cost ~$41,500 (AI API ~$550); 25-40x estimated acceleration. Verdicts: quality and cost: no criterion stated by the authors",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); 'production-quality' is shown by static metrics with no thresholds, and cost is compared only with parametric estimates",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "doubt": "Falhas e a hipótese de contágio são relatadas com cautela (pp. 7-9), mas a conclusão diz 'validated through empirical application' (p. 10) e o 25-40x assenta num só caso e em estimativas. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q13",
+   "doubt": "Ferramentas comuns e custo de API baixo (~$550, p. 7) apontam para Yes; a exigência de engenheiros seniores com 5-10+ anos (p. 4) aponta para Partly. Decide se uma equipa típica tem esses seniores."
+  }
+ ]
+}

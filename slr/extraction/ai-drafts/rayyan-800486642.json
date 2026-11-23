@@ -106,7 +106,7 @@
      "why": "The paper cites Böckeler's levels for Spec Kit, Kiro and Tessl but never classifies its own framework; versioned specs with traceability for maintenance suggest spec-anchored, but nothing says spec.md is kept in sync with the code after the task, so 'not classifiable' is equally defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não classifica o próprio framework nos níveis de Böckeler nem diz se as specs se mantêm sincronizadas com o código após a tarefa (p. 1). Decide entre não classificável e spec-anchored."
   },
   {
    "f": "Task type",
@@ -231,7 +231,7 @@
      "why": "Q1 asks whether the aims OR research questions are clear; the draft scored Partly only because there are no RQs, although the aim is explicit. A reader who expects RQs in a tool paper could keep Partly."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O objetivo está explícito, mas não há questões de investigação. Decide se, num artigo de ferramenta, isso chega para Yes ou se fica Partly."
   },
   {
    "f": "Q2",
@@ -305,9 +305,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors created the framework presented",
+   "v": "N/A: proposes an approach and evaluates none (demonstration scenario only; rule of 2026-11-23)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; the paper has a demonstration scenario only (p. 4)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -326,7 +332,7 @@
      "why": "Partly rests on the named open-source stack and MCP integration; LLM, compute and cost requirements are not stated and code is only on request. Under 'missing information scores No' a stricter reader could score No (0)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A stack open-source e o MCP estão indicados, mas faltam requisitos de LLM, computação e custo, e o código só está disponível a pedido. Decide entre Partly e No (regra da informação em falta)."
   },
   {
    "f": "DARE1",

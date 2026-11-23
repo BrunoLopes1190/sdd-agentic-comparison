@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486519",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -87,9 +87,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Draft said N/A, but the approach is run, so the field applies; which of the form's categories (full workflow / single artefact) fits a non-SDD controller is a judgement for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The approach is run in full, so the field applies; which of the form's categories (full workflow / single artefact) fits a non-SDD cost controller (micro-skill manual plus tool pruning plus loop guard) is a judgement"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O TokenEconomizer não é SDD: injeta um manual de micro-skills, poda ferramentas e trava ciclos de falha. Decide se classificas como 'full workflow' (abordagem completa) ou 'single artefact' (manual injetado)."
   },
   {
    "f": "SDD level",
@@ -170,7 +175,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: Pass@1 (official grader) and paired cost change vs default high effort, 277 SWE-Bench tasks, 3 seeds (Table 1; mean, SD omitted here). Versions: Claude Code 2.1.170, Codex 0.153.1, Copilot CLI 1.0.84-7. Values: default Pass@1; then cost change / Pass@1 for medium effort; low effort; RTK; RepoMap; TE; TE+RTK; TE+RepoMap. - Claude Code + Sonnet 5: default 74.7; medium -26.6/70.0; low -45.5/65.1; RTK -1.1/73.1; RepoMap -1.4/74.1; TE -23.6/76.0; TE+RTK -23.5/76.4; TE+RepoMap -18.3/76.7. - Claude Code + Opus 4.8: default 74.0; medium -16.8/72.2; low -31.0/70.4; RTK -3.6/74.0; RepoMap +6.5/74.6; TE -30.9/73.0; TE+RTK -33.2/74.8; TE+RepoMap -24.9/75.1. - Codex + GPT-5.6 Terra: default 73.8; medium -25.7/69.6; low -33.0/65.3; RTK -4.7/74.3; RepoMap +3.1/70.0; TE -24.7/74.7; TE+RTK -23.8/75.2; TE+RepoMap -21.9/73.5. - Codex + GPT-5.6 Sol: default 80.1; medium -28.9/76.7; low -43.9/69.8; RTK +4.5/79.2; RepoMap -6.1/78.7; TE -26.1/81.7; TE+RTK -23.3/81.3; TE+RepoMap -29.2/79.0. - Copilot CLI + Sonnet 5: default 75.0; medium -25.4/72.6; low -41.9/65.9; RTK -8.9/76.9; RepoMap -3.3/74.9; TE -18.4/77.6; TE+RTK -13.2/77.4; TE+RepoMap -6.3/76.8. Verdicts per configuration on its own (absolute costs are not reported, so every cost verdict rests on the change vs default): Default (5 settings): quality works (73.8-80.1); cost not judgeable (reference, no absolute cost). TE (5): quality works (73.0-81.7); cost works (-18.4 to -30.9%, controller overhead included). TE+RTK, TE+RepoMap (5 each): quality works (73.5-81.3); cost works (-6.3 to -33.2%). Medium effort (5): quality works (69.6-76.7); cost works. Low effort (5): quality partly (65.1-70.4); cost works. RTK (5): quality works (73.1-79.2); cost partly (-8.9 to +4.5%). RepoMap (5): quality works (70.0-78.7); cost partly (-6.1 to +6.5%). Ablations (Claude Code, Table 2a, cost/Pass@1): Sonnet 5 micro-skills -11.8/77.3, tool pruning -13.2/74.3, failure-loop guard -7.1/76.2; Opus 4.8 -14.3/74.2, -17.7/73.5, -5.4/72.6; quality works, cost partly to works. Generalisation (Table 2b, TE cost change; default vs TE quality): Web-Bench Pass@2 Claude Code -21.2% (69.3 vs 73.3), Codex -16.0% (64.0 vs 66.5), Copilot -18.7% (60.8 vs 59.3): default and TE quality partly, TE cost works. CredData F1 -19.6% (67.9 vs 70.1), -16.5% (68.0 vs 69.2), -18.3% (68.2 vs 67.7): quality partly, TE cost works. ReposVul F1 -7.5% (17.5 vs 19.6), -6.4% (19.4 vs 20.1), -9.3% (21.6 vs 22.5): default and TE quality do not work (line-level F1 about 20), TE cost partly",
+   "v": "Success criterion: none stated by the authors (design objective App. E Eq. 6: success >= default success - epsilon, with no value of epsilon; results reported as cost change and success difference vs default). Metrics: Pass@1 (official grader) and paired cache-aware cost change vs default high effort (absolute costs not reported), 277 SWE-Bench tasks, 3 seeds (Table 1; mean, SD omitted here). Versions: Claude Code 2.1.170, Codex 0.153.1, Copilot CLI 1.0.84-7. Values: default Pass@1; then cost change / Pass@1 for medium effort; low effort; RTK; RepoMap; TE; TE+RTK; TE+RepoMap. - Claude Code + Sonnet 5: default 74.7; medium -26.6/70.0; low -45.5/65.1; RTK -1.1/73.1; RepoMap -1.4/74.1; TE -23.6/76.0; TE+RTK -23.5/76.4; TE+RepoMap -18.3/76.7. - Claude Code + Opus 4.8: default 74.0; medium -16.8/72.2; low -31.0/70.4; RTK -3.6/74.0; RepoMap +6.5/74.6; TE -30.9/73.0; TE+RTK -33.2/74.8; TE+RepoMap -24.9/75.1. - Codex + GPT-5.6 Terra: default 73.8; medium -25.7/69.6; low -33.0/65.3; RTK -4.7/74.3; RepoMap +3.1/70.0; TE -24.7/74.7; TE+RTK -23.8/75.2; TE+RepoMap -21.9/73.5. - Codex + GPT-5.6 Sol: default 80.1; medium -28.9/76.7; low -43.9/69.8; RTK +4.5/79.2; RepoMap -6.1/78.7; TE -26.1/81.7; TE+RTK -23.3/81.3; TE+RepoMap -29.2/79.0. - Copilot CLI + Sonnet 5: default 75.0; medium -25.4/72.6; low -41.9/65.9; RTK -8.9/76.9; RepoMap -3.3/74.9; TE -18.4/77.6; TE+RTK -13.2/77.4; TE+RepoMap -6.3/76.8. Ablations (Claude Code, Table 2a, cost/Pass@1): Sonnet 5 micro-skills -11.8/77.3, tool pruning -13.2/74.3, failure-loop guard -7.1/76.2; Opus 4.8 -14.3/74.2, -17.7/73.5, -5.4/72.6. Generalisation (Table 2b, TE cost change; default vs TE quality; Claude Code averages Sonnet 5 and Opus 4.8): Web-Bench Pass@2 Claude Code -21.2% (69.3 vs 73.3), Codex -16.0% (64.0 vs 66.5), Copilot CLI -18.7% (60.8 vs 59.3); CredData F1 -19.6% (67.9 vs 70.1), -16.5% (68.0 vs 69.2), -18.3% (68.2 vs 67.7); ReposVul F1 -7.5% (17.5 vs 19.6), -6.4% (19.4 vs 20.1), -9.3% (21.6 vs 22.5). Quality and cost verdict for every configuration above: no criterion stated by the authors",
    "p": "8-9, 25",
    "rev": [
     {
@@ -182,9 +187,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "All numbers checked against Tables 1-2 (p. 8-9). The paper reports only relative cost changes, so every cost verdict is necessarily relative to default and default's cost cannot be judged ('not judgeable' is outside works/partly/does not work); quality levels (e.g. CredData F1 about 68 'partly', SWE-Bench Pass@1 65-70 for low effort 'partly') are a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Previous rounds gave quality/cost verdicts (works/partly/does not work) on cut-offs the paper does not state. The authors' objective (App. E, Eq. 6, p. 18) is success >= default - epsilon, but epsilon is never given ('we do not select epsilon'), so under the 2026-11-23 rule every configuration is 'no criterion stated by the authors'. Metric values kept (re-checked against Tables 1-2, p. 8-9)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

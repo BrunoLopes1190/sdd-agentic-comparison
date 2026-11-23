@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486044",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; 'Preprint. February 2, 2026')",
+   "v": "Preprint — arXiv:2510.21903v2 [cs.SE], 29 Jan 2026 (marked 'Preprint. February 2, 2026', ICML-style layout); no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,21 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (ToM-SWE: dual-agent SWE agent + theory-of-mind agent with persistent user memory) and evaluates/compares it against CodeAct and RAG baselines (secondary: proposes an evaluation method, the Stateful SWE benchmark with profile-conditioned user simulators)",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — ToM-SWE (SWE agent + theory-of-mind agent with persistent user memory), evaluated and compared with CodeAct and RAGCodeAct baselines; also introduces the Stateful SWE benchmark with profile-conditioned user simulators",
    "p": "1-2, 4-5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format fixed (category first). Secondary nature is a judgement: the paper both introduces the Stateful SWE benchmark (evaluation method) and compares three agent variants (Compares); only one secondary is allowed."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature 'Proposes an approach' is clear. The secondary is a judgement: the paper introduces the Stateful SWE benchmark (evaluation method) and also compares three agent variants (Compares); only one secondary is allowed."
+    }
+   ],
+   "warn": "A natureza principal (propõe abordagem) é clara. Decide se a secundária é 'Proposes an evaluation method' (benchmark Stateful SWE) ou 'Compares' (CodeAct vs RAGCodeAct vs ToMCodeAct)."
   },
   {
    "f": "Approach(es): name and version",
@@ -152,9 +169,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: resolved rate on SWE-bench tests; satisfaction; acceptance. All benchmark runs on OpenHands; ToM agent model Claude Sonnet 4 in all benchmark runs.\n- Ambiguous SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 51.9%. Partly\n- Ambiguous - ToMCodeAct + OpenHands + Claude Sonnet 4: 63.4%. Works\n- Ambiguous - other model/agent bars (Claude 3.7 Sonnet, Qwen3-480B; also 'Original SWE Bench' panel): value in Fig. 4 only (labels jumbled: 68.0, 64.6, 60.6, 50.4, 46.2, 46.2, 40.9)\n- Stateful SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 18.1%, satisfaction 2.57±0.08. Does not work\n- Stateful - RAGCodeAct + Claude Sonnet 4: resolved value in Fig. 4 only; satisfaction 3.09±0.09. Partly\n- Stateful - ToMCodeAct + Claude Sonnet 4: 59.7%, satisfaction 3.62±0.07, F+H 21.5%. Works\n- Stateful - CodeAct + Claude 3.7 Sonnet: 18.7%, satisfaction 2.26±0.08. Does not work\n- Stateful - RAGCodeAct + Claude 3.7 Sonnet: 14.4%, satisfaction 2.32±0.08. Does not work\n- Stateful - ToMCodeAct + Claude 3.7 Sonnet: resolved value in Fig. 4 only; satisfaction 3.29±0.08. Partly\n- Stateful - CodeAct / RAG / ToM + Qwen3-480B: satisfaction 2.48 / 2.54 / 3.24; resolved values in Fig. 4 only\n- Single-agent ToM baseline (preliminary, N=100) + Claude Sonnet 4: 27.17% on Stateful. Does not work\n- Cost study (100 Stateful instances, ToM base model varied): GPT-5 nano 38.0% at $0.02/session; Claude Sonnet 4 adds $0.17/session (~16% overhead); others value in Fig. 5 only. Cost verdict: works (small overhead)\n- Field study - ToM + OpenHands CLI (model Not stated for field study): 174 suggestions, 86.2% accepted (74.1% full + 12.1% partial); Code Understanding 92.0%, Development 75.2%, Troubleshooting 82.5%, Other 79.4%. Works (no comparison)",
+   "v": "Metrics: resolved rate (SWE-bench unit tests), simulator satisfaction (1-5), F+H rate, acceptance rate. All benchmark runs on OpenHands; ToM agent model Claude Sonnet 4 in all benchmark runs.\n- Ambiguous SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 51.9%\n- Ambiguous - ToMCodeAct + OpenHands + Claude Sonnet 4: 63.4%\n- Ambiguous - other model/agent bars (Claude 3.7 Sonnet, Qwen3-480B; also 'Original SWE Bench' panel): values in Fig. 4 only (labels jumbled: 68.0, 64.6, 60.6, 50.4, 46.2, 46.2, 40.9)\n- Stateful SWE-bench - CodeAct + OpenHands + Claude Sonnet 4: 18.1%, satisfaction 2.57+/-0.08, F+H 8.8%\n- Stateful - RAGCodeAct + Claude Sonnet 4: resolved value in Fig. 4 only; satisfaction 3.09+/-0.09, F+H 14.0%\n- Stateful - ToMCodeAct + Claude Sonnet 4: 59.7%, satisfaction 3.62+/-0.07, F+H 21.5%\n- Stateful - CodeAct + Claude 3.7 Sonnet: 18.7%, satisfaction 2.26+/-0.08, F+H 3.7%\n- Stateful - RAGCodeAct + Claude 3.7 Sonnet: 14.4%, satisfaction 2.32+/-0.08, F+H 5.0%\n- Stateful - ToMCodeAct + Claude 3.7 Sonnet: resolved value in Fig. 4 only; satisfaction 3.29+/-0.08, F+H 19.3%\n- Stateful - CodeAct / RAG / ToM + Qwen3-480B: satisfaction 2.48 / 2.54 / 3.24; F+H 5.9 / 8.0 / 15.4%; resolved values in Fig. 4 only\n- Single-agent ToM baseline (preliminary, N=100) + Claude Sonnet 4: 27.17% on Stateful\n- Cost study (100 Stateful instances, ToM base model varied): GPT-5 nano 38.0% at $0.02/session; Claude Sonnet 4 adds $0.17/session (~16% of the $1.08 average SWE session cost); others in Fig. 5 only\n- Field study - ToM + OpenHands CLI (model Not stated): 174 suggestions, 86.2% accepted (74.1% full + 12.1% partial); Code Understanding 92.0%, Development 75.2%, Troubleshooting 82.5%, Other 79.4%\nQuality and cost verdicts for all entries: no criterion stated by the authors (success is defined per task or per suggestion, but no threshold for a configuration)",
    "p": "1-2, 5-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave works/partly/does-not-work verdicts without an author-stated threshold (rule of 2026-11-23); verdicts removed, values kept, and the F+H rates of Table 2 added for every configuration."
+    }
+   ],
    "warn": ""
   },
   {
@@ -166,10 +189,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "ToMCodeAct best on resolved rate and satisfaction for all models: Ambiguous +11.5 pp (63.4 vs 51.9, Claude 4); Stateful +41.6 pp (59.7 vs 18.1, Claude 4); satisfaction 3.62 vs 2.57 (+41%). RAG below ToM for all models, and below CodeAct with Claude 3.7 (14.4 vs 18.7). Significance of differences not tested (only ± values in Table 1); resolution-satisfaction correlation r = 0.74, p < 0.001",
+   "v": "ToMCodeAct best on resolved rate and satisfaction for all models: Ambiguous +11.5 pp (63.4 vs 51.9, Claude 4); Stateful +41.6 pp (59.7 vs 18.1, Claude 4); satisfaction 3.62 vs 2.57 (+41%). RAG below ToM for all models, and below CodeAct with Claude 3.7 (14.4 vs 18.7). Significance of resolved-rate and satisfaction differences not tested (only +/- values in Table 1); S+M rates (resolved, medium satisfaction, ~3%) reported as not significantly different across configurations; resolution-satisfaction correlation r = 0.74, p < 0.001",
    "p": "2, 6",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft said significance was not tested at all; footnote 3 (p. 6) reports a significance check on S+M rates (no significant difference), which was missing."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",

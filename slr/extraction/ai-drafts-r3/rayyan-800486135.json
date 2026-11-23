@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486135",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Paipuru, T. (2026). The Navigation Paradox in Large-Context Agentic Coding: Graph-Structured Dependency Navigation Outperforms Retrieval in Architecture-Heavy Tasks. arXiv:2602.20048v1 [cs.AI], 23 Feb 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2602.20048v1 [cs.AI], 23 Feb 2026; no published venue stated (paper appears unfinished)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher (personal gmail address)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — CodeCompass (MCP server exposing an AST-derived dependency graph to Claude Code), compared with Vanilla Claude Code and BM25-augmented prompting; also contributes a 30-task G1/G2/G3 benchmark and the ACS metric",
+   "p": "2-4",
+   "verdict": "uncertain",
+   "why": "Main nature 'Proposes an approach' (CodeCompass) is clear. The secondary is a judgement: the G1/G2/G3 benchmark and ACS are listed contributions (evaluation method), but the core result is a three-condition comparison (Compares).",
+   "doubt": "A natureza principal (propõe o CodeCompass) é clara. Decide se a secundária é 'Proposes an evaluation method' (benchmark G1/G2/G3 e métrica ACS) ou 'Compares' (três condições)."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CodeCompass (MCP server, FastMCP + Neo4j 5.15; tool get_architectural_context, plus semantic_search; version Not stated). Baselines: Vanilla Claude Code; Claude Code + top-10 BM25 file rankings prepended (Agentless-style). Claude Code version Not stated",
+   "p": "3, 6, 8, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "No specification artefacts. Structural code dependency graph (IMPORTS, INHERITS, INSTANTIATES edges from Python ast; 71 nodes, 255 edges); task prompt with instruction/checklist to call the graph tool first",
+   "p": "6, 8-9, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Build graph offline (AST -> Neo4j) -> agent calls get_architectural_context on the primary task file -> reads all returned 1-hop neighbours -> edits",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the experiment; author argues an SME should validate, augment and maintain the graph in production",
+   "p": "8, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact / tool (graph navigation context via MCP) within Claude Code headless runs",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification; code-derived navigation context)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (modification tasks on the FastAPI RealWorld example app)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "~3,500 lines, 40 source files (graph has 71 Python file nodes); 30 tasks (10 per group); 258 completed trials of 270 planned",
+   "p": "2, 5-6, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python web API (Medium-like blogging backend, FastAPI, repository pattern with dependency injection)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; automated harness)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money; FCTC steps and tool-call counts only)",
+   "p": "9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None of implementation correctness (no tests); completion rate = share of trials with ACS = 1.0",
+   "p": "10, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Architectural Coverage Score (ACS = share of gold-standard required files read or edited); First Correct Tool Call (FCTC, steps to first required file); MCP calls per trial (tool adoption); Veto Protocol events",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: harness/calculate_acs.py parses Claude Code JSONL transcripts (Read, Edit, Write, Bash paths) against manually verified gold-standard file lists",
+   "p": "5, 9, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors per trial: ACS >= 1.0 (complete coverage of required files); navigational coverage only, no correctness tests. No criterion stated for a configuration as a whole (e.g. a minimum completion rate). All with Claude Code + claude-sonnet-4-5, headless (claude -p). Cost not measured.\n- Vanilla Claude Code + Sonnet 4.5 (n=89): ACS G1 90.0+/-20.3%, G2 79.7+/-20.6%, G3 76.2+/-23.6%, overall 82.0+/-22.1%; completion (trials with ACS >= 1.0) 54% (48/89); FCTC 1.67\n- BM25-prepended + Claude Code + Sonnet 4.5 (n=81): G1 100.0+/-0.0%, G2 85.1+/-17.7%, G3 78.2+/-22.9%, overall 87.1+/-19.4%; completion 62% (50/81); FCTC 1.36; on G1 every trial met the criterion\n- CodeCompass graph + Claude Code + Sonnet 4.5 (n=88): G1 88.9+/-21.2%, G2 76.4+/-19.7%, G3 99.4+/-3.6%, overall 88.3+/-18.6%; completion 66% (58/88); FCTC 1.93 (G3 2.23 vs Vanilla 1.31). Tool adoption 42.0% overall (G1 22.2%, G2 0%, G3 100%); ACS 99.5% when used vs 80.2% when ignored\n- Ablation - prompt variant (CodeCompass, initial vs checklist-at-END prompt, G3 only): adoption 85.7% (30/35) -> 100% (31/31), G3 ACS 96.6% -> 99.4%\nQuality verdicts: no configuration-level criterion stated by the authors (per-trial criterion only). Cost verdicts: cost not measured",
+   "p": "10-12",
+   "verdict": "uncertain",
+   "why": "The authors state ACS >= 1.0 as the success criterion per trial (p. 10) but no completion rate a configuration must reach; values kept, no configuration verdict set. A reader could read the per-trial criterion as enough to give 'partly'.",
+   "doubt": "Os autores só definem sucesso por trial (ACS >= 1.0, p. 10), sem limiar por configuração. Decide se as taxas de 54-66% dão veredicto 'partly' ou 'no criterion stated', coerente com outros estudos."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 30 tasks on FastAPI RealWorld app, G1 semantic / G2 structural / G3 hidden. Configurations: A Vanilla, B BM25 top-10 prepended, C CodeCompass MCP. Baseline: A. Held constant: Claude Code, claude-sonnet-4-5, clean git checkout per trial, built-in tools. Not constant: prompt (C has extra tool instruction; G3 C prompt changed mid-study to checklist-at-END). Acceptance criterion: manually verified gold-standard file lists (no tests). Repetitions: 3 runs per task-condition (258/270 completed; 12 lost to API credit exhaustion). Human intervention: none (--dangerously-skip-permissions)",
+   "p": "5, 8-10, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "G3: CodeCompass 99.4% vs Vanilla 76.2% (+23.2 pp) and BM25 78.2%; Welch t-test C vs A t=5.23, C vs B t=4.83, both p<0.001. G1: BM25 best (100%). G2: CodeCompass worst (76.4% vs 79.7% and 85.1%), attributed to zero tool adoption plus prompt overhead. Overall completion C 66% > B 62% > A 54%; BM25 fastest FCTC. Significance only tested for G3",
+   "p": "10-12, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on G1 and G3; taxonomy claimed to have predictive validity. Repeatability: 3 runs, but G3 condition C prompt changed between runs. Limitations stated: single codebase; ACS is not correctness; prompt sensitivity (improvement partly reflects prompt design); single model",
+   "p": "10, 12, 14-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single Python codebase; ACS measures navigation not correctness; prompt sensitivity, tool call should be structurally enforced (tool_choice or planning agent); only claude-sonnet-4-5; graph unvalidated by experts, needs SME validation and maintenance; tool adoption is an open research problem",
+   "p": "13-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: discussion says tool-ignore rate 61% and adoption 38% vs 58.0%/42.0% in results; ACS when tool used 99.4% (p. 13) vs 99.5% (table); Vanilla G3 '80% ACS' (p. 13) vs 76.2%; '20 pp' vs 23.2 pp; abstract and Fig. 7 say +23.2 pp 'over both baselines', but over BM25 it is 21.2 pp (99.4 vs 78.2); G3 C SD +/-3.6% (table) vs +/-3.5% and +/-7.7% (text); Vanilla G3 SD given as 23.2% in the t-test text (p. 12) vs 23.6% in the table; contributions claim evaluation 'across 270 trials' (p. 3) though 258 completed. Values used from result tables (pp. 10-11). The G3 condition C values (n=31, above the 30 planned) come from the improved checklist-at-END prompt, introduced after 35 initial G3 trials (85.7% adoption, ACS 96.6%); which prompt the G1/G2 condition C trials used is not stated. Duplicate result directories from concurrent runners; most recent kept. Paper appears unfinished (references 'to be populated', Appendix A 'to be attached'). Code, tasks, harness and 258 transcripts at github.com/tpaip607/research-codecompass. Pre-registration: Not stated. Language: Python",
+   "p": "1, 9-16, 18, 21",
+   "verdict": "corrected",
+   "why": "Two further reporting inconsistencies were missing: Vanilla G3 SD 23.2% in the text vs 23.6% in the table (p. 12 vs p. 10), and '270 trials' in the contributions (p. 3) vs 258 completed.",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): Navigation Paradox hypothesis and contributions clearly stated",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): harness, conditions, metrics described; code, tasks and transcripts released",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model claude-sonnet-4-5 named; Claude Code version Not stated",
+   "p": "8, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): codebase and taxonomy described, tasks released on GitHub; task table not included in paper (to be attached)",
+   "p": "5-6, 9, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): ACS against author-built gold-standard file lists (manually verified by author); no correctness tests",
+   "p": "5, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): ACS, FCTC defined; no cost metrics and no correctness measure",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Vanilla and BM25 under same agent, model and repo state (prompt differs by design)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 3 runs per task, SDs, Welch t-tests (G3 only)",
+   "p": "10, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): G2 regression and low adoption reported, but discussion numbers contradict results and mid-study prompt change inflates G3 C",
+   "p": "11-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section",
+   "p": "14-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): author created CodeCompass (vendor of the approach); independent of Claude Code and BM25 baselines",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": "Settled by the rule: the author's own approach (CodeCompass) is compared with external baselines (Vanilla Claude Code, BM25), so Partly.",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): open-source MCP server, Python ast + Neo4j, works with Claude Code; low requirements, though cost not reported and graph needs SME maintenance",
+   "p": "6, 9, 14",
+   "verdict": "uncertain",
+   "why": "Tools are stated and common (Python ast, Neo4j 5.15, FastMCP, Claude Code), but no cost, compute or time figures are given and the author says production use needs SME validation and maintenance of the graph; Yes or Partly both defensible.",
+   "doubt": "As ferramentas são indicadas e acessíveis (ast, Neo4j, FastMCP, Claude Code), mas não há custos e o autor diz que o grafo exige validação e manutenção por um especialista. Decide entre Yes e Partly."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

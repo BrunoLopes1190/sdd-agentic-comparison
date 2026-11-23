@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800486206",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "doubt": "O artigo é um plano de doutoramento de duas páginas que descreve o fluxo driver-navigator num só parágrafo, sem avaliação. Decide entre 'Proposes an approach' e 'Conceptual'; se escolheres Conceptual, revê Q12."
+  },
+  {
+   "f": "SDD level",
+   "doubt": "O autor não usa termos de SDD; especificações e testes que 'constrain changes' na manutenção (p. 2) sugerem spec-anchored, mas o plano é demasiado curto. Escolhe spec-anchored ou não classificável."
+  },
+  {
+   "f": "Q9",
+   "doubt": "O artigo não tem resultados próprios; 'Initial results show' (p. 1) apoia-se em trabalhos anteriores do autor [2, 3]. Decide entre Partly, No e Yes."
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
+   "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; prior results of AutoReSpec/AutoJML are only cited",
+   "doubt": ""
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498129",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv); self-described 'design-and-experience report'",
+   "v": "Preprint — arXiv:2611.18571v1 [cs.SE] (dated 24 Jul 2026); self-described 'design-and-experience report'; no published venue in the paper or access log",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'. Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (Loop Engineering: six-part loop contract, versioned Skills, Harness, version-bound human gates); secondary: evaluates (artifact audit of one production deployment)",
+   "v": "Proposes an approach; secondary: Evaluates — Loop Engineering (six-part loop contract, versioned Skills, Harness, version-bound human gates), with an artifact audit of one production deployment (feasibility RQ1–RQ4)",
    "p": "1-2, 8-9",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>' (secondary value must be one of the listed natures, capitalised). Substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -77,8 +89,14 @@
    "f": "SDD level",
    "v": "Spec-first (a versioned plan approved before implementation; Builder implements 'the exact approved plan'); authors' wording: 'versioned plan', 'procedural contracts'. Plan not maintained as source of truth after release (not stated)",
    "p": "3, 7",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The approved artefact is a per-issue 'versioned, scoped plan' (pp. 3, 7) that the Builder must implement exactly; the paper never calls it a specification and does not say whether it is kept after release. Spec-first is defensible, but a reader could treat a task plan as not a specification and record 'not classifiable'."
+    }
+   ],
+   "warn": "O artefacto aprovado é um 'plano versionado' por issue, não chamado especificação. Decide se conta como spec-first ou se fica 'não classificável' (secções 3.3 e 4.2)."
   },
   {
    "f": "Task type",
@@ -152,10 +170,16 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "- Loop Engineering + agent n.s. + model n.s. (production deployment): 5 PRs reached exact-version test lock; 3 released to test with source-independent runtime evidence; 2 stopped before merge; one drift episode stopped correctly; Case C plan-to-evidence 8 h 59 min. Quality: partly (feasibility only, no success rate by design). Cost: not measured",
+   "v": "- Loop Engineering + agent n.s. + model n.s. (production deployment, MewDesign): 50 marker records across 26 work items; 5 PRs reached exact-version test lock; 3 released to test with source-independent runtime evidence (matching build, runtime identity, health, smoke); 2 stopped before merge; one head-drift episode stopped correctly (stale approval and CI not reused); Case C plan-to-test-evidence 8 h 59 min including human waiting. Quality: no criterion stated by the authors (they explicitly do not report a success rate). Cost: no criterion stated by the authors (only one elapsed time; active human labour, tokens and money not measured)",
    "p": "9-11",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft's 'Quality: partly' and 'Cost: not measured' were the extractor's own judgement; the authors state no study-level success criterion and explicitly refuse a success rate (p. 9), so per the 2026-11-23 rule the verdict is 'no criterion stated'. Unclear whether the per-release evidence gate (matching build, runtime identity, health, smoke) counts as an author-stated success criterion"
+    }
+   ],
+   "warn": "Os autores recusam taxa de sucesso, mas cada release tem um gate de evidência (build, runtime, health, smoke). Decide se esse gate é critério de sucesso (3 de 5 passaram) ou se fica sem critério."
   },
   {
    "f": "Comparison: design",

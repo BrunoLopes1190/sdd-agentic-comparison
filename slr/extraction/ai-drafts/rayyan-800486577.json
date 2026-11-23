@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "All entries Claude Code (version n.s.) + claude-haiku-4-5-20251001, effort=low; k=1 run per task. Format: LinuxFL recall@10 / tokens; SWE-Pro resolved / tokens; SWT reproducing / tokens; SecBench resolved / tokens. Cost verdicts judged on each configuration's own tokens and wall time per task (no money reported). (1) Baseline (no MCP): 0.717 / 1.01M; 49.0% / 3.12M; 44.7% / 1.67M; 28.9% / 684K; wall 66-269 s. Quality partly; cost works. (2) AST: 0.757 / 755K; 50.6% / 2.45M; 45.3% / 1.77M; 25.3% / 656K; wall 105-209 s. Quality partly; cost works. (3) Callgraph: 0.770 / 683K; 46.2% / 2.31M; 37.9% / 1.69M; 34.3% / 614K; wall 105-201 s. Quality partly (best SecBench, worst SWT); cost works. (4) Deps: 0.757 / 628K; 49.4% / 2.41M; 42.9% / 1.77M; 31.9% / 651K; wall 88-205 s. Quality partly; cost works. (5) Docs: 0.770 / 663K; 44.3% / 2.53M; 47.2% / 1.82M; 31.3% / 698K; wall 106-290 s. Quality partly; cost works (slowest on SecBench, 290 s). (6) Hybrid: 0.829 / 611K; 50.6% / 2.59M; 47.8% / 1.87M; 29.5% / 658K; wall 82-204 s. Quality partly (best FL, zero FL losses); cost works. Relative to baseline, wall time rises with all workflows on LinuxFL, SWT, SecBench (SecBench 66 s vs 136-290 s) and falls on SWE-Pro (269 s vs 194-209 s)",
+   "v": "All entries Claude Code (version n.s.) + claude-haiku-4-5-20251001, effort=low; k=1 run per task. Format: LinuxFL recall@10 / tokens; SWE-Pro resolved / tokens; SWT reproducing / tokens; SecBench resolved / tokens. No money reported. (1) Baseline (no MCP): 0.717 / 1.01M; 49.0% / 3.12M; 44.7% / 1.67M; 28.9% / 684K; wall 66-269 s. (2) AST: 0.757 / 755K; 50.6% / 2.45M; 45.3% / 1.77M; 25.3% / 656K; wall 105-209 s. (3) Callgraph: 0.770 / 683K; 46.2% / 2.31M; 37.9% / 1.69M; 34.3% / 614K; wall 105-201 s (best SecBench, worst SWT). (4) Deps: 0.757 / 628K; 49.4% / 2.41M; 42.9% / 1.77M; 31.9% / 651K; wall 88-205 s. (5) Docs: 0.770 / 663K; 44.3% / 2.53M; 47.2% / 1.82M; 31.3% / 698K; wall 106-290 s (slowest on SecBench, 290 s). (6) Hybrid: 0.829 / 611K; 50.6% / 2.59M; 47.8% / 1.87M; 29.5% / 658K; wall 82-204 s (best FL, zero FL losses). Relative to baseline, wall time rises with all workflows on LinuxFL, SWT, SecBench (SecBench 66 s vs 136-290 s) and falls on SWE-Pro (269 s vs 194-209 s). Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "5-8",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "The baseline entry had no quality or cost verdict (protocol §6). The cost verdicts were comparative ('works except SWT' because SWT tokens exceed the baseline), against the rule that each configuration is judged on its own; all six spend 0.61-3.12M tokens and 66-290 s per task with Haiku 4.5 (Tables III-VI, pp. 6-7), so the same verdict is given to all. 'Works' rather than 'partly' is a judgement: no money figure is reported. Values rechecked against Tables III-VI; per-configuration wall-time ranges added from the tables"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -303,7 +308,7 @@
      "why": "All five treatment workflows are the authors' own MCP servers (p. 4); only the no-MCP baseline (Claude Code native tools) is not. Partly if the baseline counts as an evaluated approach; No if only the treatments count"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os cinco servidores MCP comparados são dos autores (p. 4); só a linha de base sem MCP (ferramentas nativas do Claude Code) não é. Decide Partly (a linha de base conta como abordagem avaliada) ou No (só contam os tratamentos)."
   },
   {
    "f": "Q13",

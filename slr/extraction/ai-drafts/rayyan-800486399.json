@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486399",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "The paper says 'we propose a framework' (p. 1-2) for personalized skill generation and an interactive replay evaluation, and its core question is whether these skills help versus alternatives (p. 2, 5). 'Compares' or 'Proposes an approach' as main nature are both defensible; Q13 applies either way."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper says 'we propose a framework' for personalized skill generation and an interactive replay evaluation, and its core question is whether these skills help versus alternatives (A, C, D). 'Compares' or 'Proposes an approach' as main nature are both defensible; Q13 applies either way."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo diz 'propomos um framework' de skills personalizadas, mas a pergunta central é se ajudam face a alternativas. Escolhe Compares ou Proposes an approach como natureza principal; Q13 aplica-se em ambos os casos."
   },
   {
    "f": "Approach(es): name and version",
@@ -169,7 +174,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent = Codex CLI for all; 42 test sessions x 5 seeds = 210 replays; <= 6 turns. Criterion: mean LLM-judge score 0-100 (SD over seeds), follow-up rate, win/tie/loss vs A (Tables 1, 2, 5). Verdict rule (extractor's): quality works >= 70, partly 60-70, does not work < 60 (in line with the judge rubric, where 60-69 is 'partial success', p. 18). Cost measured only for the four Sol-low/Sol-low conditions (Table 6, agent tokens and execution time per replay), each judged on its own values; not measured for the other configurations.\nGenerator GPT-5.6 Sol-low:\n- (A) No skill + Codex CLI + GPT-5.6 Sol-low: 65.27 +/- 1.94; follow-up 24.76%; 442,096 tokens, 91.76 s. Quality partly; cost works\n- (B) Personalized + Codex CLI + GPT-5.6 Sol-low: 67.64 +/- 2.71 (p = .084); 30.95%; W/T/L 51.90/7.62/40.48%; 597,120 tokens, 106.16 s. Quality partly; cost works\n- (C) Random developer skill + Codex CLI + Sol-low: 67.75 +/- 3.68; 27.62%; W/T/L 50.95/10.48/38.57%; 521,219 tokens, 99.62 s. Quality partly; cost works\n- (D) Generic skill + Codex CLI + Sol-low: 68.38 +/- 1.72 (p = .003); 30.00%; W/T/L 55.71/7.62/36.67%; 643,578 tokens, 104.57 s. Quality partly; cost works\n- (E, ablation) Rule-based bootstrap only + Sol-low: 67.49 +/- 3.00. Quality partly; cost not measured\n- (F, ablation) Leave-one-out generic + Sol-low: 68.37 +/- 1.88. Quality partly; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-high: 68.59 +/- 4.39; 27.62%. Quality partly; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-high: 66.71 +/- 7.34; 25.71%. Quality partly; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-max: 70.22 +/- 1.33; 26.19%. Quality works; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-max: 72.04 +/- 2.18 (p = .031); 29.05%. Quality works; cost not measured\n- (A) + Codex CLI + GPT-6 Astra-medium: 65.40 +/- 3.35; 32.38%. Quality partly; cost not measured\n- (B) + Codex CLI + GPT-6 Astra-medium: 65.59 +/- 4.34; 37.14%. Quality partly; cost not measured\nGenerator GPT-6 Astra-medium (A rows are separate runs; cost not measured):\n- (A) / (B) + Sol-low: 63.26 +/- 1.15 / 63.07 +/- 0.62; follow-up 13.81% / 12.38%. Quality partly / partly\n- (A) / (B) + Sol-high: 63.14 +/- 4.08 / 66.41 +/- 5.90; 10.95% / 11.43%. Quality partly / partly\n- (A) / (B) + Sol-max: 71.43 +/- 2.82 / 72.33 +/- 3.62; 30.48% / 25.71%. Quality works / works\n- (A) / (B) + Astra-medium: 64.95 +/- 2.94 / 65.91 +/- 3.47; 35.71% / 28.10%. Quality partly / partly",
+   "v": "Agent = Codex CLI for all; 42 test sessions x 5 seeds = 210 replays; <= 6 turns. Criterion per replay: LLM-judge score 0-100 (SWE-chat rubric); also follow-up rate and win/tie/loss vs A (Tables 1, 2, 5). The authors state no success threshold for a configuration (the rubric's bands, e.g. 60-69 'partial success', p. 18, grade single replays), so quality verdict for every entry: no criterion stated by the authors. Cost measured only for the four Sol-low/Sol-low conditions (Table 6, agent tokens and execution time per replay); cost verdict: no criterion stated by the authors where measured, 'not measured' otherwise.\nGenerator GPT-5.6 Sol-low:\n- (A) No skill + Codex CLI + GPT-5.6 Sol-low: 65.27 +/- 1.94; follow-up 24.76%; 442,096 tokens, 91.76 s\n- (B) Personalized + Codex CLI + GPT-5.6 Sol-low: 67.64 +/- 2.71 (p = .084); 30.95%; W/T/L 51.90/7.62/40.48%; 597,120 tokens, 106.16 s\n- (C) Random developer skill + Codex CLI + Sol-low: 67.75 +/- 3.68; 27.62%; W/T/L 50.95/10.48/38.57%; 521,219 tokens, 99.62 s\n- (D) Generic skill + Codex CLI + Sol-low: 68.38 +/- 1.72 (p = .003); 30.00%; W/T/L 55.71/7.62/36.67%; 643,578 tokens, 104.57 s\n- (E, ablation) Rule-based bootstrap only + Sol-low: 67.49 +/- 3.00; cost not measured\n- (F, ablation) Leave-one-out generic + Sol-low: 68.37 +/- 1.88; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-high: 68.59 +/- 4.39; 27.62%; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-high: 66.71 +/- 7.34; 25.71%; W/T/L 47.62/7.62/44.76%; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-max: 70.22 +/- 1.33; 26.19%; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-max: 72.04 +/- 2.18 (p = .031); 29.05%; W/T/L 53.33/11.43/35.24%; cost not measured\n- (A) + Codex CLI + GPT-6 Astra-medium: 65.40 +/- 3.35; 32.38%; cost not measured\n- (B) + Codex CLI + GPT-6 Astra-medium: 65.59 +/- 4.34; 37.14%; W/T/L 47.62/12.86/39.52%; cost not measured\nGenerator GPT-6 Astra-medium (A rows are separate runs; cost not measured):\n- (A) / (B) + Sol-low: 63.26 +/- 1.15 / 63.07 +/- 0.62; follow-up 13.81% / 12.38%; B W/T/L 48.10/9.52/42.38%\n- (A) / (B) + Sol-high: 63.14 +/- 4.08 / 66.41 +/- 5.90; 10.95% / 11.43%; B W/T/L 55.24/10.95/33.81%\n- (A) / (B) + Sol-max: 71.43 +/- 2.82 / 72.33 +/- 3.62; 30.48% / 25.71%; B W/T/L 47.14/7.14/45.71%\n- (A) / (B) + Astra-medium: 64.95 +/- 2.94 / 65.91 +/- 3.47; 35.71% / 28.10%; B W/T/L 52.38/11.90/35.71%",
    "p": "5-8, 12",
    "rev": [
     {
@@ -181,9 +186,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Round 1 kept cost verdicts relative to A ('does not work (more tokens/time)' for B and D, 'partly' for C, none for A), which §6 rules out: each configuration is judged on its own. Cost now judged on each condition's own Table 6 values (about 0.44-0.64M agent tokens and 92-106 s per replay): 'works' is the extractor's judgement, no threshold set by the authors; 'not measured' added for configurations without cost data. All scores re-checked against Tables 1, 2, 5 and 6; C's win/tie/loss and time added from Tables 2 and 6."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 set its own quality cut (>= 70 works, 60-70 partly, < 60 does not work, borrowed from the per-replay rubric bands) and called cost 'works' on its own judgement; the rule of 2026-11-23 forbids extractor thresholds and the authors give none for a configuration. Verdicts replaced by 'no criterion stated by the authors'. Win/tie/loss for the other seven B rows added from Table 1 (column read by row order). Scores re-checked against Tables 1, 2, 5, 6."
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -242,9 +252,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "All prompts are given (Appendix F) and the filtering, splits and replay are described (p. 3-5), but the rule-based bootstrap generator's patterns are only sketched ('lightweight pattern-matching rules', p. 4), the 206-session subset is not listed and no code or data link is given. Yes or Partly both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All prompts are given (Appendix F) and the filtering, splits and replay are described, but the rule-based bootstrap generator's patterns are only sketched ('lightweight pattern-matching rules'), the 206-session subset is not listed and no code or data link is given. Yes or Partly both defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os prompts estão no Apêndice F, mas as regras do gerador bootstrap só são esboçadas, o subconjunto de 206 sessões não é listado e não há código nem dados. Decide entre Yes e Partly."
   },
   {
    "f": "Q3",
@@ -302,9 +317,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "The body and conclusion report the null and mixed results honestly (p. 6-8), but the abstract says 'task-specific skills are the most effective' (p. 1) although no task-specific skill was run and the generic skill was best, and the >= 6 relevant-sessions effect (Table 3, p. 7) rests on one seed, 12 tasks and no test. Partly as drafted; Yes if only the body is weighed."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The body and conclusion report the null and mixed results honestly, but the abstract says 'task-specific skills are the most effective' although no task-specific skill was run and the generic skill was best, and the >= 6 relevant-sessions effect (Table 3) rests on one seed, 12 tasks and no test. Partly as drafted; Yes if only the body is weighed."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O resumo diz que as skills 'task-specific' são as mais eficazes, mas nenhuma foi testada e a genérica foi a melhor; o efeito com 6 ou mais sessões assenta numa só seed. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -322,7 +342,7 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): independent of the agent/model vendors, but every skill condition evaluated (personalized, other-developer, generic, ablations) is produced by the authors' own skill-generation framework; only the no-skill baseline is not theirs",
+   "v": "Partly (0.5): independent of the agent and model vendors (Codex CLI, GPT, Claude judge); every skill condition (personalized, other-developer, generic, ablations) comes from the authors' own skill-generation framework and is compared with the no-skill baseline, which is not theirs",
    "p": "1-2",
    "rev": [
     {
@@ -334,9 +354,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Authors are independent of the agent and model vendors, but every skill condition compared (personalized, other-developer, generic, ablations) is produced by their own skill-generation framework (p. 2-5); only the no-skill baseline is not theirs. Under §5 that gives No; Partly is defensible if the generic and random-developer skills are not read as the authors' approach."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 scored No. The author's rule of 2026-11-23 (draft-verify): when the authors' own approach is compared with external baselines or other approaches, Q12 is Partly. Here the authors' skills are compared with a no-skill baseline, and the agent and models evaluated are from independent vendors."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q13",

@@ -1,0 +1,11 @@
+{
+ "key": "rayyan-800485920",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "- Accumulated-rules framework + two unnamed agent interfaces (IDE-integrated and terminal-based) + model not stated, production deployment: 0 recurrences in 74 post-rule session exposures across 9 error classes; review comments 66% architecture/API/performance vs 14% mechanical/style; 9/15 knowledge transfers crossed repository/tool boundaries. Criterion: authors' observation (no acceptance tests, no baseline). Quality: no criterion stated by the authors; cost: not measured (file ~6,250 tokens)",
+   "why": "Rule 1: quality verdict 'partly' was the extractor's judgement; the authors state no success criterion (observational, 'not a controlled experiment', p. 5). Values kept.",
+   "doubt": ""
+  }
+ ]
+}

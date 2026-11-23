@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498202",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yu, Z., Zhao, L., Zhu, B., Haque, H. (2026). StateTape: Action-Conditioned Evidence Lifecycle Modeling for Long-Horizon Coding Agents. arXiv:2609.36319v1 [cs.AI], 28 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.36319v1 [cs.AI], 28 Sep 2026 (pages headed 'Preprint'); no published venue found (no journal_ref in the arXiv export, not in the other exports)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Causal Dynamics Lab; Emory University (Yu, Zhao)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — StateTape, write-conditioned context maintenance for coding agents via a symbol-level code graph, a tape of graph diffs and a small manager model; plus TraceBench, a benchmark of held vs needed context. Includes a theoretical analysis and a comparison with Control and four baselines",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "StateTape (authors' own, no version). Baselines in the same shim: Control (unmodified agent), observation masking, LLM summary (Lindenbauer et al. 2025 settings), CORVUS, text-only manager in AgentDiet style",
+   "p": "3, 8, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Symbol-level code graph (symbols, call edges, bodies) updated at every write; tape logging drifted symbols per write; context records (text, referent, step); manager actions REFRESH / DROP (tombstone) / RERUN (stub) / KEEP; nine read-only manager skills. No specification artefact",
+   "p": "5-7, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per write: tape applies write to code graph -> computes drifted symbols (body changes and call-edge changes) -> nominates held records covering drifted symbols (no model call) -> manager (small LLM) decides REFRESH/DROP/RERUN/KEEP, evicts finished records, retrieves code up to two call hops from drifted symbols -> next agent request carries maintained context (Fig. 4)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automatic; TraceBench human review queue built but not yet filled)",
+   "p": "19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single mechanism: context maintenance inside the agent harness, run end to end on benchmarks",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context management; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: edit-heavy, long-horizon repository tasks (SWE-EVO version-to-version feature evolution, SlopCodeBench, SWE-bench Pro)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "TraceBench: 48 SWE-EVO instances from 7 repositories, 403 pre-edit decision points, trajectories median 71 / max 356 steps, gold hunks median 21 / max 379. End-to-end: SWE-EVO, SlopCodeBench (36 problems, all checkpoints), SWE-bench Pro; instance counts for SWE-EVO and SWE-bench Pro end-to-end runs Not stated",
+   "p": "4, 10, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories (benchmark suites); programming languages Not stated",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Main-agent tokens and manager tokens (millions, summed per benchmark) and manager/agent ratio; tokens added per decision point; held tokens",
+   "p": "8, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve rate (%) on SWE-EVO, SlopCodeBench, SWE-bench Pro",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "TraceBench: collateral efficiency CE (unneeded tokens cleared per needed token lost), retrieval efficiency RE, % unneeded tokens cleared, % missing tokens found, needed tokens lost per decision point; stale and unneeded token shares",
+   "p": "5, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark tests for resolve rate; token logs; TraceBench labels by deterministic rules plus an oracle LLM judge (gpt-5.4, seed 0), cl100k token counts ('silver' labels, no human verification)",
+   "p": "8, 18-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion for a configuration stated by the authors (resolve rate is reported per benchmark without a target), so quality and cost: no criterion stated by the authors for every entry. Resolve rate % SWE-EVO / SlopCode / SWE-Pro (Table 1). Claude Code + Haiku 4.5: Control 25.0/4.6/26.3; Obs. masking 27.1/5.1/27.1; LLM summary 27.1/6.1/26.7; CORVUS 25.0/5.6/26.3; Text-only mgr 25.0/7.1/27.1; StateTape 29.2/8.1/27.8. Claude Code + Sonnet 5: Control 41.7/9.2/63.5; masking 41.7/10.2/65.0; summary 43.8/9.7/63.9; CORVUS 45.8/11.2/63.5; text-only 43.8/10.7/65.4; StateTape 47.9/12.8/68.4. Claude Code + Opus 4.8: Control 58.3/9.7/69.2; masking 58.3/10.7/71.1; summary 58.3/11.2/69.5; CORVUS 60.4/10.7/69.2; text-only 60.4/12.2/68.4; StateTape 62.5/12.8/71.4. Codex CLI + GPT-5.6 luna: Control 56.3/4.1/64.3; masking 58.3/4.6/65.8; summary 56.3/5.1/64.7; CORVUS 58.3/6.1/64.3; text-only 58.3/5.1/66.2; StateTape 60.4/6.6/67.7. Codex CLI + GPT-5.6 terra: Control 52.1/6.6/65.8; masking 54.2/7.1/67.7; summary 54.2/7.7/66.2; CORVUS 52.1/7.1/65.8; text-only 56.3/7.1/67.7; StateTape 58.3/8.2/68.4. Codex CLI + GPT-5.6 sol: Control 58.3/8.2/64.6; masking 60.4/8.7/69.2; summary 58.3/9.2/67.7; CORVUS 58.3/9.7/67.3; text-only 60.4/9.7/68.1; StateTape 62.5/10.2/69.5. StateTape token cost (Table 4): manager 0.8-4.7% of main-agent tokens per cell, 2.6% summed (manager Haiku 4.5 for Claude agents, GPT-5.4 nano for GPT agents); only StateTape's cost is reported, not the baselines'. Ablations (Sonnet 5, ablation): w/o code graph 43.8/10.2/65.0 (CE 3.14); w/o tape 43.8/10.7/65.4 (CE 2.86); w/o manager 45.8/11.2/66.2 (CE 4.91). TraceBench: StateTape CE 6.18, RE 10.47, clears 74.2% unneeded, finds 68.1% missing with 6,502 added tokens per DP",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: three edit-heavy benchmarks + TraceBench (403 decision points from Claude Code + Opus 4.8 on 48 SWE-EVO instances). Configurations: 6 agent+model x {Control, 4 baselines, StateTape} = 108 cells + 3 ablations. Baseline: Control (unmodified agent). Held constant: agent, model, shim, Docker container, 90-min limit (30 min per SlopCodeBench checkpoint), no turn limit, single Apple M5 Pro host. Acceptance: benchmark tests. Repetitions: Not stated (apparently one run per cell). Human intervention: none",
+   "p": "4, 8, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "StateTape best in all 18 agent-benchmark cells; mean gain over Control +4.9 (SWE-EVO), +2.7 (SlopCode), +3.3 (SWE-Pro); Sonnet 5 gains most (6.2, 3.6, 4.9). Manager tokens 2.6% of agent tokens overall. Highest CE (6.18) and RE (10.47) on TraceBench. Ablation: removing code graph -3.37, tape -3.07, manager -1.97 points mean. No significance testing reported",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished StateTape from baselines consistently in direction, but differences are a few points with no variance, repetitions or significance reported; the SWE-EVO end-to-end instance count is not stated, though all SWE-EVO values are multiples of 1/48 (2.08 points), which suggests 48 instances, i.e. about one instance per 2.1 points (extractor's inference). Authors note resolve rate is a loose one-bit-per-instance signal that moves 'by a few points', motivating TraceBench. TraceBench limitations: silver labels (LLM judge, human review queue not yet filled), one agent on one suite, base rates may not transfer, gold relative to the reference patch",
+   "p": "18-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section in the main paper. Appendix E: TraceBench labels silver, one agent/one suite, base rates may not transfer to other scaffolds, gold context relative to the reference patch. Theorem 1 holds under a symbol-locality assumption",
+   "p": "7, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 1-4 jumbled in pdftotext; values rebuilt by row order within each agent block (Haiku 4.5 LLM summary/CORVUS rows and Table 4 token columns to be checked against the PDF). Model names (Opus 4.8, Sonnet 5, GPT-5.6 luna/terra/sol) given without version dates; Claude Code and Codex CLI versions not stated. No code or data repository link found in the text. No pre-registration. AI use statement: writing polish only. Programming language: Not stated",
+   "p": "8-10, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem, objectives and contributions explicit",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): method formalised and baseline settings given; manager prompts, benchmark subsets and code release not stated",
+   "p": "5-8, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agents (Claude Code, Codex CLI) and models named, no agent or harness versions",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks named, but instance counts for SWE-EVO and SWE-bench Pro end-to-end runs not stated; TraceBench availability not stated",
+   "p": "8, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): resolve rate by benchmark tests (TraceBench labels by LLM judge)",
+   "p": "8, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolve rate plus token cost of agent and manager; CE and RE defined",
+   "p": "5, 8, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Control and four baselines in the same shim",
+   "p": "8, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions, variance or significance tests reported",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): 'highest resolve rate in every setting' stated without uncertainty on small benchmarks; small gains not qualified in the main text",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats section; only TraceBench provenance and limitations paragraph in appendix",
+   "p": "19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created StateTape and TraceBench; the agents and models (Claude Code, Codex CLI, Claude and GPT-5.6 models) and the baselines (observation masking and LLM summary from Lindenbauer et al., CORVUS, AgentDiet-style manager) are not theirs, although the baselines were reimplemented in the authors' shim",
+   "p": "1, 3",
+   "verdict": "corrected",
+   "why": "The study evaluates Control and four third-party baselines besides StateTape (p. 8, App. D); §5 gives Partly when the author is vendor of only some of the approaches evaluated (same reading as other own-method-vs-third-party-baseline drafts)",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): low overhead (manager 0.8-4.7% of agent tokens, small models), runs inside an agent shim; requires symbol-level parsing and a harness shim, no released implementation stated, languages supported not stated",
+   "p": "8, 10, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

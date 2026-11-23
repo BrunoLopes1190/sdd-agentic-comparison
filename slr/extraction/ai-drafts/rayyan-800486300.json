@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486300",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Conference (ASE '26, ACM); arXiv v4 used",
+   "v": "Conference — ASE '26 (41st IEEE/ACM International Conference on Automated Software Engineering, ACM), DOI 10.1145/3832783.3834363; full text read from arXiv:2606.14061v4",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same type, but the value did not follow the required form '<type> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Compares (empirical study of repository representation modality, layout, depth and invocation stage across multimodal models; 4 RQs); secondary: proposes an approach (SeeRepo multimodal graph-visualisation tool)",
+   "v": "Compares; secondary: Proposes an approach — empirical study of repository representation modality (text, vision-only, text+vision), layout, depth and invocation stage across multimodal models (4 RQs); SeeRepo multimodal graph-visualisation tool built for the study",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same content, but the value did not follow the required form '<nature>; secondary: <nature> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: Pass@1 (unit tests) and cost per instance. Agent = Mini-SWE-Agent (+ SeeRepo), temperature 0, averaged over 3 runs, SWE-bench Verified 500 unless noted\n- Text + GPT-5-mini: 55.0%, 15 calls, 193,157 in tokens, $0.031. Quality partly, cost works\n- Vision-only + GPT-5-mini: 41.4%, 270,117 tokens, $0.044 (+42%). Does not work\n- Multimodal (SeeRepo) + GPT-5-mini: 55.4%, 144,403 tokens (-25%), $0.023 (-26%). Quality partly, cost works\n- Text + GPT-5.1: 51.0%, $0.1795; Multimodal + GPT-5.1: 48.8%, $0.0975 (-46%). Partly\n- Text + Kimi K2.5: 70.3% (Table 1) / 68.8% (Table 2), ~$0.12-0.13; Vision-only + Kimi K2.5: 55.0%, $0.1543; Multimodal + Kimi K2.5: 70.6%, $0.1229. Multimodal works\n- Text + Doubao-Seed-2.0-Lite: 51.0%, $0.019 / $0.0173; Vision-only + Doubao: 16.9%, $0.070 (+268%), does not work; Multimodal + Doubao: 52.0%, $0.0162. Partly\n- SWE-Rebench (110) + GPT-5-mini: text 25.45% $0.052; multimodal 26.36% $0.047. Does not work (quality)\n- SWE-QA + GPT-5-mini: text 66.8 $0.0107; multimodal 67.2 $0.0079. Partly\n- Layout ablation + GPT-5-mini: text-rendered graph 53.8% $0.027; graph 55.4% $0.023; nested 55.8% $0.025; tabular 56.2% $0.027 (ablation)\n- Depth ablation + GPT-5-mini: depth 1 54.4% $0.028; depth 2 55.8% $0.026; depth 3 55.4% $0.026; depth 4 57.2% $0.026; agent-decided 55.4% $0.023 (ablation)\n- Stage ablation + GPT-5-mini: localization 55.4% $0.023; repair 50.0% $0.029; patch validation 51.6% $0.030 (ablation)",
+   "v": "No success criterion stated by the authors (metrics: Pass@1 by unit tests, SWE-QA Overall Score, API calls, tokens, $ cost per instance). Agent = Mini-SWE-Agent (version n.s.; text-only baseline, or + SeeRepo), temperature 0, averaged over 3 runs, SWE-bench Verified 500 unless noted. For every entry below: quality and cost verdicts 'no criterion stated by the authors'\n- Text + GPT-5-mini: 55.0%, 15 calls, 193,157 in tokens, $0.031\n- Vision-only + GPT-5-mini: 41.4%, 270,117 tokens, $0.044 (+42%)\n- Multimodal (SeeRepo) + GPT-5-mini: 55.4%, 144,403 tokens (-25%), $0.023 (-26%)\n- Text + GPT-5.1: 51.0%, $0.1795\n- Multimodal + GPT-5.1: 48.8%, $0.0975 (-46%)\n- Text + Kimi K2.5: 70.3%, $0.1213 (Table 1) / 68.8%, $0.1270 (Table 2)\n- Vision-only + Kimi K2.5: 55.0%, $0.1543\n- Multimodal + Kimi K2.5: 70.6%, $0.1229\n- Text + Doubao-Seed-2.0-Lite: 51.0%, $0.019 (Table 1) / $0.0173 (Table 2)\n- Vision-only + Doubao: 16.9%, $0.070 (+268%)\n- Multimodal + Doubao: 52.0%, $0.0162\n- SWE-Rebench 2026.03 (110) + GPT-5-mini: text 25.45% $0.052; multimodal 26.36% $0.047\n- SWE-QA + GPT-5-mini: text 66.8 $0.0107; multimodal 67.2 $0.0079\n- Layout ablation + GPT-5-mini: text-rendered graph 53.8% $0.027; graph 55.4% $0.023; nested 55.8% $0.025; tabular 56.2% $0.027 (ablation)\n- Depth ablation + GPT-5-mini: depth 1 54.4% $0.028; depth 2 55.8% $0.026; depth 3 55.4% $0.026; depth 4 57.2% $0.026; agent-decided 55.4% $0.023 (ablation)\n- Stage ablation + GPT-5-mini: localization 55.4% $0.023; repair 50.0% $0.029; patch validation 51.6% $0.030 (ablation)",
    "p": "4-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Verdicts (works / partly / does not work) were the extractor's own judgement, partly made relative to the baseline; the authors state no success threshold, so per the 2026-11-23 rule they become 'no criterion stated by the authors'. Configurations that were grouped in one line (GPT-5.1, Kimi, Doubao) are split so each has its own entry; values checked against Tables 1-7"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,10 +205,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistency: text-only baselines differ between Table 1 and Table 2 (Kimi K2.5 70.3% vs 68.8%; Doubao input tokens 201,754 vs 185,311, cost $0.019 vs $0.0173); abstract says four models but RQ1 uses three. Tables rebuilt from pdftotext output (column values split across lines). Data and artefacts at https://doi.org/10.5281/zenodo.19229174. Pre-registration: Not stated. Language: Python",
+   "v": "Inconsistency: text-only baselines differ between Table 1 and Table 2 (Kimi K2.5 Pass@1 70.3% vs 68.8%, API calls 40 vs 41, input tokens 639,474 vs 691,141, cost $0.1213 vs $0.1270; Doubao input tokens 201,754 vs 185,311, cost $0.019 vs $0.0173); abstract says four models but RQ1 uses three. Abstract: input tokens reduced 'by up to 26%', but Table 2 gives at most -25% input tokens (26% is the cost reduction; Table 3, SWE-Rebench: -34.89%). Tables rebuilt from pdftotext output (column values split across lines). Data and artefacts at https://doi.org/10.5281/zenodo.19229174. Pre-registration: Not stated. Language: Python",
    "p": "1-2, 4-5, 10",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The Kimi K2.5 Table 1 vs Table 2 mismatch also covers API calls, input tokens and cost, not only Pass@1"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missed a reporting inconsistency: the abstract says input tokens are reduced 'by up to 26%', but Table 2 gives at most -25% input tokens on SWE-bench Verified (26% is the cost reduction; SWE-Rebench, Table 3, gives -34.89%)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",

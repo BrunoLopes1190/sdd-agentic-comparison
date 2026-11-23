@@ -58,7 +58,7 @@
      "why": "'Compares' fits the central question (p. 1), but the paper also builds a 'takeover benchmark' (Table 1, p. 4) and recommends that benchmarks report handoff debt (p. 8-9), so 'Proposes an evaluation method' could be read as main; the structured schema (contribution 4) could make 'Proposes an approach' the secondary. Q13 applies either way because the schema is proposed (§5)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Compara quatro vistas de handoff (p. 1), mas também cria um benchmark de takeover (Tabela 1, p. 4) e propõe um esquema estruturado (p. 2). Escolhe a natureza principal e a secundária; Q13 aplica-se sempre."
   },
   {
    "f": "Approach(es): name and version",
@@ -174,13 +174,18 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent = OpenHands-style runtime (native tool calling disabled; 4 h timeout, 500 steps) for all; predecessor Qwen3.6-27B. Criterion: official SWE-bench resolution; cost = median agent events and prompt tokens per takeover (local vLLM serving, no money cost). Values: solved rate; median events; median prompt tokens (Table 2). Each configuration judged on its own level, baseline included. Main study (181 runs each):\n- Repository only + OpenHands + Qwen3.6-27B (baseline): 46.4%; 99 events; 1.63M tokens. Quality partly; cost partly\n- Raw trace + OpenHands + Qwen3.6-27B: 52.5% (+6.1 pp, p=0.035); 41 (-59%); 811k (-50%). Quality partly; cost works\n- Summary notes + OpenHands + Qwen3.6-27B: 51.4% (+5.0, p=0.093); 53 (-46%); 602k (-63%). Quality partly; cost works\n- Structured notes + OpenHands + Qwen3.6-27B: 50.8% (+4.4, p=0.134); 55 (-44%); 660k (-60%). Quality partly; cost works\n- Repository only + OpenHands + gemma-4-31B-it (baseline): 42.5%; 49; 738k. Quality partly; cost works\n- Raw trace + OpenHands + gemma-4-31B-it: 49.2% (+6.6, p=0.029); 21 (-57%); 300k (-59%). Quality partly; cost works\n- Summary notes + OpenHands + gemma-4-31B-it: 44.2% (+1.7, p=0.678); 33 (-33%); 319k (-57%). Quality partly; cost works\n- Structured notes + OpenHands + gemma-4-31B-it: 43.6% (+1.1, p=0.815); 39 (-20%); 317k (-57%). Quality partly; cost works\n- Repository only + OpenHands + Devstral-Small-2-24B (baseline): 34.3%; 175; 3.94M. Quality partly (lowest of all); cost partly (highest of all)\n- Raw trace + OpenHands + Devstral-Small-2-24B: 49.2% (+14.9, p<.001); 73 (-58%); 1.66M (-58%). Quality partly; cost partly\n- Summary notes + OpenHands + Devstral-Small-2-24B: 43.6% (+9.4, p=0.005); 123 (-30%); 2.30M (-42%). Quality partly; cost partly\n- Structured notes + OpenHands + Devstral-Small-2-24B: 44.8% (+10.5, p<.001); 125 (-29%); 2.30M (-42%). Quality partly; cost partly\nRobustness (Qwen->Qwen, 40 points x 3 repeats, events/tokens only): repo only 102.5 events, 1.62M; raw trace 42 (-59%), 906k; summary 52 (-49%), 591k; structured 58 (-43%), 677k (Table 4). Predecessor robustness (Devstral successor): Gemma and Devstral predecessors also show 21-46% event reductions (Table 6)",
+   "v": "Agent = OpenHands-style runtime (native tool calling disabled; 4 h timeout, 500 steps) for all; predecessor Qwen3.6-27B. Criterion: official SWE-bench resolution; cost = median agent events and prompt tokens per takeover (local vLLM serving, no money cost). Values: solved rate; median events; median prompt tokens (Table 2). Main study (181 runs each):\n- Repository only + OpenHands + Qwen3.6-27B (baseline): 46.4%; 99 events; 1.63M tokens\n- Raw trace + OpenHands + Qwen3.6-27B: 52.5% (+6.1 pp, p=0.035); 41 (-59%); 811k (-50%)\n- Summary notes + OpenHands + Qwen3.6-27B: 51.4% (+5.0, p=0.093); 53 (-46%); 602k (-63%)\n- Structured notes + OpenHands + Qwen3.6-27B: 50.8% (+4.4, p=0.134); 55 (-44%); 660k (-60%)\n- Repository only + OpenHands + gemma-4-31B-it (baseline): 42.5%; 49; 738k\n- Raw trace + OpenHands + gemma-4-31B-it: 49.2% (+6.6, p=0.029); 21 (-57%); 300k (-59%)\n- Summary notes + OpenHands + gemma-4-31B-it: 44.2% (+1.7, p=0.678); 33 (-33%); 319k (-57%)\n- Structured notes + OpenHands + gemma-4-31B-it: 43.6% (+1.1, p=0.815); 39 (-20%); 317k (-57%)\n- Repository only + OpenHands + Devstral-Small-2-24B (baseline): 34.3%; 175; 3.94M\n- Raw trace + OpenHands + Devstral-Small-2-24B: 49.2% (+14.9, p<.001); 73 (-58%); 1.66M (-58%)\n- Summary notes + OpenHands + Devstral-Small-2-24B: 43.6% (+9.4, p=0.005); 123 (-30%); 2.30M (-42%)\n- Structured notes + OpenHands + Devstral-Small-2-24B: 44.8% (+10.5, p<.001); 125 (-29%); 2.30M (-42%)\nRobustness (Qwen->Qwen, 40 points x 3 repeats, events/tokens only): repo only 102.5 events, 1.62M; raw trace 42 (-59%), 906k; summary 52 (-49%), 591k; structured 58 (-43%), 677k (Table 4). Predecessor robustness (Devstral successor): Gemma and Devstral predecessors also show 21-46% event reductions (Table 6)\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "4, 6, 12, 13, 15",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Round 1 gave cost verdicts relative to repository-only and no cost verdict for the three baselines, against Â§6 (each configuration, baseline included, judged on its own). Cost verdicts now from absolute medians (under ~1M prompt tokens: works; above: partly); the threshold is a judgement. The double verdict 'partly / does not work' for Devstral repository-only reduced to one"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)"
     }
    ],
    "warn": ""
@@ -325,7 +330,7 @@
      "why": "Partly kept: one note-generation call (temperature 0, 1,600-token cap) plus deterministic fields, runnable with open-weight models (Appendix B, p. 15), but note-generation cost is excluded and not reported and no practitioner requirements are stated. Yes vs Partly is a judgement"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "As notas estruturadas exigem uma só chamada e correm com modelos abertos (Anexo B, p. 15), mas o custo de gerar as notas é excluído e não há requisitos para equipas. Decide entre Partly e Yes."
   },
   {
    "f": "DARE1",

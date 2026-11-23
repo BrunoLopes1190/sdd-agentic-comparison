@@ -38,7 +38,7 @@
      "why": "The text does not say which track of the ICSA companion volume this is (workshop, new-ideas or main companion track), so Workshop is possible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O texto não indica a track do volume companion do ICSA (workshop, new ideas ou principal). Confirma no IEEE Xplore ou no programa e escolhe Conference ou Workshop."
   },
   {
    "f": "Author affiliation",
@@ -180,7 +180,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent/harness Not stated for all. Study 1 Setup, 14-model schema: (a) Governed + agent n.s. + DeepSeek-Chat: completed, 5 min, OpenAPI lint 97, 0 violations, MI 78.50. Quality works; cost works. (b) Governed + n.s. + GPT-5-mini: completed, 2 min, lint 97, 0 violations, MI 78.26. Quality: works; cost: works. (c) Governed + n.s. + Kimi K2: completed, 7.9 min, lint 91, 0 violations, MI 77.30. Quality: works; cost: works. (d)-(f) Non-governed + n.s. + DeepSeek-Chat / GPT-5-mini / Kimi K2: all failed coverage and quality (typically 5-8 of 14 entities, no layer separation); per-model values Not stated. Quality: does not work; cost: not measured. Study 1, 118-model schema (governed only): (g) DeepSeek-Chat: failed, context overflow (177K tokens vs 128K limit). Quality: does not work; cost: does not work. (h) Kimi K2: 18/118, 0 violations, same MI. Quality: partly; cost: not measured. (i) GPT-5-mini: 10/118, 0 violations. Quality: partly; cost: not measured. Study 2 Extension (review feature, 1,936-line baseline): (j) Non-governed + Kimi K2: +244 lines vs governed, dMI -1.00, max complexity 13. Quality: partly (works functionally, degraded structure); cost: not measured. (k) Governed + Kimi K2: base lines, dMI +2.10, max CC 4. Quality: works; cost: not measured. (l) Non-governed + DeepSeek-Chat: +834 lines vs governed, dMI -1.99, CC 13. Quality: partly; cost: not measured. (m) Governed + DeepSeek-Chat: dMI +0.90, CC 4, fewest correction cycles. Quality: works; cost: not measured. (n) Non-governed + GPT-5-mini: +186 lines vs governed, dMI -1.43, CC 13. Quality: partly; cost: not measured. (o) Governed + GPT-5-mini: dMI +1.04, CC 4. Quality: works; cost: not measured",
+   "v": "Agent/harness Not stated for all. Study 1 Setup, 14-model schema (criterion stated by the authors: 'coverage and quality requirements', i.e. all schema models built with zero architectural violations): (a) Governed + agent n.s. + DeepSeek-Chat: completed, 5 min, OpenAPI lint 97, 0 violations, MI 78.50. Quality: works; cost: no criterion stated by the authors. (b) Governed + n.s. + GPT-5-mini: completed, 2 min, lint 97, 0 violations, MI 78.26. Quality: works; cost: no criterion stated by the authors. (c) Governed + n.s. + Kimi K2: completed, 7.9 min, lint 91, 0 violations, MI 77.30. Quality: works; cost: no criterion stated by the authors. (d)-(f) Non-governed + n.s. + DeepSeek-Chat / GPT-5-mini / Kimi K2: all failed coverage and quality (typically 5-8 of 14 entities, no layer separation); per-model values Not stated. Quality: does not work; cost: not measured. Study 1, 118-model schema (governed only, same criterion): (g) DeepSeek-Chat: failed, context overflow (177K tokens vs 128K limit). Quality: does not work; cost: no criterion stated by the authors. (h) Kimi K2: 18/118, 0 violations, same MI. Quality: partly; cost: not measured. (i) GPT-5-mini: 10/118, 0 violations. Quality: partly; cost: not measured. Study 2 Extension (review feature, 1,936-line baseline; no success criterion stated): (j) Non-governed + Kimi K2: +244 lines vs governed, dMI -1.00, max complexity 13; code functioned, structure degraded. Quality: no criterion stated by the authors; cost: not measured. (k) Governed + Kimi K2: base lines, dMI +2.10, max CC 4. Quality: no criterion stated by the authors; cost: not measured. (l) Non-governed + DeepSeek-Chat: +834 lines vs governed, dMI -1.99, CC 13. Quality: no criterion stated by the authors; cost: not measured. (m) Governed + DeepSeek-Chat: dMI +0.90, CC 4, fewest correction cycles. Quality: no criterion stated by the authors; cost: not measured. (n) Non-governed + GPT-5-mini: +186 lines vs governed, dMI -1.43, CC 13. Quality: no criterion stated by the authors; cost: not measured. (o) Governed + GPT-5-mini: dMI +1.04, CC 4. Quality: no criterion stated by the authors; cost: not measured",
    "p": "4-5",
    "rev": [
     {
@@ -192,9 +192,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Study 2 cost verdicts (j)-(o) rested on 'bloat', which is lines added relative to the governed counterpart (a comparison, and not a cost metric); no time, tokens or money are reported for Study 2, so cost is 'not measured'. Values checked against Tables I-II."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: Study 1 quality verdicts kept (the authors judge runs against 'coverage and quality requirements', p. 4); no cost criterion is stated, so cost verdicts given for (a)-(c) and (g) are replaced; Study 2 states no success criterion (MI and complexity changes have no threshold), so its quality verdicts are replaced; values kept"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Retirei os veredictos de custo e os de qualidade da fase Extension (sem critério dos autores); os da fase Setup ficaram ('coverage and quality requirements'). Confirma na secção IV se o linting exigido ao modo governed conta como critério."
   },
   {
    "f": "Comparison: design",
@@ -277,7 +282,7 @@
      "why": "The justification counted 'lines' as a cost metric. Lines added (bloat) is internal quality, as the round-2 corrections to Cost metrics and Evaluation already say, and Study 2 reports no cost. The score stays Partly."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
+   "warn": "A ronda 3 corrigiu a justificação: linhas adicionadas são qualidade interna, não custo, e o Study 2 não reporta custo. Confirma nas Tabelas I e II que a nota Partly se mantém."
   },
   {
    "f": "Q7",
@@ -342,7 +347,7 @@
      "why": "The toolchain (openapi-forge, openapi-js-generator) is the author's own and available only through an anonymised replication package, and money/token cost is not stated. Partly is defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O toolchain (openapi-forge, openapi-js-generator) é dos autores e só está no pacote de replicação anonimizado, e o custo em dinheiro ou tokens não é indicado. Decide entre Yes e Partly."
   },
   {
    "f": "DARE1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498173",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2609.16302v1 [cs.SE], 14 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (formulation of 'task-conditioned assurance envelopes': minimum-cost subset of prior assurance evidence that derives the supplied task obligations over a typed inference graph); secondary: evaluates (bounded evaluation on hand-specified graphs from preserved coding-agent outputs + 249-instance synthetic scalability benchmark). No coding agent is run",
+   "v": "Proposes an approach; secondary: Evaluates — formulation of 'task-conditioned assurance envelopes' (minimum-cost subset of prior assurance evidence that derives the supplied task obligations over a typed inference graph), evaluated in a bounded way on hand-specified graphs from preserved coding-agent outputs and a 249-instance synthetic scalability benchmark, against two diagnostic baselines (ALL, FLAT). No coding agent is run",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and inside the detail)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,10 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "No agent + model configurations; the unit is the selection method on frozen graphs. Criterion: closure validity (Eq. 1) and minimum cost. (1) Provenance-derived graphs, COMPOSITIONAL (exact search): Rust C local cost 2, trace cost 3; Rust B local cost 2, trace infeasible (no sufficient envelope); IronBlocks unique optimum cost 2; Pong R0 cost 1, R1 cost 2. Quality: works; cost: works. (2) Provenance-derived, FLAT: IronBlocks two cost-1 optima, both rejected by closure. Quality: does not work. (3) Benchmark, COMPOSITIONAL (CP-SAT): 234/267 proven optimal, 30 proven infeasible (F7), 3 valid but not proven optimal; no support failed closure; median support reduction F1 0.50, F3 0.80, F5 0.50, F6 0.60, F8 0.50, F2/F4 0 (curves in Fig. 3 only); median solve time <20 ms at n=500 (Fig. 4), but F3 with 10 alternatives per target timed out at n=100. Quality: works; cost: partly. (4) Benchmark, FLAT: false coverage in 135/267 evaluations (3,765 false roots), only in conjunction families F2, F4, F6, F7. Quality: does not work. (5) Benchmark, ALL: retains all leaves (reference for reduction). Quality: works; cost: does not work. Exact oracle: 111/126 completed, all agreed with CP-SAT; 15 n=20 compositional checks timed out",
+   "v": "No agent + model configurations; the unit is the selection method on frozen graphs. Success criterion stated by the author: closure validity, Eq. 1 ('Operationally, Eq. 1 is the acceptance criterion', p. 4), and minimum cost, Eq. 2. No criterion stated for solve time. (1) Provenance-derived graphs, COMPOSITIONAL (exact search): Rust C local cost 2, trace cost 3; Rust B local cost 2, trace infeasible (no sufficient envelope, correctly reported); IronBlocks unique optimum cost 2; Pong R0 cost 1, R1 cost 2; all supports closure-valid. Quality: works; cost: works (exact minimum). (2) Provenance-derived, FLAT: IronBlocks two cost-1 optima, both rejected by closure. Quality: does not work; cost: not judged (cheaper supports are invalid). (3) Benchmark, COMPOSITIONAL (CP-SAT): 234/267 proven optimal, 30 proven infeasible (all F7), 3 closure-valid but not proven optimal within 60 s; no support failed closure; median support reduction F1 0.50, F3 0.80, F5 0.50, F6 0.60, F8 0.50, F2/F4 0 (curves in Fig. 3 only); median solve time <20 ms at n=500 for every family (Fig. 4), but in the separate F3 sweep with 10 alternatives per target all three n=100 instances reached 60 s. Quality: works; cost: partly (3 optima not proven; solve time: no criterion stated by the authors). (4) Benchmark, FLAT: false coverage in 135/267 evaluations (3,765 false roots), all in conjunction families F2, F4, F6, F7 (every evaluation of those families), none in F1, F3, F5, F8. Quality: partly (valid only where no conjunction is required); cost: not judged. (5) Benchmark, ALL: retains all leaves (reference for the reduction metric). Quality: works (closure evaluated on all evidence); cost: no criterion stated by the authors for ALL (it is the reference, not a candidate for minimum cost). Exact oracle: 111/126 method-instance checks completed, all agreed with CP-SAT; 15 n=20 compositional checks timed out",
    "p": "5, 7-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Verdicts partly rested on the extractor's reading: FLAT on the benchmark was 'does not work' although it was valid in 132 of 267 evaluations; ALL got cost 'does not work' with no criterion for it; the COMPOSITIONAL cost 'partly' mixed an unproven-optimality criterion with solve time, for which no criterion is stated. Numbers checked and kept"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Numbers rechecked against the text and the rebuilt Table 2 (45+33+27+30 = 135 invalid; 3,765 false roots; 234 optimal, 30 infeasible, 3 unproven; 111/126 oracle checks). The verdicts still rest on reading Eq. 1 (closure) as the quality criterion and Eq. 2 (minimum cost) as the cost criterion; FLAT 'partly' on the benchmark and the COMPOSITIONAL cost 'partly' (3 optima unproven) are judgements another reader could make differently"
+    }
+   ],
+   "warn": "Os números estão certos; os veredictos assumem a Eq. 1 (fecho) como critério de qualidade e a Eq. 2 (custo mínimo) como critério de custo. Decide se FLAT no benchmark é 'partly' (válido em 132/267) ou 'does not work'."
   },
   {
    "f": "Comparison: design",

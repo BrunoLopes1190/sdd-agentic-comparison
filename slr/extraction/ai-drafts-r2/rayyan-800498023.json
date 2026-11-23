@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498023",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Kovács, Á. (2026). Squeez: Task-Conditioned Tool-Output Pruning for Coding Agents. arXiv:2604.04979v1 [cs.SE], 4 Apr 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2604.04979v1 [cs.SE], 4 Apr 2026; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "KR Labs (single author; kovacs@krlabs.eu); the paper does not say what kind of organisation KR Labs is",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — Squeez: LoRA-fine-tuned Qwen 3.5 2B that prunes a single tool output to the minimal verbatim evidence for a query, compared with zero-shot LLMs and heuristics; also introduces a benchmark of 11,477 examples with a 618-example curated test set",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Squeez-2B (Qwen 3.5 2B + LoRA; no version). Compared with zero-shot Qwen 3.5 35B A3B, Kimi K2, Qwen 3.5 2B base, and heuristics BM25, First-N, Last-N, Random (each keeping ~10% of lines)",
+   "p": "1, 3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None of the SDD kind. Input: focused extraction query + one raw tool observation; output: verbatim relevant lines wrapped in <relevant lines> tags (gold: line spans). Not specifications",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not a development flow. Pruning step inserted between a tool call and the agent's next reasoning step (vLLM-served model or CLI filter on piped output). Dataset pipeline: collect tool outputs, teacher LLM writes query and selects spans, manual curation of test set, LoRA fine-tuning",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the pruning flow; manual curation of the held-out test set (111 of 729 candidates excluded)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single component evaluated offline on single tool observations; no coding agent or full trajectory run",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context pruning for agents, no specification); author uses no SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (tool outputs from SWE-bench repository snapshots) plus synthetic tool outputs; offline pruning task, not issue resolution",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "11,477 examples (9,205 SWE-derived, 1,697 synthetic positives, 575 synthetic negatives), 27 tool types; split 10,508 train / 240 dev / 618 test; average input tokens per tool family 60 (python) to 3,418 (type check)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Coding-agent tool outputs: Python repositories from SWE-bench (file reads, grep, git, tests, linters, pip, curl) and synthetic TypeScript, Go, Rust, Java, Docker, Terraform, Kubernetes outputs",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Compression (fraction of input lines/tokens removed). No latency, tokens of a downstream agent or money; training on one NVIDIA A100 80GB",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Line-level precision, recall, tolerant F1 (fuzzy substring similarity >0.5), strict exact-text F1, exact match against gold spans; empty-output rate on negatives",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Qualitative error patterns (Table 5); recall-compression trade-off (Fig. 2)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic line matching of predictions against gold spans; gold spans produced by teacher LLM (openai/gpt-oss-120b); test set manually reviewed by the author",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "618-example held-out test set; no coding agent run (offline pruning of single tool observations). Success criterion: none stated by the authors (metrics compared against LLM-generated, manually curated gold spans). Values: precision; recall; strict F1; exact; F1 (tolerant); compression. Squeez-2B (Qwen 3.5 2B + LoRA, served with vLLM): 0.80; 0.86; 0.79; 0.49; 0.80; 0.92; empty output on 80% of 59 negatives. Quality and cost: no criterion stated by the authors. | Qwen 3.5 35B A3B zero-shot (OpenAI-compatible API): 0.74; 0.75; 0.70; 0.39; 0.73; 0.92; empty output on 7% of negatives. No criterion stated by the authors. | Kimi K2 zero-shot: 0.61; 0.53; 0.53; 0.30; 0.68; 0.94. No criterion stated by the authors. | Qwen 3.5 2B base zero-shot: 0.42; 0.53; 0.41; 0.19; 0.55; 0.82. No criterion stated by the authors. | BM25 (10%): 0.13; 0.22; 0.13; 0.01; 0.23; 0.90. No criterion stated by the authors. | First-N (10%): 0.07; 0.14; 0.08; 0.02; 0.16; 0.91. No criterion stated by the authors. | Random (10%): 0.07; 0.10; 0.07; 0.01; 0.20; 0.91. No criterion stated by the authors. | Last-N (10%): 0.05; 0.05; 0.04; 0.01; 0.14; 0.91. No criterion stated by the authors",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Held-out 618-example test set (split by repository / tool family). Configurations: Squeez-2B vs 3 zero-shot LLMs and 4 heuristics. Baseline: Qwen 3.5 2B base and heuristics. Held constant: same <query>/<tool output> prompt for all generative models; heuristics at ~10% of lines. Acceptance: gold spans. Repetitions: not stated (single run). Human intervention: N/A",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Squeez-2B best on precision, recall and F1: recall +11 pts vs Qwen 3.5 35B A3B (0.86 vs 0.75) and +33 vs 2B base, at the same 92% compression; heuristics far lower (BM25 recall 0.22). Negatives: 80% vs 7% (Qwen 35B) correct empty output. No significance test",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished all systems clearly. Repeatability: single run, no variance reported. Limitations stated: single observations not trajectories; span overlap misses valid alternative prunings; grep and lint labels noisier",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No downstream end-to-end task-completion evaluation; usefulness approximated by span overlap; noisier tool families (grep, lint); residual errors are adjacent over-selection",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 4 (p. 4) and Table 5 (p. 5) jumbled by pdftotext; Table 4 rebuilt by column order (rows Squeez-2B, Qwen 35B, Kimi K2, Qwen 2B base, BM25, First-N, Random, Last-N) and checked against text p. 4 (11 and 33 recall points, BM25 0.22). Gold labels are LLM-generated (gpt-oss-120b), test set manually curated. Model, dataset, evaluation code and CLI released (Apache 2.0): https://github.com/KRLabsOrg/squeez and Hugging Face. Abstract says \"92% of input tokens\" while compression is defined as fraction of input removed (line unit). Split counts 10,508 + 240 + 618 = 11,366, not the 11,477 released examples; the difference equals the 111 test candidates excluded in curation (10,508 + 240 + 729 = 11,477), so the total apparently still counts them (p. 3). No pre-registration. Language: Python (SWE-bench) plus synthetic multi-ecosystem",
+   "p": "1, 3-6",
+   "verdict": "corrected",
+   "why": "A reporting inconsistency was missing: the train/dev/test split (p. 3) does not add up to the stated benchmark total of 11,477.",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): task and contributions stated (no explicit RQs)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data pipeline, hyperparameters and hardware given; code, data and model released",
+   "p": "3-4, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (Qwen 3.5 2B/35B A3B, Kimi K2, gpt-oss-120b) without API versions or dates; vLLM version not stated",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark described and released on Hugging Face",
+   "p": "2-3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): gold spans written by a teacher LLM (gpt-oss-120b); the 618-example test set was manually curated (111 of 729 candidates removed, incl. incorrect annotations)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; cost only as compression, no latency or money",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): zero-shot LLMs and heuristics on the same test set and prompt",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run, no variance or tests",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow; end-to-end effect explicitly not claimed",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): author created Squeez; baselines are independent models",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): 2B model, one A100 for training, vLLM or CLI serving, open release under Apache 2.0",
+   "p": "1, 4, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

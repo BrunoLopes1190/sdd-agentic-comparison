@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498218",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2610.04838v3 [cs.AI], 10 Oct 2026; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form fixed to '<type> — <detail>' required by the verification rules; type unchanged (arXiv only, no venue in the paper)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (MemTrace, provenance-aware execution memory for long-horizon coding agents); secondary: compares (vs Native, Observation Masking, RepoGraph on three benchmarks and two harnesses)",
+   "v": "Proposes an approach; secondary: Compares — MemTrace, provenance-aware execution memory for long-horizon coding agents, compared with Native, Observation Masking and RepoGraph on three benchmarks (DeepSWE, SWE-EVO, SWE-Milestone) under two harnesses, plus ablations",
    "p": "1-3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form fixed to '<nature>; secondary: <nature> — <detail>' with the controlled values (draft had lower-case 'compares' and detail in parentheses). Substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Model deepseek-v4-flash-0731-high, 200K context, no step limit. Criterion: DeepSWE pass@1 / SWE-EVO Resolved / SWE-Milestone Score (Table 2). Codex CLI v0.144.4: (1) Native 35.4 / 47.8 / 28.6; wall-clock DeepSWE 42.02 min, SWE-EVO 30.00 min. Baseline. (2) Obs. Masking 34.5 / 65.2 / 24.4; 44.32 / 52.72 min. (3) RepoGraph (Python only) DeepSWE-Py 41.2 / 58.7 / Py 45.2; 34.67 / 34.22 min. (4) MemTrace 56.6 / 69.6 / 46.4 (milestone resolved 16.3); 54.17 / 82.05 min. Quality: works; cost: partly (slower under Codex). mini-swe-agent v2.4.6: (5) Native 48.7 / 52.2 / 34.5; 103.77 / 170.97 min. (6) Obs. Masking 26.6 / 23.9 / 24.9; 120.98 / 170.02 min. (7) RepoGraph DeepSWE-Py 32.4 / 30.4 / Py 30.8; 70.43 / 203.28 min. (8) MemTrace 66.4 / 63.0 / 48.3 (milestone resolved 19.4); 75.30 / 114.03 min. Quality: works; cost: works (faster than Native). Ablations (Codex CLI, ablation; SWE-EVO / DeepSWE): Trace Store only 65.2 / 32.1; w/o MTG 65.2 / 34.5; w/o RSG 69.6 / 44.2; full 69.6 / 56.6",
+   "v": "Model deepseek-v4-flash-0731-high for all, 200K context, no step limit; single run. Values: DeepSWE pass@1 (Python subset) / SWE-EVO Resolved, Fix, Apply / SWE-Milestone Score, Resolved (Table 2); mean wall-clock min per task DeepSWE / SWE-EVO (Table 6). No success criterion stated by the authors for any configuration, so no verdicts.\n- Native + Codex CLI v0.144.4 (baseline): 35.4 (32.4) / 47.8, 53.4, 97.8 / 28.6, 7.1; 42.02 / 30.00 min. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Obs. Masking + Codex CLI: 34.5 (38.2) / 65.2, 72.1, 97.8 / 24.4, 9.2; 44.32 / 52.72 min. Quality and cost: no criterion stated by the authors\n- RepoGraph + Codex CLI (Python tasks only): DeepSWE-Py 41.2 / 58.7, 68.8, 97.8 / Python Score 45.2, Resolved 8.3; 34.67 (34 Python tasks) / 34.22 min. Quality and cost: no criterion stated by the authors\n- MemTrace + Codex CLI: 56.6 (67.6) / 69.6, 70.6, 100.0 / 46.4, 16.3; 54.17 / 82.05 min. Quality and cost: no criterion stated by the authors\n- Native + mini-swe-agent v2.4.6 (baseline): 48.7 (47.1) / 52.2, 54.1, 95.7 / 34.5, 11.2; 103.77 / 170.97 min. Quality and cost: no criterion stated by the authors\n- Obs. Masking + mini-swe-agent: 26.6 (20.6) / 23.9, 33.6, 97.8 / 24.9, 8.2; 120.98 / 170.02 min. Quality and cost: no criterion stated by the authors\n- RepoGraph + mini-swe-agent (Python only): DeepSWE-Py 32.4 / 30.4, 37.9, 97.8 / Python Score 30.8, Resolved 0.0; 70.43 / 203.28 min. Quality and cost: no criterion stated by the authors\n- MemTrace + mini-swe-agent: 66.4 (64.7) / 63.0, 68.7, 93.5 / 48.3, 19.4; 75.30 / 114.03 min. Quality and cost: no criterion stated by the authors\n- Ablations (Codex CLI, ablation; SWE-EVO Resolved / DeepSWE pass@1, Table 3): Trace Store Only 65.2 / 32.1 (36/112, one task without score); w/o MTG 65.2 / 34.5; w/o RSG 69.6 / 44.2; full MemTrace 69.6 / 56.6. No criterion stated by the authors",
    "p": "7-9, 15",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft gave 'Quality: works; cost: partly/works' only to MemTrace, judged against Native (slower/faster); the authors state no success criterion, so per the 2026-11-23 rule the verdict is 'no criterion stated by the authors' for every configuration, each judged on its own. Added the Fix/Apply and Milestone Resolved values from Table 2 for the baselines"
+    }
+   ],
    "warn": ""
   },
   {
@@ -166,9 +184,15 @@
   },
   {
    "f": "Comparison: result",
-   "v": "MemTrace best primary metric in every benchmark-harness setting: DeepSWE +21.2 (Codex) / +17.7 (mini) points over best baseline; SWE-EVO +4.4 / +10.8; SWE-Milestone Score +17.8 / +13.8. Obs. Masking lower Fix Rate gap: higher Fix Rate than MemTrace under Codex (72.1 vs 70.6) but lower Resolved. Baselines sensitive to harness (Obs. Masking +17.4 under Codex, -28.3 under mini on SWE-EVO). No significance tests on performance",
-   "p": "8",
-   "rev": [],
+   "v": "Quality: MemTrace best primary metric in every benchmark-harness setting: DeepSWE pass@1 +21.2 (Codex) / +17.7 (mini) points over best baseline; SWE-EVO Resolved +4.4 / +10.8; SWE-Milestone Score +17.8 / +13.8. Partial-progress metrics mixed: Obs. Masking higher Fix Rate than MemTrace under Codex (72.1 vs 70.6); MemTrace lower Apply under mini (93.5 vs 97.8). Baselines sensitive to harness (Obs. Masking +17.4 over Native under Codex, -28.3 under mini on SWE-EVO). Cost (wall-clock, Table 6): MemTrace slower than Native under Codex (DeepSWE 54.17 vs 42.02 min; SWE-EVO 82.05 vs 30.00) but faster under mini-swe-agent (75.30 vs 103.77; 114.03 vs 170.97). No significance tests on performance",
+   "p": "8, 15",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft omitted the cost dimension: Table 6 wall-clock times show MemTrace slower than Native under Codex CLI and faster under mini-swe-agent"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,10 +211,21 @@
   },
   {
    "f": "Notes",
-   "v": "Table 2 and Tables 5-6 jumbled in pdftotext; values rebuilt by row order and cross-checked with text (Obs. Masking +17.4 / -28.3 on SWE-EVO; Fix Rate 72.1 vs 70.6; Apply 93.5 vs 97.8) and resolved counts (Codex DeepSWE: Native 40, Obs. 39, MemTrace 64 of 113). Only one backbone model (DeepSeek). DeepSWE Trace Store Only ablation on 112 tasks (one missing result). Code at https://github.com/theseus-labs-rsi/MemTrace. No pre-registration. Languages: five",
-   "p": "1, 8, 14-15",
-   "rev": [],
-   "warn": ""
+   "v": "Table 2 and Tables 5-6 jumbled in pdftotext; values rebuilt by row order and cross-checked with text (Obs. Masking +17.4 / -28.3 on SWE-EVO; Fix Rate 72.1 vs 70.6; Apply 93.5 vs 97.8), with the Δbest row and with resolved counts in Table 5 (e.g. Codex DeepSWE: Native 40, Obs. 39, MemTrace 64 of 113; SWE-EVO 22, 30, 27, 32 of 46). Minor rounding inconsistency: Obs. Masking + mini-swe-agent DeepSWE pass@1 is 26.6 in Table 2 but 30/113 resolved in Table 5 gives 26.5 (all other cells match their counts). Only one backbone model (DeepSeek). DeepSWE Trace Store Only ablation on 112 tasks (one missing result). Text says the two excluded SWE-EVO tasks already pass without changes (p. 7), appendix says they fail benchmark validation (p. 14). Code at https://github.com/theseus-labs-rsi/MemTrace. No pre-registration. Languages: six (Python, TypeScript, Go, JavaScript, Rust in DeepSWE; Java in SWE-Milestone)",
+   "p": "1, 7-8, 14-15",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said five languages; across the benchmarks there are six (Java appears in SWE-Milestone, Table 4). Added the inconsistency on why two SWE-EVO tasks were excluded"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Cross-check of Table 2 against Table 5 counts finds one mismatch not noted (Obs. Masking + mini-swe-agent DeepSWE 26.6 vs 30/113 = 26.5)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -229,10 +264,26 @@
   },
   {
    "f": "Q6",
-   "v": "Partly (0.5): quality metrics defined; cost only as wall-clock time, no tokens or money",
+   "v": "Yes (1): quality metrics defined (pass@1, Resolved, Fix, Apply, Score, Precision, Recall) and cost measured as mean wall-clock time per task; no tokens or money",
    "p": "7-8, 15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Draft gave Partly because cost is only wall-clock time. Q6 asks whether metrics cover both cost and quality; time is a cost metric in §6, so Yes is defensible, but a reader may want tokens or money for full marks"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Draft gave Partly because cost is only wall-clock time. Q6 asks whether metrics cover both cost and quality; time is a cost metric in §6, so Yes is defensible, but a reader may want tokens or money for full marks"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Quality metrics are defined and cost is measured only as mean wall-clock time per task (Table 6); no tokens or money. Time is a cost metric under §6, so Yes is defensible, but Partly is too"
+    }
+   ],
+   "warn": "O custo é medido só como tempo médio por tarefa (Tabela 6), sem tokens nem dinheiro. Decide se isso chega para Yes ou fica Partly."
   },
   {
    "f": "Q7",
@@ -252,8 +303,24 @@
    "f": "Q9",
    "v": "Partly (0.5): 'consistently outperforms' on single runs; mixed results (Fix Rate, Apply) reported",
    "p": "8",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: mixed results (Fix Rate, Apply, harness sensitivity) are reported honestly, but 'consistently outperforms' and 'more stable across harnesses' rest on single runs without variance; Partly or Yes both defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: mixed results (Fix Rate, Apply, harness sensitivity) are reported honestly, but 'consistently outperforms' and 'more stable across harnesses' rest on single runs without variance; Partly or Yes both defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Mixed results (Fix Rate, Apply, harness sensitivity) are reported, but 'consistently outperforms' and 'more stable across harnesses' rest on single runs with no variance or tests on performance. Partly or Yes"
+    }
+   ],
+   "warn": "Os resultados mistos são reportados, mas 'consistently outperforms' assenta numa só execução sem variância nem testes. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -271,17 +338,39 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors (incl. MemTensor company) propose and evaluate their own system",
+   "v": "Partly (0.5): authors (incl. MemTensor company) created MemTrace; baselines (Native harness, Observation Masking, RepoGraph) and harnesses (Codex CLI, mini-swe-agent) are by others",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "§5 Q12: Partly when the vendor rule applies to only some of the evaluated approaches; here only MemTrace is the authors' own, the three baselines are not. Same reading as other proposal-plus-baselines drafts"
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Q13",
    "v": "Partly (0.5): code released and works with existing harnesses and API model; needs persistent graph infrastructure, wall-clock up to 82 min per SWE-EVO task under Codex; full symbol-level support only for Python",
    "p": "1, 15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Feasibility is a judgement: code is released and runs on existing harnesses with an API model, but money/token cost is not stated and the infrastructure (persistent store, two graphs) and wall-clock up to 82 min per task may or may not be within a typical team's reach"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Feasibility is a judgement: code is released and runs on existing harnesses with an API model, but money/token cost is not stated and the infrastructure (persistent store, two graphs) and wall-clock up to 82 min per task may or may not be within a typical team's reach"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Code released and runs on existing harnesses with an API model, but token or money cost is not stated, it needs persistent graph infrastructure, wall-clock up to 82 min per SWE-EVO task under Codex, and symbol-level RSG only for Python. Judgement"
+    }
+   ],
+   "warn": "O código é público e usa harnesses existentes, mas não há custo em tokens/dinheiro e exige infraestrutura de grafos; até 82 min por tarefa. Decide se é viável para uma equipa típica (Partly ou Yes)."
   },
   {
    "f": "DARE1",

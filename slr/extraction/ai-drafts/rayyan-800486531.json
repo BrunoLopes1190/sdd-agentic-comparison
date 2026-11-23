@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486531",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -87,9 +87,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "The compaction strategies are run in full, so the field applies even though they are not SDD approaches; whether to record N/A or a form category (e.g. full workflow) for a non-SDD mechanism is a judgement for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The compaction strategies are run in full inside OpenCode, so the field applies even though they are not SDD approaches; whether to record N/A or a form category (e.g. full workflow) for a non-SDD mechanism is a judgement"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "As estratégias de compactação não são SDD mas são executadas por inteiro no OpenCode. Decide se registas N/A ou uma categoria do formulário (por exemplo 'full workflow')."
   },
   {
    "f": "SDD level",
@@ -176,7 +181,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: accuracy conditional on valid submission (bootstrap CIs) and, on ProgramBench, constraint erosion per compaction. Scaffold OpenCode for all; most accuracy values in Figs. 2-3 only. Threshold sweep 160K-380K (self-summarization baseline): - Claude Opus 4.6 (max effort): accuracy flat across thresholds on all benchmarks; erosion 0.51 of 3 rule categories per compaction, never all 3. Quality works; cost N/A. - GPT-5.4 (medium): accuracy flat (PaperBench about 0.59 at 160K); erosion 1.76 of 3 (all 3 in 25%). Quality partly (task score kept, rules lost). - GPT-5.3-Codex (400K window): PaperBench 0.38 at 160K -> ~0.60 at >=260K; ProgramBench flat; PostTrainBench inconclusive; erosion 2.73 of 3 (all 3 in 80%). Quality partly. - Gemini 3.1 Pro Preview: rarely compacts (~1 per run at 160K); uninformative; ProgramBench excluded (reward hacking). N/A. Strategies at 160K (no strategy better than baseline beyond CIs; ProgramBench: no strategy significantly changes performance): - Tool-output pruning: close to baseline for all models on PaperBench. Quality as baseline. - Filesystem offloading: near baseline for 1M models; GPT-5.3-Codex 0.38 -> ~0.24 on PaperBench. Partly. - Clear thinking: GPT-5.4 PaperBench 0.59 -> 0.43; no drop for Opus 4.6 and GPT-5.3-Codex. Partly. - Small-model summary (Haiku 4.5): Opus 4.6 within CI; GPT-5.4 0.59 -> 0.43; GPT-5.3-Codex 0.38 -> 0.18. Partly. Erosion not measured per strategy. Cost verdicts: N/A (no cost metric)",
+   "v": "Success criterion: none stated by the authors. Metrics: accuracy conditional on valid submission (bootstrap 95% CIs; most absolute values only in Figs. 2-3) and, on ProgramBench, constraint erosion per compaction (Table 3). Scaffold OpenCode for all (version not stated). Threshold sweep 160K-380K (self-summarization baseline): - Claude Opus 4.6 (max effort): accuracy similar across thresholds on all benchmarks; erosion 0.51 of 3 rule categories per compaction, >=1 dropped 43%, never all 3. - GPT-5.4 (medium): accuracy similar across thresholds (PaperBench 0.59 at 160K baseline); erosion 1.76 of 3 (>=1 90%, all 3 25%). - GPT-5.3-Codex (medium, 400K window): PaperBench 0.38 at 160K -> about 0.60 at >=260K; ProgramBench generally flat; PostTrainBench inconclusive (wide overlapping CIs); erosion 2.73 of 3 (>=1 99%, all 3 80%). - Gemini 3.1 Pro Preview (high): rarely compacts (1.00 compactions per run at 160K); uninformative; ProgramBench results excluded (reward hacking); not run on PostTrainBench. Strategies at 160K (no strategy better than baseline beyond CIs on any benchmark; ProgramBench: no strategy significantly changes performance): - Tool-output pruning: close to baseline for all models on PaperBench. - Filesystem offloading: near baseline on PaperBench for the 1M models; GPT-5.3-Codex 0.38 -> about 0.24. - Clear thinking: GPT-5.4 PaperBench 0.59 -> 0.43; no drop for Opus 4.6 and GPT-5.3-Codex. - Small-model summary (Haiku 4.5): Opus 4.6 within baseline CI; GPT-5.4 0.59 -> 0.43; GPT-5.3-Codex 0.38 -> 0.18. Erosion not measured per strategy; no cost metric. Quality and cost verdict for every configuration above: no criterion stated by the authors",
    "p": "6-7, 13, 20-22",
    "rev": [
     {
@@ -188,9 +193,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Numbers checked against the text (p. 6-7), Table 2 and Table 3. Absolute accuracies for most configurations exist only in Figs. 2-3, so verdicts cannot be checked against each configuration's own values; whether constraint erosion lowers the quality verdict (e.g. GPT-5.4 'partly', Opus 4.6 'works') and whether 'N/A' is acceptable as a cost verdict when no cost is measured are judgements for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Previous rounds gave quality verdicts (works/partly) on the extractor's own reading; the paper states no success criterion or threshold for accuracy or erosion (p. 5-7), so under the 2026-11-23 rule every configuration is 'no criterion stated by the authors'. Metric values kept (re-checked against p. 6-7 and Tables 2-3, p. 22)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

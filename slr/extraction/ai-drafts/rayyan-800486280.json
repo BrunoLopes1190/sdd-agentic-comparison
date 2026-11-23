@@ -1,13 +1,19 @@
 {
  "key": "rayyan-800486280",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
-   "v": "Hrubec, N., Cito, J. (2026). Reducing Token Usage of State-in-Context Agents using Minification. arXiv:2606.01326v1 [cs.SE], 31 May 2026",
+   "v": "Hrubec, N., Cito, J. (2026). Reducing Token Usage of State-in-Context Agents using Minification. In: Proceedings of the 2026 34th IEEE/ACM International Conference on Program Comprehension (ICPC '26), Rio de Janeiro, Brazil, pp. 537–546. ACM. https://doi.org/10.1145/3794763.3798174. Read from arXiv:2606.01326v1 [cs.SE], 31 May 2026",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The record has a published version (ICPC '26, ACM, DOI 10.1145/3794763.3798174, per slr/exports/acm-S2-2026-11-18.bib and the access log 'arXiv version of the DOI record'); the reference gave only the arXiv version"
+    }
+   ],
    "warn": ""
   },
   {
@@ -19,9 +25,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Conference — ICPC '26 (34th IEEE/ACM International Conference on Program Comprehension, ACM), DOI 10.1145/3794763.3798174; full text read from arXiv:2606.01326v1",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Was Preprint, but the paper is published at ICPC '26 (ACM export); a published paper read from arXiv keeps the venue type. Also the value did not follow the form '<type> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +45,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (semantics-preserving Python code minification for the repair prompt) and evaluates it against the non-minified agent; secondary: evaluates (independent replication of the DirectSolve state-in-context agent of Jiang et al.)",
+   "v": "Proposes an approach; secondary: Evaluates — semantics-preserving Python code minification for the repair prompt, evaluated against the non-minified agent; also an independent replication of the DirectSolve state-in-context agent of Jiang et al.",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same content, but the value did not follow the required form '<nature>; secondary: <nature> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +170,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: SWE-bench Verified resolution rate; cost by input tokens/USD. Agent = authors' re-implemented DirectSolve (no commercial agent), temperature 0.8, single run\n- DirectSolve no-minification + GPT-5-mini (full benchmark): 252 resolved (50.0%), avg input 90,535 tokens (SD 16,795). Quality partly, cost partly\n- DirectSolve + minification (all except dedent) + GPT-5-mini (full): 188 resolved (38.0%), avg input 52,776 (SD 13,697), -42% tokens. Quality partly, cost works. By difficulty: <15 min 65.0 -> 48.0%; 15 min-1 h 45.0 -> 35.0%; 1-4 h 19.0 -> 7.0%; >4 h 0 -> 0% (token reduction 39.4-42.8%)\n- Single-transformation ablations + GPT-4.1 (100 instances): no-minification 46% / 87,325 tokens / $0.1867; remove-imports 39% / $0.1775; merge-imports 45% / $0.1838; remove-blank-lines 41% / $0.1834; remove-comments 45% / 77,849 / $0.1674; remove-docstrings 43% / 68,202 / $0.1475; dedent 36% / $0.1828; reduce-operators 41% / 80,132 / $0.1715; short-vars 38%; short-funcs 42%; short-classes 45%; short-vars-map 43%; short-funcs-map 47%; short-classes-map 46% (ablation)\n- Stacked transformations + GPT-4.1 and + GPT-5-mini (100 instances): values in Fig. 3 only; text: with dedent resolution falls to 27% vs 47% baseline (model not specified) (ablation)",
+   "v": "No success criterion stated by the authors (metrics: SWE-bench Verified resolution rate; input tokens and USD cost). Agent = authors' re-implemented DirectSolve (no commercial agent), temperature 0.8, single run\n- DirectSolve no-minification + GPT-5-mini (full benchmark): 252 resolved (50.0%), avg input 90,535 tokens (SD 16,795). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- DirectSolve + minification (all except dedent) + GPT-5-mini (full): 188 resolved (38.0%), avg input 52,776 (SD 13,697), -42% tokens. By difficulty: <15 min 65.0 -> 48.0%; 15 min-1 h 45.0 -> 35.0%; 1-4 h 19.0 -> 7.0%; >4 h 0 -> 0% (token reduction 39.4-42.8%). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Single-transformation ablations + GPT-4.1 (100 instances): no-minification 46% / 87,325 tokens / $0.1867; remove-imports 39% / $0.1775; merge-imports 45% / $0.1838; remove-blank-lines 41% / $0.1834; remove-comments 45% / 77,849 / $0.1674; remove-docstrings 43% / 68,202 / $0.1475; dedent 36% / $0.1828; reduce-operators 41% / 80,132 / $0.1715; short-vars 38%; short-funcs 42%; short-classes 45%; short-vars-map 43%; short-funcs-map 47%; short-classes-map 46% (ablation)\n- Stacked transformations + GPT-4.1 and + GPT-5-mini (100 instances): values in Fig. 3 only; text: with dedent resolution falls to 27% vs 47% baseline (model not specified) (ablation)",
    "p": "5-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Verdicts 'quality partly, cost partly / works' were the extractor's own judgement; the authors state no success threshold, so per the 2026-11-23 rule they become 'no criterion stated by the authors'. Metric values unchanged (checked against Tables 1, 2, 4)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,10 +211,21 @@
   },
   {
    "f": "Notes",
-   "v": "Table 1: 252 resolved reported as 50.0% and 188 as 38.0%, but 252/500 = 50.4% and 188/500 = 37.6% (denominator not stated). Abstract says '12 percentage-point drop', text '12% absolute decrease'. Stacked-ablation baseline 47% (text) vs single-ablation baseline 46% (Table 4). Tables 2-4 rebuilt from pdftotext column order. Code public at github.com/ipa-lab/minified-state-in-context-agent. Pre-registration: Not stated. Language: Python",
+   "v": "Table 1: 252 resolved reported as 50.0% and 188 as 38.0%, but 252/500 = 50.4% and 188/500 = 37.6% (denominator not stated). Abstract says '12 percentage-point drop', text '12% absolute decrease'. Stacked-ablation baseline 47% (text) vs single-ablation baseline 46% (Table 4). Dedent: text says 'an 8% drop compared to no minification', but Table 4 gives 36% vs 46% (10 pp). By repository, text says token reductions 'mostly range from 50% to 70%', but Table 3 gives 30.1-56.8% (only 3 of 10 repositories at or above 50%). Tables 2-4 rebuilt from pdftotext column order. Code public at github.com/ipa-lab/minified-state-in-context-agent. Pre-registration: Not stated. Language: Python",
    "p": "1, 5-7",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Missed one reporting inconsistency: the dedent drop is '8%' in the text of §4.3.1 but 10 pp in Table 4"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missed a reporting inconsistency: §4.2 says repository-level token reductions 'mostly range from 50% to 70%', but Table 3 gives 30.1-56.8% (only 3 of 10 repositories at or above 50%)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -264,9 +299,15 @@
   },
   {
    "f": "Q11",
-   "v": "No (0): preprint [Check: the record has a published DOI (https://doi.org/10.1145/3794763.3798174); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "v": "Yes (1): published at ICPC '26 (ACM), DOI 10.1145/3794763.3798174; full text read from arXiv",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Was No (preprint); the paper is published in ICPC '26 per the ACM export, so it was peer-reviewed"
+    }
+   ],
    "warn": ""
   },
   {

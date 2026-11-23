@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498226",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; ACM journal-style template, venue Not stated)",
+   "v": "Preprint — arXiv:2610.11647v2 [cs.SE], 13 Oct 2026; ACM journal-style template, no venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form fixed to '<type> — <detail>' required by the verification rules; type unchanged (no published venue in the paper)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,26 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates (empirical study: repository mining of 20,947 repos for co-installed similar skills + controlled experiment of 6,368 Claude Code runs on 312 skill pairs); secondary: proposes an evaluation method (requirement-level core-function fidelity measure) and tests a mitigation (pre-tool hook guard)",
+   "v": "Evaluates; secondary: Proposes an evaluation method — empirical study: repository mining of 20,947 repositories for co-installed similar skills plus a controlled experiment (6,368 Claude Code runs on 312 skill pairs); proposes a requirement-level core-function fidelity measure; also tests the authors' own pre-tool hook guard as a mitigation",
    "p": "1, 3-4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Form fixed to '<nature>; secondary: <nature> — <detail>'. Open judgement: the guard hook is listed as a contribution and tested in its own randomized experiment (pp. 4, 12, 16), so 'Proposes an approach' could be the secondary nature instead of 'Proposes an evaluation method'; that choice also decides Q12 and Q13"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Form fixed to '<nature>; secondary: <nature> — <detail>'. Open judgement: the guard hook is listed as a contribution and tested in its own randomized experiment (pp. 4, 12, 16), so 'Proposes an approach' could be the secondary nature instead of 'Proposes an evaluation method'; that choice also decides Q12 and Q13"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature Evaluates (repository mining plus controlled experiment) is clear. The secondary is open: the fidelity measure is presented as a contribution (Proposes an evaluation method), but the guard hook is also a contribution tested in its own randomized experiment (pp. 4, 12, 16), which would make the secondary 'Proposes an approach'; that choice also decides Q12 and Q13"
+    }
+   ],
+   "warn": "A natureza principal (Evaluates) é clara. Decide a secundária: a medida de fidelidade (Proposes an evaluation method) ou o hook de guarda, testado em experiência própria (Proposes an approach); isto afeta Q12 e Q13."
   },
   {
    "f": "Approach(es): name and version",
@@ -82,10 +104,26 @@
   },
   {
    "f": "Task type",
-   "v": "Small synthetic starting repositories (at most 15 files) with an LLM-drafted request for the job of the installed skill; skills mined from real projects",
+   "v": "Existing code base (small, LLM-drafted synthetic starting repository of at most 15 files, one per case) with an LLM-drafted request for the job of the installed skill; skills mined from real projects",
    "p": "9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Draft did not choose between new project and existing code base. Each run starts from a prepared repository (≤15 files), so existing code base fits, but the repositories are tiny and synthetic"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Draft did not choose between new project and existing code base. Each run starts from a prepared repository (≤15 files), so existing code base fits, but the repositories are tiny and synthetic"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Each run starts from an LLM-drafted repository of at most 15 files (p. 9), so 'existing code base' fits formally, but the repositories are tiny and synthetic and many requests are documentation or process tasks"
+    }
+   ],
+   "warn": "Cada execução parte de um repositório sintético com até 15 ficheiros (p. 9). Decide se conta como 'existing code base' ou se a distinção não se aplica a estas tarefas."
   },
   {
    "f": "Size",
@@ -110,9 +148,15 @@
   },
   {
    "f": "Cost metrics",
-   "v": "Not used as outcome; study totals: 6.3 billion input and 110 million output tokens, about $5,550 at API prices, 542 h agent time",
+   "v": "Not used as outcome. Reported descriptively per configuration (Table 3): tool calls and hours of agent time, e.g. only A 24,617 calls / 81.3 h, only B 24,400 / 78.7 h, A+B 24,555 / 81.6 h, swapped 24,633 / 81.9 h, personal 6,891 / 22.3 h, plugin 6,749 / 22.8 h, A+C 25,234 / 68.8 h, guard experiment 18,192 / 54.0 h. Study totals: 6.3 billion input and 110 million output tokens, about $5,550 at API prices, 542.4 h agent time, 169,294 tool calls",
    "p": "10-11",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft gave only study totals; Table 3 also reports tool calls and agent hours per configuration (descriptive, not analysed)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -145,16 +189,28 @@
   },
   {
    "f": "How metrics are collected",
-   "v": "Automatic: scripts decide 327 of 921 primary core functions; output judge GPT-6 Astra (blinded to configuration) decides the rest and task completion; tool-call logs for skill use. Human validation: Krippendorff's alpha 0.71-0.88 between raters and LLM. Paired risk differences with 95% CIs over pairs, Holm correction",
+   "v": "Automatic: scripts decide 327 of 921 primary core functions; output judge GPT-6 Astra (blinded to configuration and to which skill is A) decides the other 594, undecidable script checks and all but 11 task-completion checks; tool-call logs for skill use. Human validation of every LLM-assisted step on random samples: Krippendorff's alpha 0.74-0.88 between the two raters and 0.71-0.84 between their consensus and the LLM (output judge: 0.78 core functions, 0.75 task completion, 0.84 disclosure). Paired risk differences with 95% CIs over pairs, Holm correction",
    "p": "11-12",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Draft gave alpha 0.71-0.88 'between raters and LLM'; p. 12 gives 0.74-0.88 between the raters and 0.71-0.84 between rater consensus and the LLM"
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent Claude Code 2.1.283; models Sonnet 4.6, Haiku 4.5 (20251001), Opus 5; pooled values (per-model values mostly in Fig. 4-6 only). Criterion: task completion, fidelity, use of A. (1) Only A: fidelity 57.3%, task completion 57.2%; 30.3% of runs do not use A. Baseline. (2) Only B: fidelity 46.3%, completion 58.1%. (3) A+B: use of A -19.9 pp, completion +1.9 pp (n.s.), fidelity -2.6 pp, exclusive core functions -5.6 pp; 12.1% runs use only B, 38.0% neither. Quality: partly (completion kept, fidelity lost). (4) A+C (unrelated): use of A -5.9 pp, fidelity -0.2 pp. Works. (5) Swapped order: use of A +0.6 pp vs A+B. (6) B personal scope (81 same-name pairs): use of A -35.0 pp, fidelity -3.9 pp. Does not work. (7) B plugin scope: B used in 2.9%, use of A -6.2 pp. Partly. (8) A+B with guard hook (187 pair-model combinations): switch to A after 96% of denials; exclusive fidelity +9.1 pp overall, +17.8 pp where both runs reached for B first; completion +4.1 pp (n.s.). Works. Per model in A+B: Opus 5 uses both skills in 36.8% of runs, neither in 15.5%; Haiku 4.5 neither in 56.4%. Codex check (gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, 193 pairs): use of A -18.2 pp, exclusive fidelity -3.4 pp. Cost verdict: N/A (cost not an outcome)",
+   "v": "Agent Claude Code 2.1.283; models Sonnet 4.6, Haiku 4.5 (20251001), Opus 5; pooled values (per-model values mostly in Fig. 4-6 only); one run per pair x configuration x model. Metrics: fidelity, task completion, use of A. No success criterion stated by the authors for any configuration, so no verdicts; cost per configuration only as agent hours and tool calls (Table 3).\n- Only A (baseline): fidelity 57.3%, task completion 57.2%; 30.3% of runs do not use A; 81.3 h. Quality and cost: no criterion stated by the authors\n- Only B: fidelity 46.3%, completion 58.1%; 78.7 h. Quality and cost: no criterion stated by the authors\n- A+B: use of A -19.9 pp, completion +1.9 pp (n.s.), fidelity -2.6 pp, exclusive core functions -5.6 pp vs only A; 12.1% of runs use only B, 38.0% neither; 81.6 h. Quality and cost: no criterion stated by the authors\n- A+C (unrelated skill): use of A -5.9 pp, fidelity -0.2 pp; 68.8 h. Quality and cost: no criterion stated by the authors\n- Swapped order: listing order changes use of A by +0.6 pp (renaming +4.4 pp); 81.9 h. Quality and cost: no criterion stated by the authors\n- B personal scope (81 same-name pairs): use of A -35.0 pp, fidelity -3.9 pp; 22.3 h. Quality and cost: no criterion stated by the authors\n- B plugin scope (81 pairs): B used in 2.9%, use of A -6.2 pp; 22.8 h. Quality and cost: no criterion stated by the authors\n- A+B with guard hook (187 pair-model combinations, vs without): switch to A after 96% of denials; exclusive fidelity +9.1 pp overall, +17.8 pp where both runs reached for B first; completion +4.1 pp (n.s.); 54.0 h for both arms. Quality and cost: no criterion stated by the authors\n- Per model in A+B: Opus 5 uses both skills in 36.8% of runs, neither in 15.5%; Haiku 4.5 neither in 56.4%\n- Codex check (gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, 193 pairs): use of A -18.2 pp, exclusive fidelity -3.4 pp, task completion not lowered. No criterion stated by the authors",
    "p": "8, 10-16",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft gave verdicts (partly / works / does not work) judged against the only-A baseline; the authors state no success criterion, so per the 2026-11-23 rule every configuration gets 'no criterion stated by the authors'. Draft also said cost N/A, but Table 3 gives agent hours per configuration"
+    }
+   ],
    "warn": ""
   },
   {
@@ -222,10 +278,26 @@
   },
   {
    "f": "Q5",
-   "v": "Partly (0.5): checks fixed before runs and decided by scripts or a blinded LLM judge validated by humans (alpha 0.75-0.83); most core functions judged by LLM rather than tests",
+   "v": "Partly (0.5): checks fixed before runs and decided by scripts (327 of 921 core functions) or a blinded LLM judge validated by two human raters (consensus-LLM alpha 0.78 on core functions, 0.75 on task completion); most core functions judged by LLM rather than tests",
    "p": "11-12",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Checks are fixed before any run and decided by scripts (327 of 921) or a blinded LLM judge validated against two human raters (alpha 0.75-0.83); whether this counts as a fully independent criterion (Yes) or Partly because most checks rest on an LLM judge is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Value kept, alpha figures fixed (draft said 0.75-0.83, which mixes rater-rater and rater-LLM values, p. 12). Whether a blinded, human-validated LLM judge counts as an independent criterion (Yes) or Partly is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Checks fixed before runs; scripts decide 327 of 921 primary core functions and a blinded LLM judge the rest and almost all task completion, validated by two human raters (consensus-LLM alpha 0.78 core functions, 0.75 task completion, p. 12). Whether a validated blinded LLM judge counts as an independent criterion (Yes) or Partly is a judgement"
+    }
+   ],
+   "warn": "A maioria das verificações é decidida por um juiz LLM cego, validado por dois avaliadores humanos (alfa 0,75-0,78). Decide se isso conta como critério independente (Yes) ou só Partly."
   },
   {
    "f": "Q6",
@@ -273,15 +345,47 @@
    "f": "Q12",
    "v": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Authors are not vendors of Claude Code, Codex or the skills, but they created the guard hook that the study evaluates in its own experiment; under §5 that could make Q12 Partly. Depends on whether the guard counts as an evaluated approach (see Nature)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Authors are not vendors of Claude Code, Codex or the skills, but they created the guard hook that the study evaluates in its own experiment; under §5 that could make Q12 Partly. Depends on whether the guard counts as an evaluated approach (see Nature)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Authors are not vendors of Claude Code, Codex or the skills studied, but they created the guard hook evaluated in its own experiment; under §5 that could make Q12 Partly. Depends on the Nature decision"
+    }
+   ],
+   "warn": "Os autores não são fornecedores do Claude Code nem das skills, mas criaram o hook de guarda que avaliam. Decide Yes ou Partly, coerente com a natureza escolhida."
   },
   {
    "f": "Q13",
    "v": "N/A (evaluates, does not propose an approach; the guard is a mitigation tested within the study)",
    "p": "—",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "N/A holds if the study only evaluates; if the guard hook counts as a proposed approach, Q13 applies and would likely be Yes (a pre-tool hook in Claude Code, no extra compute), though its cost is not stated"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "N/A holds if the study only evaluates; if the guard hook counts as a proposed approach, Q13 applies and would likely be Yes (a pre-tool hook in Claude Code, no extra compute), though its cost is not stated"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "N/A if the study only evaluates; if the guard hook counts as a proposed approach, Q13 applies and would likely be Yes (a pre-tool hook in Claude Code, no extra compute), though its cost is not stated separately"
+    }
+   ],
+   "warn": "Se o hook de guarda contar como abordagem proposta, Q13 aplica-se e seria provavelmente Yes (um hook simples, sem custo extra). Caso contrário fica N/A."
   },
   {
    "f": "DARE1",

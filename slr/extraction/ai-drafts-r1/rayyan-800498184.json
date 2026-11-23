@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498184",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Fan, L., Shi, Y., Li, Y., Sun, C., Chen, X., Xu, X., Wei, H., Ni, S., Yang, M., Ye, J. (2026). VibeMemBench: Evaluating Memory Systems for Coding Agents on Real Repository Coding Tasks. arXiv:2609.23570v1 [cs.SE], 20 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.23570v1 [cs.SE], 20 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences; Alibaba Token Hub, Alibaba Group; Alibaba Group; SUAT",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — VibeMemBench benchmark, SIEVE construction pipeline and matched memory-intervention protocol; compares frozen verified experience and four existing memory systems against memory off, across solver models",
+   "p": "1-2",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and the detail was in brackets)",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Persistent memory conditions for coding agents: (a) frozen verified experience (authors' distilled 4-field record); (b) existing memory systems Mem0, SimpleMem, MemoryOS, A-MEM (versions Not stated); (c) irrelevant-memory control; baseline memory off. Agent: MiniSWEAgent (version Not stated)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Experience record with bug class, root cause, fix pattern, reusable lesson (frozen verified experience), injected as a delimited block before the problem statement; memory-system records (raw transcript chunks for MemoryOS/A-MEM, LLM-extracted facts for Mem0/SimpleMem), top-1 injected; condition contract and run manifest. No specification artefact",
+   "p": "5-6, 10, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Construction (SIEVE): source task validation -> history-target patch-pattern screen (<=24 candidates, LLM judge) -> reference history runs + target-aware experience distillation -> verify uplift with 4 seeds and freeze. Evaluation: memory off vs memory on run of the same target, agent, tools, sandbox and budget; memory systems ingest full eligible history, then a target query retrieves one record injected before the run (not online memory)",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (construction uses LLM judges and scripts; failure attribution by deterministic script with LLM-judge audit)",
+   "p": "5, 9-10, 20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (injected memory/experience record) within an otherwise fixed agent run",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (persistent memory for coding agents; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-style repository tasks from SWE-rebench V2 (bug fixes 29.7%, feature 20.7%, API 19.8%, parser 14.4%, error handling 8.1%, config 7.2%)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "111 targets from 90 repositories; 3,634 history trajectories; 444 target-seed runs per condition (4 seeds); history per target from 1-5 to 200+ trajectories (Fig. 4)",
+   "p": "1, 4-5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories in nine languages: Python 50.5%, JS 14.4%, Go 10.8%, Rust 9.0%, other 15.3% (TypeScript, Swift, Kotlin, Java, PHP)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Solver input and output tokens per run; agent steps per run. Not measured: latency, wall-clock, API price, memory-side token consumption",
+   "p": "2, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved: share of target-seed runs whose declared executable tests pass; 4/4 count (targets passing all seeds)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure attribution (coverage miss, ranking miss, form degradation, use failure); form-degradation mechanisms (instruction pollution etc.); opposite-sign share by memory-off headroom; counterfactual recovery bound",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: executable tests in sandbox, logged solver tokens and steps; deterministic attribution script over logs; audit by two LLM judges (qwen3.7-max, MiniMax-M2.5; kappa 0.24-0.35). Bootstrap over 111 targets, 10,000 resamples",
+   "p": "6-7, 9-10, 20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Per-run success criterion stated by the authors: a target-seed run is resolved when the target's declared executable test predicate passes; Resolved = share of the 444 target-seed runs. No threshold for a configuration as a whole is stated, so quality and cost: no criterion stated by the authors for every entry. Agent MiniSWEAgent throughout. Resolved; solver input tokens per run; steps per run (Table 1): (1) Memory off + deepseek-v4-pro: 67.1%; 1.67M; 50.3. (2) Frozen exp. + deepseek-v4-pro: 67.1% (+0.0); 1.49M; 47.6. (3) Irrelevant control + deepseek-v4-pro: 63.7% (-3.4); 1.51M; 47.1. (4) Memory off + glm-5: 55.0%; 2.45M; 77.1. (5) Frozen + glm-5: 57.4% (+2.4); 1.93M; 66.2. (6) Control + glm-5: 54.3% (-0.7); 2.13M; 69.3. (7) Memory off + glm-5.2: 76.8%; 4.06M; 68.2. (8) Frozen + glm-5.2: 80.4% (+3.6); 3.40M; 61.0. (9) Memory off + kimi-k2.7-code: 69.8%; 1.56M; 56.0. (10) Frozen + kimi-k2.7-code: 74.3% (+4.5); 1.57M; 53.8. (11) Control + kimi: 69.1% (-0.7); 1.62M; 55.9. (12) Memory off + qwen3.8-max: 79.1%; 4.03M; 52.9. (13) Frozen + qwen3.8-max: 80.2% (+1.1); 4.00M; 50.6. All frozen-transfer CIs cross zero. Memory systems (Table 2), Resolved (change vs memory off): deepseek-v4-pro Mem0 62.8% (-4.3), SimpleMem 66.9% (-0.2), MemoryOS 64.6% (-2.5), A-MEM 63.1% (-4.0); glm-5 Mem0 49.5% (-5.5, CI [-10.59, -0.45]), SimpleMem 53.2% (-1.8), MemoryOS 57.0% (+2.0), A-MEM 52.5% (-2.5); kimi-k2.7-code Mem0 68.0% (-1.8), SimpleMem 69.6% (-0.2), MemoryOS 66.0% (-3.8), A-MEM 65.8% (-4.0); input tokens on glm-5 fall by 0.28-0.49M and steps by 5.4-10.6 with every system, on the other two solvers tokens change by -0.13M to +0.10M. Reference setting (deepseek-v4-flash, selection audit, Table 10): 192 -> 349 of 444 passing runs (43.2% -> 78.6%)",
+   "p": "7-8, 18",
+   "verdict": "corrected",
+   "why": "The draft's verdicts (e.g. +0.0 = does not work, small gains = partly, memory systems 'does not work' because at or below memory off) were judged against the memory-off baseline and on thresholds the authors do not give; per the rule of 2026-11-23 they are replaced by 'no criterion stated by the authors'. Values checked against Tables 1, 2 and 10; control-row tokens and steps added",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 111 VibeMemBench targets. Configurations: memory off vs frozen verified experience (5 solvers), irrelevant-memory control (3 solvers), 4 memory systems (3 solvers). Baseline: memory off. Held constant: agent configuration A (model, prompt, tools, sandbox image, context budget, resource limits, task order), target and seed. Acceptance: declared executable test predicate. Repetitions: 4 seeds per condition. Human intervention: none. Memory systems use deepseek-v4-flash for record extraction and Qwen3-Embedding-4B for retrieval",
+   "p": "5-7, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Frozen experience raises Resolved on 4 of 5 solvers by 1.1-4.5 points (none significant, all CIs cross zero) and lowers steps on all 5. Existing memory systems: 11 of 12 pairings at or below memory off; Mem0 + glm-5 significantly worse (-5.5, CI [-10.59, -0.45]); only MemoryOS + glm-5 +2.0 (n.s.). Net loss of 127 resolved seeds across 1,332 retrieval pairings. Failure attribution: form degradation 69.3%, coverage miss 16.0%, use failure 13.4%, ranking miss 1.3%",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished memory systems from frozen experience directionally, but most differences not separable from zero at 111 targets. Repeatable: 4 seeds, paired bootstrap; code released. Limitations stated: targets selected by positive reference uplift (selection, not prevalence); seed-level argmax can inflate the reference uplift; distractor control not token-matched; attribution boundary ranking/form rater-dependent",
+   "p": "6-7, 10, 12, 20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Oracle-assisted patch-pattern screen and positive-uplift rule; no gold retrieval label; solver pool omits proprietary frontier models (Claude, GPT) for budget reasons; memory-side cost not recorded. Design implications: gate injection on solver headroom, compress records to the fix span, keep anchoring constraints in extraction schemas",
+   "p": "7, 11-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 1-2 jumbled in pdftotext; values rebuilt by row order and checked against the parenthesised differences (e.g. glm-5 control steps 69.3 = 77.1 - 7.8; glm-5.2 68.2 -> 61.0 = -7.2; kimi 56.0 -> 53.8 = -2.2, control 55.9). Code: https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/VibeMemBench. Case analysis and ablation schema 'predeclared', no pre-registration link. MiniSWEAgent version and memory-system versions not given; model identifiers given as API aliases. Programming languages of tasks: nine (Python 56, JavaScript 16, Go 12, Rust 10, TypeScript 5, Kotlin 4, Swift 4, Java 2, PHP 2; Appendix D)",
+   "p": "1, 7-9, 17, 19",
+   "verdict": "corrected",
+   "why": "The step values the draft left 'to be checked' were verified against the differences printed in Table 1 (p. 7); the exact language counts are given in Appendix D (p. 17)",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem and three contributions explicit",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): SIEVE stages, scoring rule, condition contract and ablation schema given; code released",
+   "p": "4-6, 16-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): solver models named by API identifier; MiniSWEAgent and memory-system versions not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark described and released with provenance",
+   "p": "1, 3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable test predicates decide resolution",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): Resolved, solver tokens and steps defined",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): matched memory-off baseline and irrelevant-memory control under the same configuration",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 4 seeds per condition, target-level paired bootstrap CIs, permutation tests",
+   "p": "7, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): non-significant gains called 'directional evidence'; negative memory-system results reported",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph plus selection caveats in text; no threats-to-validity section",
+   "p": "6, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors are not vendors of Mem0, SimpleMem, MemoryOS, A-MEM or MiniSWEAgent, but the frozen verified experience condition is their own construct and is evaluated (Table 1); six of the ten authors are at Alibaba, vendor of the qwen3.8-max solver and of the Qwen3-Embedding-4B used for memory retrieval",
+   "p": "1, 6",
+   "verdict": "uncertain",
+   "why": "The draft gave Yes, treating the frozen verified experience as a benchmark witness; by the §5 rule an author who created an evaluated approach counts as its vendor, which makes it Partly. Whether the frozen experience is an 'approach' and whether an Alibaba solver among five counts is a judgement",
+   "doubt": "A experiência verificada congelada é criada pelos autores e avaliada na Tabela 1, e seis dos dez autores são da Alibaba (qwen3.8-max). Decide se isto conta como abordagem própria (Partly) ou mero instrumento do benchmark (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486264",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "O autor não usa termos de Böckeler. Cada tarefa parte de um brief revisto (spec-first), mas o passo Evolve atualiza instruções e baselines, com rastreabilidade a requisitos (p. 3-4). Escolhe spec-first ou spec-anchored."
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
+   "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; this settles the round doubt",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "Templates e gates usam agentes e CI existentes, mas não há requisitos de ferramentas, esforço ou custo, e os gates de hardware exigem simuladores e HIL (Tabelas I-II, p. 5). Decide entre Partly e No."
+  }
+ ]
+}

@@ -20,7 +20,7 @@ Rules:
 - `Publication type` starts with one of: Journal, Conference, Workshop, Preprint (Preprint only when there is no published venue; a published paper read from arXiv keeps the venue type), then ` — ` and detail.
 - `Nature of the study` starts with one of: Evaluates, Compares, Proposes an approach, Proposes an evaluation method, Conceptual, Review; optionally `; secondary: <one of these>`; then ` — ` and detail.
 - `Evaluation (each configuration)`: every configuration, the baseline included, gets its own quality and cost verdict judged on its own (§6), not against the baseline or the other configurations. A verdict is given only when the authors state a success criterion; otherwise keep the metric values and write "no criterion stated by the authors" instead of a verdict. Never set a threshold yourself (author's rule of 2026-11-23).
-- `Q12`: a study that proposes an approach and evaluates none is N/A (author's rule of 2026-11-23).
+- `Q12`: a study that proposes an approach and evaluates none is N/A (author's rule of 2026-11-23). When the authors' own approach is compared with external baselines or other approaches, Q12 is Partly (§5: "Partly when this applies to only some of the approaches").
 - `Nature of the study`: descriptive repository-mining studies (e.g. of AGENTS.md or CLAUDE.md files) are `Evaluates — repository mining …` (author's rule of 2026-11-23).
 - Numbers must be copied from the text; if a value was rebuilt (jumbled table), say so in Notes.
 - Keep every field, in the same order, with its `p` (page or pages).

@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800485912",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "O artigo não usa termos de SDD; os artefactos são um ficheiro de regras persistente e planos por tarefa. Escolhe Not classifiable, como noutros estudos de ficheiros de regras, ou spec-anchored para o conjunto de regras imposto e evolutivo."
+  },
+  {
+   "f": "Internal quality metrics",
+   "doubt": "'Rules followed' junta regras de código e regras de processo (correr uma migração, confirmar ações destrutivas, p. 8), reportadas em separado no Apêndice B.3. Decide se as separas ou moves a parte de processo para Other outcome metrics."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Technical evaluation. Criterion (authors, Section 5): Zoro is successful if it is equally effective at producing the feature as No Zoro and better at following the rules; measured with task-specific rubrics (feature completeness; rules followed, pass/fail per rule) graded by 2 annotators. All with Cline (version not stated) + Claude Sonnet 4.6, 9 tasks, 1 run each (Table 1, mean ± 95% CI). Cost: only the ~4x token overhead of Full Zoro vs standard vibe coding is reported; no absolute tokens, time or money\n- No Zoro (baseline; rules in AGENTS.md) + Cline + Sonnet 4.6: features 0.64±0.144; rules 0.51±0.08. Quality: no criterion stated by the authors (reference for the criterion); cost: not measured\n- Basic Zoro (ablation: mark steps, no enrich, no enforce) + Cline + Sonnet 4.6: features 0.65±0.17; rules 0.55±0.11. Quality: does not work by the authors' criterion (rules not significantly better than No Zoro); cost: not measured\n- Partial Zoro (ablation: enrich, no enforce) + Cline + Sonnet 4.6: features 0.61±0.11; rules 0.68±0.07. Quality: works by the authors' criterion (features not significantly different, rules significantly better than No Zoro, Holm-Bonferroni p<0.05); cost: not measured\n- Full Zoro (enrich + enforce) + Cline + Sonnet 4.6: features 0.77±0.13; rules 0.80±0.08; process rules 0.87, coding rules 0.75 (Appendix B.3). Quality: works by the authors' criterion (features not significantly different, rules significantly better than all other conditions); cost: no criterion stated by the authors (about 4x tokens of standard vibe coding)\nUser study (full Enrich-Enforce-Evolve + Codex, model Not stated; 12 participants, 2 tasks each; criterion: enforced-rule pass rate): 77.9% (60/77) task 1, 94.4% (84/89) task 2; 12/13 refined rules then applied correctly. Quality: no criterion stated by the authors; cost: not measured. No baseline",
+   "why": "Rule 1: the extractor's 'partly' verdicts rested on its own reading of the scores. Quality verdicts now follow the authors' stated criterion (Section 5: equal feature completeness and better rule following than No Zoro, with the significance tests of p. 8); baseline, user-study and cost verdicts became 'no criterion stated by the authors'; metric values kept",
+   "doubt": "Os autores dão um critério relativo (Zoro tem sucesso se iguala a baseline nas funcionalidades e a supera nas regras, secção 5); os veredictos aplicam-no, também às ablações. Confirma se um critério relativo serve no §6."
+  },
+  {
+   "f": "Q5",
+   "doubt": "Dois anotadores externos (kappa 0,97/0,82, p. 7-8) contam como revisão por especialistas no §5, o que apoia Yes; mas as rubricas foram escritas pelos autores e não há testes automáticos. Decide entre Yes e Partly."
+  }
+ ]
+}

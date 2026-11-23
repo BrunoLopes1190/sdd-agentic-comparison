@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486091",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -14,7 +14,7 @@
      "why": "The record is the published ACL 2026 version (WoS export slr/exports/wos-S2-2026-11-18.ris: ACL 2026 Long Papers, pp. 5958-5978, ISBN 979-8-89176-390-6; the arXiv record was removed as its duplicate in dedup-2026-11-18.csv; access log 'arXiv version of the DOI record'); the reference gave only the arXiv version"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Year",
@@ -34,7 +34,7 @@
      "why": "Was Preprint, but the record is published in the ACL 2026 proceedings (WoS export); a published paper read from arXiv keeps the venue type. Also the value did not follow the form '<type> — <detail>'"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -54,7 +54,7 @@
      "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>'. Natures themselves kept"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
@@ -170,9 +170,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: ISR / CSR (avg of 3 judges); 3 runs per instance per model. Per scaffold (Table 3), ISR / CSR: Claude Code 2.0.69 + Claude Opus 4.5: 28.39 / 84.39; + MiniMax-M2.1: 18.60 / 82.75; + Gemini 3 Pro: 14.82 / 80.88; + Claude Sonnet 4.5: 16.71 / 80.85; + ChatGLM-4.6: 13.89 / 80.07; + Kimi-K2-Thinking: 14.42 / 79.61; + Doubao-Seed-1.8: 10.83 / 79.19; + MiniMax-M2: 11.04 / 79.88. Kilo 0.10.2 + Opus 4.5: 20.00 / 89.26; MiniMax-M2.1: 16.45 / 87.03; Gemini 3 Pro: 15.16 / 84.56; Sonnet 4.5: 4.44 / 80.91; GLM-4.6: 7.01 / 80.23; Kimi: 5.02 / 79.93; Doubao: 3.70 / 80.83; MiniMax-M2: 4.52 / 81.45. Droid 0.42.2 + Opus 4.5: 40.17 / 94.60; MiniMax-M2.1: 15.38 / 92.42; Gemini 3 Pro: 11.97 / 89.70; Sonnet 4.5: 7.78 / 84.74; GLM-4.6: 7.69 / 84.71; Kimi: 8.68 / 86.96; Doubao: 5.24 / 85.39; MiniMax-M2: 3.42 / 84.22. Overall avg ISR / CSR: Opus 4.5 28.11 / 85.64; MiniMax-M2.1 18.15 / 83.86; Gemini 3 Pro 14.68 / 80.94; Sonnet 4.5 14.65 / 81.10; GLM-4.6 12.73 / 80.38; Kimi 12.95 / 80.10; Doubao 9.66 / 79.75; MiniMax-M2 9.81 / 80.34. Verdicts: quality (full compliance) does not work for all (ISR <= 40%), partly for Opus 4.5 on Droid; cost N/A (not measured)",
+   "v": "Metrics: ISR / CSR (avg of 3 judges); 3 runs per instance per model. Per scaffold (Table 3), ISR / CSR: Claude Code 2.0.69 + Claude Opus 4.5: 28.39 / 84.39; + MiniMax-M2.1: 18.60 / 82.75; + Gemini 3 Pro: 14.82 / 80.88; + Claude Sonnet 4.5: 16.71 / 80.85; + ChatGLM-4.6: 13.89 / 80.07; + Kimi-K2-Thinking: 14.42 / 79.61; + Doubao-Seed-1.8: 10.83 / 79.19; + MiniMax-M2: 11.04 / 79.88. Kilo 0.10.2 + Opus 4.5: 20.00 / 89.26; MiniMax-M2.1: 16.45 / 87.03; Gemini 3 Pro: 15.16 / 84.56; Sonnet 4.5: 4.44 / 80.91; GLM-4.6: 7.01 / 80.23; Kimi: 5.02 / 79.93; Doubao: 3.70 / 80.83; MiniMax-M2: 4.52 / 81.45. Droid 0.42.2 + Opus 4.5: 40.17 / 94.60; MiniMax-M2.1: 15.38 / 92.42; Gemini 3 Pro: 11.97 / 89.70; Sonnet 4.5: 7.78 / 84.74; GLM-4.6: 7.69 / 84.71; Kimi: 8.68 / 86.96; Doubao: 5.24 / 85.39; MiniMax-M2: 3.42 / 84.22. Overall avg ISR / CSR: Opus 4.5 28.11 / 85.64; MiniMax-M2.1 18.15 / 83.86; Gemini 3 Pro 14.68 / 80.94; Sonnet 4.5 14.65 / 81.10; GLM-4.6 12.73 / 80.38; Kimi 12.95 / 80.10; Doubao 9.66 / 79.75; MiniMax-M2 9.81 / 80.34. Verdicts: quality: no criterion stated by the authors (no ISR/CSR level is set as success for a configuration); cost: N/A (not measured)",
    "p": "6, 12",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Quality verdicts (does not work / partly) rested on a cut-off chosen by the extractor (ISR <= 40%); the paper sets no ISR or CSR level as success for a configuration (pp. 5-6), so per the 2026-11-23 rule the values are kept and the verdict is 'no criterion stated by the authors'. ISR/CSR are metrics, not a success criterion"
+    }
+   ],
    "warn": ""
   },
   {
@@ -205,10 +211,16 @@
   },
   {
    "f": "Notes",
-   "v": "Table 2 (by judge) and Table 3 (by scaffold) rebuilt from pdftotext column order; overall averages from the 'Overall Average' columns. Std in tables is across judges, not runs. Count mismatch: Skill instances 46 in Table 6 vs 48 in Table 7. Feedback experiment ISR baselines (21-38%) differ from Table 3 because they use partial-failure subsets. MiniMax co-authors evaluate their own models (MiniMax-M2, M2.1). Benchmark repository github.com/MiniMax-AI/mini-vela (release promised). No pre-registration. Programming languages: not stated",
+   "v": "Table 2 (by judge) and Table 3 (by scaffold) rebuilt from pdftotext column order; overall averages from the 'Overall Average' columns. Std in tables is across judges, not runs. Table 6 counts instances by primary instruction category (sums to 217), Table 7 counts instances in which each source is present (e.g. Skill.md 48 vs 46 primary; Agents.md/Claude.md 117 vs 60 primary), so the counts differ by design. Feedback experiment ISR baselines (21-38%) differ from Table 3 because they use partial-failure subsets. MiniMax co-authors evaluate their own models (MiniMax-M2, M2.1). Benchmark repository github.com/MiniMax-AI/mini-vela (release promised; full raw traces not in the public JSONL by default). No pre-registration. Programming languages: not stated",
    "p": "1, 6-7, 14, 21",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The 'count mismatch' Skill 46 (Table 6) vs 48 (Table 7) is not an inconsistency: Table 6 reports the primary category targeted per instance (sums to 217), Table 7 the instances where each source is present (p. 14); same pattern for Memory 29 vs 32 and policy files 60 vs 117"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -261,9 +273,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Draft gave Partly for lack of a baseline condition. Q7 accepts 'a baseline or an alternative evaluated under the same conditions', and the models are alternatives run on identical instances (p. 6, 12), which supports Yes; a reader who requires a baseline condition for a benchmark comparison would keep Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Eight models under three scaffolds are run on the same 217 instances, checklists and judges (pp. 6, 12), which fits 'an alternative evaluated under the same conditions' (Yes); there is no no-instruction or no-scaffold baseline, so a stricter reading gives Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Eight models under three scaffolds are run on the same 217 instances, checklists, scaffold defaults and judges (pp. 6, 12), which fits 'an alternative evaluated under the same conditions' (Yes); there is no no-instruction or no-scaffold baseline, so a stricter reading gives Partly"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Não há condição de base (baseline); só modelos e scaffolds alternativos nas mesmas instâncias. Decide se isto conta como alternativa nas mesmas condições (Yes) ou só Partly."
   },
   {
    "f": "Q8",
@@ -297,7 +319,7 @@
      "why": "Draft scored No with an open '[Check: ...]' flag (DOI empty). The WoS record (slr/exports/wos-S2-2026-11-18.ris) gives ACL 2026, Vol. 1 Long Papers, pp. 5958-5978; ACL main-conference long papers are peer-reviewed"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q12",

@@ -106,7 +106,7 @@
      "why": "Paper does not place itself on an SDD level; plan and machine-readable tasks are written before implementation (spec-first-like), but nothing is said about keeping them after the project, so spec-first or not classifiable are both defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não indica nível SDD; o plano e as tarefas são escritos antes da implementação, mas nada diz sobre mantê-los depois. Escolhe entre spec-first e not classifiable."
   },
   {
    "f": "Task type",
@@ -231,7 +231,7 @@
      "why": "Q1 asks whether the aims OR research questions are clear; the draft scored Partly only because there are no RQs, although the aim and contributions are explicit. A reader who expects RQs could keep Partly."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O objetivo e as três contribuições são explícitos, mas não há perguntas de investigação; decide se isso basta para Yes ou se fica Partly."
   },
   {
    "f": "Q2",
@@ -305,7 +305,7 @@
      "why": "There is no limitations section; Partly rests on the open problems (no metrics to show the workflow beats unstructured delegation), which are field-level gaps rather than limitations of this report. Since missing information scores No, a stricter reader could score No (0)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não há secção de limitações; o Partly assenta nos problemas em aberto, que são lacunas do campo e não limitações do relato. Decide entre Partly e No (informação em falta vale No)."
   },
   {
    "f": "Q11",
@@ -328,13 +328,19 @@
      "why": "Published with ACM DOI in the CIKM '26 proceedings, which points to Yes, but it is a 2-page Industry Day proposal with speaker bio and the text does not say how such proposals are reviewed; check the CIKM '26 Industry Day call."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Publicado nos proceedings do CIKM '26 (ACM, com DOI), mas é uma proposta de 2 páginas da Industry Day; confirma na chamada da Industry Day se houve revisão por pares."
   },
   {
    "f": "Q12",
-   "v": "No (0): all authors at Infobip, which developed the workflow (authors are its vendor)",
+   "v": "N/A (proposes an approach and evaluates none; authors at Infobip, which developed the workflow)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule of 2026-11-23: a study that proposes an approach and evaluates none is N/A on Q12 (was No (0))"
+    }
+   ],
    "warn": ""
   },
   {
@@ -358,7 +364,7 @@
      "why": "Requirements only partly stated: plain-text artefacts, git and a public materials repository are named, but no agent, model, compute or cost. Since missing information scores No, a stricter reader could score No (0)."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Só são nomeados git, artefactos em texto e materiais públicos; agente, modelo, computação e custo não são indicados. Decide entre Partly e No."
   },
   {
    "f": "DARE1",

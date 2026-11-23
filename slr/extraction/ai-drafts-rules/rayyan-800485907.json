@@ -1,0 +1,27 @@
+{
+ "key": "rayyan-800485907",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "Só a forma foi corrigida; o tipo continua Preprint (arXiv v3, marcado 'Preprint.', p. 1). Confirma que não existe versão publicada, por exemplo no Google Scholar."
+  },
+  {
+   "f": "Nature of the study",
+   "doubt": "Só a forma foi corrigida; as naturezas mantêm-se (Compares, secundária Proposes an evaluation method pelo CTXBENCH). Confirma no texto (pp. 1-2, 5)."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: hidden tests pass. Values: success % SWE-bench Lite / CTXBENCH (Table 5, CTXBENCH rows labelled 'PLAN-BENCH'); cost USD per instance SWE / CTX (Table 2). One run each.\n- None + Claude Code + Sonnet-4.5 (baseline): 59.9 / 73.2; 1.30 / 1.15\n- LLM + Claude Code + Sonnet-4.5: 58.7 / 65.2; 1.51 / 1.33\n- DEV + Claude Code + Sonnet-4.5: CTX 70.3; 1.30\n- None + Codex + GPT-5.2 (baseline): 56.6 / 65.2; 0.32 / 0.38\n- LLM + Codex + GPT-5.2: 54.4 / 68.1; 0.43 / 0.57\n- DEV + Codex + GPT-5.2: CTX 68.1; 0.54\n- None + Codex + GPT-5.1 Mini (baseline): 47.7 / 54.3; 0.18 / 0.18\n- LLM + Codex + GPT-5.1 Mini: 47.6 / 50.7; 0.22 / 0.20\n- DEV + Codex + GPT-5.1 Mini: CTX 55.8; 0.19\n- None + Qwen Code + Qwen3-30B-Coder (baseline): 31.1 / 45.7; 0.12 / 0.13\n- LLM + Qwen Code + Qwen3-30B-Coder: 32.4 / 47.1; 0.13 / 0.15\n- DEV + Qwen Code + Qwen3-30B-Coder: CTX 53.6; 0.15\n- Ablation (GPT-5.2 + Codex, LLM file without testing / overview / tooling, categories removed with GPT-5.4, Table 7): CTX accuracy 66.67 / 62.32 / 63.77% vs full 68.12%; SWE 57.72 / 54.20 / 53.69% vs 54.36%; none significant; cost CTX $0.3730 / $0.4027 / $0.4815 vs $0.4715, SWE $0.2756 / $0.3018 / $0.2715 vs $0.3272; removing testing lowers cost significantly on both benchmarks (p = 0.023 CTX, 0.0035 SWE), removing tooling on SWE-bench (p = 0.0012)\n- Ablation (generating model, prompt, documentation removed): stronger models' files +2% SWE, -3% CTX; no consistent prompt effect; with docs removed LLM files +2.7% on average (Fig. 7, 8, 12 only)\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the extractor's thresholds (partly below ~73%, cost works up to ~USD 1.5) removed",
+   "doubt": "Confirma no PDF os custos das ablações da Tabela 7 (p. 17), acrescentados na verificação 2, porque as colunas das tabelas vieram baralhadas do pdftotext."
+  },
+  {
+   "f": "Notes",
+   "doubt": "A Tabela 8 (p. 19) dá taxas no SWE-bench Lite ligeiramente diferentes da Tabela 5 (p. 15) para as mesmas configurações. Confirma os valores no PDF; o rascunho usa a Tabela 5."
+  },
+  {
+   "f": "Q9",
+   "doubt": "A introdução diz que DEV supera LLM em '7% on average' (p. 2), mas a Tabela 5 dá cerca de 4,2 pontos; o resumo atribui >20% de custo aos ficheiros DEV (máx. 19%, p. 6). Decide entre Yes e Partly."
+  }
+ ]
+}

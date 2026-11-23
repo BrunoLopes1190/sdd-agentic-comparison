@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498018",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -28,7 +28,7 @@
      "why": "Format: the value must use ' — ' after the type (verification rules); substance unchanged."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -48,7 +48,7 @@
      "why": "Format: secondary nature must be one listed value ('evaluates/compares' is two) and the detail follows ' — '. Compares chosen because the study runs TDAD against vanilla and TDD-prompt configurations under the same setup."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: SWE-bench F2P (resolution) and P2P (regression) tests. Phase 1 agent framework not stated ('single-agent setup', llama.cpp); Phase 2 OpenCode v1.2.24. Cost not measured in any configuration. -- Phase 1, Vanilla + agent not stated + Qwen3-Coder 30B (Q4_K_M): resolution 31%, generation 86%, P2P failures 562 / 9,245, test regression 6.08%, instance regression 30.2%, catastrophic 3. Quality: partly (31% resolved, regressions in 30.2% of generated patches). Cost: not reported. -- Phase 1, TDD Prompt + agent not stated + Qwen3-Coder 30B: resolution 31%, generation 75%, P2P failures 799 / 8,040, test regression 9.94%, instance regression 33.3%, catastrophic 5. Quality: partly (31% resolved, highest regression rate, 5 catastrophic). Cost: not reported. -- Phase 1, GraphRAG+TDD (TDAD: TDD + SKILL.md + test_map.txt) + agent not stated + Qwen3-Coder 30B: resolution 29%, generation 74%, P2P failures 155 / 8,536, test regression 1.82%, instance regression 33.3%, catastrophic 1. Quality: partly (29% resolved, low test-level regression 1.82%). Cost: not reported. -- Phase 2, Baseline + OpenCode v1.2.24 + Qwen3.5-35B-A3B (4-bit, MLX): resolved 6/25 (24%), generated 10/25 (40%), 15 empty patches, regression 0%. Quality: partly (24% resolved, no regressions). Cost: not reported. -- Phase 2, TDAD Skill (NetworkX) + OpenCode v1.2.24 + Qwen3.5-35B-A3B: resolved 8/25 (32%), generated 17/25 (68%), 8 empty patches, regression 0%. Quality: partly (32% resolved, no regressions; n = 25). Cost: not reported. -- Ablation (auto-improvement loop: Claude Code, version not stated, modifying TDAD; 10-instance eval with the Phase 2 model): resolution 12% to 60%, generation 28% to 80%, 0% regression; SKILL.md 107 to 20 lines alone 12% to 50%",
+   "v": "Per-instance acceptance: SWE-bench F2P (resolution) and P2P (regression) tests; no resolution or regression level is set as success for a configuration. Phase 1 agent framework not stated ('single-agent setup', llama.cpp); Phase 2 OpenCode v1.2.24. Cost not measured in any configuration. -- Phase 1, Vanilla + agent not stated + Qwen3-Coder 30B (Q4_K_M): resolution 31%, generation 86%, P2P failures 562 / 9,245, test regression 6.08%, instance regression 30.2%, catastrophic 3. Quality: no criterion stated by the authors. Cost: not reported. -- Phase 1, TDD Prompt + agent not stated + Qwen3-Coder 30B: resolution 31%, generation 75%, P2P failures 799 / 8,040, test regression 9.94%, instance regression 33.3%, catastrophic 5. Quality: no criterion stated by the authors. Cost: not reported. -- Phase 1, GraphRAG+TDD (TDAD: TDD + SKILL.md + test_map.txt) + agent not stated + Qwen3-Coder 30B: resolution 29%, generation 74%, P2P failures 155 / 8,536, test regression 1.82%, instance regression 33.3%, catastrophic 1. Quality: no criterion stated by the authors. Cost: not reported. -- Phase 2, Baseline + OpenCode v1.2.24 + Qwen3.5-35B-A3B (4-bit, MLX): resolved 6/25 (24%), generated 10/25 (40%), 15 empty patches, regression 0%. Quality: no criterion stated by the authors. Cost: not reported. -- Phase 2, TDAD Skill (NetworkX) + OpenCode v1.2.24 + Qwen3.5-35B-A3B: resolved 8/25 (32%), generated 17/25 (68%), 8 empty patches, regression 0%. Quality: no criterion stated by the authors. Cost: not reported. -- Ablation (auto-improvement loop: Claude Code, version not stated, modifying TDAD; 10-instance eval with the Phase 2 model): resolution 12% to 60%, generation 28% to 80%, 0% regression; SKILL.md 107 to 20 lines alone 12% to 50%. Quality: no criterion stated by the authors. Cost: not reported",
    "p": "4-6",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "r0 gave the two baselines no verdict ('Baseline.') and judged the other configurations against the baseline ('regressions -70%', '+8 pp'); §6 requires each configuration, baseline included, to get its own quality and cost verdict. Judged on their own, all configurations resolve only 24-32% of instances, so quality is partly; cost is not measured. Verdict levels remain a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "r1 gave every configuration 'Quality: partly' from its 24-32% resolution, a cut-off the paper does not give (pp. 4-6: F2P/P2P tests decide each instance, but no resolution or regression level counts as success for a configuration). Per the 2026-11-23 rule the metric values are kept and the verdict is 'no criterion stated by the authors'; the ablation entry also lacked verdicts"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -186,7 +191,7 @@
      "why": "r0 listed 32K context, temperature 0 and the 15-minute limit as held constant 'within phase' for both phases; the text gives them only for Phase 1 (p. 4), Phase 2 settings beyond model, quantization and agent are not stated."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",

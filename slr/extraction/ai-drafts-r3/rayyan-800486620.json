@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486620",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, P., Verma, H., Zhou, S., Wang, H., Bui, N., Chang, H., Fei, F., van Dijk, D., Ying, R. (2026). CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation. arXiv:2611.17316v1 [cs.AI], 12 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.17316v1 [cs.AI], 12 Nov 2026; no published venue stated (anonymous code link and Limitations/Ethical Considerations sections suggest a submission under review)",
+   "p": "1-2, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Yale University (Li, Verma, Zhou, Wang, Bui, van Dijk, Ying); Tsinghua University (Chang); Goodvision AI (Fei)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — CoReMem (value-guided cross-task memory design plus on-policy LoRA post-training of the actor), compared with no memory, full history, Mem0, MemOp and ReasoningBank on six actor models",
+   "p": "1-3, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. CoReMem (Coding-Repository Memory): (M1) prospective segment valuation yielding a memory template built on 'anchors' (repository locations and executable checks); (M2) cost-internalizing on-policy post-training (reward charges steps inside success); (M3) provenance-gated value credit. 'CoReMem w/o training' = memory on frozen actor. Version: N/A",
+   "p": "2-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Memory.md written by the actor at the end of each task, before the next task is known: task block (STATUS, TESTS with exit codes, VERIFY commands, DID/WHERE/FILES) and repository block (CONTEXT, WHERE: layout and how to test); reasoning text and scratch files dropped. Keeps the median step saving of the full trajectory with 6% of its bytes",
+   "p": "4-5, 22-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (not SDD). Task k session -> write memory -> task k+1 on inherited repository with memory in context; agent actions in mini-swe-agent (one command per step)",
+   "p": "3-5, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not an SDD approach; single artefact (cross-task memory file) and actor post-training",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not SDD)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: successive real issues on an evolving repository (each task inherits the tree left by earlier tasks)",
+   "p": "1, 3, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "ChainSWE: 100 task chains, split by repository into training (52 chains, 97 boundaries) and test (48 chains, 96 boundaries; 54 linked, 42 unlinked). Extra: SWE-bench Verified, SWEContextBench, SWE-Bench-CL",
+   "p": "7, 14, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python open-source repositories (e.g. flake8-simplify)",
+   "p": "1, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Steps per task; cache-aware tokens per session (actor, memory writer, total); resolve per thousand tokens; USD per session at list prices and resolve per USD (API models). Wall-clock latency and energy not reported",
+   "p": "7, 16-17, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve rate (hidden tests of next task pass), overall, linked and unlinked boundaries; SWE-bench Verified resolve rate",
+   "p": "7, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Anchors per 1K characters and used anchors per memory; memory benefit and misplaced-memory cost (ablations)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests in per-task containers; token and step counts from logs; anchor matching by rule; paired chain-cluster bootstrap 95% intervals over 48 test chains",
+   "p": "8, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Harness: mini-swe-agent (98K window) for all. Metrics: overall resolve rate on the ChainSWE test boundaries (hidden tests of the next task), steps, total cache-aware K tokens per session (Table 1; Table 3 adds list-price USD per session). Success criterion: none stated by the authors per configuration (their objective, Eq. 1, is relative: fewer steps without resolving less often than the base actor). Values Res% / steps / total K tokens; every configuration: quality and cost verdict: no criterion stated by the authors.\nQwen3.5-9B (post-trained rows: LoRA): no memory (baseline) 14.0/98.2/98.3; full history 14.2/72.8/85.9; Mem0 16.4/93.8/111.4; MemOp 15.0/94.9/131.7; ReasoningBank 14.6/94.3/166.1; CoReMem w/o training 15.5/95.1/111.7; CoReMem (post-trained) 17.7/72.4/79.9.\nQwen3.8-27B-FP8: no memory (baseline) 21.0/35.1/32.2; full history 22.4/32.6/39.0; Mem0 21.5/35.9/68.7; MemOp 23.4/33.5/50.4; ReasoningBank 25.2/34.3/67.5; CoReMem w/o training 23.4/31.8/32.4; CoReMem 25.7/29.2/28.5.\nGemma-4-31B: no memory (baseline) 11.5/29.9/32.4; full history 11.8/27.2/31.8; Mem0 10.8/28.1/47.2; MemOp 12.8/28.8/49.6; ReasoningBank 13.2/30.4/65.3; CoReMem w/o training 12.5/28.3/33.9; CoReMem (8 updates) 14.2/28.5/29.3.\nClaude Opus 5.5 (frozen, 1 replay; Res% / steps / total K / USD): no memory (baseline) 38.5/12.6/21.5/0.2370; full history 40.6/10.4/27.0/0.2384; Mem0 39.6/13.0/35.4/0.2893; MemOp 39.6/17.8/36.1/0.3630; ReasoningBank 40.6/14.2/48.8/0.4028; CoReMem w/o training 38.5/11.8/20.1/0.2048.\nGPT-5.6 Luna (frozen): no memory (baseline) 23.6/17.9/51.7/0.0176; full history 24.0/18.6/79.8/0.0263; Mem0 22.6/17.5/62.7/0.0199; MemOp 22.9/17.5/63.8/0.0204; ReasoningBank 23.3/17.9/85.3/0.0258; CoReMem w/o training 25.7/16.3/52.5/0.0181.\nDeepSeek-V4-Flash (frozen, off-peak price): no memory (baseline) 21.9/90.0/84.4/0.0363; full history 22.4/76.6/75.8/0.0319; Mem0 21.9/94.2/100.0/0.0393; MemOp 21.4/87.5/110.5/0.0396; ReasoningBank 23.1/97.2/150.7/0.0468; CoReMem w/o training 23.6/78.2/82.3/0.0330.\nAblations (27B, ablation): resolve-only RL 30.4 steps; M1+M2 29.7 steps; full 29.2; misplaced-memory cost +2.1 steps without value credit vs +0.3 with it; memory benefit +1.7 vs +2.3 points. 9B: resolve-only RL 75.5 steps, M1+M2 63.8, full 72.4. No criterion stated by the authors",
+   "p": "7-8, 14-17",
+   "verdict": "corrected",
+   "why": "r2 gave quality and cost verdicts based on thresholds the extractor set (20%/60% resolve, about 170K tokens or USD 0.41), which the author's rule of 2026-11-23 forbids. The authors state no per-configuration success criterion: their objective (Eq. 1) is only relative, fewer steps without resolving less often than the base actor. Verdicts replaced by 'no criterion stated by the authors'; values rechecked against Tables 1 and 3 and kept"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: ChainSWE test half (48 chains, 96 boundaries), disjoint repositories from training. Configurations: 7 memory conditions x 3 open-weight actors (post-trained) + 6 conditions x 3 API actors (frozen). Baseline: no memory on same actor. Held constant: harness (mini-swe-agent), window, step limits per model, memory-layer official instructions. Repetitions: replays 12 (9B frozen), 6-7 (27B), 6 (DeepSeek), 3 (Gemma, Luna), 1 (Opus). Checkpoint rule fixed in advance. Human intervention: none",
+   "p": "7, 14-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CoReMem w/o training lowers steps on all six actors (significantly on three, by 9-13%) without lowering resolution (rises on five, unchanged on Opus), total tokens within -7% to +5% of no memory on five of six; Mem0/MemOp/ReasoningBank cost more tokens than CoReMem w/o training on five of six (and more than no memory on all six: +13% to +127%). Post-trained CoReMem vs no memory on the untrained actor: steps lower on all three (by up to 26%: -26% 9B, -17% 27B, -5% Gemma), total tokens -9% to -19%, resolution +22% to +27% relative, resolve per total token +38% to +46% (avg 41%); against the same memory on the untrained actor steps fall a further 24% (9B) and 8% (27B). 27B frozen memory: resolve 21.3% -> 23.4% (+2.1 [+0.4, +3.7]). Significance via paired chain-cluster bootstrap 95% intervals",
+   "p": "7-8, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished memory layers on effort (steps, tokens); resolution differences small, intervals sometimes include zero; replays vary by model (1 for Opus). Generalisation checks on SWE-bench Verified, two external chain benchmarks and OpenHands harness",
+   "p": "7-8, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Main experiments on Python repositories and mini-swe-agent harness; post-training on three open-weight actors only; other languages and larger actors untested; no wall-clock latency or energy; how memory should be accumulated and refreshed over long repository histories is future work. Ethics: memory may retain paths, commands, test output; should follow access control, redact secrets",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not SDD; relevant as a structured cross-task memory artefact (anchors = where to look, what to run). Table 1 rebuilt from jumbled pdftotext output (columns interleaved); overall Res/steps/total tokens taken from the 'Overall' and 'Tokens' blocks in row order and cross-checked against the percentages in text; verify against PDF. Inconsistencies: 27B frozen no-memory resolve is 21.0% / 35.1 steps in Table 1 but 21.3% / 35.3 steps in the ablation reads (App. C, different replays); likewise the ablation's frozen with-memory steps (32.6 on 27B, 91.9 on 9B) differ from Table 1's CoReMem w/o training (31.8, 95.1); App. E cites 'Table E' for what is Table 5; App. E text says SWEContextBench runs on the inherited tree and SWE-Bench-CL with the tree reset, but the Table 5 caption says the SCB next task opens at an independent checkout so only memory crosses; Table 5 writer instructions were adapted after observing the first runs on that set. Code 'available at an anonymous link' (no URL in text). Post-training: LoRA rank 16; 27B at update 20, 9B at a checkpoint after 12 updates ('pre-registered checkpoint', rule fixed in advance, no link), Gemma 8 updates; GPU compute not stated. Pre-registration: only of the checkpoint rule, no link. Programming language: Python",
+   "p": "2, 7-9, 14, 16-18",
+   "verdict": "corrected",
+   "why": "Added one more reporting inconsistency of the same kind: the ablation's frozen with-memory steps (32.6 on 27B, 91.9 on 9B, p. 8) differ from Table 1's CoReMem w/o training (31.8, 95.1), from different replay windows"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two challenges and learning objective stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): procedure, reward, hyperparameters, data split and replays detailed in appendices",
+   "p": "3-6, 14-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): actor models named (incl. Claude Opus 5.5, GPT-5.6 Luna); mini-swe-agent and OpenHands versions not stated",
+   "p": "15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmark with split described; code only via anonymous link",
+   "p": "2, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests of each next task",
+   "p": "16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolve rate plus steps, tokens and USD defined",
+   "p": "16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-memory and four alternative memory layers on the same actors and harness",
+   "p": "7, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): multiple replays (except Opus, 1) and paired chain-cluster bootstrap intervals",
+   "p": "16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims tied to significant results; notes resolution unchanged on Opus",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section; no threats-to-validity discussion",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): CoReMem is the authors' own approach; other memory layers by other groups",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): memory template alone (w/o training) usable with any agent at no extra training; full method needs LoRA post-training of open-weight models, compute not stated",
+   "p": "5, 7, 14",
+   "verdict": "uncertain",
+   "why": "Requirements of the full method (LoRA post-training of open-weight actors with groups of 8 sessions per boundary, GPU/compute) are not stated, which could score No under the missing-information rule; Partly rests on the memory template alone being usable with any frozen agent at no training cost",
+   "doubt": "O artigo não indica o custo de computação do pós-treino LoRA; só o template de memória é usável sem treino. Decide se isso vale Partly ou se a falta de requisitos dá No."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

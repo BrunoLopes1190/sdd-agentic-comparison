@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498271",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2610.38244v1 [cs.SE], 28 Oct 2026; no published venue stated (record only in the arXiv export)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates (controlled experiments on what coding agents follow: default preferences, repository precedent, explicit task guidance; 5,625 trials); secondary: compares (guidance conditions: none / written rule / code example / both; rule in task description vs native instruction file CLAUDE.md/AGENTS.md)",
-   "p": "1-2, 4",
-   "rev": [],
+   "v": "Evaluates; secondary: Compares — controlled experiments on what coding agents follow (default preferences, repository precedent, explicit task guidance; 5,625 trials, four agents, six implementation pairs, open-source validation in four repos); compares guidance conditions (none / written rule / code example / both) and rule delivery (task description vs native instruction file CLAUDE.md/AGENTS.md)",
+   "p": "1-2, 4, 6",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>' (secondary nature was lower-case and inside the detail); substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,10 +164,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agents: Claude Code + Sonnet-4-6; Claude Code + Opus-4-8; Codex CLI + gpt-5.6-sol; Codex CLI + gpt-6-sol (harness versions Not stated). Criterion: hidden tests + classifier. (a) No precedent (RQ1), all four agents: 360/360 pass; default chosen 359/360 (Sonnet 14/15 on dispatch). (b) Repository precedent, all agents: all endpoints opposite default -> follow precedent 359/360; local support pooled 0% / 21% / 49% / 96% at 0-3/3; sibling-only adoption Sonnet 6/269, Opus 0/270, gpt-5.6-sol 2/270, gpt-6-sol 5/270. (c) No guidance C0 (baseline) + Sonnet / gpt-6-sol: joint success 0/15 in all four settings. Does not work. (d) Written rule in task (C1) + Claude Code + Sonnet-4-6: ID 15/15, envelope 15/15. Works; cost Not stated. (e) C1 + Codex + gpt-6-sol: ID 14/15, envelope 15/15. Works; cost Not stated. (f) Code example only (C2) + Sonnet-4-6: ID 0/15, envelope 8/15. Does not work / partly. (g) C2 + gpt-6-sol: 15/15, 15/15. Works. (h) Rule + example (C3) + Sonnet and gpt-6-sol: 15/15 each setting. Works. (i) Rule in native file (CLAUDE.md) + Claude Code + Sonnet-4-6: 15/15 both pairs (controlled); open-source envelope 57/60 (vs 0/60 without). Works. (j) Rule in native file (AGENTS.md) + Codex + gpt-6-sol: 15/15 both pairs; open-source 60/60 (vs 0/60). Works. Open-source error handling (no guidance): local pattern followed in 945/945 classifiable successes; task success Sonnet 228/240, Opus 240/240, gpt-5.6-sol 240/240, gpt-6-sol 240/240. Guidance cost functional success in 2 of 240 runs only",
+   "v": "Agents: Claude Code + Sonnet-4-6; Claude Code + Opus-4-8; Codex CLI + gpt-5.6-sol; Codex CLI + gpt-6-sol (harness versions Not stated). Per-run outcome defined by the authors (hidden tests + classifier; joint success for RQ4), but no success threshold for a configuration: no criterion stated by the authors for any entry; cost not measured. (a) No precedent (RQ1), all four agents: 360/360 pass; default chosen 359/360 (Sonnet 14/15 on dispatch). (b) Repository precedent, all agents: all endpoints opposite default -> follow precedent 359/360; local support pooled 0% / 21% / 49% / 96% at 0-3/3; sibling-only adoption Sonnet 6/269, Opus 0/270, gpt-5.6-sol 2/270, gpt-6-sol 5/270. (c) No guidance C0 (baseline) + Sonnet / gpt-6-sol: joint success 0/15 in all four settings. (d) Written rule in task (C1) + Claude Code + Sonnet-4-6: ID 15/15, envelope 15/15. (e) C1 + Codex + gpt-6-sol: ID 14/15, envelope 15/15. (f) Code example only (C2) + Sonnet-4-6: ID 0/15, envelope 8/15 (authors: example alone 'unreliable'). (g) C2 + gpt-6-sol: 15/15, 15/15. (h) Rule + example (C3) + Sonnet and gpt-6-sol: 15/15 each setting. (i) Rule delivery, Sonnet and gpt-6-sol: no rule 0/15, task-description rule 15/15, native-file rule 15/15 in every setting. (j) Rule in native file (CLAUDE.md) + Claude Code + Sonnet-4-6, open-source envelope: 57/60 (vs 0/60 without). (k) Rule in native file (AGENTS.md) + Codex + gpt-6-sol, open-source: 60/60 (vs 0/60). Open-source error handling (no guidance): local pattern followed in 945/945 classifiable successes; task success Sonnet 228/240, Opus 240/240, gpt-5.6-sol 240/240, gpt-6-sol 240/240. Open-source response envelope (no guidance), Sonnet-4-6 and gpt-6-sol: 417/420 pass the hidden tests; flat local handlers 0/207 adopt the envelope, enveloped local handlers 148/210 (gpt-6-sol 11-15/15 in every repository; Sonnet 15/15 in expressjs-api and fastapi-clean, 0/30 in go-rest, 3/15 and 6/15 in RealWorld). Guidance cost functional success in 2 of 240 runs only (RQ4 content experiment)",
    "p": "8-12",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft gave works / does not work / partly verdicts; the authors define a per-run success (joint success) but state no threshold for when a configuration works, so per the 2026-11-23 rule the verdicts were replaced by 'no criterion stated by the authors' (authors' own word 'unreliable' for C2 kept). A reader could instead treat joint success as the stated criterion and judge 14-15/15 as works"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Kept the round-1 doubt: the authors define a per-run outcome (joint success) but no threshold for when a configuration works, so 'no criterion stated by the authors' is kept. Also added the open-source response-envelope entry (Sonnet and gpt-6-sol without guidance, Section 4.6, Table 6), which was missing"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values re-checked against Figure 7, Tables 4-6 and the text and found right. The authors define a per-run outcome (hidden tests; joint success in RQ4) but no threshold at which a configuration counts as working, so 'no criterion stated by the authors' is kept; whether the per-run joint outcome counts as a success criterion is a judgement for the author"
+    }
+   ],
+   "warn": "Os autores definem sucesso por execução (testes + adoção do alvo), mas nenhum limiar para uma configuração funcionar. Decide se isso conta como critério; se sim, repõe veredictos (ex.: C1 funciona, C2 com Sonnet não). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

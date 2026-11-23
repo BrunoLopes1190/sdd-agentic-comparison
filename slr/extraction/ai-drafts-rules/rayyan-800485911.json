@@ -1,0 +1,29 @@
+{
+ "key": "rayyan-800485911",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs); secondary: repository mining: corpus analysis and taxonomy of 679 rule files (25,532 rules) scraped from GitHub",
+   "why": "Rule 3: the corpus analysis of 679 rule files scraped from GitHub (p. 1) is descriptive repository mining, so the secondary Evaluates is noted \"repository mining\"",
+   "doubt": "Fica por decidir se a natureza principal é Compares ou Evaluates: o artigo diz-se 'the first controlled evaluation' (p. 2), mas todas as experiências comparam condições com uma baseline sem regras. Escolhe a principal."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: SWE-bench Verified tests pass (official Docker harness), on discriminative tasks selected for 30-70% baseline pass rate; the authors state no pass rate that counts as success. All configurations: Claude Code (version not stated) + Claude Opus 4.6 (AWS Bedrock). Cost for every configuration: not measured per configuration (only ~$5 per task-condition and ~$2,000 overall), cost verdict: no criterion stated by the authors.\nExp. 1 rule sources (n=58, single trajectory; Table 2):\n- No rules (baseline) + Claude Code + Opus 4.6: 50.0%. Quality: no criterion stated by the authors\n- Random rule files + Claude Code + Opus 4.6: 63.8% (vs baseline p=.077). Quality: no criterion stated by the authors\n- Curated rules: 63.8% (p=.115). Quality: no criterion stated by the authors\n- Popular: 60.3% (p=.361). Quality: no criterion stated by the authors\n- Mismatched domain: 58.6% (p=.424). Quality: no criterion stated by the authors\n- Matched domain: 56.9% (p=.481). Quality: no criterion stated by the authors\n- Shuffled: 56.9% (p=.523). Quality: no criterion stated by the authors\n- Native-only CLAUDE.md: 56.9% (p=.556). Quality: no criterion stated by the authors\nExp. 2 rule counts 0, 1, 3, 5, 10, 20, 50 x 3 seeds (n=58): all in the 59-67% band; 0 rules 60.3%, 50 rules 66.7% (Cochran's Q p=0.227; Fig. 3a). Quality: no criterion stated by the authors\nExp. 3 rule types, 10 rules each (n=58; Table 3): tool/process 63.8%, mixed 62.1%, safety 60.3%, code style 56.9%, architecture 53.4% (Cochran's Q p=0.549). Quality: no criterion stated by the authors\nExp. 4 (n=35):\n- 18-rule curated set: 65.7%. Quality: no criterion stated by the authors\n- 4a ablation (18 leave-one-out variants): 3 shaping rules, all 'do not' (removing 'no unrelated refactor' -20pp, p=.016); 4 distorting, all 'do' (read test files, follow code style, handle edge cases, preserve compatibility); 11 inert (|delta|<=5pp)\n- 4b ablation (single rules on 17 baseline-solved tasks): 14 of 18 rules break >=2 tasks (worst 4/17)\n- 4c ablation (5 rule pairs; no-rule baselines 68.6-74.3%): 3 of 5 approximately additive (error <10pp), max error 22.9pp",
+   "why": "Rule 1: the authors state no pass rate that counts as success, so every quality verdict 'partly' (extractor's judgement) and the cost verdict became 'no criterion stated by the authors'; metric values kept. The 5pp and 10pp thresholds are the authors' own (p. 5-6), kept",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "doubt": "Os testes estatísticos são completos, mas as Exp. 1, 3 e 4 usam uma só execução por tarefa e condição e as seeds da Exp. 2 variam as regras, não a execução (p. 6). Decide entre Yes e Partly."
+  },
+  {
+   "f": "Q9",
+   "doubt": "O corpo do artigo é prudente, mas o título e o resumo ('Guardrails Beat Guidance', 'cleanly separates') exageram um padrão que desaparece com limiar de 10pp (Fisher p=0,25). Decide entre Yes e Partly."
+  },
+  {
+   "f": "Q12",
+   "doubt": "O conjunto curado de 18 regras foi feito pelos autores (Apêndice A, p. 11) e quatro autores são da AWS, que serve o modelo via Bedrock. Decide se isto conta como vendor (Partly) ou mantém Yes."
+  }
+ ]
+}

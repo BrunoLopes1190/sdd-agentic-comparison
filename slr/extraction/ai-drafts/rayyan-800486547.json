@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: tasks solved vs mean of 5 uncompressed runs (paired bootstrap 95% CI); cost ratios vs baseline. Model: DeepSeek-V4-Flash (self-hosted vLLM, temperature 0) for all. 84 evaluations (42 configs x 2 agents); grouped here, full values in Tables I-II. Table I rebuilt from jumbled pdftotext text, checked against text. - Baseline uncompressed + Mini-SWE-agent: 72.6 solved (71-76), 31.5 median turns; re-fetch 19/100 reads. Quality works; cost partly (no absolute token or money figure, only cost shares: cached 50%, new 14%, output 36%). - Baseline + Trae agent: 74.6 (74-76), 42.5 turns; re-fetch 9/100. Quality works; cost partly (no absolute figure; cached 52%, new 14%, output 34%). - Delayed reasoning deletion (14 evals): solved -5 to +4, no significant loss; Mini 69-75, Trae 70-79; turns Mini -11% to +11%, Trae -15% to -3%; flat cost 0.74-1.05, caching cost 1.05-1.48. Quality works; cost partly (works flat, does not work caching-aware). - Delayed tool-output deletion (14 evals): Mini 69-73, Trae 67-74 (one significant loss, 8 tasks: Trae token 75%, 67); turns +3% to +73%, 21 of 28 tool-output/both evals significantly longer; re-fetch up to 4.6x (Trae turn 100%); caching cost 1.03-1.70. Quality works; cost does not work. - Delayed both-scope deletion (14 evals): Mini 59-74, Trae 43-77; significant losses Mini turn 100% (59), Mini token 50% (66), Trae turn 100% (43), Trae token 75% (60); re-fetch up to 7.5x; caching cost up to 4.94 (Trae token 75%). Partly (<=75% turn-level) / does not work (100%, token 75%); cost does not work. - Immediate reasoning deletion (14 evals): 13 of 14 no significant loss; turns up to +105% (Mini turn 100%); no eval cheaper under either pricing; up to 4x cost (Mini turn 100%). Quality works; cost does not work. - Immediate tool-output deletion (14 evals): Mini 14-75, Trae 0-73 (Trae 0 at turn 100%, 5 at token 75%); runs up to cap. Does not work (except turn-level <=50% partly); cost does not work. - Immediate both-scope deletion (14 evals): Mini 2-72, Trae 0-74. Does not work beyond turn-level 25-50%; cost does not work. Overall: 19 of 42 immediate evaluations lose tasks significantly vs 5 of 42 delayed; caching-aware cost ratio >1 in all 42 delayed evaluations (26 significant)",
+   "v": "Criterion: tasks solved vs mean of 5 uncompressed runs (paired bootstrap 95% CI); cost ratios vs baseline. Model: DeepSeek-V4-Flash (self-hosted vLLM, temperature 0) for all. 84 evaluations (42 configs x 2 agents); grouped here, full values in Tables I-II. Table I rebuilt from jumbled pdftotext text, checked against text. - Baseline uncompressed + Mini-SWE-agent: 72.6 solved (71-76), 31.5 median turns; re-fetch 19/100 reads; no absolute token or money figure, only cost shares (cached 50%, new 14%, output 36%). - Baseline + Trae agent: 74.6 (74-76), 42.5 turns; re-fetch 9/100; no absolute figure (cached 52%, new 14%, output 34%). - Delayed reasoning deletion (14 evals): solved -5 to +4, no significant loss; Mini 69-75, Trae 70-79; turns Mini -11% to +11%, Trae -15% to -3%; flat cost 0.74-1.05, caching cost 1.05-1.48. - Delayed tool-output deletion (14 evals): Mini 69-73, Trae 67-74 (one significant loss, 8 tasks: Trae token 75%, 67); turns +3% to +73%, 21 of 28 tool-output/both evals significantly longer; re-fetch up to 4.6x (Trae turn 100%); caching cost 1.03-1.70. - Delayed both-scope deletion (14 evals): Mini 59-74, Trae 43-77; significant losses Mini turn 100% (59), Mini token 50% (66), Trae turn 100% (43), Trae token 75% (60); re-fetch up to 7.5x; caching cost up to 4.94 (Trae token 75%). - Immediate reasoning deletion (14 evals): 13 of 14 no significant loss; turns up to +105% (Mini turn 100%); no eval cheaper under either pricing; up to 4x cost (Mini turn 100%). - Immediate tool-output deletion (14 evals): Mini 14-75, Trae 0-73 (Trae 0 at turn 100%, 5 at token 75%); runs up to cap. - Immediate both-scope deletion (14 evals): Mini 2-72, Trae 0-74. Overall: 19 of 42 immediate evaluations lose tasks significantly vs 5 of 42 delayed; caching-aware cost ratio >1 in all 42 delayed evaluations (26 significant). Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "3-9",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "The two baseline entries had no quality or cost verdict (protocol §6: the baseline gets its own verdicts). Added: quality works (72.6 and 74.6 of 100 solved); cost partly is a judgement, since the paper gives no absolute cost, only ratios to the baseline and cost shares (p. 8). Also noted the size of the one significant delayed tool-output loss (8 tasks, p. 4)"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); significance vs the baseline is kept as a metric, it is not a success criterion"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -275,7 +280,7 @@
      "why": "Judgement: 5 baseline runs and paired bootstrap CIs with Holm sensitivity, but one run and one deletion draw per configuration, and CIs cover task sampling only (p. 9). Partly defensible; Yes also arguable"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Há 5 execuções de referência e ICs por bootstrap emparelhado com Holm (p. 9), mas cada configuração de eliminação corre uma vez, com um sorteio, e os ICs cobrem só a amostragem de tarefas. Decide entre Partly e Yes."
   },
   {
    "f": "Q9",

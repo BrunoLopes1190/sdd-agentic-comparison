@@ -1,13 +1,19 @@
 {
  "key": "rayyan-800497947",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
-   "v": "Polandra, W. G., Higo, Y., Kula, R. G. (2026). The Role of Agentic Instruction Categories for Code Generation: A Study of Five Python Libraries. arXiv:2610.21421v1 [cs.SE], 15 Oct 2026",
+   "v": "Polandra, W. G., Higo, Y., Kula, R. G. (2026). The Role of Agentic Instruction Categories for Code Generation: A Study of Five Python Libraries. Accepted to APSEC 2026 (Asia-Pacific Software Engineering Conference), Technical Track. Read from arXiv:2610.21421v1 [cs.SE], 15 Oct 2026",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The arXiv record (slr/exports/arxiv-S1/S2-2026-11-18.atom.xml, comment) states 'Accepted to APSEC 2026 Technical Track'; the reference gave only the arXiv version"
+    }
+   ],
    "warn": ""
   },
   {
@@ -19,9 +25,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; IEEE-style short paper, venue Not stated)",
+   "v": "Conference — APSEC 2026 Technical Track (accepted, per the arXiv comment in slr/exports/arxiv-*-2026-11-18.atom.xml); full text read from arXiv:2610.21421v1, IEEE-style short paper",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Was Preprint, but the arXiv record states acceptance at APSEC 2026 (not visible in the PDF text); a published paper read from arXiv keeps the venue type. Also the value did not follow the form '<type> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +45,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Compares (31 combinations of five agent-file instruction categories x 2 LLMs, measuring agent-file generation cost and quality of libraries reconstructed from the agent file)",
+   "v": "Compares — 31 combinations of five agent-file instruction categories x 2 LLMs (Gemma 4-26B-A4B, GPT-5.4) in OpenCode, measuring agent-file generation cost (tokens) and compilability, test results and structural similarity of the 5 libraries reconstructed from each agent file",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form '<nature> — <detail>' was missing; substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -77,8 +95,24 @@
    "f": "SDD level",
    "v": "Not classifiable / closest to spec-first (agent file acts as the sole input for regenerating a library from scratch); authors do not use SDD terms",
    "p": "4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The agent file is generated from existing code and then used as the only input to regenerate the library, which resembles spec-first (or even spec-as-source) use, but it is a context file, not a specification, and the authors use no SDD terms"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The agent file is generated from existing code and then used as the only input to regenerate the library, which resembles spec-first (or even spec-as-source) use, but it is a context file, not a specification, and the authors use no SDD terms"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The agent file is generated from existing code and is the sole input to regenerate the library (spec-first-like use), but it is a context file, not a specification, and the authors use no SDD terms"
+    }
+   ],
+   "warn": "O AGENTS.md é a única entrada para reconstruir a biblioteca, o que lembra spec-first, mas é um ficheiro de contexto e os autores não usam termos SDD. Decide entre 'not classifiable' e spec-first."
   },
   {
    "f": "Task type",
@@ -152,9 +186,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent: OpenCode (Plan + Build). Criterion: original tests pass; compile. Values aggregated per instruction category (over the 16 combinations containing it x 5 libraries = 80 variants). (1) Agent files + OpenCode + Gemma 4-26B-A4B (local): compile 88.39% overall (RepoOvw 87.50, FuncDec 81.25, ImpDetl 86.25, TestCas 88.75, ReConStp 86.25); Passed 0% for all categories; Partial 13.75-20.00% (FuncDec highest 20.00); overall 17.42% partial; tokens for agent-file generation 68,070-415,253. Quality: does not work; cost: partly. (2) Agent files + OpenCode + GPT-5.4 (API): compile 98.06% overall (97.50-98.75); Passed 6.25% (ImpDetl) to 16.25% (ReConStp), overall 12.99%; Partial 50.00-58.75% (overall 51.32%); tokens 78,148-888,781 (highest RepoOvw-FuncDec-ImpDetl-ReConStp on compactor). Quality: partly; cost: partly. Structural similarity: CC and FC close to originals (Gemma within 2.47% for 3 libraries; GPT within 13.58% for 4), LoF and FL far smaller (-16% to -98%)",
+   "v": "Agent: OpenCode (Plan + Build agents). Success criteria stated per library (compiles with python -m compileall; Passed = all original tests pass), but no criterion for when a configuration works; values aggregated per instruction category (16 combinations containing it x 5 libraries = 80 variants per category and model). (1) Agent files + OpenCode + Gemma 4-26B-A4B (local): compile 88.39% overall (RepoOvw 87.50, FuncDec 81.25, ImpDetl 86.25, TestCas 88.75, ReConStp 86.25); Passed 0% for all categories; Partial 13.75-20.00% (FuncDec highest 20.00), overall 17.42%; Failed 80.00-86.25%; agent-file generation tokens 68,070-415,253 (code-generation cost not measured). Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (2) Agent files + OpenCode + GPT-5.4 (API): compile 98.06% overall (97.50-98.75); Passed 6.25% (ImpDetl) to 16.25% (ReConStp), overall 12.99%; Partial 50.00-58.75% (overall 51.32%); Failed 33.75-36.25%; tokens 78,148-888,781 (highest RepoOvw-FuncDec-ImpDetl-ReConStp on compactor). Quality: no criterion stated by the authors; cost: no criterion stated by the authors. Structural similarity: total CC and FC close to originals (Gemma within 2.47% for 3 libraries; GPT within 13.58% for 4), LoF and FL far smaller (-16% to -98%)",
    "p": "5-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave verdicts (does not work / partly) resting on the extractor's own cut-offs; the authors define per-library pass criteria but no threshold for a configuration, so per the author's rule of 2026-11-23 the verdict is 'no criterion stated by the authors'. Failed rates (Table VI) added"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,10 +227,16 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python",
+   "v": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". RQ1b answer says the two lowest-token combinations both included Function Description and Implementation Detail, but in Table IV the second lowest (Gemma 4) is ImpDetl alone (69,344, areyoustillthere), after FuncDec-ImpDetl (68,070); the third, FuncDec-ImpDetl-ReConStp (70,283), fits the claim. Conclusion (p. 10) says Testing was most frequent for File Count, while the results (p. 7) and the abstract say Testing and Reconstruction Steps tied (11 of 16). Overall GPT-5.4 rates 12.99% passed and 51.32% partial are not whole counts out of 155 variants (extractor's check: 20/155 = 12.90%); denominator not stated. Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python",
    "p": "3, 5-8, 10",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Three reporting inconsistencies were missing: RQ1b claim contradicted by Table IV (second lowest is ImpDetl alone), Conclusion vs results on the File Count category, and overall GPT-5.4 percentages that do not match 155 variants"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -238,8 +284,24 @@
    "f": "Q7",
    "v": "Partly (0.5): combinations and two models compared under same conditions; no no-agent-file or original-spec baseline",
    "p": "3-4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "All 31 combinations and both models run under the same conditions, which is an alternative under the same conditions (Yes), but there is no baseline without an agent file (Partly). Both readings are defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "All 31 combinations and both models run under the same conditions, which is an alternative under the same conditions (Yes), but there is no baseline without an agent file (Partly). Both readings are defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All 31 combinations and both models run under the same conditions (alternatives under the same conditions: Yes), but there is no baseline without an agent file (Partly). Both readings defensible"
+    }
+   ],
+   "warn": "As 31 combinações e os 2 modelos correm nas mesmas condições, mas não há base sem ficheiro de agente. Decide se isso conta como alternativa (Yes) ou só Partly."
   },
   {
    "f": "Q8",
@@ -252,8 +314,24 @@
    "f": "Q9",
    "v": "Partly (0.5): conclusions mostly cautious (\"preliminary\"), but category recommendations rest on 1.25-3.75-point differences in single runs; RQ2a answer not supported by Table V for GPT-5.4",
    "p": "5-7, 9-10",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Conclusions are hedged as preliminary, but category recommendations rest on 1.25-3.75-point differences from single runs, and the RQ2a answer (Testing highest compile rate) only holds for Gemma 4 (Table V). Partly or Yes is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Conclusions are hedged as preliminary, but category recommendations rest on 1.25-3.75-point differences from single runs, and the RQ2a answer (Testing highest compile rate) only holds for Gemma 4 (Table V). Partly or Yes is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Conclusions hedged as preliminary, but category recommendations rest on 1.25-3.75-point differences from single runs, and several stated answers are not supported by the tables (RQ2a 'Testing highest compile rate' holds only for Gemma 4; RQ1b 'two lowest both include FuncDec and ImpDetl' contradicted by Table IV). Partly or Yes"
+    }
+   ],
+   "warn": "As conclusões são cautelosas, mas as respostas RQ1b e RQ2a não batem com as Tabelas IV e V e as diferenças entre categorias são de 1-4 pontos numa só execução. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -264,9 +342,15 @@
   },
   {
    "f": "Q11",
-   "v": "No (0): arXiv preprint",
-   "p": "1",
-   "rev": [],
+   "v": "Yes (1): accepted to APSEC 2026 Technical Track (peer-reviewed conference), per the arXiv record",
+   "p": "arXiv record",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft scored No as an arXiv preprint; the arXiv comment states acceptance at APSEC 2026 (slr/exports/arxiv-*-2026-11-18.atom.xml)"
+    }
+   ],
    "warn": ""
   },
   {

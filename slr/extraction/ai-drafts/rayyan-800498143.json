@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498143",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2608.06153v1 [cs.SE], 6 Aug 2026; no published venue in the paper or access log",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'. Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (GSE: globalized skill evolution with a Skill Relation Graph, cluster-based consolidation and replay-driven validation); secondary: compares (vs base agents, human-written skills, Live-SWE-agent, Trace2Skill on two agents)",
+   "v": "Proposes an approach; secondary: Compares — GSE (globalized skill evolution with a Skill Relation Graph, cluster-based consolidation and replay-driven validation), compared with base agents, human-written skills, Live-SWE-agent and Trace2Skill on OpenHands and mini-SWE-agent, plus an industrial internal agent",
    "p": "1-3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>'. Substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,10 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "All with DeepSeek-V4-Flash, temperature 0, one run. Values P / R / F1. Draft verdict rule: quality works F1 >= 0.6, partly 0.3-0.6, does not < 0.3; cost relative to base agent.\nTest generation (Table 1):\n- OpenHands base: 0.17 / 0.06 / 0.08. Does not work\n- OpenHands + human skills: 0.33 / 0.10 / 0.16. Does not work\n- OpenHands + Live-SWE-agent: 0.31 / 0.17 / 0.22. Does not work\n- OpenHands + Trace2Skill: 0.31 / 0.14 / 0.19. Does not work\n- OpenHands + GSE: 0.35 / 0.28 / 0.31. Partly\n- mini-SWE-agent base: 0.48 / 0.19 / 0.28; + human 0.42 / 0.19 / 0.26; + Live-SWE-agent 0.43 / 0.21 / 0.29; + Trace2Skill 0.41 / 0.22 / 0.29. Does not work\n- mini-SWE-agent + GSE: 0.55 / 0.29 / 0.38. Partly\nFalse-positive filtering (Table 2):\n- OpenHands base 0.25 / 0.73 / 0.37; + human 0.29 / 0.80 / 0.42; + Live-SWE-agent 0.28 / 0.82 / 0.42; + Trace2Skill 0.29 / 0.84 / 0.43. Partly\n- OpenHands + GSE: 0.55 / 0.95 / 0.70. Works\n- mini-SWE-agent base 0.23 / 0.78 / 0.36; + human 0.25 / 0.81 / 0.38; + Live-SWE-agent 0.26 / 0.83 / 0.39; + Trace2Skill 0.25 / 0.84 / 0.39. Partly\n- mini-SWE-agent + GSE: 0.30 / 0.97 / 0.46. Partly\nAblation (OpenHands, Table 3): GSE w/o graph TG 0.31 / 0.24 / 0.27, FP 0.44 / 0.89 / 0.59; GSE w/o gen TG 0.32 / 0.23 / 0.27, FP 0.39 / 0.91 / 0.54\nIndustrial internal agent (Table 5, FP filtering): base 0.29 / 0.83 / 0.43; + human 0.30 / 0.83 / 0.44; + GSE 0.56 / 0.97 / 0.71. Works\nCost (Table 4, total tokens per case, macro-average): execution base 489.31K, human 620.58K, Live-SWE-agent 613.61K, Trace2Skill 619.65K, GSE 593.21K (cost partly for all skill variants, +21-27% vs base); evolution Trace2Skill 357.64K, GSE 401.55K",
+   "v": "OpenHands and mini-SWE-agent configurations (and GSE itself) all with DeepSeek-V4-Flash, temperature 0, one run. Values P / R / F1. The authors state no success criterion (no target precision, recall, F1 or token budget), so each configuration's quality and cost verdict is 'no criterion stated by the authors'.\nTest generation (Table 1):\n- OpenHands base: 0.17 / 0.06 / 0.08\n- OpenHands + human skills: 0.33 / 0.10 / 0.16\n- OpenHands + Live-SWE-agent: 0.31 / 0.17 / 0.22\n- OpenHands + Trace2Skill: 0.31 / 0.14 / 0.19\n- OpenHands + GSE: 0.35 / 0.28 / 0.31\n- mini-SWE-agent base: 0.48 / 0.19 / 0.28; + human 0.42 / 0.19 / 0.26; + Live-SWE-agent 0.43 / 0.21 / 0.29; + Trace2Skill 0.41 / 0.22 / 0.29\n- mini-SWE-agent + GSE: 0.55 / 0.29 / 0.38\nFalse-positive filtering (Table 2):\n- OpenHands base 0.25 / 0.73 / 0.37; + human 0.29 / 0.80 / 0.42; + Live-SWE-agent 0.28 / 0.82 / 0.42; + Trace2Skill 0.29 / 0.84 / 0.43\n- OpenHands + GSE: 0.55 / 0.95 / 0.70\n- mini-SWE-agent base 0.23 / 0.78 / 0.36; + human 0.25 / 0.81 / 0.38; + Live-SWE-agent 0.26 / 0.83 / 0.39; + Trace2Skill 0.25 / 0.84 / 0.39\n- mini-SWE-agent + GSE: 0.30 / 0.97 / 0.46\nAblation (OpenHands, Table 3): GSE w/o graph TG 0.31 / 0.24 / 0.27, FP 0.44 / 0.89 / 0.59; GSE w/o gen TG 0.32 / 0.23 / 0.27, FP 0.39 / 0.91 / 0.54\nIndustrial internal agent (ByteDance proprietary bug-triage agent, LLM not stated; Table 5, FP filtering): base 0.29 / 0.83 / 0.43; + human 0.30 / 0.83 / 0.44; + GSE 0.56 / 0.97 / 0.71\nCost (Table 4, total tokens per case, macro-average): execution base 489.31K, human 620.58K, Live-SWE-agent 613.61K, Trace2Skill 619.65K, GSE 593.21K (+21.2% to +26.8% vs base for the skill variants); evolution Trace2Skill 357.64K, GSE 401.55K\nQuality and cost verdicts for every configuration above: no criterion stated by the authors",
    "p": "10, 12-14",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft set its own verdict rule (F1 >= 0.6 works, 0.3-0.6 partly) and judged cost relative to the base agent; the authors state no success criterion, so per the 2026-11-23 rule no verdict is given. All metric values checked against Tables 1-5: correct"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft put all configurations under DeepSeek-V4-Flash, but the paper states that model only for GSE's agents, the open-source base agents and the compared techniques (p. 10); the LLM of the proprietary internal agent (Table 5) is not stated. Metric values re-checked against Tables 1-5 (rebuilt from jumbled pdftotext): correct"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -187,10 +210,21 @@
   },
   {
    "f": "Notes",
-   "v": "No replication package or code link found. No pre-registration. Languages: Java (test generation), Go (filtering); GSE in Python. Tables 1-3 jumbled by pdftotext: values rebuilt by row order and checked against text deltas (p. 10, 11-12; all consistent). Abstract '61.4% F1' for industrial deployment is vs human skills; vs base 65.1%. Industrial partner named ByteDance on p. 2 but anonymized later. Relevance to SDD: automatically evolved agent skill files",
-   "p": "1-2, 10, 12-14",
-   "rev": [],
-   "warn": ""
+   "v": "No replication package or code link found. No pre-registration. Languages: Java (test generation), Go (filtering); GSE in Python. Tables 1-3 jumbled by pdftotext: values rebuilt by row order and checked against text deltas (p. 10, 11-12; all consistent). Abstract '61.4% F1' for industrial deployment is vs human skills; vs base 65.1%. Abstract and conclusion attribute the gains 'compared with existing evolution techniques' (P +6.1-34.1%, R +31.8-180.0% for test generation), but the lower precision end (6.1%, 0.35 vs 0.33) and the upper recall end (180.0%, 0.28 vs 0.10) come from the human-skills baseline, not from Live-SWE-agent or Trace2Skill (the other ends, 34.1% and 31.8%, are vs Trace2Skill on mini-SWE-agent: 0.55 vs 0.41, 0.29 vs 0.22); likewise the filtering recall upper end 19.8% is vs human skills on mini-SWE-agent (0.97 vs 0.81). RQ1 summary 'F1 +31.0-93.8%' is likewise vs strongest baseline and human skills. Industrial partner named ByteDance on p. 2 but anonymized later. Relevance to SDD: automatically evolved agent skill files",
+   "p": "1-2, 10-15",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added a reporting inconsistency the draft missed: the abstract's improvement ranges 'compared with existing evolution techniques' are computed partly against the human-skills baseline (recomputed from Tables 1-2)"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The draft said the ends of the abstract's test-generation ranges come from the human-skills baseline; only two of them do (P 6.1%, R 180.0%); P 34.1% and R 31.8% are vs Trace2Skill on mini-SWE-agent (Table 1, p. 10). Added that filtering recall 19.8% is also vs human skills (Table 2, p. 12)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486408",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -176,16 +176,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: tokens/USD saved vs the no-op arm; correctness only as zero Edit failures. Agents: Claude Code + Claude Sonnet; Codex + GPT-5 (model versions Not stated).\n- Tool-schema filtering + Claude Code + Sonnet (MCP attached): 392,000 tokens saved over a jinja2 session (~32K/request x 12); 1,220,000 over a 34-request rich session; ~21K/turn fixed (29K -> 8K); cancels ~17K/turn 'proxy tax'; $0.043 vs $0.057 direct on a Sonnet edit task. Quality: Not measured; cost works\n- Tool-schema filtering + Codex + GPT-5: saves 128-256 tokens; without core-tool whitelist the agent is paralysed. Quality partly (needs whitelist); cost does not work (nothing to save)\n- Content compression + Claude Code + Sonnet (turn-aligned): ~1.5-2K tokens/turn (~2% of cache-priced prefix); 5-turn session cumulative 83,710 tokens (22.2%); whole-task runs dominated by turn count ($0.638/18 turns vs $0.230/7 uncompressed local; $0.268/10 vs $0.469/16 GPU). Quality: zero Edit failures after bug fix; cost partly (positive only on long sessions with few recalls)\n- Content compression with recalls (sparkline change): 2 recalls, each costs one compressed segment; recall-free change (max_retries=-1) ~6.5% fewer input tokens (dollar-neutral). Quality partly (0 Edit exact-match failures across all runs after the boundary fix; no acceptance tests); cost partly\n- Content compression without recall tool (ablation): 46 turns / $1.85, 3.2x the cost with recall. Quality: Not measured (agent reconstructs exact bytes via grep/cat/re-reads); cost does not work\n- History summarization: not quantified (value is capacity, not dollars). Quality and cost: Not measured\n- Paritok-4B compressor, single-shot SWE-bench Lite: 86.5% quality retained at 25.7% rate (gpt-4.1-mini 85.6% at 50.2%; gpt-5 93.6% at 61.9%); authors say it is orthogonal to multi-turn cost. Quality partly (86.5% of uncompressed solve quality retained); cost: Not measured (compression rate only, no tokens/USD of the agent)",
+   "v": "Criterion: tokens/USD saved against the no-op or direct arm; correctness only as zero Edit exact-match failures. The authors state no success threshold for a configuration, so quality and cost verdicts for every entry: no criterion stated by the authors (the authors' own judgements are quoted). Agents: Claude Code + Claude Sonnet; Codex + GPT-5 (model versions Not stated).\n- Tool-schema filtering + Claude Code + Sonnet (MCP attached): 392,000 tokens saved over a jinja2 session (~32K/request x 12); 1,220,000 over a 34-request rich session; ~21K/turn fixed (29K -> 8K); cancels ~17K/turn 'proxy tax'; $0.043 vs $0.057 direct on a Sonnet edit task. Quality not measured; authors: 'the only lever that is unambiguously and reproducibly positive'\n- Tool-schema filtering + Codex + GPT-5: saves 128-256 tokens; without a core-tool whitelist the agent is paralysed, with it runs commands every turn. Quality not measured (qualitative)\n- Content compression + Claude Code + Sonnet (turn-aligned): ~1.5-2K tokens/turn (~2% of cache-priced prefix); 5-turn session cumulative 83,710 tokens (22.2%); whole-task runs dominated by turn count ($0.638/18 turns vs $0.230/7 uncompressed, local backend; $0.268/10 vs $0.469/16, GPU). Zero Edit exact-match failures after the boundary fix; authors: positive only on long sessions with few recalls\n- Content compression with recalls (sparkline change): 2 recalls, each costing one compressed segment; recall-free change (max_retries=-1): ~6.5% fewer input tokens, dollar-neutral\n- Content compression without recall tool (ablation): 46 turns / $1.85, 3.2x the cost with recall; authors: 'far worse'\n- History summarization: not quantified (value is capacity, not dollars); quality and cost not measured\n- Paritok-4B compressor, single-shot SWE-bench Lite: 86.5% of uncompressed solve quality retained at 25.7% compression rate (gpt-4.1-mini 85.6% at 50.2%; gpt-5 93.6% at 61.9%); agent tokens/USD not measured; authors say it is orthogonal to multi-turn cost",
    "p": "3-8",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Four entries lacked the separate quality and cost verdicts §6 requires for every configuration (with-recall, no-recall ablation, history summarization, Paritok-4B single-shot); added them. The 6.5% recall-free figure is the max_retries=-1 change, not the sparkline task (p. 7); labelled. All numbers re-checked against pp. 3-8"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave works/partly/does-not-work verdicts by its own judgement; the rule of 2026-11-23 allows verdicts only on a success criterion stated by the authors, and the paper gives none (it reports savings against the no-op arm and its own qualitative judgements). Verdicts replaced by 'no criterion stated by the authors'; values re-checked against pp. 3-8."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486079",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -266,10 +266,16 @@
   },
   {
    "f": "Q8",
-   "v": "No (0): descriptive means only, no statistical tests of differences",
-   "p": "8-10",
-   "rev": [],
-   "warn": ""
+   "v": "No (0): descriptive means only, no statistical tests of the differences claimed by language, domain or timing; LLM labelling repeated three times with majority vote (p. 4), which addresses label reliability rather than variability of the results",
+   "p": "4, 8-10",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The LLM coding was run three times with majority vote and validated by kappa (p. 4); a reader could count these repetitions as handling variability (Partly), although the comparisons across languages, domains and timing have no statistical test"
+    }
+   ],
+   "warn": "A codificação por LLM foi repetida três vezes com voto maioritário (p. 4), mas as diferenças entre linguagens e domínios não têm teste estatístico. Decide se isso conta como Partly ou fica No. O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q9",

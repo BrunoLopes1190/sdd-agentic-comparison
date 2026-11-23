@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485917",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: SWE-bench Verified hidden tests (resolve rate, 500 instances); cost only as relative prompt tokens. Agent = authors' ReAct-style bash scaffold (unnamed, released code), 16k effective context, temperature 0. Values: resolve / coverage / precision, mean +- SD of 4 trials at 200 steps unless noted. Quality verdicts on the absolute resolve rate of each entry.\nMain experiment (Qwen3.5-35B-A3B, 200 steps, 4 trials; Tables 4, 8):\n- no_context (baseline) + own scaffold + Qwen3.5-35B-A3B: 25.5 +- 2.2% / 41.7 +- 2.9% / 61.0 +- 2.6%; fallback 25.6%. Quality: partly (about a quarter of issues resolved); cost: not measured in absolute terms (tokens 2.3x at 200 vs 25 steps)\n- static_kb + own scaffold + Qwen3.5-35B-A3B: 28.3 +- 1.4% / 50.6 +- 2.3% / 56.0 +- 2.5%; fallback 30.8%. Quality: partly; cost: not measured (one-off generation per repository)\n- probe_refined + own scaffold + Qwen3.5-35B-A3B: 33.0 +- 1.8% / 56.2 +- 1.8% / 58.6 +- 1.6%; fallback 14.8%. Quality: partly (best of the three, but a third of issues resolved); cost: partly (~56% more prompt tokens than no_context; tuning 3-5 iterations x ~22 calls of ~8k/2k tokens per repository, one-off)\nStep-budget runs (Qwen, single trial; Table 9), resolve at 25 / 50 / 100 steps:\n- no_context: 24.4 / 27.6 / 23.6%. Quality: partly\n- static_kb: 21.8 / 29.8 / 29.6%. Quality: partly\n- probe_refined: 24.2 / 23.4 / 30.8% (below static_kb at 50 steps, p=0.022). Quality: partly\n- Cost for all: not measured per budget beyond the token ratios (2.3x no_context, 2.8x probe_refined at 200 vs 25 steps)\nCross-model (NVIDIA-Nemotron-3-Nano-30B-A3B, 200 steps, single trial; Tables 11-12):\n- no_context + own scaffold + Nemotron: 28.4% (142 resolved). Quality: partly; cost: not measured (39.2 steps per instance)\n- static_kb + own scaffold + Nemotron: 24.6%. Quality: partly; cost: not measured\n- probe_refined (Nemotron-tuned) + own scaffold + Nemotron: 27.0% (135); tuning loop degraded (3.8 of 5 iterations). Quality: partly; cost: not measured\n- probe_refined (Qwen-tuned, transferred) + own scaffold + Nemotron: 13.2% (66); 324 fallback patches, none resolved; agent-loop precision 37.9% vs 38.5%. Quality: does not work (collapse); cost: does not work (81.0 vs 39.2 steps per instance, 83 vs 11 instances hitting max steps)",
+   "v": "Metric: SWE-bench Verified hidden tests (resolve rate, 500 instances); coverage and precision; cost only as relative prompt tokens. The authors state no success threshold (they stress the relative comparison, absolute rates being low by design, p. 4), so no verdict is given. Agent = authors' ReAct-style bash scaffold (unnamed, released code), 16k effective context, temperature 0. Values: resolve / coverage / precision, mean +- SD of 4 trials at 200 steps unless noted.\nMain experiment (Qwen3.5-35B-A3B, 200 steps, 4 trials; Tables 4, 8):\n- no_context (baseline) + own scaffold + Qwen3.5-35B-A3B: 25.5 +- 2.2% / 41.7 +- 2.9% / 61.0 +- 2.6%; fallback 25.6%; tokens 2.3x at 200 vs 25 steps. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- static_kb + own scaffold + Qwen3.5-35B-A3B: 28.3 +- 1.4% / 50.6 +- 2.3% / 56.0 +- 2.5%; fallback 30.8%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors (one-off generation per repository, not quantified)\n- probe_refined + own scaffold + Qwen3.5-35B-A3B: 33.0 +- 1.8% / 56.2 +- 1.8% / 58.6 +- 1.6%; fallback 14.8%; ~56% more prompt tokens than no_context; tokens 2.8x at 200 vs 25 steps; tuning 3-5 iterations x ~22 calls of ~8k/2k tokens per repository (one-off). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\nStep-budget runs (Qwen, single trial; Table 9), resolve at 25 / 50 / 100 steps:\n- no_context: 24.4 / 27.6 / 23.6%\n- static_kb: 21.8 / 29.8 / 29.6%\n- probe_refined: 24.2 / 23.4 / 30.8% (below static_kb at 50 steps, p=0.022)\n- Quality and cost for all: no criterion stated by the authors\nCross-model (NVIDIA-Nemotron-3-Nano-30B-A3B, 200 steps, single trial; Tables 11-12):\n- no_context + own scaffold + Nemotron: 28.4% (142 resolved). Quality and cost: no criterion stated by the authors\n- static_kb + own scaffold + Nemotron: 24.6%. Quality and cost: no criterion stated by the authors\n- probe_refined (Nemotron-tuned) + own scaffold + Nemotron: 27.0% (135); tuning loop degraded (3.8 of 5 iterations); 351 agent-loop patches, 3 fallback, 39.2 steps per instance, 11 hit max steps; agent-loop precision 38.5%. Quality and cost: no criterion stated by the authors\n- probe_refined (Qwen-tuned, transferred) + own scaffold + Nemotron: 13.2% (66); 174 agent-loop patches, 324 fallback patches (none resolved); 81.0 steps per instance, 83 hit max steps; agent-loop precision 37.9%. Quality and cost: no criterion stated by the authors (the authors call it a 'collapse', p. 16)",
    "p": "4, 7, 9, 14, 16-17",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Verdicts were stated relative to the baseline ('+2.8 pp vs baseline', 'best', 'Does not work' for Nemotron conditions below no_context), the baseline cost was 'N/A (baseline)', and the Nemotron baseline and step-budget entries had no verdict; §6 requires every configuration, baseline included, judged on its own. Re-judged on absolute resolve rates (25-33% = partly); values unchanged. The cut-off between partly and works/does not work is a judgement for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The partly/does-not-work verdicts were the extractor's own cut-offs (r2 'why' says so); the paper states no success criterion, so per the 2026-11-23 rule every verdict is 'no criterion stated by the authors'. Values kept. Also fixed: r2 attached 39.2 steps per instance to Nemotron no_context, but in Table 12 the 'Nemotron baseline' column is the Nemotron self-tuned probe_refined run (135 resolved = 27.0%)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -286,9 +291,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Main claims follow from the 4-trial results and negative findings are reported (50-step dip, Nemotron reversal, transfer collapse), which supports Yes; but the conclusion that instructions 'matter at least as much as the agents' own reasoning' (p. 19) and that guidance encodes model-specific calibration (p. 17) rest on one tuning-capable model and single-trial cross-model runs. Partly kept"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main claims follow from the 4-trial results and negative findings are reported (50-step dip, Nemotron reversal, transfer collapse), which supports Yes; but the conclusion that instructions 'matter at least as much as the agents' own reasoning' (p. 19) and that guidance encodes model-specific calibration (p. 17) rest on one tuning-capable model and single-trial cross-model runs. Partly kept"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os resultados principais (4 ensaios) suportam as conclusões e os negativos são relatados; mas generalizações (p. 17 e 19) assentam num só modelo e em ensaios únicos com Nemotron. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -308,8 +318,14 @@
    "f": "Q12",
    "v": "No (0): authors created probe-and-refine and the static_kb condition; only the bare no_context baseline is not theirs",
    "p": "2, 4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Both guided conditions (probe_refined, static_kb) and the agent scaffold are the authors' own; the only baseline (no_context) is the authors' scaffold without guidance, not an external tool. No follows if this baseline is not an external approach; the 2026-11-23 rule gives Partly when the own approach is compared with external baselines, and a reader could count no_context (or the third-party models Qwen/Nemotron) as such"
+    }
+   ],
+   "warn": "Todas as condições usam o scaffold dos próprios autores; o baseline no_context é esse scaffold sem orientação. Decide se conta como baseline externo (Partly) ou não (No)."
   },
   {
    "f": "Q13",

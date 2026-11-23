@@ -106,7 +106,7 @@
      "why": "Code is regenerated from the specifications alone (pp. 2-3), which points to spec-as-source, but the specs are reverse-engineered from a reference implementation and judged by reconstruction, not used to build new software; 'not classifiable' is equally defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O código é regenerado só a partir das especificações (pp. 2-3), o que aponta para spec-as-source, mas estas são extraídas de uma implementação existente e avaliadas por reconstrução. Escolhe spec-as-source ou não classificável."
   },
   {
    "f": "Task type",
@@ -180,9 +180,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: solve rate / pass rate on hidden tests (DevEval+), 50 rollouts. Values |S| / pass rate per backbone: Qwen3-235B-A22B; Gemini-2.5-Flash; GPT-4o; Gemini-3.1-Pro; Claude-4.5-Sonnet (Table 1). Agent = authors' pipeline unless Cursor/Claude Code. Quality verdict: works >= 85% solve, partly 50-85%, does not < 50%. Cost: not measured (equal rollout budget), no cost verdict.\n- SpecForge (5 models): 88.9/91.5; 89.6/92.1; 90.9/93.2; 91.0/93.1; 94.9/96.1. Works on all\n- DocSearch (5 models): 81.5/84.9; 82.2/85.7; 85.5/88.4; 87.2/89.5; 90.4/91.8. Partly (Qwen, Flash), works (others)\n- RepoAgent: 22.3/34.9; 19.2/30.6; 27.8/39.9; 33.7/45.5; 35.3/47.3. Does not work\n- DocAgent: 16.1/31.1; 14.5/27.2; 22.2/37.2; 26.8/41.8; 28.9/44.7. Does not work\n- MIPROv2: 28.5/30.4; 30.3/32.3; 29.8/31.4; 42.8/43.8; 50.0/52.0. Does not work (partly on Claude)\n- GEPA: 34.8/35.6; 32.1/33.1; 35.6/37.6; 40.7/42.5; 50.4/52.9. Does not work (partly on Claude)\n- ACE: 58.9/59.8; 61.5/62.4; 62.8/64.3; 68.6/70.1; 74.9/76.6. Partly\n- Cursor base / +Topo / +Test / +Topo+Test on Gemini-2.5-Flash: 15.8, 21.2, 31.0, 39.4 solve. Does not work\n- Cursor same four on Gemini-3.1-Pro: 27.5, 37.6, 44.9, 51.1. Does not work / partly (+Topo+Test)\n- Cursor same four on Claude-4.5-Sonnet: 30.6, 37.7, 47.8, 52.1. Does not work / partly (+Topo+Test)\n- Claude Code base / +Topo / +Test / +Topo+Test on Claude-4.5-Sonnet: 40.1/50.1, 45.1/55.0, 55.3/62.2, 61.9/68.4. Does not work / partly\n- Iterative: 41.0/45.0; 37.8/45.1; 49.7/53.8; 57.5/59.9; 59.5/60.6. Does not work / partly\n- Iterative+Topo: 43.5/46.8; 40.5/46.9; 54.3/57.9; 67.5/68.8; 64.4/64.5. Partly\n- Ablations on GPT-4o, 10-module subset (ablation): without reverse topological order -18.6; without D-UCB -10.4; without error diversity -9.5; without Pareto archive -5.2 (solve rate points)\n- Feedback-signal variants on GPT-4o (ablation): pass rate 93.2 (LLM tests), 94.8 (ground-truth tests), 73.6 (LLM judge), 93.4/92.6/87.5 (coverage 0.7/0.5/0.3)\n- Java translation, GPT-4o (|S|/pass): Source-only 39.7/50.5; RepoAgent 33.5/44.6; Claude Code* (Claude-4.5-Sonnet) 45.9/53.1; ACE 49.7/56.0; SpecForge 65.7/71.3; SpecForge Spec+Source 76.2/80.4\n- SWE-Dev new features, GPT-4o (Pass@1 easy/hard): PRD+Source 55.7/44.6; RepoAgent 22.0/14.0; Claude Code* 38.0/27.0; ACE 50.0/38.0; SpecForge 74.5/51.7",
+   "v": "Criterion: solve rate / pass rate on hidden tests (DevEval+), 50 rollouts. Values |S| / pass rate per backbone: Qwen3-235B-A22B; Gemini-2.5-Flash; GPT-4o; Gemini-3.1-Pro; Claude-4.5-Sonnet (Table 1). Agent = authors' pipeline unless Cursor/Claude Code. Cost: not measured (equal rollout budget).\n- SpecForge (5 models): 88.9/91.5; 89.6/92.1; 90.9/93.2; 91.0/93.1; 94.9/96.1\n- DocSearch (5 models): 81.5/84.9; 82.2/85.7; 85.5/88.4; 87.2/89.5; 90.4/91.8\n- RepoAgent: 22.3/34.9; 19.2/30.6; 27.8/39.9; 33.7/45.5; 35.3/47.3\n- DocAgent: 16.1/31.1; 14.5/27.2; 22.2/37.2; 26.8/41.8; 28.9/44.7\n- MIPROv2: 28.5/30.4; 30.3/32.3; 29.8/31.4; 42.8/43.8; 50.0/52.0\n- GEPA: 34.8/35.6; 32.1/33.1; 35.6/37.6; 40.7/42.5; 50.4/52.9\n- ACE: 58.9/59.8; 61.5/62.4; 62.8/64.3; 68.6/70.1; 74.9/76.6\n- Cursor base / +Topo / +Test / +Topo+Test on Gemini-2.5-Flash: 15.8, 21.2, 31.0, 39.4 solve\n- Cursor same four on Gemini-3.1-Pro: 27.5, 37.6, 44.9, 51.1\n- Cursor same four on Claude-4.5-Sonnet: 30.6, 37.7, 47.8, 52.1\n- Claude Code base / +Topo / +Test / +Topo+Test on Claude-4.5-Sonnet: 40.1/50.1, 45.1/55.0, 55.3/62.2, 61.9/68.4\n- Iterative: 41.0/45.0; 37.8/45.1; 49.7/53.8; 57.5/59.9; 59.5/60.6\n- Iterative+Topo: 43.5/46.8; 40.5/46.9; 54.3/57.9; 67.5/68.8; 64.4/64.5\n- Ablations on GPT-4o, 10-module subset (ablation): without reverse topological order -18.6; without D-UCB -10.4; without error diversity -9.5; without Pareto archive -5.2 (solve rate points)\n- Feedback-signal variants on GPT-4o (ablation): pass rate 93.2 (LLM tests), 94.8 (ground-truth tests), 73.6 (LLM judge), 93.4/92.6/87.5 (coverage 0.7/0.5/0.3)\n- Java translation, GPT-4o (|S|/pass): Source-only 39.7/50.5; RepoAgent 33.5/44.6; Claude Code* (Claude-4.5-Sonnet) 45.9/53.1; ACE 49.7/56.0; SpecForge 65.7/71.3; SpecForge Spec+Source 76.2/80.4\n- SWE-Dev new features, GPT-4o (Pass@1 easy/hard): PRD+Source 55.7/44.6; RepoAgent 22.0/14.0; Claude Code* 38.0/27.0; ACE 50.0/38.0; SpecForge 74.5/51.7\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "7-10, 27",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's cut-off (solve rate >= 85% / 50-85% / < 50%) and the verdicts based on it removed: the authors state no success criterion for quality; cost not measured; metric values kept (rule 1)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -331,7 +337,7 @@
      "why": "API calls from CPU desktops (p. 38) and a 50-rollout budget support Yes; the need for a reference implementation (p. 38) and no token or money figures support Partly. In the paper's use cases (existing code) a reference exists, so a reader could score Yes."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Corre por API em máquinas CPU com 50 rollouts (p. 38), o que apoia Yes; exige uma implementação de referência e não indica custo em tokens ou dinheiro, o que apoia Partly. Decide entre Partly e Yes."
   },
   {
    "f": "DARE1",

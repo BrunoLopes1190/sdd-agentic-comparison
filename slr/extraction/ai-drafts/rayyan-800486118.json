@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486118",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Workshop (BoatSE '26, ACM; position paper, 4 pages); arXiv version used",
+   "v": "Workshop — 7th International Workshop on Bots and Agents in Software Engineering (BoatSE '26), Rio de Janeiro, ACM, 4 pages (position paper); read from arXiv:2602.04640v1",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual (position paper with an initial roadmap for structured, state-aware, execution-grounded SE agents)",
+   "v": "Conceptual — position paper with an initial roadmap for structured, state-aware, execution-grounded SE agents",
    "p": "1, 3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -252,8 +264,19 @@
    "f": "Q9",
    "v": "Partly (0.5): conclusions consistent with the argument but rest on cited studies, no own evidence",
    "p": "3",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Conceptual paper: the conclusions restate the argument, which rests on cited studies; Yes (they follow from the argument) or Partly (no own evidence) are both defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Conceptual position paper: the conclusions restate the argument, which rests on cited studies (some by the author); Yes (they follow from the argument) and Partly (no own evidence) are both defensible."
+    }
+   ],
+   "warn": "Artigo de posição: as conclusões repetem o argumento, apoiado só em estudos citados (alguns do próprio autor). Decide entre Yes e Partly, de forma coerente com os outros artigos conceptuais."
   },
   {
    "f": "Q10",
@@ -271,10 +294,16 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): no vendor tool evaluated; academic author",
+   "v": "N/A: no tool or approach is evaluated (position paper); the author is academic, but cites his own Agent-SAMA as supporting evidence",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The draft gave Yes (1), but no tool is evaluated. The 2026-11-23 rule makes Q12 N/A when an approach is proposed and none is evaluated; whether that extends to a conceptual position paper is a judgement."
+    }
+   ],
+   "warn": "Nenhuma ferramenta é avaliada; a regra de 2026-11-23 dá N/A a quem propõe sem avaliar. Decide se se aplica também a este artigo conceptual (N/A) ou se fica Yes (autor académico). O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Q13",

@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498173",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Goswami, A. (2026). Assurance Envelopes for Autonomous Coding Agents: Minimum-Cost Evidence for Software Change. arXiv:2609.16302v1 [cs.SE], 14 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.16302v1 [cs.SE], 14 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "SmartInfer AI (single author, industry)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — formulation of 'task-conditioned assurance envelopes' (minimum-cost subset of prior assurance evidence that derives the supplied task obligations over a typed inference graph), evaluated in a bounded way on hand-specified graphs from preserved coding-agent outputs and a 249-instance synthetic scalability benchmark, against two diagnostic baselines (ALL, FLAT). No coding agent is run",
+   "p": "1-2",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and inside the detail)",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Task-conditioned assurance envelope, 'V1' of the formulation (author's own); implementation in Python with NetworkX and OR-Tools CP-SAT. Diagnostic baselines: ALL (retain every evidence leaf) and FLAT (AND rules projected into pairwise links + weighted set cover)",
+   "p": "2, 4, 6-7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Task obligations ('roots') R(P,t,M) supplied by hand; typed evidence items (passing tests, type checks, discharged contracts, static analyses, monitored traces) with semantic type, context identifier, assumptions and integer cost; explicit inference rules forming a directed hypergraph (AND/OR); selected envelope S* with derivation provenance; canonical manifests. No specification artefact for code generation",
+   "p": "1, 3-4, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Supply artifact P, task t and context M -> supply task roots R(P,t,M) and inference rules -> build typed inference graph G -> solve minimum-cost sufficient support (CP-SAT or exhaustive oracle) -> independent closure validation (forward chaining) -> envelope or explicit 'no sufficient envelope' report (Fig. 1). Envisioned: a long-horizon agent requests an envelope before modifying a component (not tested)",
+   "p": "4, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as review points; obligations and inference rules are hand-specified by the author ('This study supplies roots manually')",
+   "p": "5, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact / mechanism: evidence-selection step only, over frozen graphs; no coding agent consumes the envelope ('does not test whether a downstream coding agent performs better')",
+   "p": "5, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (assurance-evidence selection for supplied obligations; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (agent returning to existing software); evaluation over preserved outcomes of prior AI coding-agent runs (Rust fixtures, IronBlocks, Pong), primarily Claude- and Codex-based; plus synthetic graphs",
+   "p": "1-2, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "Provenance-derived graphs: small (Rust fixtures B and C, IronBlocks, Pong R0/R1; supports of cost 1-3); Rust local evidence over 30 state/event pairs, trace evidence over 781 event sequences to depth 4. Synthetic benchmark: 249 graph/cost instances, 267 graph/task evaluations, 801 method rows, 8 families, 10-500 evidence leaves",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Software assurance for coding-agent changes; artefacts in Rust (calibration fixtures), IronBlocks (operational commit-safety gate) and Pong game",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Support cost (unit cost = number of evidence leaves; secondary deterministic integer costs 1-5); support reduction 1 - |S|/|E|; CP-SAT solve time (ms). Explicitly not measured: tokens, verification runtime, money, human effort",
+   "p": "4, 6, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None of the listed kind (no tests or resolve rate of a coding task)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Feasibility/infeasibility of an envelope; closure validity of selected supports; FLAT false coverage (invalid task evaluations and false roots); agreement of CP-SAT with exhaustive oracle; optimality proved within 60 s",
+   "p": "5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: exhaustive search and CP-SAT (one worker, seed 0, 60 s timeout), independent closure validator, NetworkX; deterministic SHA-256 generator; timing on Apple M1 Pro, one run per graph and method. Obligations, rules and costs hand-specified (manual) and prespecified before evaluation",
+   "p": "5-7, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No agent + model configurations; the unit is the selection method on frozen graphs. Success criterion stated by the author: closure validity, Eq. 1 ('Operationally, Eq. 1 is the acceptance criterion', p. 4), and minimum cost, Eq. 2. No criterion stated for solve time. (1) Provenance-derived graphs, COMPOSITIONAL (exact search): Rust C local cost 2, trace cost 3; Rust B local cost 2, trace infeasible (no sufficient envelope, correctly reported); IronBlocks unique optimum cost 2; Pong R0 cost 1, R1 cost 2; all supports closure-valid. Quality: works; cost: works (exact minimum). (2) Provenance-derived, FLAT: IronBlocks two cost-1 optima, both rejected by closure. Quality: does not work; cost: not judged (cheaper supports are invalid). (3) Benchmark, COMPOSITIONAL (CP-SAT): 234/267 proven optimal, 30 proven infeasible (all F7), 3 closure-valid but not proven optimal within 60 s; no support failed closure; median support reduction F1 0.50, F3 0.80, F5 0.50, F6 0.60, F8 0.50, F2/F4 0 (curves in Fig. 3 only); median solve time <20 ms at n=500 for every family (Fig. 4), but in the separate F3 sweep with 10 alternatives per target all three n=100 instances reached 60 s. Quality: works; cost: partly (3 optima not proven; solve time: no criterion stated by the authors). (4) Benchmark, FLAT: false coverage in 135/267 evaluations (3,765 false roots), all in conjunction families F2, F4, F6, F7 (every evaluation of those families), none in F1, F3, F5, F8. Quality: partly (valid only where no conjunction is required); cost: not judged. (5) Benchmark, ALL: retains all leaves (reference for the reduction metric). Quality: works (closure evaluated on all evidence); cost: no criterion stated by the authors for ALL (it is the reference, not a candidate for minimum cost). Exact oracle: 111/126 method-instance checks completed, all agreed with CP-SAT; 15 n=20 compositional checks timed out",
+   "p": "5, 7-9",
+   "verdict": "uncertain",
+   "why": "Verdicts partly rested on the extractor's reading: FLAT on the benchmark was 'does not work' although it was valid in 132 of 267 evaluations; ALL got cost 'does not work' with no criterion for it; the COMPOSITIONAL cost 'partly' mixed an unproven-optimality criterion with solve time, for which no criterion is stated. Numbers checked and kept",
+   "doubt": "Os veredictos de custo assumem a Eq. 2 (custo mínimo) como critério; para o tempo não há critério. Decide se FLAT no benchmark é 'partly' (válido em 132/267) ou 'does not work', e se ALL recebe veredicto de custo."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 7 hand-specified graph/task cases (Table 1) + prespecified, frozen synthetic benchmark (8 families F1-F8, 3 seeds, sizes 10-500, plus 15/20 exact-only). Compared: COMPOSITIONAL vs FLAT vs ALL. Baseline: ALL and FLAT (diagnostic, 'intentionally lossy'). Held constant: same graphs, costs, solver settings (one worker, seed 0, presolve, no hints, 60 s). Acceptance: independent closure check; exhaustive oracle for n<=20; mandatory gate of 21 n=10 instances. Repetitions: one run per graph and method (timing); a second run reproduced timing-free results. Human intervention: obligations and rules hand-specified before evaluation",
+   "p": "5-7, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "COMPOSITIONAL always closure-valid; FLAT invalid in 135/267 evaluations (all in conjunction families), and on IronBlocks; support reduction vs ALL from 0 (F2, F4) to 0.80 (F3). No significance testing (deterministic, counts reported)",
+   "p": "5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished FLAT from COMPOSITIONAL clearly (by construction: FLAT 'necessarily fails' on conjunctions). Repeatable: all 249 manifests regenerated byte for byte; timing-free results reproduced. Limitations stated: FLAT is one prespecified abstraction, not every non-compositional system; synthetic families may favour the phenomena studied; timing machine-specific, one run",
+   "p": "1, 7, 9-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Obligations and rules hand-specified and may be incomplete or too strong; costs do not measure real acquisition, context or risk; small provenance-derived graphs, synthetic instances up to 500 leaves, not industrial; does not test whether a coding agent performs better with the envelope; Pong evidence reconstructed. Open: automatic construction of task roots R(P,t,M), artifact-evolution invalidation, downstream agent benefit, multi-objective costs",
+   "p": "4, 10-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 (p. 5) and Table 2 (p. 7) came out jumbled in pdftotext; values rebuilt from the text (e.g., 135 invalid of 267, 3,765 false roots; per-family false roots read as F2 651, F4 2,022, F6 636, F7 456, to be checked). Support-reduction and solve-time per size only in Fig. 3 and Fig. 4. Prespecified protocol claimed ('prespecified and frozen before generation and execution'), no link. Pinned environment Python 3.12.14, NetworkX 3.6.1, OR-Tools 9.15.6755. No code or data repository link given. Original coding-agent runs that produced the artefacts (Claude- and Codex-based) not described further. Programming language of implementation: Python",
+   "p": "5-7, 9",
+   "verdict": "confirmed",
+   "why": "Per-family values of the jumbled Table 2 checked: invalid 45+33+27+30 = 135 and false roots 651+2,022+636+456 = 3,765 match the totals and the text (p. 7); evaluations per family sum to 267",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): explicit RQ and four contributions",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): formulation, solver settings, families and environment described; hand-specified graphs/rules not fully listed and no code or data release stated",
+   "p": "3-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): software versions pinned (Python, NetworkX, OR-Tools), but the coding agents/models that produced the preserved artefacts only 'primarily Claude- and Codex-based'",
+   "p": "1-2, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark families and sizes described; provenance graphs only summarised; availability not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): independent closure validator and exhaustive oracle check every selected support",
+   "p": "5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): support cost, reduction and solve time defined; quality only as closure validity; no real cost (tokens, money, effort) or agent outcome",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): ALL and FLAT baselines on the same graphs",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three seeds per family and deterministic reruns; timing from one run; no statistical analysis",
+   "p": "6, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims bounded, null reductions and timeouts reported, agent benefit explicitly not claimed",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8 Threats to Validity (construct, internal, external, conclusion)",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author proposes and evaluates his own approach",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): tools are open and cheap (Python, NetworkX, OR-Tools; <20 ms on a laptop), but requires hand-specified obligations and inference rules, which the author states remain an unsolved input problem",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

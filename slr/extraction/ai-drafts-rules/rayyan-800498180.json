@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800498180",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "É um benchmark, não um fluxo de desenvolvimento: a especificação por issue é escrita ou dada antes da implementação e nunca mantida (p. 7). Escolhe spec-first ou não classificável."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All: minimal ReAct scaffold (SWE-agent style) + Claude Opus 4.8, provider-default decoding, 250 steps; main values one run (Nagini cells repeated 4 times). Values %: Nagini / Velvet / Lean / EARS (Table 2, SWE-bench Verified, n = 500). Tokens = input tokens per episode (Table 41, Nagini unless noted).\n- Row 0 unaided baseline (no spec): 85.0 (all); 200k\n- Row 1 baseline + counterexample audit: 58.2 (shows test incompleteness)\n- Row 2 end-to-end, agent writes spec (graded on tests): 85.6 / 85.0 / 83.8 / 84.2; 438k (EARS 326k)\n- Row 3 verified end-to-end (self-written spec must verify): 84.0 / 85.4 / 84.6 / 57.2; 438k (EARS 301k)\n- Row 4 localization provided (no spec): 88.2; 140k\n- Row 5 verified from localization: 92.0 / 91.8 / 89.6 / 64.6\n- Row 6 ground-truth spec provided: 96.2 / 94.0 / 95.2 / 97.8; 376k\n- Row 7 verified from provided spec: 95.0 / 94.0 / 93.6 / 80.0; 354k\n- Row 8 spec synthesis audit pass: 46.0 / 60.0 / 61.4 / N/A; 335k\n- SWE-bench Pro (n = 242, Table 19), same rows: R0 61.2; R1 17.4; R2 50.8/49.2/50.0/50.8; R3 49.6/50.0/47.9/12.4; R4 61.2; R5 52.9/52.1/53.7/19.4; R6 55.8/59.9/58.7/73.1; R7 56.2/55.0/58.7/31.4; R8 31.0/35.5/49.2\nRepetitions (Nagini, Table 32): SD <= 1.3 points per cell\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's cut-offs (quality >= 90 / 60-90 / < 60; cost <= 250k / 250-450k tokens) and the verdicts based on them removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "doubt": "Nenhum autor criou Claude, Nagini, Velvet, Lean ou EARS, mas 8 dos 12 autores são da AWS AI Labs (p. 1), que disponibiliza o Claude e cujo Kiro usa EARS. Decide se conta como ligação ao fornecedor (Yes ou Partly)."
+  }
+ ]
+}

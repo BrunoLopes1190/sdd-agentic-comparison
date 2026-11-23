@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498057",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; IEEE template; mentions a 'special-session theme' and a link 'to be inserted on acceptance', venue Not stated)",
+   "v": "Preprint — arXiv:2605.18284v1 [cs.SE]; IEEE-style template, mentions a 'special-session theme' and a repository link 'to be inserted on acceptance'; no published venue stated",
    "p": "1-2, 14",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,21 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (CommitDistill, open-source prototype mining git history into typed knowledge units with a TF-IDF retriever); secondary: evaluates it in an 'illustrative case study' (RQ1-RQ5) against git log --grep and BM25",
+   "v": "Proposes an approach; secondary: Evaluates — CommitDistill, open-source prototype mining git history into typed knowledge units with a TF-IDF retriever; 'illustrative case study' (RQ1-RQ5) against git log --grep, BM25 and a no-retrieval control",
    "p": "1-2, 5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form ('secondary: evaluates it' is not a list value; ' — ' detail missing); nature unchanged"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes an approach) is clear; the secondary is a judgement: the case study compares CommitDistill with git grep, BM25 and a no-retrieval control under the same conditions, so 'Compares' is also defensible"
+    }
+   ],
+   "warn": "A natureza secundária pode ser Evaluates ou Compares: o estudo de caso compara o CommitDistill com grep, BM25 e um controlo sem recuperação. Decide qual usar."
   },
   {
    "f": "Approach(es): name and version",
@@ -152,10 +169,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Configurations are retrievers; downstream assistant GPT-4o-mini (no agent). -- Budget-constrained hit-rate at 256 chars (12 queries, Table V): CommitDistill 0.750, BM25 0.333, grep 0.083; unconstrained Hit@10 11/12, 8/12, 1/12. -- Hand-authored queries (6, Table IV): CD top-1 useful 3/6, 0 false positives (silent on 3); grep 1 useful, 5 false positives; BM25 5 useful, 0 false positives (values read from jumbled table). -- RQ4 time-travel (40 fixes, Table VII), Hit@1 / Hit@3 / Hit@10 / MRR: grep 0.125 / 0.200 / 0.300 / 0.168; BM25 0.050 / 0.150 / 0.400 / 0.136; CD-v1 0.000 / 0.025 / 0.025 / 0.009 (does not work); CD-v2 0.075 / 0.250 / 0.450 / 0.177. -- RQ5 downstream, GPT-4o-mini assistant, n=200, mean usefulness 0-2 (Table VIII): control 0.703 (baseline); +CD-v2 0.718 (+0.015, CI [-0.035, +0.065]); +CD-Hybrid 0.720 (+0.018, [-0.035, +0.070]); +BM25 0.733 (+0.030, [-0.022, +0.083]); original 3-arm CD-v1 0.663 (-0.040, [-0.090, +0.010]). Quality: does not work (no detectable lift for any retriever); cost: works (short payloads, fast). Hard half (n=102): lifts CD-v2 +0.123, CD-Hybrid +0.142, BM25 +0.162. -- Precision: 21/40 useful (0.525, CI [0.375, 0.675]), κ=0.633",
+   "v": "No coding agent; configurations are retrievers, downstream assistant GPT-4o-mini, judges GPT-4o and GPT-4o-mini. Criteria stated by the authors: per-query hit = answer span contained (budget benchmark), file-locality ground truth (RQ4), and for RQ5 a statistically detectable lift over control (paired bootstrap 95% CI excluding zero); no success threshold for retrieval hit-rates. Cost: authors state extraction and retrieval are 'easily fast enough' for a pre-commit hook or editor plug-in. -- (1) CommitDistill, version not stated (RQ3 Table IV and budget benchmark Table V; the silence on 3 hand queries at θ=2.5 suggests CD-v1 for Table IV, not stated): budget hit-rate at 256 chars 0.750 (12 queries; 0.500 at 64, 0.667 at 128, 0.917 at 512-2048; jackknife min 0.727), unconstrained Hit@10 11/12; hand-authored queries top-1 useful 3/6, 0 false positives, silent on 3, median top-1 72 chars; 36-query hit 31/36. Quality: no criterion stated by the authors. Cost: works per the authors' statement (3.47 s extraction for 25,000 commits, <50 ms per query). -- (2) CommitDistill CD-v2 (released default): RQ4 Hit@1/3/10/MRR 0.075 / 0.250 / 0.450 / 0.177; RQ5 mean 0.718, Δ +0.015 [-0.035, +0.065]; hard half (n=102) 0.426, +0.123. Quality: does not work per the authors' RQ5 criterion (CI includes zero); RQ4: no criterion stated by the authors. Cost: timings not given per version (see 1). -- (3) CommitDistill CD-v1 (regex only): RQ4 0.000 / 0.025 / 0.025 / 0.009; RQ5 three-arm mean 0.663, Δ -0.040 [-0.090, +0.010] (arm silent on ~98% of fixes). Quality: does not work per the RQ5 criterion; RQ4: no criterion stated by the authors. Cost: timings not given per version (see 1). -- (4) CD-Hybrid (ablation; CD-v2 units plus BM25-budget body): RQ5 mean 0.720, Δ +0.018 [-0.035, +0.070]; hard half 0.446, +0.142; vs BM25 Δ -0.013 [-0.068, +0.043]. Quality: does not work per the RQ5 criterion; cost: no criterion stated by the authors (mean payload 278.1 chars). -- (5) BM25 over raw commits (baseline): budget hit-rate at 256 chars 0.333, unconstrained Hit@10 8/12; hand queries top-1 useful 5/6 by the table totals (6/6 by the row letters, 4/6 in the prose), 0 false positives, median top-1 287 chars; 36/36 hit; RQ4 0.050 / 0.150 / 0.400 / 0.136; RQ5 mean 0.733, Δ +0.030 [-0.022, +0.083]; hard half 0.466, +0.162. Quality: does not work per the RQ5 criterion; retrieval: no criterion stated by the authors; cost: no criterion stated by the authors. -- (6) git log -i --grep (baseline): budget hit-rate at 256 chars 0.083, Hit@10 1/12; hand queries top-1 useful 1/6, 5 false positives, median top-1 301 chars; 36/36 hit; RQ4 0.125 / 0.200 / 0.300 / 0.168. Quality and cost: no criterion stated by the authors (not in RQ5). -- (7) Control, GPT-4o-mini with bug subject only (baseline): RQ5 mean 0.703; hard half 0.304. Quality and cost: no criterion stated by the authors. -- Unit precision (extractor version that produced the labels at the 2,000-commit window, before the substantive-Pattern filter): 21/40 useful (0.525, CI [0.375, 0.675]), κ=0.633; no criterion stated by the authors",
    "p": "7-11",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Verdicts were missing for most configurations (grep, BM25, CD-Hybrid, control, CD-v2 on retrieval) and 'cost: works' and RQ4 'does not work' were set without a criterion stated by the authors (rule of 2026-11-23); the authors' RQ5 criterion (CI excluding zero) and their cost statement are now used; hard-half and budget values added per configuration"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft attributed the budget benchmark (Table V) to CD-v2 and the hand-query/36-query results (Table IV) to CD-v1, but the paper names no version for Tables IV-V; those results are now a separate 'version not stated' entry. Added missing values (budget 0.667 at 128, jackknife 0.727, hard-half means, BM25 6/6 row letters); the unit-precision extractor version is not named in the text"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -187,9 +215,15 @@
   },
   {
    "f": "Notes",
-   "v": "Many internal inconsistencies: 'three' RQs announced, five listed (p. 5-6); Section V-B says 2,000 commits per subject (10,000 total) while Table II and abstract use 5,000 (25,000); redis yield 185.6 units/kc in Table II vs 329.5 on p. 12-13; p. 12 attributes 8.0 units/kc to flask (Table II: express 8.0, flask 14.6); p. 13 says condition ordering matches between judges while p. 10 says it is not preserved; p. 14 calls RQ5 'null with a slight negative trend for CommitDistill' although CD-v2 Δ is +0.015; char audit refers to an unexplained 'PM' arm. Pre-registration of the three-arm RQ5 claimed, no link or registry. Abstract says source accompanies the paper; p. 14 says link 'to be inserted on acceptance'. Tables IV and VI jumbled by pdftotext; Table IV totals read as CD 3/0, grep 1/5, BM25 5/0. Programming language: Python (tool); subjects Python, JavaScript, C, Java",
+   "v": "Many internal inconsistencies: 'three' RQs announced, five listed (p. 5-6); Section V-B says 2,000 commits per subject (10,000 total) while Table II and abstract use 5,000 (25,000), and the abstract says extraction over 10,000 commits takes under 4 s; redis yield 185.6 units/kc in Table II vs 329.5 on p. 12-13; p. 12 attributes 8.0 units/kc to flask (Table II: express 8.0, flask 14.6); p. 13 says condition ordering matches between judges while p. 10 says it is not preserved; p. 14 calls RQ5 'null with a slight negative trend for CommitDistill' although CD-v2 Δ is +0.015; p. 11 says the system is 'structurally outperformed by BM25' on regression-finding although CD-v2 leads Table VII; the calibration set is called 15 queries but its classes sum to 12 (3+3+6); char audit refers to an unexplained 'PM' arm; BM25 three-arm CI upper bound +0.082 (Table X) vs +0.083 (Table VIII). Table IV (jumbled by pdftotext): per-row letters give BM25 R or P on 6/6 hand queries, the totals row reads 5, the prose says 'roughly relevant' on 4/6; CD 3/6 with 0 false positives and grep 1/6 with 5 false positives agree across sources. Tables IV-VI jumbled by pdftotext; values rebuilt. Pre-registration of the three-arm RQ5 claimed, no link or registry. Abstract says source accompanies the paper; p. 14 says link 'to be inserted on acceptance'. Programming language: Python (tool); subjects Python, JavaScript, C, Java",
    "p": "1, 5-14",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added inconsistencies the draft missed (abstract 10,000 commits, p. 11 'outperformed by BM25' vs Table VII, 15 vs 12 calibration queries, BM25 Table IV 6 vs 5 vs 4 useful, CI bound mismatch)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -271,10 +305,16 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors created CommitDistill, the approach evaluated",
+   "v": "Partly (0.5): authors created CommitDistill (all variants); the git grep and BM25 baselines and the GPT-4o models are not theirs",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "§5 gives Partly when the authorship applies to only some of the approaches evaluated; the baselines (grep, BM25) are evaluated under the same conditions. The draft's No treats only CommitDistill as an approach"
+    }
+   ],
+   "warn": "Os autores criaram o CommitDistill, mas grep e BM25 também são avaliados como baselines. Decide se contam como abordagens (Partly) ou não (No)."
   },
   {
    "f": "Q13",

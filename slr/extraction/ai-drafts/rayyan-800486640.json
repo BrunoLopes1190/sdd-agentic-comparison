@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486640",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -14,7 +14,7 @@
      "why": "The paper runs to printed page 34 (pages 33-34 carry the references, p. 11-12 of the PDF), so the page range is 23-34, not 23-32"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Year",
@@ -224,7 +224,7 @@
      "why": "Printed page range is 23-34 (references on printed pages 33-34), not 23-32"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

@@ -58,7 +58,7 @@
      "why": "Supported: the template is derived and presented as a contribution and evaluated against a no-template baseline; AGIT-Instruct is introduced as a benchmark (pp. 4, 17-24). But the mining study (RQ1-RQ3, pp. 8-17) is most of the paper, so 'Evaluates; secondary: Proposes an approach' is a defensible alternative (Q13 applies either way). Only one secondary allowed, so either the benchmark or the template goes to the detail"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A regra de 2026-11-23 classifica a mineração de repositórios como 'Evaluates — repository mining', e aqui ela (RQ1–RQ3) ocupa a maior parte do artigo. Decide se a principal passa a essa, com o template como secundária."
   },
   {
    "f": "Approach(es): name and version",
@@ -174,7 +174,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Instruction-file generation on AGIT-Instruct eval set (62 files), no coding agent; criterion: coverage of template categories and alignment with developer-written references. - GPT-4o-mini without template (exploratory): coverage 0.187 (Required 0.168, Gap 0.080, Recommended 0.500). Quality: does not work (structure); cost not reported. - GPT-4o-mini zero-shot with template: coverage 0.828; full-file ROUGE-1 0.423, cos 0.681; overlap-only 0.386 / 0.710. Quality: partly. - GPT-4o-mini RAG with template: coverage 0.786; ROUGE-1 0.459, cos 0.683; overlap 0.433 / 0.708; manual 278 instances: 19.4% match, 61.2% partial, 19.4% missing, 0 wrong. Quality: partly. - CodeLlama-13B Base with template: coverage 0.645; ROUGE-1 0.304, cos 0.373; overlap 0.309 / 0.434. Quality: partly. - CodeLlama-13B QLoRA with template: coverage 0.166 (Gap 0.044); ROUGE-1 0.273, cos 0.608; overlap 0.347 / 0.647. Quality: does not work (structure). Cost verdict for all: not reported",
+   "v": "Instruction-file generation on AGIT-Instruct eval set (62 files), no coding agent; criterion: coverage of template categories and alignment with developer-written references. - GPT-4o-mini without template (exploratory): coverage 0.187 (Required 0.168, Gap 0.080, Recommended 0.500). - GPT-4o-mini zero-shot with template: coverage 0.828; full-file ROUGE-1 0.423, cos 0.681; overlap-only 0.386 / 0.710. - GPT-4o-mini RAG with template: coverage 0.786; ROUGE-1 0.459, cos 0.683; overlap 0.433 / 0.708; manual 278 instances: 19.4% match, 61.2% partial, 19.4% missing, 0 wrong. - CodeLlama-13B Base with template: coverage 0.645; ROUGE-1 0.304, cos 0.373; overlap 0.309 / 0.434. - CodeLlama-13B QLoRA with template: coverage 0.166 (Gap 0.044); ROUGE-1 0.273, cos 0.608; overlap 0.347 / 0.647. Quality verdict for all: no criterion stated by the authors. Cost verdict for all: not reported",
    "p": "24-26",
    "rev": [
     {
@@ -191,9 +191,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "All numbers re-checked against Tables 5-7 and p. 26 and correct. The works/partly/does-not-work levels are a judgement (the study sets no thresholds), notably CodeLlama-13B Base (coverage 0.645, lowest cosine 0.373) as partly and QLoRA (coverage 0.166, cosine 0.608) as does not work"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: the quality verdicts (does not work / partly) rested on levels chosen by the extractor; the study sets no success threshold for coverage or alignment, so they are replaced by 'no criterion stated by the authors'. Configurations and values unchanged"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Comparison: design",

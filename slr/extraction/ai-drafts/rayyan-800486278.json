@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486278",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2607.24759v1 [cs.AI]; no published venue in the search exports (arXiv record only, type UNPB)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; the type itself (Preprint) is right"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (llm-wiki-memory-template, an agent-aware template of the llm-wiki pattern with a three-axis design framing); secondary: evaluates (three deployed case studies + one design report, interpretive trace analysis)",
+   "v": "Proposes an approach; secondary: Evaluates — llm-wiki-memory-template, an agent-aware template of the llm-wiki pattern with a three-axis design framing; three deployed case studies + one design report, analysed by interpretive trace analysis",
    "p": "1-3, 8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same content, but the value did not follow the required form '<nature>; secondary: <nature> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -84,8 +96,24 @@
    "f": "Task type",
    "v": "Mixed knowledge work: research software projects (retrieval research; adaptive web scraper), course wiki for teaching; not code-generation tasks as such",
    "p": "8-11",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The cases are knowledge-work wikis attached to research and teaching projects; whether the code bases were new or existing is not stated, so the form's new/existing choice cannot be made from the text"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The cases are knowledge-work wikis attached to research and teaching projects; whether the code bases were new or existing is not stated (Project R 'instantiated from the template', Project F built in parallel with the template)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The cases are knowledge-work wikis attached to research and teaching projects; whether the code bases were new or existing is not stated (Project R 'instantiated from the template', Project F built in parallel with the template)"
+    }
+   ],
+   "warn": "Os casos são wikis de projetos de investigação e ensino; o artigo não diz se o código parte do zero ou de projeto existente. Confirma nas secções 5.1–5.4 ou aceita 'misto/não indicado'."
   },
   {
    "f": "Size",
@@ -152,9 +180,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: qualitative demonstration of each collaboration axis (no success criterion defined). Agent model not stated in any case\n- Case A - llm-wiki template + Claude Code + model n.s. (solo, 22 days): 48 pages, 907 cross-references, 237 typed edges; abandoned iteration preserved. Quality partly (qualitative); cost not measured\n- Case B - llm-wiki template + Claude Code + model n.s. (two authors): audit via preserved summaries revised Exp 7/8 coverage 20/20 -> 14/20 and 12/20, fix -> 18/20 and 18/20; concepts 16 -> 54. Quality works (qualitative); cost not measured\n- Case C - Claude Code + Cursor overlays (design report, not run): N/A\n- Case D - tutor variant + Claude Code + model n.s.: scripted paired-video illustration, no real users. Not evaluated",
+   "v": "No success criterion stated by the authors (qualitative demonstration of each collaboration axis). Agent model not stated in any case\n- Case A - llm-wiki template + Claude Code + model n.s. (solo, 22 days): 48 pages, 907 cross-references, 237 typed edges; abandoned iteration preserved. Quality: no criterion stated by the authors; cost: not measured\n- Case B - llm-wiki template + Claude Code + model n.s. (two authors): audit via preserved summaries revised Exp 7/8 coverage 20/20 -> 14/20 and 12/20, fix -> 18/20 and 18/20; concepts 16 -> 54. Quality: no criterion stated by the authors; cost: not measured\n- Case C - Claude Code (live) + Cursor (in integration) overlays: reported as a design, no observed results: N/A\n- Case D - tutor variant + Claude Code + model n.s.: scripted paired-video illustration, no real users. Not evaluated",
    "p": "8-12",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Quality verdicts 'partly' (Case A) and 'works' (Case B) were the extractor's own judgement; the authors state no success criterion, so per the 2026-11-23 rule they become 'no criterion stated by the authors'. Case C: the Claude Code overlay is live at Project M, only Cursor is not yet integrated (p. 11)"
+    }
+   ],
    "warn": ""
   },
   {

@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800486417",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lewis, S. (2026). Same Model, Different Harness: Different Coding-Agent Results. arXiv:2608.26218v1 [cs.AI], 26 Aug 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.26218v1 [cs.AI], 26 Aug 2026; no published venue (access log: arXiv only)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Not stated (single author; author of the Yuj harness)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — paired control vs treatment configurations of the same harness, same model and tasks, three benchmarks, four models; the treatment package of the author's Yuj closed-loop harness",
+   "p": "1-2, 4",
+   "verdict": "uncertain",
+   "why": "Judgement: the author states 'Our contribution is the treatment package as tested and the paired evidence' (p. 2) and built Yuj (p. 1), so 'Proposes an approach; secondary: Compares' is as defensible as the current order; Q13 applies either way",
+   "doubt": "A autora diz que a contribuição é o pacote de tratamento do seu harness Yuj e a evidência emparelhada (p. 2). Decide se a natureza principal é Compares ou Proposes an approach."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not an SDD approach. Yuj coding-agent harness (author's, github.com/sydches/yuj; version Not stated): treatment package = half-life working-view rule (older tool results shortened in stages once prompt reaches 50% of window) + stall detector with fixed interventions + command safeguards; control = same harness with full chronological transcript. Pro and FeatureBench pressure runs used an earlier frozen treatment version",
+   "p": "1-4, 6, 23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None (no specification or context file); harness keeps a complete run record (trace and transcript files) separate from the model's working view",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (closed loop per step: build view -> model action -> command safeguards -> tool run -> append to record -> detector -> configured response)",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous runs)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (harness configuration; no SDD artefact)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (not an SDD approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: repository-level issue resolution and feature development (SWE-bench Verified, SWE-bench Pro, FeatureBench)",
+   "p": "5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified 169 tasks (from a 187-task pressure pool); SWE-bench Pro 316 demand-screened tasks; FeatureBench 183 canonical tasks; Verified 11 repos, Pro 11, FeatureBench 22",
+   "p": "5-6, 16, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories of the benchmarks (e.g. django, tutanota, qutebrowser); languages Not stated",
+   "p": "6, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Model turns, prompt tokens (millions), solver wall time (hours) per comparison; prompt tokens per turn and per task (wide window); fixed 480-second attempt budget",
+   "p": "9, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Complete resolution (benchmark evaluator accepts task); mean per-task fail-to-pass fraction (F2PF = F2P tests made to pass / all F2P tests)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (human patch-quality judgment not an endpoint)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Context-pressure share (control runs filling the window); reading boundary (demand/window ratio at 50% probability of stopping before first source change); shortening activity (active runs, first turn, typical reduction); detector and safeguard event counts",
+   "p": "7-8, 11, 20-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark evaluators and tests, harness traces; exact McNemar (resolution) and exact sign tests (F2PF direction), paired-task bootstrap 95% intervals, repository-cluster bootstrap (20,000 resamples) with Holm correction; logistic fit for reading boundary",
+   "p": "8, 16-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Harness: Yuj (control vs treatment). Qwen3.6 served locally with llama-server, 4-bit Q4 K XL weights; transfer models each with a declared four-bit weight file and model-specific serving settings; greedy decoding; one trajectory per task per arm; fixed 480-s attempt budget. Metrics: resolution (benchmark evaluator accepts the task) and mean per-task F2PF; turns, prompt tokens, wall time for pressure comparisons. Success is defined per task (p. 7); no success criterion for a configuration is stated by the authors.\n- Control + Yuj + Qwen3.6-35B-A3B, Verified 20,480: F2PF 28.0%, 43/169 solved; 3,280 turns, 37.8M prompt tokens, 1.3 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Yuj + Qwen3.6, Verified 20,480: F2PF 49.1%, 72/169 (34:5, p<0.0001); 6,517 turns, 80.7M tokens, 4.6 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, Verified 43,008: F2PF 53.8%, 76/169; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, Verified 43,008: F2PF 60.1% (sign test p=0.0708), 87/169 (McNemar p=0.0614); cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, Verified 262,144: F2PF 69.0%, 102/169. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, Verified 262,144: F2PF 68.7%, 101/169; 7.2% fewer prompt tokens per turn than control (geometric mean 0.928), prompt tokens per task 0.959 [0.856, 1.071]. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, Pro 49,152: F2PF 15.2%, 31/316; 8,357 turns, 210.6M tokens, 5.4 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, Pro 49,152: F2PF 32.7%, 72/316 (47:6, p<0.0001); 25,750 turns, 657.1M tokens, 21.8 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, Pro 262,144: F2PF 44.8%, 101/316; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, Pro 262,144 (earlier package): F2PF 44.5%, 99/316; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, FeatureBench 47,104: F2PF 10.5%, 2/183; 5,281 turns, 140.3M tokens, 2.5 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, FeatureBench 47,104: F2PF 19.6% (p<0.0001), 3/183; 15,178 turns, 412.8M tokens, 14.7 h. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.6, FeatureBench 262,144 (later corrected control): F2PF 23.9%, 5/183; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.6, FeatureBench 262,144 (earlier package): F2PF 30.7% (p=0.00022; repository-level p=0.0963), 5/183; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Devstral 2, Verified 20,480: F2PF 17.2%, 22/169; cost not reported. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Devstral 2, Verified 20,480: F2PF 36.8%, 53/169 (p<0.0001). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Nemotron-Cascade 2, Verified 20,480: F2PF 12.0%, 16/169. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Nemotron-Cascade 2, Verified 20,480: F2PF 18.3% (p=0.0169), 25/169 (McNemar p=0.0636). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Control + Qwen3.8-27B, Verified 20,480: F2PF 20.4%, 32/169. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Treatment + Qwen3.8-27B, Verified 20,480: F2PF 35.3%, 54/169 (p<0.0001). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Exploratory probes (ablation, 15 tasks, single runs; Table 18 jumbled, mapped by row order): Qwen3.6 frozen caps 6/15 (F2PF 45.3%) and rerun 7/15 (47.5%); caps x0.5 5/15 (45.0%), x2.0 4/15 (33.3%); Qwen3.6 timing probes 1-3/15; Devstral 1-2/15; Nemotron 0-1/15. Authors: no altered setting improved resolution beyond the observed rerun difference; every Qwen3.6 variant lower than its frozen baseline. Quality: no criterion stated by the authors; cost: not reported\n- Control-credibility check: untreated Yuj vs mini-SWE-agent v2.2.8, both with GPT-5.5 via Codex CLI, 500 Verified tasks: 87.6% outcome agreement (kappa 0.66); resolution rates and cost not reported. No verdict (credibility check, not an evaluated configuration)",
+   "p": "5, 9-12, 16-19, 23",
+   "verdict": "corrected",
+   "why": "Round 2 gave works/partly/does-not-work verdicts from its own cut-off (resolution share >=50% / 20-50% / <20%, admitted in its 'why') and cost 'works' with no basis. The paper defines success per task (evaluator accepts the task; F2PF, p. 7) but states no success criterion for a configuration, so per the 2026-11-23 rule every verdict is 'no criterion stated by the authors'. Also fixed the probe entry: the paper says no altered setting improved resolution beyond the rerun difference and every Qwen3.6 variant was lower (p. 23), not that probes 'never beat' the frozen settings (Devstral activation 0.25/protect 2 gave 2/15 vs 1/15). Other values re-checked against Tables 7-9, 11, 18 (pp. 17-19, 23)"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Paired: every task run once under control and once under treatment; same task, model weights, context capacity, tool interface, serving, evaluator, harness code; differ only in one checked-in configuration package. Context windows varied (Verified 20,480 / 43,008 / 262,144; Pro 49,152 / 262,144; FeatureBench 47,104 / 262,144). Baseline: control configuration. Acceptance tests: benchmark F2P tests. Repetitions: 1 greedy trajectory per arm. Human intervention: none. Isolation: no network, no gold patches. Operating point set during earlier development on same benchmark families (not held-out)",
+   "p": "4-6, 16, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Under context pressure treatment beats control on F2PF in all three benchmarks (Verified +21.1 pp [14.1, 28.3], Pro +17.5, FeatureBench +9.1; all p<0.0001) and on resolution on Verified (+29 tasks) and Pro (+41); after Holm (repository level) Verified and FeatureBench resolution not significant. Gains shrink with window size; near zero at 262,144 on Verified and Pro. Transfer: gains for all models (1.5x-2.1x F2PF). Reading boundary stretched 2.21-2.53x. Treatment used 2-6x more turns/tokens/time under pressure",
+   "p": "9-12, 17-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes: paired design distinguished configurations under pressure; not under ample context. Repeatable: single greedy trajectory per arm, run-to-run variation not measured; Verified windows collected successively (window confounded with run era); Pro/FeatureBench wide-window rows from earlier packages. Limitation stated: estimates the whole package, not single rules; not compute-matched",
+   "p": "6, 9, 13-14, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Effect of the whole treatment package only; not compute-matched; one trajectory per arm; four locally served 4-bit open-weight models (no hosted frontier models); repository-level coding tasks only; no human quality judgment; shared pretraining exposure; compared only with full-transcript control, not summaries or retrieval. Future: detector-only component study, time-only variation, adaptive harness, read caching, model design x context",
+   "p": "13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Yuj harness, configs, experimental contract, provenance and paired task outcomes public (github.com/sydches/yuj); benchmark lists, evaluators and raw runs not public. Pre-registration claimed for transfer comparisons ('pre-registered Devstral-Nemotron family', separately registered Qwen3.8), no registry link. Several appendix tables jumbled in text extraction: Tables 9, 15, 16-18 rebuilt from row order (Table 15: Verified control 0.71, treatment 1.81, stretch 2.53; Pro 0.97/2.15/2.21; FeatureBench 0.93/2.09/2.26). Fig. 7 values only in figure. Code identity incomplete for Pro (239 of 871 opportunities lack stamps)",
+   "p": "6, 12, 17-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question whether harness changes results with model and task fixed",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): treatment rules with exact caps, cohorts, isolation, statistics and configs given",
+   "p": "3-8, 16-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models, weights, llama-server and mini-SWE-agent v2.2.8 identified; Yuj version not stated (repo configs only)",
+   "p": "5, 12, 23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks; cohort rules and task outcomes released",
+   "p": "5-6, 16, 23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark evaluators' tests",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): F2PF and resolution defined; turns, tokens, wall time reported",
+   "p": "7, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): same-harness control under identical conditions",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): exact paired tests, bootstrap, repository-cluster sensitivity, Holm; but one trajectory per arm (no repetitions)",
+   "p": "8, 13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null wide-window results and non-significant adjusted tests reported; more compute acknowledged",
+   "p": "9-10, 13, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6.4 Scope of the evidence",
+   "p": "13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author built Yuj, the harness evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source harness, mechanical rules with no extra model calls, runs with locally served 4-bit models; hardware requirements not stated and treatment needs 2-6x more turns and wall time under pressure",
+   "p": "3-4, 18, 23",
+   "verdict": "uncertain",
+   "why": "Judgement: open-source mechanical package with no extra model calls, run on locally served 4-bit open-weight models (argues Yes); hardware requirements not stated and treatment needs 2-6x more turns, tokens and wall time under pressure (Table 9, p. 18), which supports Partly",
+   "doubt": "O pacote é open-source, sem chamadas extra ao modelo e corre com modelos locais de 4 bits, mas o hardware não é indicado e o tratamento usa 2-6x mais turnos e tempo (Tabela 9). Decide entre Yes e Partly."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

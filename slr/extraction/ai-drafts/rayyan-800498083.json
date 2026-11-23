@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498083",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2606.13174v2 [cs.LG]; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (TellOnce: drop-in layer turning user corrections into persistent, scoped, revisable behavioural rules with compiled runtime checks); secondary: compares (against No Memory, Mem0, PGMem, Zoro on three benchmarks, plus an access-compliance diagnostic of five rule-provision conditions)",
+   "v": "Proposes an approach; secondary: Compares — TellOnce, a drop-in layer turning user corrections into persistent, scoped, revisable behavioural rules with compiled runtime checks; compared against No Memory, Mem0, PGMem and Zoro on ClawArena and MemoryArena (three solvers), against No Memory on SWE-Together, plus an access-compliance diagnostic of five rule-provision conditions",
    "p": "1-3, 7-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form ('secondary: compares (...)' lowercase without the ' — ' detail separator); nature unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Values: task score / violation % (mean +- SD over 3 simulated users). Auxiliary calls GPT-6 Luna. Draft verdict rule: quality works if violation < 30 and task score not below best baseline by > 2; cost not measured for any configuration.\nClawArena:\n- TellOnce + Codex + GPT-5.6 Luna (medium): 77.2 / 34.7. Partly\n- TellOnce + Codex + GPT-5.6 Sol (low): 78.5 / 39.2. Partly\n- TellOnce + Claude Code + Claude Haiku 4.5: 72.9 / 68.8. Does not work (violation)\n- No Memory: Luna 77.4 / 99.8; Sol 77.8 / 100.0; Haiku 74.0 / 98.8. Does not work\n- Mem0: Luna 77.0 / 83.1; Sol 76.7 / 93.0; Haiku 72.7 / 96.1. Does not work\n- PGMem: Luna 77.0 / 73.6; Sol 77.5 / 81.5; Haiku 67.7 / 88.1. Does not work\n- Zoro: Luna 75.4 / 99.3; Sol 77.6 / 100.0; Haiku 72.9 / 99.0. Does not work\nMemoryArena (group travel planner):\n- TellOnce: Luna 56.3 / 13.6; Sol 91.7 / 12.6; Haiku 53.4 / 14.5. Works (preference); task score as baselines\n- No Memory: Luna 57.5 / 56.5; Sol 93.3 / 56.2; Haiku 53.7 / 37.8. Does not work (preference)\n- Mem0: Luna 57.8 / 53.6; Sol 92.9 / 47.5; Haiku 54.6 / 33.8. Does not work / partly\n- PGMem: Luna 55.6 / 36.5; Sol 91.4 / 15.6; Haiku 48.0 / 32.7. Partly\n- Zoro: Luna 57.1 / 55.4; Sol 91.2 / 57.8; Haiku 39.8 / 33.4. Does not work\nAblations (same frozen library; Claw / Memory violation): All Rules as Text Luna 54.6 / 16.8, Sol 58.7 / 16.9, Haiku 86.3 / 18.2; Selected Rules as Text Luna 49.8 / 14.3, Sol 55.5 / 14.1, Haiku 84.7 / 17.2; Before Final Repair Luna 36.8 / 13.8, Sol 44.1 / 13.6, Haiku 74.0 / 16.0 (task scores 72.8-91.6, Table 2)\nSWE-Together (3 runs): TellOnce + Codex + Luna first 38.2, final 58.2; No Memory + Luna 36.4 / 57.6; TellOnce + Codex + Sol 38.6 / 68.2; No Memory + Sol 37.0 / 62.8. Partly (values in Fig. 4 only)\nDiagnostic (6 models: Claude Haiku, Claude Sonnet, GPT-5.5, Gemma 4 31B, DeepSeek V4 Flash, Qwen 3.6 Plus; agent n.s.; mean compliance): No Rules 31.6%; All Rules 55.0%; Mem0 42.5%; Relevant Rules 54.0%; Compiled Rules 70.1%. Per-model values in Fig. 2 only",
+   "v": "No success criterion stated by the authors for any configuration (neither a task-score nor a violation-rate threshold), and cost is not measured: for every configuration below, quality and cost verdicts are 'no criterion stated by the authors'. Values: native task score / preference violation % (mean over 3 simulated users; SD in Table 1). Solvers: Codex + GPT-5.6 Luna (medium reasoning), Codex + GPT-5.6 Sol (low reasoning), Claude Code + Claude Haiku 4.5 (default); agent versions not stated; auxiliary calls (memory management, checks, simulator, preference scoring) GPT-6 Luna, low reasoning.\nClawArena (16 test scenarios, 474 rounds) — Luna / Sol / Haiku:\n- (1) No Memory (baseline): 77.4/99.8; 77.8/100.0; 74.0/98.8\n- (2) Mem0: 77.0/83.1; 76.7/93.0; 72.7/96.1\n- (3) PGMem: 77.0/73.6; 77.5/81.5; 67.7/88.1\n- (4) Zoro: 75.4/99.3; 77.6/100.0; 72.9/99.0\n- (5) TellOnce: 77.2/34.7; 78.5/39.2; 72.9/68.8\nMemoryArena group_travel_planner (60 test tasks, 415 questions) — Luna / Sol / Haiku:\n- (6) No Memory (baseline): 57.5/56.5; 93.3/56.2; 53.7/37.8\n- (7) Mem0: 57.8/53.6; 92.9/47.5; 54.6/33.8\n- (8) PGMem: 55.6/36.5; 91.4/15.6; 48.0/32.7\n- (9) Zoro: 57.1/55.4; 91.2/57.8; 39.8/33.4\n- (10) TellOnce: 56.3/13.6; 91.7/12.6; 53.4/14.5\nAblations, same frozen TellOnce library (Table 2), Claw task/violation | Memory task/violation — Luna; Sol; Haiku:\n- (11) All Rules as Text (ablation): 76.3/54.6 | 56.7/16.8; 78.1/58.7 | 91.6/16.9; 73.5/86.3 | 54.1/18.2\n- (12) Selected Rules as Text (ablation): 76.7/49.8 | 56.3/14.3; 78.2/55.5 | 91.0/14.1; 72.9/84.7 | 53.7/17.2\n- (13) Before Final Repair (ablation): 77.3/36.8 | 55.2/13.8; 78.4/44.1 | 91.6/13.6; 72.8/74.0 | 52.3/16.0\nSWE-Together (49 paired test tasks, 3 runs; task quality score, first / final delivery):\n- (14) No Memory (baseline) + Codex + GPT-5.6 Luna: 36.4 / 57.6; (15) TellOnce + Codex + GPT-5.6 Luna: 38.2 / 58.2\n- (16) No Memory (baseline) + Codex + GPT-5.6 Sol: 37.0 / 62.8; (17) TellOnce + Codex + GPT-5.6 Sol: 38.6 / 68.2\nAccess-compliance diagnostic (19 tasks, 29 checks; six models Claude Haiku, Claude Sonnet, GPT-5.5, Gemma 4 31B, DeepSeek V4 Flash, Qwen 3.6 Plus; agent harness not stated; mean compliance; per-model values in Fig. 2 only): (18) No Rules 31.6%; (19) All Rules 55.0%; (20) Mem0 42.5%; (21) Relevant Rules 54.0%; (22) Compiled Rules 70.1%",
    "p": "4-5, 7, 9-10, 21-22",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft applied a verdict rule set by the extractor ('violation < 30 and task score within 2 of the best baseline'), which the paper does not give; under the rule of 2026-11-23 no verdict is recorded without an authors' criterion. Also added the ablation task scores (only a range was given) and named the solver/agent for baseline entries"
+    }
+   ],
    "warn": ""
   },
   {
@@ -166,9 +184,15 @@
   },
   {
    "f": "Comparison: result",
-   "v": "TellOnce lowest violation in all six settings: vs PGMem (best baseline) -19.3 to -42.3 points on ClawArena (e.g. 73.6 -> 34.7 Luna; 81.5 -> 39.2 Sol) and -3.0 to -22.9 on MemoryArena (12.6-14.5%). Task scores within ~1.6 points of the strongest baseline (not higher). Ablations: selection -1.0 to -4.8 points; checking/intervention -15 to -16 points on ClawArena, -0.7 to -2.7 on MemoryArena; final repair -2.1 to -5.2 (Claw). SWE-Together first delivery +1.8 (Luna) / +1.6 (Sol); final +0.6 / +5.4. Diagnostic: compiled rules 70.1% vs 54-55% plain rules. No significance tests",
+   "v": "TellOnce lowest violation in all six settings: vs PGMem (best baseline) -19.3 to -42.3 points on ClawArena (73.6 -> 34.7 Luna; 81.5 -> 39.2 Sol; 88.1 -> 68.8 Haiku) and -3.0 to -22.9 on MemoryArena (12.6-14.5%). Task scores within ~1.6 points of the strongest baseline; highest only on ClawArena with Sol (78.5 vs 77.8), lower than the best baseline in the other five settings. Ablations: selection -1.0 to -4.8 points; checking/intervention -15.1 to -16.3 points on ClawArena, -0.7 to -2.7 on MemoryArena; final repair -2.1 to -5.2 (Claw), -0.2 to -1.5 (Memory). SWE-Together first delivery +1.8 (Luna) / +1.6 (Sol); final +0.6 / +5.4. Diagnostic: compiled rules 70.1% vs 54-55% plain rules, 42.5% Mem0, 31.6% no rules. No significance tests",
    "p": "5, 8-10",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said task scores were 'not higher' than the strongest baseline, but TellOnce has the highest task score on ClawArena with GPT-5.6 Sol (78.5 vs 77.8 No Memory)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,9 +211,15 @@
   },
   {
    "f": "Notes",
-   "v": "Code: github.com/YujunZhou/TellOnce_exp (experiments) and github.com/YujunZhou/tellonce (deployable skill). No pre-registration. Language: not stated (SWE-Together repositories include Hyperswitch, Rust). Table 1 and Table 2 columns jumbled by pdftotext: values rebuilt by row order and checked against the differences stated in the text (pp. 8-9; all match). Diagnostic per-model values and SWE-Together values only in Fig. 2 / Fig. 4 labels. GPT-6 Luna used as auxiliary model and as preference evaluator for all methods (same model judges and runs the TellOnce checks; possible bias, not discussed). Abstract says 57.5% violation with Mem0 in the diagnostic = 100 - 42.5 compliance. AI use statement for manuscript drafting",
+   "v": "Code: github.com/YujunZhou/TellOnce_exp (experiments) and github.com/YujunZhou/tellonce (deployable skill; plugins for Claude Code, Codex, Copilot CLI). Diagnostic data from a single user's private transcripts, not stated as released. No pre-registration. Language: not stated (SWE-Together repositories include Hyperswitch). Table 1 and Table 2 columns jumbled by pdftotext: values rebuilt by row order and checked against the differences stated in the text (pp. 8-9; all match). Diagnostic per-model values only in Fig. 2; SWE-Together values in Fig. 4 and the text (p. 10), SDs only as error bars. GPT-6 Luna used as auxiliary model for all methods and as the preference evaluator (same model family judges and runs the TellOnce checks; possible bias, not discussed). Abstract's 57.5% violation with Mem0 in the diagnostic = 100 - 42.5 compliance. Computation not matched across methods (stated). AI use statement for manuscript drafting",
    "p": "1, 7-11, 21",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said SWE-Together values appear only in Fig. 4 labels; they are also stated in the text (p. 10). Added that the diagnostic data are not released"
+    }
+   ],
    "warn": ""
   },
   {
@@ -250,10 +280,26 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): reports that task scores are not improved and gains are smaller on MemoryArena",
+   "v": "Yes (1): reports that task scores are not improved and gains are smaller on MemoryArena; main violation claims follow from Table 1",
    "p": "8-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The main claims follow, but the SWE-Together claim that TellOnce 'improves task quality' and that benefits 'persist' rests on small differences (+0.6 final for Luna, +1.6/+1.8 first) over 3 runs without tests; Partly is defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The Table 1 violation claims and the 'broadly comparable' task-score claim follow, and the authors admit task scores do not improve. But the SWE-Together claim that benefits 'persist' rests on +0.6 (Luna, final) and +1.6/+1.8 (first) over 3 runs without tests, and GPT-6 Luna both runs the TellOnce checks and scores preference violations, a possible bias the paper does not discuss; Partly is defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The violation claims follow from Table 1 and the authors admit task scores do not improve (p. 8). But the SWE-Together statement that benefits 'persist throughout subsequent task interaction' (p. 10) rests on +0.6 (Luna, final) and +1.6/+1.8 (first delivery) over three runs with no test, and GPT-6 Luna both runs the TellOnce checks and scores preference violations (p. 21), a possible bias not discussed; Yes or Partly is a judgement"
+    }
+   ],
+   "warn": "As conclusões principais seguem a Tabela 1, mas o ganho no SWE-Together é pequeno (+0,6 a +1,8, 3 runs, sem testes) e o mesmo modelo verifica e avalia violações. Decide se Q9 fica Yes ou Partly."
   },
   {
    "f": "Q10",

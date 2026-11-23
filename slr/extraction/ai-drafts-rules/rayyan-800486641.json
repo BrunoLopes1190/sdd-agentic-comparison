@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486641",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "Os autores não classificam nenhuma abordagem; o harness não é formato de especificação, mas a linha de base é o GitHub Spec Kit (spec-first segundo Böckeler). Decide se classificas pela abordagem proposta ou pelas comparadas."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Task: implement the customer registration function satisfying the business specification; no success criterion stated by the authors (no acceptance tests or pass condition). Agent/harness for the LLM Not stated beyond the approach. (a) GitHub Spec Kit + agent Not stated + GPT-5 (baseline): 65 correction iterations, 9.0 h, regressions frequent, major specification violations observed. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (b) Execution control harness (LLM Harness DSL) + agent Not stated + GPT-5: 3 correction iterations, 0.5 h, 0 regressions, major specification violations not observed. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
+   "why": "The paper states no pass condition for the function nor a target for iterations or hours; quality and cost verdicts are now 'no criterion stated by the authors'; values kept",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "São nomeados DSL YAML, Git, gates de build/teste e GPT-5, mas o harness não é publicado e custo e computação não são indicados. Decide entre Partly e No."
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800486642",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "O artigo não classifica o próprio framework nos níveis de Böckeler nem diz se as specs se mantêm sincronizadas com o código após a tarefa (p. 1). Decide entre não classificável e spec-anchored."
+  },
+  {
+   "f": "Q1",
+   "doubt": "O objetivo está explícito, mas não há questões de investigação. Decide se, num artigo de ferramenta, isso chega para Yes ou se fica Partly."
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: proposes an approach and evaluates none (demonstration scenario only; rule of 2026-11-23)",
+   "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; the paper has a demonstration scenario only (p. 4)",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "A stack open-source e o MCP estão indicados, mas faltam requisitos de LLM, computação e custo, e o código só está disponível a pedido. Decide entre Partly e No (regra da informação em falta)."
+  }
+ ]
+}

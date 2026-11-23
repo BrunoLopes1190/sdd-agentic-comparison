@@ -106,7 +106,7 @@
      "why": "Not stated by the author. Each task is implemented from a reviewed brief (spec-first), but the Evolve step feeds learning back into repository instructions, templates, tests and baselines and Agile-V keeps increments traceable to requirements (p. 3-4), which a reader could call spec-anchored"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O autor não usa termos de Böckeler. Cada tarefa parte de um brief revisto (spec-first), mas o passo Evolve atualiza instruções e baselines, com rastreabilidade a requisitos (p. 3-4). Escolhe spec-first ou spec-anchored."
   },
   {
    "f": "Task type",
@@ -299,7 +299,7 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): author proposes Agentic Agile-V and co-authored Agile-V",
+   "v": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
    "p": "1, 4, 6",
    "rev": [
     {
@@ -316,9 +316,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "No approach or tool is evaluated, so the vendor rule (author created an approach the study evaluates) does not strictly apply; but the author argues for his own framework built on his own Agile-V [1] (p. 4, 6). No is the conservative reading; rayyan-800486242 got Yes for 'no tool evaluated'. Author to set one rule for proposal-only papers"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 2: a study that proposes an approach and evaluates none is N/A on Q12; this settles the round doubt"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Q13",
@@ -341,7 +346,7 @@
      "why": "Judgement: templates, gates and AGENTS.md need only existing agents, CI and review (within reach), but no tool, effort or cost requirements are stated, and R3/hardware gates need simulators, formal checkers and HIL (Table I-II, p. 5); under the missing-information rule a reader could score No (0)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Templates e gates usam agentes e CI existentes, mas não há requisitos de ferramentas, esforço ou custo, e os gates de hardware exigem simuladores e HIL (Tabelas I-II, p. 5). Decide entre Partly e No."
   },
   {
    "f": "DARE1",

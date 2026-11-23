@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498178",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Feng, Z., Zhang, R., Yang, Y., Xie, P. (2026). The Missing Complement: State-Conditioned Minimal Sufficient Evidence for Coding Agents. arXiv:2609.20050v3 [cs.IR], 19 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 19 Nov 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.20050v3 [cs.IR], 19 Nov 2026 (pages headed 'Preprint'); no published venue found (no journal_ref in the arXiv export, not in the other exports)",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of Electrical and Computer Engineering, University of California San Diego (all four authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — MSS-COMPLEMENT, a training-free state-conditioned evidence-set retrieval method for coding agents, plus the task formulation and the SERBENCH benchmark (500 test + 500 development states); the method is evaluated and compared against 11 retrievers, ablations and downstream cohorts",
+   "p": "1-3",
+   "verdict": "uncertain",
+   "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>'. Main vs secondary is a judgement: the paper lists three equal contributions (task, SERBENCH, MSS-COMPLEMENT), and the benchmark could be read as the main contribution",
+   "doubt": "O artigo apresenta três contribuições (tarefa, benchmark SERBENCH, método MSS-COMPLEMENT). Decide se a natureza principal é propor a abordagem ou propor um método de avaliação (benchmark)."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "MSS-COMPLEMENT (authors' own; Cal500-frozen configuration). Compared retrievers: BM25, BGE-large, SPLADE++, ColBERTv2, ReasonIR-8B, SweRankEmbed-Large, Qwen3-Embedding-8B, Qwen3-Embed + Reranker-8B (+MMR), AgentIR-4B, Agent-ModernColBERT; SSR (authors' one-pass set reranker); AMA-Agent on AMA-Bench",
+   "p": "7-8, 21-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Portable state card (issue, current need, search history, opened files, observations, failures, hypothesis, subgoal); candidate pool of code units; returned set of 4-8 intact code units within 6,144 source tokens. Benchmark side: grouped-MSS certificate (groups of acceptable evidence IDs with threshold, necessity weight, role; enumerated branches), hidden from methods. No specification artefact for code generation",
+   "p": "4-6, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Nine-view deterministic ranking of the pool (BM25 x4, TF-IDF x2, dense, entity, recency) fused by RRF (<=384 candidates) -> Call 1 proposal (DeepSeek-v4-pro, 8-unit set S0 from <=80 cards) -> Call 2 gap-directed expansion (DeepSeek-v4-flash, <=48 candidates) -> Call 3 finalization (DeepSeek-v4-flash, 4-8 units) -> renderer applies token budget (Fig. 3)",
+   "p": "6-7, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the method. Benchmark certificates: two human experts review all 500 states, senior expert adjudicates; independent audit of 80 states. Action52: a human reviewer labels executor targets precise/coarse/wrong",
+   "p": "6, 9, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single mechanism: evidence (context) selection at one agent decision; downstream effect tested at one repair-localization decision (Action52) and in an end-to-end repair loop (Fresh23)",
+   "p": "8-9, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context retrieval for coding agents; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution in real repositories (Multi-SWE-bench, SWE-bench-Live issues); states captured mid-trajectory",
+   "p": "5, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "Test500: 500 states, 242 issues, 45 repos; Cal500: 500 states, 241 issues, 174 repos; candidate pools 20-120 units (mean 81.01); Action52: 52 states/52 repos; Fresh23: 23 tasks; Prospective44: 44 states; AMA-Bench: 208 episodes, 2,496 questions; full-repo diagnostic: 500 states",
+   "p": "5-6, 9-10, 17, 27-28, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories, multi-language (Multi-SWE-bench, SWE-bench-Live); AMA-Bench agent episodes",
+   "p": "10, 17, 33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; paid expert annotators for labels, profile Not stated)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Returned source tokens per state; controller tokens per state (41.50K on Test500, ~1.5 US cents at DeepSeek off-peak list prices); executor tokens per task (Fresh23); answer-prompt and online-total tokens (AMA); retrieval latency (AMA, Prospective44); Claude controller run $5.78",
+   "p": "8, 10, 25-26, 28, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Complete-MSS@k (share of states whose first k units satisfy all certificate groups); group recall; necessity-weighted recall; grouped nDCG; Action52 target precision; Fresh23 resolution (fail-to-pass, strict with pass-to-pass); AMA answer accuracy",
+   "p": "4-5, 7-10, 21, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Share of top-10 repeating already-read code (pilot, 21 states: 53.3% vs 18.1%); reference-file recall; candidate target-file hit",
+   "p": "1, 9, 33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: organizer scorer against private certificates; repository tests in Fresh23; LLM judge (Qwen3.6-35B-A3B) for AMA correctness. Manual: certificate annotation and review by experts (with model audit signals from Grok 4.6, Gemini 3.6 Flash, Claude Sonnet 5); human labelling of Action52 targets. 95% intervals by 20,000 repository-clustered paired bootstrap resamples",
+   "p": "6-7, 9, 19, 21, 28",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Per-state success criterion stated by the authors: a returned set is complete only if it covers every certificate group (Complete-MSS@k, Test500); in Fresh23 a task is resolved when fail-to-pass tests pass (strict: pass-to-pass also). No threshold for a configuration as a whole is stated, so no verdicts: quality and cost 'no criterion stated by the authors' for every entry. No coding agent is evaluated on Test500 (retrieval methods). (1) MSS-COMPLEMENT (controller DeepSeek-v4-pro + DeepSeek-v4-flash): Complete-MSS@5/@8 73.00 / 80.60; group recall@5 82.03; mean 2,543 source tokens @5; 41.50K controller tokens per state, about 1.5 US cents. (2) Qwen3-Embed + Reranker-8B: 61.40 / 72.40 (36.24% @5 on states with >=3 groups); 2,721 source tokens @5. (3) Other baselines Complete-MSS@5: BM25 9.00, BGE-large 31.00, SPLADE++ 23.60, ColBERTv2 16.80, ReasonIR-8B 28.00, SweRankEmbed-Large 52.40, Qwen3-Embedding-8B 52.60, AgentIR-4B 38.60, Agent-ModernColBERT 34.00. (4) Ablations (Test500, Complete@5): independent similarity 66.60; no feedback fixed 7 69.80; no feedback adaptive 72.80; single-stage 70.00; no expansion 72.60. (5) Full-repository diagnostic, Complete@5: MSS-COMPLEMENT 38.80 vs Qwen3+Reranker 33.80. (6) Action52 fixed-budget target precision, DeepSeek-v4-flash executor: Qwen3 Embed 48.54, Qwen3+Reranker 51.46, MSS-COMPLEMENT 64.33, Oracle-1 group 52.63, Oracle-MSS 64.91; Claude Sonnet 5 executor: 54.39, 54.39, 58.48, 55.56, 66.67. (7) Fresh23 strict / F2P resolved of 23 (executor DeepSeek-v4-pro on 20 tasks, v4-flash on 3): BM25 5/8, Qwen3+Reranker 6/10, MSS-COMPLEMENT 8/10, Oracle-1 group 7/8, Oracle-MSS 8/11; executor tokens per task 133,775 / 126,261 / 118,351 / 98,121 / 99,655. (8) AMA-208 accuracy: MSS-COMPLEMENT 56.05% vs AMA-Agent 53.97%; online tokens per question 33.57K vs 13.95K. (9) Prospective44 controller family, Complete@5: DeepSeek 45.45 vs Claude 52.27 (Claude run $5.78)",
+   "p": "7-10, 28, 32",
+   "verdict": "corrected",
+   "why": "The draft's works/partly/does-not-work verdicts rested on thresholds the authors do not give (e.g. 73% = works, 61.4% = partly, AMA cost = does not work; Fresh23 'partly' was judged against the other configurations). Per the rule of 2026-11-23 verdicts are replaced by 'no criterion stated by the authors'; all metric values checked against Tables 1-4, 19, 24 and kept",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: Test500 states with frozen candidate pools (each contains a complete set); secondary cohorts Action52, Fresh23, AMA-208, Prospective44, full-repo diagnostic. Compared: MSS-COMPLEMENT vs 11 retrievers + ablations. Baseline: strongest = Qwen3-Embed + Reranker-8B. Held constant: same states, pools, scorer; configuration frozen on Cal500; retriever query choice fixed on a 75-state Cal500 subset; temperature 0; in Action52/Fresh23 same executor, evidence count, token ceiling. Acceptance: hidden expert-reviewed certificates; repository tests (Fresh23). Repetitions: single run per method, bootstrap intervals; post-freeze parameter neighbourhood on Cal120. Human intervention: none at inference",
+   "p": "5-9, 21, 27, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "MSS-COMPLEMENT best on Test500: +11.60 points Complete-MSS@5 over Qwen3+Reranker [+6.89, +17.21], +8.20 @8 [+4.91, +13.85]; +14.09 on >=3-group states vs +7.41 on single-group; matches the reranker's completeness with 40% fewer source tokens (3,655 vs 6,100). Over similarity control +6.40 [+3.42, +10.46]; feedback adds 0.20 (n.s.). Full-repo +5.00 [+1.62, +9.44]. Action52: +12.87 precision under DeepSeek (significant), +4.09 under Claude (n.s.); removing one required group -12.28 / -11.11 (significant). Fresh23: all paired intervals include zero. AMA: +2.08 [-0.16, +4.37], n.s.",
+   "p": "7-10, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods clearly on Test500 with repository-clustered intervals; downstream cohorts mostly underpowered (Fresh23 n=23). Repeatable: frozen configuration, released scorer, network-disabled replay reproduced predictions byte for byte; post-freeze neighbourhood within 2.5 points. Limitations stated: all test states from one trajectory generator; candidate pools contain a complete set by construction (selection, not discovery); end-to-end effect diluted by executor and environment; latency deployment-specific",
+   "p": "9, 27, 32-33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "One trajectory generator (adaptive_llm_trace_v3_agent); other generators and state formats untested; candidate discovery is the main bottleneck in full-repository setting; end-to-end benefit not established (Fresh23 n.s.); acquisition computation exceeds answer-context savings in AMA online total. No dedicated threats-to-validity section (short scope/limitations appendix H)",
+   "p": "9-11, 33-34",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 1-4, 24-25 jumbled in pdftotext; values rebuilt by column order from the text and checked against prose where possible (Table 1 baseline order assumed as listed). DeepSeek aliases without immutable revisions (accessed Aug-Sep 2026); retriever checkpoints listed in Table 10. Trajectories generated with DeepSeek-v4-Flash (Test500) and Qwen3-Coder-30B (most Cal500). Benchmark repository https://github.com/LordTARN1SHED/SERBench; supplementary archive with code, prompts, configurations, predictions; Test500 certificates private (organizer evaluator). AI use statement: generative AI assisted in implementation, certificate construction, analysis. No pre-registration claimed, though configuration frozen before Test500. Programming language of implementation: Python",
+   "p": "7-10, 11, 17, 22, 25, 32-33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): explicit research question and three contributions",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): detailed method, stage limits, prompts and configurations in archive, reproducibility statement",
+   "p": "6-7, 11, 25-26, 33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): retriever checkpoints pinned; LLMs named (DeepSeek-v4-pro/flash, Claude Sonnet 5) but only as aliases without revision; trajectory harness is the authors' own",
+   "p": "17, 22, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SERBENCH construction described and released (Test500 labels kept private by design)",
+   "p": "5-6, 11, 16-18, 33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): expert-reviewed hidden certificates with independent audit; repository tests in Fresh23",
+   "p": "6, 19-20, 32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): completeness metrics defined, plus source and controller tokens and US cents",
+   "p": "4-5, 8, 25-26",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 11 retrievers on the same pools, same budget",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): single run per method, but repository-clustered bootstrap intervals and paired contrasts",
+   "p": "7, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): non-significant downstream and AMA results reported as such; feedback 'adds no measurable gain'",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): only a short scope/limitations appendix; no threats-to-validity section",
+   "p": "33-34",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors propose and evaluate their own method and benchmark",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): training-free, API controller at about 1.5 US cents per state, requirements stated (Python/PyTorch environment, structured-output endpoint); but it presupposes a candidate pool, and with candidates from the whole repository discovery is the main bottleneck (38.8% complete); dense views and the strongest baseline rely on 8B models served locally",
+   "p": "8-9, 25-26",
+   "verdict": "uncertain",
+   "why": "Yes or Partly is a judgement: cost and tools are within reach, but the method assumes a supplied candidate pool that a team would have to build, and the authors call discovery the main bottleneck",
+   "doubt": "O custo é baixo (1,5 cêntimos por estado), mas o método pressupõe um conjunto de candidatos já fornecido; no repositório completo a descoberta é o gargalo. Decide entre Yes e Partly."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

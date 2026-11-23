@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486416",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "doubt": "O estudo é uma ablação de variantes de especificação, mas o resumo e a conclusão apresentam 'um método' para avaliar o custo; escolhe se a natureza principal é Compares ou Proposes an evaluation method."
+  },
+  {
+   "f": "SDD level",
+   "doubt": "O artigo não se posiciona num nível SDD nem corre um fluxo SDD; a especificação é escrita uma vez antes do agente. Escolhe entre spec-first e not classifiable."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All: spec variant + mini-swe-agent + Kimi K3 (Modal endpoint, temperature 1.0, efforts low/high/max, 15 repeats per cell, 120-turn and 4.00 USD cap). Effects pooled over 5 tasks and 3 efforts vs full spec (Table D1, 90% CrI); per-effort cell values only in figures. Success criterion per run: SWE-bench tests (run solved or not); no criterion stated for a configuration's solve rate or cost. Metrics: solve rate, cost, turns.\n- Full spec (8 sections): reference. Solve rate per task 86.3-99.8% pooled over specs; geometric mean cost 0.117 USD (low) to 0.561 USD (max) over all specs. Quality: no criterion stated by the authors; cost: no criterion stated by the authors (cost reference)\n- minimal, header + user story (ablation): cost +29.7% [+5.1, +58.7], turns +16.4% [+4.9, +30.7], solve -1.9 pts (n.s.); per task +13% to +115%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- contract, header + FR + SC (ablation): cost +26.4% [-2.8, +62.6], turns +16.0% (n.s.), solve -1.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no acceptance scenarios (ablation): cost +11.6% (n.s.), turns +7.0% [+1.6, +14.1], solve -0.2; turns +20.1% at low, 4.5% high, 2.1% max effort. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no user scenarios block (ablation): cost +10.3%, turns +7.3% (n.s.), solve +0.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no functional requirements (ablation): cost -2.4%, turns -0.6%, solve -0.1 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no edge cases (ablation): -2.6%, -1.4%, +0.5 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no assumptions (ablation): -3.1%, -0.4%, +1.0 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no key entities (ablation): -3.3%, -1.6%, 0.0 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no success criteria (ablation): -5.4%, -1.6%, -0.6 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- raw anchor (failing test output): 0.73x-1.10x full-spec cost pooled over efforts; cheapest of 11 at low effort on 4/5 tasks; astropy-14365 at low effort solves 47%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- oracle anchor (solution given; excluded): 0.05x-0.19x full-spec cost. Sanity check only; no verdict\nThinking effort: max/min spec cost ratio x2.13 (low), x1.67 (high), x1.61 (max). Run-to-run spread x1.34 (geometric SD), x1.29-x1.40 per spec, unaffected by spec",
+   "why": "SWE-bench tests decide each run, but the authors state no criterion for a configuration's solve rate or cost change; verdicts rested on the extractor's own cut-offs and are now 'no criterion stated by the authors'; values kept",
+   "doubt": ""
+  }
+ ]
+}

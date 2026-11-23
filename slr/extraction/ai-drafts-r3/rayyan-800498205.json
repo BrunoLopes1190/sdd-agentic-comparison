@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800498205",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Guo, Y., Zhou, H., Zhang, J., Zhang, Y., Liu, Y., Chen, Q., Lin, Q., Dong, H., Zhang, J. M., Chen, Z. (2026). XRepoSkill: Learning Transferable Skills for Software Engineering Agents. arXiv:2609.36807v1 [cs.SE], 29 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.36807v1 [cs.SE], 29 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Nanyang Technological University; Tsinghua University; Tencent; King's College London",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — XRepoSkill, trajectory-based learning of transferable skill rules for SE agents, compared with the no-skill agent and three skill-learning methods on two benchmarks with three LLMs",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "XRepoSkill (authors' own, no version; code released). Baselines: raw mini-SWE-agent 2.0 (no skills), SkillOpt, STAIR, Trace2Skill (versions Not stated)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill = one Markdown file of transferable rules (title, tag with gain and z score, body), each rule with an executable predicate over abstract actions; 36 transferable rules learned; up to 3 rules selected per issue and placed above the issue description in the first user message",
+   "p": "3-5, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Stage 1 divergence-guided rule discovery (pair successful/failed trajectories, action abstraction, divergence point, three prompts generate candidate rules + predicates) -> Stage 2 within-repository merging and verification (Mantel-Haenszel resolution gain, z score), cross-repository clustering (phi correlation), LLM consolidation into transferable rules (>=2 repos) -> Stage 3 issue-adaptive selection (two backbone-LLM calls, <=3 rules) -> skill-guided resolution by unchanged agent",
+   "p": "3-6, 12-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None stated (fully automatic pipeline; agent told to verify each suggested action against the repository)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (skill file of rules injected into the prompt), with the whole learning pipeline run; agent otherwise unchanged",
+   "p": "6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (procedural skill guidance for issue resolution; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: repository-level issue resolution",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Skill learning: SWE-bench Verified trajectory pool, 500 issues from 12 Python repos x 12 backbone LLMs. Evaluation: SWE-bench Pro random sample of 200 of 731 tasks (11 repos); DeepSWE all 113 long-horizon tasks; 939 issue-LLM combinations",
+   "p": "6, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories; SWE-bench Pro sample: 69 Python, 73 Go, 52 JavaScript, 6 TypeScript; DeepSWE: 34 Python, 34 Go, 5 JavaScript, 35 TypeScript, 5 Rust",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Cost per issue in USD (list prices, cache hits/misses priced separately), including selection calls",
+   "p": "7, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "%Resolved (resolution rate); Pass@4 and All@4 in stability study",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Per-language resolution gains; rule selection frequency and gain per selected rule (Fig. 2)",
+   "p": "8, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark tests (DeepSWE hidden tests); token counts from trajectories priced at provider list prices",
+   "p": "14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors (§2.1): 'Our goal is for the resulting skill-guided agent to achieve a higher issue resolution rate on previously unseen repositories than the original agent without the learned skill' — a criterion for XRepoSkill only, and relative to the no-skill agent. No criterion stated for the baselines and none for cost ('similar cost scale'). %Resolved SWE-bench Pro (200) / DeepSWE (113); cost USD per issue SWE-Pro / DeepSWE (Tables 1, 5). All with mini-SWE-agent 2.0, single run. (1) No skills + DeepSeek-V4-Flash: 51.5 / 46.0; $0.133 / $0.150. (2) No skills + GPT-5.6-Luna: 50.5 / 44.2; $0.089 / $0.390. (3) No skills + MiMo-V2.5-Pro: 41.5 / 11.5; $0.034 / $0.128. Quality and cost: no criterion stated by the authors. (4) SkillOpt + DeepSeek: 54.0 / 40.7, $0.167 / $0.135; + GPT: 51.5 / 39.8, $0.148 / $0.407; + MiMo: 41.0 / 13.3, $0.041 / $0.125. (5) STAIR + DeepSeek: 55.5 / 43.4, $0.140 / $0.150; + GPT: 51.0 / 46.0, $0.098 / $0.358; + MiMo: 48.5 / 14.2, $0.052 / $0.140. (6) Trace2Skill + DeepSeek: 55.0 / 49.6, $0.153 / $0.139; + GPT: 52.0 / 53.1, $0.117 / $0.274; + MiMo: 45.0 / 15.0, $0.036 / $0.124. (4)-(6) quality and cost: no criterion stated by the authors. (7) XRepoSkill + DeepSeek: 55.5 / 58.4; $0.156 / $0.161. (8) XRepoSkill + GPT: 56.0 / 56.6; $0.110 / $0.426. (9) XRepoSkill + MiMo: 50.0 / 17.7; $0.065 / $0.152 (selection calls $0.01 per issue with DeepSeek and GPT, $0.03 with MiMo). (7)-(9) quality: works by the authors' criterion (higher than the same agent without skills in all 6 cells); cost: no criterion stated by the authors. Stability (DeepSWE, DeepSeek, 4 runs): mini-SWE-agent 45.6 +/- 2.50, Trace2Skill 49.3 +/- 2.69, XRepoSkill 58.6 +/- 2.49; Pass@4 77.9 / 81.4 / 89.4; All@4 17.7 / 21.2 / 32.7. Ablations (DeepSWE, DeepSeek, ablation): w/ Trace2Skill rules 54.9; w/o within-repo 53.1; w/o cross-repo 51.3; w/ all rules 48.7; w/o evidence 55.8 (full 58.4)",
+   "p": "7-9, 15",
+   "verdict": "uncertain",
+   "why": "Values rechecked: rebuilt Table 1 rows reproduce the printed averages (SkillOpt 48.8/31.3, STAIR 51.7/34.5, Trace2Skill 50.7/39.2; p. 7), costs match Table 5 (p. 15), Tables 3-4 match (p. 8-9). Open point: the only stated criterion (§2.1, p. 3) is 'higher resolution rate than the original agent without the learned skill', i.e. relative to the baseline, so the XRepoSkill 'works' verdict judges it against the baseline, against §6 'judged on its own'",
+   "doubt": "O único critério dos autores (§2.1, p. 3) é resolver mais do que o agente sem skills, ou seja, relativo ao baseline. Decide se aceitas 'works' para XRepoSkill ou se passa a 'no criterion stated by the authors'."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 200 sampled SWE-bench Pro tasks (no .git history, no network) + 113 DeepSWE tasks (official environment); no evaluation repository in the learning pool. Configurations: 5 methods x 3 backbone LLMs (reasoning effort high). Baseline: mini-SWE-agent without skills. Held constant: same agent, system prompt, tool interface, step and cost limits; skills of all methods learned from the same pool with the same LLM (DeepSeek-V4-Pro-0813); methods differ only in text before the issue. Acceptance: benchmark tests (hidden tests in DeepSWE). Repetitions: single run per issue, except 4 runs in RQ3 (DeepSWE, DeepSeek). Human intervention: none",
+   "p": "6-8, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "XRepoSkill best in all 6 benchmark-LLM cells. SWE-bench Pro average 53.8% vs mini-SWE-agent 47.8 (+6.0) and STAIR 51.7 (+2.1); DeepSWE average 44.2% vs 33.9 (+10.3) and Trace2Skill 39.2 (+5.0). Repeated runs: +13.0 over mini-SWE-agent and +9.3 over Trace2Skill, 95% CIs not overlapping. Cost similar: $0.11 vs $0.09-0.12 per issue (SWE-Pro), $0.25 vs $0.18-0.22 (DeepSWE). Cross-language gains larger on non-Python languages (e.g., TypeScript DeepSWE +21.0 vs STAIR); Python on par",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods consistently in direction; significance only shown for DeepSWE with DeepSeek (4 runs, CIs). Limitations noted: SWE-bench Pro sampled (200 of 731) for budget; container without git history/network not comparable to official images; small language subsets (5-6 issues) to be read with caution; gain per rule confounded by joint selection",
+   "p": "6, 8, 14, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats section. Stated caveats: budget-limited sampling and single runs; small per-language subsets; selected-rule gains belong to the selected set, not one rule; a third of the skill almost unused",
+   "p": "6, 8, 14, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 baseline rows jumbled in pdftotext; SkillOpt/STAIR/Trace2Skill per-LLM values rebuilt by column order and checked against averages in the text (STAIR SWE-Pro avg 51.7, Trace2Skill DeepSWE avg 39.2); per-model baseline values to be verified in the PDF. Code, data and skill corpus at https://github.com/XREPOSKILL/XRepoSkill. Model versions dated (DeepSeek-V4-Flash-0731, DeepSeek-V4-Pro-0813); GPT-5.6-Luna and MiMo-V2.5-Pro undated. No pre-registration. Languages: Python (learning), Python/Go/JS/TS/Rust (evaluation)",
+   "p": "2, 6-7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 explicit",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): detailed implementation appendix (parameters, prompts constraints, formats); code and data released",
+   "p": "12-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): mini-SWE-agent 2.0 and dated model versions for DeepSeek; GPT-5.6-Luna and MiMo-V2.5-Pro named",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks with sampling described; skill corpus released",
+   "p": "6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark tests, hidden tests in DeepSWE",
+   "p": "6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): %Resolved and USD cost per issue",
+   "p": "6-7, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-skill agent and three skill-learning methods under the same agent and settings",
+   "p": "6-7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): main results single run; 4 runs with 95% CIs only for DeepSWE with DeepSeek",
+   "p": "8, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): claims of consistent superiority rest on single runs and small differences (e.g., 55.5 vs 55.5 tie with STAIR on SWE-Pro DeepSeek counted as highest); otherwise mixed per-language results reported",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats-to-validity or limitations section, but limitations are discussed in place: budget-limited sampling of SWE-bench Pro and single runs, containers without git history or network not comparable to the official images, small language subsets to be read with caution, rule gains confounded by joint selection",
+   "p": "8, 14, 16",
+   "verdict": "uncertain",
+   "why": "No limitations or threats section (conclusion p. 10 has none); caveats only in place: sampling of 200 of 731 for budget (p. 6), small language subsets (p. 8), containers not comparable to official images (p. 14), joint rule selection confounds per-rule gains (p. 16). Partly vs No depends on how much in-place discussion counts",
+   "doubt": "Não há secção de limitações nem ameaças; só ressalvas dispersas (pp. 6, 8, 14, 16). Decide entre Parcialmente e Não."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created XRepoSkill; mini-SWE-agent and the baselines SkillOpt, STAIR and Trace2Skill are by other authors, and the backbone LLMs (DeepSeek, GPT, MiMo) are third-party",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): uses public trajectories, open-source agent, API models; cost about $0.11-0.25 per issue, selection calls $0.01-0.03; code released",
+   "p": "7, 10, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486772",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Journal (Frontiers in Radiology, peer-reviewed; editor and two reviewers named)",
+   "v": "Journal — Frontiers in Radiology 6:1890122 (article type: Methods; peer-reviewed, editor and two reviewers named), DOI 10.3389/fradi.2026.1890122",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same type, but the value did not follow the required form '<type> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (file-based cross-interface persistent-memory system: MEMORY.md + CLAUDE.md per project, synchronised between a web chat and a local coding agent); secondary: evaluates (single-user proof-of-concept functional demonstration, n = 1)",
+   "v": "Proposes an approach; secondary: Evaluates — file-based cross-interface persistent-memory system (MEMORY.md + CLAUDE.md per project, synchronised between a web chat and a local coding agent), with a single-user proof-of-concept functional demonstration (n = 1)",
    "p": "1, 3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Same content, but the value did not follow the required form '<nature>; secondary: <nature> — <detail>'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -84,8 +96,19 @@
    "f": "Task type",
    "v": "Existing code bases: three concurrent software-development projects in progress (memory carried across sessions); system also used to organise development of a separate radiology report QC tool",
    "p": "3, 7",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper only says 'three concurrent software-development projects' over multi-week work; it does not say whether they started from an empty repository or an existing code base"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper only says 'three concurrent software-development projects' over multi-week work; it does not say whether they started from an empty repository or an existing code base"
+    }
+   ],
+   "warn": "O artigo fala de três projetos de software em curso, mas não diz se partiram do zero ou de código existente. Confirma na secção 2.1 e 2.4.1 e escolhe new project, existing code base ou não indicado."
   },
   {
    "f": "Size",
@@ -152,9 +175,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "One configuration: memory system + Claude Code (version n.s.; coding-agent model n.s.) + claude-sonnet-4 for extraction. Criterion: functional checks (end-to-end run, six fields populated, GitHub create/edit, agent reports project state). Values: complete six-field extraction (1 summary, 1 decision, 4 pending tasks, 1 artifact, 0 errors, 1 continuation point); 5/5 create/edit runs without overwrite; ~47 s to GitHub write; agent reported project state with no incorrect item (n = 1). Quality verdict: works (feasibility only, n = 1). Cost verdict: partly (fixed ~USD 12/month; variable API cost not quantified)",
+   "v": "One configuration: memory system + Claude Code (version n.s.; coding-agent model n.s.) + claude-sonnet-4 for extraction. Criterion stated by the authors (§2.8): functional checks (end-to-end run, six fields populated, GitHub create/edit success over consecutive runs, agent reports the known project state); no cost criterion stated. Values: complete six-field extraction (1 summary, 1 decision, 4 pending tasks, 1 artifact, 0 errors, 1 continuation point); 5/5 create/edit runs without overwrite; ~47 s to GitHub write; agent reported project state with no incorrect item (n = 1); cost: fixed ~USD 12/month VPS plus variable per-token API cost (not quantified). Quality verdict: works (feasibility only, n = 1). Cost verdict: no criterion stated by the authors",
    "p": "3, 6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The quality verdict rests on the authors' own functional checks (§2.8) and stays; the cost verdict 'partly' was the extractor's judgement, since the authors state no cost criterion, so per the 2026-11-23 rule it becomes 'no criterion stated by the authors' (cost values kept)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -224,8 +253,24 @@
    "f": "Q5",
    "v": "No (0): no ground truth for extraction; agent recall judged by the author against the known project state",
    "p": "6",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The authors say the agent's report was 'consistent with the known ground-truth project state' (§3.4), but that ground truth was checked by the first author himself on one run, and extraction had no ground truth at all; No or Partly are both defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The authors call the agent's report 'consistent with the known ground-truth project state' (§3.4), but that state was checked by the first author on one run, and extraction had no ground truth at all"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors call the agent's report 'consistent with the known ground-truth project state' (§3.4), but that state was checked by the first author on one run, and extraction had no ground truth at all"
+    }
+   ],
+   "warn": "O artigo fala em 'ground-truth project state', mas quem verificou foi o próprio autor numa única execução, e a extração não tem ground truth. Decide entre No e Partly (secções 2.8 e 3.4)."
   },
   {
    "f": "Q6",

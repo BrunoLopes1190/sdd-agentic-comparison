@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800497948",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2610.30571v1 [cs.SE], 22 Oct 2026; submitted to SN Computer Science (arXiv comment), not yet published",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; added the submission stated in the arXiv record (slr/exports/arxiv-S1-2026-11-18.atom.xml). Substance (preprint) unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (one sentence in the user-level instruction file giving existing code precedence over stale documentation); secondary: compares (with vs without the sentence, Claude Code and Codex CLI, 320 runs) and evaluates agents' behaviour with stale instruction files",
+   "v": "Proposes an approach; secondary: Compares — one sentence in the user-level instruction file giving existing code precedence over stale documentation; with vs without the sentence on Claude Code and Codex CLI (40 synthetic projects, 320 runs), also measuring how agents behave with stale instruction files",
    "p": "1, 5-6",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form '<nature>; secondary: <nature> — <detail>' was missing; substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: share of choices following existing code; tests pass; no rewrites. (1) Stale file, no sentence + Claude Code 2.1.302 + Claude Sonnet 5.5 (80 runs): 86.4% of choices match stale file, 7.5% match code; conflict named in 79/80 runs yet file followed; no rewrites; tests pass (Claude Code failures not reported, overall 89.4% without sentence). Quality: does not work (conformance). (2) Sentence + Claude Code + Claude Sonnet 5.5 (80 runs): 94.4% match code [CI 91.9-96.9]; conflicts reported in all runs; tests pass 100%. Works; cost works (slightly fewer tool calls, less time). (3) No sentence + Codex CLI 0.163.0 + GPT-6 Sol (80 runs): 93.9% match file, 0.8% match code; conflict named in 2/80; rewrote existing code in 20 runs (median 198 lines, 9 files), original tests failed in 17; test pass 78.8%. Does not work. (4) Sentence + Codex CLI + GPT-6 Sol (80 runs): 88.3% match code [84.8-91.8]; no rewrites; tests 100%; conflicts reported. Works; cost works (directional)",
+   "v": "Success criterion: no criterion stated by the authors (they report shares of choices matching the file or the code, conflict reporting, rewrites and test pass rates; tool calls and time recorded but not reported numerically). (1) Stale file, no sentence + Claude Code 2.1.302 + Claude Sonnet 5.5 (80 runs): 86.4% of choices match the stale file [95% CI 79.7-92.3], 7.5% match the code; conflict named in 79/80 runs, and in those runs 86.2% of choices still matched the file; no rewrites; tests passed in all 80 runs (inferred: overall 89.4% of 160 runs, all failures were Codex rewrites). Quality: no criterion stated by the authors; cost: not reported. (2) Sentence + Claude Code + Claude Sonnet 5.5 (80 runs): 94.4% match the code [91.9-96.9]; conflicts reported in all runs; no rewrites; tests 100%. Quality: no criterion stated by the authors; cost: 'slightly fewer tool calls and less time' (no values). (3) No sentence + Codex CLI 0.163.0 + GPT-6 Sol (80 runs): 93.9% match the file [90.7-96.7], 0.8% match the code; conflict named in 2/80; rewrote existing code in 20 runs (median 198 lines from 9 files, 12 projects), original tests failed in 17 of them; test pass 78.8%. Quality: no criterion stated by the authors; cost: not reported. (4) Sentence + Codex CLI + GPT-6 Sol (80 runs): 88.3% match the code [84.8-91.8]; no rewrites; tests 100%; conflicts reported in all runs. Quality: no criterion stated by the authors; cost: 'slightly fewer tool calls and less time' (no values)",
    "p": "6-9",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave works / does not work verdicts, but the authors state no success criterion or threshold; per the author's rule of 2026-11-23 the verdict is 'no criterion stated by the authors'. The cost verdict 'works' rested on an unquantified statement. Added the CIs of configurations (1) and (3), the 86.2% figure and the Claude Code test result (inferred, flagged)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -173,10 +191,16 @@
   },
   {
    "f": "Comparison: did the method work",
-   "v": "Distinguished conditions clearly with non-overlapping CIs; repeatable design (2 runs per cell, fresh copies, fixed judge criterion). Limitations of the comparison: only a Scope section (40 Python projects, file as stale source, 16 conventions, single unattended run, two agent-model pairs)",
+   "v": "Distinguished conditions clearly: difference in share following the code +87.2 points, 95% bootstrap interval 83.6-90.9 (intervals are reported only for the larger share of each bar and for the overall difference). Repeatable design (2 runs per cell, fresh copies, fixed judge criterion). Limitations of the comparison: only a Scope section (40 Python projects, file as stale source, 16 conventions, single unattended run, two agent-model pairs)",
    "p": "7, 11",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "'Non-overlapping CIs' is not supported: Fig. 5a gives intervals only for the larger share of each bar (different quantities across conditions); the paper supports the separation with the 95% interval of the difference (83.6-90.9, p. 8)"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Conclusions: limitations and gaps",
@@ -259,8 +283,24 @@
    "f": "Q10",
    "v": "Partly (0.5): only a short Scope section; no threats to validity discussion (e.g., synthetic projects, author-built tasks, LLM judge)",
    "p": "11",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "There is only a one-sentence Scope section (p. 11) listing the setting; no threats are discussed (synthetic author-built projects, LLM judge, single agent-model pair per tool). Partly or No are both defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is only a one-sentence Scope section (p. 11) listing the setting; no threats are discussed (synthetic author-built projects, LLM judge, single agent-model pair per tool). Partly or No are both defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Only a one-sentence Scope section (p. 11) listing the setting; no threats discussed (synthetic author-built projects, LLM judge, one model per agent). Partly or No both defensible"
+    }
+   ],
+   "warn": "Só há uma secção 'Scope' de uma frase (p. 11) a delimitar o estudo, sem discutir ameaças. Decide se conta como Partly ou No."
   },
   {
    "f": "Q11",
@@ -273,8 +313,24 @@
    "f": "Q12",
    "v": "Partly (0.5): independent of Claude Code/Codex vendors, but authors proposed the sentence they evaluate",
    "p": "1, 5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The authors proposed the sentence they evaluate (vendor of that approach under the protocol), but the baseline (stale instruction file alone) and both agents and models are independent of them. Partly (as drafted) or No are defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The authors proposed the sentence they evaluate (vendor of that approach under the protocol), but the baseline (stale instruction file alone) and both agents and models are independent of them. Partly (as drafted) or No are defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors proposed the sentence they evaluate (vendor of that approach under §5); the comparison is only with its absence, while both agents and models are independent. Whether 'without the sentence' counts as an external baseline (Partly per the 2026-11-23 rule) or not (No) is a judgement"
+    }
+   ],
+   "warn": "Os autores propuseram a frase que avaliam; a comparação é só com a ausência dela, e os agentes são independentes. Decide se isso é uma base externa (Partly) ou No."
   },
   {
    "f": "Q13",

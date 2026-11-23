@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498083",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhou, Y., Guo, K., Zhuang, H., Wang, X., Huang, Y., Liang, Z., Chen, P.-Y., Gao, T., Moniz, N., Chawla, N. V., Zhang, X. (2026). TellOnce: Correcting Coding Agents Once, Improving Their Future Actions. arXiv:2606.13174v2 [cs.LG], 25 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.13174v2 [cs.LG]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Notre Dame (8 authors); IBM Research (Chen, Gao); Tencent AI Lab (Liang)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — TellOnce, a drop-in layer turning user corrections into persistent, scoped, revisable behavioural rules with compiled runtime checks; compared against No Memory, Mem0, PGMem and Zoro on ClawArena and MemoryArena (three solvers), against No Memory on SWE-Together, plus an access-compliance diagnostic of five rule-provision conditions",
+   "p": "1-3, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "TellOnce (version Not stated; experimental execution layer for Codex and Claude Code; released plugins for Claude Code, Codex, Copilot CLI). Baselines: No Memory, Mem0, PGMem, Zoro (versions Not stated). Diagnostic conditions: No Rules, All Rules, Mem0, Relevant Rules, Compiled Rules",
+   "p": "4, 6, 8, 16, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Rule library: each rule holds the user requirement, scope (global/project), conditions, exceptions and supporting feedback quotes; per-rule compiled check specification (applicability, stage pre_action/artifact/delivery, required evidence, compliance/violation criteria) as programmatic or LLM-based check, or guidance-only, or inactive; 3-9 validation cases per check",
+   "p": "6, 16-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Detect correction signal -> interpret with same-session context -> decide persistence and scope -> reconcile with library (reuse/revise/replace/add) -> compile check and validate (independent LLM labelling, up to 3 rounds) -> at each user turn select applicable rules and inject as guidance -> check at pre-action, artifact and delivery stages -> block or request revision (up to 3 repairs per input; one appeal)",
+   "p": "5-6, 16-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "User corrections are the input (simulated users in the experiments); no human review of learned rules or checks; validation of checks by a separate LLM call",
+   "p": "6-7, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact type (learned rule library and its checks, comparable to persistent agent rules/context files) inside a full agent run; rule-library use ablated at test time",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'behavioral rules', 'personalization layer'; rules learned from feedback, not a specification written before code)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "ClawArena scenarios (workspace tasks with multiple-choice and execution checks), MemoryArena group travel planning, SWE-Together repository-level coding problems with multi-turn interaction (existing code bases); diagnostic: 19 coding tasks from real transcripts",
+   "p": "3-4, 7, 23, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "ClawArena: 8 learning / 16 test scenarios (240 / 474 questions). MemoryArena: 30 learning / 60 test tasks (211 / 415 questions). SWE-Together: 60 learning / 49 test tasks from 26 repository/task groups. Diagnostic: 19 tasks, 29 preference checks from 32 transcripts (~1M tokens each), 142 correction-conflict records",
+   "p": "3-4, 7, 23, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General agent workspace tasks, travel planning, software repositories (e.g. Hyperswitch); preferences on cleanup, workflow constraints, stylistic conventions",
+   "p": "4, 23-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Simulated users (three fixed preference profiles; general task-improvement simulator for SWE-Together); simulator validated against five real AI researchers (790 judgments); diagnostic from a single user's transcripts",
+   "p": "7, 14, 24-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (authors note added computation not matched across methods); resource limits listed (Table 9)",
+   "p": "11, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Native task score: ClawArena pooled binary correctness per round; MemoryArena native travel-plan correctness; SWE-Together first- and final-delivery task quality score with executable repository evidence",
+   "p": "8, 26-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured (aim is fewer repeated corrections, measured indirectly via violation rate)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Preference violation rate (% of evaluation units with >= 1 confirmed violation of an applicable preference); diagnostic compliance rate; component diagnostics (admission recall 94.2%, structural accuracy 175/192, rule-update accuracy 15/16, check validation agreement 98.3%); simulator fidelity F1 0.906",
+   "p": "4-5, 8, 25, 27-29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: native benchmark scorers and execution checks; preference violations scored by an LLM evaluator (GPT-6 Luna, low reasoning) blind to method identity and memory; diagnostic checks manually annotated by one author and audited by a second",
+   "p": "4, 8, 21, 26-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for any configuration (neither a task-score nor a violation-rate threshold), and cost is not measured: for every configuration below, quality and cost verdicts are 'no criterion stated by the authors'. Values: native task score / preference violation % (mean over 3 simulated users; SD in Table 1). Solvers: Codex + GPT-5.6 Luna (medium reasoning), Codex + GPT-5.6 Sol (low reasoning), Claude Code + Claude Haiku 4.5 (default); agent versions not stated; auxiliary calls (memory management, checks, simulator, preference scoring) GPT-6 Luna, low reasoning.\nClawArena (16 test scenarios, 474 rounds) — Luna / Sol / Haiku:\n- (1) No Memory (baseline): 77.4/99.8; 77.8/100.0; 74.0/98.8\n- (2) Mem0: 77.0/83.1; 76.7/93.0; 72.7/96.1\n- (3) PGMem: 77.0/73.6; 77.5/81.5; 67.7/88.1\n- (4) Zoro: 75.4/99.3; 77.6/100.0; 72.9/99.0\n- (5) TellOnce: 77.2/34.7; 78.5/39.2; 72.9/68.8\nMemoryArena group_travel_planner (60 test tasks, 415 questions) — Luna / Sol / Haiku:\n- (6) No Memory (baseline): 57.5/56.5; 93.3/56.2; 53.7/37.8\n- (7) Mem0: 57.8/53.6; 92.9/47.5; 54.6/33.8\n- (8) PGMem: 55.6/36.5; 91.4/15.6; 48.0/32.7\n- (9) Zoro: 57.1/55.4; 91.2/57.8; 39.8/33.4\n- (10) TellOnce: 56.3/13.6; 91.7/12.6; 53.4/14.5\nAblations, same frozen TellOnce library (Table 2), Claw task/violation | Memory task/violation — Luna; Sol; Haiku:\n- (11) All Rules as Text (ablation): 76.3/54.6 | 56.7/16.8; 78.1/58.7 | 91.6/16.9; 73.5/86.3 | 54.1/18.2\n- (12) Selected Rules as Text (ablation): 76.7/49.8 | 56.3/14.3; 78.2/55.5 | 91.0/14.1; 72.9/84.7 | 53.7/17.2\n- (13) Before Final Repair (ablation): 77.3/36.8 | 55.2/13.8; 78.4/44.1 | 91.6/13.6; 72.8/74.0 | 52.3/16.0\nSWE-Together (49 paired test tasks, 3 runs; task quality score, first / final delivery):\n- (14) No Memory (baseline) + Codex + GPT-5.6 Luna: 36.4 / 57.6; (15) TellOnce + Codex + GPT-5.6 Luna: 38.2 / 58.2\n- (16) No Memory (baseline) + Codex + GPT-5.6 Sol: 37.0 / 62.8; (17) TellOnce + Codex + GPT-5.6 Sol: 38.6 / 68.2\nAccess-compliance diagnostic (19 tasks, 29 checks; six models Claude Haiku, Claude Sonnet, GPT-5.5, Gemma 4 31B, DeepSeek V4 Flash, Qwen 3.6 Plus; agent harness not stated; mean compliance; per-model values in Fig. 2 only): (18) No Rules 31.6%; (19) All Rules 55.0%; (20) Mem0 42.5%; (21) Relevant Rules 54.0%; (22) Compiled Rules 70.1%",
+   "p": "4-5, 7, 9-10, 21-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmarks: ClawArena, MemoryArena group_travel_planner, SWE-Together with fixed hash-based whole-task learning/test splits. 5 methods x 3 solvers x 3 user profiles x 2 benchmarks (90 test groups). Baseline: No Memory (plus Mem0, PGMem, Zoro). Held constant: learning tasks and order, feedback policy (max one correction per question), harness, tools, auxiliary model GPT-6 Luna; feedback text differs per method (responds to actual behaviour). State frozen at test; no corrections at test (SWE-Together keeps within-task interaction up to 16 deliveries). Acceptance: native benchmark scorers + blind LLM preference evaluator. Repetitions: 3 simulated users (main); 3 runs (SWE-Together). Human intervention: none (simulated users). Computation not matched across methods",
+   "p": "7-8, 21-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "TellOnce lowest violation in all six settings: vs PGMem (best baseline) -19.3 to -42.3 points on ClawArena (73.6 -> 34.7 Luna; 81.5 -> 39.2 Sol; 88.1 -> 68.8 Haiku) and -3.0 to -22.9 on MemoryArena (12.6-14.5%). Task scores within ~1.6 points of the strongest baseline; highest only on ClawArena with Sol (78.5 vs 77.8), lower than the best baseline in the other five settings. Ablations: selection -1.0 to -4.8 points; checking/intervention -15.1 to -16.3 points on ClawArena, -0.7 to -2.7 on MemoryArena; final repair -2.1 to -5.2 (Claw), -0.2 to -1.5 (Memory). SWE-Together first delivery +1.8 (Luna) / +1.6 (Sol); final +0.6 / +5.4. Diagnostic: compiled rules 70.1% vs 54-55% plain rules, 42.5% Mem0, 31.6% no rules. No significance tests",
+   "p": "5, 8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods on violation rate clearly (large gaps vs SD), not on task score (differences within noise). Repeatability: SD over 3 users, sometimes large (e.g. All Rules as Text Luna Claw +-18.8). Limitations stated: simulated users; fixed models and tasks; rule-update evaluation only in controlled diagnostics; extra computation not matched",
+   "p": "7, 9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Simulated feedback cannot capture real long-term collaboration; fixed set of models and benchmarks; ambiguous corrections hard to interpret; not every requirement checkable, semantic checks may err; rule revision evaluated only in controlled diagnostics; added computation not matched; future: long-term adaptation in real deployments",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code: github.com/YujunZhou/TellOnce_exp (experiments) and github.com/YujunZhou/tellonce (deployable skill; plugins for Claude Code, Codex, Copilot CLI). Diagnostic data from a single user's private transcripts, not stated as released. No pre-registration. Language: not stated (SWE-Together repositories include Hyperswitch). Table 1 and Table 2 columns jumbled by pdftotext: values rebuilt by row order and checked against the differences stated in the text (pp. 8-9; all match). Diagnostic per-model values only in Fig. 2; SWE-Together values in Fig. 4 and the text (p. 10), SDs only as error bars. GPT-6 Luna used as auxiliary model for all methods and as the preference evaluator (same model family judges and runs the TellOnce checks; possible bias, not discussed). Abstract's 57.5% violation with Mem0 in the diagnostic = 100 - 42.5 compliance. Computation not matched across methods (stated). AI use statement for manuscript drafting",
+   "p": "1, 7-11, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question and three contributions stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): learning, compilation, checking, protocols, model calls and limits detailed in Appendices B-C; code released",
+   "p": "15-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning effort named, agents Codex and Claude Code named without versions; baseline versions not stated",
+   "p": "21-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks with deterministic splits described; experiment code released (diagnostic data not stated as released)",
+   "p": "1, 23-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): task score by native benchmark scorers; preference violation judged by an LLM against simulated profiles",
+   "p": "8, 26-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; no cost metrics",
+   "p": "8, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No Memory and three memory baselines under the same tasks, order and feedback policy",
+   "p": "8, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): mean +- SD over 3 users or 3 runs; no statistical tests",
+   "p": "7, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): reports that task scores are not improved and gains are smaller on MemoryArena; main violation claims follow from Table 1",
+   "p": "8-9",
+   "verdict": "uncertain",
+   "why": "The Table 1 violation claims and the 'broadly comparable' task-score claim follow, and the authors admit task scores do not improve. But the SWE-Together claim that benefits 'persist' rests on +0.6 (Luna, final) and +1.6/+1.8 (first) over 3 runs without tests, and GPT-6 Luna both runs the TellOnce checks and scores preference violations, a possible bias the paper does not discuss; Partly is defensible",
+   "doubt": "As conclusões principais seguem a Tabela 1, mas o ganho no SWE-Together é pequeno (+0,6 a +1,8, 3 runs, sem testes) e o mesmo modelo verifica e avalia violações. Decide se Q9 fica Yes ou Partly."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section (simulated users, coverage, checking errors, unmatched computation)",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created TellOnce; independent of the baselines, agents and models",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): plugins for Claude Code, Codex, Copilot CLI released; extra LLM calls per turn add cost that is not quantified",
+   "p": "1, 11, 19-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

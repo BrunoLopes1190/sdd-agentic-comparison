@@ -53,7 +53,7 @@
      "why": "Source-sink slicing is the authors' own retrieval method, described in five steps and released (p. 5), though not listed as a contribution (p. 2). A reader could add 'Proposes an approach' as secondary, which would make Q13 applicable"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O Source-sink slicing é um método de recuperação dos autores, descrito em cinco passos e publicado (p. 5), mas não é listado como contribuição (p. 2). Decide se juntas 'Proposes an approach' como secundário; isso torna Q13 aplicável."
   },
   {
    "f": "Approach(es): name and version",
@@ -169,7 +169,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Success criterion: SecPass@1 (tests pass, PoC blocked); 3 runs/task; values pooled over 6 models (GPT-5.4, Claude Sonnet 4.5, Gemini 3 Pro, DeepSeek-V3.2, Qwen3.5-397B-A17B, gpt-oss-120b); per-model values not reported in text. Fun% / Sec% / CbE%: Local-only 56.9/12.6/44.3 (baseline); BM25+README 59.7/12.4/47.3; Security reminder 55.1/13.9/41.2; Placebo 56.2/12.9/43.3; Repo-128K 60.9/12.1/48.8; InCoder-FIM 57.4/12.8/44.6; LongCoder-Mem 57.8/13.2/44.6; ReACC-Hybrid 61.9/15.4/46.5; CCEval-BM25 60.3/11.5/48.8; RepoBench-R 52.1/11.8/40.3; ProCC-Multi 65.1/14.9/50.2; RepoCoder-Iter 55.0/12.9/42.1; RLPG-Proposal 54.6/12.3/42.3; DevEval-Dep 56.4/13.3/43.1; SWE-agent-Ret 55.0/11.7/43.3; ClaudeCode-Ret 63.8/16.3/47.5; CodeGuarder 58.8/16.8/42.0; Source-sink 61.2/18.1/43.1; Reference context (diagnostic) 62.3/24.8/37.5. Quality verdict for all 19: does not work for security (SecPass@1 11.5-24.8%; 37.5-50.2% correct but exploitable), partly for functional correctness (FuncPass@1 52.1-65.1%). Cost verdict for these 19 conditions: not assessable; only mean context tokens beyond the target file are reported (Table 2: 0 for Local-only, 2.7K-7.9K under the 8K cap, 118K for Repo-128K), no money or time per method. Agents (Table 6): SWE-agent + Sonnet 4.5: 69.7/16.6/53.1, USD 1.08; SWE-agent + GPT-5.4: 71.0/16.1/54.9, USD 0.91; Claude Code (version n.s.) + Sonnet 4.5: 74.0/18.4/55.6, USD 1.41 (each: functional partly works, security does not work; cost works: USD 0.91-1.41 per task under the USD 2 cap, 5-11% of trajectories hit the step or cost cap). Ablations (RQ2, 3 models): removing safeguard roles -3.9 to -8.1 pp SecPass; inserting one insecure exemplar +6.3 pp CbE",
+   "v": "Success criterion: SecPass@1 (tests pass, PoC blocked); 3 runs/task; values pooled over 6 models (GPT-5.4, Claude Sonnet 4.5, Gemini 3 Pro, DeepSeek-V3.2, Qwen3.5-397B-A17B, gpt-oss-120b); per-model values not reported in text. Fun% / Sec% / CbE%: Local-only 56.9/12.6/44.3 (baseline); BM25+README 59.7/12.4/47.3; Security reminder 55.1/13.9/41.2; Placebo 56.2/12.9/43.3; Repo-128K 60.9/12.1/48.8; InCoder-FIM 57.4/12.8/44.6; LongCoder-Mem 57.8/13.2/44.6; ReACC-Hybrid 61.9/15.4/46.5; CCEval-BM25 60.3/11.5/48.8; RepoBench-R 52.1/11.8/40.3; ProCC-Multi 65.1/14.9/50.2; RepoCoder-Iter 55.0/12.9/42.1; RLPG-Proposal 54.6/12.3/42.3; DevEval-Dep 56.4/13.3/43.1; SWE-agent-Ret 55.0/11.7/43.3; ClaudeCode-Ret 63.8/16.3/47.5; CodeGuarder 58.8/16.8/42.0; Source-sink 61.2/18.1/43.1; Reference context (diagnostic) 62.3/24.8/37.5. Cost for these 19 conditions: only mean context tokens beyond the target file are reported (Table 2: 0 for Local-only, 2.7K-7.9K under the 8K cap, 118K for Repo-128K), no money or time per method. Agents (Table 6; run cap 50 steps and USD 2 per task): SWE-agent + Sonnet 4.5: 69.7/16.6/53.1, USD 1.08; SWE-agent + GPT-5.4: 71.0/16.1/54.9, USD 0.91; Claude Code (version n.s.) + Sonnet 4.5: 74.0/18.4/55.6, USD 1.41; 5-11% of trajectories hit the step or cost cap. Ablations (RQ2, 3 models): removing safeguard roles -3.9 to -8.1 pp SecPass; inserting one insecure exemplar +6.3 pp CbE. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "6-11",
    "rev": [
     {
@@ -181,9 +181,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Quality verdict contradicted itself ('does not work in all', then 'partly' for three); Source-sink 18.1%, CodeGuarder 16.8% and Reference 24.8% SecPass@1 do not support partly for security. Agent cost verdict was comparative ('higher than retrieval'), against the rule that each configuration is judged on its own; replaced with a verdict from the agents' own cost (Table 6, p. 9; cap rate p. 8). Values rechecked against Table 3 and Table 6"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); SecPass@1 is a per-run criterion, the 3 pp threshold (p. 7) applies to differences between methods and the USD 2 cap is a run budget, none is a verdict criterion for a configuration"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -315,7 +320,7 @@
      "why": "N/A if the study only proposes an evaluation method. If Source-sink slicing is read as a proposed approach (see Nature), Q13 applies and would be Yes: it needs only generic CodeQL and Joern models and an 8K-token context (p. 5)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Depende da natureza: N/A se o estudo só propõe um método de avaliação; se o Source-sink slicing contar como abordagem proposta, Q13 aplica-se e seria Yes (só CodeQL, Joern e contexto de 8K tokens, p. 5)."
   },
   {
    "f": "DARE1",

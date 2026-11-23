@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486781",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ciancarini, P. (2027). Who is in charge? Coordination and governance in agentic software engineering. Journal of Logical and Algebraic Methods in Programming, 152, 101192. doi:10.1016/j.jlamp.2026.101192 (available online 7 October 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2027 (volume 152; received June 2026, accepted 21 September 2026, online 7 October 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — Journal of Logical and Algebraic Methods in Programming 152 (2027) 101192, Elsevier; position paper in a volume dedicated to G. Ferrari",
+   "p": "1, 12",
+   "verdict": "corrected",
+   "why": "Format: must start with the category, then ' — ' and detail (draft-verify rules); content unchanged.",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Bologna, Italy (single author)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual; secondary: Proposes an approach — position paper ('develops a thesis through conceptual analysis and an illustrative scenario rather than through a new experimental study'), proposing the runtime coordination contract C = <R, T, Sigma, E, A> with a lightweight runtime monitor, illustrated on a multi-agent code-review scenario",
+   "p": "1-2, 6",
+   "verdict": "corrected",
+   "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged.",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Runtime coordination contract (author's own governance abstraction); no version, no implementation",
+   "p": "1-2, 6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Coordination contract tuple: R set of roles (orchestrator, specialists, aggregator, human oversight; roles distinct from agents); T scope function assigning disjoint task sets to roles; Sigma input/output schemas per role (typed records, JSON schemas, structured reports); E escalation predicates over observable pipeline state with staged escalation policies (e.g., specialized validator -> stronger model -> human authority); A audit obligations (role, inputs, tool invocations, outputs, validations, approvals). Execution trace and audit trail; runtime monitor",
+   "p": "2, 6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Coordination-contract loop (Fig. 1): orchestrator decomposes work and assigns scoped tasks -> specialist agents produce structured reports -> aggregator -> human oversight approves, overrides or reassigns; escalation paths and persistent artifact flows. Monitor step: receive event -> identify role -> check scope and schema -> update state -> evaluate predicates -> invoke escalation handler -> append audit record. Lifecycle mapping (Table 4): requirements and design, testing, code review, deployment",
+   "p": "6, 8, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Human oversight role with authority to approve, override or reassign; mandatory human escalation when the contract requires human authority or automated remediation fails (e.g., major architectural change, security finding, critical test failure, merge to main, production deployment, access control changes); risk-stratified selective oversight",
+   "p": "6-7, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (illustrative scenario only)",
+   "p": "2, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (runtime governance contract for multi-agent pipelines, not a code specification); author does not use SDD terms, though notes 'specification becomes a key engineering skill' and contracts can require structured requirements and traceability",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no task run); illustrative scenario: review of a 12-file pull request in an existing code base",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "N/A (illustrative PR with 12 changed files)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General / multi-agent software engineering (code review scenario)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured; proposed 'time to human intervention'",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None measured. Proposed contract-aware metrics: scope-violation rate, schema-conformance rate, unresolved-conflict rate, escalation precision and recall, audit completeness, time to human intervention, recovery success after failed action",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no data: 'No data was used for the research described in the article')",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (no configuration run; conceptual)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A. Illustrative contrast of the same code-review scenario without vs with explicit coordination structure (hypothetical dialogue)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Qualitative argument: with the contract, scope violations, conflicting priorities and an inactive coordinator become 'immediately diagnosable' during execution",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Tuple not a complete formalism; local conformance does not guarantee global correctness; Observations 1-2 not formal theorems; not empirically validated. Open: contract specification language and runtime conformance verification (dynamic roles, syntactic vs semantic checks, contract updates without breaking audit trail, policy conflicts); benchmarks for multi-step multi-agent collaborative tasks; architecture-aware and contract-aware metrics; trust and human-agent teaming studies",
+   "p": "2, 8, 11-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Printed page numbers 1-13 = PDF pages 1-13 (article number 101192; references end on p. 13). Mathematical symbols garbled in the text extraction (tuple and formulas reconstructed from prose). Position paper; no data ('No data was used'), no implementation, no replication package; no pre-registration. GenAI (Claude Sonnet) used for language revision and manuscript organisation (declared). No competing interests declared. Programming language: N/A",
+   "p": "1-13",
+   "verdict": "corrected",
+   "why": "The article has 13 pages, not 12 (references continue on p. 13).",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): thesis and three contributions stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): semiformal contract definition, conformance condition and monitor steps given, but conceptual argument, not a replicable method",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims kept within the position-paper scope; explicitly not empirically validated, observations not theorems",
+   "p": "2, 8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations stated in the introduction and conclusions (not a complete formalism, no empirical validation), no dedicated limitations section",
+   "p": "2, 8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): Elsevier journal (JLAMP), received/revised/accepted dates printed",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: the paper proposes an approach (coordination contract) and evaluates none; no tool is evaluated",
+   "p": "1, 12",
+   "verdict": "corrected",
+   "why": "Author's rule of 2026-11-23: a study that proposes an approach and evaluates none is N/A on Q12 (draft had Yes).",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): the monitor is described as lightweight, using deterministic checks (schema validation, role and permission checks, scope membership, audit fields), plausibly within reach of a typical team; but no implementation, tools, cost or contract language are given, and the specification language is left as an open problem",
+   "p": "8, 11-12",
+   "verdict": "uncertain",
+   "why": "Judgement: requirements are only described qualitatively ('lightweight', deterministic checks); a strict reading of the missing-information rule could give No.",
+   "doubt": "O artigo só descreve o monitor como 'leve' com verificações determinísticas, sem ferramentas, custos nem implementação (pp. 8, 11). Decide se isto chega para Parcial ou se é No por falta de informação."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

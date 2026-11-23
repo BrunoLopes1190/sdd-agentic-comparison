@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486553",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Compares — longitudinal empirical mining study characterising the agent-supplied 'instruction stack' (first model request) of 1,886 releases of five coding agents, with cross-agent comparison (RQ4); also contributes a capture infrastructure and dataset",
+   "v": "Evaluates; secondary: Compares — repository mining (npm releases and commit/pull-request histories): longitudinal empirical study characterising the agent-supplied 'instruction stack' (first model request) of 1,886 releases of five coding agents, with cross-agent comparison (RQ4); also contributes a capture infrastructure and dataset",
    "p": "1-2",
    "rev": [
     {
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Descriptive mining study of agent-supplied request content; no approach evaluated on a task. 'Evaluates' is the closest main nature; 'Compares' (RQ4 cross-agent) is also defensible as main"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Under the author's rule of 2026-11-23, descriptive mining studies are 'Evaluates — repository mining'; the study mines npm release packages and, for RQ3, commit/PR histories (index term 'mining software repositories', p. 1), so the main nature is settled and the repository-mining label was missing. Secondary Compares (RQ4) kept"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Approach(es): name and version",
@@ -213,7 +218,7 @@
      "why": "Added a reporting inconsistency the draft missed: 25 failed captures (1,911 - 1,886, Table I) but only 15 + 7 = 22 explained in Section 5 (p. 5)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -231,7 +236,7 @@
   },
   {
    "f": "Q3",
-   "v": "Yes (1): every agent release enumerated; models named (o4-mini, gpt-5, qwen3-coder-plus; Claude Code and Gemini CLI default models not named); annotation LLMs named with settings",
+   "v": "Partly (0.5): every agent release enumerated; models named for Codex (o4-mini to 0.19.0, then gpt-5), OpenCode (gpt-5) and Qwen Code (qwen3-coder-plus), but Claude Code and Gemini CLI used unnamed default models; annotation LLMs named with settings",
    "p": "4-6",
    "rev": [
     {
@@ -243,9 +248,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "All releases enumerated and Codex/OpenCode/Qwen models named, but Claude Code and Gemini CLI used unnamed default models (p. 4). Model identity matters little (request captured before any answer), so Yes defensible; Partly also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All releases are enumerated and the Codex/OpenCode/Qwen models are named, but Claude Code and Gemini CLI ran with unnamed default models (p. 4); with missing information scoring No, Partly fits better than Yes. Model identity matters little here (request captured before any answer), so Yes stays defensible"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Todas as versões dos agentes estão identificadas, mas o Claude Code e o Gemini CLI usaram o modelo por omissão sem o nomear (p. 4). Decide entre Partly e Yes, sabendo que o modelo pouco influencia o pedido capturado. O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q4",
@@ -268,9 +278,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "No effectiveness of agent work is measured; the only independent criterion is the human-adjudicated reference for LLM coding (kappa 0.92) and tracing (795/798). Yes if annotation validity counts; otherwise No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No effectiveness of agent work is measured; the only independent criterion is the human-adjudicated reference for LLM coding (kappa 0.92) and tracing (795/798 links). Yes if annotation validity counts; otherwise No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O estudo não mede a eficácia dos agentes; só valida as anotações do LLM contra codificação humana (kappa 0,92). Decide se isso conta como critério independente (Yes) ou não (No)."
   },
   {
    "f": "Q6",
@@ -288,9 +303,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "No baseline, but all five agents are captured under the same controlled conditions (fixed prompt, fresh container, empty directory, p. 4); a reader could count them as alternatives under the same conditions and score Partly. No kept because no outcome of agent work is compared"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No baseline, but all five agents are captured under the same controlled conditions (fixed prompt, fresh container, empty directory, p. 4); a reader could count them as alternatives under the same conditions and score Partly. No kept because no outcome of agent work is compared"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não há baseline, mas os cinco agentes são capturados nas mesmas condições (p. 4). Decide se isso conta como alternativas comparadas (Partly) ou se fica No por não haver resultado de trabalho comparado."
   },
   {
    "f": "Q8",
@@ -306,9 +326,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "One capture per release, no statistical tests of differences; variability handled by design (fixed configuration, masking, p. 5) and validation samples sized for a 10-point margin. Partly defensible; strict reader could score No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "One capture per release and no statistical tests of differences; variability handled by design (fixed configuration, masking of run-dependent values, p. 5-6) and validation samples sized for a 10-point margin. Partly defensible; a strict reader could score No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Uma captura por versão e sem testes estatísticos; a variabilidade é controlada pela configuração fixa e pela máscara de valores (p. 5-6). Decide entre Partly e No."
   },
   {
    "f": "Q9",

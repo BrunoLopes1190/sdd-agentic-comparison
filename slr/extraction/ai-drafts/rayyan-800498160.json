@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498160",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; conference-style template with ethics and reproducibility statements, venue not stated)",
+   "v": "Preprint — arXiv:2608.21929v2 [cs.CR], 28 Sep 2026; conference-style template with AI-use, ethics and reproducibility statements, venue not stated; no published venue in the access log",
    "p": "1, 10",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'. Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,26 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (SKILLBLOAT: two-phase framework that rewrites SKILL.md files to amplify agent token use while preserving task completion; an attack, usable as a stress test); secondary: evaluates (four agent-model configurations, output-cap defense, transfer)",
+   "v": "Proposes an approach; secondary: Evaluates — SKILLBLOAT, a two-phase framework that rewrites SKILL.md files to amplify agent token use while preserving task completion (an attack, usable as a stress test), evaluated on four agent-model configurations with ablation, an output-cap defense and an input-transfer test",
    "p": "1-3",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format fixed to '<nature>; secondary: <nature> — <detail>'. SKILLBLOAT is an attack-generation framework; it can be read as 'proposes an approach' or as 'proposes an evaluation method' (a stress test of agents' resource robustness), and the choice changes whether Q13 applies"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "SKILLBLOAT is an attack-generation framework (p. 2-3); it can be filed as proposing an approach (the attack pipeline) or as proposing an evaluation method (a stress test of agents against resource abuse); the paper calls it a framework for studying token amplification, which fits both"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "SKILLBLOAT is an attack-generation framework (p. 2-3); it can be filed as proposing an approach (the attack pipeline) or as proposing an evaluation method (a stress test of agents against resource abuse); the paper calls it a framework for studying token amplification, which fits both"
+    }
+   ],
+   "warn": "O SKILLBLOAT é um ataque que gera skills maliciosas; pode ser proposta de abordagem ou método de avaliação (teste de stress). Decide; se for método de avaliação, o Q13 passa a N/A."
   },
   {
    "f": "Approach(es): name and version",
@@ -145,23 +167,41 @@
   },
   {
    "f": "How metrics are collected",
-   "v": "Automatic: token accounting per run; LLM judge (GLM-5) for completion; output cap enforced by a proxy (2x benign output tokens)",
-   "p": "5, 8",
-   "rev": [],
+   "v": "Automatic: token accounting per run (input + output); task completion routed through programmatic checks, with a GLM-5 LLM judge as semantic fallback (binary label); output cap enforced by a proxy (2x benign output tokens); dollar cost estimated from tokens at list prices (case study)",
+   "p": "5, 7-8, 17",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Appendix B.2 (p. 17) says completion is routed through programmatic checks and the LLM judge is only a semantic fallback; the draft gave the LLM judge as the sole means"
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Values: average best amplification / max / median; completion benign -> best attack (Table 1). Here 'works' for the attack means high amplification with completion kept; for the agent it means vulnerable.\n- SKILLBLOAT + Claude Code + GLM-4.7-Flash: 9.31x / 71.59x / 4.89x; completion 76% -> 80%. Attack works\n- SKILLBLOAT + Claude Code + GLM-5: 5.42x / 21.49x / 4.02x; 90% -> 92%. Attack works\n- SKILLBLOAT + Codex CLI + GPT-5.4 Mini: 10.15x / 75.86x / 6.10x; 86% -> 92%. Attack works\n- SKILLBLOAT + Codex CLI + GPT-5.5: 6.01x / 26.39x / 4.36x; 94% -> 88%. Attack works\n- Ablation Phase 1 only: 7.51x / 4.02x / 7.51x / 4.06x; no-feedback resampling: 8.97x / 5.15x / 8.84x / 5.79x (same order of configurations)\n- Output-cap defense (2x benign output): amplification 1.36x / 1.24x / 1.39x / 1.34x; completion 62% / 48% / 68% / 64%. Defense partly works (cost) but hurts completion\n- Case (consciousness-principles, Codex GPT-5.5): 38,410 -> 1,013,561 tokens, $0.21 -> $5.41; dataset cost $133.34 -> $464.31\n- Transfer (Claude Code + GLM-5, 10 skills): mean retention 0.92",
+   "v": "Values: average best amplification / max / median; completion (Table 1). The authors state no success criterion (no target amplification or completion rate), so each configuration's quality and cost verdict is 'no criterion stated by the authors'.\n- Benign original skill (baseline) + Claude Code + GLM-4.7-Flash: amplification 1.00x by definition; completion 76%. Quality and cost: no criterion stated by the authors\n- Benign baseline + Claude Code + GLM-5: 1.00x; completion 90%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.4 Mini: 1.00x; completion 86%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.5: 1.00x; completion 94%; dataset cost $133.34. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-4.7-Flash: 9.31x / 71.59x / 4.89x; completion 80%. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-5: 5.42x / 21.49x / 4.02x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.4 Mini: 10.15x / 75.86x / 6.10x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.5: 6.01x / 26.39x / 4.36x; completion 88%; dataset cost $464.31. No criterion stated by the authors\n- Ablation Phase 1 only: 7.51x / 4.02x / 7.51x / 4.06x; ablation no-feedback resampling: 8.97x / 5.15x / 8.84x / 5.79x (same order of configurations)\n- Output-cap defense (2x benign output): amplification 1.36x / 1.24x / 1.39x / 1.34x; completion 62% / 48% / 68% / 64%. No criterion stated by the authors\n- Case (consciousness-principles, Codex GPT-5.5): 38,410 -> 1,013,561 tokens, $0.21 -> $5.41; commands 3 -> 28, file edits 0 -> 10\n- Transfer (Claude Code + GLM-5, 10 skills x 3 input variants): mean retention 0.92",
    "p": "5-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave its own 'attack works' and 'defense partly works' verdicts; the authors state no success criterion, so per the 2026-11-23 rule no verdict is given. The benign-skill baseline configurations were missing as entries (every configuration, baseline included, gets its own entry). Values checked against Tables 1-4: correct"
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Comparison: design",
-   "v": "50 skill-task pairs; 4 agent-model configurations; baseline: original benign skill (3 runs averaged); attack: 15 screening runs + 5 refinement runs, best selected. Ablation: no-feedback resampling with same number of evaluations. Held constant: task prompt and inputs per pair. Acceptance: GLM-5 completion judge. Repetitions: attack candidates single run each. Human intervention: none",
+   "v": "50 skill-task pairs; 4 agent-model configurations; baseline: original benign skill (3 runs averaged); attack: 15 screening runs + 5 refinement runs, best selected. Ablation: no-feedback resampling with same number of evaluations. Held constant: task prompt and inputs per pair. Acceptance: binary task completion via programmatic checks, with a GLM-5 judge as semantic fallback (no human validation). Repetitions: attack candidates single run each. Human intervention: none",
    "p": "4-6",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Acceptance was given as the GLM-5 judge alone; Appendix B.2 (p. 17) says completion is routed through programmatic checks and the judge is only a semantic fallback (same fix as in How metrics are collected)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -222,9 +262,15 @@
   },
   {
    "f": "Q5",
-   "v": "Partly (0.5): token counts objective; completion by LLM judge only",
-   "p": "5",
-   "rev": [],
+   "v": "Partly (0.5): token counts objective; completion by programmatic checks with a GLM-5 judge as fallback, not validated against humans",
+   "p": "5, 17",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Score unchanged, but the justification was wrong: completion is not judged by the LLM judge only (programmatic checks first, judge as semantic fallback, p. 17)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -271,17 +317,49 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): authors created SKILLBLOAT; independent of the agents and models",
+   "v": "Partly (0.5): authors created SKILLBLOAT; independent of the target agents (Claude Code, Codex CLI) and backend models",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "SKILLBLOAT is the only approach evaluated and the authors created it (vendor rule → No), but the study also evaluates the vulnerability of third-party agents, which supports Partly; equivalent cases (e.g. a study evaluating only its own approach) were scored No"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The authors created SKILLBLOAT, the only approach evaluated (vendor rule suggests No), but the study also measures how third-party agents (Claude Code, Codex CLI) and backends resist the attack, which supports Partly; the rule does not settle whether target agents count as tools evaluated"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors created SKILLBLOAT, the only approach evaluated (vendor rule suggests No), but the study also measures how third-party agents (Claude Code, Codex CLI) and backends resist the attack, which supports Partly; the rule does not settle whether target agents count as tools evaluated"
+    }
+   ],
+   "warn": "Os autores criaram o SKILLBLOAT (única abordagem avaliada, seria Não), mas também medem a resistência de agentes de terceiros. Decide entre Não e Parcial, coerente com outros estudos que só avaliam a sua abordagem."
   },
   {
    "f": "Q13",
-   "v": "Partly (0.5): pipeline needs only CLI agents and LLM API access, code supplementary; but it is an attack, not a development practice (reviewer to judge applicability)",
+   "v": "Partly (0.5): pipeline needs only CLI agents and LLM API access (GPT-5.5 as Attack Agent), framework code as supplementary material; but it is an attack, not a development practice",
    "p": "5, 10",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Q13 applies only if the nature stays 'proposes an approach'; as a stress-test method it would be N/A. Feasibility of an attack framework for a development team is itself a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Applies only if the nature stays Proposes an approach; as an evaluation method it is N/A. If it applies, needs only CLI agents and API access (GPT-5.5 attack agent) with code as supplementary material, but it is an attack, not a development practice"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Applies only if the nature stays Proposes an approach; as an evaluation method it is N/A. If it applies, needs only CLI agents and API access (GPT-5.5 attack agent) with code as supplementary material, but it is an attack, not a development practice"
+    }
+   ],
+   "warn": "Depende da natureza: se ficar proposta de abordagem, Parcial parece razoável (só precisa de CLIs e API); se passar a método de avaliação, o Q13 fica N/A."
   },
   {
    "f": "DARE1",

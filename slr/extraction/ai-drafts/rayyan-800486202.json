@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486202",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: run passes the full expanded test suite (40-43 tests); 10 runs per task; averages over the 16 tasks from the Table 2 'Avg' row. Task solver agent harness not stated for all configurations (model GLM-5). Verdicts judged on each configuration's own values; the study sets no thresholds (extractor's scale: mean pass rate >= 0.50 works, 0.20-0.50 partly, < 0.20 does not work; cost per run under 1 USD works). (a) SkillMOO + agent not stated + GLM-5: avg 1.7 skills, pass 0.39 (0.52 over the 12 non-zero-pass tasks), cost 0.71 USD/run, avg pass rank 1.1, cost rank 1.7; top pass rank on 11 of 12 non-zero-pass tasks; one-time optimization overhead 1.76-13.73 USD and 832-9,720 s per task (Table 3); quality partly, cost partly (per-run cost low, but the per-task search overhead is paid back only with reuse, break-even 5-682 reuses, median 45). (b) ori_skill + agent not stated + GLM-5: avg 2.6 skills, pass 0.14, cost 0.89 USD/run, ranks 1.9 / 2.5; quality does not work, cost works. (c) no_skill + agent not stated + GLM-5 (baseline): pass 0.21, cost 0.64 USD/run, ranks 1.9 / 1.3; quality partly, cost works. 4 tasks (7, 13, 15, 16) zero pass for all methods",
+   "v": "Criterion per run: a run passes only when its solution passes the full expanded test suite (40-43 tests); pass rate = share of 10 runs passing. The authors state no success criterion for a configuration (no pass-rate or cost threshold), so no verdicts are given. Averages over the 16 tasks from the Table 2 'Avg' row; task solver agent harness not stated (model GLM-5). (a) SkillMOO + agent not stated + GLM-5: avg 1.7 skills, pass 0.39 (0.52 over the 12 non-zero-pass tasks), cost 0.71 USD/run, avg pass rank 1.1, cost rank 1.7; top pass rank on 11 of 12 non-zero-pass tasks; one-time optimization overhead 1.76-13.73 USD and 832-9,720 s per task (Table 3), break-even 5-682 reuses (median 45). Quality: no criterion stated by the authors; cost: no criterion stated by the authors (the authors judge the overhead 'worthwhile', each 1% HV gain costing well under two US cents, p. 3). (b) ori_skill + agent not stated + GLM-5: avg 2.6 skills, pass 0.14, cost 0.89 USD/run, ranks 1.9 / 2.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (c) no_skill + agent not stated + GLM-5 (baseline): pass 0.21, cost 0.64 USD/run, ranks 1.9 / 1.3. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. 4 tasks (7, 13, 15, 16) zero pass for all methods",
    "p": "2-4",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Section 6 requires each configuration to be judged on its own, not against the others: r1 justified SkillMOO's cost verdict as 'cheaper than ori_skill, dearer than no_skill' and gave ori_skill 'cost does not work' at 0.89 USD/run, which on its own is a low per-run cost; SkillMOO quality 'works' at a mean pass rate of 0.39 is high on an absolute reading. Values unchanged (re-checked against Table 2, Avg row recomputed from the per-task rows, and Table 3). The cut-offs are the extractor's judgement, notably no_skill 0.21 as partly and SkillMOO cost as partly because of the search overhead"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave works/partly/does-not-work verdicts on cut-offs it set itself (pass >= 0.50 works, cost under 1 USD works); the rule of 2026-11-23 forbids extractor thresholds and the paper gives none for a configuration (only a per-run pass criterion). Verdicts replaced by 'no criterion stated by the authors'; values unchanged (Table 2 Avg row, Table 3 re-checked)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

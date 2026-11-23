@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Success criterion: per-domain task success on CAMG-II test set (Shop/Coding/AutoResearch/General/Visual/Avg, %; Visual is a rubric score x100, not a success rate); harness: CAMG-II bash interface (mini-swe-agent style) for all. Frozen Qwen3.5-4B: 77.3/27.3/46.1/39.8/36.0/45.3 (control; quality partly). Frozen Qwen3.5-9B: 90.6/26.6/56.2/60.9/36.5/54.2 (partly). Frozen teacher Qwen3.8-27B: 100/63.3/83.6/93.0/40.3/76.0 (works). AutoResearch/General values of the frozen rows rebuilt from jumbled text: the row averages confirm which pair belongs to which row, not the order within the pair (column order followed; see Notes). MemOPD (4B): 0.0 all (does not work). MemOPD w/ SFT: 93.0/27.3/39.1/62.5/37.3/51.8 (partly). CompactOPD: 93.8/24.2/37.5/61.7/23.6/48.2 (partly). ACM: 94.5/21.9/11.7/59.4/8.5/39.2 (partly; AutoResearch 11.7, Visual 8.5). HELM: 87.5/0.0/9.4/53.1/33.1/36.6 (partly; Coding 0.0). HELM single-model: 87.5/29.7/46.9/46.9/38.0/49.8 (partly). Hy-Memory: 92.2/27.3/35.9/63.3/25.8/48.9 (partly). CAMP-I (4B): 85.2/32.0/38.3/68.8/46.5/54.2 (partly). CAMP-II-4B: 100/37.5/64.1/81.2/40.2/64.6 (works; 5 seeds mean 64.9, SD 0.5). CAMP-II-9B: 100/36.7/73.4/82.0/40.2/66.5 (works). Ablations (4B, avg): compaction 48.2; memory tools 48.2; gradient masked 47.3; budget-matched mask 63.3. External (TB2.1 / SWE-Pro V2): Qwen3.5-4B 23.1/11.2; Qwen3.5-9B 23.1/23.1; Qwen3.5-35B-A3B 33.8/27.4; CAMP-II-4B 30.0/18.1; CAMP-II-9B 38.0/30.1. Cost verdict for every configuration: not assessable (no per-task tokens, time or money; only training compute for CAMP-II-4B, about 250 GPU-hours)",
+   "v": "Success criterion: per-domain task success on CAMG-II test set (Shop/Coding/AutoResearch/General/Visual/Avg, %; Visual is a rubric score x100, not a success rate); harness: CAMG-II bash interface (mini-swe-agent style) for all. Frozen Qwen3.5-4B: 77.3/27.3/46.1/39.8/36.0/45.3 (control). Frozen Qwen3.5-9B: 90.6/26.6/56.2/60.9/36.5/54.2. Frozen teacher Qwen3.8-27B: 100/63.3/83.6/93.0/40.3/76.0. AutoResearch/General values of the frozen rows rebuilt from jumbled text: the row averages confirm which pair belongs to which row, not the order within the pair (column order followed; see Notes). MemOPD (4B): 0.0 all. MemOPD w/ SFT: 93.0/27.3/39.1/62.5/37.3/51.8. CompactOPD: 93.8/24.2/37.5/61.7/23.6/48.2. ACM: 94.5/21.9/11.7/59.4/8.5/39.2. HELM: 87.5/0.0/9.4/53.1/33.1/36.6. HELM single-model: 87.5/29.7/46.9/46.9/38.0/49.8. Hy-Memory: 92.2/27.3/35.9/63.3/25.8/48.9. CAMP-I (4B): 85.2/32.0/38.3/68.8/46.5/54.2. CAMP-II-4B: 100/37.5/64.1/81.2/40.2/64.6 (5 seeds mean 64.9, SD 0.5). CAMP-II-9B: 100/36.7/73.4/82.0/40.2/66.5. Ablations (4B, avg): compaction 48.2; memory tools 48.2; gradient masked 47.3; budget-matched mask 63.3. External (TB2.1 / SWE-Pro V2): Qwen3.5-4B 23.1/11.2; Qwen3.5-9B 23.1/23.1; Qwen3.5-35B-A3B 33.8/27.4; CAMP-II-4B 30.0/18.1; CAMP-II-9B 38.0/30.1. Cost: no per-task tokens, time or money; only training compute for CAMP-II-4B, about 250 GPU-hours. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "6, 9-10, 18-19, 33",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Quality verdicts were given only for MemOPD and the two CAMP-II rows; protocol §6 requires one per configuration, the frozen baselines included. Added (judged on each row's own success: >= 64.6 average works, 36.6-54.2 partly, 0 does not work; the threshold between works and partly is a judgement). Also noted that the Visual column is a rubric score x100 (p. 18-19), and that the row averages cannot confirm the AutoResearch/General order within a frozen-row pair (swapping the two gives the same average). All values rechecked against Tables 1, 2 and 8"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the extractor's cut-off (>= 64.6 average works, 36.6-54.2 partly) removed; the visual acceptance threshold (p. 18) is per task, not a verdict criterion"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "As médias da Tabela 1 (p. 6) confirmam que par de valores pertence a cada modelo congelado, mas não a ordem AutoResearch/General dentro do par. Confirma a ordem no PDF."
   },
   {
    "f": "Comparison: design",
@@ -224,7 +229,7 @@
      "why": "The draft said the frozen rows were confirmed by the row averages, but swapping AutoResearch and General within a row leaves the average unchanged, so only the pair-to-row assignment is confirmed (p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Confirma no PDF a ordem AutoResearch/General nas linhas congeladas da Tabela 1 (p. 6) e a afirmação '63% of the student-teacher gap' (p. 7), que pelos valores da tabela dá 56%."
   },
   {
    "f": "Q1",
@@ -249,7 +254,7 @@
      "why": "Environments (App. A) and training configuration (Table 6) are detailed, but the General/Visual judge model is not named and code is deferred to the camera-ready (p. 26). Partly defensible; Yes also arguable"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Ambientes (App. A) e configuração de treino (Tabela 6) estão detalhados, mas o modelo juiz de General/Visual não é nomeado e o código só sai na versão final (p. 26). Decide entre Partly e Yes."
   },
   {
    "f": "Q3",
@@ -309,7 +314,7 @@
      "why": "Conclusions mostly follow Tables 1-2 and ablations, but the '63% of the student-teacher gap' claim does not match Table 1 (56%, p. 7) and Fig. 6 is described causally. Yes defensible; a stricter reader could score Partly"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "As conclusões seguem em geral as Tabelas 1-2, mas os '63%' de fecho da diferença não batem com a Tabela 1 (56%, p. 7) e a Fig. 6 é descrita em termos causais. Decide entre Yes e Partly."
   },
   {
    "f": "Q10",
@@ -348,7 +353,7 @@
      "why": "Requirements stated (about 250 GPU-hours on eight GPUs, a frozen 27B teacher served during training, p. 31); whether post-training a model is within reach of a typical development team is a judgement: Partly as drafted, No for a stricter reader"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os requisitos estão indicados (cerca de 250 GPU-horas em oito GPUs e um professor de 27B, p. 31). Decide se pós-treinar um modelo está ao alcance de uma equipa típica: Partly ou No."
   },
   {
    "f": "DARE1",

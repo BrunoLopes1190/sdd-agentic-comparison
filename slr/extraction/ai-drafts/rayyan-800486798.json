@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent: SysSpec toolchain (authors' own) for SysSpec configurations; baselines are few-shot prompts (no agent). AtomFS generation, 45 modules (criterion: functional tests + manual equivalence): (a) SysSpec + Gemini-2.5-Pro: 100%. Quality: works; cost: not measured for this run. (b) SysSpec + DeepSeek-V3.1 Reasoning: 100%. Quality: works; cost: not measured. (c) SysSpec + GPT-5-minimal: value in Fig. 11a only; text lists it among the models that generate the C implementation correctly (p. 19). Quality: works; cost: not measured. (d) SysSpec + Qwen3-32B: value in Fig. 11a only; failed to resolve some C errors. Quality: partly; cost: not measured. (e) Normal few-shot + each of the 4 models: values in Fig. 11a only (lower than SysSpec). Quality: not determinable from the text; cost: not measured. (f) Oracle few-shot + Gemini-2.5-Pro: 81.8%; other models value in Fig. 11a only. Quality: partly; cost: not measured. Features (64 modules): SysSpec higher than baselines for all models, values in Fig. 11b only. Rust retargeting: SysSpec + Gemini-2.5-Pro / GPT-5-minimal / DS-V3.1 / Qwen3-32B all correct. Quality: works. Ablation (spec parts, DS-V3.1): Func only 40.00% (12/40, as printed) concurrency-agnostic, 0/5 thread-safe: does not work; +Mod 100% (40/40), 0/5: partly; +Con 100%, 100% (5/5): works; automated Rely derivation equals manual modularity spec. Ablation (Compile-Review passes, pass@1/2/3): Gemini-2.5-Pro 60.8/76.5/100%; DS-V3.1 76.5/76.5/100%; GPT-5-minimal 66.7/78.4/100%: works at 3 passes. Cost: SysSpec + DeepSeek-V4-Pro-0813: 68 API calls, US$0.52. Cost works. SysSpec + DeepSeek-V4-Flash-0731: 136 calls, US$0.94. Cost works. SpecFS (C): fails 64 of 754 xfstests, all due to unimplemented functionality, equivalent to AtomFS. Productivity (model n.s.): Extent 4.5 h manual vs 1.5 h (3.0x); Rename 13 h vs 2.4 h (5.4x). Cost: works",
+   "v": "Agent: SysSpec toolchain (authors' own) for SysSpec configurations; baselines are few-shot prompts (no agent). AtomFS generation, 45 modules (criterion for a correct module: functional tests + manual equivalence): (a) SysSpec + Gemini-2.5-Pro: 100%. (b) SysSpec + DeepSeek-V3.1 Reasoning: 100%. (c) SysSpec + GPT-5-minimal: value in Fig. 11a only; text lists it among the models that generate the C implementation correctly (p. 19). (d) SysSpec + Qwen3-32B: value in Fig. 11a only; failed to resolve some C errors. (e) Normal few-shot + each of the 4 models: values in Fig. 11a only (lower than SysSpec). (f) Oracle few-shot + Gemini-2.5-Pro: 81.8%; other models value in Fig. 11a only. Features (64 modules): SysSpec higher than baselines for all models, values in Fig. 11b only. Rust retargeting: SysSpec + Gemini-2.5-Pro / GPT-5-minimal / DS-V3.1 / Qwen3-32B all correct. Ablation (spec parts, DS-V3.1): Func only 40.00% (12/40, as printed) concurrency-agnostic, 0/5 thread-safe; +Mod 100% (40/40), 0/5; +Con 100%, 100% (5/5); automated Rely derivation equals manual modularity spec. Ablation (Compile-Review passes, pass@1/2/3): Gemini-2.5-Pro 60.8/76.5/100%; DS-V3.1 76.5/76.5/100%; GPT-5-minimal 66.7/78.4/100%. Cost: SysSpec + DeepSeek-V4-Pro-0813: 68 API calls, US$0.52; SysSpec + DeepSeek-V4-Flash-0731: 136 calls, US$0.94. SpecFS (C): fails 64 of 754 xfstests, all due to unimplemented functionality, equivalent to AtomFS. Productivity (model n.s.): Extent 4.5 h manual vs 1.5 h (3.0x); Rename 13 h vs 2.4 h (5.4x). Verdicts: quality and cost: no criterion stated by the authors (all configurations); the module criterion defines the accuracy metric, not a success level for the approach",
    "p": "16, 18-21",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "The values in the text and in Tables 3-6 are copied correctly. The normal and oracle baseline values, and the SysSpec values for GPT-5-minimal and Qwen3-32B, are only in Fig. 11a, which pdftotext cannot read. So (e) has no allowed verdict ('not determinable'), and (c) works and (d) partly rest on the text alone. The author should read Fig. 11 in the PDF (p. 18)."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the per-module correctness criterion defines accuracy but sets no success level for the approach"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os valores de GPT-5-minimal, Qwen3-32B e das baselines normal/oracle só estão na Fig. 11a (p. 18), ilegível no texto. Lê a figura no PDF e acrescenta-os; decide se 100% de módulos corretos conta como critério de sucesso."
   },
   {
    "f": "Comparison: design",
@@ -224,7 +229,7 @@
      "why": "Wrong statement: the feature-generation accuracy is reported for the same four models (Fig. 11b axis, p. 18; text p. 19 'across all evaluated models'); only the productivity study and the xfstests run lack a named model."
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Confirma no PDF as inconsistências anotadas: 'Func 40.00% (12/40)' na Tabela 3, o denominador do 81,8% do oracle e os 51 módulos da Tabela 4; e que só o estudo de produtividade e o xfstests não indicam modelo."
   },
   {
    "f": "Q1",

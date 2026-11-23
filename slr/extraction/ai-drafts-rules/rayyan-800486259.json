@@ -1,0 +1,15 @@
+{
+ "key": "rayyan-800486259",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All via Codex CLI 0.125.0 in Harbor. Terminal-Bench 2.0, overall avg@5 (criterion: verifier tests): GPT-5.2 medium: w/o skills 51.1 (baseline); SkillsVote online 53.7; ReasoningBank 52.1; skill-creator 53.7; SkillsVote offline TB-Pro 58.9; Curated 54.8. GPT-5.4 mini medium: 51.7; 52.8; 50.6; 47.6; 57.5; 55.7. GPT-5.5 xhigh (85 tasks): 79.8; 80.7; 77.7; 78.8; 81.2; 78.1. SWE-Bench Pro public, avg@1 resolve: GPT-5.2: w/o 47.6; SkillsVote 50.3; ReasoningBank 47.7; skill-creator 48.6; Curated 44.2. GPT-5.4 mini: 46.9; 49.5; 49.0; 49.2; 48.4. GPT-5.5: 58.4; 59.6; 55.9; 55.8; 56.1. Cost not measured for benchmark runs. Routing (Hard pool 79,141, Hit@1 / R@10 / FC@10 / USD per query): SkillRouter 65.3 / 67.2 / 46.7 / - (cost not reported); SkillsVote + GPT-5.5 xhigh 70.7 / 74.2 / 62.7 / 0.158; + GPT-5.4 xhigh 65.3 / 66.1 / 54.7 / 0.090; + GPT-5.4 mini xhigh 52.0 / 48.0 / 34.7 / 0.076. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "doubt": "O artigo chama 'consistent' aos pequenos ganhos online (p. 8) sem variância nem testes e não discute a queda de -6.7 do SkillsVote no TB Hard (Tabela 1, p. 7). Decide entre Partly e No."
+  }
+ ]
+}

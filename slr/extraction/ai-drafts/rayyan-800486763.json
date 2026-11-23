@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Proposes an evaluation method — qualitative content analysis of 91 enterprise agent rule files, yielding a normative taxonomy of desirable agent behaviours (4 expectations / 15 attributes) as a basis for evaluations beyond correctness",
+   "v": "Evaluates; secondary: Proposes an evaluation method — repository mining: qualitative content analysis of 91 project-level agent rule files (e.g. CLAUDE.md, GEMINI.md) collected at Google in late July 2025, yielding a normative taxonomy of desirable agent behaviours (4 expectations / 15 attributes) as a basis for evaluations beyond correctness",
    "p": "1-2, 4",
    "rev": [
     {
@@ -56,9 +56,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Main nature is a judgement: the stated main contribution is the taxonomy, framed as vocabulary for designing evaluations (p 1, 4), so 'Proposes an evaluation method' as main is also defensible; no tool is run, only rule documents analysed."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 3: a descriptive study mining project-level agent rule files is 'Evaluates — repository mining'; main nature kept as Evaluates, wording aligned, detail unchanged"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
@@ -312,7 +317,7 @@
      "why": "The paper names CLAUDE.md and GEMINI.md only as generic examples (p 1) and does not say which agents the 91 Google rule files target. With no tool evaluated, Yes is also defensible; Partly rests on the assumption that the agents are Google's own."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não diz a que agentes se destinam os 91 ficheiros de regras da Google nem avalia nenhuma ferramenta (p. 1-2). Decide entre Yes (nenhuma ferramenta avaliada) e Partly (se os agentes forem da Google)."
   },
   {
    "f": "Q13",

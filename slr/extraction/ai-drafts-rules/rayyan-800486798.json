@@ -1,0 +1,15 @@
+{
+ "key": "rayyan-800486798",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: SysSpec toolchain (authors' own) for SysSpec configurations; baselines are few-shot prompts (no agent). AtomFS generation, 45 modules (criterion for a correct module: functional tests + manual equivalence): (a) SysSpec + Gemini-2.5-Pro: 100%. (b) SysSpec + DeepSeek-V3.1 Reasoning: 100%. (c) SysSpec + GPT-5-minimal: value in Fig. 11a only; text lists it among the models that generate the C implementation correctly (p. 19). (d) SysSpec + Qwen3-32B: value in Fig. 11a only; failed to resolve some C errors. (e) Normal few-shot + each of the 4 models: values in Fig. 11a only (lower than SysSpec). (f) Oracle few-shot + Gemini-2.5-Pro: 81.8%; other models value in Fig. 11a only. Features (64 modules): SysSpec higher than baselines for all models, values in Fig. 11b only. Rust retargeting: SysSpec + Gemini-2.5-Pro / GPT-5-minimal / DS-V3.1 / Qwen3-32B all correct. Ablation (spec parts, DS-V3.1): Func only 40.00% (12/40, as printed) concurrency-agnostic, 0/5 thread-safe; +Mod 100% (40/40), 0/5; +Con 100%, 100% (5/5); automated Rely derivation equals manual modularity spec. Ablation (Compile-Review passes, pass@1/2/3): Gemini-2.5-Pro 60.8/76.5/100%; DS-V3.1 76.5/76.5/100%; GPT-5-minimal 66.7/78.4/100%. Cost: SysSpec + DeepSeek-V4-Pro-0813: 68 API calls, US$0.52; SysSpec + DeepSeek-V4-Flash-0731: 136 calls, US$0.94. SpecFS (C): fails 64 of 754 xfstests, all due to unimplemented functionality, equivalent to AtomFS. Productivity (model n.s.): Extent 4.5 h manual vs 1.5 h (3.0x); Rename 13 h vs 2.4 h (5.4x). Verdicts: quality and cost: no criterion stated by the authors (all configurations); the module criterion defines the accuracy metric, not a success level for the approach",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the per-module correctness criterion defines accuracy but sets no success level for the approach",
+   "doubt": "Os valores de GPT-5-minimal, Qwen3-32B e das baselines normal/oracle só estão na Fig. 11a (p. 18), ilegível no texto. Lê a figura no PDF e acrescenta-os; decide se 100% de módulos corretos conta como critério de sucesso."
+  },
+  {
+   "f": "Notes",
+   "doubt": "Confirma no PDF as inconsistências anotadas: 'Func 40.00% (12/40)' na Tabela 3, o denominador do 81,8% do oracle e os 51 módulos da Tabela 4; e que só o estudo de produtividade e o xfstests não indicam modelo."
+  }
+ ]
+}

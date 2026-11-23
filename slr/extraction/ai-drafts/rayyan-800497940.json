@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800497940",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -52,9 +52,14 @@
      "round": 1,
      "verdict": "corrected",
      "why": "Value did not follow the required format '<main> — detail'; content unchanged."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: the paper calls itself a vision paper and the 25-repository inspection is explicitly illustrative ('to motivate the research agenda rather than to offer a comprehensive empirical account', p. 3), so Conceptual fits; but the rule of 2026-11-23 files descriptive repository-mining of AGENTS.md as 'Evaluates — repository mining', so a reader could add that as secondary nature"
     }
    ],
-   "warn": ""
+   "warn": "É um vision paper, mas inspeciona 25 repositórios com AGENTS.md (secção 3). Decide se fica só Conceptual ou se acrescentas 'secondary: Evaluates — repository mining' (regra de 2026-11-23)."
   },
   {
    "f": "Approach(es): name and version",
@@ -315,9 +320,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Vision paper: it observes a practice (values in AGENTS.md) rather than proposing an approach, and states no requirements; under 'missing information scores No' the answer could be No (0). Partly kept because a plain-text context file plainly needs no special tools or compute."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper observes a practice (values encoded in AGENTS.md) rather than proposing an approach and states no requirements; under 'missing information scores No' the answer could be No (0). Partly kept because a plain-text context file plainly needs no special tools or compute, while agent compliance is unknown"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não declara requisitos (ferramentas, custo); só observa uma prática em AGENTS.md. Decide entre Partly (um ficheiro de texto não exige nada especial) e No (informação em falta vale No)."
   },
   {
    "f": "DARE1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486631",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -274,9 +274,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "No results or conclusions are reported (evaluation in progress), so the question has little to check; Yes rests on the paper making no result claims, but a reader could score No (missing information) instead"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No results or conclusions are reported (evaluation in progress), so there is little to check; Yes rests on the paper making no result claims and stating its status plainly, but a reader could score No (missing information) instead"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo ainda não tem resultados, por isso não há conclusões a confrontar. Decide se o facto de não afirmar resultados vale Yes ou se a falta de informação dá No."
   },
   {
    "f": "Q10",
@@ -294,7 +299,7 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): corresponding author's company develops Ginkley, one of the four harnesses; others independent",
+   "v": "N/A: no tool is evaluated yet (no runs reported), by analogy with the 2026-11-23 rule for studies that evaluate none. If scored on the planned design: Partly (0.5), since Ginkley is developed by the corresponding author's company (BraneMatrix) and the curated Skills are the co-authors' own, while Codex, Claude Code and OpenCode are independent",
    "p": "1, 4",
    "rev": [
     {
@@ -306,9 +311,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Partly kept, but the non-independence is wider than one harness: Ginkley is developed by the corresponding author's company (BraneMatrix), and the curated Skills are those of the domain-expert co-authors who contributed the tasks (p. 7, 10); Codex, Claude Code, OpenCode and the no-Skill baseline are independent. Could be read as No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The 2026-11-23 rule makes Q12 N/A when a study proposes an approach and evaluates none, because no tool is evaluated; this design-only benchmark also evaluates nothing yet, so the same reason applies, but the rule names 'proposes an approach', not 'proposes an evaluation method'. r2's Partly is the value if the planned design is scored"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Nenhuma ferramenta foi ainda avaliada (sem execuções). Decide se a regra de 2026-11-23 (N/A quando nada é avaliado) se aplica aqui ou se pontuas Partly pelo harness Ginkley da empresa do autor. O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",
@@ -324,9 +334,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "N/A kept because the nature is 'proposes an evaluation method', not an approach or conceptual study; but with no runs the paper is non-empirical (Q3-Q8 N/A), and a reader could treat it as conceptual and score Q13 (cost of the 3,168-run matrix is not stated)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "N/A kept because the nature is 'proposes an evaluation method', not an approach or conceptual study; but with no runs the paper is non-empirical (Q3-Q8 N/A), and a reader could treat it as conceptual and score Q13 (cost of the 3,168-run matrix is not stated)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Q13 aplica-se a estudos conceptuais ou que propõem uma abordagem; este propõe um método de avaliação sem resultados. Decide se fica N/A ou se o tratas como conceptual (custo das 3168 execuções não indicado)."
   },
   {
    "f": "DARE1",

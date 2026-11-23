@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498184",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2609.23570v1 [cs.SE], 20 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an evaluation method (VibeMemBench benchmark, SIEVE construction pipeline and matched memory-intervention protocol); secondary: compares (frozen verified experience and four existing memory systems vs memory off, across solver models)",
+   "v": "Proposes an evaluation method; secondary: Compares — VibeMemBench benchmark, SIEVE construction pipeline and matched memory-intervention protocol; compares frozen verified experience and four existing memory systems against memory off, across solver models",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and the detail was in brackets)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: Resolved over 444 runs; tokens and steps per run (Tables 1-2). Agent MiniSWEAgent throughout. (1) Memory off + deepseek-v4-pro: 67.1%; 1.67M in; 50.3 steps. Baseline. (2) Frozen exp. + deepseek-v4-pro: 67.1% (+0.0); 1.49M; 47.6 steps. Quality: does not work; cost: works. (3) Irrelevant control + deepseek-v4-pro: 63.7% (-3.4). (4) Memory off + glm-5: 55.0%; 2.45M; 77.1 steps. (5) Frozen + glm-5: 57.4% (+2.4); 1.93M; 66.2. Quality: partly; cost: works. (6) Control + glm-5: 54.3%. (7) Memory off + glm-5.2: 76.8%; 4.06M; 68.2. (8) Frozen + glm-5.2: 80.4% (+3.6); 3.40M; 61.0. Partly; works. (9) Memory off + kimi-k2.7-code: 69.8%; 1.56M; 56.0. (10) Frozen + kimi-k2.7-code: 74.3% (+4.5); 1.57M; 53.8. Partly; partly. (11) Control + kimi: 69.1%. (12) Memory off + qwen3.8-max: 79.1%; 4.03M; 52.9. (13) Frozen + qwen3.8-max: 80.2% (+1.1); 4.00M; 50.6. Partly; partly. All frozen-transfer CIs cross zero. Memory systems (Table 2), Resolved change vs memory off: deepseek-v4-pro Mem0 62.8% (-4.3), SimpleMem 66.9% (-0.2), MemoryOS 64.6% (-2.5), A-MEM 63.1% (-4.0); glm-5 Mem0 49.5% (-5.5, CI below zero), SimpleMem 53.2% (-1.8), MemoryOS 57.0% (+2.0), A-MEM 52.5% (-2.5); kimi-k2.7-code Mem0 68.0% (-1.8), SimpleMem 69.6% (-0.2), MemoryOS 66.0% (-3.8), A-MEM 65.8% (-4.0). Quality: does not work (11/12); cost: partly (glm-5 tokens and steps down, others flat or up). Reference setting (deepseek-v4-flash, selection audit): 192 -> 349 of 444 passing runs",
+   "v": "Per-run success criterion stated by the authors: a target-seed run is resolved when the target's declared executable test predicate passes; Resolved = share of the 444 target-seed runs. No threshold for a configuration as a whole is stated, so quality and cost: no criterion stated by the authors for every entry. Agent MiniSWEAgent throughout. Resolved; solver input tokens per run; steps per run (Table 1): (1) Memory off + deepseek-v4-pro: 67.1%; 1.67M; 50.3. (2) Frozen exp. + deepseek-v4-pro: 67.1% (+0.0); 1.49M; 47.6. (3) Irrelevant control + deepseek-v4-pro: 63.7% (-3.4); 1.51M; 47.1. (4) Memory off + glm-5: 55.0%; 2.45M; 77.1. (5) Frozen + glm-5: 57.4% (+2.4); 1.93M; 66.2. (6) Control + glm-5: 54.3% (-0.7); 2.13M; 69.3. (7) Memory off + glm-5.2: 76.8%; 4.06M; 68.2. (8) Frozen + glm-5.2: 80.4% (+3.6); 3.40M; 61.0. (9) Memory off + kimi-k2.7-code: 69.8%; 1.56M; 56.0. (10) Frozen + kimi-k2.7-code: 74.3% (+4.5); 1.57M; 53.8. (11) Control + kimi: 69.1% (-0.7); 1.62M; 55.9. (12) Memory off + qwen3.8-max: 79.1%; 4.03M; 52.9. (13) Frozen + qwen3.8-max: 80.2% (+1.1); 4.00M; 50.6. All frozen-transfer CIs cross zero. Memory systems (Table 2), Resolved (change vs memory off): deepseek-v4-pro Mem0 62.8% (-4.3), SimpleMem 66.9% (-0.2), MemoryOS 64.6% (-2.5), A-MEM 63.1% (-4.0); glm-5 Mem0 49.5% (-5.5, CI [-10.59, -0.45]), SimpleMem 53.2% (-1.8), MemoryOS 57.0% (+2.0), A-MEM 52.5% (-2.5); kimi-k2.7-code Mem0 68.0% (-1.8), SimpleMem 69.6% (-0.2), MemoryOS 66.0% (-3.8), A-MEM 65.8% (-4.0); input tokens on glm-5 fall by 0.28-0.49M and steps by 5.4-10.6 with every system, on the other two solvers tokens change by -0.13M to +0.10M. Reference setting (deepseek-v4-flash, selection audit, Table 10): 192 -> 349 of 444 passing runs (43.2% -> 78.6%)",
    "p": "7-8, 18",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft's verdicts (e.g. +0.0 = does not work, small gains = partly, memory systems 'does not work' because at or below memory off) were judged against the memory-off baseline and on thresholds the authors do not give; per the rule of 2026-11-23 they are replaced by 'no criterion stated by the authors'. Values checked against Tables 1, 2 and 10; control-row tokens and steps added"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,9 +205,15 @@
   },
   {
    "f": "Notes",
-   "v": "Tables 1-2 jumbled in pdftotext; values rebuilt by row order (glm-5 control steps 69.3 placement and glm-5.2/kimi step values to be checked against the PDF). Code: https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/VibeMemBench. Case analysis and ablation schema 'predeclared', no pre-registration link. MiniSWEAgent version and memory-system versions not given; model identifiers given as API aliases. Programming languages of tasks: nine (Python majority)",
-   "p": "1, 7-9, 19",
-   "rev": [],
+   "v": "Tables 1-2 jumbled in pdftotext; values rebuilt by row order and checked against the parenthesised differences (e.g. glm-5 control steps 69.3 = 77.1 - 7.8; glm-5.2 68.2 -> 61.0 = -7.2; kimi 56.0 -> 53.8 = -2.2, control 55.9). Code: https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/VibeMemBench. Case analysis and ablation schema 'predeclared', no pre-registration link. MiniSWEAgent version and memory-system versions not given; model identifiers given as API aliases. Programming languages of tasks: nine (Python 56, JavaScript 16, Go 12, Rust 10, TypeScript 5, Kotlin 4, Swift 4, Java 2, PHP 2; Appendix D)",
+   "p": "1, 7-9, 17, 19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The step values the draft left 'to be checked' were verified against the differences printed in Table 1 (p. 7); the exact language counts are given in Appendix D (p. 17)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -271,10 +295,26 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): authors not vendors of Mem0, SimpleMem, MemoryOS, A-MEM or MiniSWEAgent; frozen verified experience is their own construct (benchmark witness rather than a product). Alibaba affiliation, qwen3.8-max one of five solvers",
+   "v": "Partly (0.5): authors are not vendors of Mem0, SimpleMem, MemoryOS, A-MEM or MiniSWEAgent, but the frozen verified experience condition is their own construct and is evaluated (Table 1); six of the ten authors are at Alibaba, vendor of the qwen3.8-max solver and of the Qwen3-Embedding-4B used for memory retrieval",
    "p": "1, 6",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft gave Yes, treating the frozen verified experience as a benchmark witness; by the §5 rule an author who created an evaluated approach counts as its vendor, which makes it Partly. Whether the frozen experience is an 'approach' and whether an Alibaba solver among five counts is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly follows the §5 'only some approaches' clause: Mem0, SimpleMem, MemoryOS, A-MEM and MiniSWEAgent are not the authors', but the frozen verified experience condition is their own construct (p. 5-7), and six authors are at Alibaba, vendor of the qwen3.8-max solver and Qwen3-Embedding-4B. Yes is defensible if the frozen experience is read as a benchmark witness rather than an approach"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Mem0, SimpleMem, MemoryOS, A-MEM and MiniSWEAgent are not the authors', but the frozen verified experience condition evaluated in Table 1 is the authors' own construct (p. 5-7); six of ten authors are at Alibaba, vendor of the qwen3.8-max solver and Qwen3-Embedding-4B (p. 1, 6). Partly per the 'only some approaches' clause; Yes if the frozen record is read as a benchmark witness (p. 11 calls it one) rather than an approach"
+    }
+   ],
+   "warn": "Os sistemas de memória não são dos autores, mas a 'frozen verified experience' é deles e seis autores são da Alibaba (qwen3.8-max). Decide entre Parcialmente e Sim (p. 5-7, 11)."
   },
   {
    "f": "Q13",

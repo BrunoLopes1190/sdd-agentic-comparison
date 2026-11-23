@@ -1,0 +1,320 @@
+{
+ "key": "rayyan-800497946",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, Y., Jiang, Z., Wang, R., Gong, N. Z. (2026). Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files. arXiv:2610.09264v1 [cs.CR], 7 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.09264v1 [cs.CR], 7 Oct 2026; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Duke University, USA (all four authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files; attack success compared with 5 prompt-injection baselines and measured across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors evaluated",
+   "p": "1-3",
+   "verdict": "uncertain",
+   "why": "Form '<nature>; secondary: <nature> — <detail>' fixed. Secondary changed from Evaluates to Compares because PackHallu is compared with five baselines under the same setting (Table 2); either is defensible. Also unclear whether an attack counts as an 'approach' in the protocol's sense",
+   "doubt": "O PackHallu é um ataque, não uma abordagem de desenvolvimento. Decide se fica 'Proposes an approach' e se a natureza secundária é Compares (5 ataques de base, Tabela 2) ou Evaluates."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "PackHallu (attack framework; no version). Target artefact: coding rule files (AGENTS.md, CLAUDE.md, .cursorrules) shared via open-source platforms and marketplaces",
+   "p": "1-3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not a development approach. Artefacts: benign coding rule file with an injected malicious prompt (default at the beginning); attacker-controlled malicious package (interface-compatible, suffix _hl) on a local PyPI mirror",
+   "p": "4, 10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Attack: seed prompt -> evolutionary loop (surrogate agent simulated by an LLM produces trajectory; trajectory-level signal scores occurrences of malicious package; attack LLM self-attributed critique -> strategy -> rewrite of offspring; top-k selection) for R rounds -> best prompt injected into rule file -> victim agent loads rule file and generates code",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (victim agents run in autonomous mode with manual confirmation disabled)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (rule/context file) as attack vector, loaded by real agent frameworks; no specification",
+   "p": "8, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (rule-file security attack, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New code (file-level code generation from scratch: BigCodeBench, DS-1000) and existing code base (repository-level multi-file refactoring: RefactorBench)",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "BigCodeBench 981 victim tasks (5 packages, 80% victim / 20% surrogate split), DS-1000 772 tasks (4 packages), RefactorBench 43 tasks (5 packages); 10 victim packages; Claude Code case study on 87 numpy tasks; detection benchmark 200 rule files (100 benign, 100 malicious)",
+   "p": "9-10, 16, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python; data science and general third-party packages (pandas, numpy, matplotlib, scipy, seaborn; kombu, twisted, urllib3, asgiref, werkzeug); software supply-chain security",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured per configuration. Stated in the appendix: one PackHallu optimization run takes about 24-30 h on up to two NVIDIA Quadro RTX 6000 GPUs (24 GB); prompt optimized once per agent on the numpy pair 'to reduce computational cost'; 600 s timeout per victim task",
+   "p": "12, 23, 30",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "SASR (share of tasks where malicious package imported) and DASR (malicious package imported and code executes, malicious behaviour triggered), computed only on tasks the agent solves correctly under benign conditions; agent capability score (share of executable correct solutions benign)",
+   "p": "11-12, 14",
+   "verdict": "uncertain",
+   "why": "SASR and DASR measure attack success (a security outcome), not functional quality of the generated code; only the agent capability score is a functional-quality metric. They could be moved to 'Other outcome metrics'",
+   "doubt": "SASR e DASR medem o sucesso do ataque (segurança), não a qualidade funcional do código. Decide se ficam aqui ou passam para 'Other outcome metrics', deixando só a capability."
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR",
+   "p": "12-17, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: import detection in generated code, execution with print-based malicious behaviour from local PyPI mirror, attention extraction, detectors' outputs. Manual (presumably): categorization of 87 Claude Code trajectories (procedure Not stated)",
+   "p": "10-12, 16-17, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: no criterion stated by the authors (SASR/DASR on BigCodeBench reported; cost not measured for any configuration). (1) PackHallu + OpenHands + 5 backbones (Qwen2.5-Coder-7B, Qwen3-Coder-30B, Devstral-Small-2-24B, GLM4.7-Flash-30B, Gemma4-31B), same surrogate and victim: avg SASR 79.29%, DASR 67.68% (per package SASR 70.02-86.19%, DASR >56%). Quality: no criterion stated by the authors; cost: not measured. (2) Baselines in the same settings: Combined Attack avg SASR/DASR 14.99/11.35; Repeat, GCG, ObliInjection lower; TAP strongest baseline (e.g. Qwen3-Coder-30B Pandas 34.62/26.92 vs PackHallu 98.72/89.74). Quality: no criterion stated by the authors; cost: not measured. (3) Transfer to other backbones on OpenHands (12 LLMs incl. GPT-5.5, GPT-5.3-Codex, DeepSeek-V4-Flash, Llama-4-Maverick): >90% SASR on >=3 of 5 packages for 8 of 12; Qwen2.5-Coder-7B 22.73-50.00% SASR, 7.89-26.47% DASR. No criterion stated by the authors. (4) Transfer to other frameworks with Qwen3-Coder-30B (OpenCode, Aider, Pi, Cline, Kilo Code): avg SASR 71.55%, DASR 62.99%. No criterion stated by the authors. (5) Claude Code 2.1.141 + Claude Sonnet 4.6: SASR 31.03-58.95%, DASR 31.03-57.89% (most resistant). No criterion stated by the authors. (6) Cursor + Auto: SASR 69.35-98.00%; Cursor + Composer 2.5: 81.40-95.65%; OpenCode + DeepSeek-V4-Flash: 75.32-93.94%; average of the four agents in (5)-(6) SASR 74.81%, DASR 65.38%. No criterion stated by the authors. (7) Dataset transfer: DS-1000 SASR 53.33 / DASR 45.00; RefactorBench 18.60 / 16.28. No criterion stated by the authors. Ablations: injection location (OpenCode + DeepSeek-V4-Flash, stated): beginning avg SASR 82.63 vs 74.03 middle, 77.29 end; initializations (setting not stated; default row 97.50/97.50 matches OpenHands + Qwen3-Coder-30B on Seaborn in Table 2): default + 4 paraphrased prompts 98.00±2.09 SASR, 96.00±1.37 DASR; components (setting not stated; full row 83.87/50.54 matches OpenCode + DeepSeek-V4-Flash on Pandas): w/o trajectory-level signal 56.99/24.73, w/o self-attributed critique 62.37/47.31, w/o strategy proposal 63.44/46.24; hyperparameters (same setting): rounds 10/20/30 SASR 75.27/83.87/84.95, top-k 1/5/10 43.01/83.87/80.65, offspring 1/3/5 56.99/83.87/86.02, surrogate tasks 1/10/20 21.50/83.87/87.10. No criterion stated by the authors",
+   "p": "11-18",
+   "verdict": "corrected",
+   "why": "Ablation entries wrongly attributed to OpenCode + DeepSeek-V4-Flash: the paper states that setting only for the injection-location ablation; the initialization and component ablations give no setting (initialization default row matches OpenHands + Qwen3-Coder-30B). DASR values of the component ablation and the hyperparameter ablation (Table 11) were missing"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: BigCodeBench (main), DS-1000, RefactorBench adapted by package. Configurations: PackHallu vs 5 prompt-injection baselines (Combined, Repeat, GCG and ObliInjection with white-box advantage, TAP with same surrogate); 8 frameworks x 13 LLMs for transfer. Held constant: rule-file loading per framework recommendation, autonomous mode, injection position, local PyPI mirror, single prompt optimized on numpy pair reused for all packages. Acceptance: execution and import checks. Repetitions: Not stated (single runs apparently; std only for initialization ablation). Human intervention: none (autonomous)",
+   "p": "8-12, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "PackHallu outperforms all baselines on all packages and victim agents: avg 79.29/67.68 vs Combined Attack 14.99/11.35 (5.29x SASR, 5.96x DASR), the only baseline average the authors give (they call it the 'subpotimal' baseline). TAP is the strongest baseline in Table 2 (e.g. Qwen3-Coder-30B Pandas 34.62/26.92, GLM4.7-Flash-30B Pandas 87.64/86.59 vs PackHallu 98.72/89.74 and 91.01/73.17), but no average or ratio is reported for it. More capable backbones more vulnerable (r=0.785 for SASR vs capability); no relation across frameworks (r=-0.186). Popular packages harder to attack (median r=-0.69 SASR, -0.60 DASR). No significance tests. Detectors (FNR/FPR): ProtectAI-DeBERTa 100%/3%; PromptGuard 46%/5%; DataSentinel 49%/16%; PromptArmor 20%/34%; PIShield 21%/11%",
+   "p": "12-15, 19",
+   "verdict": "corrected",
+   "why": "Combined Attack is not the best baseline: TAP is clearly stronger in Table 2, and the 5.29x/5.96x ratios are only against Combined; also added ProtectAI-DeBERTa FPR (3%) and the DASR popularity correlation"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished attacks clearly (large gaps). Repeatability: initialization ablation shows stability; repetitions per configuration not stated; no statistical tests. Authors state no limitations of the comparison method",
+   "p": "12, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps: robust defences for the collaborative rule-file pipeline; existing detectors inadequate; attack weaker at repository level (RefactorBench)",
+   "p": "16, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 2, 4-6, 8, 11 flattened by pdftotext into row runs; values mapped by column order (Table 2 rows per attack in order Combined, Repeat, GCG, ObliInjection, TAP, PackHallu; pairs SASR/DASR per LLM); check against PDF. Attack evaluated in a controlled simulation (local PyPI mirror; benign print payload). Code or data release: Not stated. Pre-registration: not claimed. Language: Python. Security paper: rule files as an attack surface, relevant to context-file artefacts only. Reporting inconsistencies: Combined Attack is called the 'subpotimal' baseline (p. 12) although TAP is higher in nearly every cell of Table 2; ablation Tables 9-11 do not state the agent/model setting (inferred from matching rows); component ablation said to have a 'significantly positive effect' (p. 18) without any statistical test",
+   "p": "10-18",
+   "verdict": "corrected",
+   "why": "Missing reporting inconsistencies: 'subpotimal' baseline claim contradicted by Table 2 (TAP), unstated ablation settings, and 'significantly' claimed without tests"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): attack defined, threat model and contributions stated",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): algorithm, hyperparameters, datasets and metrics described; implementation details and configurations in appendix; no code release stated, repetitions not stated",
+   "p": "7-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): agent framework versions (Table 19, e.g. OpenHands 1.16.1, Claude Code 2.1.141, Cursor 2026.05.09) and exact model identifiers (Table 20, e.g. gpt-5.5-2026-04-23, claude-sonnet-4-6, quantization of local models) are given; only the Cursor 'Auto' and 'Composer 2.5' backbones are unspecified",
+   "p": "8, 30",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks adapted and split described; adapted task sets and malicious rule files availability not stated",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): automatic import and execution checks of generated code",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): SASR/DASR defined; no cost metrics",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five baseline attacks under the same setting",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistical tests reported except std over 5 initializations",
+   "p": "17-18",
+   "verdict": "uncertain",
+   "why": "No repetitions per configuration and no statistical tests; the only variability measure is mean ± SD over 5 initializations (p. 18). No (0) or Partly (0.5) depends on whether that ablation counts as handling variability",
+   "doubt": "Não há repetições nem testes; só a média ± desvio-padrão sobre 5 inicializações (p. 18). Decide entre No e Partly."
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results; weaker results (RefactorBench, Claude Code) reported",
+   "p": "15-16, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations section",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created PackHallu, the approach evaluated; independent of agent vendors",
+   "p": "1-3",
+   "verdict": "uncertain",
+   "why": "The authors created PackHallu and also designed or co-authored three of the five baselines (Repeat Attack; Combined Attack [11] and ObliInjection [13] share co-authors Gong and R. Wang); GCG and TAP are independent, as are all agents and models attacked. No (0) or Partly (0.5) are both defensible",
+   "doubt": "Os autores criaram o PackHallu e também três dos cinco ataques de base (Repeat, Combined, ObliInjection); GCG, TAP e os agentes são independentes. Decide entre No e Partly."
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): attack needs black-box access and a locally deployed surrogate (open models via Ollama); compute stated: up to two NVIDIA Quadro RTX 6000 GPUs (24 GB), about 24-30 h per optimization run; money cost not stated",
+   "p": "5-6, 23",
+   "verdict": "uncertain",
+   "why": "The draft said compute was not stated, but the appendix gives hardware and runtime (p. 23). Whether this is 'within reach of a typical development team', and whether Q13 is meaningful for an attack, is a judgement",
+   "doubt": "O artigo indica 2 GPUs RTX 6000 e 24-30 h por otimização (p. 23), mas é um ataque, não uma abordagem para equipas. Decide entre Partly, Yes ou N/A."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

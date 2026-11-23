@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486200",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2604.07502v1 [cs.SE], 8 Apr 2026; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then \" — \" and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,21 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual (semantic density principle, taxonomy of conventions under agentic pressure, program skeleton CODEMAP.md proposal); secondary: evaluates (small controlled experiment on log format token economy)",
+   "v": "Conceptual; secondary: Compares — semantic density principle, taxonomy of conventions under agentic pressure and program skeleton (CODEMAP.md) proposal; small controlled experiment comparing four log formats on token economy",
    "p": "1, 3-5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Format fixed. Main nature is a judgement: the paper proposes CODEMAP.md and a principle (could be \"Proposes an approach\"), but the skeleton is not implemented or run. Secondary changed from evaluates to Compares, since the experiment sets four formats against each other under the same conditions."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature is a judgement: the paper proposes a principle and the CODEMAP.md artefact (could be 'Proposes an approach'), but CODEMAP.md is not implemented or run and most of the paper is argument (Conceptual). The secondary 'Compares' fits the four-format log experiment."
+    }
+   ],
+   "warn": "O artigo propõe um princípio e o artefacto CODEMAP.md, que não é testado; a experiência só compara formatos de log. Decide se a natureza principal é Conceptual ou 'Proposes an approach'."
   },
   {
    "f": "Approach(es): name and version",
@@ -145,16 +162,28 @@
   },
   {
    "f": "How metrics are collected",
-   "v": "Automatic token counts via tiktoken; session tokens, time and tool calls from the session (tool not stated); correctness judged against known answers, by whom Not stated",
+   "v": "Automatic token counts via tiktoken (cl100k_base); session tokens, wall-clock time and tool calls from the session (tool not stated); how answer correctness was judged and by whom Not stated",
    "p": "5",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft said correctness was judged \"against known answers\", which the paper does not state."
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: correctness of 5 diagnostic answers and session cost. Agent not stated (isolated fresh sessions, 15.1k baseline tokens) + claude-sonnet-4-6, no extended thinking; single session per format\n- Format A human-readable + n.s. + claude-sonnet-4-6: file 8,072 tokens; session 18.9k tokens, 1m36s, 1 tool call, 5/5 correct, 4/5 high confidence. Quality works, cost works\n- Format B structured + n.s. + claude-sonnet-4-6: file 7,106 (-12.0%); session 24.0k, 5m24s, 1 call, 5/5, 4/5. Quality works, cost partly\n- Format C compressed + n.s. + claude-sonnet-4-6: file 6,695 (-17.1%); session 31.6k (+67.2% vs A), 7m00s, 1 call, 5/5, 3/5. Quality works, cost does not work\n- Format D compressed + decoder tool + n.s. + claude-sonnet-4-6: session 28.3k, 4m05s, ~5-7 calls (one execution error), 5/5, 4/5. Quality works, cost does not work",
+   "v": "Agent not stated (isolated fresh sessions, 15.1k baseline tokens) + claude-sonnet-4-6, no extended thinking; single session per format. Metrics: file tokens, session tokens, time, tool calls, correctness of 5 diagnostic answers, HIGH-confidence answers.\n- Format A human-readable + n.s. + claude-sonnet-4-6: file 8,072 tokens; session 18.9k tokens, 1m36s, 1 tool call, 5/5 correct, 4/5 high confidence\n- Format B structured + n.s. + claude-sonnet-4-6: file 7,106 (-12.0%); session 24.0k, 5m24s, 1 call, 5/5, 4/5\n- Format C compressed + n.s. + claude-sonnet-4-6: file 6,695 (-17.1%); session 31.6k (+67.2% vs A), 7m00s, 1 call, 5/5, 3/5\n- Format D compressed + decoder tool + n.s. + claude-sonnet-4-6: session 28.3k, 4m05s, ~5-7 calls (one execution error), 5/5, 4/5\nQuality and cost verdicts for all entries: no criterion stated by the authors",
    "p": "5-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave quality and cost verdicts, but the paper states no success threshold (rule of 2026-11-23); verdicts removed, values kept."
+    }
+   ],
    "warn": ""
   },
   {
@@ -222,9 +251,15 @@
   },
   {
    "f": "Q5",
-   "v": "Partly (0.5): correctness against diagnostic questions with known answers, but who judged and criteria Not stated",
+   "v": "No (0): correctness of the 5 diagnostic answers is reported, but neither the reference answers nor who judged them are described",
    "p": "5",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft assumed known answers; the paper does not say how correctness was judged, and missing information scores No (§5)."
+    }
+   ],
    "warn": ""
   },
   {

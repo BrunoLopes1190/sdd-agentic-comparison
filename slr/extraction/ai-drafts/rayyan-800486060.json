@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486060",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,16 +164,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: mean LLM-judge code quality score (Gemini 2.5 Pro, 1-5), N about 1,000 DS-1000 problems per condition; agent not stated (models called with a code-generation prompt; Spark reached via MCP). Each configuration judged on its own: - NO-SPARK + agent not stated + Qwen3-Coder-30B-A3B-Instruct (baseline): 4.23; quality: works (between Good and Excellent, close to human references 4.28); cost: not measured. - Spark + agent not stated + Qwen3-Coder-30B: 4.89; quality: works; cost: not measured. - NO-SPARK + agent not stated + Claude Haiku 4.5 (baseline): 4.50; quality: works; cost: not measured. - Spark + agent not stated + Haiku 4.5: 4.91; quality: works; cost: not measured. - NO-SPARK + agent not stated + GPT-5-Codex (baseline): 4.78; quality: works; cost: not measured. - Spark + agent not stated + GPT-5-Codex: 4.83; quality: works; cost: not measured. Separate measure: helpfulness of Spark recommendations (Claude 3.7 Sonnet judge, Qwen3-Coder solutions as reference): 761 of 1,000 extremely helpful (76.1%), 982 at least good (98.2%). Correctness by execution tests not measured, so all quality verdicts rest on one LLM judge",
+   "v": "Metric: mean LLM-judge code quality score (Gemini 2.5 Pro, 1-5), N about 1,000 DS-1000 problems per condition; agent not stated (models called with a code-generation prompt; Spark reached via MCP). The authors state no success criterion (the human references, 4.28, are a 'sanity-check baseline', p. 9). - NO-SPARK + agent not stated + Qwen3-Coder-30B-A3B-Instruct (baseline): 4.23; quality: no criterion stated by the authors; cost: not measured. - Spark + agent not stated + Qwen3-Coder-30B: 4.89; quality: no criterion stated by the authors; cost: not measured. - NO-SPARK + agent not stated + Claude Haiku 4.5 (baseline): 4.50; quality: no criterion stated by the authors; cost: not measured. - Spark + agent not stated + Haiku 4.5: 4.91; quality: no criterion stated by the authors; cost: not measured. - NO-SPARK + agent not stated + GPT-5-Codex (baseline): 4.78; quality: no criterion stated by the authors; cost: not measured. - Spark + agent not stated + GPT-5-Codex: 4.83; quality: no criterion stated by the authors; cost: not measured. Separate measure: helpfulness of Spark recommendations (Claude 3.7 Sonnet judge, Qwen3-Coder solutions as reference): 761 of 1,000 extremely helpful (76.1%), 982 at least good (98.2%). Correctness by execution tests not measured; all scores rest on one LLM judge",
    "p": "9, 11",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Round 1 gave no verdict to the three NO-SPARK baselines and judged the Spark configurations by their gain over the baseline (GPT-5-Codex + Spark 'partly (small gain)' despite a 4.83/5 score), which §6 forbids; 'no agent harness stated' recorded as 'agent not stated' per §6. Scores from Table 3 (p. 9). Whether a 4.2-4.9 LLM-judge mean counts as 'works' without execution tests is a judgement for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave 'quality: works' to every configuration using its own cut-off (closeness to the 4.28 human score), but the authors state no success criterion; per the 2026-11-23 rule the verdicts become 'no criterion stated by the authors', metric values kept"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -225,9 +230,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Round 1 gave Partly for the lack of research questions, but Q1 asks for clear aims or research questions, and the aims and the two conditions are stated (p. 2). A reader who expects explicit RQs or hypotheses could keep Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Aims and the two conditions are stated (p. 2), but there are no explicit research questions or hypotheses; round 1 gave Partly, round 2 Yes"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "Os objetivos estão na p. 2, mas não há perguntas de investigação explícitas. Decide entre Yes (objetivos claros bastam) e Partly."
   },
   {
    "f": "Q2",
@@ -264,9 +274,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Partly kept: the criterion is an LLM judge independent of the candidate models (Gemini 2.5 Pro, p. 8), not the authors' own judgement, but neither ground truth nor acceptance tests; the DS-1000 execution tests were available and not used (p. 7-9). How an LLM judge scores on Q5 should be fixed consistently across studies"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The criterion is an LLM judge independent of the candidate models (Gemini 2.5 Pro, p. 8) on an author-defined rubric, not ground truth or acceptance tests; the DS-1000 execution tests were available and not used (p. 7-9)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A qualidade é avaliada só por um juiz LLM (Gemini) com rubrica dos autores; os testes de execução do DS-1000 não foram usados. Decide se juiz LLM conta como Partly ou No, de forma consistente entre estudos."
   },
   {
    "f": "Q6",
@@ -298,10 +313,16 @@
   },
   {
    "f": "Q10",
-   "v": "No (0): no threats or limitations section",
-   "p": "—",
-   "rev": [],
-   "warn": ""
+   "v": "No (0): no threats or limitations section; the discussion only notes that training-data coverage makes results a lower bound and that the GPT-5-Codex result may reflect judge-model differences (p. 10); leakage of reference solutions into synthetic memory not discussed",
+   "p": "10",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "There is no limitations section, but p. 10 acknowledges a possible judge bias for GPT-5-Codex, which a reader could count as a partial limitation (Partly)"
+    }
+   ],
+   "warn": "Não há secção de limitações, mas a p. 10 admite possível enviesamento do juiz para o GPT-5-Codex. Decide se isso chega para Partly ou fica No. O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q11",
@@ -312,10 +333,16 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors from The Memory Company, which builds Spark",
+   "v": "Partly (0.5): authors from The Memory Company, which builds Spark (vendor of the approach), but Spark is compared with NO-SPARK baselines of external models (Qwen3-Coder, Claude Haiku 4.5, GPT-5-Codex) whose vendors the authors are independent of",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave No; per the author's rule of 2026-11-23, when the authors' own approach is compared with external baselines Q12 is Partly, and the NO-SPARK condition is the bare external models (p. 2, 7)"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",

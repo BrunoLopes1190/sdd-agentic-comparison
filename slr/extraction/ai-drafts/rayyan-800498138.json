@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498138",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2608.01507v1 [cs.SE], 2 Aug 2026; no published venue in the paper or access log",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'. Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Compares (Semantic search ReAct agent vs Deep Agentic search Deep Agent with sub-agent delegation, four models, on SWE-QA); secondary: evaluates (failure-mode taxonomy)",
+   "v": "Compares; secondary: Evaluates — Semantic search (LangChain ReAct agent over a vector index) vs Deep Agentic search (LangChain Deep Agent with sub-agent delegation), four models, on SWE-QA; plus cost, behaviour and failure-mode taxonomy analyses",
    "p": "1, 4",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>'. Substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Values: Pass % / score / input tokens per question / USD per Pass (Table 3). Temperature 0; 900 s and 80-step limits. Draft verdict rule: quality works if Pass >= 70, partly 50-70, does not < 50; cost relative within study.\n- Semantic ReAct (LangChain) + Gemini 2.5 Flash: 48.4 / 61.6 / 303k / $0.213. Does not work; cost works\n- Deep Agent (LangChain Deep Agents) + Gemini 2.5 Flash: 42.8 / 53.7 / 524k / $0.436. Does not work; cost partly\n- Semantic + Gemini 2.5 Pro: 54.2 / 63.9 / 404k / $1.048. Partly; cost partly\n- Deep + Gemini 2.5 Pro: 44.2 / 57.2 / 466k / $1.526. Does not work; cost does not work\n- Semantic + Gemini 3 Flash: 89.3 / 89.2 / 254k / $0.179. Works; cost works\n- Deep + Gemini 3 Flash: 39.7 / 58.3 / 577k / $0.858. Does not work; cost partly\n- Semantic + Qwen3-235B: 68.8 / 77.0 / 34k / $0.012. Partly; cost works\n- Deep + Qwen3-235B: 58.2 / 69.3 / 761k / $0.291. Partly; cost partly\nPooled: Semantic Pass 65.2%, Deep 46.2%; $0.32 vs $0.74 per correct answer",
+   "v": "Values: Pass % / mean judge score / input tokens per question / USD per Pass (Table 3). Temperature 0; 900 s and 80-step limits. The benchmark sets a per-answer Pass threshold (score >= 70), but the authors state no success criterion for a configuration as a whole, so no verdicts are given.\n- Semantic ReAct (LangChain) + Gemini 2.5 Flash: 48.4 / 61.6 / 303k / $0.213. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Deep Agent (LangChain Deep Agents) + Gemini 2.5 Flash: 42.8 / 53.7 / 524k / $0.436. Quality and cost: no criterion stated by the authors\n- Semantic + Gemini 2.5 Pro: 54.2 / 63.9 / 404k / $1.048. Quality and cost: no criterion stated by the authors\n- Deep + Gemini 2.5 Pro: 44.2 / 57.2 / 466k / $1.526. Quality and cost: no criterion stated by the authors\n- Semantic + Gemini 3 Flash: 89.3 / 89.2 / 254k / $0.179. Quality and cost: no criterion stated by the authors\n- Deep + Gemini 3 Flash: 39.7 / 58.3 / 577k / $0.858. Quality and cost: no criterion stated by the authors\n- Semantic + Qwen3-235B: 68.8 / 77.0 / 34k / $0.012. Quality and cost: no criterion stated by the authors\n- Deep + Qwen3-235B: 58.2 / 69.3 / 761k / $0.291. Quality and cost: no criterion stated by the authors\nPooled: Semantic Pass 65.2%, Deep 46.2%; $0.32 vs $0.74 per correct answer",
    "p": "14-15, 20, 35",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft set its own verdict rule (Pass rate >= 70% works, 50-70 partly) by applying the per-answer Pass threshold to the configuration's Pass rate, and judged cost relative to the other configurations; both break the 2026-11-23 rule (verdict only from an author-stated criterion, each configuration on its own). Metric values checked against Table 3: all correct"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,9 +205,15 @@
   },
   {
    "f": "Notes",
-   "v": "No replication package or data link given (only the Deep Agents library repository). No pre-registration. Language: Python. Values from Table 3 (p. 15), Table 4 (p. 16) and Table 5 (p. 28; columns jumbled by pdftotext, percentages from text p. 26-29). Study not about SDD; relevant to context engineering in coding agents (sub-agent delegation used by Claude Code, Codex)",
-   "p": "15-16, 28, 34",
-   "rev": [],
+   "v": "No replication package or data link given (only the Deep Agents library repository). No pre-registration. Language: Python. Values from Table 3 (p. 15), Table 4 (p. 16) and Table 5 (p. 28; columns jumbled by pdftotext, percentages from text p. 26-29). Minor inconsistency: 2,878 Deep runs reported (p. 23) against 4 x 720 = 2,880 questions per architecture; not explained. Study cost reported: $1,591.49 in total (Table 6, p. 37). Study not about SDD; relevant to context engineering in coding agents (sub-agent delegation used by Claude Code, Codex)",
+   "p": "15-16, 23, 28, 34, 37",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added a reporting inconsistency the draft missed (2,878 Deep runs vs 2,880 expected, p. 23) and the total study cost from Table 6"
+    }
+   ],
    "warn": ""
   },
   {
@@ -222,10 +246,16 @@
   },
   {
    "f": "Q5",
-   "v": "Partly (0.5): LLM judge against reference answers, validated against blind external human panel",
+   "v": "Yes (1): answers graded against the benchmark's reference answers by an LLM judge from another provider, validated against a blind panel of three external engineers (Cohen's kappa 0.74, Pearson r 0.83); not the authors' judgement",
    "p": "13-15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft gave Partly because the grader is an LLM; but the criterion is the benchmark's ground-truth reference answers and the judge was validated against independent human raters, which fits 'independent criterion (ground truth, expert review)'. A careful reader could keep Partly for LLM-judged correctness"
+    }
+   ],
+   "warn": "As respostas são avaliadas por um LLM juiz contra respostas de referência do benchmark, validado por três engenheiros externos (kappa 0,74). Decide se isto conta como critério independente (Sim) ou se o juiz LLM baixa para Parcial."
   },
   {
    "f": "Q6",

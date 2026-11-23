@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498242",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yang, X., Chatterjee, R., Udupi, H., Ramavarapu, V., Zhai, C. (2026). Skip the Compressor: Coding Agents Fix More Issues When They Pick Whole Files. arXiv:2610.21073v1 [cs.SE], 15 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.21073v1 [cs.SE], 15 Oct 2026; no published venue stated",
+   "p": "1",
+   "verdict": "corrected",
+   "why": "Format: must start with the category, then ' — ' and detail (draft-verify rules).",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Illinois Urbana-Champaign (all five authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — budget-matched, test-graded comparison of context steps (exact-file selection vs 4 prompt compressors and 4 retrievers, two models); proposes the CQ2-CARE exact-file selector",
+   "p": "1-3",
+   "verdict": "corrected",
+   "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged.",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CQ2-CARE (authors' exact-file selector, no version). Compressors: LLMLingua-2, LongLLMLingua (Qwen2.5-7B-Instruct scorer), LongCodeZip (Qwen2.5-Coder-7B-Instruct), SWE-Pruner (0.6B trained line pruner). Retrievers: chunk BM25, dense chunks (CodeRankEmbed), file-level BM25 (SWE-bench, swebench 4.0.3), SweRank (trained function retriever). References: gold-file oracle, no-source context. Official implementations, versions not given except swebench",
+   "p": "3-5, 12-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None of the SDD kind. Context m: whole source files named by the model, shown verbatim, plus short grep evidence spans (definitions, callers, strings) from up to 8 other files, under span headers; patch as unified diff (or search/replace in a control). Not specifications",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "CQ2-CARE (Algorithm 1): (1) path inventory ranked by word overlap with the issue; (2) localize: model gives independent ranked answers to \"which files must change?\" (5 drawn, L0-L2 used); keep files named by both L1 and L2 (fallback L0), excluding tests/docs; (3) plan up to 4 typed searches; grep evidence spans; (4) assemble context (files cut at 60K, evidence 12K, total <=80K tokens); (5) one patch call; (6) grading with benchmark tests",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Context step only, with a single patch call per context (no multi-turn agent loop)",
+   "p": "4-5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context selection/compression for issue resolution, no specification); authors use no SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution (bug fixes) on open-source Python repositories",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "300 issues, one per repository, from SWE-rebench pinned revision (860 Python tasks, 413 repos), created Jan 2025-May 2026; 100-issue subset for rate sweep and edit-format control. Mean context 13.8K tokens (GPT-5.6) and 27.1K (Claude Opus 5)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python projects (SWE-rebench)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Context tokens (o200k); API cost per issue (CQ2-CARE $0.151 with GPT-5.6 vs $0.199 uncompressed single draw and $0.168-0.177 compressor contexts); token ratio vs single draw (0.68x GPT, 0.73x Claude); compressor GPU time (median 34-37 s per issue; 3.3-14.2 GPU-hours per run); total API cost ~$830 (GPT-5.6) and $1,438 (Claude)",
+   "p": "7-8, 12-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolution rate: all FAIL_TO_PASS and PASS_TO_PASS tests pass (SWE-rebench harness); patch applicability rate",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Gold-file recall rho; share of verbatim lines epsilon; context lines by source (files to edit, other, tests, non-Python) and miss rate; localization F1; share of gold-changed lines shown; outcome flips between patch samples (8.7-18.9%)",
+   "p": "3, 5-7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-rebench fork of SWE-bench harness (swebench 4.0.3) in Apptainer sandboxes, 30-min limit; rho and epsilon computed offline from the gold patch; unparseable/non-applying patches count as unresolved",
+   "p": "3, 5, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No agent harness: authors' single-call pipeline (localization, planner, one patch call); models gpt-5.6-sol (medium reasoning, Azure) and Claude Opus 5 (Foundry); 300 SWE-rebench issues; budget per issue = CQ2-CARE size. Per-issue success = all FAIL_TO_PASS and PASS_TO_PASS tests pass; no success criterion for a configuration's resolution rate or cost is stated by the authors (only H4, non-inferiority of CQ2-CARE to the uncompressed single draw). Values: tokens (K); epsilon %; rho %; applies %; resolved %; GPT API cost $/issue (Table 16). GPT-5.6: CQ2-CARE 13.8; 100.0; 79.0; 98.0; 43.7; $0.151 (H4 vs single draw: resolution ratio 0.942, lower bound 0.878 > 0.85; token ratio 0.684, upper bound 0.721 < 0.75: passes). Quality and cost: no criterion stated by the authors. | LLMLingua-2 13.1; 17.5; 78.3; 70.7; 30.0; $0.177 (CPU, median 13 s/issue). No criterion stated by the authors. | LongLLMLingua 13.2; 67.1; 63.7; 84.0; 35.0; $0.176 (GPU, median 37 s). No criterion stated by the authors. | LongCodeZip 13.1; 96.8; 72.2; 89.7; 37.3; $0.168 (GPU, median 34 s). No criterion stated by the authors. | SWE-Pruner 13.4; 91.7; 77.4; 93.0; 41.7; $0.180. No criterion stated by the authors. | BM25 chunks 13.6; 100; 58.3; 86.7; 29.0; $0.099. No criterion stated by the authors. | Dense chunks 13.7; 100; 57.9; 78.3; 22.7; $0.106. No criterion stated by the authors. | BM25 files 12.9; 100; 49.8; 95.7; 34.3. No criterion stated by the authors. | SweRank 13.3; 100; 71.7; 97.3; 43.0; $0.095 (patch call only). No criterion stated by the authors. | Gold files (oracle) 12.2; 100; 97.0; 97.7; 49.3; $0.075. | No source 0; n/a; 0.0; 42.0; 8.7; $0.071. Claude Opus 5: CQ2-CARE 27.1; 100.0; 84.0; 83.3; 46.7 (H4: resolution ratio 1.085, lower bound 0.985 passes; token ratio 0.733, upper bound 0.757 misses the 0.75 margin). No criterion stated by the authors. | LLMLingua-2 26.5; 8.2; 84.3; 80.7; 40.3. No criterion stated by the authors. | LongLLMLingua 26.7; 69.9; 73.1; 63.0; 29.0. No criterion stated by the authors. | LongCodeZip 26.2; 96.9; 82.9; 73.3; 36.0. No criterion stated by the authors. | SWE-Pruner 27.0; 92.1; 83.9; 73.7; 39.3. No criterion stated by the authors. | BM25 chunks 26.9; 100; 71.9; 82.3; 34.0. No criterion stated by the authors. | Dense 27.0; 100; 68.4; 86.7; 33.7. No criterion stated by the authors. | BM25 files 26.3; 100; 58.2; 80.7; 34.0. No criterion stated by the authors. | SweRank 26.5; 100; 75.0; 89.3; 45.0. No criterion stated by the authors. | Gold files 46.3 resolved (applies 83.0) | No source 13.0 (applies 81.0). Ablations/controls (GPT-5.6): single draw uncompressed 46.3% at 20.1K tokens; single draw cut to same file count 42.7%; union of two draws 47.7% (+4.0 pts at +2.3K tokens); without evidence step 40.7% (-3.0, p = 0.068); CQ2-CARE with 20% of tokens deleted 34.0% (-9.7 pts, applies 78.7%); LongCodeZip on CQ2-CARE candidate files 44.7%; LLMLingua-2 on them -3.0 (lines) / -7.3 (tokens)",
+   "p": "4-7, 12, 14",
+   "verdict": "uncertain",
+   "why": "The draft's works/partly/does-not-work verdicts rested on the extractor's own cut-offs (e.g. 43.7% 'works', 37.3% 'partly'); the authors state no success threshold for a configuration, so they are removed (author's rule of 2026-11-23). Per-configuration API cost from Table 16 added. The only stated criterion is H4 (non-inferiority of CQ2-CARE to another configuration), recorded as values; whether it counts as a per-configuration criterion is a judgement.",
+   "doubt": "Os autores só fixam um critério na H4 (CQ2-CARE não-inferior ao single draw: rácio de resolução > 0,85, rácio de tokens < 0,75; p. 14). Decide se isto conta como critério próprio do CQ2-CARE ou se fica 'no criterion stated'."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "300 SWE-rebench issues (hash-drawn, eligibility checked: gold resolves, empty does not). Configurations: 9 context steps + oracle + no-source x 2 models. Baseline: compressors and retrievers (drop-in, no training) plus 2 trained methods added post hoc. Held constant: model per run, prompt byte-identical except context, per-issue token budget Bi (+-2% for compressors), post-processing, grader; repository names masked. Acceptance: benchmark FAIL_TO_PASS/PASS_TO_PASS tests. Repetitions: one patch sample per cell (second sample for some controls). Human intervention: none. Planned hypotheses H1-H4 from an unfrozen written plan; several analyses post hoc",
+   "p": "4-5, 12, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CQ2-CARE best: +6.3 pts over best compressor with both models (GPT: LongCodeZip 37.3; Claude: LLMLingua-2 40.3), +9.3 / +12.7 over best drop-in retriever; leads SweRank by 0.7 / 1.7 (n.s.) and SWE-Pruner by 2.0 (n.s.) / 7.3 (p < 0.05). Significant (one-sided exact McNemar, Holm) for all drop-in baselines, narrowest LLMLingua-2 with Claude p = 0.027. Gold files +5.7 with GPT, none with Claude. Cheaper: 0.68x tokens of single draw, non-inferior (ratio 0.94, lower bound 0.878)",
+   "p": "1, 4-5, 7-8, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished most configurations (not SweRank or SWE-Pruner with GPT). Repeatability: a second patch sample flips 8.7-18.9% of outcomes, so small gaps are fragile; CQ2-CARE still leads when both samples are averaged (p <= 0.002). Robustness checks (in-tolerance subset, search/replace format, 25/50/75% rates) keep the ordering. Limitations stated: comparison at CQ2-CARE's operating point; post-hoc additions; one patch call, not a multi-turn agent; exit-code grading would have been invalid (Appendix C)",
+   "p": "7, 9, 13-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "One patch call per context on Python issues from one benchmark, not a multi-turn agent that can re-read files or run tests; budget fixed at CQ2-CARE's realized size; file-level BM25, controlled tests, SWE-Pruner and SweRank added post hoc; SweRank may have trained on PRs from the same repositories; most cells have one patch sample; possible training-data contamination and repositories seen during development; whether a selector beats a code-aware compressor starting from the same files is not shown. Future: full agent loop measuring re-reads",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 (p. 4) jumbled by pdftotext: values rebuilt by column order and cross-checked against the bar labels in Fig. 1 (p. 2), Table 17 (p. 23) and text pp. 1, 5-6; Claude gold-file row read as 46.3 resolved, 83.0 applies (confirmed by Appendix F, p. 15). Tables 4 (p. 7) and 16 (p. 22) also jumbled; Table 16 $/issue rebuilt by row order. Minor inconsistencies between tables: Claude LongCodeZip 36.0% resolved / 73.3% applies in Tables 1 and 17 vs 36.5% / 74.3% in Tables 11 and 15; GPT BM25 chunks 29.0% and BM25 files 34.3% in Table 1 vs 28.9% and 34.6% in Table 11. Pre-registration explicitly not claimed (written plan not frozen or time-stamped; one dated design file for the corruption test; estimator predictions for SWE-Pruner and SweRank frozen with hash and time stamp), although the Fig. 4 legend says 'pre-registered, frozen estimator'. Code, prompts and per-issue outcomes \"will be released\" (no link). Algorithms for all baselines with code links in Appendix B. Language: Python",
+   "p": "2, 4-7, 9, 11-23",
+   "verdict": "corrected",
+   "why": "Added reporting inconsistencies the draft missed (Table 1/17 vs Tables 11/15 values; Fig. 4 'pre-registered' label vs the explicit no-pre-registration statement).",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question stated (which compression of the repository resolves most issues at a fixed budget)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithms for every method, settings, prompts limits, grading and statistics described; code not yet released",
+   "p": "3-5, 11-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): gpt-5.6-sol (medium effort, Azure), Claude Opus 5 (Foundry), scorer models, swebench 4.0.3 named; compressor library versions not given",
+   "p": "5, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): SWE-rebench pinned revision, hash-drawn issues, eligibility check; benchmark public",
+   "p": "4, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark FAIL_TO_PASS/PASS_TO_PASS tests via official harness",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolution, applicability, tokens, API cost and GPU time defined",
+   "p": "3-5, 7-8, 12-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): eight baselines at matched per-issue budgets with the same prompt and grader",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): paired exact McNemar tests with Holm correction, bootstrap CIs, second patch sample, robustness checks (mostly one sample per cell)",
+   "p": "5, 7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): mixed results reported (LongCodeZip matches with same files; SweRank gap not shown equal)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section and Appendix C on what went wrong",
+   "p": "9, 13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created CQ2-CARE; independent of all baselines",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): no compression model or GPU needed, one extra localization call, ~$0.151 per issue with GPT-5.6; code release promised but not yet available",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

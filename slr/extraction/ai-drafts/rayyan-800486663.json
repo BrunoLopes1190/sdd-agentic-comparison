@@ -106,7 +106,7 @@
      "why": "No BÃ¶ckeler terms used. Substantive errors are fixed only by revising the specification and regenerating on a clean context, which could be read as spec-as-source per module. Minor UI issues are patched with targeted prompts (p. 2), which points to spec-first."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não usa os termos de Böckeler; erros substantivos levam a regenerar a partir da spec revista (lê-se como spec-as-source por módulo), mas falhas de UI são corrigidas por prompts (spec-first, p. 2). Decide o nível."
   },
   {
    "f": "Task type",
@@ -150,7 +150,7 @@
      "why": "The text names an 'instructor' at the approval gate (phase 5) and speaks of 'our experiments' (p. 2), but it never says the authors are the course instructors who wrote the specifications and ran the agents. That part is inferred."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O texto refere um 'instructor' na aprovação e 'our experiments' (p. 2), mas não diz que os autores são os docentes que escreveram as specs e correram os agentes. Confirma ou marca como inferido."
   },
   {
    "f": "Cost metrics",
@@ -196,9 +196,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: analytical audit (physical/numerical correctness) and teacher acceptance. Mapping of module to agent/model Not stated ('three distinct agentic development environments'; Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM listed; models Not stated). (a) Workflow + agent n.s. + model n.s.: RLC commutation simulator, passed audit without correction (18.0 V vs 18.1 V predicted, maxima 202 ms apart vs 201 ms period). Quality: works; cost: works (5-10 min, 3-5 cycles). (b) Workflow + agent n.s. + model n.s.: eddy-current laboratory, values consistent, loss quantity mislabelled (peak vs averaged). Quality: partly; cost: works. (c) Workflow + agent n.s. + model n.s.: iterative solvers module, CG converged in 2 steps as predicted. Quality: works; cost: works",
+   "v": "Criterion: analytical audit (physical/numerical correctness) and teacher acceptance. Mapping of module to agent/model Not stated ('three distinct agentic development environments'; Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM listed; models Not stated). (a) Workflow + agent n.s. + model n.s.: RLC commutation simulator, passed audit without correction (18.0 V vs 18.1 V predicted, maxima 202 ms apart vs 201 ms period); 5-10 min, 3-5 cycles. Quality: works; cost: no criterion stated by the authors. (b) Workflow + agent n.s. + model n.s.: eddy-current laboratory, values consistent, loss quantity mislabelled (peak vs averaged). Quality: partly; cost: no criterion stated by the authors. (c) Workflow + agent n.s. + model n.s.: iterative solvers module, CG converged in 2 steps as predicted. Quality: works; cost: no criterion stated by the authors",
    "p": "1-4",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: quality verdicts kept, since the authors state the criterion (analytical acceptance criteria, phase 4, and the physical/numerical audit, phase 7); no cost criterion is stated, so the cost verdicts are replaced; values kept"
+    }
+   ],
    "warn": ""
   },
   {
@@ -253,7 +259,7 @@
      "why": "There are no research questions, but the aim (an authoring methodology) and three numbered contributions are stated clearly (p. 1). Yes is defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Não há questões de investigação, mas o objetivo (uma metodologia de autoria) e três contribuições numeradas estão claros (p. 1). Decide entre Partly e Yes."
   },
   {
    "f": "Q2",
@@ -359,7 +365,7 @@
      "why": "Tools and generation time are stated (pp. 1-2), but money/token cost and subscription needs are not. Under the missing-information rule, Partly is defensible."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Ferramentas e tempo de geração estão indicados (pp. 1-2), mas não o custo em dinheiro, tokens ou subscrições. Pela regra da informação em falta, decide entre Yes e Partly."
   },
   {
    "f": "DARE1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486120",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -170,7 +170,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: task resolved (FAIL_TO_PASS and PASS_TO_PASS pass). Verdicts judged on each configuration's own values; the study sets no threshold. Quality: every configuration resolves a minority of tasks (16-34%) with few regressions (PASS_TO_PASS task level 86-90% on Lite) -> partly. Cost: every configuration costs under 1 USD and about 4-13 min per task -> works. Study 1 (SWE-ContextBench related tasks; 376 implied, the resolved % are multiples of 1/376), resolved % / avg cost USD / avg time s: (1) Claude Code + Claude Sonnet 4.5, baseline (no context): 19.68 / 0.67 / 344.47 (quality partly, cost works); (2) Claude Code + Claude Sonnet 4.5, oracle summary: 23.40 / 0.55 / 280.62 (partly, works); (3) Codex + GPT-5.3 Codex, baseline: 22.60 / 0.31 / 349.41 (partly, works); (4) Codex + GPT-5.3 Codex, oracle summary: 23.94 / 0.27 / 362.39 (partly, works); (5) Qwen Code + Qwen3.5-plus, baseline: 16.22 / 0.33 / 523.47 (partly, works); (6) Qwen Code + Qwen3.5-plus, oracle summary: 21.54 / 0.18 / 455.18 (partly, works); (7) Qwen Code + GLM-5, baseline: 18.35 / 0.58 / 800.99 (partly, works); (8) Qwen Code + GLM-5, oracle summary: 19.41 / 0.48 / 629.34 (partly, works); (9) Claude Code + MiniMax 2.7, baseline: 19.68 / 0.65 / 691.28 (partly, works); (10) Claude Code + MiniMax 2.7, oracle summary: 22.07 / 0.46 / 420.92 (partly, works). Study 2 (SWE-ContextBench Lite, 99 related tasks; Claude Sonnet 4.5, agent not stated), resolved % / time min / cost USD: (11) No-Context (baseline): 26.26 / 6.37 / 0.79 (partly, works); (12) Free Context Learning: 26.26 / 6.78 / 0.98 (partly, works); (13) Oracle Context Learning: 27.27 / 5.95 / 0.77 (partly, works); (14) Free Summary Learning: 22.22 / 6.28 / 0.91 (partly, works); (15) Oracle Summary Learning: 34.34 / 6.66 / 0.85 (partly, works); (16) Mem0: 24.24 / 4.72 / 0.62, ingestion of 300 trajectories about 21 min, 0.24 USD (partly, works); (17) OpenViking: 29.20 / 4.20 / 0.53, ingestion about 570 min, 18.96 USD (partly, works); (18) Supermemory: 30.30 / 5.04 / 0.58, ingestion 369.6k tokens, under 1 h (partly, works); (19) LangMem: no resolution or run cost reported, only retrieval match (73.34% overall) and ingestion (about 58 min, 0.98 USD): quality and cost not assessable",
+   "v": "Metric: task resolved (FAIL_TO_PASS and PASS_TO_PASS pass), plus cost and time per task. The authors state no success criterion (no target resolution rate or cost limit; results are only compared with the No-Context baseline), so every verdict is 'no criterion stated by the authors'. Study 1 (SWE-ContextBench related tasks; 376 implied, the resolved % are multiples of 1/376), resolved % / avg cost USD / avg time s: (1) Claude Code + Claude Sonnet 4.5, baseline (no context): 19.68 / 0.67 / 344.47; (2) Claude Code + Claude Sonnet 4.5, oracle summary: 23.40 / 0.55 / 280.62; (3) Codex + GPT-5.3 Codex, baseline: 22.60 / 0.31 / 349.41; (4) Codex + GPT-5.3 Codex, oracle summary: 23.94 / 0.27 / 362.39; (5) Qwen Code + Qwen3.5-plus, baseline: 16.22 / 0.33 / 523.47; (6) Qwen Code + Qwen3.5-plus, oracle summary: 21.54 / 0.18 / 455.18; (7) Qwen Code + GLM-5, baseline: 18.35 / 0.58 / 800.99; (8) Qwen Code + GLM-5, oracle summary: 19.41 / 0.48 / 629.34; (9) Claude Code + MiniMax 2.7, baseline: 19.68 / 0.65 / 691.28; (10) Claude Code + MiniMax 2.7, oracle summary: 22.07 / 0.46 / 420.92. Study 2 (SWE-ContextBench Lite, 99 related tasks; Claude Sonnet 4.5, agent not stated), resolved % / PASS_TO_PASS task % / time min / cost USD: (11) No-Context (baseline): 26.26 / 88.89 / 6.37 / 0.79; (12) Free Context Learning: 26.26 / 85.86 / 6.78 / 0.98; (13) Oracle Context Learning: 27.27 / 89.90 / 5.95 / 0.77; (14) Free Summary Learning: 22.22 / 86.87 / 6.28 / 0.91; (15) Oracle Summary Learning: 34.34 / 85.86 / 6.66 / 0.85; (16) Mem0: 24.24 / 86.87 / 4.72 / 0.62, ingestion of 300 trajectories about 21 min, 0.24 USD; (17) OpenViking: 29.20 / 88.89 / 4.20 / 0.53, ingestion about 570 min, 18.96 USD; (18) Supermemory: 30.30 / 88.89 / 5.04 / 0.58, ingestion 369.6k tokens, under 1 h; (19) LangMem: no resolution or run cost reported, only retrieval match (73.34% overall) and ingestion (about 58 min, 0.98 USD). For every configuration: quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "6-9, 13-14",
    "rev": [
     {
@@ -182,9 +182,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "Section 6 requires a verdict for every configuration, baseline included, judged on its own: r1 gave no verdict to the baselines of Study 1 and Study 2, gave one pooled verdict to the five oracle-summary configurations, and justified the Study 2 verdicts by the difference from the baseline. Values unchanged (re-checked against Tables 3 and 4); times, ingestion costs and one entry per configuration added. The absolute cut-off is a judgement: a stricter reader could rate the configurations under 20% resolved (5, 7, 8, 1, 9) as does not work"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave 'quality: partly' and 'cost: works' to every configuration from its own cut-offs (minority of tasks resolved, under 1 USD), while admitting the study sets no threshold; per the 2026-11-23 rule the verdicts become 'no criterion stated by the authors'. Values re-checked against Tables 3 and 4 (p. 6, 8); PASS_TO_PASS task rates added in place of the rounded '86-90%' range used to justify the verdict"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -313,9 +318,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Judgement: negative results are reported in the body (free retrieval hurts, summaries cost more on Lite), but the abstract overstates (significance without tests, cost reduction from summaries); Partly vs No depends on how much weight the abstract gets"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Negative results are reported in the body (free retrieval hurts, summaries cost more than the baseline on Lite, p. 8), but the abstract and p. 2 claim 'significantly' without tests and that summaries reduce token cost; Partly vs No depends on the weight given to the abstract"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O corpo do artigo relata resultados negativos (p. 8), mas o resumo diz 'significantly' sem testes e que os resumos reduzem o custo, o que no Lite não acontece. Decide entre Partly e No."
   },
   {
    "f": "Q10",

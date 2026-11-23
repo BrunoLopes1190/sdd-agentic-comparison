@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498242",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2610.21073v1 [cs.SE], 15 Oct 2026; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then ' — ' and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Compares (budget-matched, test-graded comparison of context steps: exact-file selection vs 4 prompt compressors and 4 retrievers, two models); secondary: proposes an approach (CQ2-CARE exact-file selector)",
+   "v": "Compares; secondary: Proposes an approach — budget-matched, test-graded comparison of context steps (exact-file selection vs 4 prompt compressors and 4 retrievers, two models); proposes the CQ2-CARE exact-file selector",
    "p": "1-3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged."
+    }
+   ],
    "warn": ""
   },
   {
@@ -82,10 +94,16 @@
   },
   {
    "f": "Task type",
-   "v": "Existing code bases: issue resolution (bug fixes) on open-source Python repositories",
+   "v": "Existing code bases: issue resolution (recent GitHub issues from SWE-rebench; the paper does not restrict them to bug fixes) on open-source Python repositories",
    "p": "1, 4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The paper speaks of resolving 'real software issues' from SWE-rebench (pp. 1, 4); it does not say they are all bug fixes."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Size",
@@ -152,10 +170,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "No agent harness: authors' single-call pipeline; models gpt-5.6-sol (medium reasoning) and Claude Opus 5; 300 issues; budget per issue = CQ2-CARE size. Criterion: benchmark tests pass. Values: tokens (K); epsilon %; rho %; applies %; resolved %. GPT-5.6: CQ2-CARE 13.8; 100.0; 79.0; 98.0; 43.7. Quality works, cost works ($0.151/issue). | LLMLingua-2 13.1; 17.5; 78.3; 70.7; 30.0. Does not work; partly. | LongLLMLingua 13.2; 67.1; 63.7; 84.0; 35.0. Partly; partly (GPU). | LongCodeZip 13.1; 96.8; 72.2; 89.7; 37.3. Partly; partly (GPU). | SWE-Pruner 13.4; 91.7; 77.4; 93.0; 41.7. Partly; works. | BM25 chunks 13.6; 100; 58.3; 86.7; 29.0. Does not work; works. | Dense chunks 13.7; 100; 57.9; 78.3; 22.7. Does not work; works. | BM25 files 12.9; 100; 49.8; 95.7; 34.3. Partly; works. | SweRank 13.3; 100; 71.7; 97.3; 43.0. Works; works. | Gold files (oracle) 12.2; 100; 97.0; 97.7; 49.3. | No source 0; n/a; 0.0; 42.0; 8.7. Claude Opus 5: CQ2-CARE 27.1; 100.0; 84.0; 83.3; 46.7. Works; works. | LLMLingua-2 26.5; 8.2; 84.3; 80.7; 40.3. Partly. | LongLLMLingua 26.7; 69.9; 73.1; 63.0; 29.0. Does not work. | LongCodeZip 26.2; 96.9; 82.9; 73.3; 36.0. Partly. | SWE-Pruner 27.0; 92.1; 83.9; 73.7; 39.3. Partly. | BM25 chunks 26.9; 100; 71.9; 82.3; 34.0. Partly. | Dense 27.0; 100; 68.4; 86.7; 33.7. Partly. | BM25 files 26.3; 100; 58.2; 80.7; 34.0. Partly. | SweRank 26.5; 100; 75.0; 89.3; 45.0. Works. | Gold files 46.3 resolved (applies 83.0) | No source 13.0 (applies 81.0). Ablations/controls (GPT-5.6): single draw cut to same file count ~ same resolution; union of two draws +4.0 pts at +2.3K tokens; without evidence step -3.0 (p = 0.068); CQ2-CARE with 20% of tokens deleted -9.7 pts (applies 78.7%); LongCodeZip on CQ2-CARE candidate files 44.7%; LLMLingua-2 on them -3.0 (lines) / -7.3 (tokens)",
+   "v": "No agent harness: authors' single-call pipeline (localization, planner, one patch call); models gpt-5.6-sol (medium reasoning, Azure) and Claude Opus 5 (Foundry); 300 SWE-rebench issues; budget per issue = CQ2-CARE size. Per-issue success = all FAIL_TO_PASS and PASS_TO_PASS tests pass; no success criterion for a configuration's resolution rate or cost is stated by the authors (only H4, non-inferiority of CQ2-CARE to the uncompressed single draw). Values: tokens (K); epsilon %; rho %; applies %; resolved %; GPT API cost $/issue (Table 16). GPT-5.6: CQ2-CARE 13.8; 100.0; 79.0; 98.0; 43.7; $0.151 (H4 vs single draw: resolution ratio 0.942, lower bound 0.878 > 0.85; token ratio 0.684, upper bound 0.721 < 0.75: passes). Quality and cost: no criterion stated by the authors. | LLMLingua-2 13.1; 17.5; 78.3; 70.7; 30.0; $0.177 (CPU, median 13 s/issue). No criterion stated by the authors. | LongLLMLingua 13.2; 67.1; 63.7; 84.0; 35.0; $0.176 (GPU, median 37 s). No criterion stated by the authors. | LongCodeZip 13.1; 96.8; 72.2; 89.7; 37.3; $0.168 (GPU, median 34 s). No criterion stated by the authors. | SWE-Pruner 13.4; 91.7; 77.4; 93.0; 41.7; $0.180. No criterion stated by the authors. | BM25 chunks 13.6; 100; 58.3; 86.7; 29.0; $0.099. No criterion stated by the authors. | Dense chunks 13.7; 100; 57.9; 78.3; 22.7; $0.106. No criterion stated by the authors. | BM25 files 12.9; 100; 49.8; 95.7; 34.3. No criterion stated by the authors. | SweRank 13.3; 100; 71.7; 97.3; 43.0; $0.095 (patch call only). No criterion stated by the authors. | Gold files (oracle) 12.2; 100; 97.0; 97.7; 49.3; $0.075. | No source 0; n/a; 0.0; 42.0; 8.7; $0.071. Claude Opus 5: CQ2-CARE 27.1; 100.0; 84.0; 83.3; 46.7 (H4: resolution ratio 1.085, lower bound 0.985 passes; token ratio 0.733, upper bound 0.757 misses the 0.75 margin). No criterion stated by the authors. | LLMLingua-2 26.5; 8.2; 84.3; 80.7; 40.3. No criterion stated by the authors. | LongLLMLingua 26.7; 69.9; 73.1; 63.0; 29.0. No criterion stated by the authors. | LongCodeZip 26.2; 96.9; 82.9; 73.3; 36.0. No criterion stated by the authors. | SWE-Pruner 27.0; 92.1; 83.9; 73.7; 39.3. No criterion stated by the authors. | BM25 chunks 26.9; 100; 71.9; 82.3; 34.0. No criterion stated by the authors. | Dense 27.0; 100; 68.4; 86.7; 33.7. No criterion stated by the authors. | BM25 files 26.3; 100; 58.2; 80.7; 34.0. No criterion stated by the authors. | SweRank 26.5; 100; 75.0; 89.3; 45.0. No criterion stated by the authors. | Gold files 46.3 resolved (applies 83.0) | No source 13.0 (applies 81.0). Ablations/controls (GPT-5.6): single draw uncompressed 46.3% at 20.1K tokens; single draw cut to same file count 42.7%; union of two draws 47.7% (+4.0 pts at +2.3K tokens); without evidence step 40.7% (-3.0, p = 0.068); CQ2-CARE with 20% of tokens deleted 34.0% (-9.7 pts, applies 78.7%); LongCodeZip on CQ2-CARE candidate files 44.7%; LLMLingua-2 on them -3.0 (lines) / -7.3 (tokens)",
    "p": "4-7, 12, 14",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft's works/partly/does-not-work verdicts rested on the extractor's own cut-offs (e.g. 43.7% 'works', 37.3% 'partly'); the authors state no success threshold for a configuration, so they are removed (author's rule of 2026-11-23). Per-configuration API cost from Table 16 added. The only stated criterion is H4 (non-inferiority of CQ2-CARE to another configuration), recorded as values; whether it counts as a per-configuration criterion is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values re-checked against Tables 1, 5, 6, 8 and 16: unchanged. The authors state no success threshold for a single configuration; the only criterion is H4 (p. 14, Table 5), a non-inferiority test of CQ2-CARE against the uncompressed single draw (resolution ratio lower bound > 0.85, token ratio upper bound < 0.75), recorded as values. Since H4 is relative to another configuration, the §6 rule (each configuration judged on its own) suggests keeping 'no criterion stated', but this is a judgement."
+    }
+   ],
+   "warn": "Os autores só fixam um critério na H4 (CQ2-CARE não-inferior ao single draw: rácio de resolução > 0,85, rácio de tokens < 0,75; p. 14). Decide se isto conta como critério próprio do CQ2-CARE ou se fica 'no criterion stated'."
   },
   {
    "f": "Comparison: design",
@@ -187,9 +216,15 @@
   },
   {
    "f": "Notes",
-   "v": "Table 1 (p. 4) jumbled by pdftotext: values rebuilt by column order and cross-checked against the bar labels in Fig. 1 (p. 2) and text pp. 1, 5-6; Claude gold-file row read as 46.3 resolved, 83.0 applies (text p. 5: gold files resolve \"no more\" with Claude). Table 4 (p. 7) also jumbled. Pre-registration explicitly not claimed (written plan not frozen or time-stamped; one dated design file for the corruption test). Code, prompts and per-issue outcomes \"will be released\" (no link). Algorithms for all baselines with code links in Appendix B. Language: Python",
-   "p": "2, 4-7, 9, 11-14",
-   "rev": [],
+   "v": "Table 1 (p. 4) jumbled by pdftotext: values rebuilt by column order and cross-checked against the bar labels in Fig. 1 (p. 2), Table 17 (p. 23) and text pp. 1, 5-6; Claude gold-file row read as 46.3 resolved, 83.0 applies (confirmed by Appendix F, p. 15). Tables 4 (p. 7) and 16 (p. 22) also jumbled; Table 16 $/issue rebuilt by row order. Minor inconsistencies between tables: Claude LongCodeZip 36.0% resolved / 73.3% applies in Tables 1 and 17 vs 36.5% / 74.3% in Tables 11 and 15; GPT BM25 chunks 29.0% and BM25 files 34.3% in Table 1 vs 28.9% and 34.6% in Table 11. Pre-registration explicitly not claimed (written plan not frozen or time-stamped; one dated design file for the corruption test; estimator predictions for SWE-Pruner and SweRank frozen with hash and time stamp), although the Fig. 4 legend says 'pre-registered, frozen estimator'. Code, prompts and per-issue outcomes \"will be released\" (no link). Algorithms for all baselines with code links in Appendix B. Language: Python",
+   "p": "2, 4-7, 9, 11-23",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added reporting inconsistencies the draft missed (Table 1/17 vs Tables 11/15 values; Fig. 4 'pre-registered' label vs the explicit no-pre-registration statement)."
+    }
+   ],
    "warn": ""
   },
   {

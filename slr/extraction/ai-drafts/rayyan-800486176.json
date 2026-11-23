@@ -59,7 +59,7 @@
      "why": "Main nature is clear (benchmark protocol = evaluation method). Secondary 'Compares' (prompt levels x models) vs 'Evaluates' is a judgement: no approach is the object and the planned baseline-vs-augmented comparison is not run"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A principal (protocolo de benchmark) é clara. Decide se a secundária é 'Compares' (níveis de prompt × modelos) ou 'Evaluates': nenhuma abordagem é o objeto e a comparação baseline vs. aumentado não é executada."
   },
   {
    "f": "Approach(es): name and version",
@@ -181,16 +181,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: file-level F1 of predicted files vs PR-modified files; baseline arm only (no repository knowledge); agent not stated; one entry per model x prompt level x repository. Verdicts judged on each configuration's own F1 (the study sets no threshold; extractor's scale: >= 0.70 works, 0.40-0.70 partly, < 0.40 does not work); cost not measured, so cost verdict N/A for every entry. DragonFly (Table 2), F1 for Minimal / Concise / Contextual / Guided: agent not stated + Claude Sonnet 4: 0.2026 (does not work) / 0.3916 (does not work) / 0.5592 (partly) / 0.6828 (partly); agent not stated + Claude Sonnet 4.5: 0.2487 (does not work) / 0.4124 (partly) / 0.5656 (partly) / 0.7163 (works); agent not stated + 'Claude-Ops-4.6' (Opus 4.6): 0.2952 (does not work) / 0.5464 (partly) / 0.7241 (works) / 0.8081 (works). React (Table 3, 90 tasks per condition): Sonnet 4: 0.1898 (does not work) / 0.3710 (does not work) / 0.4594 (partly) / 0.6283 (partly); Sonnet 4.5: 0.1946 (does not work) / 0.3751 (does not work) / 0.5062 (partly) / 0.7229 (works); Opus 4.6: 0.2335 (does not work) / 0.5098 (partly) / 0.6057 (partly) / 0.8078 (works). React averaged over models (Table 4): mean F1 0.242 / 0.479 / 0.574 / 0.770; Precision=0 rate 60.2% / 28.7% / 18.5% / 3.5%; Recall=1 rate 14.4% / 31.1% / 41.5% / 59.8%",
+   "v": "Criterion: file-level F1 of predicted files vs PR-modified files; baseline arm only (no repository knowledge); agent not stated; one entry per model x prompt level x repository. Quality verdict for every entry: no criterion stated by the authors (the study sets no F1 threshold); cost not measured, so cost verdict N/A for every entry. DragonFly (Table 2), F1 for Minimal / Concise / Contextual / Guided: agent not stated + Claude Sonnet 4: 0.2026 / 0.3916 / 0.5592 / 0.6828; agent not stated + Claude Sonnet 4.5: 0.2487 / 0.4124 / 0.5656 / 0.7163; agent not stated + 'Claude-Ops-4.6' (Opus 4.6): 0.2952 / 0.5464 / 0.7241 / 0.8081. React (Table 3, 90 tasks per condition): Sonnet 4: 0.1898 / 0.3710 / 0.4594 / 0.6283; Sonnet 4.5: 0.1946 / 0.3751 / 0.5062 / 0.7229; Opus 4.6: 0.2335 / 0.5098 / 0.6057 / 0.8078. React averaged over models (Table 4): mean F1 0.242 / 0.479 / 0.574 / 0.770; Precision=0 rate 60.2% / 28.7% / 18.5% / 3.5%; Recall=1 rate 14.4% / 31.1% / 41.5% / 59.8%",
    "p": "5-6, 9",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Section 6 requires a verdict per configuration (model x prompt level x repository) judged on its own; r1 gave one pooled verdict per prompt level ('Guided works', 'Concise partly'), which hides that e.g. Sonnet 4 Guided (0.6828, 0.6283) and Sonnet 4 Concise (0.3916, 0.3710) differ from the other models at the same level. F1 values unchanged (re-checked against Tables 2-4). The F1 cut-offs are the extractor's judgement"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: removed the extractor's F1 scale (>= 0.70 works, 0.40-0.70 partly, < 0.40 does not work) and the per-entry quality verdicts; the study sets no F1 threshold. All configurations and values kept"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -215,7 +220,7 @@
      "why": "r1 said the largest step is never Concise -> Contextual 'on React'; it is never so in any row, including all DragonFly rows, where the authors make the claim. Added that the stronger-model ordering holds for F1 but not for recall (Tables 2-3), which the authors state for 'all three metrics'"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O valor contradiz, com base nas Tabelas 2–3, a afirmação dos autores de que o maior salto é Concise → Contextual, e nota que o Sonnet 4.5 tem recall inferior ao Sonnet 4. Confirma esses cálculos nas tabelas."
   },
   {
    "f": "Comparison: did the method work",
@@ -247,7 +252,7 @@
      "why": "Added a reporting inconsistency: the text says stronger models improve all three metrics at every prompt level, but Tables 2-3 show Sonnet 4.5 with lower recall than Sonnet 4 in five cells"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Confirma nas Tabelas 2–4 e nas §3.1/§3.3 as inconsistências registadas: colunas Prec.=0 e Rec.=0 iguais, recall do Sonnet 4.5 abaixo do Sonnet 4 em cinco células, definições diferentes do nível Guided."
   },
   {
    "f": "Q1",
@@ -321,7 +326,7 @@
      "why": "The main monotonic trend follows from the data, but two claims are contradicted by the authors' own tables (largest jump Concise -> Contextual; stronger models better on all three metrics) and 'stable properties' rests on two repositories and single runs; Partly vs No is a judgement for the author"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A tendência principal segue dos dados, mas duas afirmações contradizem as próprias tabelas e as conclusões assentam em dois repositórios e execuções únicas. Decide entre Partly e No."
   },
   {
    "f": "Q10",

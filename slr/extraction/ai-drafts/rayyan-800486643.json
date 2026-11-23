@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486643",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,10 +164,16 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: none formal (descriptive experience report; 'we make no causal claim'). - Framework + Claude Code (implementation agent) + OpenAI Codex CLI review-gate (openai-codex plugin); models and versions Not stated: 297 commits, 9,441 SLOC, 441 tests, zero main CI/CD failures after setup, 63% maintenance-class commits on agent-loaded artifacts, URL hallucination not recurring after rule. Quality verdict: partly (descriptive only, no baseline). Cost verdict: not measured",
+   "v": "Success criterion: none stated by the authors (descriptive experience report; 'we make no causal claim'; observations presented as design hypotheses). - Framework + Claude Code (implementation agent) + OpenAI Codex CLI review-gate (openai-codex plugin); models and versions Not stated: 297 commits over 142 days, 9,441 application SLOC / 8,773 test SLOC, 441 tests (278 unit / 156 E2E / 7 VRT), zero main CI/CD failures after initial setup, 63% (27/43) maintenance-class commits on agent-loaded artifacts, URL hallucination not flagged again after the rule was codified. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors (no cost metrics reported)",
    "p": "1-4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "r2 gave a quality verdict 'partly' although the authors state no success criterion; under the author's rule of 2026-11-23 the verdict is 'no criterion stated by the authors' and only the metric values are kept"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

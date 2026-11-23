@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498239",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zou, C., Zhou, Y., Luo, X., Zhang, X. (2026). StateHarness: Maintaining Evolving Project State for Long-Horizon Coding Agents. arXiv:2610.17616v1 [cs.SE], 13 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.17616v1 [cs.SE], 13 Oct 2026; pages headed 'Preprint', no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Pennsylvania (Zou); University of Notre Dame (Zhou, Luo, Zhang)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — StateHarness, a training-free runtime framework that maintains persistent project-state records for a coding agent, compared with plain Claude Code (all three settings) and LongHorizon-Harness (LHTB, ChainSWE) on RefactorBench, LHTB and ChainSWE",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "StateHarness (authors' own; implementation pinned to commit 72611b1; code at https://anonymous.4open.science/r/StateHarness) on Claude Code 2.1.261. Baselines: unmodified Claude Code; LongHorizon-Harness (manager/executor/auditor, Ma et al. 2026)",
+   "p": "1, 6, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Persistent Markdown/JSON records authored by the agent: task_state.md (initial observation, environment, current focus <=200 chars), breakthrough_log.md (event log of findings, edits, tests, decisions, rejected assumptions), file_relation_graph.md (relation notes to callers, tests, docs, config), skill_states.json (procedure guidance: use / verify / avoid / freeze), context_brief.md (working brief refreshed by fixed rules); initialization and completion protocols; diagnostic alerts",
+   "p": "3-4, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Initialize task state and focus -> work (read, edit, test) with runtime reminders to update records (every 3 edits / 3 test runs) -> before supported interface changes or deletions, change-impact retrieval returns candidate callers, tests, docs to inspect and record -> working brief refreshed from records -> behavioral signals (repeated reads, missing completions, brief neglected) may trigger a separate diagnostic session returning up to 3 alerts -> completion protocol: revisit request, relations, tests and warnings before termination (Fig. 2)",
+   "p": "3-5, 14-16, 19-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (agent self-maintained records; completion protocol is a self-check, not human review)",
+   "p": "5, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full runtime framework (records, brief, retrieval, reminders, diagnosis) run end to end; no component ablation",
+   "p": "6, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (persistent project-state/context records, not a specification of the system; authors do not use SDD terms; ProjectGuard on progressively revealed specifications cited as related)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: sequential repository refactoring (RefactorBench chains), long-horizon terminal SE tasks (LHTB), chained bug fixing on an evolving repository (ChainSWE)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "RefactorBench: 17 combined refactoring task chains; LHTB: 5 of 6 software-engineering tasks; ChainSWE: 37 chains (issues per chain Not stated)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories (e.g., sqlglot), ALP paper reproduction, Commit0 library; change-impact retrieval covers Python and Cython",
+   "p": "6, 8-9, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Recorded tokens (K), tool calls, wall-clock time (s) per task; diagnostic sessions not fully included in token accounting",
+   "p": "6, 8, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "RefactorBench subtask and full-chain completion, requested-refactor checks; LHTB task reward; ChainSWE issue-level bug-fix rate, pass-to-pass (P2P) regressions",
+   "p": "6, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "RefactorBench cleanup checks (imports, call sites, documentation); ChainSWE residual debt (stale callers, remaining regressions, outdated docs, stale records)",
+   "p": "6, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None beyond case studies",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark tests and external verifiers (Harbor for LHTB; local ChainSWE scorer applying patch cumulatively); runtime usage logs for cost",
+   "p": "6, 18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Model Claude Sonnet 5 for all; one run per task (no repetitions stated). Values from Table 1 (quality) and Table 2 (cost: recorded tokens, tool calls, time). No success criterion stated by the authors for any configuration, so no verdicts.\n- Claude Code 2.1.261 + Sonnet 5 (baseline): RefactorBench subtasks 77.9%, chains 29.4%, refactor 94.6, cleanup 87.0 (imports 82.7, calls 93.3, docs 90.9); 25.6K tokens, 81 tool calls, 383 s. LHTB mean 0.427 (ALP 0.500, GE Audit 0.273, Foldseek 0.556, Unison 0.167, Commit0 0.639). ChainSWE bug fix 35.1%, P2P regressions 16, residual debt 60; 24.9K tokens, 75 calls, 300 s. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- StateHarness + Claude Code + Sonnet 5: RefactorBench 81.4 / 35.3 / 95.9 / 95.4 (94.4, 93.3, 100.0); 33.1K tokens, 110 calls, 529 s. LHTB mean 0.576 (0.700, 0.364, 0.556, 0.333, 0.929). ChainSWE 39.5%, P2P 23, debt 43; 35.3K tokens, 96 calls, 383 s. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- LongHorizon-Harness + Sonnet 5 (LHTB and ChainSWE only): LHTB mean 0.525 (0.600, 0.364, 0.556, 0.167, 0.938), per-task cost only described (more time and tool calls than StateHarness on every task); ChainSWE 32.5%, P2P 47, debt 69; 208.0K tokens, 272 calls, 2,214 s. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: RefactorBench reorganized into 17 sequential repository-level chains with original checks; 5 LHTB SE tasks; 37 ChainSWE chains presented in one request. Configurations: Claude Code vs StateHarness (all three), plus LongHorizon-Harness (LHTB, ChainSWE). Baseline: unmodified Claude Code. Held constant: working model (Claude Sonnet 5), task input. Acceptance: benchmark tests/verifiers. Repetitions: Not stated (apparently one run). Human intervention: none; retries restore record snapshots after failed attempts",
+   "p": "5-6, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "StateHarness improves primary outcome in each setting: RefactorBench chains 29.4 -> 35.3%, cleanup 87.0 -> 95.4 (imports +11.7, docs +9.1, calls 0); LHTB 0.427 -> 0.576 (better on 4 of 5 tasks, tie on Foldseek), above LH-H 0.525; ChainSWE 35.1 -> 39.5% with residual debt 60 -> 43 but P2P regressions 16 -> 23. Cost: +29% tokens, +38% time vs Claude Code on RefactorBench; about 6x fewer tokens than LH-H on ChainSWE. No significance tests",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations in direction, but small task counts (17 chains, 5 tasks, 37 chains) and no repetitions or statistics; authors acknowledge mixed consistency results and that token accounting is not compute-matched across harnesses; residual debt partly method-dependent (stale records counted only for record-keeping systems)",
+   "p": "7-8, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Stated trade-offs: runtime overhead vs Claude Code; more P2P regressions on ChainSWE; recording an unresolved problem does not force the agent to resolve it (ALP case); state transfer across separate sessions not evaluated; change-impact retrieval only Python/Cython; one LHTB task excluded for budget",
+   "p": "6, 8-10, 15, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 1-2 jumbled in pdftotext; values rebuilt and cross-checked with text (e.g., 25.6K -> 33.1K tokens, 81 -> 110 calls, 383 -> 529 s; LH-H 208.0K, 272, 2214 s). LHTB per-task cost only described, not tabulated. Reproducibility materials (protocol and template snapshots with SHA-256 hashes) at anonymous link. No pre-registration. Single model (Claude Sonnet 5). Programming language: Python mainly (retrieval support), others Not stated",
+   "p": "1, 6, 8, 18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goals and three contributions explicit; three evaluation perspectives stated",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): detailed appendices on records, update rules, thresholds, prompts delivery; materials released",
+   "p": "14-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Code 2.1.261 and implementation commit pinned; model only 'Claude Sonnet 5'; diagnostic-session model not named",
+   "p": "18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks, but RefactorBench chains and ChainSWE subset reorganized by the authors; composition only partly described",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark tests and external verifiers",
+   "p": "6, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality metrics plus tokens, tool calls and time",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): plain Claude Code and LongHorizon-Harness with the same model",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistical analysis reported",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): mixed results (P2P regressions, unchanged call sites, overhead) reported and conclusions hedged",
+   "p": "7-10",
+   "verdict": "uncertain",
+   "why": "Mixed results (more P2P regressions, unchanged call sites, overhead, unresolved ALP case) are reported and claims are hedged, which supports Yes; but the generalization across task structures rests on single runs over 17 chains, 5 tasks and 37 chains, so Partly is also defensible",
+   "doubt": "Os resultados mistos são reportados, mas tudo assenta em execuções únicas com poucas tarefas (5 no LHTB). Decide entre Sim e Parcialmente (secção 4.2, p. 7)."
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats or limitations section; trade-offs and a limitation discussed in results and conclusion",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created StateHarness; the other evaluated configurations (unmodified Claude Code, LongHorizon-Harness by Ma et al.) are not theirs",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): training-free, runs on Claude Code with plain files, modest overhead (~30% more tokens/time), code and templates released; change-impact retrieval limited to Python/Cython",
+   "p": "1, 8, 15, 19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

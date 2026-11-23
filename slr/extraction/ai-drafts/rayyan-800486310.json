@@ -53,7 +53,7 @@
      "why": "'Compares' fits the title question and the registered arm comparisons, but contribution (1) is the audited resolve@cost instrument and the conclusion calls the rig 'the lasting contribution' (p. 2, 7), so another reader could make 'Proposes an evaluation method' the main nature. Q13 stays N/A either way (no approach proposed)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O título e as hipóteses registadas são comparações, mas a contribuição (1) é o instrumento resolve@cost e a conclusão chama-lhe 'the lasting contribution' (p. 2, 7). Decide se a natureza principal é Compares ou Proposes an evaluation method."
   },
   {
    "f": "Approach(es): name and version",
@@ -169,13 +169,18 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent = custom single-shot harness (no execution, temperature 0, max_tokens 8000, <= 2 apply retries) with Claude Sonnet 4.6 (alias claude-sonnet-4-6) for all resolve arms. Criterion: SWE-bench resolution; cost = mean context tokens and tokens per resolve (Table 3); whole registered run about $20 API for ~210 calls. Single run, N = 70. Each arm judged on its own absolute values (all are oracle ceilings).\n- oracle_full + single-shot harness + Claude Sonnet 4.6: 19/70 = 0.271 [0.18, 0.39]; 25,426 mean tokens; 93,700 tokens/resolve. Quality partly; cost partly\n- oracle_tier + harness + Sonnet 4.6: 23/70 = 0.329 [0.23, 0.44]; 8,629; 26,300. Quality partly; cost works\n- oracle_keep_drop + harness + Sonnet 4.6: 25/70 = 0.357 [0.26, 0.47]; 6,876; 19,300 (re-run: 23/70). Quality partly; cost works\n- keep/drop + sequence slice (follow-up, pre-registered H3) + harness + Sonnet 4.6: 26/70 = 0.371 [0.27, 0.49] vs keep/drop re-run 23/70; slice mean 215 extra tokens (present on 65/70). Quality partly; cost works\nProbe study (answerer Claude Sonnet 4.6, no agent; n = 45; Table 2): full source 0.600 (27/45), 1,124 tokens: quality partly, cost works; summary by Sonnet 4.6 0.089 (4/45), 165 tokens: quality does not work, cost works; summary by Qwen2.5-Coder-3B 0.089 (4/45), 180 tokens: quality does not work, cost works; signature + docstring 0.133 (6/45), 212 tokens: quality does not work, cost works",
+   "v": "Agent = custom single-shot harness (no execution, temperature 0, max_tokens 8000, <= 2 apply retries) with Claude Sonnet 4.6 (alias claude-sonnet-4-6) for all resolve arms. Criterion: SWE-bench resolution; cost = mean context tokens and tokens per resolve (Table 3); whole registered run about $20 API for ~210 calls. Single run, N = 70. All arms are oracle ceilings.\n- oracle_full + single-shot harness + Claude Sonnet 4.6: 19/70 = 0.271 [0.18, 0.39]; 25,426 mean tokens; 93,700 tokens/resolve\n- oracle_tier + harness + Sonnet 4.6: 23/70 = 0.329 [0.23, 0.44]; 8,629; 26,300\n- oracle_keep_drop + harness + Sonnet 4.6: 25/70 = 0.357 [0.26, 0.47]; 6,876; 19,300 (re-run: 23/70)\n- keep/drop + sequence slice (follow-up, pre-registered H3) + harness + Sonnet 4.6: 26/70 = 0.371 [0.27, 0.49] vs keep/drop re-run 23/70; slice mean 215 extra tokens (present on 65/70)\nProbe study (answerer Claude Sonnet 4.6, no agent; n = 45; Table 2): full source 0.600 (27/45), 1,124 tokens; summary by Sonnet 4.6 0.089 (4/45), 165 tokens; summary by Qwen2.5-Coder-3B 0.089 (4/45), 180 tokens; signature + docstring 0.133 (6/45), 212 tokens\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "3-6, 8",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "Round 1 gave oracle_full a double quality verdict ('partly / does not work') and a cost 'does not work' that reads as relative to the compressed arms; on its own 25K context tokens per single-shot call (about $0.10 per call, App. B) is not prohibitive, so partly (judgement). Probe arms lacked cost verdicts"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; the thresholds used were the extractor's judgement; metric values kept (rule 1)"
     }
    ],
    "warn": ""
@@ -319,7 +324,7 @@
      "why": "The tier rendering and the slice arm are the author's own constructions; if they count as approaches the author created, Q12 would be Partly. They are generic deterministic renderings with no product or vendor, so Yes is defensible"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A renderização em tiers e o slice são construções do próprio autor (Anexo D), mas são técnicas genéricas sem produto nem fornecedor. Decide se contam como abordagem criada pelo autor (Partly) ou não (Yes)."
   },
   {
    "f": "Q13",

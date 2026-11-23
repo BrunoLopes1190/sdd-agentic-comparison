@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498036",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -28,7 +28,7 @@
      "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -46,9 +46,19 @@
      "round": 1,
      "verdict": "corrected",
      "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>'; natures unchanged"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: RSCB-MC is compared with nine retrieval and bandit baselines and an oracle on the same artifacts (Tables 4-9), so 'secondary: Compares' fits at least as well as 'Evaluates'; the main nature (Proposes an approach) is clear"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: RSCB-MC is compared with nine retrieval and bandit baselines and an oracle on the same artifacts (Tables 4-9), so 'secondary: Compares' fits at least as well as 'Evaluates'; the main nature (Proposes an approach) is clear"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O RSCB-MC é comparado com nove baselines nos mesmos artefactos. Decide se a natureza secundária é 'Evaluates' ou 'Compares'; a principal ('Proposes an approach') não levanta dúvidas."
   },
   {
    "f": "Approach(es): name and version",
@@ -164,16 +174,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Configurations are memory-control methods; no agent or model run. Criterion: proxy labels from replay metadata. Offline replay (80 events), success / FP / abstention / cumulative reward (Table 6); hot-path (200 cases) success / FP / p95 latency (Table 9). -- Lexical: 50.0% / 17.5% / 0.0% / -70.800; hot-path 50.0% / 17.5% / 3.920 µs. Quality: partly (half of events succeed, 17.5% unsafe injections); cost: works. -- Static hybrid: 50.0% / 17.5% / 0.0% / -70.800; hard negatives FP 75.0%, unsafe injection 100%; hot-path 50.0% / 17.5% / 7.327 µs. Quality: does not work (injects unsafe memory on all hard negatives); cost: works. -- Static+abstention: 35.0% / 2.5% / 75.0% / -33.350; hard negatives FP 0.0%; hot-path 35.0% / 2.5% / 6.041 µs. Quality: partly (safe but low success, abstains on 75%); cost: works. -- Epsilon-greedy: 53.8% / 8.7% / 30.0% / -49.818; hot-path 28.0% / 2.5% / 7.213 µs. Quality: partly; cost: works. -- UCB1: 55.0% / 2.5% / 50.0% / -35.865; hot-path 32.0% / 0.5% / 9.510 µs. Quality: partly; cost: works. -- Thompson: 53.7% / 2.5% / 38.8% / -52.315; hard negatives FP 50.0%; hot-path 35.5% / 7.0% / 16.230 µs. Quality: partly; cost: works. -- LinUCB: 37.5% / 10.0% / 50.0% / -76.775; hard negatives FP 75.0%; hot-path 42.0% / 5.5% / 3567.384 µs. Quality: does not work; cost: works (3.6 ms p95). -- Risk-sensitive TS: 60.0% / 0.0% / 37.5% / -33.700; hard negatives FP 0.0%, correct non-injection 100%; abstention benchmark (56) correct 57.1%, wrong 42.9%; hot-path 60.0% / 0.0% / 411.821 µs. Quality: works on proxy; cost: works. -- RSCB-MC: 62.5% / 0.0% / 35.0% / -31.740; hard negatives FP 0.0%, correct non-injection 100%; abstention benchmark correct 57.1%, wrong 42.9% (over-conservative); hot-path 60.5% / 0.0% / 331.466 µs (mean 267.792 µs). Quality: works on proxy; cost: works. -- Oracle upper bound: 67.5% / 0.0% / 50.0% / -5.900; non-deployable diagnostic, no verdict. -- Ablations of RSCB-MC (Table 7, FP / correct abstention / cum. reward): no abstention 17.5% / 0.0% / -87.800 (quality: does not work); no failure-family features 0.0% / 5.0% / -41.740; no entity features 0.0% / 5.0% / -33.495; no contextual bandit 0.0% / 5.0% / -33.700; no risk-sensitive objective 0.0% / 5.0% / -33.820 (quality: partly, success not reported); cost not reported for ablations. Context-budget proxy (Table 8, 24 cases): no memory utility 60.8% best, short hint success 74.5% / FP influence 12.0%",
+   "v": "Configurations are memory-control methods; no agent or model run. Success metric: accepted/verified reuse or safe abstention per replay/proxy labels; the author states no success criterion (threshold), so for every entry below the quality verdict and the cost verdict are 'no criterion stated by the authors'. Offline replay (2 seeds x 40 events), success / FP / abstention / cumulative reward (Table 6); hot-path (200 cases) success / FP / p95 latency (Table 9). -- Lexical: 50.0% / 17.5% / 0.0% / -70.800; paraphrase R@1 78.1%; hot-path 50.0% / 17.5% / 3.920 µs. -- Static hybrid: 50.0% / 17.5% / 0.0% / -70.800; paraphrase R@1 80.2%; hard negatives FP 75.0%, unsafe injection 100%; hot-path 50.0% / 17.5% / 7.327 µs. -- Static+abstention: 35.0% / 2.5% / 75.0% / -33.350; paraphrase R@1 51.0%; hard negatives FP 0.0%, correct non-injection 100%; hot-path 35.0% / 2.5% / 6.041 µs. -- Full retriever (retrieval experiment only): paraphrase R@1 51.0%, MRR 52.1%; not in replay. -- Epsilon-greedy: 53.8% / 8.7% / 30.0% / -49.818; hot-path 28.0% / 2.5% / 7.213 µs. -- UCB1: 55.0% / 2.5% / 50.0% / -35.865; hot-path 32.0% / 0.5% / 9.510 µs. -- Thompson: 53.7% / 2.5% / 38.8% / -52.315; hard negatives FP 50.0%, correct non-injection 31.2%; hot-path 35.5% / 7.0% / 16.230 µs. -- LinUCB: 37.5% / 10.0% / 50.0% / -76.775; hard negatives FP 75.0%; hot-path 42.0% / 5.5% / 3567.384 µs. -- Risk-sensitive TS: 60.0% / 0.0% / 37.5% / -33.700; hard negatives FP 0.0%, correct non-injection 100%; abstention benchmark (56) correct 57.1%, wrong 42.9%; hot-path 60.0% / 0.0% / 411.821 µs. -- RSCB-MC: 62.5% / 0.0% / 35.0% / -31.740; hard negatives FP 0.0%, correct non-injection 100%; abstention benchmark correct 57.1%, wrong 42.9% (author: over-conservative); hot-path 60.5% / 0.0% / 331.466 µs (mean 267.792 µs). -- Oracle upper bound: 67.5% / 0.0% / 50.0% / -5.900; non-deployable diagnostic. -- Ablations of RSCB-MC (Table 7, FP / correct abstention / cum. reward): no abstention 17.5% / 0.0% / -87.800; no failure-family features 0.0% / 5.0% / -41.740; no entity features 0.0% / 5.0% / -33.495; no contextual bandit 0.0% / 5.0% / -33.700; no risk-sensitive objective 0.0% / 5.0% / -33.820; success and cost not reported for ablations. Context-budget proxy (Table 8, 24 cases): no memory utility 60.8% (best), short hint expected success 74.5% / FP influence 12.0%",
    "p": "14-18",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Only RSCB-MC had quality and cost verdicts; §6 requires one per configuration, baselines and ablations included. Verdicts added for each (judged on proxy data alone, so they are the reader's judgement); hot-path values and all Table 7 ablations added"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "r1 verdicts (works / partly / does not work) were judged 'on proxy data alone' with cut-offs the paper does not give; the author states no success criterion, so all verdicts replaced by 'no criterion stated by the authors' (rule of 2026-11-23). Added the full-retriever configuration and paraphrase R@1 (Table 4) and the missing hard-negative values (Table 5)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -228,8 +243,19 @@
    "f": "Q3",
    "v": "Partly (0.5): artifact commit and Python version given; no agent or model involved, so the agent claim is not tested",
    "p": "12",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No agent or model is used at all; the only tool (the artifact) is identified by commit and Python version. Whether that is Partly, Yes (everything used is identified) or No (the coding-agent claim is never tied to an agent or model) is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No agent or model is used at all; the only tool (the artifact) is identified by commit and Python version. Whether that is Partly, Yes (everything used is identified) or No (the coding-agent claim is never tied to an agent or model) is a judgement"
+    }
+   ],
+   "warn": "Nenhum agente nem modelo foi usado; só o artefacto (commit 227bbe3, Python 3.12.3) está versionado. Decide se isto vale Partly, Yes ou No."
   },
   {
    "f": "Q4",
@@ -240,9 +266,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Q4 asks whether tasks are described and available; both hold (Table 3, GitHub), so r0's Partly penalised the proxy nature, which Q4 does not ask about. But individual cases are described only by family and count, so Partly is also defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Q4 asks whether tasks are described and available; both hold (Table 3, GitHub), and the proxy nature bears on Q5/Q9. But individual cases are described only by family and count, so Partly is also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Q4 asks whether tasks are described and available; both hold (Table 3, GitHub), and the proxy nature bears on Q5/Q9. But individual cases are described only by family and count, so Partly is also defensible"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os casos são descritos só por família e contagem (Tabela 3), mas os artefactos estão publicados no GitHub. Decide entre Yes e Partly."
   },
   {
    "f": "Q5",
@@ -269,8 +305,19 @@
    "f": "Q8",
    "v": "No (0): deterministic, 2 seeds, no variance or statistical analysis",
    "p": "15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Two deterministic seeds are a limited form of repetition, so Partly is defensible; but per-seed results, variance and statistical tests are not reported, which supports No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Two deterministic seeds are a limited form of repetition, so Partly is defensible; but per-seed results, variance and statistical tests are not reported, which supports No"
+    }
+   ],
+   "warn": "Há dois seeds determinísticos, mas os resultados por seed e a variância não são reportados. Decide entre No e Partly."
   },
   {
    "f": "Q9",
@@ -281,9 +328,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement: the 'Where this evidence stops' section scopes the claims carefully, so a reader could give Yes; the title and practical implications for coding agents rest on no agent run"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: the 'Where this evidence stops' section scopes the claims carefully, so a reader could give Yes; the title and practical implications for coding agents rest on no agent run, and the abstention figures are not reconciled"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: the 'Where this evidence stops' section scopes the claims carefully, so a reader could give Yes; the title and practical implications for coding agents rest on no agent run, and the abstention figures are not reconciled"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A secção 'Where this evidence stops' delimita bem as conclusões, mas o título e as implicações falam de agentes sem nenhum agente testado. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",
@@ -301,10 +358,16 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): sole author created RSCB-MC",
+   "v": "Partly (0.5): sole author created RSCB-MC; it is compared with external retrieval and bandit baselines (lexical, static hybrid, epsilon-greedy, UCB1, Thompson, LinUCB) not created by the author",
    "p": "1, 23",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Author's rule of 2026-11-23: when the authors' own approach is compared with external baselines or other approaches, Q12 is Partly, not No"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",

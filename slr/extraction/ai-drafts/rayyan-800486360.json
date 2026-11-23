@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent = Claude Code 2.1.200 for all. Criterion: mean RPR over the 18 task instances (rubric-derived static, unit, integration, E2E checks + LLM-assisted criteria); Basic / Advanced averages from Table 2, overall = their mean (computed for this draft for without-skill; with-skill overall given in the text, p. 10). Cost: output tokens (K) per unit RPR, Basic / Advanced averages (Table 3); no time or money reported, and the authors say the metric is not a cost estimate (p. 12). Verdict rule (extractor's, not the protocol's or the authors'): quality works >= 85%, partly 65-85%, does not work < 65%; cost judged on each configuration's own token level (no threshold set by the authors).\n- Without skill + Claude Code + Claude Opus 4.8: Basic 84.0, Advanced 85.2 (overall ~84.6); tokens/RPR 64.6 / 77.3. Quality partly; cost works\n- With skill + Claude Code + Claude Opus 4.8: 92.6 / 90.2 (91.37); 60.3 / 74.1. Quality works; cost works\n- Without skill + Claude Code + GLM-5.2: 76.7 / 80.4 (~78.6); 45.5 / 62.5. Quality partly; cost works\n- With skill + Claude Code + GLM-5.2: 87.0 / 87.2 (87.12); 42.8 / 54.5. Quality works; cost works\n- Without skill + Claude Code + Kimi K2.7 Code: 66.5 / 66.8 (~66.7); 50.3 / 67.7. Quality partly; cost works\n- With skill + Claude Code + Kimi K2.7 Code: 80.3 / 84.0 (82.18); 39.8 / 46.6. Quality partly; cost works\n- Without skill + Claude Code + DeepSeek-V4-Pro: 55.5 / 71.3 (~63.4); 49.9 / 41.0. Quality does not work; cost works\n- With skill + Claude Code + DeepSeek-V4-Pro: 71.1 / 79.3 (75.23); 35.6 / 28.8. Quality partly; cost works\n- Without skill + Claude Code + MiniMax M3: 61.5 / 59.7 (~60.6); 65.5 / 82.0. Quality does not work; cost works\n- With skill + Claude Code + MiniMax M3: 70.2 / 67.0 (68.58); 52.7 / 65.0. Quality partly; cost works\n- Without skill + Claude Code + Qwen3.7-Max: 60.4 / 68.9 (~64.7); 55.2 / 53.8. Quality does not work (Basic does not work, Advanced partly); cost works\n- With skill + Claude Code + Qwen3.7-Max: 70.9 / 80.7 (75.78); 42.1 / 43.3. Quality partly; cost works",
+   "v": "Agent = Claude Code 2.1.200 for all. Criterion: mean RPR over the 18 task instances (rubric-derived static, unit, integration, E2E checks + LLM-assisted criteria); Basic / Advanced averages from Table 2, overall = their mean (computed for this draft for without-skill; with-skill overall given in the text, p. 10). Cost: output tokens (K) per unit RPR, Basic / Advanced averages (Table 3); no time or money reported, and the authors say the metric is not a cost estimate (p. 12). The authors state no success criterion for quality or cost.\n- Without skill + Claude Code + Claude Opus 4.8: Basic 84.0, Advanced 85.2 (overall ~84.6); tokens/RPR 64.6 / 77.3. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + Claude Opus 4.8: 92.6 / 90.2 (91.37); 60.3 / 74.1. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Without skill + Claude Code + GLM-5.2: 76.7 / 80.4 (~78.6); 45.5 / 62.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + GLM-5.2: 87.0 / 87.2 (87.12); 42.8 / 54.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Without skill + Claude Code + Kimi K2.7 Code: 66.5 / 66.8 (~66.7); 50.3 / 67.7. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + Kimi K2.7 Code: 80.3 / 84.0 (82.18); 39.8 / 46.6. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Without skill + Claude Code + DeepSeek-V4-Pro: 55.5 / 71.3 (~63.4); 49.9 / 41.0. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + DeepSeek-V4-Pro: 71.1 / 79.3 (75.23); 35.6 / 28.8. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Without skill + Claude Code + MiniMax M3: 61.5 / 59.7 (~60.6); 65.5 / 82.0. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + MiniMax M3: 70.2 / 67.0 (68.58); 52.7 / 65.0. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Without skill + Claude Code + Qwen3.7-Max: 60.4 / 68.9 (~64.7); 55.2 / 53.8. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- With skill + Claude Code + Qwen3.7-Max: 70.9 / 80.7 (75.78); 42.1 / 43.3. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "10-13",
    "rev": [
     {
@@ -181,9 +181,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "All RPR values re-checked against Table 2 Avg. columns and all tokens/RPR values against Table 3 Avg. columns (Advanced Claude Opus row rebuilt from the jumbled table: product values average to 77.3 / 74.1, ratio 0.96, so the values hold); with-skill overall means match p. 10 and the computed without-skill means are correct. The verdicts are judgements: quality thresholds (85% / 65%) are the extractor's, with Claude Opus without skill (84.6), Qwen without skill (64.7) and DeepSeek without skill (63.4) close to a boundary; cost 'works' for every configuration rests only on an output-token proxy the authors say is not a cost estimate (p. 12), with no time or money reported."
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: extractor-chosen thresholds removed and verdicts replaced with \"no criterion stated by the authors\" (the authors set no success threshold); configurations and metric values kept."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -290,7 +295,7 @@
      "why": "Aggregation mentions 'repeated trials of the same task instance' (p. 9) but the number of trials is never stated and no variance or statistical test is reported. The missing-information rule gives No; Partly is arguable if repeated trials are read as done."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo fala em \"repeated trials\" (p. 9) mas nunca diz quantas execuções houve nem reporta variância. Decide entre No (falta de informação) e Partly."
   },
   {
    "f": "Q9",

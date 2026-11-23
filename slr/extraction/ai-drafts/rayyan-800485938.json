@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485938",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,10 +164,16 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Observational, per originating agent (ACF + agent; models not stated); criterion: per-instruction compliance with own ACF on applicable commits. - ACF + GitHub Copilot + model n.s.: 1,137 instructions evaluated; mean 66.0%, median 100%. Quality: partly. - ACF + Claude Code + model n.s.: 799 evaluated; mean 52.2%, median 66.7%. Quality: partly. - ACF + OpenAI Codex + model n.s.: 117 evaluated; mean 51.2%, median 100%. Quality: partly. Overall: mean 59.8%, median 100%; 54.4% of instructions always followed, 37.3% never, 8.3% in between. Cost verdict: not measured",
+   "v": "Observational, per originating agent (ACF + agent; models not stated); metric: per-instruction compliance rate with its own ACF on applicable commits; no success criterion stated by the authors. - ACF + GitHub Copilot + model n.s.: 1,137 instructions evaluated (coverage 48.0%); mean 66.0%, median 100%. Quality: no criterion stated by the authors. - ACF + Claude Code + model n.s.: 799 evaluated (52.6%); mean 52.2%, median 66.7%. Quality: no criterion stated by the authors. - ACF + OpenAI Codex + model n.s.: 117 evaluated (49.6%); mean 51.2%, median 100%. Quality: no criterion stated by the authors. Overall: mean 59.8%, median 100%; 54.4% of instructions always followed, 37.3% never, 8.3% in between. Cost: not measured",
    "p": "21-24",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The 'Quality: partly' verdicts rested on no criterion from the paper; the authors state no success threshold for compliance, so per the 2026-11-23 rule the verdict is 'no criterion stated by the authors'. Metric values kept (Table 9)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

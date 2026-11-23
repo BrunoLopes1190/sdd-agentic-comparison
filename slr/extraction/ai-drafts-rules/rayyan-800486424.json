@@ -1,0 +1,31 @@
+{
+ "key": "rayyan-800486424",
+ "fields": [
+  {
+   "f": "SDD level",
+   "doubt": "O artigo não indica nível SDD; o plano e as tarefas são escritos antes da implementação, mas nada diz sobre mantê-los depois. Escolhe entre spec-first e not classifiable."
+  },
+  {
+   "f": "Q1",
+   "doubt": "O objetivo e as três contribuições são explícitos, mas não há perguntas de investigação; decide se isso basta para Yes ou se fica Partly."
+  },
+  {
+   "f": "Q10",
+   "doubt": "Não há secção de limitações; o Partly assenta nos problemas em aberto, que são lacunas do campo e não limitações do relato. Decide entre Partly e No (informação em falta vale No)."
+  },
+  {
+   "f": "Q11",
+   "doubt": "Publicado nos proceedings do CIKM '26 (ACM, com DOI), mas é uma proposta de 2 páginas da Industry Day; confirma na chamada da Industry Day se houve revisão por pares."
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (proposes an approach and evaluates none; authors at Infobip, which developed the workflow)",
+   "why": "Rule of 2026-11-23: a study that proposes an approach and evaluates none is N/A on Q12 (was No (0))",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "Só são nomeados git, artefactos em texto e materiais públicos; agente, modelo, computação e custo não são indicados. Decide entre Partly e No."
+  }
+ ]
+}

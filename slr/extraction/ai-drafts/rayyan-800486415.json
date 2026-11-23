@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486415",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Still a judgement: contributions 1-3 are the RAMP instrument (released 'as a reusable instrument', p. 1), but the title and headline finding are the Study 2 evaluation; 'Evaluates; secondary: Proposes an evaluation method' is equally defensible. Either way Q13 stays N/A"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: contributions 1-2 are the RAMP instrument ('release RAMP as a reusable instrument', p. 1), but the title and headline finding are the Study 2 evaluation, and Study 1 is repository mining of committed AI artefacts (author's rule: mining studies are 'Evaluates — repository mining'). 'Evaluates; secondary: Proposes an evaluation method' is equally defensible; Q13 stays N/A either way"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo propõe o instrumento RAMP mas o título e o resultado principal são a avaliação (Estudo 2), e o Estudo 1 é mineração de repositórios. Decide se a natureza principal é Proposes an evaluation method ou Evaluates — repository mining."
   },
   {
    "f": "Approach(es): name and version",
@@ -169,16 +174,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Configurations are maturity strata of treated repositories (agents mixed and not identified per repo; models not stated). Criterion: post-adoption change vs matched controls (DiD).\n- L1 (no committed AI configuration), agent-first stratum: cognitive complexity +52.7% (p<0.001), warnings +24.1% (p<0.01), duplication +15.4% (p<0.05), comment density +7.1% (n.s.); commits +37.6%, lines added +48.1%. Quality does not work; cost: N/A (velocity works)\n- L2+ (committed configuration), agent-first stratum: complexity +26.7% (p<0.01), warnings +14.0% (p<0.05), duplication +14.2% (p<0.01), comments +1.9% (n.s.); commits +27.5%, lines added +68.7%. Quality partly; cost: N/A (velocity works)\n- Four-level gradient (pooled sample): complexity L1 +54.4%, L2 +39.8% (p<0.001), L3-L4 not distinguishable from zero; warnings L1 +23.0%, L2 +16.7%, n.s. above; L4 duplication +31.4% (p<0.01). L3 and L4 strata small (23 and 40 repos). Verdicts per level: L1 quality does not work; L2 quality partly (complexity and warnings still rise); L3 quality works (no quality metric distinguishable from zero; small stratum); L4 quality partly (duplication +31.4%); cost N/A for all (no cost measured, velocity only)\n- Combined L1-2 (robustness): complexity +46.6%, warnings +20.9%\n- Pooled agent-first + IDE-first: complexity +54.4% vs +35.9%; warnings +23.0% vs +20.0%; duplication L2+ +5.9% (n.s.) vs L1 +16.0%",
+   "v": "Configurations are maturity strata of treated repositories (agents mixed and not identified per repo; models not stated). Measure: DiD post-adoption change vs propensity-matched non-adopting controls (log outcomes, ≈ % change); no success criterion stated by the authors.\n- Matched non-adopter controls (baseline; no agent): reference of the DiD; no separate values reported. Quality: no criterion stated by the authors; cost: not measured, no criterion stated by the authors\n- L1 (no committed AI configuration) + mixed agents + n.s., agent-first stratum (214 repos): cognitive complexity +52.7% (p<0.001), warnings +24.1% (p<0.01), duplication +15.4% (p<0.05), comment density +7.1% (n.s.); commits +37.6% (p<0.001), lines added +48.1% (p<0.05). Quality: no criterion stated by the authors; cost: not measured, no criterion stated by the authors\n- L2+ (committed configuration) + mixed agents + n.s., agent-first stratum (182 repos): complexity +26.7% (p<0.01), warnings +14.0% (p<0.05), duplication +14.2% (p<0.01), comments +1.9% (n.s.); commits +27.5% (p<0.001), lines added +68.7% (p<0.001). Quality: no criterion stated by the authors; cost: not measured, no criterion stated by the authors\n- Four-level gradient (robustness, pooled sample): complexity L1 +54.4%, L2 +39.8% (both p<0.001), L3-L4 indistinguishable from zero; warnings L1 +23.0%, L2 +16.7%, n.s. above; duplication significant only at L1 among L1-L3; L4 duplication +31.4% (p<0.01). L3 and L4 strata small (23 and 40 repos). Quality: no criterion stated by the authors (each level); cost: not measured\n- Combined L1-2 (robustness, pooled): complexity +46.6%, warnings +20.9% (both p<0.001). No verdict (re-grouping of the same strata)\n- Pooled agent-first + IDE-first (robustness): complexity L1 +54.4% vs L2+ +35.9%; warnings +23.0% vs +20.0%; duplication L1 +16.0% vs L2+ +5.9% (n.s.). No verdict (re-grouping of the same strata)",
    "p": "8-9",
    "rev": [
     {
      "round": 2,
      "verdict": "corrected",
      "why": "The four-level gradient entry gave no quality/cost verdict per level, which §6 requires for every configuration; added them (L3 'works' rests on n.s. estimates in a 23-repo stratum, a judgement). Combined L1-2 and pooled entries are re-groupings of the same strata (robustness), so left without verdicts. All values re-checked against Table 5 (p. 8) and §5.3.4 (p. 9)"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Earlier rounds gave works/partly/does-not-work verdicts and L3 'works' from the sign and significance of the DiD estimates. The authors state no success criterion (they call the Level 2 split 'descriptive, not ... a qualitative threshold', p. 11; He et al.'s averages are used only as context, p. 2, 8), so all verdicts replaced by 'no criterion stated by the authors' (§6, author's rule of 2026-11-23). Added the matched non-adopter controls as the baseline entry. Values unchanged, re-checked against Table 5 (p. 8) and §5.3.4 (p. 9)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

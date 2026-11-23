@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498057",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chukkapalli, D., Avula, T., Aggarwal, A., Singh, H., Tallanki, A. (2026). CommitDistill: A Lightweight Knowledge-Centric Memory Layer for Software Repositories. arXiv:2605.18284v1 [cs.SE], 18 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.18284v1 [cs.SE]; IEEE-style template, mentions a 'special-session theme' and a repository link 'to be inserted on acceptance'; no published venue stated",
+   "p": "1-2, 14",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form '<type> — <detail>'; type unchanged (Preprint)"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Microsoft Corporation (all five authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — CommitDistill, open-source prototype mining git history into typed knowledge units with a TF-IDF retriever; 'illustrative case study' (RQ1-RQ5) against git log --grep, BM25 and a no-retrieval control",
+   "p": "1-2, 5",
+   "verdict": "corrected",
+   "why": "Value did not follow the required form ('secondary: evaluates it' is not a list value; ' — ' detail missing); nature unchanged"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "CommitDistill, versions CD-v1 (regex-only extraction) and CD-v2 (regex + subject-fallback unit, released default); CD-Hybrid rendering (ablation). Baselines: git log -i --grep, BM25 over raw commits",
+   "p": "1, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Knowledge store .knowledge/units.json (plain JSON, committed with the code) of typed units: Facts (constraints), Skills (actionable solutions), Patterns (recurring failure modes), each with id, type, title, content, weight, context and provenance (commit SHA, author, date); 9 regex heuristics. No specification document",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Extraction phase (asynchronous post-merge hook: normalise commit text, regex matching, length filter, dedup, store) and retrieval phase (triggered by developer, IDE or LLM agent before acting: TF-IDF with type/prior boosts, silence threshold θ=2.5, top-k)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Store is reviewable through git diff/PR workflows (described as a property, not evaluated); IDE integration with human reading proposed as future work",
+   "p": "5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full prototype (extraction and retrieval) on real repositories; downstream LLM use only as top-3 units prepended to a prompt (no coding agent)",
+   "p": "5-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (repository memory/context layer, no specification); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: mining history of public repositories; downstream task is time-travel bug-fix file/identifier localisation (no patch generated)",
+   "p": "6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "5 repositories, 5,000 most recent commits each (25,000 commits; Section V-B says 2,000 each / 10,000), 1,167 units; 40 dual-annotated units; 36 retrieval queries; 12-query budget benchmark; 15-query calibration set; 40 fixes (RQ4); 200 fixes (RQ5)",
+   "p": "5-6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "psf/requests (Python, HTTP client), pallets/flask (Python, web framework), expressjs/express (JavaScript), redis/redis (C, in-memory database), junit-team/junit5 (Java, test framework)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants); two co-author annotators, adjudication by a third co-author",
+   "p": "6, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Extraction wall-clock time (3.47 s for 25,000 commits), query latency (<50 ms), retrieved payload length in characters (median top-1 72 vs 287 BM25 vs 301 grep); back-of-envelope tokens saved per developer-day",
+   "p": "5, 7, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Useful-precision of units (human labels, Cohen's κ); retrieval hit-rate, top-1 relevance and false positives; budget-constrained hit-rate; Hit@1/3/10 and MRR (time-travel regression finding); LLM-as-judge usefulness score 0-2 (RQ5)",
+   "p": "6-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Yield (units per 1,000 commits, by type); abstention (hit-rate on answerable / not-in-corpus / OOD queries vs θ)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic scripts (released drivers), git history time-travel; LLM-as-judge with GPT-4o and GPT-4o-mini, paired bootstrap CIs. Manual: two co-author annotators labelling units (4-class rubric), relevance judgement of top-1 results on hand-authored queries",
+   "p": "5-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No coding agent; configurations are retrievers, downstream assistant GPT-4o-mini, judges GPT-4o and GPT-4o-mini. Criteria stated by the authors: per-query hit = answer span contained (budget benchmark), file-locality ground truth (RQ4), and for RQ5 a statistically detectable lift over control (paired bootstrap 95% CI excluding zero); no success threshold for retrieval hit-rates. Cost: authors state extraction and retrieval are 'easily fast enough' for a pre-commit hook or editor plug-in. -- (1) CommitDistill CD-v2 (released default): budget hit-rate at 256 chars 0.750 (12 queries; 0.500 at 64, 0.917 at 512-2048), unconstrained Hit@10 11/12; RQ4 Hit@1/3/10/MRR 0.075 / 0.250 / 0.450 / 0.177; RQ5 mean 0.718, Δ +0.015 [-0.035, +0.065]; hard half (n=102) +0.123. Quality: does not work per the authors' RQ5 criterion (CI includes zero); retrieval: no criterion stated by the authors. Cost: works per the authors' statement (3.47 s extraction for 25,000 commits, <50 ms per query, median top-1 72 chars). -- (2) CommitDistill CD-v1 (regex only): hand-authored queries top-1 useful 3/6, 0 false positives, silent on 3; 36-query hit 31/36; RQ4 0.000 / 0.025 / 0.025 / 0.009; RQ5 three-arm mean 0.663, Δ -0.040 [-0.090, +0.010]. Quality: does not work per the RQ5 criterion; retrieval: no criterion stated by the authors. Cost: works per the authors' statement. -- (3) CD-Hybrid (ablation; CD-v2 units plus BM25-budget body): RQ5 mean 0.720, Δ +0.018 [-0.035, +0.070]; hard half +0.142; vs BM25 Δ -0.013 [-0.068, +0.043]. Quality: does not work per the RQ5 criterion; cost: no criterion stated by the authors (mean payload 278.1 chars). -- (4) BM25 over raw commits (baseline): budget hit-rate at 256 chars 0.333, unconstrained Hit@10 8/12; hand queries top-1 useful 5/6 by the table totals (4/6 in the prose), 0 false positives, median top-1 287 chars; 36/36 hit; RQ4 0.050 / 0.150 / 0.400 / 0.136; RQ5 mean 0.733, Δ +0.030 [-0.022, +0.083]; hard half +0.162. Quality: does not work per the RQ5 criterion; retrieval: no criterion stated by the authors; cost: no criterion stated by the authors. -- (5) git log -i --grep (baseline): budget hit-rate at 256 chars 0.083, Hit@10 1/12; hand queries top-1 useful 1/6, 5 false positives, median top-1 301 chars; 36/36 hit; RQ4 0.125 / 0.200 / 0.300 / 0.168. Quality and cost: no criterion stated by the authors (not in RQ5). -- (6) Control, GPT-4o-mini with bug subject only (baseline): RQ5 mean 0.703; hard half 0.304. Quality and cost: no criterion stated by the authors. -- Unit precision (CD-v1 at 2,000-commit window): 21/40 useful (0.525, CI [0.375, 0.675]), κ=0.633; no criterion stated by the authors",
+   "p": "7-11",
+   "verdict": "corrected",
+   "why": "Verdicts were missing for most configurations (grep, BM25, CD-Hybrid, control, CD-v2 on retrieval) and 'cost: works' and RQ4 'does not work' were set without a criterion stated by the authors (rule of 2026-11-23); the authors' RQ5 criterion (CI excluding zero) and their cost statement are now used; hard-half and budget values added per configuration"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Subjects: 5 public repositories. Configurations: CommitDistill (CD-v1, CD-v2, CD-Hybrid) vs git log --grep vs BM25; RQ5 adds a no-retrieval control. Held constant: same commit window, top-k, pre-fix time-travel discipline, same assistant model and two judge models, paired design. Acceptance criteria: answer-span substring match; file-locality ground truth (RQ4); LLM judges given ground-truth files/identifiers (RQ5). Repetitions: deterministic single runs; bootstrap resampling. Human intervention: none. Three-arm RQ5 design stated as pre-registered (n=40 pilot, then n=200); four-arm ablation designed post hoc (exploratory)",
+   "p": "5-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "CommitDistill wins budget-constrained retrieval (0.750 vs 0.333 BM25 at 256 chars) and has shorter payloads; on unconstrained auto-derived queries baselines hit 36/36 vs 31/36 (trivial recall); CD-v2 best on RQ4 Hit@10/MRR, CD-v1 worst; RQ5: no retriever beats control on the mean (all CIs include zero), CD-Hybrid vs BM25 Δ = -0.013 [-0.068, +0.043] (indistinguishable)",
+   "p": "7-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished retrievers on retrieval tasks; RQ5 failed to distinguish conditions (inter-judge κ 0.355, judges rank conditions differently, ρ=0.21). Deterministic and scripted, so repeatable (LLM response cache released). Limitations stated: small query sets, author-curated queries, LLM-judge construct validity, minimal-prompt control unlike production assistants, post hoc four-arm design",
+   "p": "9-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Recall limited (lexical, regex keywords); yield depends on commit-message culture; precision only on 40 Python units by co-authors; 36 queries too few; RQ5 judges from one vendor, low κ; no evidence of developer productivity or end-to-end LLM utility; trust threats (commit-prose poisoning, privacy, attribution, adversarial silence circumvention). Future: LLM-assisted extraction, neural re-ranker, controlled maintainer study, IDE integration, production assistant study, held-out replication on a third repository",
+   "p": "12-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Many internal inconsistencies: 'three' RQs announced, five listed (p. 5-6); Section V-B says 2,000 commits per subject (10,000 total) while Table II and abstract use 5,000 (25,000), and the abstract says extraction over 10,000 commits takes under 4 s; redis yield 185.6 units/kc in Table II vs 329.5 on p. 12-13; p. 12 attributes 8.0 units/kc to flask (Table II: express 8.0, flask 14.6); p. 13 says condition ordering matches between judges while p. 10 says it is not preserved; p. 14 calls RQ5 'null with a slight negative trend for CommitDistill' although CD-v2 Δ is +0.015; p. 11 says the system is 'structurally outperformed by BM25' on regression-finding although CD-v2 leads Table VII; the calibration set is called 15 queries but its classes sum to 12 (3+3+6); char audit refers to an unexplained 'PM' arm; BM25 three-arm CI upper bound +0.082 (Table X) vs +0.083 (Table VIII). Table IV (jumbled by pdftotext): per-row letters give BM25 R or P on 6/6 hand queries, the totals row reads 5, the prose says 'roughly relevant' on 4/6; CD 3/6 with 0 false positives and grep 1/6 with 5 false positives agree across sources. Tables IV-VI jumbled by pdftotext; values rebuilt. Pre-registration of the three-arm RQ5 claimed, no link or registry. Abstract says source accompanies the paper; p. 14 says link 'to be inserted on acceptance'. Programming language: Python (tool); subjects Python, JavaScript, C, Java",
+   "p": "1, 5-14",
+   "verdict": "corrected",
+   "why": "Added inconsistencies the draft missed (abstract 10,000 commits, p. 11 'outperformed by BM25' vs Table VII, 15 vs 12 calibration queries, BM25 Table IV 6 vs 5 vs 4 useful, CI bound mismatch)"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ5 stated (count mismatch noted)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithms, heuristics, thresholds, drivers and reproduction commands given",
+   "p": "3-11, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-4o and GPT-4o-mini named without snapshot versions; no agent involved; Python 3.9+",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public repositories and query construction described; artefact availability promised on acceptance",
+   "p": "6, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): answer-span matching and file-locality ground truth are independent, but precision labelled by co-authors, hand queries author-curated, RQ5 judged by LLMs with low agreement",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): retrieval and usefulness metrics defined, payload/latency measured; no monetary or token cost of downstream use",
+   "p": "6-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): grep, BM25 and no-retrieval control under the same conditions",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): bootstrap CIs and κ for RQ2/RQ5; no tests on Tables II-IV; single deterministic runs",
+   "p": "7, 9-10, 13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): null RQ5 result reported honestly, but 'decisive' framing of a 12-query benchmark and several contradictory statements",
+   "p": "9-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity by Wohlin category plus trust threat model",
+   "p": "12-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created CommitDistill (all variants); the git grep and BM25 baselines and the GPT-4o models are not theirs",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "§5 gives Partly when the authorship applies to only some of the approaches evaluated; the baselines (grep, BM25) are evaluated under the same conditions. The draft's No treats only CommitDistill as an approach",
+   "doubt": "Os autores criaram o CommitDistill, mas grep e BM25 também são avaliados como baselines. Decide se contam como abordagens (Partly) ou não (No)."
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): pure Python, no dependencies, local, seconds on a laptop; requirements stated",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -58,7 +58,7 @@
      "why": "Main nature (benchmark = proposes an evaluation method) is clear from the contributions (p. 3-4). The secondary is a judgement: four configurations are run against each other (Compares) but all are variants of one skill-bank approach vs none (Evaluates)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O tipo secundário é discutível: correm quatro configurações (No Skills, S-Full-20, S-Ablated-20, Coreless-3), mas todas são variantes de um banco de skills contra nenhum (p. 9-10). Escolhe Evaluates ou Compares como secundário."
   },
   {
    "f": "Approach(es): name and version",
@@ -116,7 +116,7 @@
      "why": "The README contract and frozen plan are fixed inputs, not the object studied (the skill bank is); 'not classifiable' vs 'spec-first' is a judgement for the author"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Os autores não usam termos de SDD; o contrato README e o plano congelado são entradas fixas, não o objeto estudado, que é o banco de skills (p. 5, 9). Decide entre não classificável e spec-first."
   },
   {
    "f": "Task type",
@@ -190,7 +190,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: micro-average CCPF on 4 transfer tasks, 3 trials each (12 runs per configuration); coding agent GPT-5.5 Medium (agent harness not named), simulated user DeepSeek V4 Pro. - No Skills (baseline) + GPT-5.5 Medium: CCPF 46.63% (MeterSettle 76.42, FlagFoundry 46.34, EscrowGuard 18.52, CapacityLease 47.83); 50.0M tokens, 3.21M non-cached input, 27.0 turns, 189.00 min per run. Quality partly (under half of hidden cases passed); cost does not work (about 3 h and 50M tokens per run). - S-Full-20 + GPT-5.5 Medium: CCPF 51.25% (80.49 / 47.15 / 33.33 / 46.38); 40.2M tokens, 0.61M non-cached, 26.5 turns, 84.46 min. Quality partly (about half of hidden cases; uneven across tasks); cost partly (84 min, 40M tokens per run). - S-Ablated-20 (ablation) + GPT-5.5 Medium: CCPF 52.60%, 91.74 min. Quality partly; cost partly. - Coreless-3 (ablation, exploratory, designed after seeing results) + GPT-5.5 Medium: CCPF 48.36%, >=190.87 min; 26 compactions, 699,961 reasoning tokens (totals over 12 runs). Quality partly; cost does not work. Per-task CCPF only reported for No Skills and S-Full-20; tokens per run only for No Skills and S-Full-20",
+   "v": "Criterion: micro-average CCPF on 4 transfer tasks, 3 trials each (12 runs per configuration); coding agent GPT-5.5 Medium (agent harness not named), simulated user DeepSeek V4 Pro. - No Skills (baseline) + GPT-5.5 Medium: CCPF 46.63% (MeterSettle 76.42, FlagFoundry 46.34, EscrowGuard 18.52, CapacityLease 47.83); 50.0M tokens, 3.21M non-cached input, 27.0 turns, 189.00 min per run. - S-Full-20 + GPT-5.5 Medium: CCPF 51.25% (80.49 / 47.15 / 33.33 / 46.38); 40.2M tokens, 0.61M non-cached, 26.5 turns, 84.46 min. - S-Ablated-20 (ablation) + GPT-5.5 Medium: CCPF 52.60%, 91.74 min. - Coreless-3 (ablation, exploratory, designed after seeing results) + GPT-5.5 Medium: CCPF 48.36%, >=190.87 min; 26 compactions, 699,961 reasoning tokens (totals over 12 runs). Per-task CCPF only reported for No Skills and S-Full-20; tokens per run only for No Skills and S-Full-20. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "9, 11-13",
    "rev": [
     {
@@ -207,9 +207,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "All numbers checked against Tables 2-5 (p. 11-12). Verdict levels are a judgement: e.g. about 85-90 min and 40M tokens per run for S-Full-20 / S-Ablated-20 could be read as 'partly' or 'does not work', and CCPF around 50% as 'partly' or 'does not work'"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": ""
   },
   {
    "f": "Comparison: design",

@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800498254",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, G., Jiang, L., Li, D., Liu, T., Wang, S., Hu, Y., Huang, Z., Sun, H., Hao, J., Zhang, Y., He, X., Feng, L. (2026). MemDev-Bench: Does Memory Help Code Agents? Benchmarking Memory Systems over Real Repository Histories. arXiv:2610.27524v1 [cs.AI], 20 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.27524v1 [cs.AI], 20 Oct 2026; 'MemoraX AI Research' template, 41 pages; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Southeast University, Nanjing (Chen, Jiang, Liu, Huang, Sun, Zhang, Feng); Southern University of Science and Technology, Shenzhen (Wang); MemoraX AI, Shenzhen (Li, Hu, Hao, He) - a company whose line of business the paper does not describe (the name and the paper's 'MemoraX AI Research' template suggest memory AI)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — MemDev-Bench, a benchmark of relevance-annotated, executable repository histories with its construction pipeline, used to compare five memory systems (plus 29 in an appendix) for a code agent against NoMem and raw-trajectory (FullTraj) baselines",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Memory systems/context mechanisms (Table 10): A-Mem (commit ceffb860f0712; MCP 0.2.6), Mem0 (plugin 0.2.9; official API), MemOS (MCP 1.1.2; official API), Supermemory (plugin 0.0.13; official API), Claude-Mem v12.1.1; internal models of Mem0, MemOS and Supermemory provider-managed (not exposed). Baselines NoMem and FullTraj (raw historical trajectories in context). 29 further memory systems in Appendix F (e.g. LightMem v2.0, Cognee, Hindsight, EverMemOS; versions mostly not stated)",
+   "p": "6-7, 31-32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Memory stores built by each system from agent trajectories on earlier tasks (notes, extracted memories, graphs, tool-use observations, session summaries; Appendix G), frozen and read-only for the base task; FullTraj: raw trajectories in chronological order. No specification",
+   "p": "6-7, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Evaluation flow: agent solves historical tasks in chronological order while memory system builds memory -> memory frozen -> agent solves base task with retrieval (3 runs). Benchmark construction: dual-path PR mining -> leakage screening -> LLM labeling + human verification -> executable task construction (patch splitting, separate pre/post environments, rule-experience-agent resolver)",
+   "p": "3-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent flow. Benchmark construction: human reviewers exclude leaking tasks; three senior engineers verify LLM relevance labels; three more label 2,270 samples blind",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Memory mechanism only (context/memory systems integrated with Claude Code), run over full task solving",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (memory systems, no specification)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution (SWE-bench Verified and Pro base tasks) with earlier PRs as historical tasks",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Benchmark: 555 base tasks (344 Verified, 211 Pro), 4,869 historical tasks, 22 repositories, 4 languages. Experiments: Verified subset (344 base tasks, 2,987 historical tasks, 12 Python repos); 133 Improvement Tasks and 50 Preservation Tasks; histories of 3-10 (Relevant), 7-21 (Noisy), 13-35 (Repo) tasks; broad evaluation on 150 base tasks",
+   "p": "3, 5-6, 31",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories (django, sympy, scikit-learn, matplotlib, astropy, xarray, sphinx, pytest, requests, ...; Pro: ansible, openlibrary, teleport, flipt, vuls, ...); experiments Python only",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs; six senior engineers as annotators)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input tokens (M) and output tokens (K) per base task (excluding memory-building tokens); agent steps (model-response turns)",
+   "p": "7, H.1 (p. 38-39)",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved rate (official verifier); Rescue and Harm (gains and regressions vs NoMem over 3x3 run pairs); F2P and P2P test pass rates",
+   "p": "7-8, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "File, Line and Edit Recall against the reference patch (localization/editing); failure modes of memory-induced regressions (manual trajectory inspection, 115 cases); step reductions by stage and action",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official task verifier in Docker via Harbor 0.3.0, token and step logs, patch comparison. Manual: inspection of failed trajectories for failure modes. Bootstrap CIs over tasks (10,000 replicates) for Rescue/Harm",
+   "p": "7-9, 27, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All: Claude Code 2.1.170 + DeepSeek-V4-Flash (high effort, 200 turns), information-isolation protocol, 3 base-task runs. Metric: Resolved by official verifier. No success criterion stated by the authors for any configuration, so no verdicts. Improvement Tasks (133), Resolved % Rel/Noisy/Repo; input tokens (M) Rel; steps Rel:\n- NoMem (baseline): 35.3; 6.45 M; 185.1. Quality and cost: no criterion stated by the authors\n- FullTraj: 39.1/37.3/39.6; 16.31/24.11/32.86 M; 141.7/114.5/113.1 steps. Quality and cost: no criterion stated by the authors\n- A-Mem: 40.4/38.1/41.6; 6.11 M; 178.0. Quality and cost: no criterion stated by the authors\n- Mem0: 40.1/38.1/41.1; 6.26 M; 171.8. Quality and cost: no criterion stated by the authors\n- MemOS: 36.8/37.3/35.3; Harm 9.2/9.3/9.9%; 6.49 M; 189.5. Quality and cost: no criterion stated by the authors\n- Supermemory: 40.6/40.6/39.3; 6.39 M; 183.8. Quality and cost: no criterion stated by the authors\n- Claude-Mem: 41.6/40.1/42.6; Harm 5.9/6.8/4.8%; 5.82 M; 180.0. Quality and cost: no criterion stated by the authors\nPreservation Tasks (50), Resolved Rel/Noisy/Repo: NoMem 94.0; FullTraj 97.3/92.7/90.0; A-Mem 95.3/94.0/93.3; Mem0 96.7/94.0/91.3; MemOS 95.3/92.7/94.0; Supermemory 93.3/92.7/91.3; Claude-Mem 94.0/94.0/96.7 (mean of five systems below NoMem under Noisy 93.5 and Repo 93.3). No criterion stated by the authors.\nBroad evaluation (29 systems, single run, 150 tasks, Relevant): Resolved 46.0-52.67% vs NoMem 47.78 +/- 1.54. No criterion stated by the authors",
+   "p": "7-8, 27, 31-32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: MemDev-Bench Verified subset; Improvement (fail in >= 2 of 3 no-memory runs) and Preservation (sampled from succeed in >= 2) subsets; three history scenarios (Relevant, Noisy, Repo). Configurations: NoMem, FullTraj, 5 memory systems (+29 in appendix). Baseline: NoMem (three fresh runs independent of subset selection). Held constant: agent, model, routing, effort, turn budget, resources, time limits, isolation protocol; Claude Code built-in memory disabled; context compaction disabled; independent memory store per base task. Acceptance tests: official verifier. Repetitions: 3 base-task runs with distinct seeds (1 run for the 29-system evaluation). Human intervention: none; infrastructure failures rerun",
+   "p": "6-7, 27, 31",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Memory raises Improvement-task Resolved from 35.3% to at most 42.6% (Claude-Mem, Repo); Rescue 9.9-13.2% offset by Harm 4.8-9.9%. On Preservation tasks memory averaged over five systems falls below NoMem under Noisy and Repo (93.5%, 93.3% vs 94.0%). Noise raises Harm (7.1% -> 8.0%) more than it lowers Rescue. Memory improves Line/Edit Recall and F2P (18.10% -> 23.15-28.57%), not File Recall. FullTraj ~34% fewer steps, 28% fewer output tokens vs NoMem but 2.5-5x input tokens. No formal significance tests; SDs and bootstrap CIs given (many overlap)",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: benchmark separated rescue and harm effects and scenarios, but differences between memory systems are small relative to SDs and CIs; information isolation needed (unrestricted web gives 93.31% resolve rate via leakage). Limitations stated: Verified subset only, single agent-model configuration, construction pipeline not compared with existing methods",
+   "p": "6-8, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Only the Verified subset and one agent-model configuration evaluated; construction pipeline not systematically compared with existing methods. Gaps: memory systems should preserve process information and reassess applicability against current task; couple memory exposure and reliance at decision time",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Tables 2-4 (pp. 7-8; column order Rel/Noi/Repo rebuilt from the text, layout readable) and Table 9 (pp. 31-32). Text says FullTraj Resolved 39.6% while best memory system 42.6% (consistent with Table 2). Failure modes (Fig. 4): misapplied transfer 81, compatibility mismatch 50, scope expansion 44, failure to revise 37. No data or code release link found in the text (reproducibility statement refers to the paper's specifications). AI use statement: generative AI used for literature retrieval, design, analysis and writing. No pre-registration. Languages: benchmark Python, Go, JS, TS; experiments Python",
+   "p": "7-11, 31-32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question and benchmark requirements (temporal validity, controlled relevance) clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, annotation, setup, isolation prompt and rules, metrics detailed in appendices",
+   "p": "3-7, 27-30, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.170, DeepSeek-V4-Flash (high effort), Harbor 0.3.0, and implementation versions or commits of the five memory systems (Table 10); only the provider-managed internal models of Mem0, MemOS and Supermemory and most of the 29 appendix systems lack versions",
+   "p": "27, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark described in detail; public availability not stated",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): official verifier tests; human-verified relevance labels (Fleiss kappa 0.88)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolved, rescue/harm, tokens and steps defined; cost and quality covered",
+   "p": "7, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): NoMem and FullTraj baselines under identical configuration",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): three runs per condition, SDs and bootstrap CIs (no hypothesis tests; broad evaluation single run)",
+   "p": "7, 31, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): negative results (harm, below-NoMem preservation) reported; trends hedged ('tends to')",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): brief limitations paragraph; no threats to validity section",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): none of the evaluated memory systems is by the authors (EverMemOS is by Hu, C. et al., not author Yihan Hu); four authors are at MemoraX AI, whose business the paper does not describe (possible interest in memory systems, not stated)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

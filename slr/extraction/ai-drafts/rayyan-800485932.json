@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates — empirical repository-mining study of AI ethics principles (Australia's 8 principles) in 40,079 agent configuration files from 8,893 GitHub repositories: two-LLM section classification validated against human annotation, plus qualitative thematic analysis of 702 samples across 679 files. No agent run",
+   "v": "Evaluates — repository mining: study of AI ethics principles (Australia's 8 principles) in 40,079 agent configuration files from 8,893 GitHub repositories: two-LLM section classification validated against human annotation, plus qualitative thematic analysis of 702 samples across 679 files. No agent run",
    "p": "1-4",
    "rev": [
     {
@@ -56,9 +56,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Observational mining study of configuration files; no approach or configuration is run, so no listed nature fits exactly. 'Evaluates' kept as closest; the first stated contribution is 'a validated LLM approach for classifying ethics principles' (p. 2), so a secondary 'Proposes an evaluation method' is arguable. Same issue as rayyan-800485930: author to apply one rule to mining studies"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 3: mining study of agent configuration files is 'Evaluates — repository mining'; classification unchanged, wording aligned."
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A regra fixa a natureza principal. Falta decidir se o classificador LLM validado (1.ª contribuição, p. 2) justifica a secundária 'Proposes an evaluation method'; é instrumento do estudo, não método para avaliar abordagens."
   },
   {
    "f": "Approach(es): name and version",
@@ -249,7 +254,7 @@
      "why": "No coding agent is run. Classifier models fully identified (Qwen3.8-27B, Gemma-4-31B-it, temperature 0, p. 3); the five coding tools of the corpus are not versioned. Partly is defensible, but rayyan-800485930 (annotation models identified, no agent run) scores Yes; author to apply one rule to both"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Nenhum agente é executado; os modelos classificadores estão identificados (p. 3), mas as ferramentas do corpus não têm versão. Decide entre Partly e Yes e aplica a mesma regra ao rayyan-800485930, que tem Yes."
   },
   {
    "f": "Q4",

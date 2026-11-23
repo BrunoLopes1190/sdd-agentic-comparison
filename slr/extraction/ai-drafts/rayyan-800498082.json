@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498082",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -28,7 +28,7 @@
      "why": "Value did not follow the required form '<type> — <detail>' (draft-verify rules). Type unchanged: arXiv only (fulltext-access.csv source arXiv; pass3 queue source arxiv-S2), no venue stated in the paper"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -48,7 +48,7 @@
      "why": "Form fixed to '<nature>; secondary: <nature> — <detail>' with the controlled values (draft had lower-case 'evaluates' inside the detail). Substance unchanged"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Approach(es): name and version",
@@ -164,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "No agent/model configurations with task outcomes; model never stated.\n- projectmem v0.3.3 gate (latency): 56.7 / 61.8 / 79.3 ms median at 100 / 400 / 1,500 events; 2 git calls. Quality: same warnings as v0.3.2. Cost works\n- projectmem v0.3.2 gate (baseline, latency): 2,748 / 11,286 / 42,047 ms; 100 / 400 / 1,500 git calls. Cost does not work\n- projectmem v0.3.3 + Antigravity 2.1.4 + model n.s.: T1-T4 pass. Works\n- projectmem v0.3.3 + Claude desktop app Code tab 2.9939.2 + model n.s.: T1 resolution only, T2 pass, T3 read path only, T4 pass after fix. Partly\n- projectmem v0.3.3 + Codex 26.908.40834 + model n.s.: T1-T4 pass. Works\n- Cursor 3.4.17: not run\n- Scripted reversal task, 1 run in each of two MCP clients (not named): agent recorded the supersession unprompted in both. Works (demonstration only)\n- Self-study (authors' use, agents n.s.): 3,228 events; 86 of 427 fixed issues (20%) had a failed attempt before the fix; prevention not measured. Not judgeable\n- Cross-project store: 12 of 46 lessons (26%) correctly attributed, 29 (63%) wrong. Does not work",
+   "v": "No agent/model configurations with task outcomes; models never stated.\n- projectmem v0.3.3 gate (latency, synthetic repo): 56.7 / 61.8 / 79.3 ms median at 100 / 400 / 1,500 events; 2 git calls. Criteria stated by the authors: gate cost 'should not grow with the age of a project'; same warnings as before. Quality: works (same failed-attempt warning in every configuration); cost: works (nearly constant, under 83 ms)\n- projectmem v0.3.2 gate (baseline, latency): 2,748 / 11,286 / 42,047 ms; 100 / 400 / 1,500 git calls. Quality: works (same warnings); cost: does not work (grows in proportion to the log)\n- v0.3.3 + Antigravity 2.1.4 + model n.s.: acceptance suite T1-T4 (authors' pass criteria) all pass. Quality: works; cost: works (T4 checks gate cost; no values per client)\n- v0.3.3 + Claude desktop app Code tab 2.9939.2 + model n.s.: T1 resolution only, T2 pass, T3 read path only, T4 pass after fix (two defects found and fixed). Quality: partly; cost: works after fix (T4)\n- v0.3.3 + Codex 26.908.40834 + model n.s.: T1-T4 pass. Quality: works; cost: works (T4)\n- Cursor 3.4.17: not run\n- Scripted reversal task, 1 run in each of two MCP clients (not named), model n.s.: agent recorded the supersession unprompted in both. Quality: works (authors: a demonstration, not a measurement); cost: not measured\n- Self-study (authors' use, agents and models n.s.): 3,228 events; 86 of 427 fixed issues (20%) had a failed attempt before the fix; prevention not measured. Quality and cost: no criterion stated by the authors\n- Cross-project store (macOS): 12 of 46 lessons (26%) correctly attributed, 5 (11%) ambiguous, 29 (63%) wrong; authors call it 'a defect in the implementation'. Quality: does not work; cost: N/A",
    "p": "8-11",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "§6 asks for separate quality and cost verdicts per configuration: r1 gave a single verdict for the client and reversal entries and only a cost verdict for the gate versions; added from the authors' stated criteria (gate cost should not grow with the log, same warnings, T1-T4 pass). Self-study 'not judgeable' replaced by 'no criterion stated by the authors' (rule of 2026-11-23). Added the 5 ambiguous lessons (p. 10)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -199,9 +205,15 @@
   },
   {
    "f": "Notes",
-   "v": "Source code at github.com/riponcm/projectmem (MIT); reproducibility artifacts (benchmark code, raw latency results, anonymized self-study records) 'will be released' under paper/v2/. No pre-registration. Language: Python implementation; projects in various languages (not stated per project). Values from Table 2 (p. 9), Table 3 (p. 10), Table 4 (p. 10), Table 5 (p. 11; pdftotext jumbled the columns, rebuilt from row order and text p. 11). Event shares in Fig. 4 only partly in text (56% issue-lifecycle, 18% decisions, 26% notes). Relevant to SDD as an agent context/memory artefact (CLAUDE.md/AGENTS.md bridge, plan.md), not a specification approach",
+   "v": "Source code at github.com/riponcm/projectmem (MIT); reproducibility artifacts (benchmark code, raw latency results, anonymized self-study records) 'will be released' under paper/v2/. No pre-registration. Language: Python implementation; projects in various languages (not stated per project). Values from Table 2 (p. 9), Table 3 (p. 10), Table 4 (p. 10), Table 5 (p. 11; pdftotext jumbled the columns, rebuilt from row order and text p. 11). Fig. 4a event counts jumbled by pdftotext and rebuilt: issues 535 (17%), attempts 814 (25%), fixes 445 (14%), decisions 590 (18%), notes 844 (26%); checked against Table 2 (529 distinct issues + 6 duplicates; attempts 418 + 227 + 169 = 814), Table 4 (81 + 390 + 119 = 590 decisions) and the text (56% issue-lifecycle, 18% decisions, 26% notes). Relevant to SDD as an agent context/memory artefact (CLAUDE.md/AGENTS.md bridge, plan.md), not a specification approach",
    "p": "8-11, 15",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Incomplete: the per-type event counts can be rebuilt from Fig. 4a and cross-checked against Tables 2 and 4; r1 said they were only partly available"
+    }
+   ],
    "warn": ""
   },
   {
@@ -241,9 +253,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Partly is defensible: latency and git-call counts are objective measurements (p. 9-10), but the only outcome-type checks (acceptance suite T1-T4, lesson attribution) were judged by the authors themselves (p. 10-11), and no effectiveness of the approach is measured at all (p. 7, 13). A stricter reader could score No"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly is defensible: latency and git-call counts are objective measurements (p. 9-10), but the only outcome-type checks (acceptance suite T1-T4, lesson attribution) were judged by the authors themselves (p. 10-11), and the effectiveness of the approach (prevention) is not measured at all (p. 7, 13). A stricter reader could score No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Partly is defensible: latency and git-call counts are objective measurements (p. 9-10), but the only outcome-type checks (acceptance suite T1-T4, lesson attribution) were judged by the authors themselves (p. 10-11), and the effectiveness of the approach (prevention) is not measured at all (p. 7, 13). A stricter reader could score No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Latência e chamadas git são medidas objetivas, mas a suite T1–T4 e a atribuição de lições foram julgadas pelos autores e a prevenção não é medida. Decide entre Partly e No."
   },
   {
    "f": "Q6",

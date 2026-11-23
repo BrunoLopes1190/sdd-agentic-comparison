@@ -1,0 +1,31 @@
+{
+ "key": "rayyan-800486521",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "doubt": "A maior parte do artigo (pp. 3-12) é teoria formal e os pilotos são descritivos e não causais (pp. 15, 18). Decide se a natureza principal é 'Proposes an approach' ou 'Conceptual'; Q13 aplica-se nos dois casos."
+  },
+  {
+   "f": "SDD level",
+   "doubt": "O conjunto de requisitos é um registo append-only dentro de uma tarefa (pp. 3-4); o artigo não diz se persiste ou orienta alterações futuras. Escolhe 'não classificável' ou spec-first."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Models not identified for any arm (configuration labels only). One outcome per task/case and arm (single run). Criteria: classified ASR (safety), behavioral test coverage (quality), resolved issues (repair), passed checks (to-do), build-gated composite (storefront). Cost: not reported.\n- Codex CLI raw: ASR 42.37% (25/59); quality 0.8125; repair 6/6; to-do 3/5; storefront 0.6507 (2-arm pool), 0.7212 (5-arm pool)\n- Cortex over Codex: ASR 24.14% (14/58); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6799\n- Claude Code raw: ASR 3.39% (2/59); quality 0.8125; repair 6/6; to-do 5/5; storefront 0.7489 (2-arm), 0.6737 (5-arm)\n- Cortex over Claude: ASR 1.67% (1/60); quality 0.9792; repair 6/6; to-do 5/5; storefront 0.6533\n- OpenCode raw: ASR 42.59% (23/54); quality 0.3333 (4 generation failures); repair 5/6; to-do 5/5; storefront 0.7071\nBenign controls: zero refusals on 2 controls for the four paired arms; OpenCode refused 1 of 2\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)",
+   "doubt": "O avaliador de projeto define sucesso de uma seed (build e cobertura funcional de pelo menos 0,999, p. 10), mas os resultados históricos não o aplicam. Confirma que nenhum veredicto devia apoiar-se nesse critério."
+  },
+  {
+   "f": "Q8",
+   "doubt": "Há uma só execução por célula (pp. 14-15) e nenhum teste às diferenças raw vs governed; os intervalos de Wilson por braço (Tabela 3, p. 15) são a única base para Partly. Decide entre Partly e No."
+  },
+  {
+   "f": "Q12",
+   "doubt": "Os autores são da Alpha Omega Labs, que distribui o Cortex; três dos cinco braços são harnesses de terceiros sem Cortex (p. 15). Decide se contam como abordagens avaliadas (Partly) ou se o Cortex é a única (No)."
+  },
+  {
+   "f": "Q13",
+   "doubt": "O Cortex CLI é descarregável e envolve Codex CLI e Claude Code (pp. 12, 18), mas os requisitos de computação, custo e configuração nunca são indicados. Pela regra da informação em falta, decide entre Partly e No."
+  }
+ ]
+}

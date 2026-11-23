@@ -1,0 +1,318 @@
+{
+ "key": "rayyan-800498218",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Xu, H., Zhou, L., Jin, Z., Zhang, X., Tang, B., Li, Z., Zhou, X., Zhang, J. (2026). MemTrace: State-Consistent Memory for Long-Horizon Coding Agents. arXiv:2610.04838v3 [cs.AI], 10 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 10 Oct 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.04838v3 [cs.AI], 10 Oct 2026; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Shanghai Jiao Tong University; Theseus Lab; MemTensor (Shanghai) Technology Co., Ltd.",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — MemTrace, provenance-aware execution memory for long-horizon coding agents, compared with Native, Observation Masking and RepoGraph on three benchmarks (DeepSWE, SWE-EVO, SWE-Milestone) under two harnesses, plus ablations",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "MemTrace (authors' own, no version; GitHub https://github.com/theseus-labs-rsi/MemTrace). Baselines: Native harness context management, Observation Masking (Lindenbauer et al. 2025), RepoGraph (Python only)",
+   "p": "1, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Immutable Memory Traces (execution evidence + provenance, repository state, entity bindings to files/symbols/tests, Memory Anchor); Memory Trace Graph (depend, verify, correct, supersede relations); Repository State Graph (files, symbols, tests; defines, calls, imports, covers); trace-entity projection; Trace Synopses; checkpoint of execution frontier. No specification artefact",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Seal completed units of work as traces -> offload trace bodies under context pressure, keep anchors and synopses -> before context refresh checkpoint frontier and anchors -> after refresh reconstruct frontier via MTG, locate entities via RSG and projection (<=2 MTG hops), validate applicability (aligned and not superseded) -> selectively restore within budget, else re-read or re-run (Algorithm 1)",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automatic)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single mechanism: execution memory and context recovery inside the agent harness, run end to end on benchmarks",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent memory; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: long-horizon repository engineering, software evolution and milestone-based development",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "DeepSWE 113 tasks (91 repos); SWE-EVO 46 of 48 tasks (7 Python projects; 2 excluded as failing validation); SWE-Milestone 98 milestones in 7 itineraries. Analysis: 9,226 Memory Traces from 84 trajectories",
+   "p": "7, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories; DeepSWE: Python 34, TypeScript 35, Go 34, JavaScript 5, Rust 5; SWE-EVO Python; SWE-Milestone five languages (Python, TypeScript, Go, Rust, Java)",
+   "p": "7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean wall-clock time per task (minutes). Tokens and money Not reported",
+   "p": "7, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "DeepSWE pass@1; SWE-EVO Resolved Rate, Fix Rate, Apply; SWE-Milestone Score (harmonic mean of Precision and Recall), Precision, Recall, Resolved Rate",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "State-change exposure rate of traces (57.0%), bound-file survival (Kaplan-Meier), repository revisions, semantic evidence invalidations, context refreshes",
+   "p": "9-10, 15-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark tests/official scoring; event logs of instrumented trajectories; bootstrap (5,000 resamples) for diagnostics",
+   "p": "7, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Model deepseek-v4-flash-0731-high for all, 200K context, no step limit; single run. Values: DeepSWE pass@1 (Python subset) / SWE-EVO Resolved, Fix, Apply / SWE-Milestone Score, Resolved (Table 2); mean wall-clock min per task DeepSWE / SWE-EVO (Table 6). No success criterion stated by the authors for any configuration, so no verdicts.\n- Native + Codex CLI v0.144.4 (baseline): 35.4 (32.4) / 47.8, 53.4, 97.8 / 28.6, 7.1; 42.02 / 30.00 min. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Obs. Masking + Codex CLI: 34.5 (38.2) / 65.2, 72.1, 97.8 / 24.4, 9.2; 44.32 / 52.72 min. Quality and cost: no criterion stated by the authors\n- RepoGraph + Codex CLI (Python tasks only): DeepSWE-Py 41.2 / 58.7, 68.8, 97.8 / Python Score 45.2, Resolved 8.3; 34.67 (34 Python tasks) / 34.22 min. Quality and cost: no criterion stated by the authors\n- MemTrace + Codex CLI: 56.6 (67.6) / 69.6, 70.6, 100.0 / 46.4, 16.3; 54.17 / 82.05 min. Quality and cost: no criterion stated by the authors\n- Native + mini-swe-agent v2.4.6 (baseline): 48.7 (47.1) / 52.2, 54.1, 95.7 / 34.5, 11.2; 103.77 / 170.97 min. Quality and cost: no criterion stated by the authors\n- Obs. Masking + mini-swe-agent: 26.6 (20.6) / 23.9, 33.6, 97.8 / 24.9, 8.2; 120.98 / 170.02 min. Quality and cost: no criterion stated by the authors\n- RepoGraph + mini-swe-agent (Python only): DeepSWE-Py 32.4 / 30.4, 37.9, 97.8 / Python Score 30.8, Resolved 0.0; 70.43 / 203.28 min. Quality and cost: no criterion stated by the authors\n- MemTrace + mini-swe-agent: 66.4 (64.7) / 63.0, 68.7, 93.5 / 48.3, 19.4; 75.30 / 114.03 min. Quality and cost: no criterion stated by the authors\n- Ablations (Codex CLI, ablation; SWE-EVO Resolved / DeepSWE pass@1, Table 3): Trace Store Only 65.2 / 32.1 (36/112, one task without score); w/o MTG 65.2 / 34.5; w/o RSG 69.6 / 44.2; full MemTrace 69.6 / 56.6. No criterion stated by the authors",
+   "p": "7-9, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: DeepSWE (113), SWE-EVO (46), SWE-Milestone (98 milestones). Configurations: 2 harnesses x {Native, Obs. Masking, RepoGraph, MemTrace} + 4 ablations. Baseline: Native. Held constant: backbone model and harness within each setting, context window, no step limit. Acceptance: benchmark tests and official scoring. Repetitions: Not stated (apparently single run). Human intervention: none",
+   "p": "7-9, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Quality: MemTrace best primary metric in every benchmark-harness setting: DeepSWE pass@1 +21.2 (Codex) / +17.7 (mini) points over best baseline; SWE-EVO Resolved +4.4 / +10.8; SWE-Milestone Score +17.8 / +13.8. Partial-progress metrics mixed: Obs. Masking higher Fix Rate than MemTrace under Codex (72.1 vs 70.6); MemTrace lower Apply under mini (93.5 vs 97.8). Baselines sensitive to harness (Obs. Masking +17.4 over Native under Codex, -28.3 under mini on SWE-EVO). Cost (wall-clock, Table 6): MemTrace slower than Native under Codex (DeepSWE 54.17 vs 42.02 min; SWE-EVO 82.05 vs 30.00) but faster under mini-swe-agent (75.30 vs 103.77; 114.03 vs 170.97). No significance tests on performance",
+   "p": "8, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished MemTrace from baselines with large margins, but single runs and no uncertainty on performance; strong harness-dependence of baselines noted. Ablation shows RSG matters on DeepSWE but not on SWE-EVO. No limitations of the comparison discussed by the authors",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats section. Future work: more backbone models and context-window sizes; persistent multi-task, multi-session settings in the same repository. Implementation scope: RSG symbol-level only for Python, file-level for other languages",
+   "p": "10, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 and Tables 5-6 jumbled in pdftotext; values rebuilt by row order and cross-checked with text (Obs. Masking +17.4 / -28.3 on SWE-EVO; Fix Rate 72.1 vs 70.6; Apply 93.5 vs 97.8), with the Δbest row and with resolved counts in Table 5 (e.g. Codex DeepSWE: Native 40, Obs. 39, MemTrace 64 of 113; SWE-EVO 22, 30, 27, 32 of 46). Minor rounding inconsistency: Obs. Masking + mini-swe-agent DeepSWE pass@1 is 26.6 in Table 2 but 30/113 resolved in Table 5 gives 26.5 (all other cells match their counts). Only one backbone model (DeepSeek). DeepSWE Trace Store Only ablation on 112 tasks (one missing result). Text says the two excluded SWE-EVO tasks already pass without changes (p. 7), appendix says they fail benchmark validation (p. 14). Code at https://github.com/theseus-labs-rsi/MemTrace. No pre-registration. Languages: six (Python, TypeScript, Go, JavaScript, Rust in DeepSWE; Java in SWE-Milestone)",
+   "p": "1, 7-8, 14-15",
+   "verdict": "corrected",
+   "why": "Cross-check of Table 2 against Table 5 counts finds one mismatch not noted (Obs. Masking + mini-swe-agent DeepSWE 26.6 vs 30/113 = 26.5)"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem and contributions explicit",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): method and algorithm described, harness versions given, code released; prompts and parameters of trace sealing not detailed in paper",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): deepseek-v4-flash-0731-high, Codex CLI v0.144.4, mini-swe-agent v2.4.6",
+   "p": "7, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks with composition and exclusions stated",
+   "p": "7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark tests and official scoring",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality metrics defined (pass@1, Resolved, Fix, Apply, Score, Precision, Recall) and cost measured as mean wall-clock time per task; no tokens or money",
+   "p": "7-8, 15",
+   "verdict": "uncertain",
+   "why": "Quality metrics are defined and cost is measured only as mean wall-clock time per task (Table 6); no tokens or money. Time is a cost metric under §6, so Yes is defensible, but Partly is too",
+   "doubt": "O custo é medido só como tempo médio por tarefa (Tabela 6), sem tokens nem dinheiro. Decide se isso chega para Yes ou fica Partly."
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Native, Observation Masking and RepoGraph under the same backbone and harness",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistical tests on performance (bootstrap only for memory diagnostics)",
+   "p": "8, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): 'consistently outperforms' on single runs; mixed results (Fix Rate, Apply) reported",
+   "p": "8",
+   "verdict": "uncertain",
+   "why": "Mixed results (Fix Rate, Apply, harness sensitivity) are reported, but 'consistently outperforms' and 'more stable across harnesses' rest on single runs with no variance or tests on performance. Partly or Yes",
+   "doubt": "Os resultados mistos são reportados, mas 'consistently outperforms' assenta numa só execução sem variância nem testes. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats discussion",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors (incl. MemTensor company) created MemTrace; baselines (Native harness, Observation Masking, RepoGraph) and harnesses (Codex CLI, mini-swe-agent) are by others",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): code released and works with existing harnesses and API model; needs persistent graph infrastructure, wall-clock up to 82 min per SWE-EVO task under Codex; full symbol-level support only for Python",
+   "p": "1, 15",
+   "verdict": "uncertain",
+   "why": "Code released and runs on existing harnesses with an API model, but token or money cost is not stated, it needs persistent graph infrastructure, wall-clock up to 82 min per SWE-EVO task under Codex, and symbol-level RSG only for Python. Judgement",
+   "doubt": "O código é público e usa harnesses existentes, mas não há custo em tokens/dinheiro e exige infraestrutura de grafos; até 82 min por tarefa. Decide se é viável para uma equipa típica (Partly ou Yes)."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

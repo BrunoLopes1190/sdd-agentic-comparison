@@ -1,0 +1,23 @@
+{
+ "key": "rayyan-800485903",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "O tipo passou de Preprint a Journal com base no export ACM (TOSEM 35(11), DOI 10.1145/3840295); o texto lido é o arXiv v2. Confirma o DOI na ACM Digital Library."
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — repository mining: large-scale empirical study of 2,303 agent context files (RQ1 size/readability/structure, RQ2 maintenance, RQ3 instruction content, RQ4 automatic classification with GPT-5); extends the authors' prior study of 253 Claude.md files (PROFES 2025). Effect of the files on agents not measured experimentally (two observational before/after indentation case studies only)",
+   "why": "Rule 3: a descriptive repository-mining study of agent context files is 'Evaluates — repository mining'; wording aligned, detail unchanged",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "doubt": "O RQ4 compara o classificador GPT-5 com rótulos de consenso dos inspetores (pp. 24-25), um critério independente; a análise de conteúdo e os estudos de caso (p. 23) não têm nenhum. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q9",
+   "doubt": "A conclusão 'the readability of these files is poor' (p. 32) assenta no FRE, que os autores chamam proxy fraco (rho 0,19, pp. 8, 31); a afirmação da p. 22 assenta em exemplos. Decide entre Partly e Yes."
+  }
+ ]
+}

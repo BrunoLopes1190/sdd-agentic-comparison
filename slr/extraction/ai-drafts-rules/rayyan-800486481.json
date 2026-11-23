@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486481",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "doubt": "O tipo secundário é discutível: correm quatro configurações (No Skills, S-Full-20, S-Ablated-20, Coreless-3), mas todas são variantes de um banco de skills contra nenhum (p. 9-10). Escolhe Evaluates ou Compares como secundário."
+  },
+  {
+   "f": "SDD level",
+   "doubt": "Os autores não usam termos de SDD; o contrato README e o plano congelado são entradas fixas, não o objeto estudado, que é o banco de skills (p. 5, 9). Decide entre não classificável e spec-first."
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: micro-average CCPF on 4 transfer tasks, 3 trials each (12 runs per configuration); coding agent GPT-5.5 Medium (agent harness not named), simulated user DeepSeek V4 Pro. - No Skills (baseline) + GPT-5.5 Medium: CCPF 46.63% (MeterSettle 76.42, FlagFoundry 46.34, EscrowGuard 18.52, CapacityLease 47.83); 50.0M tokens, 3.21M non-cached input, 27.0 turns, 189.00 min per run. - S-Full-20 + GPT-5.5 Medium: CCPF 51.25% (80.49 / 47.15 / 33.33 / 46.38); 40.2M tokens, 0.61M non-cached, 26.5 turns, 84.46 min. - S-Ablated-20 (ablation) + GPT-5.5 Medium: CCPF 52.60%, 91.74 min. - Coreless-3 (ablation, exploratory, designed after seeing results) + GPT-5.5 Medium: CCPF 48.36%, >=190.87 min; 26 compactions, 699,961 reasoning tokens (totals over 12 runs). Per-task CCPF only reported for No Skills and S-Full-20; tokens per run only for No Skills and S-Full-20. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1)",
+   "doubt": ""
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485916",
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — catalog of six configuration smells for AGENTS.md/CLAUDE.md (from a grey literature review of 14 documents and PR analysis) plus automated detection heuristics; secondary: repository mining: prevalence and co-occurrence of the smells in 100 popular open-source repositories",
+   "why": "Rule 3: the prevalence study of AGENTS.md/CLAUDE.md files in 100 GitHub repositories (p. 5) is descriptive repository mining, so the secondary Evaluates is noted \"repository mining\"",
+   "doubt": "A natureza principal é discutível: o catálogo de smells e as heurísticas avaliam ficheiros de configuração, não agentes; 'Proposes an approach' (forma de escrever e verificar ficheiros de contexto) também serve e tornaria o Q13 aplicável. Escolhe."
+  },
+  {
+   "f": "Q12",
+   "doubt": "Nenhum agente ou modelo de vendor é avaliado, mas o catálogo e as heurísticas cuja precisão é reportada (Tabela II, p. 6) são dos autores. Decide se isso os torna vendor do método (Partly) ou mantém Yes."
+  },
+  {
+   "f": "Q13",
+   "doubt": "Depende da natureza: N/A se ficar 'Proposes an evaluation method'; se passar a 'Proposes an approach', Yes é provável (contagens de linhas e de commits e um LLM barato, gemini-3.1-flash-lite, p. 5)."
+  }
+ ]
+}

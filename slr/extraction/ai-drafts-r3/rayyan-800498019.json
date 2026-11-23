@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498019",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, M., Xu, L. H., Tan, Q., Cao, T., Liu, Y. (2026). Learning to Commit: Generating Organic Pull Requests via Online Repository Memory. arXiv:2603.26664v1 [cs.SE], 27 Mar 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.26664v1 [cs.SE], 27 Mar 2026 (marked 'Preprint.'); no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Tsinghua University (Li, Tan, Cao, Liu); L. H. Xu: no affiliation given",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — Learning to Commit framework with Online Repository Memory (skills distilled by supervised contrastive reflection on past commits), evaluated against the same agent without skills; also a strict time-split benchmark with organicity metrics",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Learning to Commit / Online Repository Memory (no version); learning modes Sequential and Parallel, curriculum by category or all. Baseline: same agent without skill document",
+   "p": "1-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill document M (structured skill docs): coding style and naming conventions, internal API utilities and usage, architectural constraints and module boundaries, maintainer preferences (error handling, test organisation); updated by CRUD operations. Synthetic issue-style task descriptions (what/why, no implementation details). Not specifications",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(0) Commit filtering and temporal split; (1) Repository onboarding (learning): for each historical commit, blind attempt with current skills, oracle diff revealed, contrastive reflection, skill update (sequential or parallel with final pairwise merge); (2) Skill-conditioned resolution of future tasks (agent decides which skills to consult); (3) Multi-dimensional evaluation against oracle patch",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the flow (oracle diffs from expert-reviewed commits act as supervision)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (learning and solve phases) on one repository",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (repository memory / skill document, no specification); authors use no SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: future pull requests (feature, bug-fix and design changes) on one internal repository",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "One internal repository: 2,738 non-merge commits filtered to 386 high-quality commits in 7 categories; 24 learning commits and 7 held-out test tasks; commits <10 lines or diffs >180K tokens excluded",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Internal, expert-maintained reinforcement-learning training repository (agent environments, judge evaluation, orchestration subsystems); programming language not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent); commits reviewed and approved by domain experts",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Trajectory steps (tool calls) in the solve phase only; no tokens, money or time; cost of the learning phase not reported",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured (functional correctness named as a goal in the abstract but no tests run)",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Line deviation ratio (patch bloat vs oracle); LLM-judge dimensions Q3 redundancy and hallucination, Q4 code style",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "File IoU (localisation vs oracle files); pairwise LLM-judge win rates on Q1 scope alignment, Q2 logic similarity to oracle (judges Claude Opus 4.6 and Gemini 3.1 Pro)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic metrics against oracle diffs; pairwise A/B LLM judges (two models, agreement said to be high, values not reported). Dataset curation by LLM (model not stated)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent harness not stated; model Claude Opus 4.6 for all; 7 held-out test tasks on one internal repository. Success criterion: none stated by the authors (closeness to the oracle patch; no test-pass criterion). Values: File IoU; steps; line deviation; overall pairwise win rate of the skill agent (Claude judge / Gemini judge). seq-all + skills: 80%; 56.8; 0.69; 55% / 58%. Quality and cost: no criterion stated by the authors. | seq-all baseline (no skills): 61%; 71.9; 1.59. No criterion stated by the authors. | par-bycat + skills: 80%; 62.7; 0.62; 54% / 57% (dimension-level skill win rates, averaged over judges: Q1 25%, Q2 50%, Q3 54%, Q4 27%). No criterion stated by the authors. | par-bycat baseline: 68%; 62.7; 0.88. No criterion stated by the authors. | par-all + skills: 81%; 67.7; 0.80; 46% / 54%. No criterion stated by the authors. | par-all baseline: 72%; 68.3; 1.06. No criterion stated by the authors. | seq-bycat + skills: 71%; 75.0; 1.22; 26% / 46%. No criterion stated by the authors. | seq-bycat baseline: 71%; 76.4; 1.13. No criterion stated by the authors",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "One internal repository, 7 future test tasks, 24 learning commits. Configurations: skill-conditioned agent vs baseline agent without skills, under 4 conditions (sequential/parallel x by-category/all). Baseline: same agent and tools without skill document. Held constant: model (Claude Opus 4.6), tool-use capabilities, tasks. Acceptance: oracle diffs (no tests). Repetitions: not stated (apparently one run per condition). Human intervention: none stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Skills better in 3 of 4 conditions on File IoU: +19 pts in seq-all (80% vs 61%), +12 in par-bycat, +9 in par-all, tie in seq-bycat (71%); seq-all 21% fewer steps (56.8 vs 71.9), other settings within 1.4 steps; line deviation lower in 3 of 4 (higher in seq-bycat, 1.22 vs 1.13). Overall win rate >50%: Gemini judge 3 of 4 settings (57%, 58%, 54%; seq-bycat 46%), Claude judge 2 of 4 (54%, 55%; par-all 46%, seq-bycat 26%), although the text says 3 of 4 under both judges. par-bycat by dimension: skill ahead on Q2 logic (50% vs 25%) and Q3 redundancy (54% vs 41%), baseline ahead on Q1 scope (41% vs 25%) and Q4 style (38% vs 27%). No significance test",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly distinguished conditions (seq-bycat no gain). Repeatability not assessed (7 tasks; baseline values differ between conditions although the baseline has no skills, not explained). Limitations stated: LLM-judge bias, single internal repository",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Validated on one internal repository only; generalisation to open-source GitHub repositories needed; LLM judges may be biased or inaccurate, more verifiable metrics needed; transfer of skills to broader tasks and established benchmarks open; skills help localisation and reuse but not surface style; skills can induce over-caution (redundant guard)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 4 (p. 7) jumbled by pdftotext; rebuilt from row sums and text p. 6: Q1 skill 25 / base 41 / tie 34; Q2 50/25/25; Q3 54/41/5; Q4 27/38/36. Inconsistencies: abstract and conclusion claim functional correctness and \"significantly improve\" but no tests or statistics; text p. 6 says the skill agent wins in 3 of 4 settings under both judges, but Table 3 shows 2 of 4 >50% under the Claude judge (par-all 46%, seq-bycat 26%); text p. 7 gives File IoU gains of +10–18% while Table 2 gives +19, +12, +9 and 0 pts; contribution says the benchmark is released, but the repository is internal and no link is given; baseline values differ across the four settings although the baseline has no skills; inter-judge agreement rates promised but not reported numerically; 386 of 2,738 commits is called 'a 77.2% suitability rate' (p. 6), but 386/2,738 = 14.1%. Values used: Tables 2-4. No replication package. No pre-registration. Language not stated",
+   "p": "1-2, 5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal and contributions stated (no explicit RQs)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline and metrics described; prompts, agent harness, curation LLM and repository not given",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Opus 4.6 and Gemini 3.1 Pro named; agent harness and curation LLM not stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "No (0): internal repository, 7 tasks not described individually, not available",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): deterministic metrics against expert-approved oracle diffs; organicity by LLM judges; no tests",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): metrics defined; cost only as tool-call steps, no tokens or money",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): baseline agent without skills, same model and tools",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): 7 tasks, no repetitions reported, no statistics; two judges only",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mixed results reported, but conclusion claims significant improvement and functional correctness not measured",
+   "p": "1, 6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): only brief future-work notes on generalisation and LLM-judge bias; no threats section",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created the Learning to Commit framework (vendor of the skill-conditioned configurations); the baseline is the same agent with Claude Opus 4.6 and no skill document, not theirs",
+   "p": "1-2, 6",
+   "verdict": "corrected",
+   "why": "Round 2 gave No. Author rule of 2026-11-23 (draft-verify) and protocol 5: when the authors' own approach is compared with an external baseline, Q12 is Partly; here skills are compared with the plain Claude Opus 4.6 agent without skills (p. 6), as scored for rayyan-800486399 and rayyan-800497942",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): training-free and uses a commercial model, but learning-phase cost and tooling not stated; needs expert-quality commit history",
+   "p": "2, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

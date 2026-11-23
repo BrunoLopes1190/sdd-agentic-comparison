@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498055",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; marked 'Preprint', NeurIPS-style checklist appendices; venue Not stated)",
+   "v": "Preprint — arXiv:2605.15815v1 [cs.SE], pages marked 'Preprint.'; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; 'NeurIPS-style checklist appendices' is not in the text (appendices are prompts, benchmarks, settings, reproducibility/ethics). Type unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,26 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (BootstrapAgent, multi-agent framework producing a verified .bootstrap contract); secondary: evaluates it (RQ1 effectiveness vs HerAgent, RQ2 downstream reuse by Claude Code, RQ3 ablation)",
+   "v": "Proposes an approach; secondary: Evaluates — BootstrapAgent, a multi-agent framework producing a verified .bootstrap contract; evaluated on 212 repositories (RQ1 success vs HerAgent, RQ2 downstream reuse by Claude Code cold vs warm, RQ3 ablation)",
    "p": "1-2, 6",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Form fixed ('secondary: evaluates it' is not a list value and the ' — ' detail was missing). Secondary nature is a judgement: the evaluation compares against HerAgent and a cold baseline, so 'Compares' is also defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature is clear; the secondary is a judgement: the evaluation contrasts BootstrapAgent with HerAgent (reported numbers) and cold vs warm downstream runs, so 'Compares' is also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes BootstrapAgent) is clear. The secondary is a judgement: the evaluation reports its own success rate but also sets it against HerAgent (Table 1, reported numbers) and contrasts Claude Code with and without .bootstrap (Tables 2-3), so 'Compares' is equally defensible"
+    }
+   ],
+   "warn": "A natureza secundária pode ser Evaluates ou Compares: o artigo compara com HerAgent (números reportados) e Claude Code com e sem .bootstrap. Decide qual usar."
   },
   {
    "f": "Approach(es): name and version",
@@ -152,10 +174,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: clean replay passes setup + doctor + minimal_verify. -- BootstrapAgent + own multi-agent pipeline + DeepSeek-V4-Flash-2026-04-25 (temperature 1.0): success 197/212 (92.9%): ExecutionAgent 42/50, Installamatic 38/40, Repo2Run 117/122; median 43.8K tokens, 24.6 min per repository. Quality: works; cost: works (one-off cost). -- HerAgent (reported baseline; agent/model Not stated in this paper): 179/212 (84.4%): 41/50, 34/40, 104/122. Baseline. -- Downstream Claude Code (headless, model Not stated) cold (no .bootstrap, given verification commands): median wall time 346.3 s overall (285.2 / 337.8 / 391.9 s); median tokens 46.3K; total 710.7K. Baseline. -- Downstream Claude Code warm (with .bootstrap): median wall time 249.5 s (0.72x; 112.0 / 282.3 / 309.8 s); median tokens 36.9K (0.80x); total 419.4K (0.59x). Quality: N/A (success of downstream runs not reported); cost: works. -- Ablations (Repo2Run / ExecutionAgent / Installamatic): w/o repository discovery 76.2% / 52.0% / 70.0%; w/o clean replay 95.1% / 82.0% / 90.0%; w/o trace-driven repair 26.2% / 18.0% / 40.0%; full 95.9% / 84.0% / 95.0%; w/o warm repair +4,839.9 / +851.6 / +421.9 min total time",
+   "v": "Criterion stated by the authors: clean replay in a fresh container passes setup + doctor + minimal_verify (per repository); no success threshold on the rate. Generation cost: authors call it 'acceptable', comparable to manual setup. -- (1) BootstrapAgent + own multi-agent pipeline + DeepSeek-V4-Flash-2026-04-25 (temperature 1.0): success 197/212 (92.9%): ExecutionAgent 42/50, Installamatic 38/40, Repo2Run 117/122; median 43.8K tokens, 24.6 min per repository (P90 169.2K, 79.0 min). Quality: works per the authors' clean-replay criterion ('effective for building most repositories'); cost: works per the authors' own statement ('acceptable', one-off). -- (2) HerAgent (baseline; strongest reported baseline, agent/model not stated in this paper; whether re-run under the same verifier not stated): 179/212 (84.4%): 41/50, 34/40, 104/122. Quality: no criterion stated by the authors (unclear whether the clean-replay criterion was applied); cost: not reported. -- (3) Downstream Claude Code (headless, model not stated) cold, without .bootstrap but given the same verification commands (baseline): median wall time 346.3 s overall (ExecutionAgent 285.2 / Installamatic 337.8 / Repo2Run 391.9 s); median active tokens 46.3K (38.9K / 41.6K / 50.8K); total tokens 710.7K (597.9K / 594.4K / 797.8K). Quality: not reported (downstream success not reported); cost: no criterion stated by the authors. -- (4) Downstream Claude Code warm, with .bootstrap: median wall time 249.5 s (112.0 / 282.3 / 309.8 s); median active tokens 36.9K (19.6K / 36.6K / 43.1K); total tokens 419.4K (115.7K / 312.6K / 526.9K). Quality: not reported; cost: no criterion stated by the authors. -- Ablations (Repo2Run / ExecutionAgent / Installamatic success; full 95.9% / 84.0% / 95.0%): (5) w/o repository discovery (ablation) 76.2% / 52.0% / 70.0%; (6) w/o clean replay (ablation) 95.1% / 82.0% / 90.0%; (7) w/o trace-driven repair (ablation) 26.2% / 18.0% / 40.0%; (8) w/o warm-state repair (ablation): +4,839.9 / +851.6 / +421.9 min total time; (9) w/o sanity check (ablation): 5/122, 4/50, 2/40 false positives caught by the full system. Quality and cost for ablations: no criterion stated by the authors",
    "p": "6-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Warm downstream 'cost: works' was judged against the cold baseline and set without any criterion stated by the authors (rule of 2026-11-23); baseline entries (HerAgent, cold) had no verdict of their own; ablations had no verdict; per-benchmark token values for cold/warm were missing; sanity-check ablation not listed"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values checked against Tables 1-4 and text p. 6-8 (correct). The verdicts for (1) rest on a per-repository pass criterion (clean replay) and on the authors' word 'acceptable' for cost (justified by comparison with manual setup); no criterion is given for the success rate itself. HerAgent gets 'no criterion' although Table 1 reports it on the same success measure, so the two are treated differently"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values re-checked against Tables 1-4, Figures 7-9 and Appendix C (correct). The authors' criterion is per repository (clean replay: setup, doctor and minimal_verify pass, p. 6, 18), with no threshold for the success rate; the cost verdict for (1) rests on the authors calling the overhead 'acceptable' (p. 6). HerAgent is reported on the same success measure in Table 1 but gets 'no criterion', so the two entries are treated differently; the author must choose one treatment"
+    }
+   ],
+   "warn": "O critério dos autores é por repositório (clean replay passa), sem limiar para a taxa; o custo é só 'aceitável'. Decide se isto chega para 'works' no BootstrapAgent e trata o HerAgent da mesma forma."
   },
   {
    "f": "Comparison: design",

@@ -164,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: average hidden-test pass rate; probing coverage; cost. Agent: mini-SWE-agent (version n.s.) for synthesis in all; same model for both stages. Direct-Synthesis / SpecFirst pass rate, coverage, cost: (1) Direct + mini-SWE-agent + Qwen3.5-397B-A17B: 33.66%, 51.9%, $2.56; (2) SpecFirst + mini-SWE-agent + Qwen3.5-397B-A17B: 40.84%, 59.8%, $3.79. (3) Direct + Qwen3.6-35B-A3B: 27.51%, 49.2%, $2.03; (4) SpecFirst + Qwen3.6-35B-A3B: 31.40%, 58.3%, $3.17. (5) Direct + GPT-5.5-high: 59.02%, 55.1%, $2.54; (6) SpecFirst + GPT-5.5-high: 65.14%, 60.3%, $5.85 (>=90% pass on 16.5% vs 5.5% of programs). (7) Direct + GPT-5.4-mini (medium): 39.09%, 52.1%, $0.35; (8) SpecFirst + GPT-5.4-mini: 41.78%, 58.6%, $0.53. Format study (GPT-5.4-mini, 50 sampled instances): no spec 55.9%, Freeform 60.7%, OpenSpec 61.7%, Sections 62.6%. Verdicts: SpecFirst quality partly (best but 31-65% pass, few programs fully resolved), cost works (partly for GPT-5.5-high, +130%); Direct-Synthesis quality partly/does not work, cost works",
+   "v": "Criterion: average hidden-test pass rate; probing coverage; cost. Agent: mini-SWE-agent (version n.s.) for synthesis in all; same model for both stages. Direct-Synthesis / SpecFirst pass rate, coverage, cost: (1) Direct + mini-SWE-agent + Qwen3.5-397B-A17B: 33.66%, 51.9%, $2.56; (2) SpecFirst + mini-SWE-agent + Qwen3.5-397B-A17B: 40.84%, 59.8%, $3.79. (3) Direct + Qwen3.6-35B-A3B: 27.51%, 49.2%, $2.03; (4) SpecFirst + Qwen3.6-35B-A3B: 31.40%, 58.3%, $3.17. (5) Direct + GPT-5.5-high: 59.02%, 55.1%, $2.54; (6) SpecFirst + GPT-5.5-high: 65.14%, 60.3%, $5.85 (>=90% pass on 16.5% vs 5.5% of programs). (7) Direct + GPT-5.4-mini (medium): 39.09%, 52.1%, $0.35; (8) SpecFirst + GPT-5.4-mini: 41.78%, 58.6%, $0.53. Format study (GPT-5.4-mini, 50 sampled instances): no spec 55.9%, Freeform 60.7%, OpenSpec 61.7%, Sections 62.6%. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
    "p": "6-8, 10",
-   "rev": [],
+   "rev": [
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the pass-rate thresholds of Table III are reporting bands, not a success criterion"
+    }
+   ],
    "warn": ""
   },
   {
@@ -304,7 +310,7 @@
      "why": "Judgement: cost is stated ($0.53-$5.85 per instance, Table VII p. 10) and tooling is standard (mini-SWE-agent, Docker, LiteLLM), which could support Yes; but the approach needs an executable behavioural oracle, which the authors argue can be any queryable reference 'or human' (p. 10), while a typical new project has none (Partly)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O custo é indicado ($0.53-$5.85 por instância, Tabela VII, p. 10) e as ferramentas são comuns, mas a abordagem exige um oráculo comportamental executável, que um projeto novo típico não tem. Decide entre Partly e Yes."
   },
   {
    "f": "DARE1",

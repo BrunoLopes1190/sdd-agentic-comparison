@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485902",
+ "fields": [
+  {
+   "f": "Publication type",
+   "doubt": "O tipo passou de Preprint a Conference com base nos exports ACM e WoS (PROFES 2025, DOI 10.1007/978-3-032-12089-2_40); o texto lido é o do arXiv. Confirma o DOI na Springer."
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — repository mining: empirical study of the structure and content of 253 Claude.md files (RQ1 structure, RQ2 instruction categories). No agent run; effect of the files not measured",
+   "why": "Rule 3: a descriptive repository-mining study of Claude.md files is 'Evaluates — repository mining'; wording aligned, detail unchanged",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "doubt": "O estudo não mede eficácia; a única verificação independente é a rotulagem por dois inspetores com um terceiro a desempatar (p. 5), sem estatística de concordância. Decide entre Partly e No."
+  }
+ ]
+}

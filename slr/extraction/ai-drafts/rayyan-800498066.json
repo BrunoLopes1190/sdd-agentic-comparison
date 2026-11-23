@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498066",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; marked 'Preprint', ICLR-style template; venue Not stated)",
+   "v": "Preprint — arXiv:2605.25430v2 [cs.AI], pages marked 'Preprint'; no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; 'ICLR-style template' is not stated in the text. Type unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,10 +39,26 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (CodeSkill, an RL-trained LLM policy for extracting, evolving and maintaining a skill bank for coding agents); secondary: evaluates/compares it against no-skill, subtask memory and prompt-based skill management on three benchmarks",
+   "v": "Proposes an approach; secondary: Evaluates — CodeSkill, an RL-trained LLM policy that extracts, evolves and maintains a skill bank for coding agents; evaluated against no-skill, subtask memory and prompt-based skill management on EnvBench, SWE-Bench Verified and Terminal-Bench 2 under two frozen coding policies",
    "p": "1-2",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form ('secondary: evaluates/compares it' is not a single list value; ' — ' detail missing); nature unchanged"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes an approach) is clear; the secondary is a judgement: most of the evaluation is a head-to-head comparison with no-skill, prompt-based and subtask-memory baselines under two frozen policies, so 'Compares' is also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes CodeSkill) is clear. The secondary is a judgement: the whole evaluation (Tables 1-2) is a head-to-head comparison with no-skill, prompt-based skill management and subtask-memory baselines under two frozen policies, so 'Compares' is as defensible as 'Evaluates'"
+    }
+   ],
+   "warn": "A natureza secundária pode ser Evaluates ou Compares: a avaliação é sobretudo uma comparação com baselines (sem skills, prompt-based, subtask memory). Decide qual usar."
   },
   {
    "f": "Approach(es): name and version",
@@ -152,9 +174,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: benchmark pass rate (%). Values EnvBench-Python / EnvBench-Java / SWE-Bench Verified / Terminal-Bench 2 / Avg; steps = avg reasoning steps (Table 1). Agents: mini-SWE-agent (SWE, TB2) and ReAct-style bash agent (EnvBench). -- Frozen policy Qwen3.5-35B-A3B: No-skill 6.98 / 27.10 / 57.33 / 25.88 / 29.32, steps 44.12 (baseline). Subtask memory (GPT-5.4-mini) 9.30 / 32.71 / 61.33 / 30.59 / 33.48, steps 39.76. Prompt skill mgmt (Qwen3.5-4B) 4.65 / 30.84 / 58.67 / 24.71 / 29.72. Prompt skill mgmt (GPT-5.4-mini) 11.63 / 36.45 / 64.67 / 28.24 / 35.25, steps 37.02. SFT-CodeSkill 13.95 / 35.51 / 64.00 / 24.71 / 34.54. CodeSkill 18.60 / 38.32 / 68.00 / 36.47 / 40.35, steps 35.99; quality: works; cost: works (fewer steps; training cost high). -- Frozen policy GPT-5.4-mini: No-skill 4.65 / 15.89 / 46.67 / 20.00 / 21.80, steps 9.64 (baseline). Subtask memory 9.30 / 25.23 / 52.67 / 22.35 / 27.39. Prompt skill mgmt (Qwen3.5-4B) 6.98 / 22.43 / 50.67 / 23.53 / 25.90. Prompt skill mgmt (GPT-5.4-mini) 9.30 / 24.30 / 56.67 / 21.18 / 27.86. SFT-CodeSkill 6.98 / 23.36 / 54.67 / 23.53 / 27.14. CodeSkill 13.95 / 27.10 / 56.00 / 29.41 / 31.62, steps 8.03; quality: works (not best on SWE); cost: partly. -- Ablations (Qwen policy, Table 2), avg pass / skill count: event-driven only 916 skills; task-level only 336; extraction only 37.88, 1,252; extraction + evolution 39.53, 1,252; full lifecycle 40.35, 676",
+   "v": "Success = benchmark verifier pass rate (%) per task; the authors state no success threshold for a configuration and no cost criterion. Values EnvBench-Python / EnvBench-Java / SWE-Bench Verified / Terminal-Bench 2 / Avg pass rate; steps = avg reasoning steps on instances solved by all methods (Table 1). Agents: mini-SWE-agent (SWE, TB2), ReAct-style bash agent (EnvBench); agent versions not stated. Frozen policy Qwen3.5-35B-A3B: (1) No-skill (baseline): 6.98 / 27.10 / 57.33 / 25.88 / 29.32; steps 44.12. (2) Subtask memory (re-implementation) + GPT-5.4-mini: 9.30 / 32.71 / 61.33 / 30.59 / 33.48; steps 39.76. (3) Prompt skill mgmt + Qwen3.5-4B: 4.65 / 30.84 / 58.67 / 24.71 / 29.72; steps 39.08. (4) Prompt skill mgmt + GPT-5.4-mini: 11.63 / 36.45 / 64.67 / 28.24 / 35.25; steps 37.02. (5) SFT-CodeSkill + Qwen3.5-4B: 13.95 / 35.51 / 64.00 / 24.71 / 34.54; steps 38.04. (6) CodeSkill + Qwen3.5-4B: 18.60 / 38.32 / 68.00 / 36.47 / 40.35; steps 35.99. Frozen policy GPT-5.4-mini: (7) No-skill (baseline): 4.65 / 15.89 / 46.67 / 20.00 / 21.80; steps 9.64. (8) Subtask memory + GPT-5.4-mini: 9.30 / 25.23 / 52.67 / 22.35 / 27.39; steps 8.56. (9) Prompt skill mgmt + Qwen3.5-4B: 6.98 / 22.43 / 50.67 / 23.53 / 25.90; steps 8.12. (10) Prompt skill mgmt + GPT-5.4-mini: 9.30 / 24.30 / 56.67 / 21.18 / 27.86; steps 8.11. (11) SFT-CodeSkill: 6.98 / 23.36 / 54.67 / 23.53 / 27.14; steps 7.98. (12) CodeSkill: 13.95 / 27.10 / 56.00 / 29.41 / 31.62; steps 8.03. Lifecycle ablations, Qwen3.5-35B-A3B policy (Table 2; avg computed from the four values where the text gives none): (13) event-driven only (ablation): 16.28 / 32.71 / 62.00 / 29.41 / (35.10), 916 skills; (14) task-level only (ablation): 11.63 / 30.84 / 58.67 / 28.24 / (32.35), 336 skills; (15) extraction only (ablation): 13.95 / 41.12 / 64.67 / 31.76 / 37.88, 1,252 skills; (16) extraction + evolution (ablation): 18.60 / 39.25 / 67.33 / 32.94 / 39.53, 1,252 skills; full lifecycle = (6), 676 skills. Quality and cost for every configuration: no criterion stated by the authors. Training cost of CodeSkill (one-off): 4×H100, SFT ~20 h, RL ~210 h",
    "p": "7-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Quality/cost verdicts ('works', 'partly') were set by the extractor without any success criterion stated by the authors (rule of 2026-11-23); baselines lacked own entries/verdicts; steps for most configurations and the per-benchmark ablation values were missing"
+    }
+   ],
    "warn": ""
   },
   {

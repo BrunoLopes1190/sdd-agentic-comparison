@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498205",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2609.36807v1 [cs.SE], 29 Sep 2026; no published venue found (no journal_ref in the arXiv export, not in the other exports)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; type itself (Preprint) is right"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (XRepoSkill, trajectory-based learning of transferable skill rules for SE agents); secondary: compares (vs no-skill agent and three skill-learning methods on two benchmarks with three LLMs)",
+   "v": "Proposes an approach; secondary: Compares — XRepoSkill, trajectory-based learning of transferable skill rules for SE agents, compared with the no-skill agent and three skill-learning methods on two benchmarks with three LLMs",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<main>; secondary: <one of the list> — <detail>' (secondary was lower-case and the detail was in brackets)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,10 +164,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: %Resolved SWE-bench Pro (200) / DeepSWE (113); cost USD per issue SWE-Pro / DeepSWE (Table 1, Table 5). All with mini-SWE-agent 2.0. (1) No skills + DeepSeek-V4-Flash: 51.5 / 46.0; $0.133 / $0.150. Baseline. (2) No skills + GPT-5.6-Luna: 50.5 / 44.2; $0.089 / $0.390. (3) No skills + MiMo-V2.5-Pro: 41.5 / 11.5; $0.034 / $0.128. (4) SkillOpt + DeepSeek: 54.0 / 40.7; GPT: 51.5 / 39.8; MiMo: 41.0 / 13.3 (rebuilt from jumbled table). (5) STAIR + DeepSeek: 55.5 / 43.4; GPT: 51.0 / 46.0; MiMo: 48.5 / 14.2. (6) Trace2Skill + DeepSeek: 55.0 / 49.6; GPT: 52.0 / 53.1; MiMo: 45.0 / 15.0. (7) XRepoSkill + DeepSeek: 55.5 / 58.4; $0.156 / $0.161. Quality: works; cost: works. (8) XRepoSkill + GPT: 56.0 / 56.6; $0.110 / $0.426. Works; works. (9) XRepoSkill + MiMo: 50.0 / 17.7; $0.065 / $0.152. Works (partly on DeepSWE); works. Stability (DeepSWE, DeepSeek, 4 runs): mini-SWE-agent 45.6 +/- 2.50, Trace2Skill 49.3 +/- 2.69, XRepoSkill 58.6 +/- 2.49; Pass@4 77.9 / 81.4 / 89.4; All@4 17.7 / 21.2 / 32.7. Ablations (DeepSWE, DeepSeek, ablation): w/ Trace2Skill rules 54.9; w/o within-repo 53.1; w/o cross-repo 51.3; w/ all rules 48.7; w/o evidence 55.8 (full 58.4)",
+   "v": "Success criterion stated by the authors (§2.1): 'Our goal is for the resulting skill-guided agent to achieve a higher issue resolution rate on previously unseen repositories than the original agent without the learned skill' — a criterion for XRepoSkill only, and relative to the no-skill agent. No criterion stated for the baselines and none for cost ('similar cost scale'). %Resolved SWE-bench Pro (200) / DeepSWE (113); cost USD per issue SWE-Pro / DeepSWE (Tables 1, 5). All with mini-SWE-agent 2.0, single run. (1) No skills + DeepSeek-V4-Flash: 51.5 / 46.0; $0.133 / $0.150. (2) No skills + GPT-5.6-Luna: 50.5 / 44.2; $0.089 / $0.390. (3) No skills + MiMo-V2.5-Pro: 41.5 / 11.5; $0.034 / $0.128. Quality and cost: no criterion stated by the authors. (4) SkillOpt + DeepSeek: 54.0 / 40.7, $0.167 / $0.135; + GPT: 51.5 / 39.8, $0.148 / $0.407; + MiMo: 41.0 / 13.3, $0.041 / $0.125. (5) STAIR + DeepSeek: 55.5 / 43.4, $0.140 / $0.150; + GPT: 51.0 / 46.0, $0.098 / $0.358; + MiMo: 48.5 / 14.2, $0.052 / $0.140. (6) Trace2Skill + DeepSeek: 55.0 / 49.6, $0.153 / $0.139; + GPT: 52.0 / 53.1, $0.117 / $0.274; + MiMo: 45.0 / 15.0, $0.036 / $0.124. (4)-(6) quality and cost: no criterion stated by the authors. (7) XRepoSkill + DeepSeek: 55.5 / 58.4; $0.156 / $0.161. (8) XRepoSkill + GPT: 56.0 / 56.6; $0.110 / $0.426. (9) XRepoSkill + MiMo: 50.0 / 17.7; $0.065 / $0.152 (selection calls $0.01 per issue with DeepSeek and GPT, $0.03 with MiMo). (7)-(9) quality: works by the authors' criterion (higher than the same agent without skills in all 6 cells); cost: no criterion stated by the authors. Stability (DeepSWE, DeepSeek, 4 runs): mini-SWE-agent 45.6 +/- 2.50, Trace2Skill 49.3 +/- 2.69, XRepoSkill 58.6 +/- 2.49; Pass@4 77.9 / 81.4 / 89.4; All@4 17.7 / 21.2 / 32.7. Ablations (DeepSWE, DeepSeek, ablation): w/ Trace2Skill rules 54.9; w/o within-repo 53.1; w/o cross-repo 51.3; w/ all rules 48.7; w/o evidence 55.8 (full 58.4)",
    "p": "7-9, 15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft gave XRepoSkill 'works' on quality and cost without a stated threshold and listed no cost for SkillOpt, STAIR and Trace2Skill. Per-configuration costs added from Table 5 (p. 15); baseline values of the jumbled Table 1 verified against the averages (48.8, 51.7, 50.7; 31.3, 34.5, 39.2). The authors' only success criterion is relative to the no-skill agent, which conflicts with judging each configuration on its own"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "All values rechecked: rebuilt Table 1 rows reproduce the printed averages (SkillOpt 48.8/31.3, STAIR 51.7/34.5, Trace2Skill 50.7/39.2) and Table 5 costs match (p. 7, 15). The only stated criterion (§2.1, p. 3) is relative to the no-skill agent, so the XRepoSkill 'works' verdict judges it against the baseline, which conflicts with judging each configuration on its own (§6)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values rechecked: rebuilt Table 1 rows reproduce the printed averages (SkillOpt 48.8/31.3, STAIR 51.7/34.5, Trace2Skill 50.7/39.2; p. 7), costs match Table 5 (p. 15), Tables 3-4 match (p. 8-9). Open point: the only stated criterion (§2.1, p. 3) is 'higher resolution rate than the original agent without the learned skill', i.e. relative to the baseline, so the XRepoSkill 'works' verdict judges it against the baseline, against §6 'judged on its own'"
+    }
+   ],
+   "warn": "O único critério dos autores (§2.1, p. 3) é resolver mais do que o agente sem skills, ou seja, relativo ao baseline. Decide se aceitas 'works' para XRepoSkill ou se passa a 'no criterion stated by the authors'."
   },
   {
    "f": "Comparison: design",
@@ -257,10 +285,26 @@
   },
   {
    "f": "Q10",
-   "v": "No (0): no threats-to-validity or limitations section; only scattered caveats",
+   "v": "Partly (0.5): no threats-to-validity or limitations section, but limitations are discussed in place: budget-limited sampling of SWE-bench Pro and single runs, containers without git history or network not comparable to the official images, small language subsets to be read with caution, rule gains confounded by joint selection",
    "p": "8, 14, 16",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The draft scored No; the paper discusses several limitations in the text and appendix (pp. 6, 8, 14, 16) without a dedicated section, which other drafts in this batch scored Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No limitations or threats section; caveats appear in place (sampling of 200 of 731 for budget, single runs, containers not comparable to official images, small language subsets, joint selection of rules; p. 6, 8, 14, 16). Partly vs No depends on how much in-place discussion counts"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No limitations or threats section (conclusion p. 10 has none); caveats only in place: sampling of 200 of 731 for budget (p. 6), small language subsets (p. 8), containers not comparable to official images (p. 14), joint rule selection confounds per-rule gains (p. 16). Partly vs No depends on how much in-place discussion counts"
+    }
+   ],
+   "warn": "Não há secção de limitações nem ameaças; só ressalvas dispersas (pp. 6, 8, 14, 16). Decide entre Parcialmente e Não."
   },
   {
    "f": "Q11",
@@ -271,9 +315,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors propose and evaluate their own approach (baselines are by other authors)",
+   "v": "Partly (0.5): authors created XRepoSkill; mini-SWE-agent and the baselines SkillOpt, STAIR and Trace2Skill are by other authors, and the backbone LLMs (DeepSeek, GPT, MiMo) are third-party",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft scored No while noting that the baselines are by other authors; §5 gives Partly when the author is vendor of only some of the approaches evaluated (same reading as other own-method-vs-third-party-baseline drafts)"
+    }
+   ],
    "warn": ""
   },
   {

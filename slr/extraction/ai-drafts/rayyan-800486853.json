@@ -1,13 +1,19 @@
 {
  "key": "rayyan-800486853",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
-   "v": "Chen, H., Lin, H., Yang, Z., Zhang, L., Li, A., Li, J., Li, M., Chen, Y., Zan, D. (2026). EnvPilot: Systematic Design and Evaluation of an Experience-Augmented Agent for Software Environment Setup. arXiv:2609.07357v1 [cs.SE], 7 Sep 2026 (ACM TOSEM template, 49 pages)",
+   "v": "Chen, H., Lin, H., Yang, Z., Zhang, L., Li, A., Li, J., Li, M., Chen, Y., Zan, D. (2026). EnvPilot: Systematic Design and Evaluation of an Experience-Augmented Agent for Software Environment Setup. ACM Transactions on Software Engineering and Methodology. doi:10.1145/3846187 (49 pages). Full text read from arXiv:2609.07357v1 [cs.SE], 7 Sep 2026",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The paper is published in ACM TOSEM (DOI 10.1145/3846187 in the bibliographic record; the text's own ACM Reference Format cites ACM Trans. Softw. Eng. Methodol., June 2026); the draft cited only the arXiv version."
+    }
+   ],
    "warn": ""
   },
   {
@@ -19,9 +25,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv), formatted for ACM Trans. Softw. Eng. Methodol. (template placeholders Vol. 1, No. 1; acceptance not stated)",
+   "v": "Journal — ACM Transactions on Software Engineering and Methodology (DOI 10.1145/3846187); read from the arXiv version (TOSEM layout, 'Publication date: June 2026', volume/issue placeholders)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said Preprint, but the bibliographic record gives the published TOSEM DOI; per the draft-verify rule a published paper read from arXiv keeps the venue type. Also format: category, then ' — ' and detail."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +45,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (EnvPilot, experience-augmented environment-setup agent with Trajectory-Derived Memory and Context-aware Retrieval), evaluated against baselines with ablations; secondary: proposes an evaluation method (AES-Bench benchmark, 112 instances, plus LLM-as-a-Judge evaluation)",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — EnvPilot, experience-augmented environment-setup agent with Trajectory-Derived Memory and Context-aware Retrieval, evaluated against 6 baselines with ablations; also the AES-Bench benchmark (112 instances) and an LLM-as-a-Judge evaluation validated against human labels",
    "p": "1, 3-4",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged."
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,10 +170,21 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: ECSR (test lifecycle complete, LLM judge). Values ECSR; API; tokens; $ per task. AES-Bench, DeepSeek-V3-0324 (EnvPilot and SWE-Agent median of 3 runs, others 1 run): EnvPilot + SWE-Agent framework: 75.00% (84/112); 28; 220K; $0.063. Quality works, cost works. | SWE-Agent (adapted): 62.50% (70/112); 31; 200K; $0.058. Partly; works. | RepoLaunch: 55.36% (62/112); 34; 250K; $0.071. Partly; works. | ExecutionAgent: 43.75% (49/112); 28; 420K; $0.130. Partly; partly. | Repo2Run (Python subset only): 66.67% (8/12); 20; 1,000K; $0.281. Partly; partly. | Bash-Agent: not run (model lacks the tool-calling format). | Installamatic: 0.00% (text only; model not stated). Does not work. AES-Bench, GPT-4o-mini: EnvPilot 46.43% (52/112); 26; 214K; $0.034. Partly; works. | SWE-Agent 24.11%; 29; 192K; $0.030. Does not work; works. | RepoLaunch 40.18%; 44; 387K; $0.060. Partly; works. | ExecutionAgent 23.21%; 44; 643K; $0.105. Does not work; partly. | Repo2Run 25.00% (3/12); 45; 1,273K; $0.193. Does not work; partly. | Bash-Agent 20.54%; 33; 380K; $0.059. Does not work; works. ExecutionAgent-Bench (50 tasks), DeepSeek-V3: EnvPilot 72.00%; 26; 198K; $0.057 | SWE-Agent 56.00%; 29; 185K; $0.054 | RepoLaunch 50.00%; 35; 280K; $0.080 | ExecutionAgent 36.00%; 27; 422K; $0.131 | Repo2Run 54.54% (6/11); 15; 847K; $0.238. GPT-4o-mini: EnvPilot 46.00%; 32; 227K; $0.036 | SWE-Agent 28.00%; 33; 209K; $0.033 | RepoLaunch 30.00%; 39; 365K; $0.056 | ExecutionAgent 18.00%; 31; 480K; $0.079 | Repo2Run 27.27% (3/11); 43; 1,356K; $0.206 | Bash-Agent 36.00%; 33; 466K; $0.071. Ablations (AES-Bench, DeepSeek-V3, temperature 0, k = 10): w/o TDM 62.50%; 31; 200K | naive query 66.96%; 28; 219K | unstructured memory 66.96%; 29; 217K | problem+solution 66.96%; 28; 204K | problem+action 66.96%; 29; 206K. Retrieval size (ablation): k = 0 64.29%, 5 68.75%, 10 75.00%, 15 74.11%, 20 71.43% (tokens 202K-230K). Stability (3 trials): w/ TDM 74.11 ± 4.09%, $0.062 ± 0.001; w/o TDM 62.20 ± 2.25%, $0.057 ± 0.001",
+   "v": "Per-task success = ECSR (project's test suite completes a full lifecycle, judged by DeepSeek-V3 LLM judge); no success criterion for a configuration's rate or cost is stated by the authors. Values: ECSR; API calls; tokens; $ per task. AES-Bench (112), DeepSeek-V3-0324 (EnvPilot and SWE-Agent median of 3 runs per p. 14, others 1 run): EnvPilot (on adapted SWE-Agent framework): 75.00% (84/112); 28; 220K; $0.063. Quality and cost: no criterion stated by the authors. | SWE-Agent (adapted): 62.50% (70/112); 31; 200K; $0.058. No criterion stated by the authors. | RepoLaunch: 55.36% (62/112); 34; 250K; $0.071. No criterion stated by the authors. | ExecutionAgent: 43.75% (49/112); 28; 420K; $0.130. No criterion stated by the authors. | Repo2Run (Python subset only): 66.67% (8/12); 20; 1,000K; $0.281. No criterion stated by the authors. | Bash-Agent: not run (model lacks the tool-calling format). | Installamatic: 0.00% (text only; model and cost not stated). No criterion stated by the authors. AES-Bench, GPT-4o-mini: EnvPilot 46.43% (52/112); 26; 214K; $0.034 | SWE-Agent 24.11% (27/112); 29; 192K; $0.030 | RepoLaunch 40.18% (45/112); 44; 387K; $0.060 | ExecutionAgent 23.21% (26/112); 44; 643K; $0.105 | Repo2Run 25.00% (3/12); 45; 1,273K; $0.193 | Bash-Agent 20.54% (23/112); 33; 380K; $0.059. No criterion stated by the authors for any. ExecutionAgent-Bench (50 tasks), DeepSeek-V3: EnvPilot 72.00% (36/50); 26; 198K; $0.057 | SWE-Agent 56.00%; 29; 185K; $0.054 | RepoLaunch 50.00%; 35; 280K; $0.080 | ExecutionAgent 36.00%; 27; 422K; $0.131 | Repo2Run 54.54% (6/11); 15; 847K; $0.238. GPT-4o-mini: EnvPilot 46.00%; 32; 227K; $0.036 | SWE-Agent 28.00%; 33; 209K; $0.033 | RepoLaunch 30.00%; 39; 365K; $0.056 | ExecutionAgent 18.00%; 31; 480K; $0.079 | Repo2Run 27.27% (3/11); 43; 1,356K; $0.206 | Bash-Agent 36.00%; 33; 466K; $0.071. No criterion stated by the authors for any. Ablations (AES-Bench, DeepSeek-V3, temperature 0, k = 10): w/o TDM 62.50%; 31; 200K | naive query 66.96%; 28; 219K | unstructured memory 66.96%; 29; 217K | problem+solution 66.96%; 28; 204K | problem+action 66.96%; 29; 206K. Retrieval size (ablation): k = 0 64.29%, 5 68.75%, 10 75.00%, 15 74.11%, 20 71.43% (tokens 200K-230K). Stability (3 trials): w/ TDM 74.11 ± 4.09%, $0.062 ± 0.001; w/o TDM 62.20 ± 2.25%, $0.057 ± 0.001",
    "p": "14-21, 48-49",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The authors state no success threshold for a configuration's ECSR or cost, so the works/partly/does-not-work verdicts were the extractor's own and are removed (author's rule of 2026-11-23). Values re-checked against Tables 4, 5, 7 and 8: unchanged (task counts added for GPT-4o-mini rows)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Table 7 (p. 20) gives tokens 202, 200, 220, 227, 230K for k = 0-20, so the range is 200K-230K, not 202K-230K."
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -166,10 +195,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "EnvPilot best on success in both benchmarks and both models: AES-Bench DeepSeek-V3 75.00% vs SWE-Agent 62.50% (+12.5 pts) for +$0.005 per task; vs RepoLaunch +19.6 pts; GPT-4o-mini 46.43% vs RepoLaunch 40.18%; ExecutionAgent-Bench 72.00% vs 56.00%. Ablation: full system +8.04 pts over best ablation; removing TDM -12.5 pts; fewest API calls (28) but slightly more tokens (220K vs 200K). Stability: +11.91 pts mean (19.14% relative). Exceptions: C/C++ best without TDM (68.00% vs 60.00%); JS/TS best with unstructured memory; RepoLaunch stronger on Java/C/C++ with GPT-4o-mini. No statistical significance test",
+   "v": "EnvPilot best on success in both benchmarks and both models: AES-Bench DeepSeek-V3 75.00% vs SWE-Agent 62.50% (+12.5 pts) for +$0.005 per task; vs RepoLaunch +19.6 pts; GPT-4o-mini 46.43% vs RepoLaunch 40.18%; ExecutionAgent-Bench 72.00% vs 56.00%. Ablation: full system +8.04 pts over best ablation; removing TDM -12.5 pts; API calls 28, tied lowest with variants B and D (authors say 'lowest') but slightly more tokens (220K vs 200K). Stability: +11.91 pts mean (19.14% relative). Exceptions: C/C++ best without TDM (68.00% vs 60.00%); JS/TS best with unstructured memory; RepoLaunch stronger on Java/C/C++ with GPT-4o-mini. No statistical significance test",
    "p": "15-18, 20-21, 46-47",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Table 5 (p. 18): w/ Naive Query and w/ Prob + Solution also have 28 API calls, so the full system ties for fewest rather than being alone."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -187,9 +222,15 @@
   },
   {
    "f": "Notes",
-   "v": "Table 4 (p. 16) jumbled by pdftotext: values rebuilt by column order and cross-checked with text p. 15 and Tables 19-20 (pp. 48-49). Inconsistencies: p. 14 says EnvPilot and SWE-Agent ran 3 times (median reported), Threats p. 27 says one attempt per method; text p. 15 says \"three baseline agents\" while Table 4 lists five; Installamatic 0.00% only in text (p. 16), not in Table 4; Table 7 k = 0 (64.29%) differs from Table 5 w/o TDM (62.50%); \"significantly outperforms\" without statistical test. Prompts in Appendix A (pp. 32-39), SWE-Agent adaptation in Appendix B, full AES-Bench instance list with commits in Appendix C (pp. 42-46). No replication package: authors \"plan to release trajectories and evaluation scripts\"; TDM not released. No pre-registration. Languages: 9 (benchmark)",
-   "p": "14-16, 20, 27-28, 32-49",
-   "rev": [],
+   "v": "Published in ACM TOSEM (DOI 10.1145/3846187, from the bibliographic record); full text read from arXiv v1. Table 4 (p. 16) jumbled by pdftotext: values rebuilt by column order and cross-checked with text p. 15 and Tables 19-20 (pp. 48-49). Inconsistencies: p. 14 says EnvPilot and SWE-Agent ran 3 times (median reported), but Threats p. 27 says one attempt per method, and RQ3 (p. 19) says the 460 judged trajectories are the complete DeepSeek-V3 RQ1 output (460 = 4 x 112 + 12, i.e. one run per method); text p. 15 says \"three baseline agents\" while Table 4 lists five; Installamatic 0.00% only in text (p. 16), not in Table 4; Table 7 k = 0 (64.29%) differs from Table 5 w/o TDM (62.50%); \"significantly outperforms\" without statistical test. Prompts in Appendix A (pp. 32-39), SWE-Agent adaptation in Appendix B, full AES-Bench instance list with commits in Appendix C (pp. 42-46). No replication package: authors \"plan to release trajectories and evaluation scripts\"; TDM not released. No pre-registration. Languages: 9 (benchmark)",
+   "p": "1, 14-16, 19-20, 27-28, 32-49",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added the published venue and a further inconsistency on repetitions: the 460 trajectories of RQ3 match one run per method, not three runs for EnvPilot and SWE-Agent."
+    }
+   ],
    "warn": ""
   },
   {
@@ -264,9 +305,15 @@
   },
   {
    "f": "Q11",
-   "v": "No (0): arXiv preprint; TOSEM template but acceptance not stated (check) [Check: the record has a published DOI (https://doi.org/10.1145/3846187); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "p": "1",
-   "rev": [],
+   "v": "Yes (1): published in ACM TOSEM (DOI 10.1145/3846187); full text read from the arXiv version",
+   "p": "1-2",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The bibliographic record gives the published TOSEM DOI and the text carries the ACM reference format for TOSEM; the draft scored No on the assumption of a preprint."
+    }
+   ],
    "warn": ""
   },
   {

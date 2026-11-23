@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800485914",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shukla, T., Feng, K. J. K., Wang, L., Rostami, M., Zhang, A. X. (2026). Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight. In Proceedings of the 1st ACM Conference on Agentic and AI Systems (CAIS '26), San Jose, CA, USA. ACM. https://doi.org/10.1145/3786335.3813223 (also arXiv:2605.11495v1 [cs.HC], 12 May 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — CAIS '26, 1st ACM Conference on Agentic and AI Systems (ACM, 8 pages), DOI 10.1145/3786335.3813223; demo-oriented paper ('live demo slot', demo video); full text read from arXiv:2605.11495v1",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Washington (Shukla, Feng, Wang, Zhang); Amazon GenAI Innovation Center (Rostami; 'work is independent of the position at Amazon'). Funded by an Amazon Research Award",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — Hedwig, a CLI coding agent with dynamic autonomy, with a small illustrative evaluation against Claude Code with CLAUDE.md persona rules; a formative survey of 21 engineers motivates the design",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Hedwig CLI (github.com/tanjalshukla/HedwigCLI), version Not stated; powered by Claude Sonnet 4.6. Comparator: Claude Code v2.1.119 with Auto Memory and CLAUDE.md persona rules (CC-C cautious, CC-P permissive) and no CLAUDE.md (CC-B)",
+   "p": "3-4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Autonomy policies stored in memory: hard constraints (compiled from natural-language rules, enforced by the CLI) and behavioral guidance (short feedback snippets, logic notes, retrieved into prompts); per-repository trust database and learned logistic-regression coefficients; a short task specification file used as a task contract (spec digest, requirement coverage reported); end-of-session summary. Comparator: CLAUDE.md with developer preferences",
+   "p": "3-5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Workflow phases tracked: research, planning, implementation, review (only phase-appropriate actions allowed). Per action: hard constraints check -> learned policy score -> silent approval / approval flagged for post-run inspection / live check-in; approved changes verified against configured test suite. Walkthrough: read -> plan check-in -> plan approval -> apply patch -> verification -> session summary",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Live check-ins when policy score is below the flag threshold (0.20), on hard constraints, milestone triggers, or agent-initiated (uncertainty, design trade-off); plan checkpoint for multi-file plans; developer confirms interpretation of each new rule; post-run inspection of flagged actions; developer can revoke granted preferences",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the Hedwig agent (two backend tasks, synthetic personas); comparator only the CLAUDE.md context file",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors: 'Its spec-driven development support is simplistic: the model is grounded in a spec digest and reports requirement coverage, but no structured pipeline is provided' (spec as task contract, closest to spec-first)",
+   "p": "4-5",
+   "verdict": "uncertain",
+   "why": "Agree with round 1: the short task specification file acts as a task contract (plan grounded in a spec digest, requirement coverage reported, p. 4-5), which could be read as spec-first, but the authors call their SDD support simplistic with no structured pipeline and the paper is about autonomy calibration",
+   "doubt": "O Hedwig usa um ficheiro de especificação como contrato da tarefa e reporta cobertura de requisitos, mas os autores dizem que o suporte SDD é simplista. Decide entre 'not classifiable' e spec-first."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: extending a small Python task API (T1 add GET /tasks/summary endpoint; T2 add optional priority filter)",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "Small demo repository (route handlers, service layer, tests, short spec file); 2 tasks, 11 write operations per run",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Backend web API (Python)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Evaluation: no human participants (synthetic cautious/permissive personas, 20 synthetic decisions each replayed 3x). Formative survey: 21 experienced engineers (20/21 at least 8 years programming, 20/21 weekly agent users)",
+   "p": "2, 4, 6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money measured)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Verification passes (configured test suite; 4/4 in the walkthrough only); not an evaluation metric",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Number of check-ins and check-in ratio (check-ins / 11 operations) as proxy for interruption burden; policy- vs agent-initiated check-ins (walkthrough)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Recall and precision of check-ins against an LLM-judge oracle (required check-ins caught); false-positive counts; classifier coefficient shifts per persona (Table 2)",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic counts from runs; oracle labels from an LLM judge (Claude Opus 4.7) given persona rules and operation context; check-in defined as agent-initiated unprompted approval request before a write (CC harness permission prompts excluded)",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Metrics: check-ins vs LLM-judge oracle (4 required under cautious, 0 under permissive), 11 ops over T1+T2, single run per configuration. No success criterion stated by the authors for any configuration (recall is called the 'safety-dominant metric', but no threshold is set); cost not measured. (a) Hedwig cautious (H-C) + Hedwig CLI + Claude Sonnet 4.6: 6 check-ins, ratio 0.55, recall 1.00, precision 0.67. (b) Hedwig permissive (H-P) + Hedwig CLI + Sonnet 4.6: 4 check-ins, ratio 0.36, recall undefined, precision 0.00 (4 false positives). (c) CLAUDE.md cautious (CC-C) + Claude Code v2.1.119 + Sonnet 4.6: 2 check-ins, ratio 0.18, recall 0.50, precision 1.00 (missed two signature changes). (d) CLAUDE.md permissive (CC-P) + Claude Code + Sonnet 4.6: 0 check-ins, 0 false positives. (e) No CLAUDE.md (CC-B, baseline) + Claude Code + Sonnet 4.6: 0 check-ins, recall 0.00 vs cautious oracle. All entries: no criterion stated by the authors (quality and cost)",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 2 identical backend tasks on a small Python task API. Configurations: Hedwig (2 seeded personas) vs Claude Code (CLAUDE.md cautious, permissive, none). Baseline: CC-B (no CLAUDE.md). Held constant: tasks, model (Sonnet 4.6), persona rules (encoded as trust database for Hedwig, as CLAUDE.md for CC); not held: starting state (Hedwig seeded with 60 decisions, CC cold), check-in mechanism (policy vs model). Acceptance: LLM-judge oracle labels; test suite verification. Repetitions: 1 run per condition. Human intervention: approvals simulated/persona-based (Not stated in detail for the comparison runs)",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Cautious persona: Hedwig recall 1.00 vs CC-C 0.50 vs CC-B 0.00; Hedwig 2 false positives. Permissive persona: CC-P and CC-B 0 false positives vs Hedwig 4. Hedwig check-in ratio differs across personas (0.55 vs 0.36). No significance testing ('illustrative, not statistically conclusive')",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished systems on recall/false positives, but on 11 operations and one run; not repeatable as reported (no variance). Limitations stated: unequal starting states; single run; different check-in mechanisms; CC harness prompts excluded; format-dependent behavior CLAUDE.md vs AGENTS.md; judge labels depend on judge model/rubric; fixed 90% threshold; routine tasks only",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Evaluation on synthetic traces, no formal user study; convergence and persona learning trajectories open; no reversibility risk signal, richer preference taxonomy or sub-agent delegation; simplistic SDD support (spec digest only, no structured pipeline); prototype not production-grade. Future: controlled lab study on task completion, interruption burden, steerability, verification effort, calibrated reliance; CDCR-aware scheduling",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 (p. 4) jumbled by pdftotext; values rebuilt row by row (H-C 6/0.55/1.00/0.67; H-P 4/0.36/-/0.00; CC-C 2/0.18/0.50/1.00; CC-P 0/0.00/-/-; CC-B 0/0.00/0.00/-). Table 2 caption says 15 synthetic decisions per persona while Appendix A says 20 decisions replayed 3x (inconsistency). Walkthrough repo seeded with 14 synthetic decisions. Source code and demo video available. Survey IRB-approved. Language: Python. No pre-registration",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem and three design goals clear; evaluation aim stated (does the learned policy adapt check-in frequency)",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): setup, personas, CLAUDE.md prompts and judge given in appendix; synthetic trace contents, judge prompt and Hedwig settings not fully given; code released",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Code v2.1.119, Sonnet 4.6, judge Claude Opus 4.7 named; Hedwig version Not stated",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): two tasks described; demo repo presumably with released code, availability of the task repo not explicitly stated",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): oracle is an LLM judge (independent of the systems, but not human ground truth; labels depend on judge)",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): check-in recall/precision defined; no cost metrics",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): Claude Code with and without CLAUDE.md as alternative, but unequal starting states (Hedwig seeded, CC cold)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run, no variance or statistics",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mixed result (precision loss on permissive) reported and limits stated as illustrative, but 'safety-dominant metric' framing favours Hedwig on 4 judge-labelled operations",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations in Section 4 and Appendix B.4 (nine items)",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM CAIS '26 proceedings (DOI 10.1145/3786335.3813223; WoS export type CPAPER); thanks anonymous reviewers",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created Hedwig; independent of Anthropic (Claude Code comparator). One author at Amazon (stated independent); Amazon Research Award funding",
+   "p": "1, 3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): local Python CLI, open source, needs a cloud LLM (Claude Sonnet 4.6) and VS Code, within reach of a team; but cost not stated and authors call it a working prototype, not production-grade",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

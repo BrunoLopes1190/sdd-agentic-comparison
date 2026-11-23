@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485914",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Conference (CAIS '26, ACM; 8 pages; demo-oriented paper: 'live demo slot', demo video)",
+   "v": "Conference — CAIS '26, 1st ACM Conference on Agentic and AI Systems (ACM, 8 pages), DOI 10.1145/3786335.3813223; demo-oriented paper ('live demo slot', demo video); full text read from arXiv:2605.11495v1",
    "p": "1, 5",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; substance unchanged (venue confirmed by the ACM copyright block and the WoS export, type CPAPER)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (Hedwig, CLI coding agent with dynamic autonomy); secondary: compares (small illustrative evaluation vs Claude Code with CLAUDE.md persona rules). Formative survey of 21 engineers motivates the design",
+   "v": "Proposes an approach; secondary: Compares — Hedwig, a CLI coding agent with dynamic autonomy, with a small illustrative evaluation against Claude Code with CLAUDE.md persona rules; a formative survey of 21 engineers motivates the design",
    "p": "1-2, 4",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>' (secondary nature was lower-case and inside the detail); substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -77,8 +89,19 @@
    "f": "SDD level",
    "v": "Not classifiable; authors: 'Its spec-driven development support is simplistic: the model is grounded in a spec digest and reports requirement coverage, but no structured pipeline is provided' (spec as task contract, closest to spec-first)",
    "p": "4-5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "A task specification file acts as a task contract that the plan is grounded in and against which requirement coverage is reported, which a reader could classify as spec-first; the authors themselves call the SDD support simplistic and the paper's focus is autonomy calibration, not specs"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Agree with round 1: the short task specification file acts as a task contract (plan grounded in a spec digest, requirement coverage reported, p. 4-5), which could be read as spec-first, but the authors call their SDD support simplistic with no structured pipeline and the paper is about autonomy calibration"
+    }
+   ],
+   "warn": "O Hedwig usa um ficheiro de especificação como contrato da tarefa e reporta cobertura de requisitos, mas os autores dizem que o suporte SDD é simplista. Decide entre 'not classifiable' e spec-first."
   },
   {
    "f": "Task type",
@@ -152,9 +175,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: check-ins vs LLM-judge oracle (4 required under cautious, 0 under permissive), 11 ops over T1+T2, single run. (a) Hedwig cautious (H-C) + Hedwig CLI + Claude Sonnet 4.6: 6 check-ins, ratio 0.55, recall 1.00, precision 0.67. Quality works; cost n/a (not measured). (b) Hedwig permissive (H-P) + Hedwig CLI + Sonnet 4.6: 4 check-ins, ratio 0.36, recall undefined, precision 0.00 (4 false positives). Partly; cost n/a. (c) CLAUDE.md cautious (CC-C) + Claude Code v2.1.119 + Sonnet 4.6: 2 check-ins, ratio 0.18, recall 0.50, precision 1.00 (missed two signature changes). Partly; cost n/a. (d) CLAUDE.md permissive (CC-P) + Claude Code + Sonnet 4.6: 0 check-ins, 0 false positives. Works; cost n/a. (e) No CLAUDE.md (CC-B, baseline) + Claude Code + Sonnet 4.6: 0 check-ins, recall 0.00 vs cautious oracle. Does not work for cautious; cost n/a",
+   "v": "Metrics: check-ins vs LLM-judge oracle (4 required under cautious, 0 under permissive), 11 ops over T1+T2, single run per configuration. No success criterion stated by the authors for any configuration (recall is called the 'safety-dominant metric', but no threshold is set); cost not measured. (a) Hedwig cautious (H-C) + Hedwig CLI + Claude Sonnet 4.6: 6 check-ins, ratio 0.55, recall 1.00, precision 0.67. (b) Hedwig permissive (H-P) + Hedwig CLI + Sonnet 4.6: 4 check-ins, ratio 0.36, recall undefined, precision 0.00 (4 false positives). (c) CLAUDE.md cautious (CC-C) + Claude Code v2.1.119 + Sonnet 4.6: 2 check-ins, ratio 0.18, recall 0.50, precision 1.00 (missed two signature changes). (d) CLAUDE.md permissive (CC-P) + Claude Code + Sonnet 4.6: 0 check-ins, 0 false positives. (e) No CLAUDE.md (CC-B, baseline) + Claude Code + Sonnet 4.6: 0 check-ins, recall 0.00 vs cautious oracle. All entries: no criterion stated by the authors (quality and cost)",
    "p": "4, 7-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave works / partly / does-not-work verdicts without a criterion stated by the authors; per the 2026-11-23 rule they are replaced by 'no criterion stated by the authors'. Metric values (Table 1, rebuilt) kept"
+    }
+   ],
    "warn": ""
   },
   {
@@ -264,9 +293,15 @@
   },
   {
    "f": "Q11",
-   "v": "Yes (1): ACM CAIS '26 proceedings; thanks anonymous reviewers [Check: the record has a published DOI (https://doi.org/10.1145/3786335.3813223); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "v": "Yes (1): ACM CAIS '26 proceedings (DOI 10.1145/3786335.3813223; WoS export type CPAPER); thanks anonymous reviewers",
    "p": "1, 6",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "confirmed",
+     "why": "Leftover '[Check: ...]' tool note removed; publication confirmed by the ACM copyright block on p. 1 and the WoS export"
+    }
+   ],
    "warn": ""
   },
   {

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498282",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; IEEE conference format, venue Not stated)",
+   "v": "Preprint — arXiv:2611.19549v1 [cs.SE], 14 Nov 2026; IEEE conference format, no venue stated (record only in the arXiv export)",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Compares (delivery of identical engineering rules: none, prompt, unrelated rules, retrieved guidance, checks after generation, enforcement during execution; three studies); secondary: proposes an approach (machine-readable engineering contracts enforced at runtime)",
+   "v": "Compares; secondary: Proposes an approach — delivery of identical engineering rules (none, prompt, unrelated rules, retrieved guidance, checks after generation, enforcement during execution) over three studies; the author's machine-readable engineering contracts enforced at runtime",
    "p": "1-3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>; secondary: <nature> — <detail>' (secondary nature was lower-case and inside the detail); substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: share of runs with an oracle violation (lower better) and functional pass (hidden tests); cost USD/run. Agent: mini-SWE-agent 2.4.6, temperature 1.0, 60 steps. Study 1 (8 tasks x 5 runs, Gemini 3.1 Flash-Lite): (a) C0 no rules: violation 0.55, pass 0.75, 0.024 USD, 19.1 calls. Baseline; quality does not work. (b) C1 prompt: 0.50, 0.88, 0.019. Does not work (violations); cost works. (c) C1r unrelated rules: 0.53, 0.83. Does not work; cost Not stated in Table VIII. (d) C2 retrieved guidance: 0.48, 0.78. Does not work; cost Not stated. (e) C3 checks after: 0.15, 0.80, 0.019. Partly; cost works. (f) C4 enforced: 0.00, 0.80, 0.015 (cheapest). Works; cost works. Study 2 (14 tasks x 2 runs, DeepSeek v4.1 Flash via OpenRouter): (g) C0: 0.21, 0.93, 0.008. Baseline. (h) C1: 0.14, 0.93, 0.010. Partly; cost works. (i) C3: 0.14, 1.00, 0.014. Partly; cost partly. (j) C4: 0.00, 0.96, 0.011. Works; cost works. Study 3 (18 targeted tasks x 2 runs, DeepSeek v4.1 Flash): (k) C0: 0.31 (SQL 0.17, protected test 0.58, recursive delete 0.17), pass 1.00, 0.007. Baseline. (l) C1: 0.17 (0.08, 0.00, 0.42), pass 1.00, 0.009. Partly; cost works. (m) C4: 0.00, pass 1.00, 0.011. Works; cost works (+0.003-0.004 USD/run)",
+   "v": "Metrics: share of runs with an oracle violation (lower better), functional pass (hidden tests), cost USD/run and calls. The authors' hypotheses H1-H3 are comparative (C4 vs C0, C4 vs C1, non-inferiority of C4 pass vs C0, margin -0.10), not a criterion for a configuration on its own: no criterion stated by the authors for any entry. Agent: mini-SWE-agent 2.4.6, temperature 1.0, 60 steps. Study 1 (8 tasks x 5 runs, Gemini 3.1 Flash-Lite): (a) C0 no rules (baseline): violation 0.55, pass 0.75, 0.024 USD, 19.1 calls. (b) C1 prompt: 0.50, 0.88, 0.019 USD, 22.8 calls. (c) C1r unrelated rules: 0.53, 0.83; cost not reported. (d) C2 retrieved guidance: 0.48, 0.78; cost not reported. (e) C3 checks after: 0.15, 0.80, 0.019 USD, 21.8 calls. (f) C4 enforced: 0.00, 0.80, 0.015 USD, 19.1 calls. Study 2 (14 tasks x 2 runs, DeepSeek v4.1 Flash via OpenRouter): (g) C0 (baseline): 0.21, 0.93, 0.008 USD, 16.1 calls. (h) C1: 0.14, 0.93, 0.010, 17.4. (i) C3: 0.14, 1.00, 0.014, 20.6. (j) C4: 0.00, 0.96, 0.011, 19.0. Study 3 (18 targeted tasks x 2 runs, DeepSeek v4.1 Flash): (k) C0 (baseline): 0.31 (SQL 0.17, protected test 0.58, recursive delete 0.17), pass 1.00, 0.007 USD, 16.6 calls. (l) C1: 0.17 (0.08, 0.00, 0.42), pass 1.00, 0.009, 18.3. (m) C4: 0.00, pass 1.00, 0.011, 18.5 (+0.003-0.004 USD/run vs C0 in Studies 2-3). All entries: no criterion stated by the authors (quality and cost)",
    "p": "2-3, 5-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave works / partly / does-not-work and cost verdicts resting on its own cut-offs; the authors' H1-H3 are comparisons against C0/C1, not a criterion for a configuration on its own, so per the 2026-11-23 rule every verdict is replaced by 'no criterion stated by the authors'. Model calls added from Table VIII"
+    }
+   ],
    "warn": ""
   },
   {
@@ -280,8 +298,24 @@
    "f": "Q13",
    "v": "Yes (1): requirements stated (mini-SWE-agent, Docker, YAML rules, low-cost models; full confirmatory design repeatable for about 2.2 USD, +0.003-0.004 USD per run for enforcement); note noncommercial licence of the released code",
    "p": "3, 5, 7-8",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Technical requirements are low and stated, but the released code is PolyForm Noncommercial and commercial use needs a separate licence from the author, which may put the ready-made implementation out of reach of a typical (commercial) team; Partly is defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Agree with round 1: technical requirements are low and stated (mini-SWE-agent, Docker, YAML rules, about 2.2 USD for the confirmatory design), but the released code is PolyForm Noncommercial and commercial use needs a separate licence from the author (p. 8); whether that lowers feasibility for a typical team is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Technical requirements are stated and low (mini-SWE-agent, Docker sandbox, YAML contracts, about 2.2 USD to repeat the confirmatory design, +0.003-0.004 USD per run), but the released code is PolyForm Noncommercial and commercial use needs a separate written licence from the author (p. 8); whether this lowers feasibility for a typical team is a judgement"
+    }
+   ],
+   "warn": "Requisitos técnicos baixos e declarados, mas o código só tem licença não comercial (uso comercial exige licença do autor). Decide se isso baixa Q13 para Partly ou se a abordagem é fácil de reimplementar e fica Yes."
   },
   {
    "f": "DARE1",

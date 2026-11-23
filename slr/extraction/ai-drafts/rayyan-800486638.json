@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486638",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates — empirical content analysis of 80 real-world agent manifests (what they contain and omit, especially evolution context); also contributes a six-category content taxonomy and, in the discussion, a minimal four-item evolution-context template",
+   "v": "Evaluates — repository mining: content analysis of 80 real-world agent manifests (CLAUDE.md, AGENTS.md, Copilot, Cline) from public GitHub repositories, what they contain and omit (especially evolution context); also contributes a six-category content taxonomy and, in the discussion, a minimal four-item evolution-context template",
    "p": "1, 2, 5",
    "rev": [
     {
@@ -51,9 +51,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "An observational content analysis of manifests in the wild; 'Evaluates' is the nearest listed nature, but it evaluates no approach's effect. The four-item template (p. 5) is a short discussion proposal; adding 'secondary: Proposes an approach' would make Q13 applicable"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The author's rule of 2026-11-23 settles this case: descriptive studies that mine context files such as CLAUDE.md or AGENTS.md from repositories are 'Evaluates — repository mining'. r2 left the nature uncertain and lacked the 'repository mining' label. The four-item template (p. 5) is a short discussion suggestion, not a proposed and specified approach, so no secondary nature is added"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Approach(es): name and version",
@@ -285,9 +290,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Draft scored Yes; the hedging in Sec. VI is not carried through to the introduction and discussion (p. 1, 5). Judgement call between Yes and Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Sec. VI treats the rho=0.431 correlation as exploratory and non-significant after Bonferroni, but the abstract calls it 'a single significant project-level correlation', the discussion calls it 'significant' and draws tooling implications, and the introduction lists the 'cultural rather than structural' explanation as a finding (p. 1, 4-5). Judgement call between Yes and Partly"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A secção VI trata a correlação ρ=0,431 como exploratória, mas o resumo e a discussão chamam-lhe significativa. Decide se esta incoerência baixa Q9 para Partly ou se mantém Yes."
   },
   {
    "f": "Q10",

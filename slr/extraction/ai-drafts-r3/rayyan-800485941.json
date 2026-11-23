@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800485941",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liang, J., Waldner, D., Miikkulainen, R. (2026). Values Shape What Self-Improving Coding Agents Build. arXiv:2611.23067v1 [cs.AI], 17 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.23067v1 [cs.AI], 17 Nov 2026; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Cognizant AI Lab (all three authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — controlled experiment comparing four Schwartz value statements with no-values and placebo controls in the persistent instruction file of a self-improving Claude Code agent (six coding tasks, 10 runs x 15 iterations); the secondary nature is the value-based self-improvement framework",
+   "p": "1-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Value-based self-improvement framework (no version): instruction file with a short value statement (openness, conservation, enhancement, transcendence; controls none and placebo), fixed invariants and iteration protocol, Git as only memory. Follow-ups: self-modifying values, literature-derived values (lit-general, lit-selfimprove), ethical reframings",
+   "p": "2-4, 15-18, 35-37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Instruction file (values, invariants, writable/read-only rules, iteration protocol, mission pointer); task package (description, starting solver, dev scorer, reference score); bench/ target; TASKS DONE.md log appended each iteration; tools/ with self-tests; artifacts/",
+   "p": "3, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per iteration: reset workspace to last commit -> reload instruction file (values and invariants re-imposed) -> read last TASKS DONE.md blocks -> choose the one change that most advances the values -> implement -> verify against bench target (SCORE, CHECK PASS/FAIL) -> log -> commit; after the run, separate scorer on held-out split",
+   "p": "2, 4, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (autonomous, time-limited sessions); humans design and review value statements beforehand (authors argue human oversight of value design is still needed)",
+   "p": "4, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact varied (value statement in the instruction file) within a full autonomous self-improvement loop",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (instruction file with values; no specification)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing starter code improved iteratively: optimisation/algorithm solvers (ALE-Bench AHC039 in C++, Circle Packing, Entity Matching on WDC Products, Game 2048, Symbolic Regression LSR-Synth, SZ-Tetris)",
+   "p": "6-8, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "6 tasks x 6 value conditions x 10 runs x 15 iterations of up to 30 min; plus ALE-Bench/Game 2048 follow-ups (self-modifying, literature-derived, reframed values, Sonnet/Haiku), 10 runs each; mean final solver size 197-2,182 LOC across tasks and conditions (e.g. SZ-Tetris conservation 197, Entity Matching placebo 2,182, ALE-Bench openness 1,771, conservation 395)",
+   "p": "6, 17, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Heuristic optimisation, geometry packing, entity matching (ML), games, symbolic regression; not application development",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent, no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "API cost in USD per run (means $20.5-31.6 across tasks and conditions; e.g. ALE-Bench openness $30.8, none $27.4; Circle Packing $20.5-24.1; Symbolic Regression openness $31.6); total run hours including post-run evaluation (means 2.3-4.4 h); dev-scorer evaluation count (means 15.8-50.2)",
+   "p": "4, 19, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task-specific held-out score of the final iteration's solver (e.g. AHC039 score sum over 150 private cases; circle-packing digits of gap closed; F1; game score; extrapolation error; cleared rows), plus area under held-out curve (AUC)",
+   "p": "4, 6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Solver LOC, cyclomatic complexity, cognitive complexity, token metrics (code-metric map); LLM-rated maintainability (ALE-Bench, Circle Packing)",
+   "p": "9, 27, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Algorithm choices of discovered solvers (LLM-classified); nearest-neighbour value clustering in code-metric space; comparison with published records (AlphaEvolve, ShinkaEvolve, leaderboards)",
+   "p": "8-9, 19, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: separate scorer on held-out split outside the workspace after each run; framework logs evals, API cost, run time; static code metrics; LLM reviewers classify algorithms and rate maintainability. Cliff's delta and two-sided permutation tests (10,000 relabellings), z-scores pooled across tasks",
+   "p": "4-5, 16, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All main runs on Claude Code + claude-opus-5 (high effort), 10 runs per condition, 6 tasks. Metric: final held-out score from a separate scorer (also AUC); Cliff's delta and permutation p against the none control. The authors state no success criterion (no target score or cost limit); they report comparisons with controls and published results only (best runs exceed published results on ALE-Bench, Circle Packing n = 26 and Entity Matching; mid-pack on Symbolic Regression; below trained networks on Game 2048 and SZ-Tetris). - openness + Claude Code + Opus 5: pooled delta vs none +0.38, p < 0.001; ALE mean 571,927 (above first-place human 566,997 and same-model leaderboard 549,790); $24.0-31.6 per run, 2.6-4.2 h; quality: no criterion stated by the authors; cost: no criterion stated by the authors. - conservation + Claude Code + Opus 5: -0.27, p = 0.003; ALE 511,544; $22.2-29.7, 2.5-4.2 h; quality and cost: no criterion stated by the authors. - enhancement + Claude Code + Opus 5: +0.08, p = 0.653; ALE 546,739; $20.5-29.1, 2.8-4.1 h; quality and cost: no criterion stated by the authors. - transcendence + Claude Code + Opus 5: -0.16, p = 0.043; ALE 559,474; $24.0-30.4, 2.4-4.4 h; quality and cost: no criterion stated by the authors. - placebo + Claude Code + Opus 5 (control): -0.06, p = 0.355; ALE 549,616; $22.6-30.1, 2.4-4.3 h; quality and cost: no criterion stated by the authors. - none + Claude Code + Opus 5 (baseline): ALE 550,220; $24.1-29.1, 2.3-4.4 h; quality and cost: no criterion stated by the authors. Follow-ups (ALE-Bench unless stated; cost not reported): - self-modifying values (-sm) + Opus 5: 536,851-557,242 (none-sm 552,375); only conservation-sm differs from none-sm; spread about 3x smaller. - lit-general / lit-selfimprove + Opus 5: ALE 535,856 / 545,241, Game 2048 119,565 / 107,936 (none 126,177); no significant difference from none. - reframed openness/conservation (deontological, utilitarian, virtue) + Opus 5: 478,644-566,676. - openness / conservation + Claude Code + Sonnet: 478,869 / 393,062, improves across iterations. - openness / conservation + Claude Code + Haiku: 292,861 / 296,058, curves nearly flat. Follow-ups: quality and cost: no criterion stated by the authors",
+   "p": "5-6, 8-9, 29, 35-38",
+   "verdict": "corrected",
+   "why": "Round 2 still gave works/partly/does not work verdicts (e.g. 'works' because solvers are valid, Haiku 'does not work'), but the authors state no success criterion, only comparisons with controls and published results; per the 2026-11-23 rule the verdicts become 'no criterion stated by the authors' and the metric values are kept"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Six tasks with dev split visible and held-out split hidden; 6 conditions (4 values + none + length-matched placebo); held constant: harness (Claude Code), model (claude-opus-5, high effort), task package, starting solver, invariants, protocol, 15 iterations of <= 0.5 h, fresh session each iteration, agent unaware of other conditions; leakage checks. Acceptance: held-out scorer. Repetitions: 10 runs per condition. Human intervention: none during runs. Fixed-engine variant of Game 2048",
+   "p": "3-4, 6-7, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Openness vs conservation pooled delta +0.58, p < 0.001 (ALE +1.00); enhancement vs transcendence +0.24, p = 0.024; placebo vs none -0.06, p = 0.355. One third of value-vs-control comparisons show a large effect or significance. Openness yields larger, more complex solvers on every task; score correlates more with code size/complexity than with evals, cost or time. Game 2048 spread 1.81 SD (editable) vs 0.70 SD (fixed engine)",
+   "p": "5-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes: distinguished opposing values with significance pooled and on several tasks; 10 runs give standard errors; but several large effects not significant, and best-worst run gap within a condition exceeds spread of condition means; replication needs proprietary models, results may change with model or API updates",
+   "p": "5-6, 10, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Effects vary by task; ten runs leave smaller effects unresolved; rewrites longer so framing not isolated; transfer of self-modified values not evaluated; no ablation of design choices in best/worst solvers; higher scores do not imply ethical preferability; depends on proprietary model. Future: values from broader sources, evolutionary search over values, joint improvement of values and solvers",
+   "p": "9-10, 27, 35-37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 and appendix tables jumbled by pdftotext; Table 2 per-task values rebuilt partly (ALE openness vs conservation +1.00, p < 0.001; pooled rows clear). Table E2 ALE-Bench and Symbolic Regression rows jumbled; cost, hours and LOC rebuilt from column order. Many per-task curves and follow-up results in Fig. 3, C1-C6, G1-G5 only (values in figures/tables not cleanly extracted). Claude Code version not stated; model given as claude-opus-5 (p. 4) and Claude Opus 5 (Table A1). Reproducibility statement: value statements and instructions in appendices; no code repository link found. No pre-registration. Languages: C++ (ALE-Bench), Python (Circle Packing, Entity Matching), C (Game 2048, SZ-Tetris); Symbolic Regression not stated. Authors declare extensive AI assistance (Claude Code) in writing and analysis",
+   "p": "6, 10, 15-23, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question and three findings stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithm, full instruction sections, value statements, settings, task details in appendices",
+   "p": "3-4, 15-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): harness and model named (Claude Code, claude-opus-5, high effort); no Claude Code version; Sonnet/Haiku versions not stated",
+   "p": "4, 17, 38",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public benchmarks described with splits; starting solvers and task packages availability not stated",
+   "p": "6-8, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): held-out scorers on unseen splits kept outside the workspace",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): held-out score and AUC plus API cost, run time, evals and code metrics",
+   "p": "4, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-values and placebo controls under the same conditions",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 10 runs per condition; Cliff's delta and permutation tests; standard error bands",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): mixed and null results reported (enhancement, literature values, task variation)",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats-to-validity section; limitations scattered (ten runs, framing confound, model dependence)",
+   "p": "9-10, 36-37",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): independent of Anthropic (Claude Code and the model are held constant, not compared), but every condition compared (the value-based framework and the four value statements, plus controls) is the authors' own design, so per §5 the authors count as vendor of the approach evaluated",
+   "p": "1, 3-4",
+   "verdict": "uncertain",
+   "why": "All evaluated conditions (framework, four value statements, placebo and none controls) are the authors' own design (Cognizant AI Lab, p. 1, 4), so §5 gives No; Claude Code/Opus are held constant. A reader who treats the none control as plain Claude Code (an external baseline) or counts the Sonnet/Haiku substitution (p. 38) as evaluated tools could give Partly",
+   "doubt": "Todas as condições são desenho dos autores (No). Decide se o controlo 'none' (Claude Code sem valores) ou a troca de modelos Sonnet/Haiku contam como abordagem externa avaliada, o que daria Partly."
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): only an instruction-file value statement with Claude Code; cost stated (mean $20.5-31.6 API cost per 15-iteration run, 2.3-4.4 h); within reach of a typical team, though tasks are optimisation benchmarks",
+   "p": "4, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

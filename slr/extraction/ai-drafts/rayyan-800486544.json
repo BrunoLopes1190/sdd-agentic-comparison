@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486544",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -164,7 +164,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: recurrence of the targeted action (valid sessions) under original vs adapted harness; transfer event informative if >=3/5 original sessions encountered the problem. All configurations: Claude Code 2.1.295 + Opus 5.5. Original/adapted/consulted (Table II): - Original harness (baseline, 7 informative events): recurrence 3/5 to 5/5 in every event; quality does not work on this criterion; cost not judgeable (median times given only for SymPy, 88 s, and the Sphinx control, 82 s). - SymPy CLAUDE.md line naming bin/test: 5/5 -> 0/5, consulted 5/5; median time 88 -> 156 s (bundled lint instruction). Quality works; cost does not work. - Astropy known-failures file (3 tests): 3/5 -> 0/5, consulted 5/5; control task 0/5 -> 0/5 (consulted 0/5). Quality works; cost works (time fell, within 5-28 s range given for four events). - Sphinx known-failures + AGENTS.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 1/5. Quality does not work; cost works (time fell 5-28 s). - Sphinx known-failures + CLAUDE.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 4/5 (added work); time fell 5-28 s on the transfer issue, rose 82 -> 245 s on the Sphinx control task (text does not say which of the two Sphinx files). Quality does not work; cost partly. - SymPy 2-package known-failures + script: 4/5 -> 4/4, consulted 4/4; time rose (amount not given). Quality does not work; cost does not work. - pytest known-failures (3 tests): 5/5 -> 5/5, consulted 5/5; time rose (amount not given). Quality does not work; cost does not work. - Astropy cache repair plugin + script: 5/5 -> 2/5, consulted 5/5; time fell 5-28 s. Quality partly; cost works. - Pre-commit config (author-written, prior-driven comparison): present in all 5 adapted sessions, never read or run. Quality does not work; cost N/A. - 5 further events non-informative (problem reproduced but encountered in 0/5 or 1/5 original sessions): N/A. Task success differed by at most one session in every event (absolute values not reported)",
+   "v": "Success criterion: none stated by the authors (recurrence of the targeted action is 'a behavioral measure, not a judgment'; a transfer event counts as informative when >=3/5 original-harness sessions encountered the problem). All configurations: Claude Code 2.1.295 + Opus 5.5, 5 sessions per harness. Values recurrence original / adapted / consulted (Table II), with elapsed time where given (p. 4): - Original harness (baseline, 7 informative events): recurrence 3/5 to 5/5 in every event; median time given only for SymPy CLAUDE.md event (88 s) and the Sphinx control (82 s). - SymPy CLAUDE.md line naming bin/test: 5/5 -> 0/5, consulted 5/5; median time 88 -> 156 s (bundled lint instruction). - Astropy known-failures file (3 tests): 3/5 -> 0/5, consulted 5/5; control task 0/5 -> 0/5 (consulted 0/5); time fell (5-28 s range given for four events). - Sphinx known-failures + AGENTS.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 1/5 (consulted 5/5); time fell (5-28 s). - Sphinx known-failures + CLAUDE.md: 5/5 -> 5/5, consulted 5/5; control 0/5 -> 4/5 (consulted 5/5); time fell (5-28 s) on the transfer issue; on the shared Sphinx control task time rose 82 -> 245 s (text does not say under which of the two Sphinx files). - SymPy 2-package known-failures + script: 4/5 -> 4/4, consulted 4/4; time rose (amount not given). - pytest known-failures (3 tests): 5/5 -> 5/5, consulted 5/5; time rose (amount not given). - Astropy cache repair plugin + script: 5/5 -> 2/5, consulted 5/5; time fell (5-28 s). - Pre-commit config (author-written, prior-driven comparison): present in all 5 adapted sessions, never read or run. - 5 further events non-informative (problem reproduced but encountered in 0/5 or 1/5 original sessions). Task success differed by at most one session in every event (absolute values not reported). Quality and cost verdict for every configuration above: no criterion stated by the authors",
    "p": "3-4",
    "rev": [
     {
@@ -176,9 +176,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Recurrence and consulted counts checked against Table II and the time statements on p. 3-4. Absolute elapsed times are given only for the SymPy CLAUDE.md event (88 -> 156 s) and the Sphinx control (82 -> 245 s), so cost verdicts for the other configurations rest on the direction of change vs the original harness, not on their own values as §6 asks; 'not judgeable' (original harness) and 'N/A' (pre-commit) are outside works/partly/does not work. Verdict levels are for the author"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Previous rounds gave quality/cost verdicts (works/partly/does not work, 'not judgeable', N/A) based on the change vs the original harness. The paper states no success criterion: recurrence is 'a behavioral measure, not a judgment that the action was unnecessary' (p. 1), and the >=3/5 rule only decides whether an event is informative (p. 3). Under the 2026-11-23 rule every configuration is 'no criterion stated by the authors'. Counts re-checked against Table II and p. 4"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

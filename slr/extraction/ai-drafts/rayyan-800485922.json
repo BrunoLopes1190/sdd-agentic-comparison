@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485922",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -302,9 +302,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "§5 applies Q13 to conceptual studies, and with no approach or requirements stated the missing-information rule gives No (0); but the paper proposes no implementable approach (taxonomy and evaluation guidance only), so a reader could argue N/A. Author to settle this for conceptual studies that propose nothing (same question on other conceptual records)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "§5 applies Q13 to conceptual studies, and with no approach or requirements stated the missing-information rule gives No (0); but the paper proposes no implementable approach (taxonomy, formal model and evaluation guidance only), so a reader could argue N/A. Author to settle this for conceptual studies that propose nothing (same question on other conceptual records)"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O survey é conceptual mas não propõe nenhuma abordagem implementável, só taxonomia e recomendações de avaliação. Decide se Q13 é No (falta de informação) ou N/A, e aplica igual nos outros estudos conceptuais."
   },
   {
    "f": "DARE1",

@@ -38,7 +38,7 @@
      "why": "Venue only in the paper's own ACM block, with placeholder DOI (XXXXXXX) and 'Received 23 January 2026' (p. 1, 5); the arXiv export has only the comment '5 pages, 1 figure, 1 table', no journal-ref or DOI. Check the ICSE 2026 JAWs proceedings"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "O local só aparece no bloco ACM do próprio artigo, com DOI provisório (XXXXXXX) (pp. 1, 5); os exports não têm DOI. Verifica se está nos proceedings do ICSE JAWs 2026; se não, passa a Preprint."
   },
   {
    "f": "Author affiliation",
@@ -68,7 +68,7 @@
      "why": "One approach (AGENTS.md) run against a no-file baseline (p. 3): 'Compares' holds if the baseline counts as a configuration (§6), but a careful reader could file it as 'Evaluates'"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Uma só abordagem (AGENTS.md) é corrida contra uma base sem ficheiro (p. 3). Decide se a base conta como configuração (Compares) ou se o estudo é 'Evaluates'."
   },
   {
    "f": "Approach(es): name and version",
@@ -190,7 +190,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: efficiency (tokens, time); no correctness criterion (manual sanity check of 50 outputs that they are non-trivial). Values: Table 1 (mean / median)\n- No AGENTS.md + Codex CLI + gpt-5.2-codex (baseline): time 162.94 s / 98.57 s; output tokens 5,744.81 / 2,925.00; input tokens 353,010.01 / 116,609.00; cached input 328,877.31 / 103,424.00; total tokens 687,632.13 / 223,707.00. Quality verdict: not measured (sanity check only); cost verdict: works (small PR tasks done in a median of about 1.6 min and 224k total tokens, most of them cached input; no cost threshold set by the authors)\n- AGENTS.md + Codex CLI + gpt-5.2-codex: time 129.91 s / 70.34 s; output tokens 4,591.46 / 2,440.00; input 318,651.51 / 120,587.00; cached input 296,078.73 / 104,448.00; total 619,321.70 / 226,582.00. Quality verdict: not measured (sanity check only); cost verdict: works (median about 1.2 min and 227k total tokens per small PR task, most of them cached input; no cost threshold set by the authors)",
+   "v": "Criterion: efficiency (tokens, time); no correctness criterion (manual sanity check of 50 outputs that they are non-trivial). Values: Table 1 (mean / median)\n- No AGENTS.md + Codex CLI + gpt-5.2-codex (baseline): time 162.94 s / 98.57 s; output tokens 5,744.81 / 2,925.00; input tokens 353,010.01 / 116,609.00; cached input 328,877.31 / 103,424.00; total tokens 687,632.13 / 223,707.00. Quality: not measured (sanity check only)\n- AGENTS.md + Codex CLI + gpt-5.2-codex: time 129.91 s / 70.34 s; output tokens 4,591.46 / 2,440.00; input 318,651.51 / 120,587.00; cached input 296,078.73 / 104,448.00; total 619,321.70 / 226,582.00. Quality: not measured (sanity check only)\nVerdicts: quality and cost: no criterion stated by the authors (both configurations)",
    "p": "3-4",
    "rev": [
     {
@@ -202,9 +202,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "§6 requires each configuration to be judged on its own: the AGENTS.md cost verdict was justified by the difference from the baseline, and the baseline got no cost verdict. Both now judged on their own values (Table 1, p. 4); 'works' is the extractor's judgement, as the paper sets no cost threshold"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Extractor's cost verdicts ('works', no threshold set by the authors) removed; quality was not measured; metric values kept (rule 1)"
     }
    ],
-   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Os valores da Tabela 1 (p. 4) foram reconstruídos do texto porque o pdftotext baralhou a tabela. Confirma no PDF, sobretudo os tokens de input em cache acrescentados na verificação 1."
   },
   {
    "f": "Comparison: design",
@@ -344,7 +349,7 @@
      "why": "Acceptance rests only on the paper's own ACM block (placeholder DOI, 'Received 23 January 2026', p. 1, 5); no DOI or journal-ref in the exports. Yes if the paper is in the JAWs 2026 proceedings, otherwise No"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Depende do local de publicação: Yes se o artigo estiver nos proceedings do ICSE JAWs 2026, No se for só o preprint do arXiv (DOI provisório, p. 1). Decide junto com o tipo de publicação."
   },
   {
    "f": "Q12",

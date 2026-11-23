@@ -39,7 +39,7 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual; secondary: Evaluates — introduces 'context rot' and a research roadmap mapping documentation-consistency techniques to AI configuration artifacts (RQ1-RQ4); secondary: preliminary mining study applying the unmodified DOCER checker to 612 configuration files in 356 repositories",
+   "v": "Conceptual; secondary: Evaluates — introduces 'context rot' and a research roadmap mapping documentation-consistency techniques to AI configuration artifacts (RQ1-RQ4); secondary: repository mining: preliminary mining study applying the unmodified DOCER checker to 612 configuration files in 356 repositories",
    "p": "1-4",
    "rev": [
     {
@@ -56,9 +56,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "The stated contributions are a concept (context rot), a feasibility study and a roadmap (p. 1), supporting Conceptual with a secondary Evaluates; but the paper also proposes repurposing an unmodified documentation checker as a CI check for configuration files (p. 3), so 'Proposes an approach' is a defensible main or secondary nature. Q13 applies in all readings"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 3: the preliminary study mining 612 configuration files in 356 repositories is descriptive repository mining, so the secondary Evaluates is noted \"repository mining\""
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Fica por decidir se 'Proposes an approach' entra como natureza principal ou secundária: o artigo propõe usar um verificador de documentação sem alterações como verificação de CI para ficheiros de configuração (p. 3). O Q13 aplica-se em qualquer caso."
   },
   {
    "f": "Approach(es): name and version",

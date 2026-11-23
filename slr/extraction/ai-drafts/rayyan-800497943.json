@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800497943",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,10 +19,21 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; manuscript submitted to ACM TOSEM per the ACM reference format)",
+   "v": "Preprint — arXiv:2608.28497v1 [cs.SE], 28 Aug 2026; 'Manuscript submitted to ACM', typeset in the ACM TOSEM format with placeholder volume and DOI (10.1145/nnnnnnn.nnnnnnn); no published venue",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; substance (preprint, under review at ACM TOSEM) unchanged"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The draft cited an arXiv comment 'Under review'; it is not in the full text nor in the repository records (access log, queue); the paper only says 'Manuscript submitted to ACM' with a placeholder TOSEM reference (p. 1)"
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Author affiliation",
@@ -33,9 +44,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates (empirical mining study of 1,926 GitHub repositories hosting Claude Code plugin marketplaces: structure, commit types, co-evolution of components; RQ1-RQ3). No agent run; effect of plugins on agent output not measured",
+   "v": "Evaluates — repository mining: empirical study of 1,926 GitHub repositories hosting Claude Code plugin marketplaces (structure, commit types, co-evolution of components; RQ1-RQ3). No agent run; effect of plugins on agent output not measured",
    "p": "1-3",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Form '<nature> — <detail>' was missing; per the author's rule of 2026-11-23, descriptive repository-mining studies are 'Evaluates — repository mining'"
+    }
+   ],
    "warn": ""
   },
   {
@@ -82,10 +99,26 @@
   },
   {
    "f": "Task type",
-   "v": "Existing code bases (open-source GitHub repositories hosting plugin marketplaces)",
+   "v": "Existing code bases (open-source GitHub repositories hosting plugin marketplaces); no development task is run",
    "p": "8-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Mining study: no task is given to an agent, so the field could equally be N/A; 'existing code bases' only describes the mined repositories"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Mining study: no task is given to an agent, so the field could equally be N/A; 'existing code bases' only describes the mined repositories"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Mining study: no task is given to an agent, so the field could equally be N/A; 'existing code bases' only describes the mined repositories"
+    }
+   ],
+   "warn": "Estudo de mineração: nenhum agente executa tarefas. Decide se o tipo de tarefa fica 'existing code base' (repositórios minerados) ou N/A."
   },
   {
    "f": "Size",
@@ -210,8 +243,24 @@
    "f": "Q3",
    "v": "Partly (0.5): classifier LLMs named (Qwen3-Coder-Next-80B, GPT-5-mini) without snapshot dates; Claude Code version not relevant/not stated",
    "p": "11, 16, 30",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "No agent is run; only the classifier LLMs are named (Qwen3-Coder-Next-80B, GPT-5-mini) without snapshot, 'final model versions' (p. 30). Whether Q3 should judge the classifiers (Partly) or the agent studied (Claude Code, no version: No) is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No agent is run; only the classifier LLMs are named (Qwen3-Coder-Next-80B, GPT-5-mini) without snapshot, 'final model versions' (p. 30). Whether Q3 should judge the classifiers (Partly) or the agent studied (Claude Code, no version: No) is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No agent is run; only the classifier LLMs are named (Qwen3-Coder-Next-80B, GPT-5-mini) without snapshot, 'final model versions' (p. 30). Whether Q3 should judge the classifiers (Partly) or the agent studied (Claude Code, no version: No) is a judgement"
+    }
+   ],
+   "warn": "Não há agente executado; só os LLM classificadores são nomeados, sem versão exata. Decide se o Q3 avalia os classificadores (Partly) ou o Claude Code estudado, sem versão (No)."
   },
   {
    "f": "Q4",
@@ -238,8 +287,24 @@
    "f": "Q7",
    "v": "Partly (0.5): descriptive comparison with traditional OSS commit distribution (Zeng et al.) and skills.sh shares (Ling et al.), not under the same conditions",
    "p": "11, 17, 21",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The only comparisons are with published figures from other studies (Zeng et al. CCS distribution of 116 OSS repos; Ling et al. skills.sh shares), not run under the same conditions; Partly or No are both defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The only comparisons are with published figures from other studies (Zeng et al. CCS distribution of 116 OSS repos; Ling et al. skills.sh shares), not run under the same conditions; Partly or No are both defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The only comparisons are with published figures from other studies (Zeng et al. CCS distribution of 116 OSS repos; Ling et al. skills.sh shares), not run under the same conditions; Partly or No are both defensible"
+    }
+   ],
+   "warn": "A comparação é só com números publicados por outros estudos (Zeng et al., Ling et al.), não nas mesmas condições. Decide entre Partly e No."
   },
   {
    "f": "Q8",

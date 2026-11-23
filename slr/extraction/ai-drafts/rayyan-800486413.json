@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486413",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 2,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -106,9 +106,14 @@
      "round": 2,
      "verdict": "uncertain",
      "why": "Still unsettled: the paper never says whether Web-Bench projects start empty or scaffolded; Appendix B (p. 8) has task-1 initialising containers, which supports an incremental new build, but this rests on the external Web-Bench design"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper never says whether each Web-Bench project starts from an empty or scaffolded workspace; Appendix B (pp. 8-9) has task-1 initialising DOM containers, which fits an incremental new build, but the starting state comes from the external Web-Bench design"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 2); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não diz se cada projeto Web-Bench parte de um workspace vazio ou já com esqueleto; o Apêndice B (p. 8-9) sugere construção incremental. Confirma no Web-Bench e escolhe new project ou existing code base."
   },
   {
    "f": "Size",
@@ -175,7 +180,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent/harness: Not stated (Web-Bench harness; agent not named). Temperature 0, 64k maxTokens, N=3 replicates. Criterion: Playwright tests (Pass@2). Values are C1-C0 on 117 core pairs (Table 1, columns partly jumbled, rebuilt from text).\n- Target Skill (C1) + n.s. + Claude Sonnet 4 (claude-sonnet-4-20250514): dP@1 -2.8 [-4.6,-1.1]; dP@2 -4.2 [-6.9,-1.9]; dTCD -0.85; W/T/L 30/9/61%; tokens +72%. Quality does not work; cost does not work\n- Target Skill + n.s. + GPT-5.1: dP@1 -1.6 [-3.3,-0.1]; dP@2 -1.3 [-3.4,+0.5]; dTCD -0.26; 35/20/45; +74%. Quality partly (n.s. on P@2); cost does not work\n- Target Skill + n.s. + Qwen3-Coder-30B-A3B: dP@1 -3.2 [-4.3,-2.1]; dP@2 -2.3 [-3.4,-1.3]; dTCD -0.47; 17/35/48; +91%. Does not work; does not work\n- Target Skill + n.s. + DeepSeek-V4-flash: dP@1 -4.1 [-5.8,-2.2]; dP@2 -2.0 [-3.8,-0.2]; dTCD -0.40; 36/16/48; +394%. Does not work; does not work\n- No Skill (C0) + each model: baseline (absolute pass rates Not stated in text). Quality: Not stated (no absolute Pass@k in the text; only the lowdb pair, p. 9); cost: Not stated (token totals not reported, only ρ relative to C0)\n- Length-matched irrelevant Skill (C2, control): dLength Sonnet -3.3, Qwen -3.5, GPT-5.1 -0.2, DeepSeek -0.6 pp; dContent -0.9, +1.2, -1.1, -1.4. Control. Quality: does not work for Sonnet and Qwen (dLength CI excludes zero), partly for GPT-5.1 and DeepSeek (dLength CI includes zero); cost: Not stated (no ρ for C2)\n- Slice ablations (C3, ablation; 5 helpful pairs, 20 cells): whole Skill +5.1 [1.0,9.3]; Rp +0.0, Rn +3.1 (McNemar p=0.008), X -0.7 (pooled); without Sonnet +6.1, +4.6, +6.1, +4.2 (Wilcoxon p=0.005); X helps DeepSeek +8.3, Qwen +3.7, GPT-5.1 +0.7, hurts Sonnet -15.3; removing X saves 34,482 input tokens/run (22.7%). Anti-patterns: quality works; cost works",
+   "v": "Agent/harness: Not stated (Web-Bench harness; agent not named). Temperature 0, 64k maxTokens, N=3 replicates. Metrics: Pass@1/Pass@2 on Playwright tests, TCD, token overhead ρ. No success criterion for a configuration is stated by the authors (only an unspecified 'empirical utility threshold' for injection, p. 6). Values are C1-C0 on 117 core pairs (Table 1, columns partly jumbled, rebuilt from text).\n- Target Skill (C1) + n.s. + Claude Sonnet 4 (claude-sonnet-4-20250514): dP@1 -2.8 [-4.6,-1.1]; dP@2 -4.2 [-6.9,-1.9]; dTCD -0.85; W/T/L 30/9/61%; tokens +72%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Target Skill + n.s. + GPT-5.1: dP@1 -1.6 [-3.3,-0.1]; dP@2 -1.3 [-3.4,+0.5]; dTCD -0.26; 35/20/45; +74%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Target Skill + n.s. + Qwen3-Coder-30B-A3B: dP@1 -3.2 [-4.3,-2.1]; dP@2 -2.3 [-3.4,-1.3]; dTCD -0.47; 17/35/48; +91%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Target Skill + n.s. + DeepSeek-V4-flash: dP@1 -4.1 [-5.8,-2.2]; dP@2 -2.0 [-3.8,-0.2]; dTCD -0.40; 36/16/48; +394%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- No Skill (C0) + n.s. + each model: baseline; absolute Pass@k and token totals not reported in the text (only single pairs, e.g. lowdb C0 P@2 Sonnet 33%, GPT-5.1 22%, DeepSeek 42%, Qwen 22%, p. 9). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Length-matched irrelevant Skill (C2, control) + n.s. + each model: dLength (C2-C0) Sonnet -3.3, Qwen -3.5, GPT-5.1 -0.2, DeepSeek -0.6 pp; dContent (C1-C2) -0.9, +1.2, -1.1, -1.4; no ρ reported for C2. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- Slice ablations (C3, ablation; 5 helpful pairs, 20 model x project cells, contribution = C1-(variant) on Pass@2): whole Skill (C1-C0) +5.1 [1.0,9.3]; Rp +0.0 [-5.1,4.9], Rn +3.1 [-3.3,9.8] (McNemar p=0.008), X -0.7 [-5.6,3.6] (pooled); without Sonnet +6.1, +4.6, +6.1, +4.2 (X: Wilcoxon p=0.005); X helps DeepSeek +8.3, Qwen +3.7, GPT-5.1 +0.7, hurts Sonnet -15.3; removing X saves 34,482 input tokens/run (22.7%). Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
    "p": "3-6, 10",
    "rev": [
     {
@@ -187,9 +192,14 @@
      "round": 2,
      "verdict": "corrected",
      "why": "The C0 baseline and C2 control entries had no quality/cost verdicts, which §6 requires for every configuration including the baseline; added them. All other values re-checked against Tables 1, 3, 5 and pp. 4-6, 10. Still judgement: C1 GPT-5.1 'partly' and anti-patterns 'quality works' (pooled bootstrap CI [-3.3, 9.8] includes zero; only McNemar p=0.008)"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Earlier rounds gave works/does-not-work verdicts derived from the deltas against C0 (and from whether a CI includes zero). The authors state no success criterion for a configuration (they only call for an unspecified 'empirical utility threshold', p. 6), and §6 forbids judging a configuration against the baseline or setting a threshold: all verdicts replaced by 'no criterion stated by the authors'; metric values kept unchanged"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "A IA ficou com dúvidas neste campo (verificação 1); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",

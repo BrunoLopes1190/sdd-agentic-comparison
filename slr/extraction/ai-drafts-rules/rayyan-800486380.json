@@ -1,0 +1,15 @@
+{
+ "key": "rayyan-800486380",
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: average hidden-test pass rate; probing coverage; cost. Agent: mini-SWE-agent (version n.s.) for synthesis in all; same model for both stages. Direct-Synthesis / SpecFirst pass rate, coverage, cost: (1) Direct + mini-SWE-agent + Qwen3.5-397B-A17B: 33.66%, 51.9%, $2.56; (2) SpecFirst + mini-SWE-agent + Qwen3.5-397B-A17B: 40.84%, 59.8%, $3.79. (3) Direct + Qwen3.6-35B-A3B: 27.51%, 49.2%, $2.03; (4) SpecFirst + Qwen3.6-35B-A3B: 31.40%, 58.3%, $3.17. (5) Direct + GPT-5.5-high: 59.02%, 55.1%, $2.54; (6) SpecFirst + GPT-5.5-high: 65.14%, 60.3%, $5.85 (>=90% pass on 16.5% vs 5.5% of programs). (7) Direct + GPT-5.4-mini (medium): 39.09%, 52.1%, $0.35; (8) SpecFirst + GPT-5.4-mini: 41.78%, 58.6%, $0.53. Format study (GPT-5.4-mini, 50 sampled instances): no spec 55.9%, Freeform 60.7%, OpenSpec 61.7%, Sections 62.6%. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "why": "Extractor's verdicts (works/partly/does not work) removed: the authors state no success criterion for quality or cost; metric values kept (rule 1); the pass-rate thresholds of Table III are reporting bands, not a success criterion",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "doubt": "O custo é indicado ($0.53-$5.85 por instância, Tabela VII, p. 10) e as ferramentas são comuns, mas a abordagem exige um oráculo comportamental executável, que um projeto novo típico não tem. Decide entre Partly e Yes."
+  }
+ ]
+}

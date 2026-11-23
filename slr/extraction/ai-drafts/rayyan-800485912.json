@@ -106,7 +106,7 @@
      "why": "The paper uses no SDD terms; the artefacts are a persistent rules file (AGENTS.md turned into a structured ruleset) and per-task enriched plans. Not classifiable fits other rule-file studies; spec-anchored is arguable for the enforced, evolving ruleset. Author's call"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "O artigo não usa termos de SDD; os artefactos são um ficheiro de regras persistente e planos por tarefa. Escolhe Not classifiable, como noutros estudos de ficheiros de regras, ou spec-anchored para o conjunto de regras imposto e evolutivo."
   },
   {
    "f": "Task type",
@@ -171,7 +171,7 @@
      "why": "'Rules followed' mixes coding rules (naming, API structure, formatting: internal quality) with process rules (run a migration, confirm before a destructive action, p. 8), which are agent behaviour; Appendix B.3 reports them separately (coding 0.59->0.75, process 0.35->0.87). The author may split it or move the process part to Other outcome metrics"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "'Rules followed' junta regras de código e regras de processo (correr uma migração, confirmar ações destrutivas, p. 8), reportadas em separado no Apêndice B.3. Decide se as separas ou moves a parte de processo para Other outcome metrics."
   },
   {
    "f": "Human effort metrics",
@@ -196,7 +196,7 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Technical evaluation. Criterion: task-specific rubrics (feature completeness; rules followed, pass/fail per rule) graded by 2 annotators. All with Cline (version not stated) + Claude Sonnet 4.6, 9 tasks, 1 run each (Table 1, mean ± 95% CI). Cost: only the ~4x token overhead of Full Zoro vs standard vibe coding is reported; no absolute tokens, time or money\n- No Zoro (baseline; rules in AGENTS.md) + Cline + Sonnet 4.6: features 0.64±0.144; rules 0.51±0.08. Quality: partly (about two thirds of features, half of rules followed); cost: not measured\n- Basic Zoro (ablation: mark steps, no enrich, no enforce) + Cline + Sonnet 4.6: features 0.65±0.17; rules 0.55±0.11. Quality: partly; cost: not measured\n- Partial Zoro (ablation: enrich, no enforce) + Cline + Sonnet 4.6: features 0.61±0.11; rules 0.68±0.07. Quality: partly; cost: not measured\n- Full Zoro (enrich + enforce) + Cline + Sonnet 4.6: features 0.77±0.13; rules 0.80±0.08; process rules 0.87, coding rules 0.75 (Appendix B.3). Quality: partly (best on both, but about 1 in 5 rules and features still missed); cost: partly (about 4x tokens of standard vibe coding)\nUser study (full Enrich-Enforce-Evolve + Codex, model Not stated; 12 participants, 2 tasks each; criterion: enforced-rule pass rate): 77.9% (60/77) task 1, 94.4% (84/89) task 2; 12/13 refined rules then applied correctly. Quality: partly (works by task 2); cost: not measured. No baseline",
+   "v": "Technical evaluation. Criterion (authors, Section 5): Zoro is successful if it is equally effective at producing the feature as No Zoro and better at following the rules; measured with task-specific rubrics (feature completeness; rules followed, pass/fail per rule) graded by 2 annotators. All with Cline (version not stated) + Claude Sonnet 4.6, 9 tasks, 1 run each (Table 1, mean ± 95% CI). Cost: only the ~4x token overhead of Full Zoro vs standard vibe coding is reported; no absolute tokens, time or money\n- No Zoro (baseline; rules in AGENTS.md) + Cline + Sonnet 4.6: features 0.64±0.144; rules 0.51±0.08. Quality: no criterion stated by the authors (reference for the criterion); cost: not measured\n- Basic Zoro (ablation: mark steps, no enrich, no enforce) + Cline + Sonnet 4.6: features 0.65±0.17; rules 0.55±0.11. Quality: does not work by the authors' criterion (rules not significantly better than No Zoro); cost: not measured\n- Partial Zoro (ablation: enrich, no enforce) + Cline + Sonnet 4.6: features 0.61±0.11; rules 0.68±0.07. Quality: works by the authors' criterion (features not significantly different, rules significantly better than No Zoro, Holm-Bonferroni p<0.05); cost: not measured\n- Full Zoro (enrich + enforce) + Cline + Sonnet 4.6: features 0.77±0.13; rules 0.80±0.08; process rules 0.87, coding rules 0.75 (Appendix B.3). Quality: works by the authors' criterion (features not significantly different, rules significantly better than all other conditions); cost: no criterion stated by the authors (about 4x tokens of standard vibe coding)\nUser study (full Enrich-Enforce-Evolve + Codex, model Not stated; 12 participants, 2 tasks each; criterion: enforced-rule pass rate): 77.9% (60/77) task 1, 94.4% (84/89) task 2; 12/13 refined rules then applied correctly. Quality: no criterion stated by the authors; cost: not measured. No baseline",
    "p": "7-9, 17",
    "rev": [
     {
@@ -213,9 +213,14 @@
      "round": 3,
      "verdict": "uncertain",
      "why": "Values match Table 1 (p. 8), Appendix B.3 (p. 17) and p. 9. The Full Zoro quality verdict is a judgement: 0.80 rules and 0.77 features could be read as works rather than partly; the other verdicts follow the values"
+    },
+    {
+     "round": "regras",
+     "verdict": "corrected",
+     "why": "Rule 1: the extractor's 'partly' verdicts rested on its own reading of the scores. Quality verdicts now follow the authors' stated criterion (Section 5: equal feature completeness and better rule following than No Zoro, with the significance tests of p. 8); baseline, user-study and cost verdicts became 'no criterion stated by the authors'; metric values kept"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo). O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
+   "warn": "Os autores dão um critério relativo (Zoro tem sucesso se iguala a baseline nas funcionalidades e a supera nas regras, secção 5); os veredictos aplicam-no, também às ablações. Confirma se um critério relativo serve no §6."
   },
   {
    "f": "Comparison: design",
@@ -301,7 +306,7 @@
      "why": "Two external annotators (software engineers, paid $200 each, kappa 0.97/0.82, p. 7-8) count as expert review under §5, supporting Yes; but the task rubrics and rules were written by the authors and no automated acceptance tests are used. Partly (0.5) is defensible"
     }
    ],
-   "warn": "A IA ficou com dúvidas neste campo (verificação 3); o motivo está no histórico (passa o rato sobre o nome do campo)."
+   "warn": "Dois anotadores externos (kappa 0,97/0,82, p. 7-8) contam como revisão por especialistas no §5, o que apoia Yes; mas as rubricas foram escritas pelos autores e não há testes automáticos. Decide entre Yes e Partly."
   },
   {
    "f": "Q6",

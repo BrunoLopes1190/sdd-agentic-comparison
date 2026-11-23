@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498272",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 2,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv; 'Preprint. Under review.')",
+   "v": "Preprint — arXiv:2610.38332v1 [cs.LG], 28 Oct 2026; marked 'Preprint. Under review.', no published venue",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<type> — <detail>'; substance unchanged"
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (MUSE memory framework for scientific coding agents), evaluated against ten memory/retrieval baselines on four benchmarks with ablations and a transfer experiment",
-   "p": "1-2, 5",
-   "rev": [],
+   "v": "Proposes an approach; secondary: Compares — MUSE memory framework for scientific coding agents, evaluated against ten baselines (Vanilla + nine memory/retrieval methods) on four benchmarks, with ablations and a transfer experiment",
+   "p": "1-2, 5-6",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Value did not follow the required form '<nature>[; secondary: <nature>] — <detail>'; secondary 'Compares' added because the core result is a comparison with nine external memory methods (Table 3)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,17 +164,29 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent ZCode + glm-5.3-flash (high reasoning effort) for all. Criterion: verifier pass / correctness, acceleration. Values PDE pass / KBX correct, accel / KGB correct, accel / SWE Science pass (%): (a) Vanilla (baseline): 44.8 / 57.4, 31.1 / 44.3, 8.6 / 29.8. (b) Trajectory RAG: 72.3 / 53.3, 29.5 / 57.9, 12.1 / 28.6. Partly. (c) ReasoningBank: 63.6 / 59.8, 28.7 / 47.9, 15.7 / 31.0. Partly. (d) ReMe: 50.1 / 50.0, 29.5 / 40.0, 20.0 / 35.7. Partly. (e) TRAD: 75.8 / 60.7, 29.5 / 48.6, 9.3 / 31.0. Partly. (f) AdaMEM: 55.7 / 59.0, 32.8 / 47.1, 16.4 / 28.6. Partly. (g) AutoSci-SciMem: 78.5 / 63.1, 33.6 / 47.9, 16.4 / 32.1. Partly. (h) EvoScientist: 87.8 / 58.2, 29.5 / 50.0, 18.6 / 31.0. Partly. (i) Agent KB: 69.6 / 59.8, 27.9 / 50.0, 18.6 / 34.5. Partly. (j) ACE: 83.8 / 66.4, 36.9 / 50.7, 17.9 / 31.0. Partly. (k) MUSE: 92.2 / 79.5, 44.3 / 66.4, 24.3 / 40.5. Quality works. Cost verdict for all: Not stated (no per-configuration cost). Ablations: MUSE L0 only PDE 82.7; L0+L1 89.4; MUSE w/o gate PDE 90.7, KBX 66.4/37.7, KGB 62.1/20.0, SWE 32.1. Transfer KBX->KGB: MUSE 62.1/25.0, L0 53.6/15.7, L0+L1 54.3/23.6; Agent KB 48.6/17.9; ACE 50.0/22.1",
+   "v": "Agent ZCode + glm-5.3-flash (high reasoning effort) for all. No success criterion stated by the authors for any configuration (pass/correctness and acceleration are metrics; the 1.01x speedup threshold defines a per-task acceleration hit, not configuration success); cost not reported per configuration. Values PDE pass / KBX correct, accel / KGB correct, accel / SWE Science pass (%): (a) Vanilla (baseline): 44.8 / 57.4, 31.1 / 44.3, 8.6 / 29.8. (b) Trajectory RAG: 72.3 / 53.3, 29.5 / 57.9, 12.1 / 28.6. (c) ReasoningBank: 63.6 / 59.8, 28.7 / 47.9, 15.7 / 31.0. (d) ReMe: 50.1 / 50.0, 29.5 / 40.0, 20.0 / 35.7. (e) TRAD: 75.8 / 60.7, 29.5 / 48.6, 9.3 / 31.0. (f) AdaMEM: 55.7 / 59.0, 32.8 / 47.1, 16.4 / 28.6. (g) AutoSci-SciMem: 78.5 / 63.1, 33.6 / 47.9, 16.4 / 32.1. (h) EvoScientist: 87.8 / 58.2, 29.5 / 50.0, 18.6 / 31.0. (i) Agent KB: 69.6 / 59.8, 27.9 / 50.0, 18.6 / 34.5. (j) ACE: 83.8 / 66.4, 36.9 / 50.7, 17.9 / 31.0. (k) MUSE: 92.2 / 79.5, 44.3 / 66.4, 24.3 / 40.5. All (a)-(k): no criterion stated by the authors. Ablations: MUSE L0 only PDE 82.7; L0+L1 89.4; MUSE w/o gate PDE 90.7, KBX 66.4/37.7, KGB 62.1/20.0, SWE 32.1. Transfer KBX->KGB: MUSE 62.1/25.0, L0 53.6/15.7, L0+L1 54.3/23.6; Agent KB 48.6/17.9; ACE 50.0/22.1. No criterion stated by the authors",
    "p": "6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft gave 'Partly' to every baseline and 'Quality works' to MUSE although the authors state no success criterion; per the 2026-11-23 rule these verdicts are replaced by 'no criterion stated by the authors'. Metric values checked against Table 3 and kept"
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Comparison: design",
-   "v": "Tasks: four public benchmarks; ~30% of problems randomly sampled for memory extraction (one rollout without memory per problem, shared by all memory methods), rest for test. Configurations: 11 (Vanilla + 9 memory/retrieval baselines + MUSE) plus ablations. Baseline: Vanilla agent. Held constant: agent (ZCode), model (glm-5.3-flash), source trajectories, tool permissions per benchmark, embedding model, time limits. Acceptance tests: hidden benchmark verifiers. Repetitions: Not stated (apparently one run). Human intervention: none",
-   "p": "5-6, 11",
-   "rev": [],
-   "warn": ""
+   "v": "Tasks: four public benchmarks; ~30% of problems randomly sampled for memory extraction (one rollout without memory per problem, shared by all memory methods), rest for test. Configurations: 11 (Vanilla + 9 memory/retrieval baselines + MUSE) plus ablations. Baseline: Vanilla agent. Held constant: agent (ZCode), model (glm-5.3-flash), source trajectories (shared rollouts), tool permissions per benchmark, time limits, knowledge budget (80,000 tokens, 'matching the comparison's knowledge budget'); whether baselines use the same embedding model is Not stated. Acceptance tests: hidden benchmark verifiers. Repetitions: Not stated (apparently one run). Human intervention: none",
+   "p": "5-6, 11, 13",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft listed the embedding model as held constant; the text names Qwen3-Embedding-8B only for MUSE and says baselines share the solving agent and source data. Added the shared knowledge budget stated in the consolidation prompt (p. 13)"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 2; confirma-o no texto."
   },
   {
    "f": "Comparison: result",

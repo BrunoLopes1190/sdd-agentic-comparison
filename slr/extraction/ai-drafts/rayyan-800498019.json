@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498019",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 0,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -19,9 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint (arXiv)",
+   "v": "Preprint — arXiv:2603.26664v1 [cs.SE], 27 Mar 2026 (marked 'Preprint.'); no published venue stated",
    "p": "1",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: must start with the category, then ' — ' and detail (draft-verify rules)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -33,9 +39,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an approach (Learning to Commit framework with Online Repository Memory: skills distilled by supervised contrastive reflection on past commits); secondary: proposes an evaluation method (strict time-split benchmark with organicity metrics)",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — Learning to Commit framework with Online Repository Memory (skills distilled by supervised contrastive reflection on past commits), evaluated against the same agent without skills; also a strict time-split benchmark with organicity metrics",
    "p": "1-2",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Format: category list first, then ' — ' and detail (draft-verify rules); content unchanged."
+    }
+   ],
    "warn": ""
   },
   {
@@ -152,9 +164,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Agent harness not stated; model Claude Opus 4.6 for all. 7 test tasks. Values: File IoU; steps; line deviation; overall win rate vs baseline (Claude judge / Gemini judge). seq-all + skills: 80%; 56.8; 0.69; 55% / 58%. Quality works, cost works. | seq-all baseline (no skills): 61%; 71.9; 1.59. Partly; partly. | par-bycat + skills: 80%; 62.7; 0.62; 54% / 57% (dimension wins Q1 25%, Q2 50%, Q3 54%, Q4 27%). Works; works. | par-bycat baseline: 68%; 62.7; 0.88. Partly; works. | par-all + skills: 81%; 67.7; 0.80; 46% / 54%. Partly; works. | par-all baseline: 72%; 68.3; 1.06. Partly; works. | seq-bycat + skills: 71%; 75.0; 1.22; 26% / 46%. Does not work; partly. | seq-bycat baseline: 71%; 76.4; 1.13. Partly; partly. Success criterion: closeness to oracle patch (no test pass criterion)",
+   "v": "Agent harness not stated; model Claude Opus 4.6 for all; 7 held-out test tasks on one internal repository. Success criterion: none stated by the authors (closeness to the oracle patch; no test-pass criterion). Values: File IoU; steps; line deviation; overall pairwise win rate of the skill agent (Claude judge / Gemini judge). seq-all + skills: 80%; 56.8; 0.69; 55% / 58%. Quality and cost: no criterion stated by the authors. | seq-all baseline (no skills): 61%; 71.9; 1.59. No criterion stated by the authors. | par-bycat + skills: 80%; 62.7; 0.62; 54% / 57% (dimension-level skill win rates, averaged over judges: Q1 25%, Q2 50%, Q3 54%, Q4 27%). No criterion stated by the authors. | par-bycat baseline: 68%; 62.7; 0.88. No criterion stated by the authors. | par-all + skills: 81%; 67.7; 0.80; 46% / 54%. No criterion stated by the authors. | par-all baseline: 72%; 68.3; 1.06. No criterion stated by the authors. | seq-bycat + skills: 71%; 75.0; 1.22; 26% / 46%. No criterion stated by the authors. | seq-bycat baseline: 71%; 76.4; 1.13. No criterion stated by the authors",
    "p": "6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The authors state no success criterion, so the works/partly/does-not-work verdicts were the extractor's own and are removed (author's rule of 2026-11-23). Values re-checked against Tables 2-4: unchanged."
+    }
+   ],
    "warn": ""
   },
   {
@@ -166,9 +184,15 @@
   },
   {
    "f": "Comparison: result",
-   "v": "Skills better in 3 of 4 conditions: File IoU +19 pts in seq-all (80% vs 61%), +8 to +12 in par conditions, tie in seq-bycat; seq-all 21% fewer steps (56.8 vs 71.9); line deviation lower in 3 of 4. Win rates >50% in 3 of 4 settings per judge (seq-bycat 26%/46%, par-all 46% under Claude judge). Gains in Q2 logic (50% vs 25%) and Q3 redundancy; baseline slightly better on Q1 scope and Q4 style. No significance test",
+   "v": "Skills better in 3 of 4 conditions on File IoU: +19 pts in seq-all (80% vs 61%), +12 in par-bycat, +9 in par-all, tie in seq-bycat (71%); seq-all 21% fewer steps (56.8 vs 71.9), other settings within 1.4 steps; line deviation lower in 3 of 4 (higher in seq-bycat, 1.22 vs 1.13). Overall win rate >50%: Gemini judge 3 of 4 settings (57%, 58%, 54%; seq-bycat 46%), Claude judge 2 of 4 (54%, 55%; par-all 46%, seq-bycat 26%), although the text says 3 of 4 under both judges. par-bycat by dimension: skill ahead on Q2 logic (50% vs 25%) and Q3 redundancy (54% vs 41%), baseline ahead on Q1 scope (41% vs 25%) and Q4 style (38% vs 27%). No significance test",
    "p": "6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said File IoU +8 to +12 in par conditions (Table 2 gives +12 and +9) and 'win rates >50% in 3 of 4 settings per judge', but Table 3 shows only 2 of 4 under the Claude judge."
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,10 +211,21 @@
   },
   {
    "f": "Notes",
-   "v": "Table 4 (p. 7) jumbled by pdftotext; rebuilt from row sums and text p. 6: Q1 skill 25 / base 41 / tie 34; Q2 50/25/25; Q3 54/41/5; Q4 27/38/36. Inconsistencies: abstract and conclusion claim functional correctness and \"significantly improve\" but no tests or statistics; contribution says the benchmark is released, but the repository is internal and no link is given; baseline values differ across the four settings; inter-judge agreement rates promised but not reported numerically. No pre-registration. Language not stated",
+   "v": "Table 4 (p. 7) jumbled by pdftotext; rebuilt from row sums and text p. 6: Q1 skill 25 / base 41 / tie 34; Q2 50/25/25; Q3 54/41/5; Q4 27/38/36. Inconsistencies: abstract and conclusion claim functional correctness and \"significantly improve\" but no tests or statistics; text p. 6 says the skill agent wins in 3 of 4 settings under both judges, but Table 3 shows 2 of 4 >50% under the Claude judge (par-all 46%, seq-bycat 26%); text p. 7 gives File IoU gains of +10–18% while Table 2 gives +19, +12, +9 and 0 pts; contribution says the benchmark is released, but the repository is internal and no link is given; baseline values differ across the four settings although the baseline has no skills; inter-judge agreement rates promised but not reported numerically; 386 of 2,738 commits is called 'a 77.2% suitability rate' (p. 6), but 386/2,738 = 14.1%. Values used: Tables 2-4. No replication package. No pre-registration. Language not stated",
    "p": "1-2, 5-7",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Two reporting inconsistencies were missing: the 'both judges' claim vs Table 3, and the '+10–18%' File IoU claim vs Table 2."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "A further reporting inconsistency was missing: the 77.2% suitability rate on p. 6 does not match 386/2,738 (14.1%)."
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -271,10 +306,16 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors created the framework evaluated",
-   "p": "1-2",
-   "rev": [],
-   "warn": ""
+   "v": "Partly (0.5): authors created the Learning to Commit framework (vendor of the skill-conditioned configurations); the baseline is the same agent with Claude Opus 4.6 and no skill document, not theirs",
+   "p": "1-2, 6",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Round 2 gave No. Author rule of 2026-11-23 (draft-verify) and protocol 5: when the authors' own approach is compared with an external baseline, Q12 is Partly; here skills are compared with the plain Claude Opus 4.6 agent without skills (p. 6), as scored for rayyan-800486399 and rayyan-800497942"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",
