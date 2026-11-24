@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486663",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Sawicki, B., Les, T., Grzywacz, T. (2026). Leveraging Agentic Coding for Interactive Education in Electrical Engineering. In 2026 27th International Conference on Computational Problems of Electrical Engineering (CPEE). IEEE. DOI: 10.1109/CPEE71962.2026.11768170 (4 pages)",
+   "p": "1",
+   "ok": true,
+   "ai": "Sawicki, B., Les, T., Grzywacz, T. (2026). Leveraging Agentic Coding for Interactive Education in Electrical Engineering. In 2026 27th International Conference on Computational Problems of Electrical Engineering (CPEE). IEEE. DOI: 10.1109/CPEE71962.2026.11768170 (4 pages)",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 2026 27th International Conference on Computational Problems of Electrical Engineering (CPEE), IEEE; short paper, 4 pages",
+   "p": "1",
+   "ok": true,
+   "ai": "Conference — 2026 27th International Conference on Computational Problems of Electrical Engineering (CPEE), IEEE; short paper, 4 pages",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Warsaw University of Technology, Warsaw, Poland (all authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "Warsaw University of Technology, Warsaw, Poland (all authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — multi-phase agentic authoring workflow for educational simulation modules; engineering experience report with three case studies, analytical audits and a failure-mode taxonomy",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Evaluates — multi-phase agentic authoring workflow for educational simulation modules; engineering experience report with three case studies, analytical audits and a failure-mode taxonomy",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agentic authoring workflow (authors' own, unnamed), version Not stated; run with several agentic environments: Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM (versions Not stated)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Agentic authoring workflow (authors' own, unnamed), version Not stated; run with several agentic environments: Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM (versions Not stated)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Scope and audience specification (student level, prerequisites, learning objectives); context pack (course syllabus, mathematical notation specification/dictionary, minimal HTML/CSS template); content script (pedagogical content, derivations, problem sequences, validation questions); technical plan and acceptance criteria (architecture, UI layout, formal verification tests: boundary conditions, asymptotic limits, conservation laws); output: one standalone HTML/JavaScript file",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Scope and audience specification (student level, prerequisites, learning objectives); context pack (course syllabus, mathematical notation specification/dictionary, minimal HTML/CSS template); content script (pedagogical content, derivations, problem sequences, validation questions); technical plan and acceptance criteria (architecture, UI layout, formal verification tests: boundary conditions, asymptotic limits, conservation laws); output: one standalone HTML/JavaScript file",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Scope and audience; (2) context pack; (3) content script (editorial phase); (4) technical plan and acceptance tests; (5) approval gate (teacher); (6) single-pass code generation (5-10 min); (7) numerical and physical audit; (8) acceptance gate (minor UI via targeted prompts; substantive errors -> discard code, reset context, refine specification, regenerate); (9) release as one HTML file (Fig. 1)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "(1) Scope and audience; (2) context pack; (3) content script (editorial phase); (4) technical plan and acceptance tests; (5) approval gate (teacher); (6) single-pass code generation (5-10 min); (7) numerical and physical audit; (8) acceptance gate (minor UI via targeted prompts; substantive errors -> discard code, reset context, refine specification, regenerate); (9) release as one HTML file (Fig. 1)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Phase 5 approval gate: instructor reviews and approves architecture and test suite before code synthesis; phase 7 domain audit; phase 8 acceptance gate by the teacher (Fig. 1 highlights gates 5 and 8)",
+   "p": "2",
+   "ok": true,
+   "ai": "Phase 5 approval gate: instructor reviews and approves architecture and test suite before code synthesis; phase 7 domain audit; phase 8 acceptance gate by the teacher (Fig. 1 highlights gates 5 and 8)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (applied to produce modules in three courses)",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Full workflow (applied to produce modules in three courses)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler's terms; specification precedes implementation and code is regenerated from the revised specification rather than patched ('regeneration over incremental patching'), closest to spec-first with regeneration (classification by the drafter)",
+   "p": "2",
+   "ok": true,
+   "ai": "Not stated in Böckeler's terms; specification precedes implementation and code is regenerated from the revised specification rather than patched ('regeneration over incremental patching'), closest to spec-first with regeneration (classification by the drafter)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New project (standalone browser-based simulation modules generated from scratch)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "New project (standalone browser-based simulation modules generated from scratch)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Not stated in lines; single-file HTML/JS modules; three case studies (RLC commutation simulator, eddy-current laboratory, iterative linear solver benchmark); 5-10 min generation; 3-5 specification/generation cycles",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Not stated in lines; single-file HTML/JS modules; three case studies (RLC commutation simulator, eddy-current laboratory, iterative linear solver benchmark); 5-10 min generation; 3-5 specification/generation cycles",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Electrical engineering education (circuit theory, electromagnetism, numerical methods); scientific simulation",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Electrical engineering education (circuit theory, electromagnetism, numerical methods); scientific simulation",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "University instructors (the authors) as specification authors and domain verifiers; single institution, infered from the text",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "University instructors (the authors) as specification authors and domain verifiers; single institution",
+   "changed": true
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Generation time (5-10 minutes per module); number of specification/generation iterations (3-5)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Generation time (5-10 minutes per module); number of specification/generation iterations (3-5)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass/fail of analytical audit against closed-form benchmarks (e.g. RLC overshoot 18.0 V vs predicted 18.1 V; eddy-current rim field 3.68 V/m; CG convergence in 2 steps)",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Pass/fail of analytical audit against closed-form benchmarks (e.g. RLC overshoot 18.0 V vs predicted 18.1 V; eddy-current rim field 3.68 V/m; CG convergence in 2 steps)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (qualitative remarks on 'cleaner architecture' with regeneration)",
+   "p": "2",
+   "ok": true,
+   "ai": "None (qualitative remarks on 'cleaner architecture' with regeneration)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Qualitative: instructor effort shifts from programming to requirements engineering and verification; 'days of manual software development to minutes' (not measured)",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Qualitative: instructor effort shifts from programming to requirements engineering and verification; 'days of manual software development to minutes' (not measured)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure-mode taxonomy (notation drift, context saturation, feature creep, invalid physics 'vibe physics', pedagogical mismatch, abstract rendering, nondeterministic synthesis) with mitigations (Table I)",
+   "p": "4",
+   "ok": true,
+   "ai": "Failure-mode taxonomy (notation drift, context saturation, feature creep, invalid physics 'vibe physics', pedagogical mismatch, abstract rendering, nondeterministic synthesis) with mitigations (Table I)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: authors' analytical audit of generated modules against closed-form solutions using values displayed by the interface; failure modes from the authors' experience. Times and iteration counts reported without a collection procedure",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Manual: authors' analytical audit of generated modules against closed-form solutions using values displayed by the interface; failure modes from the authors' experience. Times and iteration counts reported without a collection procedure",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: analytical audit (physical/numerical correctness) and teacher acceptance. Mapping of module to agent/model Not stated ('three distinct agentic development environments'; Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM listed; models Not stated). (a) Workflow + agent n.s. + model n.s.: RLC commutation simulator, passed audit without correction (18.0 V vs 18.1 V predicted, maxima 202 ms apart vs 201 ms period); 5-10 min, 3-5 cycles. Quality: works; cost: no criterion stated by the authors. (b) Workflow + agent n.s. + model n.s.: eddy-current laboratory, values consistent, loss quantity mislabelled (peak vs averaged). Quality: partly; cost: no criterion stated by the authors. (c) Workflow + agent n.s. + model n.s.: iterative solvers module, CG converged in 2 steps as predicted. Quality: works; cost: no criterion stated by the authors",
+   "p": "1-4",
+   "ok": true,
+   "ai": "Criterion: analytical audit (physical/numerical correctness) and teacher acceptance. Mapping of module to agent/model Not stated ('three distinct agentic development environments'; Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM listed; models Not stated). (a) Workflow + agent n.s. + model n.s.: RLC commutation simulator, passed audit without correction (18.0 V vs 18.1 V predicted, maxima 202 ms apart vs 201 ms period); 5-10 min, 3-5 cycles. Quality: works; cost: no criterion stated by the authors. (b) Workflow + agent n.s. + model n.s.: eddy-current laboratory, values consistent, loss quantity mislabelled (peak vs averaged). Quality: partly; cost: no criterion stated by the authors. (c) Workflow + agent n.s. + model n.s.: iterative solvers module, CG converged in 2 steps as predicted. Quality: works; cost: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no controlled comparison; 'multiple trials and prompting strategies' converged on the pipeline, but alternatives not reported; formal comparison of the LLM backends not conducted)",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "N/A (no controlled comparison; 'multiple trials and prompting strategies' converged on the pipeline, but alternatives not reported; formal comparison of the LLM backends not conducted)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Qualitative claims only: specification before implementation 'yields higher code reliability than joint prompting'; regeneration in a fresh context produces cleaner architecture than patching; supplying complete prior applications as context degrades output",
+   "p": "1-2",
+   "ok": true,
+   "ai": "N/A. Qualitative claims only: specification before implementation 'yields higher code reliability than joint prompting'; regeneration in a fresh context produces cleaner architecture than patching; supplying complete prior applications as context degrades output",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Engineering experience report at a single institution, three courses; no formal pedagogical evaluation of learning gains; no formal comparative benchmark of the LLM backends; agents cannot reliably self-audit physical realism, so domain-expert verification remains essential. Future work: student learning gains and telemetry; automated physics verification (symbolic regression, test harnesses)",
+   "p": "4",
+   "ok": true,
+   "ai": "Engineering experience report at a single institution, three courses; no formal pedagogical evaluation of learning gains; no formal comparative benchmark of the LLM backends; agents cannot reliably self-audit physical realism, so domain-expert verification remains essential. Future work: student learning gains and telemetry; automated physics verification (symbolic regression, test harnesses)",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "No printed page numbers; PDF pages used. Abstract says an independent analytical audit of two generated modules is reported; the body audits all three (RLC, eddy current, CG), the CG one briefly; 'independent' audit appears to be by the authors. Table I layout jumbled by pdftotext, rebuilt from rows (failure mode / symptom / mitigation). Section IV future-work sentence continues in the Table I area (p. 4). No replication package, prompts or module code; no pre-registration. Language: HTML/CSS/JavaScript (single file, Canvas); RK4 integration. Abstract says 'three distinct agentic development environments', Section II lists four (Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM) and Section IV speaks of 'three LLM backends'",
+   "p": "1-4",
+   "ok": true,
+   "ai": "No printed page numbers; PDF pages used. Abstract says an independent analytical audit of two generated modules is reported; the body audits all three (RLC, eddy current, CG), the CG one briefly; 'independent' audit appears to be by the authors. Table I layout jumbled by pdftotext, rebuilt from rows (failure mode / symptom / mitigation). Section IV future-work sentence continues in the Table I area (p. 4). No replication package, prompts or module code; no pre-registration. Language: HTML/CSS/JavaScript (single file, Canvas); RK4 integration. Abstract says 'three distinct agentic development environments', Section II lists four (Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM) and Section IV speaks of 'three LLM backends'",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Partly (0.5): contributions listed; no research questions",
+   "p": "1",
+   "ok": true,
+   "ai": "Partly (0.5): contributions listed; no research questions",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): workflow phases described; prompts, specifications, agent-model mapping and trial procedure not given",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Partly (0.5): workflow phases described; prompts, specifications, agent-model mapping and trial procedure not given",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agentic environments named (Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM) without versions or models; mapping to modules not stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Partly (0.5): agentic environments named (Claude Code, Gemini Antigravity, OpenAI Codex, OpenCode+GLM) without versions or models; mapping to modules not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): modules described with figures and equations; specifications and code not available",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Partly (0.5): modules described with figures and equations; specifications and code not available",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): correctness checked against analytical closed-form solutions (independent criterion), but applied by the authors on displayed values only",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Partly (0.5): correctness checked against analytical closed-form solutions (independent criterion), but applied by the authors on displayed values only",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): time and iterations reported, audit pass/fail; metrics not formally defined",
+   "p": "1-4",
+   "ok": true,
+   "ai": "Partly (0.5): time and iterations reported, audit pass/fail; metrics not formally defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline or alternative under the same conditions",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): no baseline or alternative under the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistics reported (nondeterminism noted)",
+   "p": "4",
+   "ok": true,
+   "ai": "No (0): no repetitions or statistics reported (nondeterminism noted)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): claims (e.g. 'days to minutes', spec-first yields higher reliability than joint prompting) not backed by measurements; vibe-physics risk acknowledged",
+   "p": "2, 4",
+   "ok": true,
+   "ai": "Partly (0.5): claims (e.g. 'days to minutes', spec-first yields higher reliability than joint prompting) not backed by measurements; vibe-physics risk acknowledged",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph in Section IV",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): short limitations paragraph in Section IV",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): IEEE CPEE 2026 conference proceedings",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): IEEE CPEE 2026 conference proceedings",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): the authors created the workflow, the only approach evaluated; the agent tools are not the object of evaluation",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): the authors created the workflow, the only approach evaluated; the agent tools are not the object of evaluation",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly(0.5): uses off-the-shelf agentic tools, standalone HTML output, 5-10 min generation; requires a domain expert for audits, within reach of instructors. Tokens and Money cost are not explicit",
+   "p": "1-2, 4",
+   "ok": true,
+   "ai": "Yes (1): uses off-the-shelf agentic tools, standalone HTML output, 5-10 min generation; requires a domain expert for audits, within reach of instructors",
+   "changed": true
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T14:00:17"
+}
