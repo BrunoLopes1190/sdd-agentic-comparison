@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486264",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Koch, C. (2026). Agentic Agile-V: From Vibe Coding to Verified Engineering in Software and Hardware Development. arXiv:2605.20456v1 [cs.SE], 19 May 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Koch, C. (2026). Agentic Agile-V: From Vibe Coding to Verified Engineering in Software and Hardware Development. arXiv:2605.20456v1 [cs.SE], 19 May 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher (single author)",
+   "p": "1",
+   "ok": true,
+   "ai": "Independent researcher (single author)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Conceptual — proposes the Agentic Agile-V process framework (Agile-V lifecycle backbone + SCOPE-V task loop, minimum input artefact taxonomy, conversation-to-contract gate, risk-adaptive workflows, evidence bundles), backed by a 'bounded evidence synthesis' of literature on agentic coding, productivity, repository configuration and hardware verification. No evaluation",
+   "p": "1-3, 6",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Conceptual — proposes the Agentic Agile-V process framework (Agile-V lifecycle backbone + SCOPE-V task loop, minimum input artefact taxonomy, conversation-to-contract gate, risk-adaptive workflows, evidence bundles), backed by a 'bounded evidence synthesis' of literature on agentic coding, productivity, repository configuration and hardware verification. No evaluation",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agentic Agile-V (Agile-V lifecycle backbone + SCOPE-V micro-cycle: Specify, Constrain, Orchestrate, Prove, Evolve, Verify); builds on the author's Agile-V [1]. No version",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "Agentic Agile-V (Agile-V lifecycle backbone + SCOPE-V micro-cycle: Specify, Constrain, Orchestrate, Prove, Evolve, Verify); builds on the author's Agile-V [1]. No version",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Reviewed task/execution brief (objective, scope, non-goals, affected modules, dependencies, acceptance criteria, required evidence); minimum input artefact package (Table I: intent and scope, acceptance criteria, architecture context, constraints, execution context, evidence requirement, risk class); feature, bug and hardware/firmware brief templates; minimal repository instructions (e.g., AGENTS.md); evidence bundle for R2/R3 (brief + requirement IDs, plan, commands and test results, diff summary, trace acceptance criteria -> tests, reviewer decision, rollback path)",
+   "p": "3-6",
+   "ok": true,
+   "ai": "Reviewed task/execution brief (objective, scope, non-goals, affected modules, dependencies, acceptance criteria, required evidence); minimum input artefact package (Table I: intent and scope, acceptance criteria, architecture context, constraints, execution context, evidence requirement, risk class); feature, bug and hardware/firmware brief templates; minimal repository instructions (e.g., AGENTS.md); evidence bundle for R2/R3 (brief + requirement IDs, plan, commands and test results, diff summary, trace acceptance criteria -> tests, reviewer decision, rollback path)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Macro: Agile-V increments traceable to requirements, design, implementation, verification, approval, audit. Micro (SCOPE-V): Specify -> Constrain -> Orchestrate (inspect, summarise, plan, small slices, local checks, diff summary) -> Prove (tests, static analysis, simulation, HIL per risk) -> Evolve (feed learning back to instructions/templates/tests) -> Verify (recurring). Conversation-to-contract gate between exploratory dialogue and implementation. Task workflows for features (9 steps), bug fixes (8 steps), testing, hardware",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Macro: Agile-V increments traceable to requirements, design, implementation, verification, approval, audit. Micro (SCOPE-V): Specify -> Constrain -> Orchestrate (inspect, summarise, plan, small slices, local checks, diff summary) -> Prove (tests, static analysis, simulation, HIL per risk) -> Evolve (feed learning back to instructions/templates/tests) -> Verify (recurring). Conversation-to-contract gate between exploratory dialogue and implementation. Task workflows for features (9 steps), bug fixes (8 steps), testing, hardware",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Conversation-to-contract gate (brief reviewed before implementation); risk-adaptive human gates (Table II): R0 optional review, R1 normal code review, R2 mandatory reviewer approval, R3 explicit sign-off and release gate; human review for architecture/security in feature workflow; human approval for state-changing actions; human approval and baseline update in Fig. 1",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Conversation-to-contract gate (brief reviewed before implementation); risk-adaptive human gates (Table II): R0 optional review, R1 normal code review, R2 mandatory reviewer approval, R3 explicit sign-off and release gate; human review for architecture/security in feature workflow; human approval for state-changing actions; human approval and baseline update in Fig. 1",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (conceptual)",
+   "p": "6",
+   "ok": true,
+   "ai": "Not run (conceptual)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Böckeler terms. 'Do not let an agent implement from a long chat. Let it implement from a reviewed brief'; briefs per task with traceability and Evolve step updating baselines (closest to spec-first, draft)",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Not stated in Böckeler terms. 'Do not let an agent implement from a long chat. Let it implement from a reviewed brief'; briefs per task with traceability and Evolve step updating baselines (closest to spec-first, draft)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated; workflows cover features and bug fixes in existing repositories plus firmware/hardware work",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Not stated; workflows cover features and bug fixes in existing repositories plus firmware/hardware work",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Not stated",
+   "p": "—",
+   "ok": true,
+   "ai": "Not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Software, firmware, embedded and hardware/RTL development; risk classes up to security, payments, medical, safety-related",
+   "p": "1, 5",
+   "ok": true,
+   "ai": "Software, firmware, embedded and hardware/RTL development; risk classes up to security, payments, medical, safety-related",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated (generic engineering teams)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not stated (generic engineering teams)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (recommends tracking review load, defect escape, rework, lead time)",
+   "p": "5",
+   "ok": true,
+   "ai": "None (recommends tracking review load, defect escape, rework, lead time)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no measurement). Evidence synthesis: sources from four streams with topical inclusion criteria; no search strings, databases, dates or counts given",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no measurement). Evidence synthesis: sources from four streams with topical inclusion criteria; no search strings, databases, dates or counts given",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (conceptual; no configuration run)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (conceptual; no configuration run)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Synthesis findings: productivity effects context-dependent (Google RCT -21% time, METR RCT +19% time, moderate meta-analytic effect); context files mixed effects; repository execution and hardware verification remain hard",
+   "p": "1-2",
+   "ok": true,
+   "ai": "N/A. Synthesis findings: productivity effects context-dependent (Google RCT -21% time, METR RCT +19% time, moderate meta-analytic effect); context files mixed effects; repository execution and hardware verification remain hard",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Synthesis and process proposal, not a benchmark; fast-moving field, point estimates may change; productivity studies and hardware benchmarks heterogeneous; framework must be validated empirically across teams, repositories, tools and hardware domains. Research agenda: do structured briefs beat conversational prompts; minimum useful repository instructions; independent agentic test generation and defect escape; which task classes benefit or are slowed by overhead; evidence bundles vs verification debt; hardware evidence quality",
+   "p": "6",
+   "ok": true,
+   "ai": "Synthesis and process proposal, not a benchmark; fast-moving field, point estimates may change; productivity studies and hardware benchmarks heterogeneous; framework must be validated empirically across teams, repositories, tools and hardware domains. Research agenda: do structured briefs beat conversational prompts; minimum useful repository instructions; independent agentic test generation and defect escape; which task classes benefit or are slowed by overhead; evidence bundles vs verification debt; hardware evidence quality",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Author also co-authored Agile-V [1] on which the framework builds. Evidence base relies largely on arXiv preprints and press articles (The Verge, Wired). No data, replication package or pre-registration. Programming language: N/A",
+   "p": "3, 6-7",
+   "ok": true,
+   "ai": "Author also co-authored Agile-V [1] on which the framework builds. Evidence base relies largely on arXiv preprints and press articles (The Verge, Wired). No data, replication package or pre-registration. Programming language: N/A",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question and four contributions stated",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): central question and four contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): source streams and inclusion criteria stated; no search procedure, dates or list/count of included sources",
+   "p": "3",
+   "ok": true,
+   "ai": "Partly (0.5): source streams and inclusion criteria stated; no search procedure, dates or list/count of included sources",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): synthesis conclusions balanced, but benefits of the framework are argued, not shown",
+   "p": "6",
+   "ok": true,
+   "ai": "Partly (0.5): synthesis conclusions balanced, but benefits of the framework are argued, not shown",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Threats to Validity subsection (brief)",
+   "p": "6",
+   "ok": true,
+   "ai": "Yes (1): Threats to Validity subsection (brief)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
+   "p": "1, 4, 6",
+   "ok": true,
+   "ai": "N/A: proposes an approach and evaluates none (rule of 2026-11-23)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): lightweight templates and gates usable with existing agents and CI, but tool, effort and cost requirements not stated or measured",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Partly (0.5): lightweight templates and gates usable with existing agents and CI, but tool, effort and cost requirements not stated or measured",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T13:33:23"
+}
