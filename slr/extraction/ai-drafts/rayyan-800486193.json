@@ -1,0 +1,327 @@
+{
+ "key": "rayyan-800486193",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shastry, K. N. A., Senrayan, G., Satapara, S., Panda, P., Devaguptapu, C. (2026). Beyond Isolated Tasks: A Framework for Evaluating Coding Agents on Sequential Software Evolution. arXiv:2604.03035v1 [cs.SE], 3 Apr 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2604.03035v1 [cs.SE], 3 Apr 2026; no venue stated (appendix mentions code release 'upon paper acceptance')",
+   "p": "1, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Fujitsu Research (all five authors; first three with equal contribution)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — automated framework that extracts chains of dependent PRs from git history and the SWE-STEPS dataset; compares coding agents and models across three evaluation settings (Individual PR, Global/conversational, PRD-based) on functional correctness and repository health",
+   "p": "1-4, 6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named SDD approach. Settings compared: (i) Individual PR (SWE-bench-style baseline, stateless, reset after each PR); (ii) Global Memory configuration (conversational coding: PRs given sequentially, shared context, cascading tests); (iii) PRD configuration (PRD-based coding: all PR requirements concatenated into one Product Requirements Document, planner agent writes PLAN.md before implementation). Agents: OpenHands with CodeAct (main; version not stated); Aider via Aider Python SDK (appendix; version not stated), with an extra 'Local' setting. Models: Gemini 3 Pro, Claude Sonnet 4.5, GPT-5.2 Chat, Gemini 3 Flash, GPT-5.1 Codex Mini (Gemini 2.5 Flash in some tables)",
+   "p": "4, 6-7, 14, 16, 18-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per PR: task description (synthesised from PR description, linked issues, documentation changes) and definition description (signatures of functions/classes added, modified or deleted). PRD setting: Product Requirements Document (concatenated task list) and PLAN.md written by a planning agent before coding. Verification suite per PR: F2P and P2P tests",
+   "p": "4, 6, 14, 20-23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Individual/Global: per PR, search -> localise -> implement -> test feedback, in reflection cycles (max 40 iterations each, 3 cycles per PR); Global keeps state and context across the chain. PRD: delegate to planning agent -> PLAN.md -> implement step by step -> re-plan if invalid; accumulated test suite run at the final state (pooled budget 3 x N cycles). Framework: mine PRs and metadata -> test-driven validation -> chain construction",
+   "p": "4-7, 14, 20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None: agents run autonomously with test feedback only; no human in the loop",
+   "p": "7, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not an SDD workflow; interaction settings exercised in full by the agent harness (PRD with planning step), on the benchmark",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'PRD-based coding', 'single-shot specification where agent receives aggregated requirements upfront', 'high-level feature specification'",
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: chains of 3-11 historical PRs (mostly bug fixes 46.6% and features 40.1%) re-implemented from a base commit of real repositories",
+   "p": "2, 5-6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "SWE-STEPS: 168 tasks, 963 PRs, 6 repositories; chains of 3-11 PRs (median about 1-3 weeks of developer work); per task averages: issue text 3,656 words, 17.1 files edited, 15.9 F2P tests, 235.1 total tests. Lite: 50 tasks (276 PRs); Mini: 15 tasks (80 PRs). Repositories from Conan (SCC estimate $1.52M) to Moto ($129.13M)",
+   "p": "2, 5-7, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Six popular Python repositories (>8k stars, from SWE-Gym): Conan (build tools), DVC (AI versioning), Haystack (scientific, AI), Sqlglot (database engines), Pandas (scientific/engineering), Moto (software development, testing)",
+   "p": "4, 6, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs; human reference is the original developers' code, 'Gold Trace')",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average cost per task (USD)",
+   "p": "7, 15, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "PR success rate (PR succeeds when all F2P tests pass without breaking any P2P test); task completion (all PRs in the chain succeed); per-PR F2P and P2P pass percentages",
+   "p": "4, 7, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Delta Cognitive Complexity and delta SQALE Index (technical debt) from SonarQube, agent vs human Gold Trace, over five normalised bins (chains >5 PRs, Global setting)",
+   "p": "8-9, 16-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Pass rate by chain length and test-suite size; failure-mode distribution (SWE-agent taxonomy plus new 'Solving Previous Issues'); PR category distribution; PR dependency share (48.7% of tasks with interdependent PRs)",
+   "p": "2, 8-9, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: tests executed in isolated Docker containers (network restricted, test files read-only, git history pruned); SonarQube static analysis; cost per task from API usage. LLM-based: PR categories by an LLM classifier; failure modes of Claude Sonnet 4.5 traces categorised by Gemini 3.0 Pro (no human validation reported)",
+   "p": "4, 7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No criterion stated by the authors for any entry (quality and cost). Values: PR success rate (PRs passed), tasks completed, average F2P %, cost per task. OpenHands + CodeAct, Mini (80 PRs, 15 tasks): Individual PR (baseline): (a) Gemini 3 Pro 53.75% (43/80), 1 task, F2P 64.17%, $14.15; (b) Claude Sonnet 4.5 66.25% (53/80), 2 tasks, F2P 75.93%, $14.27; (c) GPT-5.2 Chat 56.25% (45), 2 tasks, F2P 40.65%, $4.64; (d) Gemini 3 Flash 51.25% (41), 2 tasks, F2P 59.36%, $2.97; (e) GPT-5.1 Codex Mini 43.75% (35), 1 task, F2P 56.15%, $3.53. Global: (f) Gemini 3 Pro 43.75% (35), 2 tasks, F2P 65.56%, $17.47; (g) Sonnet 4.5 43.75% (35), 3 tasks, F2P 54.44%, $21.46; (h) GPT-5.2 Chat 48.75% (39), 2 tasks, F2P 40.56%, $12.33; (i) Gemini 3 Flash 31.25% (25), 1 task, F2P 57.22%, $5.41; (j) GPT-5.1 Codex Mini 32.5% (26), 1 task, F2P 56.15%, $4.75. PRD: (k) Gemini 3 Pro 38.75% (31), 0 tasks, F2P 57.78%, $27.60; (l) Sonnet 4.5 45.00% (36), 1 task, F2P 45.56%, $47.08; (m) GPT-5.2 Chat 37.50% (30), 2 tasks, F2P 31.67%, $17.37; (n) Gemini 3 Flash 27.5% (22), 0 tasks, F2P 50.80%, $10.70; (o) GPT-5.1 Codex Mini 37.5% (30), 2 tasks, F2P 29.41%, $7.56. OpenHands, Lite (276 PRs): (p) Individual Codex Mini 43.48% (120), $3.73; (q) Individual Gemini 3 Flash 56.52% (156), $2.79; (r) Global Codex Mini 25.72% (71), $5.12; (s) Global Gemini Flash 36.59% (101), $4.32; (t) PRD Codex Mini 25.00% (69), $9.09; (u) PRD Gemini Flash 32.25% (89), $9.85. Aider, Lite (276 PRs): (v) Individual Codex Mini 30.79% (85), $0.64; (w) Individual Gemini 2.5 Flash 45.29% (125), $0.82; (x) Global Codex Mini 10.14% (28), $0.63; (y) Global Gemini 2.5 Flash 11.96% (33), $2.52; (z) PRD Codex Mini 12.68% (35), $0.58; (aa) PRD Gemini 2.5 Flash 11.59% (32), $3.96; Aider with file paths and function declarations supplied, Lite (Table 12; average P2P / F2P %, no PR success rate or cost reported): (ab) Individual w/Filepaths Codex Mini 31.11 / 24.34; (ac) Individual w/Filepaths Gemini 2.5 Flash 58.15 / 38.45; (ad) Global w/Filepaths Codex Mini 22.04 / 7.17; (ae) Global w/Filepaths Gemini 2.5 Flash 41.26 / 21.39; (af) Local w/Filepaths Codex Mini 28.18 / 20.82; (ag) Local w/Filepaths Gemini 2.5 Flash 57.61 / 37.76 (authors: Local 'considerably better than Global'). Repository health (Global, Gemini 3 Pro, Sonnet 4.5, GPT-5.2 Chat): higher cognitive complexity and technical debt than the human Gold Trace (figures only)",
+   "p": "7-9, 15-18",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Incomplete: Table 12 has six Aider configurations with file paths (Individual, Global and Local, each with two models) and gives their average P2P/F2P values; the draft listed only Local and gave no values."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-STEPS Mini (15 tasks/80 PRs) for five models and Lite (50 tasks/276 PRs) for two models. Configurations: three settings x models x two agents (OpenHands main, Aider appendix). Baseline: Individual PR setting (SWE-bench style); human Gold Trace for code health. Held constant: agent architecture and three tools, Docker environment and anti-cheat measures, expected function signatures given, budget (3 reflection cycles of max 40 iterations per PR; PRD pooled 3 x N). Acceptance tests: historical F2P and P2P tests, validated by test-patch/fix-patch runs. Repetitions: not stated (single run). Human intervention: none. No statistical tests",
+   "p": "4-7, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Individual PR setting scores higher than Global and PRD on Mini and Lite: e.g. Sonnet 4.5 66.25% -> 43.75% (Global), Gemini 3 Flash 51.25% -> 31.25% (Mini) and 56.52% -> 36.59% (Lite); authors report up to 20 pp inflation and a 15-25% decrease across LLMs; same trend with Aider. Pass rate drops with chain length and test-suite size (GPT-5.2 Chat PRD from >60% to ~10% in the largest test bin). F2P falls while P2P stays high as statefulness increases (Sonnet F2P about -30 pp Individual -> PRD; Gemini Flash Lite 52.45% -> 27.65%). PRD and Global cost more per task than Individual (e.g. Sonnet $14.27 / $21.46 / $47.08). Agents show higher cognitive complexity and SQALE debt than human code (e.g. Gemini 3 Pro 7/7 Haystack PRs with debt surging in the final bin). Dominant failure mode in Global: 'Solving Previous Issues' 44.4% (20), then incorrect implementation 20.0% (9), out of budget 13.3% (6). No significance tests",
+   "p": "7-9, 14-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished settings consistently (Individual above Global and PRD across models and both agents) and showed code-health divergence from human code. Repeatability: single runs, no variance reported. Limitations of the method not discussed by the authors (no limitations section)",
+   "p": "7-10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats section. Gaps stated: isolated PR evaluation inflates success; agents degrade repository health; need for evaluations that value maintainability alongside functional correctness; agents need active context management (Aider)",
+   "p": "10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: model named 'Gemini 3 Flash' in Tables 3 and 7 but 'Gemini 2.5 Flash' in the Global/PRD rows of Table 9 and in the Aider tables 10-12; Section 4.1 assigns Gemini 3 Flash and GPT-5.1 Codex Mini to the Lite split only, but Table 3 (Mini) reports them too; claim of a 15-25% decrease 'across all LLMs' vs Mini Table 3 drops of 10 pp (Gemini 3 Pro) and 7.5 pp (GPT-5.2 Chat); Table 8 Codex Mini Individual and Global averages identical (87.16 / 56.15); Table 12 'Local' per-repository values repeat the Table 11 PRD row, yet its averages differ (P2P 28.18/57.61, F2P 20.82/37.76 vs 98.91/58.20, 5.35/29.12), and Table 12 caption repeats Table 11's; 'Gemini 3.0 Pro' vs 'Gemini 3 Pro'; Table 1 says 48.7% of tasks have interdependent PRs while the text calls dependency signals 'quite rare'. Values from Tables 3, 7, 8, 9, 10, 12 (pp. 7, 15, 18); Table 12 averages rebuilt from the jumbled text by position (each row ends with its average P2P, then a line with the two F2P averages, as in Tables 9 and 11); per-model task counts summed from Table 3 columns. Data: SWE-STEPS-mini shared as a zip with the submission; dataset and code to be released (on acceptance). Pre-registration: not stated. Programming language: Python",
+   "p": "2, 5-7, 10, 12, 15-18",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Table 12 values now used had to be rebuilt from jumbled text; the Local inconsistency was stated imprecisely (only the per-repository values repeat Table 11 PRD, the averages differ)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question and RQ1-RQ4 stated explicitly",
+   "p": "1, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline, settings, budgets and prompts described; agent versions, run count and SonarQube configuration not given; code not yet released",
+   "p": "3-7, 18-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (Gemini 3 Pro, Claude Sonnet 4.5, GPT-5.2 Chat, ...) with API providers; OpenHands and Aider versions not stated; Gemini Flash version inconsistent across tables",
+   "p": "6-7, 15-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): dataset construction and composition described; only the Mini split shared (zip), full dataset promised",
+   "p": "5-6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): historical F2P/P2P tests and SonarQube metrics vs human code; failure modes by LLM judge only",
+   "p": "4-5, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass rates, cost per task and code-health metrics defined",
+   "p": "4, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Individual PR baseline and alternative settings under the same agent, budget and environment; human Gold Trace for code health",
+   "p": "4, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single runs, no variance or statistical tests",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow from the tables, but '15-25% across all LLMs' overstates the Mini results for Gemini 3 Pro and GPT-5.2 Chat, and 'significantly inflated' is claimed without a test",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats-to-validity or limitations discussion",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Fujitsu authors are not vendors of OpenHands, Aider or the models evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

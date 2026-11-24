@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800498194",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, B., Wang, X., Wu, J., Wu, K., Zhi, C., Yin, J. (2026). WideSWE: Can Coding Agents Coordinate Changes Across Repositories? arXiv:2609.33382v1 [cs.SE], 27 Sep 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (cs.SE); conference-style template with AI use, ethics and reproducibility statements; venue Not stated",
+   "p": "1, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Zhejiang University, China (B. Wang, X. Wang, Zhi, Yin); Tsinghua University, China (J. Wu, K. Wu)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — WideSWE benchmark of 120 cross-repository tasks; evaluation of seven agent configurations and comparison of joint vs independent execution",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent configurations (scaffold + model + reasoning effort): Codex CLI v0.147.0 + GPT-5.6-sol (high); Claude Code v2.1.139 + GPT-5.6-sol (high), Claude Opus 5 (high), Gemini 3.8 Flash (xhigh), DeepSeek V4 Pro (high), Qwen 3.8 Max (xhigh), GLM 5.3 (xhigh). Execution modes (RQ3): joint (whole ecosystem workspace, one run) vs independent (one run per target repository)",
+   "p": "5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification approach). Task inputs: one shared prompt per task merged from original issues and PR descriptions; hidden F2P/P2P tests and reference patches withheld",
+   "p": "4, 13-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent runs. Human review only in benchmark construction (prompts and test revisions each reviewed by two other authors)",
+   "p": "16, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent runs (scaffold + model) on the benchmark; no SDD approach",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent evaluation, no specification)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: real cross-repository bug fixes and features on historical snapshots of open-source repositories",
+   "p": "3-4, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "120 tasks (60 bug fixes, 60 features) from 41 ecosystems; 253 target repositories (107 tasks with 2, 13 with 3 targets); 0-20 context repositories (median 3); reference patches median 13 files and 416 lines (range 2-310 files, 7-211,110 lines); 2,815 F2P and 22,139 P2P tests. RQ3: 89 tasks (29 bug fixes, 60 features), 191 repositories",
+   "p": "3-6, 13-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source software ecosystems (web and APIs, languages and tools, AI and ML, data systems, cloud and operations, applications and platforms; e.g. Sentry, Kubernetes, Symfony, PyTorch); Linux environments; 86 tasks single and 34 multiple language families",
+   "p": "3, 16, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean API requests per task (recorded usage); no tokens, time or money",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Case-level task success (all target repositories pass all F2P and P2P tests); repository-level success; F2P-complete and P2P-preserved repositories (%); test-level pass rates (Appendix B.2)",
+   "p": "5, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure categories of unresolved runs (incomplete scope identification, recognized work without delivery, post-edit failure); repository completion within unresolved tasks; paired joint/independent outcome reversals; recovery of joint-failed repositories",
+   "p": "5-9, 19-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests run on clean base snapshots with evaluator-owned test patches; API request counts from usage records. Manual: failure categories annotated by two authors (91.2% agreement, Cohen's kappa 0.86); benchmark construction by manual review and executable validation",
+   "p": "5-6, 16, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark success definition: task solved only when every target repository passes all F2P and P2P tests; no target rate for judging a configuration. Values (overall case / bugfix / feature success %, repo %, F2P %, P2P %, API requests): (a) Codex CLI + GPT-5.6-sol: 42.50 / 41.67 / 43.33, 63.64, 65.61, 90.95, 86.7. (b) Claude Code + GPT-5.6-sol: 32.50 / 33.33 / 31.67, 56.92, 60.08, 85.07, 134.8. (c) Claude Code + Claude Opus 5: 35.00 / 41.67 / 28.33, 55.34, 56.13, 90.95, 160.2. (d) Claude Code + Gemini 3.8 Flash: 10.83 / 21.67 / 0.00, 15.81, 16.60, 95.93, 146.1. (e) Claude Code + DeepSeek V4 Pro: 26.67 / 38.33 / 15.00, 47.83, 50.20, 85.07, 160.2. (f) Claude Code + Qwen 3.8 Max: 37.50 / 48.33 / 26.67, 56.92, 57.31, 92.31, 177.1. (g) Claude Code + GLM 5.3: 20.00 / 30.00 / 10.00, 39.92, 41.11, 84.16, 151.1. RQ3, 89 tasks, Codex CLI + GPT-5.6-sol: (h) joint: 40.45 / 34.48 / 43.33, repo 61.78, F2P 64.40, P2P 89.63, API 94.7; (i) independent: 35.96 / 44.83 / 31.67, repo 60.73, F2P 64.40, P2P 85.37, API 296.6. Quality and cost verdicts: no criterion stated by the authors",
+   "p": "4, 6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 120 WideSWE tasks, one shared prompt each, historical ecosystem workspace. Configurations: seven (above); same scaffold for six (Claude Code), same model for two (GPT-5.6-sol on Codex CLI vs Claude Code). Baseline: none; RQ3 joint vs independent on 89 tasks with identical prompts, matched per-run limits (not total budget). Held constant: prompt, harness-level permissions, timeout policy, per-run resource limits; reasoning effort differs (high vs xhigh). Acceptance: hidden F2P and P2P tests, revised by rules reviewed by two authors and checked to reject base code and accept reference. Repetitions: one run per task and configuration (not stated as more). Human intervention: none",
+   "p": "4-5, 8, 19-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Codex CLI + GPT-5.6-sol best overall (42.50%), Claude Code + Qwen 3.8 Max best on bug fixes (48.33%), Gemini lowest (10.83%). Same model, Codex CLI vs Claude Code: 42.50% vs 32.50%, API 86.7 vs 134.8. All configurations lower on three-repository tasks. Joint vs independent: 40.45% vs 35.96% (20 of 89 tasks reverse); independent better on bug fixes (44.83 vs 34.48) and worse on features (31.67 vs 43.33) with 3.13x API requests. No significance tests; the authors call the recovery-rate difference (60.00% vs 9.43%) descriptive, not causal, and say the opposite net directions by task type should not be generalised beyond the sample",
+   "p": "4, 7-9, 20",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft said the authors call 'the differences' descriptive; the text (App. B.1, p. 20) says this only of the recovery-rate difference, and separately warns against generalising the task-type reversal"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (10.83%-42.50%) and failure modes; single run per configuration, so repeatability not shown. Limitations stated: RQ3 matches per-run, not total budget; recovery difference descriptive, not causal; opposite net directions by task type not to be generalised",
+   "p": "19-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Tasks involve only two or three target repositories and Linux environments; results do not establish performance on more repositories or other platforms (Appendix D). No threats-to-validity section",
+   "p": "30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and artifact at https://github.com/ZJU-ACES-ISE/WideSWE (instance metadata, base commits, prompts, hidden-test patches, environments, scoring manifests, agent patches where licences permit, scripts). Authors used generative AI for writing, code and test development and result analysis. No pre-registration. Abstract mentions 103 ecosystems mined; benchmark covers 41. Figure 4 values partly unreadable in extracted text; text gives Codex + GPT 42.99% (2 repos) vs 38.46% (3 repos). Programming languages: multi-language (e.g. Go, Python, Ruby, PHP, Java, JS/TS, Rust, .NET)",
+   "p": "1, 8, 10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, evaluation definition, configurations described; artifact released",
+   "p": "3-5, 10, 13-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): scaffold versions (Codex CLI v0.147.0, Claude Code v2.1.139), models and reasoning effort stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described in detail and released",
+   "p": "3-4, 10, 13-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden F2P/P2P tests validated against base and reference code",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): success metrics defined; cost only as API request counts, no tokens, time or money",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): seven configurations under the same permissions, timeout and limits; joint vs independent with identical prompts",
+   "p": "5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration, no statistical tests; differences reported descriptively",
+   "p": "5-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions match results, negative result (independent execution does not improve overall success) reported, claims limited",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): scope and limitations only in Appendix D and caveats in B.1; no threats section",
+   "p": "19-20, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors independent of the agent and model vendors; benchmark is theirs but no approach of theirs is evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: proposes an evaluation method, not an approach",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

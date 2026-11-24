@@ -1,0 +1,317 @@
+{
+"key": "rayyan-800486568",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Berndt, A., Ralph, P., Bach, T., Baltes, S. (2026). Construct Validity of Coding Benchmarks for LLM-based Agentic Coding Tools. arXiv:2611.05665v1 [cs.SE], 3 Nov 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2611.05665v1 [cs.SE]; short (4-page) preliminary study, no venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Author affiliation",
+"v": "Heidelberg University (Berndt, also affiliated with SAP; Baltes); Dalhousie University (Ralph); SAP (Bach)",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Nature of the study",
+"v": "Evaluates; secondary: Conceptual — document-based qualitative analysis of the construct validity of nine agentic coding benchmarks (constructs claimed, metrics operationalizing them, additional task attributes as potential confounders), with recommendations and future plans; no agent run",
+"p": "1-4",
+"verdict": "uncertain",
+"why": "A qualitative, document-based analysis of nine benchmark publications and datasets: 'Evaluates' (empirical analysis of artefacts, like repository mining) fits, but 'Conceptual' as main nature is defensible since nothing is run and the output is reflections and recommendations; the choice decides whether Q3-Q8 or Q13 apply.",
+"doubt": "Estudo documental de nove benchmarks, sem execução de agentes. Decide se é Evaluates (análise empírica de artefactos) ou Conceptual; isso muda se Q3–Q8 ou Q13 se aplicam."
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach and no agent configuration. Objects analysed: nine benchmarks taken from the model cards of Claude Opus 5.5, GPT-6 Astra and Gemini 4 Argon (Table I): DeepSWE v1.1, FrontierCode v1.1 extended, FrontierSWE v2, SWE-Atlas-QnA-AA, SWE-bench Multilingual, SWE-bench Multimodal, SWE-bench Pro, Terminal-Bench 4.0, Vibe Code Bench",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "N/A (no approach). Benchmark task inputs described: natural-language task specifications or issue descriptions (e.g. FrontierCode, SWE-Atlas, Vibe Code Bench web application specifications), with tests, rubrics or browser workflows as verifiers",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Phases of the flow",
+"v": "N/A (no approach). Study method: dataset of benchmarks from model cards; qualitative extraction of constructs and metrics (RQ1); extraction of additional task attributes (RQ2)",
+"p": "2-3",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human review points",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Parts exercised",
+"v": "Not run, document-based (benchmark introductory publications and public datasets analysed)",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Task type",
+"v": "N/A (no tasks run). Benchmarks analysed cover existing repositories (issue resolution, long-horizon implementation, Q&A, test writing, refactoring), terminal tasks and new web applications from specifications",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Size",
+"v": "Nine benchmarks (eight for RQ1, FrontierSWE excluded; seven for RQ2, FrontierCode also excluded); benchmark sizes from 34 tasks (FrontierSWE) to 1865 tasks (SWE-bench Pro)",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Domain",
+"v": "General software engineering benchmarks (multiple open-source and proprietary repositories, several programming languages, CLI tasks, web applications)",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no participants; one author annotated with LLM assistance)",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Cost metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "None measured. Benchmark metrics catalogued (Table II): pass rate (7 of 8 benchmarks), FrontierCode weighted rubric score, SWE-Atlas rubric-set pass rate, Vibe Code Bench workflow accuracy (workflow passes when at least 90% of substeps succeed)",
+"p": "3",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None measured. Rubric items covering test quality, scope discipline, codebase conventions, maintainability and code quality noted in FrontierCode and SWE-Atlas",
+"p": "3",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "Construct (target label) claimed or inferred per benchmark (Table II); number of benchmarks reporting each additional task attribute: repository (6 of 7), task category, programming language (4 of 7), task difficulty (2 of 7), task specificity (Fig. 1)",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Manual qualitative analysis of the introductory benchmark publications, combining human annotation with LLM-based analysis (LLM not named): one author read the papers and extracted or inferred the constructs; supporting quotes in the supplementary material; task attributes extracted from the public datasets",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "N/A (document-based; no configuration run)",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: design",
+"v": "N/A (no configurations compared). Benchmarks compared on constructs, metrics and reported task attributes, framed by the ACM SIGSOFT Empirical Standards components for benchmarks (quality, metrics, measurement procedure, task sample)",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: result",
+"v": "N/A for configurations. Findings: explicit constructs only for DeepSWE and SWE-bench Multilingual, inferred for the others; broad constructs (coding / SE capability) operationalized with one or two aggregate metrics, mostly pass rate; reported task attributes vary between benchmarks (lack of standardization); scores should be read as evidence for the specific capabilities exercised, not general SE capability",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A for configurations. Method caveats stated: inferred labels reflect the authors' interpretation, not constructs defined or validated by the benchmark authors; validation procedures and measurement models not systematically audited (their omission does not imply absence); FrontierSWE (insufficient information) and FrontierCode (dataset not public) excluded",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Limitations: preliminary study; constructs inferred by one author; validation procedures not audited. Gaps: benchmarks rarely define target constructs; missing evidence on content validity, factor structure, predictive relationships and score stability; lack of standardized task attributes undermines comparability; need code-quality metrics (static analysis vs LLM judges) and benchmarks of long-term effects of agent use (e.g. ISO/IEC 25010); planned empirical assessment of the factor structure of coding-ability constructs and of task description quality",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Notes",
+"v": "No reporting inconsistencies found; Table II lists eight benchmarks after excluding FrontierSWE, consistent with text. Supplementary material (quotes used to label each benchmark) on Zenodo, https://doi.org/10.5281/zenodo.23599441 (p. 2, ref. [30]). No pre-registration. No programming language (no code written)",
+"p": "2-3, 5",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): RQ1 (constructs and operationalization) and RQ2 (additional task attributes) stated",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): benchmark selection and extraction steps described, quotes in supplementary material, but the LLM-based analysis (model, prompts) and the inference of labels are not described in replicable detail",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q3",
+"v": "No (0): the only model used in the study, the LLM that assisted the analysis, is not named or versioned; benchmark versions (Table I) identify the objects analysed, not the tools used; no agent run",
+"p": "2",
+"verdict": "corrected",
+"why": "Partly rested on benchmark versions, which are the objects studied (Q4), not agent/model/tool versions; the LLM used is not identified, and missing information scores No (§5)"
+},
+{
+"f": "Q4",
+"v": "Yes (1): the nine benchmarks are described with versions and references; supplementary material on Zenodo",
+"p": "2, 5",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q5",
+"v": "No (0): constructs extracted or inferred by a single author with LLM assistance; no second coder, agreement measure or external validation",
+"p": "2",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): extracted items (target label, metrics, task attributes) defined; no cost or quality outcomes (out of scope)",
+"p": "2-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q7",
+"v": "No (0): descriptive study, no baseline or alternative",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q8",
+"v": "No (0): counts only, no statistical analysis or repeated coding",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q9",
+"v": "Yes (1): conclusions limited to potential threats, explicitly not claiming any benchmark is invalid",
+"p": "3-4",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): caveats on inferred labels and on not auditing validation procedures given in the text; no threats to validity section",
+"p": "2-3",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint, no venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "Q12",
+"v": "Yes (1): no tool evaluated; none of the analysed benchmarks is by the authors (authors from Heidelberg University, Dalhousie University and SAP)",
+"p": "1-2",
+"verdict": "uncertain",
+"why": "No tool or approach is evaluated, only benchmarks, none by the authors (SAP and Heidelberg are not vendors of the analysed benchmarks); Yes is defensible, but by analogy with the 2026-11-23 rule (no tool evaluated) N/A is also defensible.",
+"doubt": "O estudo não avalia nenhuma ferramenta, só benchmarks que não são dos autores. Decide entre Yes e N/A para Q12."
+},
+{
+"f": "Q13",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": ""
+}
+]
+}

@@ -1,0 +1,333 @@
+{
+ "key": "rayyan-800486422",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, Y., Zhang, H., Huang, C., Dai, R., Liu, K., Koniusz, P., Chu, X. (2026). LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering. arXiv:2608.28281v2 [cs.AI], 13 Oct 2026 (DreamX Team, Alibaba Group; dated August 28, 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.28281v2 [cs.AI]; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "DreamX Team, Alibaba Group (industry; most authors); Beijing University of Posts and Telecommunications; UNSW Sydney and Data61, CSIRO (academia)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark LoopArena for models acting as runtime Controllers of a fixed coding agent (Worker): Type I (160 four-way contract-selection questions), Type II (80 task slices), Type III (80 full tasks); 6 Controller models plus no-control and fixed-control reference policies compared",
+   "p": "1-3, 6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Loop Engineering: Controller-Worker harness (outer loop: Controller model issues structured Loop Contracts; inner loop: Worker ReAct coding agent; temporary Reporter builds an Evidence Packet). Reference policies: no control (Worker runs autonomously) and fixed control (persistent-goal restatement inspired by Codex /goal). Version: Not stated (frozen run manifest; code at github.com/AMAP-ML/LoopArena)",
+   "p": "1-4, 15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Evidence Packet (Reporter's four fields: task_context_and_constraints, work_history_and_current_state, verification_and_evidence, open_issues_and_uncertainty, plus cited Worker turns and turn budget); Loop Contract (action advance/verify/stop, rationale, worker_instruction with goal, context, required_outcomes, prohibited_actions, completion_condition; protected_invariants; verification_acceptance_condition); task specification of the source benchmark",
+   "p": "2, 4, 15-16, 22-30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Bootstrap orientation segment (Worker, no implementation) -> control cycle repeated: Worker segment -> Reporter summarizes (read-only) -> harness formats Evidence Packet -> Controller issues Loop Contract (advance / verify / stop) -> harness renders next Worker instruction; stop submits workspace to the task evaluator. Ends on Controller stop, budget exhaustion or protocol failure",
+   "p": "2-4, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (the Controller model replaces the human supervisor). Human (expert) review only in benchmark construction: semantic checks and post-freeze audits of Type I clarity, candidate plausibility and leakage",
+   "p": "5, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the Controller-Worker loop (control decisions, executed task slices and full tasks); no SDD artefact exercised",
+   "p": "3-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'Loop Engineering', 'runtime loop control', 'Controller-Worker harness'; the task specification of the source benchmark is the overall goal)",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: long-horizon repository-level coding tasks from SlopCodeBench (iterative, multi-checkpoint), BeyondSWE (beyond single-repository bug fixing) and LoopsBench; Type II starts from a prepared intermediate workspace",
+   "p": "3-4, 14",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "BeyondSWE and LoopsBench are repository-level tasks on existing code; for SCBench (iterative, multi-checkpoint) the paper only says each task keeps its 'original specification, starting state' and does not say whether the starting state is an empty repository. Type II always starts from a prepared intermediate workspace (existing code)"
+    }
+   ],
+   "warn": "O artigo não diz se as tarefas SCBench partem de um repositório vazio (só 'starting state'); confirma na secção 3.1 e decide se o tipo é só existing code base ou misto com new project."
+  },
+  {
+   "f": "Size",
+   "v": "160 Type I questions (40 SCBench / 53 BeyondSWE / 67 LoopsBench); 80 Type II slices and 80 Type III full tasks (21 / 29 / 30); Type III runs 189-356 Worker turns and 8-13 control cycles on average; repository sizes not stated",
+   "p": "6, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering (open-source repositories of the source benchmarks, e.g. a Django test-matrix task)",
+   "p": "3, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; models only)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Estimated inference cost per run in USD (token counts x frozen public list prices, no caching; Worker, Reporter and Controller calls; Type I cost per 160 questions); input/output tokens; main Worker ReAct turns; control cycles; wall-clock time recorded; paired Type II cost reduction vs Type III (mean 60.6%)",
+   "p": "7, 16-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Strict Success Rate (SSR): share of runs passing the source evaluator (SCBench all Core checks; BeyondSWE reward 1 from Harbor evaluator; LoopsBench native evaluator; all scored checkpoints) and following the control protocol; Type I Contract Accuracy (choice matches replay-defined correct option) and Invalid Rate",
+   "p": "6-7, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Spearman rank correlation between Type II and Type III Controller orderings (rho = 0.7353) and pairwise rank reversals; run-to-run outcome stability (tasks with 0/1/2/3 successes of 3); output-budget exhaustion and invalid-contract counts; shortcut-baseline accuracies for Type I; Worker-side ranking correlation",
+   "p": "7-8, 19-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: executable source evaluators on the final workspace; parsed Controller responses; per-call token logs priced with a frozen schedule (retrieved 16 Aug 2026); Type I answers fixed by replaying the four candidates under two predeclared seeds",
+   "p": "5-7, 14-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Worker Qwen3.7-Plus (custom ReAct harness, also Reporter) for all; K = 3 runs per task. Success criterion per run: passes the task evaluator. No quality or cost success criterion for a configuration is stated by the authors. Values Type I Acc / Type II SSR, $/run / Type III SSR, $/run: (1) No control (reference): — / 49.17%, $1.62 / 27.50%, $2.61. (2) Fixed control (reference): — / 55.00%, $5.62 / 31.25%, $9.47. (3) Controller Qwen3.6-35B-A3B: 43.125% / 55.83%, $4.21 / 33.75%, $11.58. (4) Qwen3.7-Plus: 60.625% / 56.67%, $6.04 / 34.17%, $12.69. (5) DeepSeek-V4-Flash-0731: 45.625% / 50.83%, $9.88 / 28.33%, $32.66. (6) GLM 5.2: 54.375% / 40.42%, $3.54 / 24.17%, $11.97. (7) GPT-5.5 (gpt-5.5-0424-global): 61.875% / 56.67%, $13.80 / 36.25%, $34.68. (8) Claude Opus 4.8: 56.250% / 58.75%, $10.88 / 33.75%, $20.63. Worker-side check (20 tasks, Worker DeepSeek-V4-Flash-0731, Core successes /60, Type II / Type III): Qwen3.6 34 / 20; Qwen3.7 36 / 23; DeepSeek 27 / 15; GLM 31 / 12. Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "7-8, 17-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 80 paired full tasks and slices from SCBench, BeyondSWE, LoopsBench, plus 160 Type I questions. Configurations: 6 Controller models; baselines no control and fixed control. Held constant: Worker (Qwen3.7-Plus) and Reporter model, tools, starting workspace, prompts, execution budget (600 Worker turns or 7,200 s; 128 control cycles), evaluator; Controller temperature 0 for open models, provider defaults for GPT-5.5 and Claude. Acceptance tests: source-native executable evaluators. Repetitions: K = 3 per task and policy (reference runs collected once and reused); Type I one response per question. Human intervention: none. Extra: Worker swapped to DeepSeek-V4-Flash on 20 tasks",
+   "p": "6-7, 16-18, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Type III: GPT-5.5 best SSR 36.25% (vs fixed control 31.25%, no control 27.50%), range 24.17-36.25%; Type II: Claude Opus 4.8 best 58.75% (fixed control 55.00%, no control 49.17%). GLM 5.2 below both references in both settings. Cost: in Type III every Controller-guided run costs more than both references ($11.58-34.68 vs $2.61 and $9.47); in Type II all cost more than no control ($1.62), but Qwen3.6-35B-A3B ($4.21) and GLM 5.2 ($3.54) cost less than fixed control ($5.62). DeepSeek-V4-Flash cheapest Controller calls ($0.15) but highest Worker cost (total $32.66). Same SSR (33.75%) reached at $11.58 (Qwen3.6) vs $20.63 (Claude Opus 4.8). Type I: GPT-5.5 best (61.875%), all above shortcut baselines (max 30.625%). No significance tests of differences",
+   "p": "7-8, 19-21",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "'Controller-guided runs cost more than references' is wrong for Type II: Qwen3.6 ($4.21) and GLM 5.2 ($3.54) cost less than fixed control ($5.62) (Table 2); it holds only for Type III. Added no-control Type II value"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished Controllers, though Type III differences are small (24-36%) and the best Controllers exceed fixed control by a few points. Type II ordering correlates with Type III (rho 0.7353; 2 of 13 strictly ordered pairs reverse) at 60.6% lower cost; rankings broadly stable across two Worker models (rho 0.80 / 0.74). Repeatability: 3 runs per task, many tasks with mixed 1/3 or 2/3 outcomes (Table 14); Type I answers confirmed by two replay schedules. Limitations stated: repository-level coding only, one Controller-Worker organization with structured handoffs; other domains, Worker families, multi-Worker settings not covered",
+   "p": "8-10, 15, 20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Full-task loop control remains difficult (best 36.25%), leaving room for improvement; extension to other software domains, Worker families, multi-Worker settings and loop organizations, and beyond coding (needs domain-specific tasks and executable evaluators). Execution cost under a Controller's guidance can outweigh savings on Controller calls",
+   "p": "7, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 11, 12, 14 and 15 rebuilt from pdftotext column order (Table 12 Worker-side values read column-wise: Type II Qwen, Type II DeepSeek, Type III Qwen, Type III DeepSeek; consistent with the stated rho 0.80 and the Qwen3.6/Qwen3.7 swap); totals per Table 2/3 and Table 11 agree. Type II/III cost estimates assume no caching and cover model inference only; Qwen prices converted from CNY. Fixed control's starting instructions differ from Controller-guided runs (C.4). GPT-5.5 and Claude run without temperature or seed. Minor typos in model identifiers (p. 17: 'gpt-5.5-0424global', 'claude-opus-48'). Benchmark data and evaluation code released (github.com/AMAP-ML/LoopArena); Type I reference answers withheld from model requests. Alibaba authors evaluate Alibaba's Qwen models as Controllers and use Qwen3.7-Plus as Worker. Generative AI used for construction, review, code and drafting. No pre-registration. Programming language not stated",
+   "p": "1, 10, 17-21",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The Worker-side values in Evaluation come from Table 12, which is also jumbled in the text and had to be rebuilt; the Notes did not say so. Added the model-identifier typos as reporting inconsistencies"
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): object of evaluation and three contributions clearly stated",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction rules, harness, budgets, metrics, model identifiers and full prompts given; code and data released",
+   "p": "3-7, 14-30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): exact model identifiers and inference settings for Controllers, Worker and Reporter; harness is the authors' own (frozen run manifest)",
+   "p": "7, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks from named public benchmarks, composition given, benchmark data released",
+   "p": "3-6, 14, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): success judged by the source benchmarks' executable evaluators; Type I answers fixed by replayed execution",
+   "p": "5-7, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): SSR, Contract Accuracy and estimated inference cost defined, covering quality and cost",
+   "p": "6-7, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-control and fixed-control baselines and six Controllers under the same Worker, budget and evaluator",
+   "p": "7, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): K = 3 runs per task with run-to-run stability reported and rank correlations; no statistical tests of differences between Controllers",
+   "p": "6-8, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the results and state the weak full-task performance and cost trade-offs",
+   "p": "7-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short Limitations section on scope only; no discussion of threats such as cost estimation assumptions or single Worker",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): Alibaba authors evaluate their own Qwen3.6 and Qwen3.7-Plus Controllers (and Qwen3.7-Plus as Worker); other models independent",
+   "p": "1, 7, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes a benchmark, not a development approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

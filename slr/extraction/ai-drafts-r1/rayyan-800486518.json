@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486518",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, W., Xu, Z., Wang, Z., Yu, S., Zhu, W., Luo, Y., Xu, J., Wu, Y., Huang, H., Deng, K. (2026). WEAVE: Weaving Real-World Code Evolution into Dependency-Structured Tasks for Benchmarking and Training Code Agents. arXiv:2610.22039v3 [cs.SE], 20 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 20 Oct 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.22039v3 [cs.SE]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent Researchers (W. Li, Z. Wang, Zhu, Wu, Huang, Deng); Shanghai Artificial Intelligence Laboratory (Z. Xu); Tsinghua University (Luo); National University of Singapore (Yu, J. Xu)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — WEAVE framework that turns verified multi-PR histories into executable dependency-structured tasks (bounded PR DAGs via repository-calibrated typed change loci), the Graph Credit metric for dependency-consistent partial progress, WEAVE-Bench (300 tasks) and WEAVE-Train (3,200 tasks); four-part study: construction validity (RQ1), 8 models x 2 scaffolds on WEAVE-Bench (RQ2), SFT utility (RQ3), RL reward (RQ4)",
+   "p": "1-2, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations: agent scaffolds OpenCode and Cline (versions Not stated) x models Claude Opus 4.7, Claude Opus 4.6, GLM-5.2, GLM-5.1, DeepSeek-V4-Flash, Kimi-K2.6, Kimi-K2.5, MiniMax-2.7. Training: Qwen3.5-4B and Qwen3.5-35B-A3B fine-tuned (SFT, GRPO) on WEAVE data vs Atomic-PR, Temporal-Window, SWE-rebench V2, daVinci-Agency",
+   "p": "5-7, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark instance I = (S_base, q, G, T_F2P, T_P2P, A): repository base state with the PRs reverted; unified task specification q consolidating the PR objectives (objective, scope and constraints, acceptance criteria; PR identifiers, commit metadata and historical details removed); dependency DAG G, F2P/P2P tests and test-to-node attribution kept evaluator-side, not shown to the agent",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark construction: typed change loci extraction -> repository-calibrated coupling -> edge filtering and bounded DAG assembly (K = 8) -> executable task instantiation (reverse-topological revert or agent-assisted carve, F2P/P2P validation) -> node attribution -> train/bench split. Agent side: agent receives S_base and q and returns one patch (no prescribed phases)",
+   "p": "3-4, 10-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs. Humans: three expert annotators plus a senior adjudicator label candidate PR pairs for RQ1 ground truth",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs from a unified natural-language task specification",
+   "p": "4, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (task specifications consolidated from PR descriptions; authors do not use SDD terms; wording 'unified task specification')",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: multi-PR feature, migration and fix tasks in real open-source repositories (base state with the target PRs reverted)",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "WEAVE-Bench 300 tasks (50 per language) from 52 repositories; WEAVE-Train 3,200 tasks from ~120 repositories; 2-8 PR nodes per task (bench mean 4.91, median 5); gold patch mean 378 lines (median 274), 8.4 files, 18.6 F2P and 142 P2P tests per task; RQ1: 30 repositories, 1,198 PRs, 219 gold edges",
+   "p": "5, 11, 20-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source software (examples: Python web application, TypeScript monorepo); six languages: Python, TypeScript, JavaScript, Go, Java, Kotlin",
+   "p": "10, 20-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants in agent runs). Annotators for RQ1: three 'expert annotators' and a senior annotator, background Not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Per-task interaction turns and total tokens (M) per configuration (Table 2); SFT training token budget (~158 M tokens) and token-scaling efficiency (~4x)",
+   "p": "6, 16, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved (all F2P tests pass, no P2P regressions; primary metric); Flat-F2P (fraction of attributed F2P tests passed); Graph Credit (dependency-conditioned partial credit, recursive minimum over the DAG); P2P regression rate (RL); SWE-bench Verified, Pro and Multilingual scores for trained models",
+   "p": "4-7, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "OverCredit (phantom credit = Flat-F2P − Graph Credit); dependency recovery AP, Coverage, P@K (RQ1); Spearman correlation of scoring operators with Resolved; executable construction rate; randomized-graph control OverCredit",
+   "p": "5-6, 13-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: test execution in isolated Docker containers, task-level macro averages, task-level bootstrap confidence intervals (stated), paired bootstrap with Holm correction for RQ1. Manual: expert labelling of PR pairs for RQ1 gold edges (Fleiss' kappa 0.791). Agent-assisted carve and agent-based test attribution used in construction where mechanical revert fails",
+   "p": "5-6, 12, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "RQ2, WEAVE-Bench, 300 tasks, one run per task (4,800 runs over 16 configurations). Criterion per task: Resolved = all F2P pass and no P2P regressions; no configuration-level success criterion stated by the authors. Resolved / Flat-F2P / Graph Credit / OverCredit / turns / tokens (M) (Table 2): OpenCode + MiniMax-2.7: 12.3 / 24.2 / 13.4 / 10.8 / 90.9 / 5.98; OpenCode + DeepSeek-V4-Flash: 21.0 / 21.8 / 14.6 / 7.2 / 78.7 / 6.03; OpenCode + Kimi-K2.5: 14.0 / 12.4 / 5.1 / 7.3 / 88.6 / 6.65; OpenCode + Kimi-K2.6: 29.3 / 30.1 / 21.4 / 8.7 / 96.3 / 8.16; OpenCode + GLM-5.1: 28.7 / 24.1 / 14.5 / 9.6 / 114.8 / 7.88; OpenCode + GLM-5.2: 34.0 / 32.5 / 23.8 / 8.7 / 145.1 / 12.17; OpenCode + Claude Opus 4.6: 30.3 / 24.9 / 15.8 / 9.1 / 90.8 / 4.34; OpenCode + Claude Opus 4.7: 41.0 / 45.6 / 37.2 / 8.4 / 68.6 / 4.40; Cline + MiniMax-2.7: 9.7 / 19.1 / 10.5 / 8.6 / 114.7 / 5.71; Cline + DeepSeek-V4-Flash: 34.3 / 58.1 / 41.3 / 16.8 / 143.9 / 7.80; Cline + Kimi-K2.5: 18.7 / 27.5 / 16.8 / 10.7 / 103.7 / 5.30; Cline + Kimi-K2.6: 37.3 / 69.1 / 57.2 / 11.9 / 108.7 / 5.28; Cline + GLM-5.1: 21.0 / 18.8 / 11.6 / 7.2 / 191.3 / 10.42; Cline + GLM-5.2: 43.0 / 59.5 / 44.1 / 15.4 / 138.2 / 7.52; Cline + Claude Opus 4.6: 36.3 / 61.3 / 47.6 / 13.7 / 44.5 / 1.65; Cline + Claude Opus 4.7: 48.7 / 64.4 / 50.8 / 13.6 / 46.8 / 2.11. Quality and cost verdicts: no criterion stated by the authors. RQ3 (training data variants, Cline scaffold, single seed): Qwen3.5-4B WB-Res / WB-GC / SWE-V: base 4.0 / 8.6 / 50.4; Atomic-PR 6.0 / 12.4 / 54.2; Temporal-Window 6.7 / 13.5 / 55.1; WEAVE 9.0 / 17.8 / 57.8; external references SWE-rebench V2 4.7 / 9.5 / 51.8, daVinci-Agency 3.7 / 8.2 / 50.6; Qwen3.5-35B-A3B: base 7.7 / 14.2 / 69.2; Atomic-PR 10.3 / 18.6 / 71.8; Temporal-Window 11.0 / 19.7 / 72.4; WEAVE 14.0 / 24.8 / 74.6; external references SWE-rebench V2 8.3 / 15.3 / 70.4, daVinci-Agency 7.3 / 13.8 / 69.4 (Table 11, which also gives SWE-Pro and SWE-ML). RQ4 (rewards, Qwen3.5-4B): SFT 9.0 / 17.8 / 57.8; binary 9.7 / 18.4 / 58.3; flat F2P 10.7 / 18.8 / 59.0; R_WEAVE 12.7 / 23.4 / 61.0; Qwen3.5-35B-A3B RQ4 results only in Figure 5 and as gains in text (no values); ablations in Table 13. No criterion stated by the authors",
+   "p": "6-7, 17",
+   "verdict": "corrected",
+   "why": "RQ3 entries were incomplete: Table 11 (p. 17) also has Temporal-Window at 35B-A3B (11.0 / 19.7 / 72.4) and the two external-reference configurations (SWE-rebench V2, daVinci-Agency) at both scales; added. Noted that the 35B RQ4 values are only in a figure. RQ2 values checked against Table 2 and confirmed.",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "RQ2: 300 WEAVE-Bench tasks; 16 configurations (8 models x 2 scaffolds); baseline: none (configurations ranked; flat scoring as baseline metric). Held constant: task specification, repository state, tool permissions, tool interface (shell + file edit), 200 turns, 2-hour task timeout, 30-minute test timeout; context window and temperature at provider defaults (not controlled); models via official provider endpoints. Acceptance tests: F2P/P2P tests from the PRs. Repetitions: one run per task per configuration. No human intervention. RQ1: WEAVE vs 4 single-signal baselines against 219 expert gold edges. RQ3/RQ4: matched token budget (~158 M) and matched rollout budget (8 rollouts per task), same generator, filter and training configuration",
+   "p": "5-7, 14, 18-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "RQ2: Claude Opus 4.7 + Cline best (48.7% Resolved) vs MiniMax-2.7 + Cline worst (9.7%), >5x; Flat-F2P exceeds Graph Credit by 10.5 pp on average (7.2-16.8); Cline OverCredit mean 12.2 pp vs OpenCode 8.6 pp; random-graph control reduces OverCredit to 1.6 pp. RQ1: WEAVE AP 37.7% vs File Overlap 26.6% (paired 95% CI +2.7 to +20.1; p <= 0.009 vs all baselines after Holm), Coverage 84.5%. RQ3: WEAVE SFT +3.0/+3.7 pp Resolved over Atomic-PR at 4B/35B, +3.6/+2.8 pp SWE-bench Verified. RQ4: R_WEAVE +3.7/+4.3 pp Resolved over SFT, +2.0/+2.6 over flat F2P reward. Significance tests only for RQ1",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (9.7-48.7% Resolved) and exposed phantom credit not seen by flat scoring; Graph Credit correlates better with Resolved (rho 0.82 vs 0.69 for linearized). Repeatability: one run per task per configuration, no variance reported for RQ2; SFT single seed (token-scaling curves 3 seeds). Limitations of the comparison method: no limitations section; scaffold settings left at provider defaults; ~35% of candidate DAGs discarded in construction",
+   "p": "6-7, 11-13, 16, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: single-PR task units capture only part of real development; multi-PR benchmarks use coarse aggregation and flat or binary scoring that over-credits downstream progress; binary rewards are sparse for RL. Caveats in text: AP < 20% in 3 repositories with < 5 gold edges; chain-dominated benchmark (median antichain width 1) limits differences between graph operators; depth vs OverCredit relation not established",
+   "p": "1, 13-14, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Reporting inconsistency: in Table 2 several configurations report Resolved above Flat-F2P (OpenCode + Kimi-K2.5 14.0 vs 12.4, OpenCode + GLM-5.1 28.7 vs 24.1, OpenCode + GLM-5.2 34.0 vs 32.5, OpenCode + Claude Opus 4.6 30.3 vs 24.9, Cline + GLM-5.1 21.0 vs 18.8) although a resolved task passes all F2P tests; OpenCode mean OverCredit computes to 8.7 pp from Table 2 vs 8.6 pp in text. Bootstrap confidence intervals said to be reported but not shown for RQ2. Table 2 row/column layout jumbled by pdftotext (Kimi-K2.6 / GLM-5.1 values assigned by order). Replication package: no code or data link given; authors say the WEAVE-Train corpus 'can be published'. Pre-registration: none. Languages: Python, TypeScript, JavaScript, Go, Java, Kotlin. Corresponding author Ken Deng also authored KAT-Coder/KAT-V1 (Kwai) reports cited",
+   "p": "6-7, 14, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four RQs stated (construction validity, benchmark performance, SFT utility, RL reward)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction pipeline, algorithms, thresholds, training hyperparameters detailed in appendix; agent prompts and scaffold versions not given; no code or data released",
+   "p": "10-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and versions given; scaffold (OpenCode, Cline) versions not stated; context window and temperature at provider defaults",
+   "p": "5, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks and dataset statistics described in detail; benchmark not available (no link)",
+   "p": "4-5, 20-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable F2P/P2P tests from upstream PRs; RQ1 against expert-labelled gold edges (Fleiss' kappa 0.791)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): Resolved, Flat-F2P, Graph Credit, OverCredit defined; cost via turns and tokens per task",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 16 configurations under shared settings; baselines for construction (4 methods), SFT data (Atomic-PR, Temporal-Window, external) and rewards (binary, flat)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): paired bootstrap with Holm correction for RQ1 and bootstrap CIs mentioned; RQ2 single run per task with no variance shown; SFT single seed (3 seeds only for token scaling)",
+   "p": "5-6, 16, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions broadly follow from the tables, but RQ3/RQ4 gains (1-4 pp) rest on single-seed runs without significance tests, and Table 2 shows Resolved above Flat-F2P for some configurations, which is not explained",
+   "p": "6-8, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats-to-validity or limitations section",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors are independent of the agents and models of RQ2, but RQ1, RQ3 and RQ4 evaluate their own WEAVE construction, data and reward against baselines",
+   "p": "1, 5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method and training data/reward, not a development approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

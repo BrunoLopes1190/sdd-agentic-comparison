@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486503",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Minn, W., Sun, Z., Shar, L. K., Lo, D. (2026). SWE-Duel: Towards a Self-Scaling Arena for Coding Agents. arXiv:2610.12569v1 [cs.CL], 8 Oct 2026 (under review as a conference paper at ICLR 2027)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.12569v1 [cs.CL]; header 'Under review as a conference paper at ICLR 2027', not yet accepted",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "School of Computing and Information Systems, Singapore Management University (all four authors; academic)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — self-scaling arena SWE-Duel in which coding agents create (Red) and solve (Blue) feature-plus-hidden-bug pull requests for each other, with a 1,500-turn round-robin tournament among 11 model-harness participants, a harness ablation tournament and validation studies",
+   "p": "1-3, 6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Participants (model + harness): GPT-5.5, Claude Opus 4.8, Kimi K2.7 Code, DeepSeek V4 Pro, GLM 5.2, Qwen 3.7 Max, Nemotron 3 Ultra, MiniMax M3, Gemini 3.1 Pro (late entrant), each with mini-swe-agent; GPT-5.5 with Codex CLI; Claude Opus 4.8 with Claude Code. Harness ablation adds DeepSeek V4 Pro, GLM 5.2, Kimi K2.7 Code under Codex CLI and Claude Code; difficulty ladder GLM-5.1/5.2/5.3. Models via OpenRouter (IDs and access dates given, Table 5); harness versions Not stated; temperature 0.2",
+   "p": "6, 9, 26-27, 37",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Task tuple produced by the Red agent: feature specification s, pull-request diff d (feature plus embedded bug), feature test suite Tf and sealed bug test suite Tb; Blue receives repository, s, d and Tf only",
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for an SDD approach. Arena protocol: Red Session A feature implementation (gate A: existing and feature tests pass, size thresholds), Session B bug embedding (gate B: build and visible tests pass, Tb passes on feature-only diff and fails on d), Session C blind self-repair by a fresh instance of the same participant (gate C: all three suites pass); up to 5 attempts per slot; Blue then reviews the PR without being told of a bug and wins only if existing, feature and bug tests all pass",
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A (fully automated; no human in the loop). Post-hoc manual audit of 50 bug-test-only losses",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A — no SDD approach run; agents author feature specifications, code and tests and review each other's pull requests",
+   "p": "4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: agent-authored feature additions with embedded bugs on pinned open-source repositories; Blue performs code review, fault localisation and repair",
+   "p": "2, 4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "15 repositories (SLoC 2,760 to 511,172, e.g. SQLAlchemy 511,172, simdjson 313,998); 134 admitted tournament tasks; 50 matches × 30 turns = 1,500 turns (1,219 contested); harness ablation 180 turns per harness; difficulty ladder 39 tasks",
+   "p": "6-9, 26, 37",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source libraries and frameworks: Flask, Jinja, SQLAlchemy (Python); chi, golang-jwt/jwt, gorilla/csrf (Go); Helmet, Express, node-jsonwebtoken (Node); OWASP Java HTML Sanitizer, java-jwt, JJWT (Java); cJSON, libexpat (C), simdjson (C++)",
+   "p": "26",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "API cost in USD by phase (Red generation including failed attempts, blind self-review validation, Blue evaluation) and per participant (Table 12); output tokens per participant and per turn (Table 13); newcomer onboarding cost",
+   "p": "8, 38-39",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Blue win (task solved): revision passes existing, feature and sealed bug test suites (hard conjunction); Blue win rate; Red win rate; outcome classes regression, feature collapse, defect shipped",
+   "p": "6-8, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Bradley-Terry log-strength rating with bootstrap rank probabilities and 95% CIs; match W/D/L; task admission yield; self-repair stability rate; sealed-test false-negative rate; fixed-reference solver failure rate; rank correlations (Spearman, Kendall's τ)",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: test suites executed in per-repository Docker containers by validation gates and turn scorers; Bradley-Terry fitted by maximum likelihood with 1,000 bootstrap resamples of matches; API cost and tokens recorded. Manual: audit of a seeded random sample of 50 of 158 turns lost only on the bug tests. Additional studies: 3 re-runs of self-repair on 44 sampled tasks; fixed-reference solver (GLM-5.2) on all 134 tasks; Wilson intervals, exact trend and Fisher tests",
+   "p": "7-9, 27, 38",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Main tournament, 15 repositories, one run per turn; criterion per turn: Blue wins iff existing, feature and bug tests all pass; no threshold for a configuration verdict. Red win % / Blue win % / Bradley-Terry / total API cost (Tables 1, 12): (a) GPT-5.5 + Codex CLI: 11.3 / 98.7 / +2.82 / $641.89. (b) Claude Opus 4.8 + mini-swe-agent: 27.3 / 88.7 / +2.46 / $223.59. (c) GPT-5.5 + mini-swe-agent: 10.4 / 97.0 / +2.13 / $247.18. (d) Kimi K2.7 Code + mini-swe-agent: 15.6 / 90.4 / +1.82 / $92.39. (e) DeepSeek V4 Pro + mini-swe-agent: 18.5 / 91.9 / +1.50 / $67.07. (f) GLM-5.2 + mini-swe-agent: 14.8 / 89.6 / +1.19 / $104.97. (g) Qwen3.7 Max + mini-swe-agent: 13.3 / 91.1 / +0.49 / $107.22. (h) Claude Opus 4.8 + Claude Code: 7.3 / 87.3 / −1.41 / $179.05. (i) Nemotron 3 Ultra + mini-swe-agent: 6.7 / 79.3 / −2.60 / $171.34. (j) MiniMax M3 + mini-swe-agent: 2.0 / 74.7 / −3.86 / $86.77. (k) Gemini 3.1 Pro + mini-swe-agent (late entrant, 5 matches, 0-1-4): 2.7 / 72.0 / −4.55 / $187.76; contested Blue success 61.8%. Fixed-reference solver failure on each author's tasks: (b) 26.7%, (e) 20.0%, (g) 20.0%, (i) 14.3%, (f)/(a)/(c) 7.7%, (h) 6.7%, (d)/(j)/(k) 0.0%. Harness ablation (3 models pooled), score rate: (l) mini-swe-agent 0.52 [0.43, 0.60], BT +0.73; (m) Codex CLI 0.50 [0.42, 0.60], BT −0.25; (n) Claude Code 0.48 [0.40, 0.58], BT −0.49 (ablation). Each configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "p": "7-9, 37-39",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: authored at evaluation time by the participants themselves (Red), validated by three executable gates and blind self-repair, stored in task banks so every opponent faces the same tasks from a given Red; 15 repositories pinned to commits. Configurations: 11 model-harness participants, 10 in a full round robin (45 matches) plus a late entrant playing 5 active-sampled incumbents. Baseline: none external; fixed-reference solver (GLM-5.2 + mini-swe-agent) puts all authors on one scale. Held constant: Docker image per repository, prompts, 50-step budget per session plus up to 3 recovery turns of 6 steps, 30-min wall-clock limit, temperature 0.2, OpenRouter endpoint; step counts do not equalise compute. Acceptance tests: existing, feature and sealed bug suites. Repetitions: one run per turn; admission stability re-run 3 times on 44 tasks. Missing Red tasks scored as Blue wins (also reported without). Human intervention: none. Harness ablation: same model under three harnesses, round robin within model",
+   "p": "4-9, 26, 37",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5.5 + Codex CLI ranks first (BT +2.82; strongest solver), Claude Opus 4.8 + mini-swe-agent second (strongest task author, Red win 27.3%); six leaders form a broad group with overlapping CIs; Claude Opus 4.8 + Claude Code ranks 8th. Blue succeeds in 87.9% of all turns and 85.1% of contested turns (1,037 clean repairs, 158 shipped bugs, 24 collapses); by language Java 89.2% to Node 82.9%; logic errors hardest (81.9%). Fixed-reference Red win rates correlate with tournament rates (Spearman ρ = 0.66). Late entrant placed with 5 matches without changing incumbent order (Kendall τ = 1.0). Difficulty ladder: fixed solver fails 8.3% (GLM-5.1), 0.0% (GLM-5.2), 42.9% (GLM-5.3) of tasks, trend p = .015; newest vs pooled older 42.9% vs 4.0% (Fisher p = .005). Harness ablation: no harness ordering resolved (intervals overlap; pairwise margins +2, +2, −8 of 90 turns, all CIs include 0). Cost: $2,109 total, about $26 per match; GPT-5.5 + Codex the most expensive ($641.89, 2.6× the next)",
+   "p": "7-9, 38-39",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly to yes, by the authors' account: the arena separated participants by Bradley-Terry rating and by role profile, placed a newcomer cheaply, and the fixed-solver and ladder studies support that difficulty rises with author capability (preliminary). Checks: self-repair stability 91.7% pooled (35/44 tasks repaired in all 3 re-runs, one in none); sealed bug tests false-negative rate 6.0% (3 of 50 audited). Limits stated: task difficulty capped by the author's own bug-finding ability (self-repair gate); ranks of the leading group overlap; harness ablation cannot resolve differences below about 0.2 score-rate points; ladder has 12-14 tasks per level and one draw per task, so adjacent versions are not resolved; native harness pairings in the main tournament are not a harness probe; harness steps do not equalise compute",
+   "p": "6-9, 36-38",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No dedicated limitations section; limitations stated across the paper: difficulty bounded by the author's own repair ability (deliberate solvability/difficulty trade-off); agent-written sealed tests can reject valid repairs (6.0% false negatives); admission by a single stochastic self-repair run; small ladder and harness-ablation samples; released task banks become retired once public (freshness renewed only by new banks); dual-use risk of generating CI-evading defects (ethics statement). Gaps: static benchmarks leak and saturate; benchmarks need tasks and oracles created at evaluation time with difficulty set by the participants",
+   "p": "2, 6, 9, 16, 29-38",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Toolkit and experiment dataset open-sourced (https://sweduel.github.io/SWE-Duel; Minn 2026a, 2026c); task banks of a tournament should be retired once disclosed. No pre-registration. Languages: Python, Go, JavaScript (Node), Java, C, C++. Reporting: abstract and conclusion give GPT-5.5 + Codex CLI 'repairing 98.3% of the defects it reviews', which is its contested-turn Blue success (Table 13: 0.983, 120 turns), whereas Table 1 gives the full-schedule Blue win rate 98.7% (missing-Red auto-wins included); both values are used here with that distinction. Abstract says the newest version's tasks defeat 'a fixed-reference solver', the introduction 'a fixed reviewer' (DeepSeek-V4-Pro + mini-swe-agent in the ladder, GLM-5.2 + mini-swe-agent for the tournament tasks). Appendix K calls the ladder result 'direct evidence' while the abstract says 'preliminary evidence'. Table 1 W/D/L columns are garbled in the text extraction (only Gemini's 0-1-4 confirmed in the text). Ethics statement on dual use; all runs in isolated local containers, no PRs to real repositories",
+   "p": "1-3, 7-10, 16, 32, 40",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "The draft listed 98.3% vs 98.7% as an unresolved inconsistency; Table 13 (p. 40) shows 98.3% is GPT-5.5 + Codex's contested Blue success, so the two figures measure different denominators. Also added that the two fixed solvers differ by study and the 'preliminary' vs 'direct evidence' wording."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question (can a self-scaling benchmark be built) and contributions stated",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): gates, prompts' roles, scoring, tournament scheduling, budgets and statistics described in detail, toolkit released",
+   "p": "4-7, 26-27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models identified by OpenRouter IDs with access dates and temperature, but versions of mini-swe-agent, Codex CLI and Claude Code are not stated",
+   "p": "6, 26-27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 15 repositories with commit SHAs, SLoC and test counts listed; dataset and toolkit released (task banks by design generated anew per tournament)",
+   "p": "16, 26",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): every turn judged by executing existing, feature and sealed bug test suites; agent-written oracles audited manually (6.0% false negatives) and admission checked by blind self-repair",
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): win criterion, win rates and Bradley-Terry rating defined; cost in USD and output tokens reported",
+   "p": "6-7, 38-39",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 11 participants under identical containers, budgets and tasks; fixed-reference solver and harness ablation",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): bootstrap CIs and rank probabilities, Wilson intervals, trend and Fisher tests, admission-stability re-runs; but one run per turn",
+   "p": "7-9, 36",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims are hedged ('preliminary evidence'), overlapping CIs and the inconclusive harness ablation are reported",
+   "p": "7-9, 37-38",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no limitations or threats section; several threats addressed through validation studies (admission stability, oracle audit, ladder caveats) and an ethics statement",
+   "p": "6, 9, 16, 29-38",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint under review at ICLR 2027, not yet peer-reviewed",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (Singapore Management University), not vendors of the models or harnesses; the arena is theirs but no approach of theirs is evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

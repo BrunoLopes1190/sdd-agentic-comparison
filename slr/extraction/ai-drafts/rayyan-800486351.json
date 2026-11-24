@@ -1,0 +1,339 @@
+{
+ "key": "rayyan-800486351",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Peng, S.-W., Lin, Y.-H., Lee, Y.-P. (2026). Inference Economics of Enterprise Coding Agents: A Case Study of Cloud vs. On-Premise LLMs. arXiv:2607.13080v1 [cs.SE], 13 Jul 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.13080v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: PEGAVERSE, Pegatron Corporation, Taipei, Taiwan (all three authors)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — single-developer, non-randomised longitudinal industrial case study (two contiguous 28-day periods on a production monorepo) comparing Claude Code + Claude Opus 4.7/4.8 (cloud API) with Opencode + GLM-5.1/5.2 NVFP4 (on-premise), from LLM telemetry and Git mining; also proposes a hybrid routing gateway, assessed only by offline counterfactual replay (prototype left to future work)",
+   "p": "1-2, 15-17, 19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Main nature 'Compares' is clear. The secondary 'Proposes an approach' rests on the hybrid routing gateway, which is only sketched (Fig. 13, future work) and assessed by an offline counterfactual replay of routing policies (contribution 6 is framed as a frontier analysis, not a proposal). Another reader could drop the secondary nature; it decides whether Q13 applies and how Q12 is scored"
+    }
+   ],
+   "warn": "O gateway de encaminhamento híbrido é só esboçado (Fig. 13, trabalho futuro) e avaliado por replay offline. Decide se a natureza secundária 'Proposes an approach' se mantém; isso decide se Q13 se aplica e o valor de Q12."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Compared configurations: (A) Claude Code (version not stated) + Claude Opus 4.7, then 4.8 (Anthropic API, prompt caching); (B) Opencode (version not stated, Build Mode) + GLM-5.1, then GLM-5.2, NVFP4-quantised, served by vLLM on a 4x B200 tray of a shared GB200 NVL72 cluster. Both periods used the team's in-house 'Specification-Driven Development (SDD) methodology' (no name or version). Proposed: tiered hybrid routing gateway (complexity check, local first, escalate after >3 failed fix attempts)",
+   "p": "1, 4-5, 7, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "In-house SDD protocol: developer-written detailed markdown specification file (e.g. feature_spec.md) or OpenAPI schemas outlining required functions, database schemas and type definitions; versioned specs/ folder, architecture decision records and design documents; written team style guide and an agent-instruction file; Redmine issue-PR-commit traceability",
+   "p": "7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Developer writes the specification -> specification injected into the agent's context -> agent follows a 'specification-compliance protocol': (1) parse specifications, (2) generate/update TypeScript interfaces and backend schemas, (3) create unit tests, (4) implement core logic -> single-source quality gate (lint, strict typing, tests with per-file coverage, migration checks, security suite) on pre-push and nightly -> PR with human and AI review -> merge and near-daily semantic-versioned release across six environment overlays",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Developer writes the specification before implementation; developer intervention on type-check and runtime integration failures; PR merge requires >= 1 human approval under CODEOWNERS (plus two AI review agents on an internally hosted model); manual production approval",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the in-house SDD protocol in both periods, held constant (not the compared variable); the gateway was not run (offline replay only)",
+   "p": "7, 15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-first (specification written before implementation and injected into the agent; 'specification precedes implementation'); specs versioned in specs/ but maintenance after delivery not described. Authors' wording: 'Specification-Driven Development (SDD) methodology', 'specification-compliance protocol'",
+   "p": "7, 9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The paper says specs are written before implementation and kept in a versioned specs/ folder (Table V), and Markdown specification files are 36.6% of Period A insertions; whether specs are maintained alongside the code after delivery (spec-anchored) is not stated, so spec-first vs spec-anchored is a judgement"
+    }
+   ],
+   "warn": "O artigo diz que as specs precedem a implementação e ficam versionadas em specs/ (Tabela V), mas não diz se são mantidas depois. Confirma nas secções IV-F e V-B e escolhe spec-first ou spec-anchored."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: ongoing production development (features, fixes, refactors, tests/CI, docs) on a corporate AI PaaS monorepo",
+   "p": "5, 7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Monorepo of 12 packages; 613 non-merge commits (246 Period A, 367 Period B); insertions 129,556 vs 93,281 lines (code-only 75,738 vs 80,258); 31,901 vs 12,281 LLM requests; 56 days",
+   "p": "5, 7, 9, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Enterprise AI Platform-as-a-Service (corporate, Taiwan); TypeScript/React frontends, Python/FastAPI backends, Kubernetes/Helm deployment",
+   "p": "1, 5, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "One experienced developer (the first author, hypothesis-aware), deep familiarity with the codebase; organisational QA pipeline with CODEOWNERS reviewers",
+   "p": "18, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens (incremental input, cache creation, cache read, output, total; cache hit rate); requests; API cost in USD by token class; effective cost per million tokens; on-premise rental-equivalent cost (dedicated 672 h and shared 160 h seat at $4/GPU-hour); operational overhead (power, MLOps, facilities); True TCO = compute + ops + repair labour (fix commits x 15 min x $35/h); output throughput (tok/s); 100-developer extrapolation",
+   "p": "6-7, 9, 11-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Fix Commit Ratio (FCR = fix commits matching /(fix|bug|issue|patch|correct)/i over total commits), overall, daily, per difficulty tier and per language; Effective Productivity Ratio Enet = 1 - FCR; defect taxonomy of fix commits (syntax/type, API/package misuse, logical, test/CI)",
+   "p": "6, 8-10, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (rework multiplicity, commits per file, reported as a workload indicator)",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Behavioural workload indicators from commit timestamps: debugging-spiral share (commits in runs of >= 3 fix commits), longest repair run, median inter-commit interval, median daily active span, mean rework (commits per file); repair labour hours (fix commits x 0.25 h)",
+   "p": "12-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Git output: commits, files changed, insertions, deletions, net line growth, inserted lines by file type; commits per active day; insertions per commit; base-model benchmark context (AA Intelligence Index, SWE-bench Pro, hosted tok/s); simulated FCR and TCO of routing policies",
+   "p": "5, 8-10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Period A tokens from Langfuse/ClickHouse telemetry (deduplicated with FINAL, Asia/Taipei boundaries); Period B tokens from vLLM Prometheus counters; Git mining of all branches and PR refs (--no-merges, patch-id dedup, author timestamp), cross-checked with Redmine; deterministic keyword rules for fix and taxonomy; deterministic difficulty tiers from change footprint. Manual: first author reviewed every classified commit (not blind). Costs computed from list prices and stated parameters; routing by offline replay with two-stage bootstrap (10,000 resamples)",
+   "p": "5-7, 15-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors. (1) SDD + Claude Code + Claude Opus 4.7/4.8 (API, Period A): 246 commits, FCR 45.93%, Enet 54.07%; 15.33B tokens, cache hit 99.3%; API cost $8,785.21, $0.573/M tokens; True TCO $9,773.96; debugging-spiral share 35.0%, longest repair run 18, inter-commit 5.9 min. Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. (2) SDD + Opencode + GLM-5.1/5.2 NVFP4 on-premise (Period B): 367 commits, FCR 74.93%, Enet 25.07%; 906M tokens, prefix-cache hit 86.4%; cost $2,560 shared / $10,752 dedicated ($2.83/M and $11.87/M); True TCO $5,859.25 shared / $14,051.25 dedicated; spiral share 69.8%, longest run 58, inter-commit 12.7 min. Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. (3) Simulated routing policies (offline replay, not run) on 613 pooled commits: Hybrid High->Claude TCO $8,412, FCR 64.6%; Hybrid High+Med->Claude TCO $9,890, FCR 57.9% (pure API $11,419 / 49.1%, pure local $7,388 / 73.4%). Verdicts: no criterion stated by the authors",
+   "p": "9-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: the developer's real work stream in two contiguous 28-day periods (2026-05-11 to 06-07; 06-08 to 07-05), different tasks per period, non-randomised, fixed order A then B. Configurations: cloud API (Claude Code + Opus) vs on-premise (Opencode + GLM NVFP4); agent, model, quantisation and serving vary together. Baseline: pure API (Period A). Held constant: developer, repository, SDD protocol, QA/CI pipeline and review, maximum reasoning effort. Acceptance: the same enforced CI quality gate and human PR review (no task-level acceptance tests). Repetitions: none (single subject, one period per configuration); difficulty imbalance (chi2 p=0.0014) handled by stratification. Human intervention: interactive use, developer repairs defects; no rules stated",
+   "p": "5-8, 10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Quality: GLM configuration FCR 74.9% vs 45.9% (daily FCR 72.8% vs 38.1%, Mann-Whitney p=0.0002, Cliff's delta -0.66 large); chi2(1)=53.30, p<0.0001, OR 3.52 [2.49, 4.96]; Mantel-Haenszel OR 3.61 [2.46, 5.30], per-tier 2.63-4.88; survives Bonferroni. Volume: no significant difference (insertions/day p=0.801; commits/day p=0.066). Cost: per token the cached API is cheaper ($0.57/M vs $2.83/M shared); total compute shared on-premise 70.9% cheaper, dedicated 22.4% dearer; True TCO shared on-premise saves 40.1%, dedicated costs 43.8% more; robust in a four-axis sensitivity sweep (shared saving 9-56%). Workload: all six indicators worse under GLM (1.4-3.2x). Routing replay: no policy dominates pure API; monotonic cost-quality frontier, ordering stable in bootstrap",
+   "p": "10-17, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the configurations on defect-repair share (significant, large effect) and cost; not repeatable as designed (single developer, one period each, no randomisation). Limitations stated: joint effect of model, quantisation, serving, harness and period order cannot be separated; non-independent units (days/commits), p-values do not generalise; keyword-based FCR is an upper bound and includes Period A test/CI churn; single Git source, no independent defect oracle; hypothesis-aware subject; no FP16/FP8 quantisation ablation; per-token on-premise cost inflated by single-tenant utilisation; replay assumes transportable per-tier rates. Proposes a multi-developer crossover replication",
+   "p": "10-11, 13, 17-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single project, single organisation and single experienced developer; results may differ for less-experienced developers (automation bias); limited to Claude and GLM families; harness vs model capacity confound; quality measured only by commit keyword mining; no wall-clock completion time instrumented; adaptive routing not evaluated. Future work: tiered routing gateway prototype (escalation latency, retry token burn), parallel candidate generation with test filtering, multi-developer crossover replication, disentangling harness and model (e.g. Claude via Opencode)",
+   "p": "12, 16-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Data, telemetry, code and analysis scripts confidential; method specified in the paper for reproduction (no replication package). No pre-registration. Programming languages: Python and TypeScript (per-language FCR given). Period B token accounting from vLLM counters is not directly comparable with Langfuse request counts (authors' note). Two fix counts coexist: conventional-commit 'fix:' prefix (101 vs 255, Table IV) and regex FCR count (113 vs 275, Table VII), explained in a footnote. Simulated pure-local TCO ($7,388) differs from the Period B actual ($5,859) by design (pooled 613-commit workload), stated by the authors. Models, dates and pricing are as reported (Opus 4.7/4.8, GLM-5.1/5.2). SDD protocol is mentioned briefly and is constant across periods",
+   "p": "4-9, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four RQs (cost economics, code quality, true TCO, developer experience) and six contributions stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): telemetry queries, deterministic classification and difficulty rules, cost parameters described in detail; data, codebase and scripts confidential, tasks not reproducible",
+   "p": "5-7, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions (Opus 4.7/4.8, GLM-5.1/5.2 NVFP4 checkpoints) and serving stack given; Claude Code, Opencode and vLLM versions not stated",
+   "p": "4-5, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): monorepo and work mix described (12 packages, commit categories and tiers), but proprietary and not available",
+   "p": "5, 7, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): defect measure from deterministic keyword rules on commits that passed a uniform CI and human-review gate; no independent defect oracle, first-author review not blind",
+   "p": "6, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost (tokens, USD, TCO) and quality (FCR, taxonomy) metrics defined",
+   "p": "6-7, 11, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): API configuration is the baseline, but periods differ in tasks and order (non-randomised; difficulty imbalance stratified)",
+   "p": "7, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): non-parametric tests, effect sizes, Mantel-Haenszel stratification, Bonferroni and bootstrap; but single subject, no repetitions, autocorrelated units",
+   "p": "10-11, 16-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): causal scope limited to deployable configurations; null results (volume, commits/day) and the cost inversion reported; claims scoped to this developer and project",
+   "p": "10-11, 13, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Threats to Validity section (internal, external, construct)",
+   "p": "18-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors (Pegatron) independent of Anthropic, Opencode, Zhipu and NVIDIA, and their in-house SDD protocol is held constant (not evaluated); but their own proposed hybrid routing policies are scored against pure-API and pure-local baselines in the offline replay, so the authors are the vendor of one of the compared approaches",
+   "p": "1, 7, 15",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Draft gave Yes. If the routing gateway is kept as the authors' proposed approach (secondary nature), its policies are compared with the pure-API and pure-local configurations (Table XIV), and the author's rule of 2026-11-23 then gives Partly. If the gateway is not counted as an approach evaluated, Yes stands"
+    }
+   ],
+   "warn": "Se o gateway híbrido conta como abordagem dos autores avaliada (replay da Tabela XIV contra API pura e local puro), Q12 é Partly pela regra de 2026-11-23; se não conta, Yes. Decide em conjunto com a natureza. O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): gateway requirements stated (cloud API plus a 4x B200 on-premise tray, about $2,560/month shared, MLOps support), but high-end GPU infrastructure is beyond a typical team and the gateway is unbuilt",
+   "p": "5, 11, 14, 19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Applies only if the secondary nature 'Proposes an approach' is kept. Requirements are stated (cloud API plus a 4x B200 tray at about $2,560 per month shared, MLOps support), and whether that is within reach of a typical team is a judgement"
+    }
+   ],
+   "warn": "Só se aplica se mantiveres a natureza 'Proposes an approach'. Os requisitos estão declarados (API cloud e um tray 4x B200 partilhado, cerca de 2560 USD/mês); decide se isso está ao alcance de uma equipa típica, ou N/A."
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

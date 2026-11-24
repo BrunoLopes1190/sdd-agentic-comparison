@@ -1,0 +1,359 @@
+{
+"key": "rayyan-800485923",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "AI-Assisted R&D TMG, Huawei; SMAT Lab, Beihang University; CodeWisdom Lab, Fudan University (contributors: Li, L., Hu, H., Zhang, T., Peng, X., Mao, F., et al.; 30 contributors listed) (2026). OpenHarmony Bench: Evaluating LLMs and Coding Agents on OpenHarmony App Development. arXiv:2608.16022v1 [cs.SE], 17 Aug 2026. https://bench.matrix.openharmony.cn/",
+"p": "1, 17",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2608.16022v1 (cs.SE), technical report; no venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Author affiliation",
+"v": "Industry and academia: AI-Assisted R&D TMG, Huawei (China); SMAT Lab, Beihang University; CodeWisdom Lab, Fudan University (per-author affiliations Not stated)",
+"p": "1, 17",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an evaluation method; secondary: Compares — app-level benchmark OpenHarmony Bench v1.0 (153 tasks: new-feature, spec-driven, bug-fix; build-and-test pipeline with executable UI checks) and comparison of 8 LLMs under the fixed DevEco Code agent, 3 runs each",
+"p": "1-3, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach named. The benchmark has a 'spec-driven' task source (standardized scenario-level specifications with explicit acceptance structure, normalized into specification -> scenario -> F-point) next to requirement-style new-feature requests and bug reports. Agent: DevEco Code (OpenHarmony-SIG) version 0.1.0-1.3. Models: GLM-5.1, GLM-5.2, Qwen3.7-Max, Qwen3.8-Max-Preview, Kimi-K2.7-Code, Kimi-K3, MiniMax-M3, DeepSeek-V4-Pro (display names)",
+"p": "3-5, 9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "Per task: task description (new-feature request, median 119 chars; spec-driven scenario-level specification, median 589 chars, e.g. four scenarios for a chat input; bug report, median 107 chars) + runnable ArkTS base project at a base commit. Hidden from agent: reference solution and Hypium executable checks (F-points). Prompt template: (1) task definition; (2) spec content and environment; (3) code generation instructions",
+"p": "3-6, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Evaluation pipeline: workspace initialization -> agent execution (task description, project context, system instruction, prompt template, tools) -> diff recording -> first build -> bounded compile repair (max 5 iterations, build output only) -> behaviour validation (install, launch, Python Hypium UI checks). No SDD phases (spec, plan, tasks) prescribed to the agent",
+"p": "8-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human review points",
+"v": "None during runs. Curators review specifications, reference implementations and tests during construction (at least two curators validate each test)",
+"p": "5, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Parts exercised",
+"v": "Specification format only (spec-driven source: scenario-level specifications given as agent input), run by an agent; no named SDD workflow",
+"p": "4-5, 14",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable. Authors' wording: 'standardized specification-driven incremental development', 'specification-following'",
+"p": "3, 5",
+"verdict": "uncertain",
+"why": "No named SDD approach; the spec-driven source gives the agent a scenario-level specification written before the code, which another reader could classify as spec-first.",
+"doubt": "Não há abordagem SDD nomeada, mas as tarefas spec-driven partem de especificações por cenário escritas antes do código; decide se é spec-first ou 'não classificável'."
+},
+{
+"f": "Task type",
+"v": "Existing code bases (incremental feature implementation and bug fixing in runnable OpenHarmony ArkTS projects)",
+"p": "3-4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Size",
+"v": "153 top-level tasks (32 new-feature, 50 spec-driven, 71 bug-fix), 242 F-points (139 spec-driven), 42 repositories; difficulty 58 easy / 72 medium / 23 hard; median reference patch: new-feature 4 files / 88 LOC, spec-driven 12 files / 489.5 LOC, bug-fix 2 files / 83 LOC",
+"p": "6-7",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Domain",
+"v": "Mobile app development: OpenHarmony / HarmonyOS ArkTS / ArkUI applications (UI state, routing, persistence, platform Kits/APIs; 29 of 39 high-frequency Kits covered)",
+"p": "1-2, 7-8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (autonomous agent runs; no human participants)",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Cost metrics",
+"v": "Tokens per task (provider-recorded total tokens, millions; includes cache tokens when reported); agent wall-clock time per task (seconds, includes agent tool use and builds, excludes post-run validation); no money",
+"p": "11-12",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "Task Completion (primary: final project builds and all executable checks pass; spec-driven all F-points), mean of 3 runs with min-max range; First Build Success Rate; Final Build Success Rate",
+"p": "10-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None in the leaderboard (static functional coverage and code-quality checks used only during construction or as optional diagnostics, values not reported)",
+"p": "8-9, 16",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "Non-empty diff recorded as diagnostic (not reported); Kit/API coverage of the benchmark (descriptive)",
+"p": "7-8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: hvigorw build, hdc install, Python Hypium UI tests on an OpenHarmony emulator (DevEco 6.1, API 23 SDK, Pura 90 Pro Max profile); tokens from provider records; wall-clock timed by the runner. Manual: curators write oracles and Hypium tests (fail-to-pass, two curators, two validation runs)",
+"p": "5, 9-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Criterion: task complete = final build succeeds and all executable checks pass. 3 independent full-suite runs each; DevEco Code 0.1.0-1.3, temperature 0, context 200K, reasoning budget 65.5K. Overall (153 tasks), Task Completion mean [min, max] / First Build / Final Build / tokens per task / time per task; TC by source new-feature (32) / spec-driven (50) / bug-fix (71): (a) DevEco Code + GLM-5.2: 58.39 [56.21, 60.78] / 67.10 / 98.04 / 2.57M / 1936.4 s; NF 63.54, spec 32.67, BF 74.18. (b) + Kimi-K3: 57.30 [53.59, 62.09] / 87.58 / 98.91 / 1.02M / 652.3 s; NF 53.13, spec 34.67, BF 75.12. (c) + Qwen3.8-Max-Preview: 55.99 [54.90, 57.52] / 80.61 / 99.56 / 0.98M / 394.3 s; NF 59.38, spec 34.00, BF 69.95. (d) + Qwen3.7-Max: 53.38 [51.63, 55.56] / 69.06 / 98.47 / 1.27M / 738.3 s; NF 55.21, spec 30.67, BF 68.54. (e) + GLM-5.1: 52.29 [50.33, 54.90] / 73.20 / 99.57 / 1.60M / 1097.8 s; NF 56.25, spec 28.67, BF 67.14. (f) + Kimi-K2.7-Code: 52.07 [50.98, 52.94] / 62.53 / 99.35 / 1.88M / 767.5 s; NF 56.25, spec 27.33, BF 67.61. (g) + DeepSeek-V4-Pro: 52.07 [50.33, 54.25] / 64.71 / 100.00 / 1.33M / 1048.6 s; NF 55.21, spec 24.00, BF 70.42. (h) + MiniMax-M3: 48.36 [45.75, 49.67] / 59.26 / 94.77 / 3.69M / 870.8 s; NF 53.13, spec 28.00, BF 60.56. Baseline: no-op submission completes 0/153 by construction. For every configuration: quality: no criterion stated by the authors (task-level completion rule only, no configuration-level threshold); cost: no criterion stated by the authors",
+"p": "10, 12-15",
+"verdict": "corrected",
+"why": "Per-configuration Task Completion on the new-feature and bug-fix sources (Tables 5 and 7) was missing; only the spec-driven value was given.",
+"doubt": ""
+},
+{
+"f": "Comparison: design",
+"v": "Project/tasks: 153 OpenHarmony Bench v1.0 tasks (snapshot 2026.7.31) in three sources. Configurations: 8 models under one agent (DevEco Code); the task sources (requirement-style vs spec-driven vs bug report) are compared descriptively but on different tasks. Baseline: no-op (0%) floor, reference solutions 100% ceiling. Held constant: agent framework and version, task split, system instruction, prompt template, tool access, environment, build and scoring scripts, temperature, context window, reasoning budget. Acceptance tests: hidden Hypium executable checks (fail-to-pass). Repetitions: 3 full-suite runs per configuration, mean and min-max. Human intervention: none; up to 5 automatic compile-repair iterations with build output only; no token or time cap",
+"p": "8-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: result",
+"v": "GLM-5.2 highest overall TC (58.39%), then Kimi-K3 (57.30%) and Qwen3.8-Max-Preview (55.99%) as a leading group; MiniMax-M3 lowest (48.36%). Newer generations beat predecessors within the evaluated families. Final build 94.77-100% vs TC 48.36-58.39%: many projects build without the required behaviour. By source: bug-fix highest (60.56-75.12%), new-feature middle (53.13-63.54%), spec-driven lowest (24.00-34.67%, no configuration above 35%) under all-F-points scoring. Qwen3.8-Max-Preview lowest tokens and time. Ranks are descriptive; ranges overlap; no significance tests",
+"p": "12-15",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "Separated build success from behavioural correctness and showed a leading group, but adjacent ranks not statistically separated (Kimi-K3 range contains GLM-5.2 mean; Kimi-K2.7-Code and DeepSeek-V4-Pro tie at 52.07). Repeatability: 3 runs with observed ranges (e.g. Qwen3.8 new-feature identical in all runs); artefacts, scripts and snapshot identifiers released. Limitations stated: single agent framework, so results are DevEco Code-model configurations; 3 runs give no inferential interval; bug-fix tasks from public PRs may be in pre-training data; token counts not comparable across providers; wall-clock time environment-dependent",
+"p": "3, 10-16",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Limitations: fixed DevEco Code framework (no comparison of independent agent frameworks); three runs only, no confidence intervals or statistical separation; possible pre-training exposure of bug-fix source; public release may cause contamination over time (recommend updated snapshots and trajectory audits for reward hacking). Gap: buildability is near-saturated while behavioural correctness, especially spec-following, is not",
+"p": "10, 16-17",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Notes",
+"v": "Individual author list not given on the title page (only groups; contributors list p. 17). Possible inconsistency: Figure 5 spec-driven bars (as extracted from the PDF text) read 28.0 for DeepSeek and 24.0 for MiniMax, while Table 6 gives DeepSeek-V4-Pro 24.00 and MiniMax-M3 28.00; values here from Table 6 (check the figure). Source-level comparison confounded: spec-driven tasks have more F-points (2.78 vs 1.00) and larger reference patches (12 files / 489.5 LOC), and are different tasks, so lower TC is not an effect of specifications alone. Data and replication package: tasks, reference solutions, tests, evaluation and aggregation scripts, leaderboard at https://bench.matrix.openharmony.cn/. No pre-registration. Programming language: ArkTS (evaluation scripts Python)",
+"p": "1, 3, 6, 10, 13-14",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): goal (app-level OpenHarmony benchmark with executable behaviour checks) and contributions stated",
+"p": "2-3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q2",
+"v": "Yes (1): pipeline, metrics with formulas, environment and run parameters (Table 3) described; scripts released",
+"p": "8-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q3",
+"v": "Yes (1): DevEco Code 0.1.0-1.3, model display names, DevEco 6.1, API 23 SDK, temperature, context and reasoning budget given",
+"p": "9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q4",
+"v": "Yes (1): task sources, construction and statistics described; tasks and tests released",
+"p": "3-7, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q5",
+"v": "Yes (1): hidden executable Hypium UI tests, fail-to-pass, validated by two curators",
+"p": "5, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q6",
+"v": "Yes (1): metrics defined with formulas; quality (Task Completion, build rates) and cost (tokens, wall-clock time)",
+"p": "10-12",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q7",
+"v": "Yes (1): all eight models under the same agent, tasks, prompt and environment; no-op floor",
+"p": "9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): 3 independent runs with min-max ranges; no statistical test of differences",
+"p": "10-11, 15-16",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q9",
+"v": "Yes (1): conclusions hedged to the evaluated configurations; ranks read as descriptive; spec-driven weakness reported",
+"p": "13-17",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q10",
+"v": "Yes (1): Limitations section (single agent framework, three runs, pre-training exposure) plus contamination and resource-metric caveats",
+"p": "10, 12, 16",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint / technical report",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q12",
+"v": "Partly (0.5): Huawei-affiliated authors evaluate the DevEco Code agent (OpenHarmony-SIG, part of Huawei's DevEco/OpenHarmony ecosystem; vendor relation not stated explicitly); the eight compared models are from independent vendors",
+"p": "1, 9, 17",
+"verdict": "uncertain",
+"why": "The paper does not state who develops DevEco Code (cited as OpenHarmony-SIG); the Huawei link is inferred. The agent is common to all configurations, so Partly vs No is a judgement.",
+"doubt": "O artigo não diz que a Huawei desenvolve o DevEco Code (só cita OpenHarmony-SIG). Decide se a ligação Huawei conta como fornecedor e se fica Parcial ou Não."
+},
+{
+"f": "Q13",
+"v": "N/A (proposes an evaluation method, not an approach)",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+}
+]
+}

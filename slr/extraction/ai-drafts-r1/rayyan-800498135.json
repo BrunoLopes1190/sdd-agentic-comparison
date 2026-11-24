@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498135",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, H., Fang, Z., Feng, R., Zhao, Y., Liu, J., Gao, P., Ye, H., Lin, D., Lin, Q., Rajmohan, S., Zhang, D. (2026). LOOPSBENCH: From Harness Engineering to Loop Engineering in Coding Agent Evaluation. arXiv:2608.00267v2 [cs.SE], 10 Aug 2026. Project page https://loopsbench.ai/",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 10 Aug 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.00267v2 [cs.SE]; marked 'Preprint', no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Microsoft, industry (Li during internship, Gao, Lin, Lin, Rajmohan, Zhang); Nanjing University (Fang, Feng, Liu); University College London (Ye); Shanghai Jiao Tong University (Zhao)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — LOOPSBENCH, a long-horizon benchmark of 112 tasks structured as dependency DAGs of separately testable development units, with a flow-aware runtime that releases tests along the ready frontier and keeps completed units as regression obligations; compares models and loop implementations (Claude Code, Codex, GitHub Copilot, OpenHands, SWE-agent, mini-SWE-agent, goal modes, dynamic workflows, Ralph loop)",
+   "p": "1-2, 6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Loop implementations (versions not stated): Claude Code (via Anthropic Agent SDK), Codex, GitHub Copilot CLI, OpenHands, SWE-agent, mini-SWE-agent, Qwen Code; RQ3 loop profiles: Codex goal mode, Claude Code goal mode, Claude Code dynamic workflows, Ralph loop. Models: GPT-4o, GPT-5, GPT-5.2, gpt-5.4 (azure/gpt-5.4-20260305), GPT-5.5, Sonnet-4, Sonnet-4.5, Opus-4.5, Opus-4.7, GLM-5.1, DeepSeek-V4-Pro, Gemini-3.1-Pro, Qwen2.5-72B, Qwen3-Max, Qwen3.5-Plus, Qwen3.6-Plus, Kimi-2.6, Grok-4.1-FR. Outer continuation (outer evaluation loop, default 3 rounds) as a factor",
+   "p": "7-8, 22, 24, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark artefacts: per-task bundle with base codebase, global task instruction and per-unit requirement manifests (requirement, file/symbol scope, parents, attached tests), unit DAG, Dockerfile/docker-compose, run-tests.sh, gold patches (hidden). Agent contract: commit one requirement at a time and write requirement_patches/<slug>.diff; optional plan.json DAG (required in RQ2 plan-fidelity runs); optional agent tests; final summary of requirement coverage",
+   "p": "5-6, 18-19, 31-32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Construction: task collection, preprocessing, selection, development-unit definition and DAG recovery, instrumentation (instruction formalization, environment and test synthesis with fail-to-pass trials). Run: loop reads all requirements, optionally plans a DAG, implements and commits unit by unit; runtime snapshots the workspace and releases tests along the ready frontier, keeping passed tests as regression obligations; outer loop restarts with residual work (default 3 rounds)",
+   "p": "3-6, 31-33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous runs; checkpoint state hidden from the agent). Authors note generated code still requires human review, security testing and licensing checks",
+   "p": "6, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous agent loops on the benchmark",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of agent loops; requirement manifests are inputs; no SDD terms used by the authors)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: existing code bases (PR Sequences from a base commit) and course-lab skeletons and research-code evolutions; long-horizon multi-unit development",
+   "p": "3-4, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "112 tasks (29 PR Sequences, 57 Course Labs, 26 Research Evolutions), more than 5,300 development units, median dependency depth 6; selection requires temporal span >= 2.5 months and solution scale >= 1,200; base repositories from about 80 LoC up to 533k LoC (hadoop_seg05; ClickHouse 511k, Jenkins 494k); median gold patch size 5,499 (Fig. 1); wall-clock budget per task >= 2 h, up to 24 h",
+   "p": "1-2, 4, 16-17, 22",
+   "verdict": "corrected",
+   "why": "Largest base repository is task_hadoop_seg05 with 533k LoC (Table 7, p. 17), not ClickHouse 511k (Table 6 only).",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "9 domains: PR Sequences (infra and data, backend, frontend), Course Labs (game engines, systems, apps and ML), Research Evolutions (analysis and verification, systems and networking, compiler with database and ML); 8 programming languages (not listed in the text)",
+   "p": "2, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tok: mean billed tokens per task (millions), summed input and output over the loop trace (Appendix J, Table 11); wall-clock budget fixed per task",
+   "p": "24, 26",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve Rate (RR, all released tests pass at task end, with and without outer continuation); Test Pass Rate (TPR); pass@3 for within-family runs; per-source RR",
+   "p": "7, 22-25, 29",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "PatchLen (patch lines vs gold), token-level Jaccard to gold patch",
+   "p": "8, 27",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Dependency Depth (normalized reach before first residual handoff); Regression Rate (Reg) and regression events per run; planning fidelity vs source DAG: Edge F1, TC-F1, Layer rho, Critical Path Ratio, Width Ratio, Branch Switching Rate; testing: #tests authored, F2P yield of authored tests, JSD; context-budget rounds",
+   "p": "8-9, 22-27, 29",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: dual-container snapshot pipeline (container A workspace, container B tests) runs released tests at snapshots triggered by diff growth (min_diff_lines=5), writing observation_history.jsonl; plan.json and requirement patches parsed from the workspace; loop traces and usage from adapter logs (e.g. claude_sdk_trajectory.jsonl); figure scripts read archived JSON without manual entry",
+   "p": "6, 23, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for any configuration (quality and cost verdict: no criterion stated by the authors). RR w/o -> w/ outer continuation, TPR w/o -> w/, Depth, mean billed tokens (one trial each). Vendor pairings: (1) Codex + GPT-5.5 14.29 -> 21.43%, TPR 39.62 -> 50.84%, Depth 0.53, 8.36M tokens; (2) Codex + GPT-5.2 9.82 -> 13.39%, 9.10M; (3) Codex + GPT-5 5.36 -> 8.04%, 8.92M; (4) Codex + GPT-4o 1.79 -> 3.57%, 4.51M; (5) Claude Code + Opus-4.7 16.96 -> 25.00%, TPR 41.18 -> 53.05%, Depth 0.61, 6.91M; (6) Claude Code + Opus-4.5 12.50 -> 17.86%, 5.38M; (7) Claude Code + Sonnet-4.5 8.93 -> 12.50%, 4.21M; (8) Claude Code + Sonnet-4 4.46 -> 7.14%, 3.76M; (9) Qwen Code + Qwen3.6-Plus 6.25 -> 9.82%, 6.96M; (10) Qwen Code + Qwen3.5-Plus 5.36 -> 8.04%; (11) Qwen Code + Qwen3-Max 0.89 -> 1.79%; (12) Qwen Code + Qwen2.5-72B 0.00 -> 0.00%. Model sweep, Claude Code loop: GPT-5.5 13.39 -> 20.54% (7.18M); GLM-5.1 13.39 -> 18.75% (4.37M); DeepSeek-V4-Pro 11.61 -> 18.75% (3.59M; Reg 16.60%); Gemini-3.1-Pro 8.93 -> 14.29% (4.99M); Qwen3.6-Plus 6.25 -> 9.82% (4.25M); Kimi-2.6 3.57 -> 6.25% (2.02M); Grok-4.1-FR 2.68 -> 4.46% (1.83M). Loop sweep, gpt-5.4: Codex 13.39 -> 18.75% (7.94M, Reg 4.83%); Claude Code 12.50 -> 17.86% (7.03M, Reg 7.11%); GitHub Copilot 10.71 -> 15.18% (8.26M, Reg 6.91%); OpenHands 6.25 -> 9.82% (6.75M, Reg 2.46%); SWE-agent 5.36 -> 8.93% (7.18M, Reg 2.18%); mini-swe-agent 4.46 -> 7.14% (8.86M, Reg 0.24%). RQ3 loop profiles (native models, not model-controlled): Codex goal mode RR 20.59%, 0.34 regression events/run; Claude Code goal mode 17.65%, 0.13; Claude dynamic workflows 24.11%, 0.36; Ralph loop 7.84%, 0.17",
+   "p": "7-9, 22, 26, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: all 112 tasks (RQ3 goal-mode and Ralph runs on 102 scheduled tasks). Configurations: within-family model scaling under the vendor loop (GPT/Codex, Claude/Claude Code, Qwen/Qwen Code); model sweep under fixed Claude Code loop (8 models); loop sweep under fixed gpt-5.4 (6 loops); RQ3 four loop profiles with their native models. Held constant: task contract and prompt (Benchmark Contract plus profile addendum per adapter class), Docker environment, wall-clock budget per task, outer_loop_count 3, provider defaults except recorded overrides (Claude Code max_tokens 128,000; SWE-agent temperature 0). Acceptance tests: released unit tests, fail-to-pass validated against gold patches, with regression obligations. Repetitions: one trial per pairing (n_attempts 1); pass@3 for within-family pairings only. Human intervention: none",
+   "p": "6-7, 22, 24, 29-33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best: Claude Code + Opus-4.7, 25.00% RR with outer continuation (16.96% without). Within-family RR increases monotonically with model generation, preserved under pass@3. Under fixed gpt-5.4, closed-source loops (Codex 18.75%, Claude Code 17.86%, Copilot 15.18%) above open-source loops (OpenHands 9.82%, SWE-agent 8.93%, mini-swe-agent 7.14%); closed loops have higher plan fidelity (Edge F1 0.58-0.71 vs 0.27-0.39) but more regression (4.83-7.11% vs 0.24-2.46%). Outer continuation raises RR in every configuration. PR Sequences hardest (max 3.45% RR); Course Labs account for >= 70% of resolved tasks. RQ3: dynamic workflows highest RR (24.11%), Ralph lowest (7.84%), described as observed profiles, not causal. No significance tests",
+   "p": "7-9, 25, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models and loops (RR 0% to 25%) and exposed plan, implementation and testing differences through trace metrics. Authors: one trial per pairing, pass@3 confirms within-family ordering; RQ3 values are not a model-controlled causal comparison; low Reg in weak configurations reflects few obligations; recovered DAG is a lower bound; hidden checkpoint state mixes limited feedback with regression discipline; proprietary outputs may drift, exact outputs not reproducible",
+   "p": "10, 24-25, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Recovered DAG is a lower bound and may miss implicit dependencies; fixed DAG excludes exploratory redesign; pool limited to sources with auditable prerequisite evidence (mobile, frontend-heavy, hardware-adjacent projects out of scope); metrics tied to the released test suite, not full semantic equivalence; model-assisted materialization may bias wording, boundaries and tests; contamination risk from public sources; internal events outside loop interfaces not measurable; evaluation costly; benchmark measures one executable contract, not general SE ability or deployment readiness. Gap: long-horizon progress limited by global plan maintenance, state continuity and regression obligation retention",
+   "p": "7-10, 21-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Data and code: microsoft/Loopsbench (abstract says open-sourced; Limitations says 'we will release'). Values from Tables 2-4, 10-12 (layout jumbled by text extraction; rows rebuilt). Reporting inconsistencies: Table 2 Claude Code + gpt-5.4 (loop sweep) has RR and TPR identical to Claude Code + Opus-4.5 (12.50/17.86/36.97/48.21), only Depth differs (0.42 vs 0.46); p. 6 says all experiments use the full 112 tasks but RQ3 Codex goal, Claude Code goal and Ralph runs have 102 scheduled tasks (Appendix N.2); RQ3 run identifiers show different models (gpt55, opus46, opus47, opus48) although Opus-4.8/4.6 are not in the model list; Course Labs collected from '30 universities' in text vs '40 Institution' in Fig. 2; a leftover drafting note in the Kimi-2.6 reference (p. 12). Benchmark construction uses Claude Code with Claude Opus 4.7. No pre-registration. Programming languages: 8, not listed (examples Python, Go, Java, Rust)",
+   "p": "1-3, 6-7, 10, 12, 16, 20, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three RQs stated (sustained progress, plan/code/test state, loop engineering factors)",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, runtime, metrics, adapters, prompts and run configuration described in appendices",
+   "p": "3-6, 22-34",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model checkpoints named (gpt-5.4 with date stamp), decoding settings given; loop implementation versions not stated",
+   "p": "22, 24, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described per source with statistics; benchmark data and code released (microsoft/Loopsbench)",
+   "p": "1, 15-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): released unit tests validated by fail-to-pass trials against the gold patches",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): metrics formally defined; quality (RR, TPR, Reg) and cost (billed tokens) reported",
+   "p": "22-27",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): model sweep under a fixed loop and loop sweep under a fixed model on the same tasks",
+   "p": "7, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): one trial per pairing; pass@3 only for within-family pairings; no statistical tests",
+   "p": "24-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main claims hedged and RQ3 explicitly not causal in the appendix, but the RQ3 answer and conclusion rank loop profiles run with different models and task counts; duplicate Table 2 values weaken the loop-sweep claim",
+   "p": "7, 9, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section and contamination checks",
+   "p": "10, 21-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): Microsoft authors evaluate GitHub Copilot (Microsoft product) among the loops; other loops and models from other vendors",
+   "p": "1, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

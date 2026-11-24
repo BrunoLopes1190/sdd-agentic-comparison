@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486522",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, S., Meng, F., Chen, J., Chen, Q., Song, L., Fu, R., Zheng, S., Shao, S., Xie, Q., Zhao, J., Hu, M. (2026). FrontierRefactor: Benchmarking Multi-Scale Performance-Oriented Codebase Refactoring. arXiv:2610.25834v1 [cs.AI], 19 Oct 2026. Code: https://github.com/evolvent-ai/FrontierRefactor",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v1, 19 Oct 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.25834v1 [cs.AI]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Evolvent AI (S. Wang, Meng, J. Chen, Q. Chen, Fu, Zheng, Hu); National University of Singapore (Meng, Xie); University of Southern California (Song); Shanghai Jiaotong University (Shao); Hong Kong University of Science and Technology (Zhao)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark FrontierRefactor (60 performance-oriented refactoring tasks, four contract scales Kernel/Module/Package/Repository, in-place optimization and cross-language rewriting, seven source languages) with a reference-free cascaded protocol (compliance, functional equivalence, noise-calibrated speedup); six model + harness configurations, 3 trials each (1,080 runs); trajectory analysis; multi-turn feedback experiment",
+   "p": "1-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents compared: Claude Code v2.1.278 (Claude Opus 5, Claude Sonnet 5, Claude Fable 5, DeepSeek-V4.1-Flash), Codex CLI v0.155.1 (GPT-6 Astra, GPT-5.6 Sol), all at high reasoning effort. Multi-turn feedback variants (GPT-6 Astra): Blind Retry, Scalar Speedup, Noise-Aware Timing",
+   "p": "6, 9, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark task (Harbor v0.18 package): task.toml (metadata), instruction.md (standardized task specification given to the agent: task facts, workspace layout, contract and equivalence protocol, constraints and anti-circumvention rules), environment/ (baseline code), tests/ (held-out probes and workloads). Observable contract: caller-visible interface plus allowed dependencies and prohibited symbols",
+   "p": "3-4, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent receives code base and contract only, produces a refactored candidate; evaluation in three cascaded gates: compliance (static AST audit, container isolation) -> functional equivalence (frozen differential probes, zero partial credit) -> performance (worst-case speedup over workloads above calibrated noise floor). RQ5 adds up to three feedback rounds",
+   "p": "4-5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs (autonomous permissions, tool auto-approval). Humans: reference solutions by human experts; manual expert audit of false-positive rejections",
+   "p": "6, 15, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs from a standardized task instruction (instruction.md)",
+   "p": "14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark task specification; authors do not use SDD terms; wording 'observable contract', 'standardized task specification')",
+   "p": "3-4, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: performance-oriented refactoring of working code (in-place optimization, 30 tasks) or rewriting into Rust/Go (cross-language, 30 tasks)",
+   "p": "5, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "60 tasks (Kernel 18, Module 18, Package 15, Repository 9) from 184 candidates; refactoring scope median 420 LoC (18-48,000): Kernel 48, Module 186, Package 1,420, Repository 14,280; probes median 57 (10-197; repository probes aggregate up to 5,588 assertions); 2-6 workloads per task; 1,080 runs; 25-task subset for ablations",
+   "p": "4-5, 16-17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General-purpose open-source code (algorithms, parsers for YAML/XML/CSV/SQL, text processing, rendering, geometry); source languages Python 40%, JavaScript 28.3%, TypeScript 18.3%, Go 5%, C++ 5%, Rust 1.7%, Java 1.7%",
+   "p": "15-17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; autonomous runs). Human software engineers wrote/verified reference solutions, background Not stated",
+   "p": "6, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average steps, average tokens (M) and average cost ($) per configuration, cost from logged token counts and vendor prices; reasoning tokens in effort ablation",
+   "p": "6-7, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Average functional pass rate (differential probes, zero partial credit); strict success (all three gates) as Pass@1, strict@3, best-of-3",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (runtime performance only: worst-case speedup over workloads)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Worst-case speedup and average speedup; conversion rate (functionally correct submissions with verified speedup); continuous Overall Score (avg@3, best-of-3); outcome partition (functional failure / slower / noise-bound / strict success / compliance failure); tool-behaviour adoption rates and success gains; intercepted circumvention attempts; counterfactual pass rates without gates",
+   "p": "4-7, 18-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Harbor containers, out-of-band verifier, static AST and dynamic symbol tracing, differential probes, timing with 2 warmups and 5 repetitions (20% trimmed mean), noise floor from 50 paired null runs plus per-trial batch threshold; token counts priced by vendor schedules; tool behaviours parsed from terminal logs. Statistics: Spearman, Fisher's exact, McNemar, Jonckheere-Terpstra, Clopper-Pearson. Manual: expert audit of false positives; case studies from logs",
+   "p": "4-5, 7, 9, 18-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "60 tasks x 3 trials. Criterion per submission: strict success = all three gates (benchmark's authoritative criterion); no configuration-level success threshold stated by the authors. Pass@1 / strict@3 / best-of-3 / functional pass / avg speedup / conversion / Overall Score avg@3 / steps / tokens (M) / cost ($) (Table 3): (a) Claude Code v2.1.278 + Claude Opus 5: 34.4% / 16.7% / 51.7% / 78.9% / 1.13x / 43.7% / 0.84 / 48.9 / 8.02 / $18.57; (b) Claude Code + Claude Sonnet 5: 26.1% / 13.3% / 38.3% / 57.2% / 1.11x / 45.6% / 0.71 / 26.3 / 4.28 / $1.55; (c) Claude Code + Claude Fable 5: 26.1% / 6.7% / 46.7% / 64.4% / 1.13x / 40.5% / 0.74 / 23.9 / 4.77 / $0.61; (d) Codex CLI v0.155.1 + GPT-6 Astra: 30.6% / 16.7% / 41.7% / 79.4% / 1.09x / 38.5% / 0.86 / 20.5 / 1.55 / $2.11; (e) Codex CLI + GPT-5.6 Sol: 25.6% / 13.3% / 41.7% / 70.0% / 1.08x / 36.5% / 0.80 / 29.3 / 2.67 / $1.36; (f) Claude Code + DeepSeek-V4.1-Flash: 40.0% / 31.7% / 50.0% / 80.0% / 1.15x / 50.0% / 0.86 / 115.8 / 20.65 / $0.50. Quality and cost verdicts: no criterion stated by the authors. RQ5 (GPT-6 Astra, 25 tasks, strict success round 1 -> 3): Blind Retry 16.0% -> 32.0%; Scalar Speedup 16.0% -> 40.0%; Noise-Aware Timing 16.0% -> 28.0% (avg speedup 1.05x, highest relative gain). Reference points: non-agent baselines 0.0%, human expert solutions 100.0% strict success, 1.84x mean speedup",
+   "p": "6-7, 9-10, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 60 FrontierRefactor tasks. Configurations: 6 model + vendor-native harness pairs at high reasoning effort; DeepSeek run under Claude Code for a controlled comparison within one harness. Baseline: original code (speedup reference), non-agent baselines and human expert references. Held constant: instruction.md as sole prompt (no bespoke prompts), containers without network, pinned shallow clones, 8 dedicated CPU cores and 32 GB RAM, timing protocol. Agent harness differs across vendors (not held constant). Acceptance tests: held-out differential probes and workloads. Repetitions: 3 independent trials per task. Human intervention: none. Ablations: reasoning effort (4 levels, 25 tasks, Opus 5 and GPT-6 Astra); multi-turn feedback (3 arms, 3 rounds, 25 tasks); gate removal counterfactuals",
+   "p": "6-7, 9, 14-15, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "DeepSeek-V4.1-Flash + Claude Code best on Pass@1 (40.0%) and strict@3 (31.7%) at lowest cost ($0.50); Claude Opus 5 best on best-of-3 (51.7%) and Overall Score best-of-3 (0.93) at highest cost ($18.57). Across systems 41.2% of runs (445) pass functionality but fail to accelerate (19.3% slower, 21.9% noise-bound); conversion 42.5% of 774 functionally passing. Cross-language 43.1% strict success vs in-place 17.8%; cross-language functional pass drops from 65.0% (module) to 32.6% (package). Repeated benchmark cycles associated with +21.1 pp strict success (p < 1e-4, observational). Reasoning effort: no monotonic gain (p = 0.48 Opus 5, 0.83 Astra). Scalar feedback 16.0% -> 40.0% (McNemar p = 0.031). No significance tests between the six configurations",
+   "p": "6-10, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations and exposed correctness-speed decoupling; 0/50 empirical false positives under null calibration (95% CI 0.0-5.8%); compliance gate never triggered in primary runs but intercepted 31 circumvention attempts; counterfactuals show +33.5/+34.2 pp inflation without compliance gate. Repeatability: 3 trials, strict@3 shows large drop from best-of-3 (agents accelerate stochastically). No limitations of the method stated by the authors",
+   "p": "5, 7, 18-19, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: refactoring benchmarks check correctness only, performance benchmarks are single-scale micro-kernels; raw timing without noise calibration is unreliable; agents lack profiling and noise-tolerant self-validation; future agents need active profiling tools and hardware telemetry",
+   "p": "1-3, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code: https://github.com/evolvent-ai/FrontierRefactor. Pre-registration: none. Languages: Python, JavaScript, TypeScript, Go, C++, Rust, Java (targets Rust, Go). Inconsistencies: average speedup in Table 3 (1.08-1.15x) vs Table 6 overall in-place 1.62x and cross-language 2.60x (different aggregation not explained); text says human reference distributions are in Appendix A.2 but A.2 has no such data; Codex cited as [5] (GPT-5.1-Codex-Max blog) in Section 4.1 but as [17] elsewhere; Table 3 cost is per task/run (unit not stated); text says zero compliance violations in all 1,080 primary runs (p. 5) while Table 9 lists 31 intercepted circumvention attempts (12 prohibited delegations) 'across evaluation trials' (p. 22), not reconciled. Values checked: 62+47+47+55+46+72 = 329 strict successes = 30.5% of 1,080; 329/774 = 42.5%",
+   "p": "1, 6-7, 15, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): five RQs stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): protocol, gates, timing, harness settings and task format described; code released",
+   "p": "1, 4-6, 14-15, 18-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code v2.1.278, Codex CLI v0.155.1, Harbor v0.18 and model names given with effort settings",
+   "p": "6, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): full task catalogue (Tables 4-5) and code repository",
+   "p": "1, 16-17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): held-out differential probes and workloads, noise-calibrated speedup gate",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): strict success, functional pass, speedup, conversion, score defined; cost as steps, tokens and dollars",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six configurations on the same tasks and protocol, plus human reference and non-agent baselines",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 trials per task (Pass@1, strict@3, best-of-3), noise calibration of timing, and tests for ablations and behaviours (Jonckheere-Terpstra, McNemar, Fisher, Spearman); but no dispersion and no test of differences between the six main configurations in Table 3",
+   "p": "4-7, 9, 18-20",
+   "verdict": "uncertain",
+   "why": "The draft gave Yes while itself noting that the six main configurations are not compared statistically and Table 3 shows no dispersion; the tests cover only ablations (effort, feedback) and tool behaviours (p. 7, 9, 20). Comparable records with 3 repetitions and no between-configuration tests were scored Partly.",
+   "doubt": "Há 3 tentativas e testes estatísticos nas ablações, mas nenhum teste nem dispersão entre as seis configurações principais (Tabela 3). Decide entre Sim e Parcial, coerente com estudos semelhantes."
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main findings follow from data, but some claims are stronger than the evidence: feedback 'directly resolves' the blind spot rests on one model and 25 tasks (blind retry also rises to 32.0%); 'agents optimize for syntactic readability over empirical cost' is interpretive; tool-behaviour associations are observational (acknowledged)",
+   "p": "9-10, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity section",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Evolvent AI and universities) do not develop the evaluated agents or models",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

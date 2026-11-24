@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800498267",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Baltes, S., Treude, C. (2026). Toward Evidence-Based Agentic Software Engineering. arXiv:2610.35348v1 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.35348v1 [cs.SE]; no venue stated (short paper, IEEE-style format)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Heidelberg University, Germany (Baltes); Singapore Management University, Singapore (Treude)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Review; secondary: Proposes an evaluation method — meta-research review of 325 experiments in 146 peer-reviewed full papers (2025-2026) on agentic coding tools, with described search (DBLP titles and arXiv abstracts, 22 Sep 2026), LLM-based screening and annotation against 21 disclosure questions and five degrees of freedom; derives four requirements for a reference harness and proposes dedicated venue tracks and a planned fractional-factorial experiment on the pi harness",
+   "p": "1, 3-5",
+   "verdict": "uncertain",
+   "why": "The paper describes its sources (DBLP titles, arXiv abstracts, 22 Sep 2026) and a scope (peer-reviewed full papers 2025-2026, empirical studies of agentic coding tools on SE tasks, venue and length filters), but the inclusion and exclusion criteria themselves are only in the Zenodo supplement. It is meta-research on reporting practice, so 'Review' (DARE) vs 'Evaluates' (Q1-Q13) is a judgement under the 2026-11-23 rule.",
+   "doubt": "A pesquisa e as fontes estão descritas (p. 3), mas os critérios de inclusão só estão no suplemento Zenodo. Decide se conta como Review (DARE) ou como estudo avaliado com Q1–Q13."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Analytical framework: five degrees of freedom of an experiment (outer harness OH, inner harness IH, model MO, tasks TA, user interaction IN) and 21 disclosure questions (DQs) adapted from the LLM-in-SE guidelines. Proposed reference harness: 11 open-source harnesses assessed (Aider, Codex CLI, Gemini CLI, mini-SWE-agent, OpenClaw, opencode, OpenHands, Qwen Code, SWE-agent, Terminus 2, pi); six meet all four requirements; pi (tag v1.0.4) chosen for the planned experiment",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no development approach). Outer harness includes context files, settings, hooks and MCP servers (configuration mechanisms per Galster et al.); proposed reporting: all five degrees of freedom, harness release, experiment dates, traces for every task attempt",
+   "p": "1-2, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development approach). Review flow: search DBLP + arXiv (21,654 records) -> independent title/abstract screening by Claude Opus 5 and Sonnet 5 -> full-text screening by both models (3,673 full texts), conflicts (561) settled by Claude Fable 5.1 -> validation, de-duplication, venue and length filters -> 146 papers -> annotation by Claude Code (Opus 5.5) subagents with quotation checks by script -> reliability re-annotation by GPT-6.1-Sol -> judge rounds for disagreements -> first author resolves remaining cases",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A for development. Review side: first author resolved ambiguities, refined the codebook, clarified disputed rules, marked 32 unresolved codes as unclear and decided inclusion of two experiments still disputed by the judges",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (review; no approach run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (review). Reviewed experiments: agentic coding tools on SE tasks (benchmarks with published, modified or written task sets)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "146 peer-reviewed full papers (127 conference, 19 journal), 325 experiments, 782 contrasts; 21,654 records searched, 3,673 full texts screened",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Empirical SE research on agentic coding tools (SE, AI/ML and related venues)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "N/A (review). Reviewed reporting: cost per session with unit reported in 165 experiments (51%); input and output tokens separately in 28 (9%); money derivable in 61 (19%)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "N/A (review). Reviewed reporting: how each measure was computed reported in 262 experiments (81%)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "N/A (review). Review measures reporting completeness (21 DQs, e.g. harness version 15 experiments (5%), experiment dates 5 (2%), traces for every attempt 31 (10%), model versions 238 (73%), sampling/reasoning parameters 82 (25%), variation across repeated sessions 93 (29%), contamination checked 49 (15%), who answered agent requests 27 (8%)) and whether contrasts isolate harness effects",
+   "p": "1, 3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "LLM annotation: Claude Code (Opus 5.5) subagents answered DQs with quotations, a script checked quotations against cited pages and derived the five degree-of-freedom codes deterministically; GPT-6.1-Sol repeated the annotation independently; disagreements resolved by Opus 5.5 and GPT-6.1-Sol judges and the first author. Disagreement 8.5% overall (95% CI [7.5%, 9.5%]), 12.7% for degree-of-freedom codes on 278 experiments found by both models",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (review; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (review). Analyses how reviewed comparisons control conditions: each contrast coded as treatment / confounded / unclear / held fixed for OH, IH, MO, TA, IN. Planned future experiment (not run): pi harness with five separately versioned extensions (permission gate, subagents, plan mode, to-do list, compaction), 16 of 32 combinations in a resolution V fractional factorial design, one open-weight and one commercial model at dated snapshots, same tasks, executable oracles, fixed environment, repeated attempts",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Synthesis: exact versions of all harnesses reported for 15 of 325 experiments; 5 reported experiment dates; 31 shared traces for every attempt. Of 226 experiments comparing harnesses, 191 had at least one contrast changing only the harness, 35 never varied the harness in isolation; 141 changed model or tasks together with the harness; in 115 the model changed with the harness. Of 298 contrasts changing more than one degree of freedom, 111 credited the proposed system as a whole, 7 specifically credited the harness, 118 reported no cause. 40 contrasts changed inner and outer harness together and nothing else",
+   "p": "1, 3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A (review). Authors: the 8.5% inter-model disagreement does not establish agreement with human annotators; screening, annotation and judging relied mainly on Claude models, so errors may be correlated; codebook developed and applied on the same papers",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Search may miss eligible papers without arXiv record and without a query term in the title; no reference-list or citation search; preprints without peer-reviewed version excluded; only paper full texts annotated (not linked code or supplements); correlated LLM errors; codebook not tested on an independent set. Gaps: harness effects are rarely isolated and harness versions, dates and traces are rarely reported; calls for reporting all degrees of freedom, a shared pinned reference harness with separately versioned extensions, and dedicated SE venue tracks",
+   "p": "1, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table I (p. 3) and text p. 3-4; Fig. 1 counts per degree of freedom partly garbled in the text layer. Inclusion and exclusion criteria, queries, selection counts, codebook, prompts and annotations in the supplementary material on Zenodo (doi 10.5281/zenodo.23592942); criteria not listed in the paper. Screening and annotation done by LLMs (Claude Opus 5, Sonnet 5, Fable 5.1, Opus 5.5; GPT-6.1-Sol). Search cut-off 22 Sep 2026. No pre-registration. Programming language: N/A",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "Partly (0.5): scope stated (peer-reviewed full papers 2025-2026 with empirical studies of agentic coding tools on SE tasks; venue and length filters), but the inclusion and exclusion criteria themselves are only in the supplementary material",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "Partly (0.5): two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "Partly (0.5): reporting completeness of each experiment is assessed with 21 disclosure questions (the object of the study), but no validity or quality appraisal of the included studies' results",
+   "p": "3",
+   "verdict": "uncertain",
+   "why": "The study's object is the reporting completeness of each included experiment (21 DQs), which is a form of appraisal of the included studies; whether this counts as assessing their quality/validity (Yes) or not (Partly) is a judgement.",
+   "doubt": "O estudo avalia a completude do relato de cada experiência (21 DQs), mas não a validade dos resultados. Decide se isso conta como avaliação de qualidade (Sim) ou só parcial."
+  },
+  {
+   "f": "DARE4",
+   "v": "Partly (0.5): aggregate counts per question and contrast type; only one included study described individually (Badertdinov et al.); per-study annotations only in the supplementary material",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

@@ -1,0 +1,359 @@
+{
+"key": "rayyan-800485978",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Xu, K., Mao, Y., Guan, X., Feng, Z. (2025). Web-Bench: A LLM Code Benchmark Based on Web Standards and Frameworks. arXiv:2505.07473v1 [cs.AI], 12 May 2025",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Year",
+"v": "2025",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2505.07473v1 (cs.AI); no venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Author affiliation",
+"v": "Industry: ByteDance (all four authors)",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an evaluation method; secondary: Compares — benchmark Web-Bench (50 web projects x 20 sequentially dependent tasks with Playwright E2E tests) and comparison of 40 LLMs through the authors' Web-Agent",
+"p": "1-5, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach. Fixed benchmark agent: Web-Agent (authors' prompt-building / LLM-request / file-extraction module inspired by Continue; version Not stated); custom agents can be plugged in via HTTP-Agent. Models: 40 LLMs (Table 9), e.g. claude-3-7-sonnet-20250219(-thinking), gpt-4.1, deepseek-r1, gemini-2.5-pro, doubao-pro-1.5-thinking",
+"p": "4-5, 22-25, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "Per project: tasks.jsonl (20 task descriptions, sequentially dependent), src-init/ (initial code), src/ (final reference solution), test/ (init.spec.js and task-1..task-20.spec.js E2E cases). Agent prompt: system prompt (code-block rules), task description, current files, error messages (truncated to the context length)",
+"p": "2, 4, 22-23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Evaluator: get initial code -> iterate task-1..task-20: call agent (build prompt, request LLM, extract files) -> rewrite files -> init env -> build -> Playwright E2E test -> on failure retry once with error context (second failure ends the evaluation) -> report",
+"p": "4, 22-23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human review points",
+"v": "None during runs. Project calibration during construction: engineers fix ambiguous task descriptions and too strict / not rigorous tests, using runs with claude-3-5-sonnet-20241022",
+"p": "4, 26-27",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Parts exercised",
+"v": "N/A (no SDD approach); single-pass LLM code generation per task inside a sequential project, via a minimal agent",
+"p": "4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (task descriptions; 'Standards' means web standards such as W3C/WHATWG, not specifications in the SDD sense)",
+"p": "1-3, 8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Task type",
+"v": "New project built incrementally (from initial code through 20 dependent feature tasks)",
+"p": "1-2, 4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Size",
+"v": "50 projects x 20 tasks; reference solutions avg 23.4 files / 1,947.9 lines (max 76 / 6,180); avg 3.6 E2E cases per task and 72.4 per project (max 5 / 99); each project 4-8 hours for a senior engineer",
+"p": "1-2",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Domain",
+"v": "Web development: web standards (CSS layout, selectors, DOM, SVG, Canvas, WebGL, ECMAScript, TypeScript) and frameworks (React, Vue, Angular, Svelte, Three.js, Redux, Zustand, Tailwind, Sass, Next.js, Nuxt, Express, Fastify, Prisma, Sequelize, Vite, Webpack, etc.); scenarios such as games, utilities, charts, surveys, blogs, shopping",
+"p": "2-3, 11-13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no human participants in the evaluation); projects designed by engineers with 5-10 years of experience",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Cost metrics",
+"v": "None (context length, max tokens and temperature reported as settings only)",
+"p": "5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "Pass@1: share of tasks passing all E2E tests on first attempt before any failure; Pass@2: share of tasks passed including one retry with error context; both with Best-of-5 sampling; Error@1 reported in Table 9 (not defined)",
+"p": "4-5, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None (code quality and aesthetics named as future extensions)",
+"p": "9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "None (feature coverage tables describe the reference solutions, not outcomes)",
+"p": "15-22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: Web-Bench evaluator in Docker runs Playwright E2E tests after each task and computes Pass@1/Pass@2",
+"p": "4, 24",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Criterion: task passed = all E2E tests of the task pass; no configuration-level threshold. Best-of-5 sampling. Model settings by vendor (Table 2): context 50,000 (Anthropic) or 10,000 (others), max tokens 4,096-8,192, temperature 0-1 or default. Web-Agent + model, Pass@1 / Pass@2 (%): gpt-4.1: 21.09 / 25.11; gpt-4.1-mini: 20.76 / 23.70; gpt-4o: 17.17 / 23.80; o4-mini: 13.26 / 22.93; o1: 10.43 / 12.39; o3-mini: 9.13 / 14.24; gpt-4o-mini: 8.48 / 13.04; gpt-4.1-nano: 7.07 / 12.28; claude-3-7-sonnet-20250219-thinking: 25.11 / 35.33; claude-3-5-sonnet-20241022: 23.04 / 32.39; claude-3-7-sonnet-20250219: 22.50 / 30.98; claude-3-5-sonnet-20240620: 21.96 / 30.33; claude-3-5-haiku-20241022: 15.43 / 21.74; deepseek-v3-0324: 17.07 / 23.59; deepseek-coder-v2: 16.74 / 23.15; deepseek-r1: 14.46 / 26.20; gemini-2.5-pro: 15.67 / 24.02; gemini-2.0-flash: 15.33 / 20.87; gemini-2.0-flash-thinking: 14.89 / 19.24; gemini-pro-1.5: 14.78 / 20.87; gemini-flash-1.5: 12.83 / 17.07; gemma-3-27b: 9.89 / 11.85; llama-4-Maverick: 15.98 / 20.87; llama-3.3: 6.63 / 9.57; llama-4-Scout: 5.00 / 7.72; qwen-max-2025-01-25: 15.87 / 19.02; qwen-plus-2025-01-25: 11.85 / 15.11; qwen-2.5-72b-instruct: 10.54 / 13.70; qwen-turbo-2024-11-01: 2.61 / 5.11; mistral-large-2411: 13.04 / 18.70; grok-2-1212: 11.30 / 17.17; doubao-pro-1.5-thinking: 20.11 / 30.22; doubao-pro-1.5-32k: 16.63 / 22.93; doubao-pro-1.5-32k-lite: 3.48 / 5.98; GLM-4-0414: 7.50 / 9.02; step-fun-2-16k: 13.70 / 15.87; sense-chat-5: 8.48 / 12.72; 360-gpt2-o1: 8.26 / 14.46; minimax-text: 8.48 / 10.76; moonshot-kimi-latest: 5.22 / 11.85. For every configuration: quality: no criterion stated by the authors; cost: N/A (not measured)",
+"p": "4-5, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: design",
+"v": "Project/tasks: Web-Bench 50 projects x 20 tasks. Configurations: 40 LLMs under the same Web-Agent; per-framework subsets (React/Vue/Angular/Svelte; Redux/Mobx/Zustand/Jotai; Next/Nuxt/Express/Fastify; databases) compared for 6 models (Pass@2). Baseline: none. Held constant: agent, system prompt, tasks, tests, evaluator; model parameters vary by vendor (context length, max tokens, temperature). Acceptance tests: Playwright E2E tests per task. Repetitions: Best-of-5 sampling. Human intervention: none; one automatic retry with error context",
+"p": "4-5, 14-15, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: result",
+"v": "claude-3-7-sonnet-20250219-thinking best (Pass@1 25.11%, Pass@2 35.33%); Claude series highest, then GPT, Doubao, DeepSeek. Closed models average Pass@1 15.08% / Pass@2 20.79% vs open 10.73% / 14.84%. Newer or larger models and thinking mode generally better. Framework-level: e.g. React and Zustand easier, Angular harder; Express better than Next.js. No significance tests",
+"p": "5-6, 14-15, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "Distinguished 40 models with an unsaturated SOTA (25.1% Pass@1 vs 65.4% SWE-bench Verified). Repeatability: Best-of-5 sampling, no variance; Docker-based evaluator, data on GitHub and Hugging Face. Limitations of the comparison not discussed (vendor-specific parameters, single minimal agent)",
+"p": "2, 5-7, 24",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Limitations: many standards and frameworks not yet covered (workload); only code-generation accuracy measured, not aesthetics or code quality (screenshot function exists for future metrics); a Lite version planned because of evaluation cost. Gap / claim: LLMs need optimisation tailored to standards and frameworks (standards-aware training, framework-specific adaptation), presented as an intuition and future work",
+"p": "2, 8-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Notes",
+"v": "Possible inconsistency: Table 9 percentages are all multiples of 1/920 (e.g. 25.11% = 231/920, 6.52% = 60/920), suggesting 920 tasks (46 projects) were scored, not 50 x 20 = 1,000 (check). 'Pass@1' is reported with Best-of-5 sampling (p. 5), which differs from the usual single-sample Pass@1; Error@1 not defined. Abstract calls the lower SOTA 'significantly lower (better)'. Table 2 temperatures per vendor are hard to align from the text. Projects calibrated with claude-3-5-sonnet-20241022 (Appendix D), which may favour Claude models. Doubao is a ByteDance model evaluated by ByteDance authors. Replication package: https://github.com/bytedance/web-bench and Hugging Face dataset bytedance-research/WebBench. No pre-registration. Programming language: JavaScript/TypeScript, HTML, CSS",
+"p": "1, 5, 26-28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): aim (non-saturated benchmark with sequential web tasks) stated",
+"p": "1-2",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): evaluator and Web-Agent workflows, prompts and settings described, code released; Best-of-5 procedure and scoring denominator not explained",
+"p": "4-5, 22-25",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q3",
+"v": "Yes (1): model snapshot identifiers (Table 9) and per-vendor parameters (Table 2) given; agent is the authors' own Web-Agent (version Not stated)",
+"p": "5, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q4",
+"v": "Yes (1): projects described (Appendix A, Tables 5-7) and released on GitHub and Hugging Face",
+"p": "1, 11-22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q5",
+"v": "Yes (1): Playwright E2E tests written and calibrated by experienced engineers",
+"p": "1-2, 4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): Pass@1 and Pass@2 defined; no cost metrics; Error@1 undefined",
+"p": "4-5, 28",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q7",
+"v": "Yes (1): all models under the same agent, tasks and tests (parameters vary by vendor)",
+"p": "4-5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): 5 samples per configuration, but best-of-5 reported; no variance or statistical tests",
+"p": "5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): rankings follow Table 9, but the main claim that LLMs need optimisation for standards and frameworks is not tested by the results",
+"p": "5-6, 8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): short Limitation section (coverage, accuracy only); no threats to validity of the comparison",
+"p": "9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q12",
+"v": "Partly (0.5): ByteDance authors evaluate ByteDance's Doubao models and use their own Web-Agent; the other 37 models are independent",
+"p": "1, 4, 28",
+"verdict": "uncertain",
+"why": "Partly rests on two judgements: the Web-Agent is the authors' own harness used in every configuration, and Doubao's link to ByteDance is not stated in the text (Table 9 lists the provider as 'Doubao'; Seed Team thanked).",
+"doubt": "O artigo não diz que o Doubao é da ByteDance e o Web-Agent dos autores está em todas as configurações. Decide se Parcial se mantém ou se passa a Sim/Não."
+},
+{
+"f": "Q13",
+"v": "N/A (proposes an evaluation method, not an approach)",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+}
+]
+}

@@ -1,0 +1,327 @@
+{
+ "key": "rayyan-800486572",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shi, J., Jie, L., Zou, L., Zhu, Y., Yang, Y., Cao, X., Cai, X., Zhang, M. (2026). Trace2Eval: Contextualized Evaluation of Coding Agents from Real-World Traces. arXiv:2611.06506v1 [cs.SE], 4 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.06506v1 [cs.SE], marked 'Preprint'; no venue stated (supporting-materials URL names ICLR)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Harbin Institute of Technology, Shenzhen (Shi, Jie, Zou, Zhang); Independent Researcher (Zhu, Yang, Cao, Cai)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — Trace2Eval, a refreshable pipeline that builds coding-agent benchmarks from anonymized real user traces (trace selection, workspace and environment recovery validated by trajectory replay, human-grounded 11-dimension rubric scored by calibrated judge agents), applied to 129 tasks and 19 model-harness configurations with rubric-guided revision (R1 vs R2) and an unguided ablation",
+   "p": "1-3, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harnesses: Claude Code and OpenHands (versions not stated) within Terminal-Bench 2.0 infrastructure; non-Anthropic models in Claude Code via an Anthropic-compatible gateway. Models: DeepSeek-V4-Pro, GLM-5.2, GLM-5.3, GPT-5.5, GPT-5.6 sol, Kimi-K3, MiniMax-M3, LongCat-2.0, Fable 5 (both harnesses), Gemini 3.6 Flash (OpenHands only). Pipeline agents: Claude Sonnet 4.6 (labelling, admission), Claude Opus 4.6 (recovery), GLM-5.3-Flash (judge), GLM-5.2 (feedback preparation)",
+   "p": "6, 10, 32-33",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no development approach). Per task: instance <q, W0, E0> = distilled user query, recovered initial workspace, containerized initial environment; artifact-quality rubric with 11 dimensions and human and agent score anchors (repository); revision instructions in R2",
+   "p": "2, 5, 24-26, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Trace selection: ~20,000 sessions (June-July 2026) -> 14,603 coding traces -> 300 distribution-aligned candidates -> admission voting (5 LLM votes) + human review -> 129 tasks. (2) Context recovery: restorer, mocker, fetcher, validator agents and human review for files; environment inference, launcher, replay of recorded tool calls, tuning (typically 3 attempts), human verification. (3) Agent execution R1. (4) Artifact evaluation: task classifier, static and runtime evidence agents, judge, 3 rollouts, deterministic aggregation. (5) R2: diagnosis, design and review agents turn rubric results into revision instructions; same model revises; rescoring",
+   "p": "2, 4-5, 15-16, 21-24, 27-28, 35-36",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the candidate agent loop. Pipeline: human review of borderline admission cases, human review of recovered workspaces and verification after replay, two independent human annotators plus a third adjudicator for rubric ground truth, expert setting of dimension weights",
+   "p": "5-6, 16, 21, 23-24, 26-27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: real user requests in recovered workspaces (existing files where recovery needed, 57 of 100 calibration cases needed file recovery) and new artifacts (feature implementation, bug fixing, code understanding, automation, web and game development, etc.)",
+   "p": "2, 4, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "129 tasks from 14,603 coding traces; 19 model-harness configurations; human rubric calibration on 56 artifacts (616 artifact-dimension pairs); recovery calibration sets of 100 and 143 cases",
+   "p": "4, 29-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Diverse real user traffic: software engineering (66.3% of candidates; web development, API, debugging, testing), data and AI, systems/DevOps, security, games; usage scenarios incl. programming, computers/electronics, finance, education, business",
+   "p": "4, 19-20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Source traces from online coding-agent users (software developers 68.0%, ML/algorithm engineers 23.3% of coding traffic); candidate agents run autonomously. Human annotators: bachelor's degree in a computer-related discipline and at least two years of development experience",
+   "p": "19-20, 26",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "R1 standardized execution cost (USD) per model under Claude Code, plotted against artifact quality with a Pareto frontier (Figure 3); cost definition and values not given in the text",
+   "p": "8, 34",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Rubric Total (0-100) = weighted mean of 11 dimensions graded 0/1/2: accuracy 50% (requirement implementation 22.5%, code execution 20.0%, data authenticity), code quality 35%, user experience 15%; group scores Acc, Code, UX; R2-R1 change in pp; tasks improved / unchanged / regressed",
+   "p": "5, 7-8, 24-25, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Code-quality group (35%): readability, robustness, time/space complexity, repair cost, architecture and technical choice (judge agent from source evidence)",
+   "p": "24-26",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "User-experience group (interface and interaction, information presentation, feature richness); recovery fidelity (workspace acceptance, replay score); judge-human agreement (exact, within-one, usability agreement, Cohen's kappa, signed bias); judge self-consistency; total variation distance of task profiles vs traffic",
+   "p": "6, 21, 28-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic with LLM judges: static-analysis and runtime agents collect source, execution and rendered evidence; GLM-5.3-Flash judge assigns grades in 3 independent rollouts, mean used for scores. Judge calibrated against adjudicated human ground truth (two annotators + third adjudicator) on 56 artifacts. Replay scores by a replay evaluation agent; workspace acceptance by human reviewers",
+   "p": "5-6, 27-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark Trace2Eval, 129 tasks, judge GLM-5.3-Flash (Table 1, Table 16). Values: R1 Acc/Code/UX/Total; R2 Total (gain); unguided U2 Total. Claude Code: (1) + DeepSeek-V4-Pro 75.10/82.40/66.30/76.85; 96.13 (+19.28); U2 82.63. (2) + GLM-5.2 79.80/86.90/68.40/80.96; 94.13 (+13.17); 86.39. (3) + GLM-5.3 83.50/90.70/70.10/84.76; 97.29 (+12.53); 90.20. (4) + GPT-5.5 76.80/86.70/59.40/78.10; 89.88 (+11.78); 82.85. (5) + GPT-5.6 sol 85.93/92.44/74.82/86.23; 94.87 (+8.64); 89.71. (6) + Kimi-K3 78.43/87.92/60.24/78.93; 88.07 (+9.14); 82.62. (7) + MiniMax-M3 75.80/85.40/58.90/76.64; 91.57 (+14.93); 83.61. (8) + LongCat-2.0 82.20/90.85/64.40/82.65; 92.04 (+9.39); 86.44. (9) + Fable 5 92.31/96.05/81.76/92.42; 97.37 (+4.95); 94.42. OpenHands: (10) + DeepSeek-V4-Pro 87.85/92.01/75.00/85.72; 93.75 (+8.03); 90.79. (11) + Gemini 3.6 Flash 82.56/90.15/70.68/82.89; 91.76 (+8.87); 85.27. (12) + GLM-5.2 86.90/93.03/67.52/84.27; 95.09 (+10.82); 88.75. (13) + GLM-5.3 82.10/90.19/72.07/84.90; 90.41 (+5.51); 86.79. (14) + GPT-5.5 84.11/90.13/65.47/82.86; 94.62 (+11.76); 88.19. (15) + GPT-5.6 sol 88.23/93.54/78.14/87.46; 95.89 (+8.43); 91.28. (16) + Kimi-K3 77.04/86.84/59.43/77.54; 86.16 (+8.62); 81.44. (17) + MiniMax-M3 84.27/90.67/65.90/82.40; 91.97 (+9.57); 88.21. (18) + LongCat-2.0 78.72/88.21/61.43/79.52; 88.18 (+8.66); 83.44. (19) + Fable 5 88.87/93.06/76.57/88.98; 95.91 (+6.93); 92.12. Gemini 3.6 Flash + Claude Code excluded (gateway thought_signature incompatibility). Cost per configuration only in Figure 3 (not readable). Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "7, 33, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 129 Trace2Eval tasks in recovered contexts. Configurations: 10 models x 2 harnesses (Claude Code, OpenHands) minus Gemini + Claude Code = 19, run in Terminal-Bench 2.0 infrastructure. Held constant: tasks, recovered workspace and environment, rubric, judge (GLM-5.3-Flash, 3 rollouts), feedback preparer (GLM-5.2); R2 uses same model, harness and preserved environment. Baselines: R1 vs rubric-guided R2 vs unguided U2 (original prompt repeated). Acceptance: rubric judge, no tests. Repetitions: three samples per configuration said to be collected, variability not reported; paired bootstrap (10,000 resamples) 95% CIs for R2-R1 gains. Human intervention: none in runs; runs hit by rate limits or environment failures retried. Model settings 'recorded' but not stated",
+   "p": "6, 32-36",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "R1: Fable 5 best under both harnesses (92.42 Claude Code, 88.98 OpenHands); Kimi-K3 lowest (78.93, 77.54). Code quality does not determine UX (e.g. OpenHands GLM-5.2 leads DeepSeek-V4-Pro in code quality but trails by 7.48 pp in UX). Rubric-guided revision raises Total by 10.05 pp on average over 19 configurations, max +19.28 (DeepSeek-V4-Pro, Claude Code), min +4.95 (Fable 5, Claude Code); unguided U2 also improves every configuration but less (R2-U2 from +2.95 to +13.50 pp). Harness matters: GLM-5.3 starts at 84.76 vs 84.90 but ends 6.88 pp higher under Claude Code. Some tasks regress (Table 2). Recovery: 82.6% workspace acceptance (38/46), mean replay score 0.9175, 90.2% of 132 cases >= 0.8. Judge: usability agreement 93.0% vs 92.9% for humans; weighted kappa Agent-GT 0.173 vs Human-GT 0.542",
+   "p": "1, 6-8, 30, 32, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Per the authors, yes: rubric distinguishes models by delivery quality and its feedback yields improvements beyond an unguided pass, read as evidence of rubric validity. Limitations stated: judge-human agreement leaves room for improvement (low kappa on several dimensions); recovery occasionally misses core files even after human verification; scores characterize a specific traffic population and expert-defined criteria",
+   "p": "8-10, 31-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Judge agents reach human-comparable agreement only on some dimensions; judges being refined. File and environment recovery sometimes produces packages lacking core files, obstructing execution; further completeness checks needed. Benchmark reflects one traffic population and expert-defined criteria, not universal preferences or individual developer ability. Gap: next-generation benchmarks should be continually renewed and assess overall artifact quality in real user workflows rather than fixed-task correctness",
+   "p": "1, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 1 (p. 7) and Table 16 (p. 35); Table 2 and Figures 3-5 partly garbled in the text layer. The 10.05 pp mean matches the 19 Table 1 gains. The online coding-agent service the traces come from is not named; taxonomy categories are translated from Chinese and include food takeout scenarios (Table 18). Evaluated LongCat-2.0 is a Meituan model; four co-authors are listed only as 'Independent Researcher', so any vendor link cannot be established from the text. GLM models serve as judge (GLM-5.3-Flash) and feedback preparer (GLM-5.2) while GLM-5.2/5.3 are also evaluated; the same judge's rationales feed R2 and score it. Three samples per configuration said to be collected but variability not reported. Supporting materials (rubrics, anchors, taxonomy, prompts) at anonymous.4open.science/r/TRACE2EVAL-ICLR; source traces not released (privacy, user consent). No pre-registration. Programming languages: various (e.g. Scala/Pekko, Vue in the case study)",
+   "p": "1, 7, 10, 33-35, 37-39",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "'Group buying' does not appear in the text; the taxonomy (Table 18, p. 39) lists Food & Drink – Takeout but no group-buying category."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims, four properties and three RQs clearly stated",
+   "p": "2, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline, selection algorithm, rubric, aggregation and statistics described in detail; tasks and traces not released, harness versions and model settings not stated",
+   "p": "4-6, 15-36",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names with documentation links; Claude Code and OpenHands versions and model settings not stated; Terminal-Bench 2.0 named",
+   "p": "6, 32-33",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): task selection and distributions described in detail; the 129 tasks and source traces are not available (only rubrics and documentation released)",
+   "p": "4, 10, 15-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): rubric grounded in adjudicated human ground truth on 56 artifacts, but benchmark scores come from an LLM judge with low chance-corrected agreement (weighted kappa 0.173 vs 0.542 for humans); no executable tests",
+   "p": "6, 29-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics and aggregation defined by equations; cost appears only as an undefined 'standardized execution cost' in a figure for one harness",
+   "p": "8, 24-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 19 configurations on the same tasks, environments and judge; unguided second pass as control for the feedback effect",
+   "p": "6-7, 34-35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three judge rollouts, three samples per configuration and paired bootstrap CIs for gains; variability across samples not reported and no tests of differences between configurations",
+   "p": "8, 28, 34, 36",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): gains and ablation follow from Tables 1 and 16, but judge reliability is claimed as human-comparable despite low kappa, and R2 gains are measured by the same judge whose rationales produced the feedback",
+   "p": "7-8, 32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph (judge agreement, recovery gaps) and ethics note on population; no structured threats to validity",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): stated affiliations (HIT Shenzhen, independent researchers) are not vendors of the evaluated harnesses or models; see Notes on LongCat-2.0",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "LongCat-2.0 (Meituan) is one of the evaluated models; four co-authors (Zhu, Yang, Cao, Cai) are listed only as 'Independent Researcher', and the cited CATArena and Asuka-Bench papers share these co-authors, but no vendor affiliation is stated in the text. Yes vs Partly depends on whether the author treats this as a vendor link."
+    }
+   ],
+   "warn": "Um dos modelos avaliados é o LongCat-2.0 (Meituan) e quatro coautores aparecem só como 'Independent Researcher'. Verifica as afiliações reais (ex.: Xunliang Cai) e decide se Q12 fica Yes ou Partly."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

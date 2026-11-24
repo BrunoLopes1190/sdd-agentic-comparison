@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486580",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Moumoula, M. B., Nikiema, S. L., Malloy, T., Kaboré, A. K., Klein, J., Bissyandé, T. F. (2026). A Low Similarity Score Does Not Show Independence after Source-Conditioned Repository Rewriting. arXiv:2611.07887v1 [cs.SE], 5 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.07887v1 [cs.SE] (ACM journal template, 'Publication date: November 2026', no venue named); no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Luxembourg, Luxembourg (all six authors; academic)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — empirical study of agent-only, source-conditioned rewriting of six copyleft Python repositories (69 rewrites) and of what token-similarity scores (JPlag) and retention signals can show about independence; RQ1 feasibility and cost, RQ2 run-to-run stability, RQ3 calibration against same-task independent controls",
+   "p": "1-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent: GitHub Copilot agent mode in Visual Studio Code, default settings (version not stated). Models: Claude Haiku 4.5, DeepSeek V4 Pro, Gemini 2.5 Pro, GPT-5.4 mini, Qwen 3.7 Plus (controlled part); Claude, Gemini, Qwen in replication part (identifiers in replication package). Prompts: S1 layout-preserving, S2 paradigm shift, S3 ground-up rearchitecture",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an SDD approach. Fixed prompts (rewriting, cleanup, repair) and a per-project kit: behavioural harness (5-6 executable cases), ordered test cases, repair prompt. Same-task independent controls built from a capability specification and the harness",
+   "p": "5-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Rewriting with prompt S1/S2/S3 on a fresh working copy (operator sends only 'Continue'); (2) cleanup prompt (S3 only); (3) testing and repair in a new chat until all harness cases pass, edits restricted to integration code; (4) archiving before and after repair, checks that no original file is unchanged and no entry point imports the original",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None on code: operator pastes fixed prompts and 'Continue' (median three per rewriting session), never edits code or comments on failures",
+   "p": "5-6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent-only rewrite-and-repair sessions run",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (same-language rewrite of existing open-source repositories with the original in the workspace)",
+   "p": "2, 4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Six projects of 911-9,951 Python SLOC (6-65 files; cap 15,000 SLOC); 69 rewrites (15 controlled + 54 replication); rewrites 1,673-9,648 SLOC in RQ1",
+   "p": "5, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Copyleft (AGPL-3.0/GPL-3.0) Python applications: face swap (Deep-Live-Cam), speech generation (ChatTTS), PDF translation (PDFMathTranslate), VPN deployment (algo), local autonomous agent (agenticSeek), censorship removal for LLMs (heretic); mostly applications built on ML libraries",
+   "p": "5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants); one operator ran all sessions; one author wrote the independent controls",
+   "p": "7, 16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Session time (agent run minutes for rewriting and repair) and dialogue tokens (prompt plus completion sizes from session logs); no monetary cost",
+   "p": "4, 7-9, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Behavioural harness pass/fail (all 5-6 cases pass; outputs compared with the original by kind-specific distances and fixed margins); harness executes 20-58% of original lines",
+   "p": "6, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (SLOC of rewrites reported)",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Number of operator 'Continue' messages (median three per rewriting session); no other intervention",
+   "p": "8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "JPlag 6.3.0 similarity (mean and max of directional similarities; minimum token match 12) before and after repair; joint criterion (sim < θ and pass) at θ = 15/25/30%; variance decomposition (project, agent, interaction, repetition); threshold straddling; import and fingerprint retention, margin vs unrelated originals, ΔSTIC vs same-task controls, AUC; five other detectors in appendix (copydetect, Dolos, MOSS, PMD CPD, line Jaccard)",
+   "p": "6-7, 10-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: JPlag runs, harness execution, session logs for time and tokens, scripted fact extraction for retention. Statistics: Wilson 95% intervals, Wilcoxon signed-rank on paired scores, sum-of-squares shares, Kruskal-Wallis, AUC with 2,000 bootstrap resamples",
+   "p": "6-7, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors (for the study question, not as approach success): harness pass, and the joint criterion sim < 25% and pass. Quality verdict per configuration on these terms; cost: no criterion stated by the authors. RQ1 (Deep-Live-Cam, 1 run each, Copilot agent mode; similarity after repair, all pass the harness): (1) Claude Haiku 4.5: S1 64.3%, S2 50.9%, S3 8.2% (meets joint criterion only under S3). (2) DeepSeek V4 Pro: S1 65.9%, S2 78.2%, S3 22.8% (S3 meets). (3) Gemini 2.5 Pro: S1 16.3%, S2 8.1%, S3 21.8% (all meet). (4) GPT-5.4 mini: S1 62.9%, S2 45.0%, S3 75.1% (none). (5) Qwen 3.7 Plus: S1 99.5%, S2 88.0%, S3 14.7% (S3 meets). Rewriting 8-125 min (median 18), repair 5-59 min (median 15); 13.1M tokens rewriting, 20.0M repair over 15 runs. RQ2 (S3, 6 projects x 3 runs): Claude, Gemini, Qwen; overall 46/54 pass (Gemini 18/18; 8 failures are Claude and Qwen, 6 on ChatTTS), 42/54 below 25%, 34/54 meet joint criterion; median 12.6%; 338M tokens / 33.1 h rewriting, 217M / 39.4 h repair. Per-agent RQ2 values only in figure/appendix",
+   "p": "6, 8-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Metric values checked against Table 3, Fig. 1 and Section 4.2 and are right. But the study is about what similarity scores show, not about whether a configuration 'works': the 25% threshold is an operational threshold for the study question (p. 6, 15), and the harness pass is the only acceptance check. Whether the harness pass or the joint criterion counts as an authors' success criterion for a works/partly/does not work quality verdict is a judgement; no verdict words are given in the value."
+    }
+   ],
+   "warn": "O estudo não avalia se uma configuração 'funciona'; o limiar de 25% é operacional. Decide se o harness (todas passam no RQ1) conta como critério de sucesso para dar veredicto de qualidade, ou se fica 'no criterion stated by the authors'."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 6 copyleft Python projects (Deep-Live-Cam for RQ1). Configurations: 5 models x 3 prompts on one project (1 run each) and 3 models x 6 projects x 3 repetitions with S3. Baselines/references: five unrelated originals, and one same-task independent control per project (written by one author; must pass harness and score 0% JPlag). Held constant: agent tool (Copilot agent mode, default settings), fixed prompts, single operator, fresh working copy, harness. Acceptance tests: fixed behavioural harness per project. Repetitions: 1 (RQ1), 3 (RQ2/RQ3). Human intervention: operator only pastes prompts and 'Continue'",
+   "p": "4-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Prompt: median similarity 64% (S1), 51% (S2), 22% (S3), ordering holds for 3 of 5 agents; one run per cell, so no comparison between prompts or agents is supported. Stability: repetition explains 61% of variance, project 14%, project x agent 25%, agent 0.1%; no detectable project or agent effect (Kruskal-Wallis p = 0.23, 0.33); 7 of 18 configurations straddle 25%. Repair: no systematic direction (Wilcoxon p = 0.74). Retention: rewrites keep 53.6% imports and 47.7% fingerprint vs 9.8%/12.7% for unrelated originals, but controls retain as much (atomic 49.7% vs 44.5%); AUC 0.40 (0.15-0.67) and 0.45 (0.28-0.65), intervals include 0.5",
+   "p": "8-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "It showed that repeated runs dominate variation and that single scores cannot separate rewrites from independent code. Authors' stated limits: RQ1 one run per cell; three repetitions make the variance decomposition descriptive; AUC on six negatives with wide intervals; controls one per project, written by one author who knew the originals, extended after first results; RQ3 is a sensitivity result, not a planned test",
+   "p": "13, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Construct: token similarity is surface correspondence; harness covers 5-6 cases (20-58% of lines); cost only time and tokens, no money; fingerprint corpus-dependent. Internal: agent edits in place, leftover original files; repair went beyond integration changes on Algo; single operator; possible training-data recall; model updates. Conclusion: small repetitions, RQ1 one run, six negatives. External: six Python projects < 15,000 SLOC, mostly ML applications, one agent tool, five models, three prompts, same language, no specification-only runs. Future work: spec-only agent runs, several controls per project, held-out inputs and differential testing, other languages and larger repositories",
+   "p": "12, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Appendix with per-run RQ2 figures, coverage and other detectors is referenced but not in the text read. Duplicate sentence on operator effects in threats (p. 16). Claims to release the 69 rewrites, harnesses and scores and a replication package with model identifiers, but no URL given in the text. No pre-registration. Rewrites distributed under the original licences. Programming language: Python",
+   "p": "2, 5-6, 16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three research questions (feasibility, stability, calibration) stated",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol, measures and analysis described; prompts and model identifiers only in a replication package with no link in the text",
+   "p": "4-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named and JPlag 6.3.0 given, but Copilot/VS Code versions not stated and exact model identifiers deferred to the replication package",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): projects and harnesses described (Table 2) and their release claimed, but no link given",
+   "p": "2, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): fixed executable behavioural harness and JPlag scores, independent of the authors' judgement",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): similarity, harness pass and retention metrics defined; cost measured as session time and dialogue tokens",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): unrelated originals and same-task independent controls as references; agents and prompts compared on the same project and harness",
+   "p": "4-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): three repetitions per configuration in RQ2, variance decomposition, Wilson intervals, Wilcoxon, Kruskal-Wallis, bootstrap AUC intervals",
+   "p": "7, 10, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow and are hedged (RQ1 supports no comparison; 'no separation found, not that none exists')",
+   "p": "8, 13, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section covering construct, internal, conclusion and external validity",
+   "p": "15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): University of Luxembourg authors, independent of GitHub/Microsoft and the model vendors",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

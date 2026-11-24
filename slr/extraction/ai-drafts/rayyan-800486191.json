@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486191",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jha, S., Paltenghi, M., Maddila, C., Murali, V., Ugare, S., Chandra, S. (2026). REAP: Automatic Curation of Coding Agent Benchmarks from Interactive Production Usage. arXiv:2604.01527v4 [cs.SE], 28 Jul 2026; accepted at ASE 2026 Industry Showcase",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ASE 2026 Industry Showcase (accepted, per the arXiv v4 header); text read from arXiv:2604.01527v4",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Meta, USA (all six authors; first two with equal contribution)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — REAP (Relevance and Execution-Audited Pipeline), an automated pipeline that curates execution-based benchmarks from production developer-agent sessions, applied to produce the Harvest benchmark; validation of its LLM classifiers against human annotators, comparison of two pipeline orderings, and two case studies (five models compared; two harnesses with and without Context Files compared)",
+   "p": "1-2, 6-12",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Main nature right. The two case studies are explicitly comparisons ('Model Comparison' of five models; Basic vs Advanced harness, with and without Context Files), so the secondary nature reads better as Compares than Evaluates; a reader could keep Evaluates since the comparisons serve to demonstrate the benchmark."
+    }
+   ],
+   "warn": "A natureza secundária pode ser Compares (os dois estudos de caso comparam cinco modelos e dois harnesses) ou Evaluates; confirma nas secções 4.4 e 4.5 e escolhe. O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations evaluated: five frontier models (Claude Opus 4.6, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3.1 Pro, GPT-5.4); two internal evaluation harnesses, 'Basic Agent' (limited toolset, simpler search) and 'Advanced Agent' (about 3x more tools: code navigation, local diagnostics, formatting, knowledge search), no name or version; each with and without 'Context Files' (developer-authored Markdown files with codebase knowledge). Source agent: a single, unnamed production AI coding assistant",
+   "p": "2, 10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Context Files: developer-authored Markdown files that encode internal codebase knowledge (coding conventions, build system details, project-specific patterns), loaded at evaluation time. Benchmark task: verbatim developer prompt, hidden solution diff, set of fail-to-pass (F2P) tests",
+   "p": "3, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent: single-turn; receives only the prompt, navigates the monorepo with its tools and produces a patch; F2P tests run post-hoc. REAP pipeline (not an agent flow): dataset construction (developer conversations, backed-out environment, candidate test retrieval) -> prompt quality filters (diff leakage, non-testable, template) -> test relevance filter (agentic classifier) -> multi-run test validation (F2P, flaky exclusion)",
+   "p": "3-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent runs (single-turn, no intermediate human feedback). REAP itself has no manual labelling; humans (two authors) only validate the classifiers on samples",
+   "p": "1, 6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (Context Files) in harness case study 2; otherwise models and harnesses run on the benchmark (no SDD workflow)",
+   "p": "10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context files for a coding agent, no specification of the software); authors' wording: 'Context Files', 'developer-authored Markdown files that encode internal codebase knowledge'",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: real developer requests on an industrial monorepo (refactoring and feature requests leading, bug fixes a smaller share; no category above a quarter), solution diff backed out from current master",
+   "p": "4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Harvest snapshot of 132 F2P tasks (from tens of thousands of candidate diffs; ~130 in Table 2). Per task: diff median 39 lines (mean 697.8, max 77,879), files changed median 2 (mean 3.0), F2P tests median 1 (mean 3.3), total tests median 3 (mean 8.3). Five models x 3 runs",
+   "p": "6-7, 9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Meta industrial monorepo (ephemeral tooling, distributed builds); languages: Hack 47.7%, Python 18.9%, other 15.2%, C++ 9.1%, Kotlin 9.1% (relevance-first ordering also adds Swift and TypeScript)",
+   "p": "7-8, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Prompts from developers using a production AI coding assistant at Meta (not otherwise described); classifier validation by two annotators (first two authors, 5+ years SE experience). Agent runs autonomous",
+   "p": "4, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Latency only qualitatively: Context File runs roughly 32% slower; tool calls per model (distribution). No tokens or money",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Solve rate: share of tasks whose F2P tests pass (mean of three runs, min/max whiskers); no LLM judges",
+   "p": "4, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Classifier agreement with human consensus (accuracy, Cohen's kappa, precision, recall, F1); pipeline yield (tasks, F2P pairs retained, language coverage, per-category retention); tool usage distribution; per-diff pass consistency across runs (heatmap); sessions exhausting the iteration budget",
+   "p": "8-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: F2P tests executed post-hoc (pre-change run three times, first two as warm-up), tool-call logs. Manual: two annotators independently labelled 100 tasks (testability) and 50 (diff, test) pairs (relevance), disagreements resolved by discussion",
+   "p": "4-5, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No criterion stated by the authors for any entry (quality and cost). Case study 1, model comparison (132 F2P tasks x 3 runs; harness not stated): (a) Claude Opus 4.6: 58.2%; (b) GPT-5.4: 57.1%; (c) Gemini 3.1 Pro: 57.1%; (d) Claude Sonnet 4.5: 50.5%; (e) Claude Haiku 4.5: 42.9%; cost not reported. Case study 2, harnesses (Claude Opus 4.6 per Table 3; repetitions not stated; absolute solve rates only in Fig. 8): (f) Basic Agent without Context Files (baseline): value only in figure; search-heavy (search 31.4% of calls). (g) Basic Agent + Context Files: +6.4 pp vs (f), 4 vs 7 sessions exhausting the iteration budget, roughly 32% slower. (h) Advanced Agent without Context Files: higher than Basic Agent (value only in figure). (i) Advanced Agent + Context Files: no benefit, can slightly hurt (value only in figure)",
+   "p": "10-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: one Harvest snapshot (132 F2P tasks from one Meta monorepo); all candidates evaluated on the same snapshot. Configurations: five models; Basic vs Advanced harness, each with and without Context Files. Baseline: none designated for models; without Context Files for the context-file comparison. Held constant: task set; model (Opus 4.6) in the harness study; harness in the model study not stated. Acceptance tests: production F2P tests. Repetitions: three independent runs per model (harness study not stated). Human intervention: none (single-turn). No significance tests; min/max whiskers. Pipeline orderings (execution-first vs relevance-first) compared on the same source pool",
+   "p": "9-12, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Models fall in tiers: Opus 4.6 (58.2%), GPT-5.4 (57.1%), Gemini 3.1 Pro (57.1%) within about one point with overlapping min/max ranges (within run-to-run variance); Sonnet 4.5 (50.5%) and Haiku 4.5 (42.9%) trail by clear margins; no significance test. Tool strategies differ (Gemini 3.1 Pro 56% shell calls, GPT-5.4 37% search). Advanced Agent consistently outperforms Basic Agent; Context Files +6.4 pp on Basic Agent, no benefit or slight harm on Advanced Agent. Pipeline: relevance-first retains 88% of execution-first F2P pairs (95 of 108) and admits 22% more tasks (132 vs 108). Classifiers: task classification 87% agreement (kappa 0.74) vs annotators 85% (kappa 0.70); test relevance 86% (kappa 0.72) vs annotators 70% (kappa 0.41)",
+   "p": "8-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Separated models into tiers but not within the top tier (differences inside run-to-run variance; ceiling at 58.2% limits discriminative power); distinguished harnesses and the Context File effect. Repeatability: three runs with min/max; heatmap shows stable easy/hard task clusters with a smaller non-deterministic set; rolling benchmark, comparisons valid only on the same snapshot. Limitations stated: single production assistant and single-turn scope; F2P pass necessary not sufficient for correctness; possible leakage of the backout diff through a local-diff tool; filtered slice skewed to cleaner tasks; relevance filter under-retains dead-code removal (~60%) and feature requests (~84%)",
+   "p": "10-11, 14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Yield (hundreds of tasks) below the scale needed for RL post-training; only single-turn conversations from one assistant; test pass may be satisfied by narrow patches (would need code review or comparison with the human solution); tool exposure may leak the ground-truth solution; ceiling effect; out-of-scope categories (UI-only, documentation, test generation, multi-turn debugging); corpus proprietary. Future: parallelise base-commit execution, cache backout results, recorded workspace snapshots, multiple agents and multi-turn conversations",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Absolute solve rates of the harness study only in Fig. 8 (not in the extracted text). Model for the harness study given only in the Table 3 caption (Opus 4.6); harness for the model study not stated. Language shares from Fig. 3 labels ('other cpp kotlin (15.2%) (9.1%) (9.1%)'), mapped in label order; the caption lists 'Python, C++, Kotlin, and other languages'. Abstract 'more than four programming languages' vs Table 2 '5+ languages'; task count '~130' (Table 2) vs 132 (text). Data: corpus proprietary, not released; artefact (classifier prompts, annotation protocols) at anonymous.4open.science/r/REAP_artifact. Pre-registration: not stated. Programming languages: Hack, Python, C++, Kotlin, Swift, TypeScript and others",
+   "p": "1, 7-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goals (realistic prompts, monorepo, reliable signal) and four contributions stated explicitly",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline stages and classifier validation described in detail, prompts and protocols shared; internal harnesses, harness of the model study and funnel counts not described; data cannot be released",
+   "p": "3-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions named (e.g. Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro; classifier on Claude Sonnet 4.5); harnesses and the production assistant unnamed and unversioned",
+   "p": "5, 10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark composition and statistics described; tasks proprietary and not available",
+   "p": "1, 6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): fail-to-pass tests from production, no LLM judges; classifiers validated against human annotators",
+   "p": "4, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): solve rate defined; cost only as a qualitative latency remark (32% slower), no tokens or money",
+   "p": "10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five models on the same snapshot; harnesses with and without Context Files on the same tasks",
+   "p": "10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three runs per model with min/max ranges; no statistical test; repetitions for the harness study not stated",
+   "p": "10-11, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): authors warn that top-tier differences are within run-to-run variance; negative effect of Context Files on the strong harness reported",
+   "p": "10-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6, Threats to Validity (construct, internal, external, reliability)",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): accepted at ASE 2026 Industry Showcase",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): Meta authors are independent of the model vendors (Anthropic, Google, OpenAI), but the harnesses and production assistant evaluated are Meta's own, and REAP is their method",
+   "p": "1, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

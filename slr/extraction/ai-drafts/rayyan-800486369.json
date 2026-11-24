@@ -1,0 +1,333 @@
+{
+ "key": "rayyan-800486369",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wu, Z., Anderson, C. J., Guha, A. (2026). The Best Programming Language for Tokenmaxxing: An Investigation of Coding Agent Behavior Across Programming Languages. arXiv:2607.22807v2 [cs.SE], 21 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.22807v2 [cs.SE]; no venue stated (ACL-style format with Limitations and Ethics sections)",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Northeastern University (Wu, Guha); Wellesley College (Anderson). Funding: NSF, Oracle Collaborative Research Award, OpenAI credit award (NAIRR Pilot), NVIDIA Academic Grant Program",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — effect of target programming language (Python, Java, Rust, OCaml) on output-token cost and behaviour of one agent scaffold (mini-swe-agent) with five models on MiniLCB (100 LiveCodeBench v6 problems, 2,000 trajectories), controlling for problem difficulty with mixed-effects models; introduces trajectory analysis by re-executing every intermediate solution snapshot and labelling snapshot spans with a 12-label taxonomy",
+   "p": "1-4, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent: mini-swe-agent (version not stated) with a fixed competitive-programming prompt. Models: Qwen3.6-35B-A3B (local, vLLM, FP8), Gemma-4-26B-A4B (local, vLLM), GLM-5.2 (Hugging Face Inference API), GPT-5.5 (medium reasoning), Claude-Sonnet-4.6 (reasoning, 10K budget); reasoning enabled for all",
+   "p": "2-3, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no development approach). Per problem: small repository with tests/ directory (input/output pairs, 2-45 per problem, median 22), test.sh runner printing PASS/FAIL, solution file and language compile/run commands given in the prompt",
+   "p": "3, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent loop: read problem -> write solution -> run ./test.sh -> revise -> submit with sentinel when tests pass; limits 40 turns, 600 s wall clock, 256 MB memory, 10 s per test. Analysis: re-execute every intermediate solution snapshot, classify transitions (breakthrough, stay, improved, regressed, churn, broke, stuck), label spans with GPT5-Mini plus manual review",
+   "p": "3-6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent loop. Author-side: manual review of all LLM-assigned span labels; manual inspection of LLM-flagged cheating cases",
+   "p": "6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach run)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New code: self-contained competitive-programming problems over standard I/O (no existing code base)",
+   "p": "3, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 problems randomly sampled from 499 language-neutral LiveCodeBench v6 problems; 4 languages x 5 models = 2,000 agent sessions",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Competitive programming (AtCoder-style problems, e.g. abc311_d, arc194_e)",
+   "p": "3, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total output tokens per trajectory (reasoning plus visible output; main metric, reported as medians and mixed-effects token-cost ratios vs Python); tokens and turns to first correct solution and after it; input tokens, reasoning tokens, wall-clock seconds (medians); mean tokens and tokens per success; GPU-hours and API dollars to reproduce. No monetary cost per run (provider-specific)",
+   "p": "4-5, 12, 15, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Accuracy (share of problems whose final solution passes all tests); ever-solved rate (passed all tests at some snapshot)",
+   "p": "4, 15, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Test-outcome transition graphs per snapshot; span-label distributions (implement, explore, rewrite, execute plan, fix bug, debug failure, infra confusion, revert, verify, edge case, optimize perf, cosmetic refactor), share by count and by tokens; second-guessing keyword rates; trajectory termination (submitted, timeout, turn limit); cheating checks; representation share of final file tokens",
+   "p": "5-8, 12, 15-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: output tokens from trajectories; every intermediate solution re-run against the test suite in an external harness; linear mixed model log(output_tokens) ~ language + (1|problem_id) by REML per model. Span labels by LLM judge GPT5-Mini, all manually reviewed; cheating flagged by an LLM judge and manually inspected",
+   "p": "4-6, 12, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark MiniLCB, mini-swe-agent for all, one trajectory per problem and language. Values per language Python/Java/Rust/OCaml: ever-solved; median output tokens; token-cost ratio vs Python (95% CI) (Tables 2, 5, 17). (1) mini-swe-agent + Gemma-4-26B-A4B: 84/82/86/62%; 11,099/11,552/15,014/23,097; Java 0.85x (p = 0.114), Rust 1.07x (p = 0.480), OCaml 1.44x [1.18, 1.75] p < 0.001. (2) + Qwen3.6-35B-A3B: 84/79/84/77%; 2,830/3,357/4,045/8,546; Java 1.21x, Rust 1.20x (p < 0.05), OCaml 1.69x (p < 0.001). (3) + GLM-5.2: 100/97/97/99%; 861/902/1,679/1,587; Java 1.34x (p < 0.01), Rust 1.57x, OCaml 1.54x (p < 0.001). (4) + GPT-5.5: 100/99/98/97%; 643/890/834/965; Java 1.30x, Rust 1.36x, OCaml 1.30x (all p < 0.001). (5) + Claude-Sonnet-4.6: 92/96/96/95%; 1,348/1,407/1,324/1,865; Java 1.18x, Rust 1.16x, OCaml 1.28x (all p < 0.001). Final-solution accuracy only in Figure 1 (values not in the text layer; Gemma much worse on OCaml). Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "4-5, 13, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 MiniLCB problems in 4 languages. Configurations: 5 models x 4 languages on the same mini-swe-agent scaffold, prompt template, container (Ubuntu 24.04, Python 3.12.3, OCaml 5.4.1, OpenJDK 21.0.11, Rust 1.96), limits and visible tests. Baseline: Python as reference language. Acceptance: all provided tests pass (tests visible to the agent). Repetitions: one session per problem-language-model; difficulty controlled by problem random intercept. Human intervention: none. Sampling parameters stated per model",
+   "p": "3-4, 12, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Accuracy little affected by language except Gemma on OCaml. OCaml costs significantly more output tokens than Python for all models (1.28-1.69x, p < 0.001); Java and Rust penalties model-dependent (not significant for Gemma; significant for the other four). ICC 0.73-0.97: problem difficulty dominates token variance. Gemma and Qwen keep producing hundreds to thousands of tokens after a first correct solution; Gemma on OCaml has 1,196 stuck self-loops, 92% of failed snapshots are compile errors. Error-recovery labels concentrate in OCaml. Tokens per success: OCaml most expensive for Gemma (45,390, 1.4-1.9x), narrowly for Qwen and GLM, not for GPT-5.5 or Sonnet. OCaml extra cost is not representation (median final-file tokens 272 vs Python 190, total 6,706 vs 2,548)",
+   "p": "4-5, 7, 15, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: mixed-effects models separate language from problem difficulty, and snapshot re-execution localises behaviours (stalling, polishing passing solutions, prototyping in Python); per-problem equal-weight analyses show behaviours are not driven by a few long trajectories. Limitations stated: one scaffold, fixed prompt and limits, self-contained problems, four languages and five models",
+   "p": "4, 9, 13-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Behaviours may not generalize to other models, and language effects may change as pretraining coverage improves; single scaffold (mini-swe-agent) with fixed prompt, turn limit and timeout; self-contained problems with visible tests, so findings may not generalize to repository-scale tasks or other harnesses; inefficiency expected to be larger in less constrained settings. Gap: by-language token efficiency should be considered when benchmarking and developing multilingual agents",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Tables 2, 5 and 17 (p. 5, 13, 18); Figure 1 accuracy and some Table 17/18 cells not readable in the text layer. Inconsistencies: introduction says the OCaml effect is 'most pronounced ... across all models', but GPT-5.5 has Rust 1.36x > OCaml 1.30x and GLM Rust 1.57x > OCaml 1.54x; §4.1 says that for all models agents produce 'the fewest tokens when writing Python', but Table 17 medians give Sonnet Rust 1,324 < Python 1,348 and Table 2 gives Gemma Java 0.85x Python, and GLM median OCaml 1,587 < Rust 1,679 despite 'significantly more tokens when writing OCaml'; abstract says variation is 'consistent across models', while Appendix H finds OCaml is not the most expensive per success for GPT-5.5 and Sonnet. Cheating found in 2 traces (GPT-5.5, same problem). Code and data to be released upon publication (not yet available). Some code written with AI assistants. No pre-registration. Programming languages: Python, Java, Rust, OCaml (the independent variable)",
+   "p": "1, 4-5, 12-13, 15, 17",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Missed a reporting inconsistency: §4.1 (p. 4) claims the fewest tokens in Python and most in OCaml for all models, contradicted by Table 17 medians (Sonnet Rust < Python; GLM OCaml < Rust) and Table 2 (Gemma Java 0.85x)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal (how agent behaviour and token cost vary by programming language) and four contributions clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): scaffold, prompt template, environment, limits, hyperparameters, mixed-model specification and labelling taxonomy described; the sampled problem list is not given",
+   "p": "2-3, 6, 12, 17",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Setup, prompt, limits, hyperparameters and model specification are given, but the 100 randomly sampled problems are not listed, the mini-swe-agent version is missing and code/data are only promised; Yes vs Partly is a judgement."
+    }
+   ],
+   "warn": "O método está bem descrito, mas a lista dos 100 problemas sorteados, a versão do mini-swe-agent e o código não estão disponíveis. Decide se Q2 é Yes ou Partly."
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions and sampling/reasoning settings given; mini-swe-agent version not stated",
+   "p": "2-3, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): MiniLCB construction from LiveCodeBench v6 described; the 100 sampled problems not listed and code and data only promised upon publication",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): success by provided LiveCodeBench test cases, re-executed in an external harness",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): output tokens and accuracy defined; token measurement and mixed model specified (Appendices G, K); cost and quality both covered",
+   "p": "4, 15, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): languages compared on the same problems, scaffold and models with Python as reference level",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): mixed-effects models with 95% CIs and p-values per contrast; equal-weight per-problem robustness analyses; single run per problem-language-model",
+   "p": "4-5, 13-15, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow from Tables 2 and 5, but the introduction and abstract overstate OCaml as the most costly language for all models, contradicted by GPT-5.5/GLM ratios and Appendix H",
+   "p": "1, 5, 13, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations section on generalization, scaffold and task type; no structured threats-to-validity discussion (e.g. single run, LLM labelling)",
+   "p": "9",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "There is a dedicated Limitations section (p. 9) on generalization to models, languages, scaffold and task type; it does not discuss single runs per problem or LLM span labelling. Partly vs Yes is a judgement."
+    }
+   ],
+   "warn": "Há secção de Limitations (p. 9) sobre generalização, mas não trata da execução única nem da rotulagem por LLM. Decide se chega para Yes ou fica Partly."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; mini-swe-agent and all models are third-party (OpenAI credit award acknowledged as funding)",
+   "p": "1, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no development approach proposed)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

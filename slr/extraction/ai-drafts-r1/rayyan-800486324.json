@@ -1,0 +1,359 @@
+{
+"key": "rayyan-800486324",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Raghavendra, M., Gunjal, A., Sabharwal, A., He, Y. (2026). SWE-INTERACT: Reimagining SWE Benchmarks as User-Driven Long-Horizon Coding Sessions. arXiv:2606.30573v1 [cs.LG], 29 Jun 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2606.30573v1 [cs.LG]; no published venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Author affiliation",
+"v": "Scale AI (all four authors; industry)",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an evaluation method; secondary: Compares — SWE-INTERACT testbed of 75 multi-turn, user-driven tasks adapted from SWE-bench Pro, SWE Atlas (Refactoring) and DeepSWE, with a persona-conditioned LLM user simulator that reveals requirements progressively and inspects the agent's workspace; five agent/model pairs compared between the single-turn (fully specified) and the multi-turn setting, plus simulator ablations",
+"p": "1, 3-5, 8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach. Configurations evaluated: Codex CLI + GPT 5.5; Claude Code + Opus 4.8; Claude Code + Sonnet 4.6; Kimi CLI + Kimi K2.6; OpenCode + Gemini 3.5 Flash (native scaffold of the provider where available on Harbor; scaffold versions not stated; high reasoning effort). Two task settings: single-turn baseline (full instructions upfront) and multi-turn SWE-INTERACT (Expert Nitpicker persona); ablation: neutral persona. User-simulator models: Claude Opus 4.7 and GPT 5.5",
+"p": "5, 8-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "None prescribed by an SDD approach. In the multi-turn harness the agent is instructed to commit its initial plan (PLAN.md), every implementation revision made in response to user feedback, and a final test patch. The single-turn baseline uses the original fully specified task instruction including the expected interface",
+"p": "3-4, 7",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Workflow modelled on real sessions: GOAL-DISCOVERY → PLAN → APPROVAL → IMPLEMENT → REVISE → SUBMIT, iterated. In the harness: user gives a brief overview; agent proposes a plan; user approves; agent implements and commits; user inspects and adds one requirement at a time until all instructions are handed off; agent submits; Harbor runs the original verifier",
+"p": "2, 4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human review points",
+"v": "No real human. An LLM user simulator (verifier-blind) reviews the plan, inspects the workspace with shell tools (git, grep, sed, find) after each commit, gives one correction at a time and approves when satisfied",
+"p": "4, 9, 18-21",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Parts exercised",
+"v": "N/A (no SDD approach); the full multi-turn plan-implement-revise workflow is run with a simulated user",
+"p": "4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification artefact; the study contrasts fully specified single-turn tasks with vague, progressively revealed requirements). Authors do not use SDD terms",
+"p": "2-3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Task type",
+"v": "Existing code bases (tasks from SWE-bench Pro, SWE Atlas Refactoring and DeepSWE, each with a Docker environment and the codebase; feature, refactoring and bug-fix tasks)",
+"p": "3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Size",
+"v": "75 tasks (25 per source benchmark, manually selected for complex, layered requirements); multi-turn: 2 runs per model = 150 trials per model; single-turn: 1 run. Repository size Not stated. Longest trajectory: 27 user messages, 332 user tool calls, >1000 agent steps",
+"p": "3, 5-6, 13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Domain",
+"v": "Not stated in general; open-source repositories of the source benchmarks (examples: qutebrowser, OpenLibrary, kcp-go, Helm, Kombu, returns)",
+"p": "15-16, 21-22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no human participants). Simulated user persona: 'Expert Nitpicker' in the vibecoding interaction mode, derived from SWE-chat real-user data (senior developers, short, casual, iterative messages)",
+"p": "4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Cost metrics",
+"v": "Agent steps per trial; non-cache tokens per trial; cost per trial (USD; n/a for Kimi K2.6)",
+"p": "5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "Resolve rate with the original task's verifier (unit tests and/or rubrics), with Wilson 95% confidence intervals for multi-turn runs; goal-discovery score (weighted sub-goal rubric, 0-100) for the plan and each implementation checkpoint",
+"p": "3, 5-7, 13, 15",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None measured (authors state qualitatively that the strongest models 'write clean code')",
+"p": "1, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human effort metrics",
+"v": "Simulated user effort: user-agent turns per trial and user tool calls per trial (no real human effort measured)",
+"p": "5-6, 8-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "Failure-mode distribution over 287 failed trajectories (technical implementation bug, regression, forgotten requirement, misinterpretation/bad assumption, missing user requirement); code evolution: ChurnOverhead = (Σ c_t − f)/f and LateChangeShare = Σ_{t≥2} c_t / Σ_t c_t (medians per model)",
+"p": "7-8, 22-23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: Harbor runs the original verifier on the final solution; steps, tokens and cost from runs; churn from committed revision patches. LLM-as-judge: GPT 5.5 (high) generates goal-progress rubrics, Sonnet 4.6 (high) scores plan and checkpoints; GPT 5.5 labels failure modes of 287 failed trajectories. No human validation of the LLM labels reported",
+"p": "4, 6-7, 15, 22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "Success criterion per task: the original verifier passes; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Single-turn baseline (1 run, 75 tasks): (1) Codex CLI + GPT 5.5: 48.0%, 108.6 steps, 0.14M tokens, $2.78/trial. (2) Claude Code + Opus 4.8: 50.7%, 56.1 steps, 0.17M, $5.09. (3) Kimi CLI + Kimi K2.6: 25.3%, 85.5 steps, 1.19M, cost n/a. (4) OpenCode + Gemini 3.5 Flash: 29.3%, 72.4 steps, 0.55M, $2.55. (5) Claude Code + Sonnet 4.6: 21.3%, 53.6 steps, 0.15M, $2.96. Multi-turn SWE-INTERACT (2 runs, simulators Opus 4.7 and GPT 5.5, 150 trials): (6) GPT 5.5: 24.7% [18.5, 32.1] (37/150), 424.8 steps, 0.36M, $9.84. (7) Opus 4.8: 26.7% [20.2, 34.3] (40/150), 180.9 steps, 0.35M, $11.80. (8) Kimi K2.6: 14.7% [9.9, 21.2] (22/150), 144.4 steps, 5.37M, n/a. (9) Gemini 3.5 Flash: 17.3% [12.1, 24.2] (26/150), 217.2 steps, 1.53M, $7.40. (10) Sonnet 4.6: 18.8% (Table 1) / 18.7% [13.2, 25.7] (28/150, Table 4), 174.6 steps, 0.24M, $6.10. Ablation, neutral persona (resolve; steps; turns): GPT 5.5 29.3%, 265.0, 3.67; Opus 4.8 29.3%, 108.7, 3.60; Kimi K2.6 13.3%, 164.9, 2.39; Gemini 3.5 Flash 17.3%, 148.7, 3.32; Sonnet 4.6 25.3%, 113.9, 3.97. Ablation, simulator model (resolve Opus 4.7 sim / GPT 5.5 sim): GPT 5.5 25.3/24.0%; Opus 4.8 22.7/30.7%; Kimi 14.7/14.7%; Gemini 14.7/20.0%; Sonnet 20.0/17.6%. Goal discovery: GPT 5.5, Opus 4.8, Sonnet 4.6 eventually address >90% of goals; Gemini lower; Kimi far short",
+"p": "5, 7-9, 13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: design",
+"v": "Tasks: 75 tasks from three benchmarks, same Docker environments and same verifier in both settings. Configurations: 5 agent/model pairs × single-turn vs multi-turn; ablations: Expert Nitpicker vs neutral persona, Opus 4.7 vs GPT 5.5 simulator. Baseline: single-turn original task. Held constant: agent scaffold and environment per model, verifier, high reasoning effort; scaffold differs across models (native scaffolds; OpenCode for Gemini). Acceptance tests: original benchmark verifiers (unit tests and/or rubrics). Repetitions: single-turn 1 run (cost); multi-turn 2 runs, each with a different simulator model. Human intervention: none (LLM user simulator restricted to git, grep, sed, find; cannot modify code or run tests)",
+"p": "3-5, 8-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: result",
+"v": "All models resolve fewer tasks multi-turn than single-turn: GPT 5.5 −23.3 pp, Opus 4.8 −24.0 pp, Kimi K2.6 −10.7 pp, Gemini 3.5 Flash −12.0 pp, Sonnet 4.6 −2.5 pp, while using 1.7–3.9× steps, 1.6–4.5× tokens and 2.1–3.5× cost. Best multi-turn: Opus 4.8 26.7% and GPT 5.5 24.7% (overlapping 95% CIs). Expert Nitpicker persona lowers resolve rate for 4 of 5 models vs the neutral persona (−2.7 to −6.7 pp; Kimi +1.3 pp) and raises turns by 24–97%. GPT 5.5 as simulator gives 1.5–2× longer trajectories and 4–5× more user tool calls. Failure labels: technical bug 34%, forgotten requirement 34%, misinterpretation 14%, missing user requirement 12%, regression 7%. Opus 4.8 has the lowest churn overhead. No significance test of differences",
+"p": "5, 7-9, 13, 22-23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "It separated the single-turn and multi-turn settings for every model; between models the multi-turn CIs overlap. Repeatability: single-turn run once; the two multi-turn runs use different simulator models, so they are not pure repetitions. Limitations stated: simulator model substantially affects agent performance; 12% of failure labels are 'missing user requirement', likely benchmark false negatives showing simulator robustness gaps; grading models are generous on plans vs implementations; only one persona; user limited to read-only commands",
+"p": "5, 7-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "No limitations section. Stated gaps: single-turn performance does not transfer to user-driven workflows; agents introduce technical bugs, forget requirements and fail to maintain correct implementations as feedback accumulates; interactive goal discovery is an under-measured capability. Future work: more diverse user personas; simulator able to modify code and run tests; simulator robustness (missing requirements)",
+"p": "4, 7, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Notes",
+"v": "Inconsistencies: Sonnet 4.6 multi-turn 18.8% in Table 1 vs 18.7% (28/150) in Table 4; Sonnet 17.6% with GPT 5.5 simulator (Table 3) is not a whole count of 75 tasks. Table 2 'Ours' values equal the Opus 4.7-simulator column of Table 3, so the persona ablation seems run with the Opus 4.7 simulator only (not stated). Text says steps and turns increase '30-50%' with the persona; Table 2 shows +28 to +49% steps (Kimi −12%) and +24 to +97% turns. Table 3 user tool-call values and Figure 3/6 per-model values are not reliably assignable in the extracted text (Figure 6 excludes Kimi). Table 1 caption says multi-turn averaged over 2 runs with Opus 4.7 and GPT 5.5 as simulator. Code/harness: https://github.com/scaleapi/SWE-Interact. No pre-registration. Programming language: Not stated overall; example tasks in Python, Go and TypeScript. One author (Raghavendra) also authored source benchmark SWE Atlas",
+"p": "1, 5, 8-9, 13, 22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): aim (study how agents work with a developer in a multi-turn loop) and contributions stated",
+"p": "2-3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): harness, simulator prompt modules and scoring prompts given; task list, task-specific goal blocks and scaffold versions not in the paper (harness on GitHub)",
+"p": "3-4, 15-21",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q3",
+"v": "Partly (0.5): model versions named (GPT 5.5, Opus 4.8, Sonnet 4.6, Kimi K2.6, Gemini 3.5 Flash, simulators Opus 4.7, GPT 5.5); agent scaffolds (Codex CLI, Claude Code, Kimi CLI, OpenCode) and Harbor without versions",
+"p": "5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): source benchmarks and selection (25 per benchmark, manual) described and repository linked; individual tasks not listed in the paper",
+"p": "1, 3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q5",
+"v": "Yes (1): resolve rate from the original benchmark verifiers (unit tests and/or rubrics), independent of the simulator",
+"p": "3-4, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q6",
+"v": "Yes (1): resolve rate (quality) and steps, tokens, cost (cost) reported; churn metrics formally defined",
+"p": "5, 22",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q7",
+"v": "Yes (1): single-turn baseline on the same tasks with the same agent, environment and verifier; neutral-persona ablation",
+"p": "5, 8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): Wilson 95% CIs for multi-turn resolve rates; single-turn run once; the two multi-turn runs use different simulators; no test of differences",
+"p": "5, 13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): the drop from single- to multi-turn follows from Table 1; claims of 'clean code', 'significantly improves task realism' and 'significantly less churn' rest on no measure or test",
+"p": "1, 8, 10, 23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q10",
+"v": "Partly (0.5): no threats-to-validity section; some limitations mentioned in passing (simulator false negatives, generous plan grading, single persona, simulator model effect)",
+"p": "4, 7-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q12",
+"v": "Yes (1): authors (Scale AI) evaluate agents and models of other vendors (OpenAI, Anthropic, Moonshot, Google); they built the benchmark, which is an evaluation method, not an evaluated approach",
+"p": "1, 5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q13",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+}
+]
+}

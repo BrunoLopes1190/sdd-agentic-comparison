@@ -1,0 +1,359 @@
+{
+"key": "rayyan-800486329",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Davis, J. C., Amusuo, P. C., Singla, T., Çakar, B., Davis, K. A. (2026). Cheap Code, Costly Judgment: A Case Study on Governable Agentic Software Engineering. arXiv:2607.01087v2 [cs.SE], 4 Jul 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2607.01087v2 [cs.SE]; no published venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Author affiliation",
+"v": "Purdue University, USA (all five authors; academic)",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Nature of the study",
+"v": "Evaluates; secondary: Proposes an approach — 12-week first-person case study in which one expert engineer (an author) built a document accessibility remediation system with Claude coding agents; from 88 field notes and repository history the authors induce a middle-range process theory of 'governance conversion' and a catalog of governance mechanisms, with testable propositions",
+"p": "1, 3-4",
+"verdict": "uncertain",
+"why": "The paper frames itself as theory-building from a first-person case study (process model, catalog of 41 mechanisms, testable propositions); main nature could be Evaluates (case study of one configuration) or Proposes an approach (the governed environment / governance conversion), or Conceptual (theory). Kept the draft value; it drives Q12 and Q13.",
+"doubt": "O artigo é um estudo de caso na primeira pessoa que induz uma teoria e um catálogo de mecanismos; decide se a natureza principal é Evaluates, Proposes an approach ou Conceptual (afeta Q12 e Q13)."
+},
+{
+"f": "Approach(es): name and version",
+"v": "Governance conversion / governed engineering environment (the Subject's own harness: agent governance and product governance mechanisms; catalog of 41 representative mechanisms in ten families); no version. Agent: Anthropic Claude via the 'Claude for VSCode' plugin, orchestrator with role-typed agents (Sonnet implement, Sonnet repair, Sonnet lint-runner, Opus review); model versions not stated",
+"p": "5-7",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "CLAUDE.md rule index with a cap lint; agent task briefs (brief-linting, dynamic context injection of the constraints that govern the intended files); Epic templates and Definition-of-Done checks; hierarchical agent-referenced documentation and indices; typed component catalog / system models (MBSE); closed remediation-verb sets; provenance and attribution stamps; changelog; static and dynamic analyses (lints, tests, property-based tests, fuzz harnesses)",
+"p": "5-7",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Governance-conversion loop: 1. velocity exposes failure; 2. human classifies failure (local vs structural); 3. governance conversion (probabilistic, e.g. agent harness, or deterministic, e.g. type system); 4. future work constrained; 5. governability compounds. Agent work passes staged incorporation gates (sentinel first-commit early abort, pre-commit hook, merge-train batching, staged deploy gates). Project stages: feasibility probe, PowerPoint prototype, format expansion, SaaS, standards conformance, hardening",
+"p": "4-5, 7-8",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human review points",
+"v": "The Subject sets goals, acceptance criteria, architectural direction, validation and deployment decisions, and interprets failures to design controls; he inspected almost no agent-produced code (deliberate departure from oversight-centric review). Opus agent performs review within the orchestrator",
+"p": "5, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Parts exercised",
+"v": "Full workflow (governed environment used for the whole 12-week development of a deployed system)",
+"p": "4-6",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification-first artefact; authors speak of governance, agent briefs, task contracts and system models, not of specifications)",
+"p": "5-9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Task type",
+"v": "New project (greenfield system, later deployed as SaaS); lessons later applied to two subsequent projects",
+"p": "3-5, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Size",
+"v": "12 weeks; 18,662 commits; ~420 KLOC production code and 1.16 MLOC of tests, lints, documentation and agent tooling (2.75× production code); Fig. 3: 3.1 M total lines, 10 K files; 88 field-note incidents. Subsequent projects: 50 KLOC and 36 KLOC",
+"p": "1, 3, 5-6, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Domain",
+"v": "Document accessibility remediation (Office and PDF to WCAG 2.1 AA, US ADA public-sector regulation) for university course materials; SaaS on Google Cloud",
+"p": "4-5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Team profile",
+"v": "Single expert (N=1): software engineering professor and paper author, 16 years of experience (5 industry, 5 PhD, 6 professor), pre-GenAI development of ~100 KLOC in C/C++, Perl, Python; other authors analysed the record",
+"p": "4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Cost metrics",
+"v": "Development cost ~$60K USD ($50K Subject's salary, $2K inference via OpenAI API and Google Vertex, $6K Google Cloud hosting, $2K Claude subscriptions); 2-4 Claude Max 20x accounts saturated per week, estimated 9-18M tokens per week (third-party estimate); velocity as commits and lines changed per week (Fig. 2). Product runtime: ~60 s and ~$1 per slide deck",
+"p": "4-5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "None measured systematically; reported qualitatively: the system passes or substantially improves accessibility checks; TypeScript front-end refactor (~100 KLOC) with no defects observed under the project's checks",
+"p": "5, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None measured; size of the control apparatus reported (static analyses 238 KLOC, dynamic analyses 405 KLOC, agent documentation 247 KLOC, agent infrastructure 110 KLOC, tooling 162 KLOC; 577 project-specific analyses; >13,000 C# test methods, ~1,500 Python test files, >300 property-based tests, 90 fuzz harnesses)",
+"p": "6",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None measured beyond the Subject working on the project as primary activity for 12 weeks (salary $50K)",
+"p": "4-5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "Incident counts by class and category (88 incidents: engineering reflection 72 — controls 35, architecture 20, economics 8, conceptual framing 7, AI capability 2; context and relational 10; temporal narration 6); 41 mechanisms in 10 families; deepest stack of 14 complementary mechanisms; 13 cross-incident themes in four clusters",
+"p": "5-7",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Manual: contemporaneous field notes (88 episodes), critical-incident memoing, codebook developed by the Subject in 11 iterations with LLMs as analytic aids; validity check by a second author re-coding 10 incidents (10/10 class, 6/7 category, 5/7 third layer). Automatic: repository history (commits, lines). Token use estimated from third-party estimates",
+"p": "3, 5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "(1) Governed engineering environment + Claude (Claude for VSCode; Sonnet and Opus agents, versions not stated), 12-week case: success criterion not stated by the authors as a threshold; quality verdict and cost verdict: no criterion stated by the authors. Values: deployed system that passes or substantially improves accessibility checks (no figures); ~420 KLOC production code + 1.16 MLOC support; 18,662 commits; cost ~$60K, est. 9-18M tokens/week",
+"p": "3-6",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: design",
+"v": "N/A (single case, no configurations compared; the three process models of prior work are contrasted conceptually; subsequent projects mentioned anecdotally)",
+"p": "2, 9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: result",
+"v": "N/A. Authors report that applying the lessons ex-ante on two later projects (50 KLOC, 36 KLOC) gave faster initial progress, without figures",
+"p": "9",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Limitations: governance interpreted, not measured; velocity metrics (LOC, commits) hard to interpret; single Subject (N=1) and one toolchain; selective memory, retrospective rationalisation and confirmation bias (Subject also analyst); expert subject, unclear for non-experts or teams; future model capabilities may change findings; harm to the Subject from sustained agentic work. Gaps / future work: test propositions (velocity exposure via repository mining, soft-control saturation via controlled experiments, conversion compounding via longitudinal comparison, judgment and authority via interviews/surveys); tools to distinguish local from structural defects; organisational authority for governance in teams",
+"p": "8-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Notes",
+"v": "Inconsistencies: abstract gives 420 KLOC production code and 1.16 MLOC support; §III-C 'approximately 1.6 million lines of active artifacts'; Fig. 3 '400 KLOC product code + 1 MLOC controls, 3.1 M total lines'. Token figures are third-party estimates (Anthropic usage data opaque). Fig. 2 values not legible in the text. Data: description of the governed environment, controls and a Claude skill at https://davisjam.github.io/agent-governance-mechanisms/index.html; field notes and repository not released. No pre-registration. Programming languages: C#/.NET, Python, TypeScript. Funded by US NSF",
+"p": "1, 3-6, 10-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): one explicit RQ (through what process can high-velocity agentic implementation become governable progress)",
+"p": "3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): case-study design, memoing, codebook iterations and re-coding check described; field notes, codebook and repository not available, so the analysis cannot be replicated",
+"p": "3-4, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q3",
+"v": "No (0): Claude, Sonnet and Opus named without versions; 'Claude for VSCode' plugin without version",
+"p": "5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): case, requirements and engineering context described in detail; repository not available, only a description of the mechanisms online",
+"p": "4-6, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q5",
+"v": "Partly (0.5): no independent criterion of product quality (accessibility checks mentioned without figures); interpretation checked by a second author re-coding 10 incidents",
+"p": "3, 5",
+"verdict": "uncertain",
+"why": "No independent measure of product effectiveness is reported: 'pass or substantially improve performance on accessibility checks' and 'no defects observed under the project's checks' give no figures; the second-author re-coding (10 incidents) validates the qualitative analysis, not the effectiveness of the approach. Partly is defensible; No (missing information) is also defensible.",
+"doubt": "Só há verificações de acessibilidade sem números e uma recodificação de 10 incidentes por outro autor; decide se isto conta como critério independente (Partly) ou se é informação em falta (No)."
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): cost reported (money, estimated tokens) but quality metrics not defined or measured",
+"p": "5, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q7",
+"v": "No (0): single case, no baseline",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q8",
+"v": "No (0): N=1, no repetitions or statistical analysis",
+"p": "10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): theory is hedged as candidate and not about prevalence, but the conclusion that achievable velocity depends on governance maturity rests on unmeasured constructs",
+"p": "3, 7, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q10",
+"v": "Yes (1): threats to validity section (construct, internal, external) plus research ethics",
+"p": "10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q12",
+"v": "No (0): the governed environment evaluated was created by the Subject, an author (counts as vendor); the agent vendor (Anthropic) is independent",
+"p": "4-5",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q13",
+"v": "Partly (0.5): requirements stated (~$60K, 2-4 Claude Max 20x accounts, $2K inference, $6K cloud, 12 weeks) and tooling is commodity, but it relied on a 16-year expert and >1 MLOC of custom controls, and authors question transfer to non-experts",
+"p": "4-6, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+}
+]
+}

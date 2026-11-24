@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800486543",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jain, V. (2026). Beyond Benchmarks: Can Small Open-Weight Models Get Real Coding Work Done? An Engineering Journey Through Model Serving, Tool Calling, Runtime Fragmentation, and Verified Coding Tasks. arXiv:2610.34241v1 [cs.SE], 25 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.34241v1 (25 Oct 2026); no published venue stated (record only in the arXiv export)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent Researcher, India (single author). Competing interest declared: the author develops self-hosted AI infrastructure with potential commercial applications related to the system examined",
+   "p": "1, 27"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — retrospective empirical systems experience report (July-October 2026) on serving open-weight models for coding agents, with three delegation studies comparing direct frontier coding (Claude Code + Claude Opus 5.5) with delegation to local open-weight workers, scored by hidden behavioural checks",
+   "p": "1, 3-5, 13-17"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations: (A) direct frontier coding: Claude Code + Claude Opus 5.5; (B) frontier-to-open-weight delegation: Claude Code + Opus 5.5 parent delegating bounded implementation to a local worker under the author's delegation contract: 'optimized' and 'batch-labeled adaptive' delegation with Qwen3-Coder 30B-A3B IQ3 (llama.cpp); Nemotron Cascade 2 and Qwen3-Coder 30B-A3B as 4-bit MLX checkpoints. Claude Code version Not stated (changed during the Nemotron study). Clients tried during integration: Cline, OpenCode, Kilo, Continue, Claude Code via the author's gateway",
+   "p": "8, 13-15, 24"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "No specification document. Fixed artifact contract for worker output: one JSON object; static checks on imports, exports and exported function parameter lists; parent inspection before application. Worker input: task text, supplied file context (24,000-character gate), artifact contract; parent constraints field not forwarded in the first study",
+   "p": "13, 15, 18"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Parent reads repository -> delegates bounded implementation (single or sequential batch packages) -> worker returns artifact -> static validation -> parent inspection -> application -> sealed hidden behavioural checks",
+   "p": "3, 13-15"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the studies (review by the frontier parent model; sessions author-operated)",
+   "p": "3, 15"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach; delegation workflow run end to end)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (delegation contract, no specification approach); author does not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New code in synthetic fixtures: study 1, five TypeScript task categories (quote, prorate, customer, split, parts); second suite, 15 synthetic TypeScript repositories (3 each of bug fixes, features, multi-file integrations, export-preserving refactors, test-driven repairs). Integration tests partly on a private existing code base",
+   "p": "3, 13, 15, 23"
+  },
+  {
+   "f": "Size",
+   "v": "Study 1: 45 sessions (5 categories x 3 conditions x 3 trials). Second suite: 15 repositories; Nemotron study 90 sessions (45 direct + 45 delegated), Qwen follow-up 45 delegated. Operational data: 4,165 gateway turns, 623 debug jobs. Repository size Not stated",
+   "p": "4-5, 13, 15"
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (task names suggest business logic: quotes, prorating, payments, fees, invoices)",
+   "p": "13, 15, 20"
+  },
+  {
+   "f": "Team profile",
+   "v": "Single developer (the author) operating all sessions; experience Not stated",
+   "p": "4, 23"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "API list-price-equivalent frontier cost (USD) per session and per verified success, failed trials included, from recorded token classes at study-era Claude Opus 5.5 rates ($4 input, $0.20 cache read, $5/$8 cache write, $20 output per M tokens); local worker cost not measured. Time: TTFT (observational), wall time in one fee pilot (126.4 s delegated vs 27.4 s direct)",
+   "p": "5, 11, 20-21"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Verified trials (task-specific hidden behavioural checks pass); verified worker substitutions (artifact proposed, inspected, applied, sealed check passes, no parent rewrite); 95% Wilson intervals; Student-t interval over task means",
+   "p": "5, 13-16"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (engineering time not measured)",
+   "p": "24"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Gateway/tool events (parsed tool calls, stop without tool call, empty_content, stream_failed, repetition_cut, job_failed, fallback); median TTFT cold vs warm prefix cache; artifact outcomes (signature rejection, invalid JSON, parent rejection, deadline); post-hoc signature-sensitivity diagnostic",
+   "p": "10-11, 16, 18"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: sealed hidden behavioural checks; gateway and debug logs; client token usage priced by token class (matched the client's list-price estimate in all 45 trials); second-suite inputs hash-recorded before scoring. Retrospective: author re-checked counts against saved records without re-running; engineering observations from notes",
+   "p": "4-5, 15, 20"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion (per trial): hidden behavioural checks pass (plus artifact acceptance for a substitution); no configuration-level criterion. Values:\n- Study 1, direct: Claude Code + Opus 5.5 (baseline): 15/15 verified [0.80, 1.00]; $0.136 per verified success\n- Study 1, optimized delegation: Claude Code + Opus 5.5 + Qwen3-Coder 30B-A3B IQ3 (llama.cpp): 12/15 [0.55, 0.93]; $0.214\n- Study 1, batch-labeled adaptive delegation, same models (only 5/15 used batch calls): 14/15 [0.70, 0.99]; $0.199\n- Second suite, direct: Claude Code + Opus 5.5 (baseline): 45/45 (37/45 if 16 replaced spend-limit sessions count as failures); $6.888 total, $0.153 per session and per success\n- Second suite, delegation to Nemotron Cascade 2 (MLX 4-bit): 12/45 verified, 11 substitutions (8/45 keep-all); task-mean 0.267 (0.033-0.500); $15.761 total, $0.350 per session, $1.313 per verified success, $1.433 per substitution\n- Second suite, Qwen follow-up, delegation to Qwen3-Coder 30B-A3B (MLX 4-bit), no direct arm: 0/45; $16.023 total, $0.356 per session; per success undefined\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "p": "14-17, 20-21"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: study 1, 5 TypeScript categories; second suite, 15 synthetic TypeScript repositories with sealed checks (stubs fail, references pass). Configurations: direct vs delegation arms above. Baseline: direct frontier coding (none in the Qwen follow-up). Held constant: parent Claude Code + Opus 5.5; task instructions and visible checks; worker contract in second suite (one attempt, 120 s deadline, 4,096 output tokens, temperature 0, 32,768 context, 24,000-character file gate); frozen schedule. Not held constant: Claude Code version changed during Nemotron study; parent prompt cache not reset; Qwen cohort ran later. Repetitions: 3 per task/condition. Human intervention: none during sessions; 16 spend-limit sessions replaced, contrary to the written protocol",
+   "p": "13-15, 17, 23-24"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Direct coding best on verification and frontier cost in both studies with a direct arm: study 1 15/15 vs 12/15 and 14/15, $0.136 vs $0.214 / $0.199 per verified success; second suite 45/45 vs 12/45 (Nemotron) and 0/45 (Qwen); Nemotron delegation about 8.6x the direct frontier cost per verified success. Study 1 Wilson intervals overlap; no significance tests; author states the data do not establish general success-rate differences",
+   "p": "14, 16-17, 20-21"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished direct from delegation clearly in the second suite, not reliably in study 1 (overlapping intervals). Repeatability: 3 repetitions per cell, clustered within tasks. Limitations stated: replacement of 16 sessions, AI-assisted tasks and hidden tests without pre-run snapshot (study 1), not pre-registered, single worker configurations, fixed parent harness, cohorts not contemporaneous, worker constraints not forwarded and prompts truncated in study 1, local cost unmeasured",
+   "p": "14, 16-17, 23-24"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: retrospective, nonrandomized evidence; private records; limited task diversity (five TypeScript tasks plus one synthetic suite); no front-end or product-quality metric; limited worker diversity; fixed parent harness; procedural deviation; AI-assisted task and scorer development; incomplete hardware/runtime metadata; cost limited to frontier list price. Gaps: bounded repair attempt after contract rejection (proposed, not run); other harnesses as parents; causal effect of cache changes",
+   "p": "22-24"
+  },
+  {
+   "f": "Notes",
+   "v": "Headline results (45/45 direct, 12/45 Nemotron) are the replacement cohort; keep-all counts 37/45 and 8/45 (Section 9.3). Post-hoc: 19 of 36 underscore-only rejected artifacts pass hidden checks unchanged, not counted. Data: records private, not released or offered on request; a sanitized subset may follow review. Not pre-registered (stated). Programming language: TypeScript. Competing interest declared; the delegation workflow and gateway are the author's own. Computing partly on Google Cloud free-trial credits",
+   "p": "16-18, 23-24, 27"
+  },
+  {
+   "f": "Q1",
+   "v": "Partly (0.5): broad retrospective question; delegation-study questions stated, no explicit research questions",
+   "p": "3, 19"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): delegation-study design and contract parameters described; harness, prompts, tasks and tests not provided; much of the report is narrative",
+   "p": "13-15, 27"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models, quantizations and runtimes named; Claude Code version not stated and changed mid-study; some worker records lack serving-artifact identification",
+   "p": "8, 15, 24"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): task categories and suite structure described; fixtures and hidden tests not available",
+   "p": "13, 15, 27"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): hidden behavioural checks separate from agent claims, but written by the author with AI help and, in study 1, without a pre-run snapshot",
+   "p": "5, 23"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): verified success and frontier cost per verified success defined; both quality and cost",
+   "p": "5, 20"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): direct arm under the same tasks and parent in study 1 and the Nemotron study (none in the Qwen follow-up)",
+   "p": "13, 15"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three repetitions per cell with Wilson and Student-t intervals; no tests of differences; repetitions clustered",
+   "p": "14-17"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions limited to the tested combinations; negative cost result and deviations reported",
+   "p": "21-22, 25-26"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): extensive limitations and evidence-quality section",
+   "p": "23-24"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of model and agent vendors, but the author built the evaluated delegation workflow and gateway and declares a related commercial interest",
+   "p": "13, 27"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486293",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, X., Sun, L., Zhu, Y., Zhou, S., Liu, J., Chen, F., Qiu, L., Cao, X., Cai, X., Zhang, L., Mao, Z. (2026). Asuka-Bench: Benchmarking Code Agents on Underspecified User Intent and Multi-Round Refinement. arXiv:2606.05920v1 [cs.SE], 4 Jun 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.05920v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Science and Technology of China (Wang, Zhang, Mao); 'Independent researchers' (Sun, Zhu, Zhou, Liu, Chen, Qiu, Cao, Cai). Seed queries sampled from 'a production web development service' and 'our production user traffic', organisation not named",
+   "p": "1, 4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — Asuka-Bench benchmark (underspecified web-development requests resolved in a closed loop: Code Agent builds, UI Agent tests in the browser, User LLM gives feedback); 8 LLMs across 2 agent frameworks compared; one-shot Clarified PRD vs three rounds on the underspecified query compared (RQ1)",
+   "p": "1-2, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent frameworks OpenHands and Claude Code ('our in-house Claude Code sandbox'), versions not stated. Backbone models: GPT-5.4 (Medium), Gemini-3.1-Pro, Claude-4.6-Sonnet, GLM-5, Kimi-K2.6, Seed-2.0-Pro, MiniMax-M2.7, Qwen3.5-Plus; Table 1 also lists LongCat-Preview and LongCat-2.0-Preview on Claude Code. Conditions: underspecified query with up to 3 feedback rounds vs single round on the Clarified PRD (PRD-1R). Evaluator: GPT-5.4 as UI Agent (BrowserUse-based) and User LLM",
+   "p": "4, 6-8, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent receives only an underspecified natural-language query (body at most 200 words, derived from the PRD). Hidden ground truth: Clarified PRD (structured requirements document: overview, functional modules, fault tolerance and exception handling, appearance), evaluation criteria (Presence / Functionality / Robustness tasks with difficulty weight 1-5 and prerequisite DAG, each with expected outcomes), simulated data; per-round natural-language feedback from the User LLM. In PRD-1R the agent receives the Clarified PRD",
+   "p": "3-5, 7, 15-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Closed loop per task: (1) Code Agent generates the web project from the query; (2) project deployed, UI Agent executes criteria as browser test cases in DAG topological order (skip tasks with failed prerequisites, soft threshold T=0.5); (3) User LLM turns failed results into feedback; (4) Code Agent refines; repeat until all pass or 3 rounds (8 in the saturation analysis)",
+   "p": "2-5, 7, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the loop: the user is simulated by an LLM. Humans only annotate final-round projects for evaluator validation",
+   "p": "4, 8, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each agent (generation and feedback-driven repair); the specification given to the agent is varied (underspecified query vs Clarified PRD) in RQ1",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'Clarified PRD (Product Requirements Document), a structured specification', 'underspecified user intent', 'a full spec'",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: self-contained web frontends generated from scratch with simulated data (no backend)",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "50 tasks; 784 evaluation tasks (Presence 129, Functionality 492, Robustness 163) with 2,402 expected outcomes; 15.7 evaluation tasks per PRD, 3.1 expected outcomes per task, mean difficulty weight 2.96, mean DAG depth 4.4 (max 9). Project code size Not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Web front-end applications in six categories (ArtifactsBench taxonomy): Utility 38%, Data Visualization 22%, Management System 20%, E-Commerce 8%, Marketing/Display 6%, Social 6%; queries from online user data, GitHub repositories and existing websites",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, simulated user). Validation by 'expert annotators', one per criterion, profile Not stated",
+   "p": "8, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Wall-clock time per project across three rounds (Claude Code 64.5 vs OpenHands 116.3 minutes); agent input tokens (GPT-5.4: 5.5M on Claude Code vs 11.0M on OpenHands); evaluation tokens (DAG vs Flat protocol, M tokens). Money not reported; budget limit cited as reason to skip Sonnet on OpenHands",
+   "p": "10-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Project Completion Rate (PCR, all tasks pass); cumulative weighted Task Pass Rate per round (R1-R3; weights = difficulty); cumulative weighted Criteria Pass Rate (sub-criteria ratio); per-type pass rate (Presence, Functionality, Robustness); per-round task and criteria fix rate; Implemented rate (tasks reachable under the DAG)",
+   "p": "6-8, 12-13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (simulated user; number of rounds is fixed, not measured as effort)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Evaluator agreement with human labels (accuracy 93.35%, F1 96.52%, precision 97.37%, recall 95.68%); DAG gap (reduction of weighted Task Pass Rate from dependency blocking: strict T=1.0 mean 6.0 pp, soft T=0.5 mean 0.6 pp); qualitative failure modes per framework",
+   "p": "8, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: GPT-5.4 vision-enabled UI Agent in headless Chrome (BrowserUse-based) executes each criterion on the deployed site (max 100 steps per criterion, 3600 s timeout, max 3 retries per DAG layer, concurrency 3) and returns Pass/Fail with explanation; metrics computed from per-criterion results; 95% CIs by CLT over 50 per-project values. Manual: single human annotator per criterion on 50 sampled Round-3 projects from five models (3,576 annotations) with a written rubric and console. Clarified PRDs rewritten from raw queries by an LLM (model not named); how the evaluation criteria are generated (LLM or manual) is not stated",
+   "p": "4-5, 7-8, 12-14",
+   "verdict": "corrected",
+   "why": "The draft said the criteria were generated by an LLM; the text says only 'we generate a structured set of evaluation criteria' (p. 5), the LLM is named only for the PRD rewrite (p. 4)"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Underspecified query, up to 3 rounds, DAG protocol T=0.5, 1 run per task, n=50. Values: PCR %; cumulative weighted Task Pass Rate R1 / R2 / R3 %; weighted Criteria Pass Rate at R3 % (95% CI half-widths in Table 1). For all entries: no success criterion stated by the authors; quality verdict and cost verdict: no criterion stated by the authors. OpenHands: (1) GPT-5.4: PCR 52; 56.6 / 82.1 / 90.1; criteria 95.1. (2) Kimi-K2.6: 50; 44.3 / 74.7 / 86.6; 92.1. (3) Gemini-3.1-Pro: 36; 37.2 / 69.2 / 80.7; 89.4. (4) GLM-5: 32; 40.5 / 64.4 / 75.3; 83.3. (5) Qwen3.5-Plus: 24; 40.2 / 61.1 / 72.9; 82.5. (6) MiniMax-M2.7: 24; 36.7 / 59.1 / 70.7; 79.8. (7) Seed-2.0-Pro: 14; 26.9 / 44.7 / 53.7; 63.9. Claude Code: (8) Claude-4.6-Sonnet: 46; 55.7 / 82.4 / 89.4; 93.6. (9) GPT-5.4: 44; 49.7 / 80.3 / 88.1; 92.8. (10) LongCat-Preview: 32; 44.1 / 66.8 / R3 unclear in the extracted table (likely 80.2); 86.3. (11) GLM-5: 30; 40.8 / 66.5 / 76.6; 82.9. (12) LongCat-2.0-Preview: 26; 33.3 / 61.3 / 73.1; 80.0. (13) Qwen3.5-Plus: 24; 41.3 / 60.4 / 70.1; 80.2. (14) MiniMax-M2.7: 22; 39.2 / 65.7 / 76.4; 86.3. (15) Seed-2.0-Pro: 8; 24.7 / 39.8 / 51.8; 60.9. Baseline PRD-1R (Claude Code, single round on the Clarified PRD, weighted Task Pass Rate): Claude-4.6-Sonnet 68.1, GPT-5.4 68.1, GLM-5 50.1, Qwen3.5-Plus 54.8; MiniMax-M2.7 and Seed-2.0-Pro only as gains in Figure 5 (+21.7, +8.7 pp at R3, i.e. about 54.7 and 43.1). Extension (Claude Code + Claude-4.6-Sonnet, 8 rounds): PCR 6, 24, 46, 60, 74, 84, 92, 100; weighted Task Pass Rate 54.4, 77.6, 89.4, 93.0, 95.5, 97.5, 99.0, 100.0. Cost per configuration not reported (only framework-level time and GPT-5.4 tokens)",
+   "p": "6-7, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 50 Asuka-Bench web tasks. Configurations: model x framework (OpenHands, Claude Code); stated as 13, Table 1 lists 15; three cells skipped (Gemini and Kimi on Claude Code: protocol not supported; Sonnet on OpenHands: budget). Baseline: single-round Clarified PRD (PRD-1R) for six Claude Code models; Flat evaluation protocol as baseline for the DAG protocol. Held constant: queries, evaluator and User LLM (GPT-5.4), max 3 rounds, DAG threshold T=0.5, default model temperature. Acceptance tests: natural-language criteria executed by the UI Agent. Repetitions: 1 run per task per cell (50 projects treated as i.i.d.). Human intervention: none (simulated user)",
+   "p": "5-7, 10-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best: GPT-5.4 on OpenHands (R3 90.1%, PCR 52%) and Claude-4.6-Sonnet on Claude Code (89.4%, PCR 46%); worst Seed-2.0-Pro (51.8-53.7%); 38-pp range with non-overlapping 95% CIs at the top and bottom only (no formal tests). Round 2 adds about 25 pp, Round 3 7-13 pp. RQ1: first ambiguous round is 9-18 pp below PRD-1R, but every model exceeds its PRD-1R score by Round 3 (net +8.7 to +26.6 pp); rankings shift between protocols. RQ2: repair ability decoupled from first-round quality (Kimi-K2.6 on OpenHands 44.3 -> 74.7 -> 86.6). Frameworks (5 shared models): OpenHands higher PCR (29.2% vs 25.6%), Task Pass Rate tied (72.5% vs 72.6%); Claude Code about 1.8x faster (64.5 vs 116.3 min/project). DAG vs Flat: DAG cuts evaluation tokens 23-26% (GLM-5 17.9M vs 23.4M) with higher fix rates, slightly lower pass rates",
+   "p": "6-8, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (38-pp range, CIs non-overlapping at extremes) and showed a repair-from-feedback axis. Not repeated (1 run per task); CIs over projects only. Evaluator validated against single-annotator human labels (93.35% accuracy). Limitations stated: evaluator dependence on GPT-5.4 (swapping it may shift absolute scores), single-annotator gold labels, CLT normal approximation can degrade near 0/1 for PCR, cross-row fix-rate comparisons depend on different denominators, Flat numbers taken from a previous version of the work",
+   "p": "7-9, 10, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: domain coverage (50 tasks, six categories, self-contained frontends with simulated data; 3D, real-time collaborative and live-backend scenarios out of scope); evaluator dependence on GPT-5.4 and single-annotator validation; possible contamination of queries and DAGs by future training (needs periodic refresh). Gaps: static one-shot benchmarks miss iterative refinement and repair-from-feedback ability",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: text says 8 LLMs and 13 configurations, but Table 1 has 15 rows including LongCat-Preview and LongCat-2.0-Preview (Claude Code), not introduced in the settings and absent from Tables 2-5; abstract says Task Pass Rate varies by 38 pp, introduction 'more than 30 pp'; Claude-4.6-Sonnet R1/R2 in the 8-round run (54.4/77.6, Fig. 4) differ from Table 1 (55.7/82.4); Table 3 caption says DAG saves 23-27% of evaluation tokens, text 23-26%; Flat numbers come from a previous version of the work. Table 1 R2/R3 cells for Claude Code are garbled in the extracted text (values cross-checked with Figure 6 and Table 3). No data or code availability statement found; no pre-registration. Programming language: web front-end (HTML/CSS/JavaScript frameworks; examples use React components such as ComposedChart); not stated explicitly. LLM use limited to grammar per the authors",
+   "p": "1-2, 6-8, 11, 18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim, contributions and RQ1-RQ3 stated",
+   "p": "1-2, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): loop, DAG protocol, metrics, hyperparameters and the query-generation prompt given; framework versions, PRD/criteria-generation model and prompts, UI Agent and User LLM prompts not given",
+   "p": "4-7, 12, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions named (e.g. GPT-5.4 Medium, Claude-4.6-Sonnet, GLM-5); framework versions not stated ('in-house Claude Code sandbox'); LongCat models not introduced",
+   "p": "6, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): dataset construction and statistics described, one task fully walked through; dataset availability not stated",
+   "p": "4-6, 16-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): pass/fail judged by a UI Agent executing predefined criteria derived from the hidden PRD, validated against human labels (93.35% accuracy)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics formally defined; cost reported only at framework level (time, GPT-5.4 tokens) and for evaluation tokens, not per configuration",
+   "p": "7, 10-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all configurations under the same queries, evaluator and rounds; PRD-1R baseline and Flat protocol baseline",
+   "p": "6-7, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 95% CIs over 50 projects, but 1 run per task (no repetitions) and no significance tests",
+   "p": "6-7, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from Table 1 and Figures 5-6; the claim that the 8-round curve shows feedback adds no noise rests on one model",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section on domain coverage, evaluator dependence and contamination; caveats on CIs and fix-rate denominators",
+   "p": "9, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): no author is stated to belong to a vendor of OpenHands, Claude Code or the eight introduced models; but eight authors are listed only as 'Independent researchers' while writing 'our production web development service', 'our production user traffic' and 'our in-house Claude Code sandbox', and Table 1 evaluates two LongCat models that are never introduced, which suggests the authors' organisation is the vendor of those two configurations",
+   "p": "1, 4, 6",
+   "verdict": "uncertain",
+   "why": "Independence cannot be settled from the text. LongCat is, to the verifier's knowledge, the model family of Meituan, and several 'independent' authors (Zhu, Qiu, Cao, Cai) co-author a cited Meituan-related work (Fu et al., 2025); if so, the authors are vendors of 2 of 15 configurations, i.e. Partly. Changed from Yes to Partly as the best value; the author must decide",
+   "doubt": "Os autores 'independentes' falam do 'nosso serviço de produção' e avaliam modelos LongCat não apresentados (provavelmente da Meituan). Confirma a afiliação real e decide entre Yes e Partly."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

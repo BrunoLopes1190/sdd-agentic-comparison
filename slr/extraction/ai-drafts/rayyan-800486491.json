@@ -1,0 +1,327 @@
+{
+ "key": "rayyan-800486491",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Luo, H., Zhang, X., Xu, Z., Jin, Y., Li, X., Huang, Z., Salam, H. (2026). ParanoiaEval: Benchmarking Unnecessary Defensive Work in Agentic Coding. arXiv:2610.08662v3 [cs.AI], 15 Oct 2026 (author order from the extracted text; Zhimu Huang's position is unclear in the extraction)",
+   "p": "1",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The extracted title block lists six authors on one line and 'Zhimu Huang2' on a separate line, so the position of Huang in the author order cannot be settled from the text."
+    }
+   ],
+   "warn": "O texto extraído mostra Zhimu Huang numa linha à parte; confirma no PDF a ordem dos autores (antes ou depois de Hanan Salam)."
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.08662v3 [cs.AI], marked 'Preprint' on every page; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "New York University; New York University Abu Dhabi; The Hong Kong Polytechnic University (academic)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ParanoiaEval (200 evidence-controlled repository-level task pairs, metrics VR and ER, human-calibrated agentic judge) for unnecessary risk treatment by coding agents, with an evaluation of 8 models in their native harnesses (Claude Code, Codex), 3 runs each, plus a post-hoc human study with 20 developers",
+   "p": "1-3, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents evaluated: Claude Code 2.1.273 with Claude Opus-5, Sonnet-5, Sonnet-4.6, Haiku-4.5; Codex 0.146.0 with GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, GPT-5.5; all with high reasoning effort. Judge: GPT-5.6 Sol within Codex (thinking disabled); audit judge Claude Sonnet 5",
+   "p": "8, 28-29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Per task the agent receives only a brief maintainer-style instruction (free of prohibitions and assurance terms) and the repository; instruction files intended for specific coding assistants are stripped so that agents receive no behavioural guidance beyond the task. Hidden from the agent: answer card, reference solution, executable oracle",
+   "p": "6, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no approach; single autonomous agent episode per task variant)",
+   "p": "28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A (autonomous runs; no human intervention during episodes)",
+   "p": "28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A — no SDD approach run; agents run on paired task variants with assistant instruction files removed from the repositories",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach; authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-style tasks on pinned open-source repositories (code changes, read-only checks, deletions and migrations, one-off scripts), each in an E+ variant (treatment-defining evidence present) and an E− variant (evidence removed or reversed)",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "200 task pairs (400 variants) from 50 repositories, 4 tasks per repository (one per treatment), 44 situations; 89 pairs differ only in repository evidence, 111 in one instruction sentence; 28 read-only mitigation tasks; 9,600 runs. Repository size Not stated",
+   "p": "5-6, 8, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source software (e.g. litellm model price table, a Go command-line fuzzy finder, an AWS SQS event class); 34 repositories in Python and 16 in Go; situations mined from 18,922 de-identified sessions of developers using general-purpose coding agents",
+   "p": "2, 5, 7, 32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A for the agent runs (autonomous). Human study: 20 developers with at least five years of professional experience who regularly use coding agents, recruited through a professional recruitment partner. Annotation and acceptance checks by two experts (profile Not stated)",
+   "p": "6-7, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total input and output tokens and cumulative agent runtime (h) per configuration (Table 19, App. O); per-run runtime shown in the case studies. Reported as resource consumption, not as an evaluation metric; money Not stated",
+   "p": "35, 32-34",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task Success Rate (TSR): fraction of runs whose executable oracle passes, reported on E+, E− and overall",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (maintainability enters only as an anchor of the developer satisfaction scale)",
+   "p": "27-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured directly; the human-study satisfaction scale is anchored partly in the corrections needed before the output can be used (see Other outcome metrics)",
+   "p": "27-28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Violation Rate (VR): fraction of E+ runs with an excess (unnecessary) risk treatment, overall and per treatment (avoidance, transfer, mitigation, acceptance); Evidence Responsiveness (ER): relative reduction of excess treatment from E− to E+; excess rate on E−; developer satisfaction (1-5) and acceptance as is (yes/no), unnecessary actions marked; judge agreement (accuracy, Cohen's κ, precision, recall, F1); inter-rater Krippendorff's α",
+   "p": "7, 9-10, 27-29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: executable oracle after the agent finishes (TSR); agentic LLM judge (GPT-5.6 Sol within Codex, read-only sandbox, 4 retrieved exemplars from a frozen memory of 64 human-labelled trajectories, nomic-embed-text-v1.5) gives the binary Vp per run; judge validated on 200 held-out human consensus labels (accuracy 0.965, κ 0.93); audit judge Claude Sonnet 5 re-judges 3,200 E+ runs; tokens and runtime recorded per episode. Manual: two experts label memory and validation trajectories with adjudication; human study of 800 oracle-passing E+ runs, 2 ratings each, blinded and randomised. Statistics: 10,000 bootstrap resamples of task pairs, two-sided paired permutation tests, Holm adjustment",
+   "p": "6-8, 26-31, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark ParanoiaEval, 200 task pairs, 3 runs per configuration, means of 3 runs (Tables 2, 3, 19). Success criterion per task: oracle passes (TSR); no criterion stated for VR, ER or cost. Values TSR all/E+/E− (%); VR (%) on E+ (excess rate on E−); ER (%); tokens in/out; cumulative runtime: (a) Claude Code 2.1.273 + Opus-5: 95.8/96.8/94.7; VR 58.7 (78.7); ER 25.4; 306.3M/3.6M; 30.9 h. (b) Claude Code + Sonnet-5: 93.4/95.5/91.3; VR 22.2 (45.5); ER 51.3; 391.8M/2.4M; 16.5 h. (c) Claude Code + Sonnet-4.6: 90.3/91.3/89.3; VR 11.2 (30.0); ER 62.6; 278.7M/2.1M; 15.9 h. (d) Claude Code + Haiku-4.5: 88.3/89.7/87.0; VR 17.7 (51.3); ER 65.5; 357.9M/3.3M; 13.5 h. (e) Codex 0.146.0 + GPT-5.6 Sol: 97.6/98.3/96.8; VR 21.0 (52.5); ER 59.9; 431.1M/2.4M; 70.2 h. (f) Codex + GPT-5.6 Terra: 93.5/94.2/92.8; VR 18.2 (42.7); ER 57.4; 187.2M/1.8M; 18.9 h. (g) Codex + GPT-5.6 Luna: 92.8/93.5/92.2; VR 19.2 (41.0); ER 53.1; 271.2M/2.4M; 24.0 h. (h) Codex + GPT-5.5: 92.2/93.3/91.2; VR 25.5 (45.2); ER 43.4; 222.6M/2.4M; 24.0 h. Each (a)-(h): quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "p": "8-9, 28, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 200 evidence-controlled task pairs on 50 pinned repositories (commits after 1 Jul 2026, tasks newly built and unreleased, against contamination). Configurations: 8 models, each in its native harness (4 in Claude Code, 4 in Codex). Baseline: no external baseline; the E− variant is the paired control within each configuration. Held constant within a pair: model, harness, repository revision, dependency environment, task objective, resources (3 CPUs, 3 GiB), oracle, evaluation configuration; fresh container per episode, network limited to the provider; high reasoning effort, temperature/top-p not modifiable. Acceptance tests: executable oracle that fails before and passes with the reference solution; two experts check each pair. Repetitions: 3 runs per configuration and condition. Human intervention: none (autonomous episodes)",
+   "p": "5-6, 8, 28-29, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Every configuration shows less excess treatment on E+ than on E−, significant in all (Holm-adjusted p ≤ 0.012); pooled reduction 24.2 pp [21.4, 27.0], pooled ER 50.0%. VR ranges from 11.2% (Sonnet-4.6, mostly because it rarely treats the risk even on E−) to 58.7% (Opus-5); ER from 25.4% (Opus-5) to 65.5% (Haiku-4.5). TSR 88.3%-97.6% (highest GPT-5.6 Sol); TSR and VR not significantly correlated (Spearman ρ = 0.55, p = 0.17); 92.7% of E+ runs with excess treatment still pass the oracle. Human study: runs with excess treatment rated 1.27 points lower (2.58 vs 3.85, p < 0.001) and accepted as is in 38% vs 78%; α = 0.76. By treatment: ER mitigation 67.4% and acceptance 65.4% (p < .001), avoidance 21.3% (p = .008), transfer 7.9% (p = .692, not significant); removing a stated bound raises excess by up to 68.7 pp. No significance test between harnesses (Claude mean VR 27.4%, GPT mean 21.0%)",
+   "p": "8-10, 31",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes, by the authors' account: the paired design separated E+ from E− in every configuration and separated configurations on VR and ER (Table 3 CIs). Repeatable: three-run stability with no condition-by-run interaction (p = 0.43; max-min of the run-wise effect 1.5-8.5 pp); judge accuracy 0.965 (κ 0.93); audit judge shows no configuration-specific shift (omnibus p = 0.18). Limitations stated: controlled single-fact pairs do not represent dispersed, ambiguous or conflicting evidence; reliance on expert-defined rules, human annotation and a calibrated judge leaves residual judging error; models run only in their native harness, so model and harness effects are confounded; 44 situations, 50 Python/Go repositories and a post-hoc human study limit generalisation; evidence location differs by treatment (instruction for mitigation and acceptance, repository for avoidance and transfer), which may explain part of the ER differences",
+   "p": "9, 16, 29-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations (App. A): evaluation boundary (single-fact controlled pairs; expert rules and residual judging errors); native-harness attribution (GPT and Claude models evaluated only in their own harness); scope of empirical generalisation (44 situations, 50 open-source Python/Go repositories, 20 developers); evidence location confounded with treatment. Gaps: functional-correctness benchmarks miss unnecessary risk treatment; risk treatment is an independent capability current agents lack; knowledge from human risk management could guide diagnosis and improvement",
+   "p": "9-10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and data released (https://github.com/ZhuoningXu/ParanoiaEval_release): 200 task pairs, instructions, answer cards, oracles, reference solutions, container recipes, agent runners, judge and frozen 64-record memory. No pre-registration. Programming languages of tasks: Python and Go. Inconsistencies: ER in Table 2 (mean of run-wise ERs) and Table 3 (from mean rates) differ by up to 0.2 pp, e.g. Sonnet-4.6 62.6 vs 62.8, Haiku-4.5 65.5 vs 65.6 (explained in App. M.1); values here from Table 2 except pooled values from Table 3. The extracted text of App. A (p. 16) is overlaid with figure text, so limitations ❷ and ❸ are partly reconstructed; check the PDF. Source of the 18,922 mined sessions not named. Model names (Opus-5, GPT-5.6 Sol/Terra/Luna) given without snapshot identifiers",
+   "p": "1, 10, 16, 31",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim stated (first unified benchmark of risk-treatment capability) with three contributions",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, acceptance checks, judge prompt and retrieval, runtime protocol, hyperparameters and statistics detailed in the appendices, with a full release",
+   "p": "5-7, 24-31",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.273 and Codex 0.146.0, models named, reasoning effort, context limits, judge model and embedding model stated (model snapshots not dated)",
+   "p": "28-29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): repositories, task construction and examples described; tasks, oracles and containers released on GitHub",
+   "p": "5-6, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable oracles for task success; violations judged by an LLM judge validated against held-out human consensus labels (accuracy 0.965, κ 0.93) and an independent audit judge; human study with blinded developers",
+   "p": "6-7, 9, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): TSR, VR and ER formally defined; cost reported as tokens and runtime per configuration (App. O), though not used as a defined evaluation metric",
+   "p": "7, 35",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 8 configurations under identical conditions, with the E− variant as a paired control for each",
+   "p": "8, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 3 runs per configuration, bootstrap CIs over task pairs, paired permutation tests with Holm adjustment, run-stability test",
+   "p": "9, 31-32",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): most conclusions follow from the results and mixed findings (transfer ER not significant) are reported, but 'decoupled from task capability' rests on a non-significant correlation across only 8 configurations (ρ = 0.55, p = 0.17)",
+   "p": "9-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: the 'decoupled from task capability' claim rests on a non-significant positive correlation over 8 configurations (rho = 0.55, p = 0.17), which another reader may accept as consistent with 'does not ensure' (Yes) or see as overstated (Partly). Other conclusions follow and the non-significant transfer result is reported."
+    }
+   ],
+   "warn": "A conclusão 'decoupled from task capability' assenta numa correlação não significativa com só 8 configurações; decide se isso justifica Partly ou se a formulação 'does not ensure' basta para Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): App. A discusses four limitations (evaluation boundary, harness attribution, generalisation, evidence location)",
+   "p": "16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (NYU, NYU Abu Dhabi, PolyU), not vendors of Claude Code, Codex or the models; the benchmark is theirs but no approach of theirs is evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

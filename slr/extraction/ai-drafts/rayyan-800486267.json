@@ -1,0 +1,333 @@
+{
+ "key": "rayyan-800486267",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shen, H., Chen, X., Xu, W., Ma, Y., Chen, L., Li, K. (2026). EvoCode-Bench: Evaluating Coding Agents in Multi-Turn Iterative Interactions. arXiv:2605.24110v1 [cs.AI], 22 May 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.24110v1 [cs.AI]; no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "UniPat AI (Shen, Chen, Xu, Chen, Li); Peking University (Shen, Ma); Tsinghua University (Chen); The University of Hong Kong (Xu)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — EvoCode-Bench, 26 stateful multi-round coding tasks (227 rounds) with persistent workspace and session, evolving and conflicting requirements, cumulative executable tests and fail-stop scoring (MT@4) plus reference-fast-forward single-round score (SR); 13 coding agents compared; Harbor multi-turn extensions released",
+   "p": "1-4, 6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Interaction styles compared as task categories: explorative, contractual (detailed behavioural specification every round), document-driven (persistent requirements in AGENTS.md or specification files). Agents: Terminus-2 harness (Harbor) with Opus-4.7 (claude-opus-4-7), GPT-5.5, Opus-4.6, GLM-5.1, Kimi-K2.6, DeepSeek-V4-Pro, Qwen3.6-Plus, MiMo-V2.5-Pro, Gemini-3.1-Pro-preview, DeepSeek-V4-Flash, Qwen3.5-397B-A17B, MiniMax-M2.7, Doubao-Seed-2.0-Pro; harness version not stated in the text",
+   "p": "4, 6-7, 23-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task: task.toml (metadata, change types per round), environment Dockerfile, per round instruction.md, reference solution solve.sh (incremental delta) and cumulative test.sh. In document-driven tasks an evolving specification document or AGENTS.md holds persistent requirements; round instructions may only say the specification was updated",
+   "p": "4, 16-19, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Construction: engineers author requirement chains, reference deltas, tests and Docker environments (LLM-assisted drafting) -> two independent reviewers check coherence and instruction-test-solution alignment -> oracle verification -> cross-validation (traceability, shortcut audit). Evaluation per task: one container and session; each round deliver instruction -> agent edits -> cumulative verifier -> next round only on pass (fail-stop); 4 attempts. SR: fast-forward to reference state, then solve target round",
+   "p": "3-6, 16-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent loop (simulated user instructions). Author-side: two independent reviewers per task; author review of released instructions, tests and reference deltas; all multi-turn failure annotations manually reviewed by the authors; 50 single-round annotations re-annotated (100% agreement)",
+   "p": "5, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only for contractual tasks; single artefact (AGENTS.md or specification file) for the 4 document-driven tasks; no SDD workflow run",
+   "p": "4, 19, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms; document-driven tasks keep 'persistent semantics in project artifacts such as specifications or AGENTS.md')",
+   "p": "4, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: empty or lightly scaffolded projects (construction and specification-evolution tasks), documentation-driven projects with persistent specification files, existing legacy codebases (migration tasks); all evolve over 5-15 rounds",
+   "p": "5, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "26 tasks, 227 rounds (5-15 per task); 13 construction, 3 specification evolution, 5 review, 5 migration tasks; 16 explorative, 6 contractual, 4 document-driven; change annotations 198 extension, 69 correction, 42 conflict (110 rounds with at least one correction or conflict). Code size Not stated",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "MLOps, data engineering, systems programming, scientific computing, testing, automation, cloud/devops, security, compiler implementation (e.g. a deterministic Go CSV pipeline CLI)",
+   "p": "5-6, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; simulated user instructions)",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Avg. Turns (Terminus-2 episodes per full task, scaled for partial trajectories); Output Tok. (K) per task; total evaluation cost about 24.4 billion tokens (24.1B input, 333M output) over 3,657 execution records; output tokens of passing vs failing trials",
+   "p": "6-7, 10, 23, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "MT@4 (four-attempt fail-stop multi-round score: share of rounds reached with a workspace passing the cumulative verifier in any of 4 attempts); SR (single-round pass rate after reference fast-forward); Comp (share of tasks completed through the final round in at least one attempt); per-round pass rates; scores by engineering activity and interaction style",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (code quality explicitly out of scope)",
+   "p": "16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Regression detection via cumulative tests; reliability ratio (all four attempts pass vs any passes) by round; share of MT failures solvable under SR (57.0%); location of first failure by tier; failure modes (missed active requirement, environment/tooling, regression, stale superseded behaviour, context loss)",
+   "p": "8-9, 20, 27",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: cumulative behavioural test scripts executed in the container after each round, Harbor records rewards, snapshots and lineage; turns and tokens from trajectories. Failure modes: LLM annotator on evidence packets (model not stated), all multi-turn labels reviewed by the authors",
+   "p": "6, 20, 23-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark EvoCode-Bench, 26 tasks / 227 rounds, Terminus-2 harness for all (Table 2). Values: MT@4 / SR / Comp / Avg. Turns. Success criterion per round: pass the cumulative verifier; no criterion stated for a configuration as a whole. (1) Terminus-2 + Opus-4.7: 54.0 / 76.7 / 42.3% / 590.6. (2) + GPT-5.5: 52.4 / 74.4 / 38.5% / 456.3. (3) + Opus-4.6: 44.0 / 78.9 / 34.6% / 747.5. (4) + GLM-5.1: 36.2 / 63.9 / 15.4% / 859.8. (5) + Kimi-K2.6: 31.9 / 59.0 / 23.1% / 1155.5. (6) + DeepSeek-V4-Pro: 30.6 / 56.4 / 19.2% / 1134.8. (7) + Qwen3.6-Plus: 29.4 / 57.3 / 15.4% / 629.3. (8) + MiMo-V2.5-Pro: 17.3 / 7.9 / 11.5% / 754.8. (9) + Gemini-3.1-Pro: 13.7 / 46.7 / 11.5% / 261.3. (10) + DeepSeek-V4-Flash: 9.4 / 46.3 / 0.0% / 1104.7. (11) + Qwen3.5-397B: 4.6 / 44.1 / 0.0% / 587.8. (12) + MiniMax-M2.7: 3.7 / 30.0 / 0.0% / 600.4. (13) + Doubao-2.0: 1.9 / 23.8 / 0.0% / 211.1. Output tokens and per-taxonomy columns of Table 2 not reliably readable in the text layer. Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 26 multi-round tasks. Configurations: 13 models on the same Terminus-2 harness, Harbor protocol, environment, tool interface and standard prompt (no model-specific prompt engineering). Baseline/control: SR condition (reference fast-forward) contrasted with persistent MT@4. Acceptance: cumulative executable behavioural tests verified on the reference solution. Repetitions: 4 independent attempts per agent-task in multi-round; SR single attempt. Human intervention: none; simulated user rounds, fail-stop after first failing round. Not held constant: model reasoning settings (Table 6: high reasoning effort for Opus-4.7, GPT-5.5, DeepSeek-V4-Pro/Flash, MiMo-V2.5-Pro, Gemini-3.1-Pro, Doubao-Seed-2.0-Pro; thinking enabled for GLM-5.1, Kimi-K2.6, Qwen3.6-Plus, Qwen3.5-397B; default for Opus-4.6; reasoning split for MiniMax-M2.7)",
+   "p": "3, 6-7, 23-24",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Draft said reasoning effort was not stated; Table 6 (Appendix F.2, p. 24) gives the evaluation setting of every model, and these settings differ between configurations."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Opus-4.7 best (54.0 MT@4, 42.3% completion), GPT-5.5 52.4; only these two exceed half of the multi-round credit. SR exceeds MT@4 by 21.9-39.5 points for all agents except MiMo-V2.5-Pro; Opus-4.6 has the highest SR (78.9) but ranks third on MT@4 (44.0). Top/lower tier ratio 5.9x under MT@4 vs 2.3x under SR. Round pass rate falls from 46.7 (round 1) to 21.3 (round 5) and 7.7 (round 10); 57.0% of failed MT rounds are solvable under SR. Document-driven tasks (AGENTS.md or spec files) average 50.1 MT@4, about 2.4x explorative (20.9) and contractual (20.7) tasks; authors: may reflect a persistent readable reference, sample (4 tasks, 31 rounds) too small for causal claims. Review-driven activity highest (29.6), specification evolution lowest (21.8). Failing trials use 1.1-3.1x more output tokens than passing ones at the same round. No significance tests",
+   "p": "7-9, 28, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: MT@4 separates tiers more sharply than SR and reranks agents; MT@4 and SR together separate accumulated-state damage from round difficulty. Cross-attempt consistency falls with depth (reliability ratio 67% at round 1, 20% at round 5). Limitations stated: fail-stop does not measure recovery; small task count; taxonomy cells small, so category patterns are diagnostic rather than stable rankings; expensive (24.4B tokens)",
+   "p": "8-10, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Only 26 tasks, limited by manual authoring, cumulative tests, cross-validation and evaluation cost. Fail-stop may underestimate agents able to recover (SR partly addresses this). Only tasks verifiable by executable tests; subjective design decisions, code quality and collaborative negotiation not evaluated. Restart strategies not evaluated. Gaps / future work: adaptive multi-turn evaluation with an examiner agent; separate recovery protocol; system support such as regression checks between rounds, repository-grounded summaries of active requirements and workspace audits; larger document-driven sample",
+   "p": "10, 16, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 2 (p. 7) and text p. 8-9; Table 2 output-token and taxonomy columns are garbled in the text layer. The model is labelled 'MiMo-V2.5' in Table 2 but 'MiMo-V2.5-Pro' in the text and Table 6 (openrouter/xiaomi/mimo-v2.5-pro). Most models accessed through an OpenAI-compatible proxy (endpoint ids prefixed 'openai/'). LLM used for drafting task ideas and failure-analysis prompts. Data and Harbor multi-turn infrastructure released (github.com/UniPat-AI/EvoCodeBench); config.json records harness version, image hash and seeds. No pre-registration. Programming language: Not stated overall (released example in Go). Authors overlap with RoadmapBench (UniPat AI)",
+   "p": "1, 5, 7-8, 23-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question (can an agent keep its own codebase working as requirements change) and contributions clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task format, execution semantics, metrics, harness configuration and quality pipeline described; data and infrastructure released",
+   "p": "3-6, 16-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): full model names, endpoint identifiers and reasoning settings given (Table 6); Terminus-2 harness version not stated in the text (said to be recorded in config.json)",
+   "p": "23-25",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Model settings are stated in Table 6 (p. 24), contrary to the draft; the score stays Partly because the harness version is not given."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): task taxonomy, statistics and a full example described; benchmark data released on GitHub",
+   "p": "1, 5-6, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): cumulative executable behavioural tests, oracle-verified and cross-validated by independent reviewers",
+   "p": "5, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): MT@4, SR and Comp defined by equations; cost covered by turns and output tokens, total token cost reported",
+   "p": "6-7, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 agents under the same harness and protocol; SR condition as a within-study contrast",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): four independent attempts per agent-task with cross-attempt consistency analysis; no statistical tests of differences between agents",
+   "p": "7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results; causal caveats given (token association, document-driven effect, selection effects in failure modes)",
+   "p": "8-10, 28",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations appendix (task count, fail-stop, test-verifiable scope) and caveats in text; no structured threats-to-validity section",
+   "p": "9, 16",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Appendix A gives three limitations (task count, fail-stop, test-verifiable scope) and the text adds causal caveats; there is no threats-to-validity section. Partly is defensible, but a reader could give Yes because limitations are explicitly discussed."
+    }
+   ],
+   "warn": "Há limitações no Apêndice A e ressalvas causais no texto, mas sem secção de ameaças à validade. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors from UniPat AI and universities; evaluated models and Terminus-2 harness are third-party (the authors only extend the Harbor evaluation infrastructure)",
+   "p": "1, 6, 23",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486535",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Huang, V. S.-J., Li, R., Yin, Z., Mao, K., Zhao, Y., Wang, X., Yin, Y., Luo, L., Zhang, R., Li, H. (2026). SWE-Shift: Evaluating Coding Agents in Evolving Workspaces. arXiv:2610.32196v1 [cs.AI], 23 Oct 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.32196v1 (23 Oct 2026); no published venue stated (record only in the arXiv export)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "MMLab, The Chinese University of Hong Kong (Huang, Zhang, Li); Fudan NLP Lab, Fudan University (Yin Z., Wang); The Hong Kong University of Science and Technology (Zhao); Peking University (Yin Y., Luo); affiliation 5 printed as 'Somewhere on the Earth' (Li R., Mao)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — introduces the SWE-Shift benchmark (120 scenarios with task-relevant mid-execution changes, matched Clean and Shifted continuations from the same saved state) and evaluates 17 coding-agent systems on it",
+   "p": "1-3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Coding-agent systems compared (model + harness): Codex app with GPT-6 Astra and GPT-5.6 Sol; Claude Code app with Claude Opus 5 and Claude Fable 5.1 (all xhigh reasoning; app versions Not stated); 13 open-weight models (Kimi-K3, DeepSeek V4-Pro, DeepSeek V4-Flash, Kimi-K2.6, MiniMax-M3, GLM-5.3-Flash, MiniMax-M2.7, Devstral-2-123B-Instruct, Agents-A1, Qwen3.8-27B, MiMo-V2.5-Pro, Qwen3-30B-A3B-Instruct, Qwen3-Coder-Next) served locally with vLLM 0.27.1/0.28.0/0.28.1rc1 or SGLang 0.5.17 and driven by the benchmark runner (structured file actions, named commands, declared state operations; runner not named)",
+   "p": "6, 15-16, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no SDD approach). Each scenario specifies the repository task, an authorized mid-execution update, how the agent can discover it, and held-out executable checks",
+   "p": "4, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no SDD flow). Benchmark protocol: agent runs a shared prefix -> checkpoint saved at one of nine positions T10-T90 -> state restored twice -> Clean continuation (no update) and Shifted continuation (update applied) -> held-out checks on final workspace and event history",
+   "p": "4-5, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous agents; updates delivered by the runner)",
+   "p": "5, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach; full agent runs)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of coding agents, no specification approach); authors do not use SDD terms. Families F08 (disclosure), F10 (goal revision) change requirements mid-run",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: repository issue tasks from SWE-bench Verified (60 scenarios), Multi-SWE-bench (35) and SWE-bench Multilingual (25), with a task-relevant change introduced during execution (12 change families)",
+   "p": "3-4, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "120 scenarios (10 per change family, 12 families), 23 task-root snapshots from 17 repositories, 39 family-archetype-root clusters; 9 intervention positions = 1,080 cells per system; repository size Not stated",
+   "p": "3, 15, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories (e.g. astropy, django, scikit-learn, sympy, sphinx, pylint, apache/druid, tokio-rs/bytes, caddy, grpc-go, express, fluentd); domain Not stated",
+   "p": "17, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured as an outcome. Post-fork token budget fixed at B = 1,000,000 input+output tokens per continuation (varied B/2-16B only in a diagnostic control); no time or money",
+   "p": "6, 9, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Clean success, Shifted success, Paired Success Rate (PSR: both continuations succeed, or verified completion before the intervention) and Conditional Retention Rate (CRR: joint success / Clean success); a continuation succeeds only if every applicable check passes (task, preservation, recovery, authority, prohibited effects, fresh observation, budget, terminal integrity)",
+   "p": "5-6, 16-17, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "PSR by change family and by intervention position; diagnostic controls (change notice, read-only state refresh, removal of pre-change history; post-fork token budget sensitivity) on five systems; qualitative audit of 24 GPT-5.6 Sol trajectories",
+   "p": "7-9, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: held-out executable checks on workspace, controller and modeled adapters plus the event history (action order, external effects); hierarchical family-cluster-scenario weighting; scenarios pre-validated with admission checks (Table 3; all 120 T0 cases and 1,080 cells pass). Manual: qualitative audit of 24 cases. Benchmark construction assisted by OpenAI Codex; initial 24 cases built and audited with GPT-5.6 Sol",
+   "p": "5-6, 10, 15-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion (per continuation): all applicable checks pass; no configuration-level success criterion. Values Table 2: Clean / Shifted / PSR / CRR (%), point values, one run.\n- GPT-6 Astra + Codex app: 67.35 / 24.79 / 20.34 / 30.20\n- Claude Fable 5.1 + Claude Code app: 62.01 / 18.33 / 16.88 / 26.02\n- Claude Opus 5 + Claude Code app: 53.76 / 16.09 / 14.78 / 26.54\n- GPT-5.6 Sol + Codex app: 46.22 / 12.56 / 11.30 / 23.94\n- Kimi-K3 + runner (vLLM): 31.41 / 12.09 / 8.20 / 25.12\n- DeepSeek V4-Pro + runner: 29.37 / 10.29 / 8.83 / 29.15\n- DeepSeek V4-Flash + runner: 23.65 / 8.63 / 7.60 / 30.99\n- Kimi-K2.6 + runner: 20.50 / 7.97 / 7.10 / 34.63\n- MiniMax-M3 + runner: 19.84 / 5.97 / 6.20 / 29.08\n- GLM-5.3-Flash + runner: 19.50 / 6.75 / 5.30 / 25.18\n- MiniMax-M2.7 + runner: 19.47 / 5.91 / 5.70 / 27.84\n- Devstral 2-123B + runner: 19.44 / 5.29 / 4.70 / 22.07\n- Agents-A1 + runner: 14.63 / 5.72 / 4.50 / 29.01\n- Qwen3.8-27B + runner: 13.17 / 5.43 / 4.34 / 30.45\n- MiMo V2.5-Pro + runner: 12.03 / 3.61 / 2.60 / 21.26\n- Qwen3-30B-A3B + runner: 11.23 / 1.16 / 0.90 / 6.02\n- Qwen3-Coder-Next + runner: 10.71 / 4.12 / 2.10 / 14.97\n- Ablation (state access; DeepSeek V4-Pro, Kimi K2.6, MiniMax M2.7, GLM 5.3-Flash, Qwen3.8-27B): change notice + state refresh + history reset add 5.98-8.71 PSR points, final PSR 10.89-17.54%\n- Ablation (post-fork token budget B/2-16B, same five systems): each doubling up to 4B adds 0.79-2.67 points; beyond 4B +0.19-0.28 in total; PSR at 16B 7.15-11.98%\nVerdicts: quality: no criterion stated by the authors (all configurations); cost: not measured",
+   "p": "6-7, 9, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 120 scenarios x 9 intervention positions. Configurations: 17 model-agent systems. Baseline: matched Clean continuation from the same saved prefix (per system). Held constant: scenarios, positions, available tools, post-fork token budget (1M); open-weight systems T=0, p=1, 131,072 context, 4,096 max output; provider systems in their native apps at xhigh (harness not held constant across systems). Acceptance tests: held-out executable checks, scenarios validated before evaluation. Repetitions: Not stated (point values; 'model randomness remains uncontrolled'). Human intervention: none; infrastructure-faulted cells retried with labels kept",
+   "p": "5-6, 10, 16-18, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "All 17 systems have lower Shifted than Clean success; GPT-6 Astra best (Clean 67.35 -> Shifted 24.79, PSR 20.34, CRR 30.20). Tool/session changes (F06) and stale evidence (F11): PSR 0.00% for all 17; runtime/resources (F05) zero for 16 of 17; disclosure (F08) zero for 13 of 17 (Claude Fable 5.1 16.20%, GPT-6 Astra 14.90%). Higher Clean does not imply higher retention (Kimi-K2.6 highest CRR 34.63% with Clean 20.50%). Timing: T70-T90 vs T10-T30 PSR -20.05 pts GPT-6 Astra, -15.43 Fable 5.1, -12.53 GPT-5.6 Sol, -11.93 Opus 5; +2.97 GLM-5.3-Flash, +2.20 Kimi-K2.6, +1.60 DeepSeek V4-Flash. No significance tests",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished systems, change families and timing profiles; matched continuations separate failure on the underlying task from loss of success after the change. Repeatability: not assessed (single point values, randomness uncontrolled). Limitations stated: 120 designed scenarios, some sharing task roots; one update per run; diagnostic controls on five systems only; intervention position reflects execution stage, not semantic progress; fixed post-fork token budget",
+   "p": "5, 10, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: designed scenarios sharing roots, one update per run, diagnostics on five systems, uncontrolled model randomness, positions not normalized progress, fixed token budget. Gaps: evaluating repeated changes in natural software-development workflows; checking preservation and evidence validity alongside task completion",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code and data: https://github.com/JeixHuang/SWE-Shift (data/results.json, controls.json, benchmark.json, model-cards.json). Benchmark data selection and construction assisted by OpenAI Codex, and the initial 24 cases were constructed and audited with GPT-5.6 Sol (an evaluated system); possible bias not discussed. Affiliation 5 printed as 'Somewhere on the Earth'. Codex app and Claude Code app versions not stated; open-weight harness not named. Table 2 and Figure 4 values rebuilt from pdftotext column dumps (row order assumed from the System column); Figure 4(a) GPT-6 Astra F01 printed as 38.36 (two decimals, others one). No pre-registration. Programming languages: Not stated explicitly (Python from SWE-bench Verified; Multi-SWE-bench and Multilingual repositories include Java, Rust, Go, JavaScript, Ruby per the audit-set repositories)",
+   "p": "1, 8, 10, 15, 17, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 and contributions stated",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): protocol, checkpoint rule, success checks, metrics and aggregation formulas given; code and data released",
+   "p": "4-6, 15-19, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model checkpoints (revisions), serving engines and decoding given; Codex app and Claude Code app versions not stated",
+   "p": "6, 11-13, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): scenarios, families and source benchmarks described; code and data on GitHub",
+   "p": "1, 3-4, 17-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): held-out executable checks, validated with admission checks before evaluation",
+   "p": "5, 16-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics (Clean, Shifted, PSR, CRR) defined; cost not measured (token budget only as a control)",
+   "p": "5-6, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): matched Clean continuation as baseline; all systems on the same scenarios, positions and budget",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run, point values, no statistical tests; authors state model randomness is uncontrolled",
+   "p": "6, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results; mixed timing effects reported",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph; no threats-to-validity section",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university authors, not vendors of the agents or models evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

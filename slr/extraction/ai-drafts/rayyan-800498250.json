@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800498250",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, J., Liu, W., Xu, J., Yang, S., Yang, X., Zhang, Y., Wang, Y., Shan, Z., Ngai, E. C. H. (2026). SWE-Residual: Evaluating Starting-State Robustness of Coding Agents. arXiv:2610.25899v1 [cs.SE], 19 Oct 2026. Code: https://github.com/userljz/SWEResidual",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.25899v1 [cs.SE], 19 Oct 2026; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The University of Hong Kong (Li, Liu, S. Yang, Ngai); Tencent (Y. Wang, Shan); University of Tokyo (X. Yang); University of North Texas (Y. Zhang); The University of British Columbia (Xu)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark SWE-Residual (198 Residual States from 111 DeepSWE and Terminal-Bench tasks) and Residualization pipeline for 'Starting-State Robustness' (continuing work a predecessor agent submitted as complete but that fails hidden tests), used to compare five frontier agents under Clean Start and Residual Start",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Evaluated agents: Gemini-3.8-Flash, Qwen-3.8-Flash, GLM-5.3-Flash, GPT-6-Sol, Kimi-K2.8-Preview, highest reasoning effort, temperature 1.0; harnesses mini-swe-agent (DeepSWE) and Terminus-2 (Terminal-Bench), orchestrated with Harbor (versions not given). Predecessor agents: DeepSeek-V4-Flash-0731, Qwen-3.8-27B, GLM-5.3. Source benchmarks DeepSWE v1.1 and Terminal-Bench 2.1",
+   "p": "5-6, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Task input unchanged from the source benchmark: the original request only; the starting state contains the predecessor's work (code, tests, documentation, notes, installed software, running processes) with no trajectory, handoff notes or failure indication ('blind continuation'). Hidden tests and reference solution never exposed",
+   "p": "5, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed for the agent. Benchmark construction (Residualization): I trajectory generation by predecessor agents (8 h limit), II automatic filtering (submitted but failing, changed, no infrastructure failure), III human review, IV state reconstruction and validation",
+   "p": "5, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs (autonomous). Humans in construction: two reviewers independently assess each candidate state (task-directed, task-verifier consistent), using a GLM-5.3 summary of the predecessor trajectory",
+   "p": "5, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents run on the original natural-language request",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: 'request', 'Starting-State Robustness', 'blind continuation')",
+   "p": "1, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: continuation of earlier, apparently finished but failing work on DeepSWE long-horizon engineering tasks (repository) and Terminal-Bench tasks (whole machine environment)",
+   "p": "1-2, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "198 Residual States from 111 tasks: DeepSWE 165 states from 90 of 113 tasks, 74 repositories (states change a median of 9 files, +1,164 / −10 lines, 44.6 KiB patch; median 134 predecessor steps, 47.7 min); Terminal-Bench 33 states from 21 of 89 tasks (median 24 steps, 15.5 min). Residual State test pass rate mean/median 91.6/98.4% (DeepSWE), 47.6/60.0% (Terminal-Bench)",
+   "p": "6, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "DeepSWE: 74 repositories in TypeScript, Go, Python, JavaScript, Rust; Terminal-Bench: nine task categories incl. software engineering, scientific computing, data science, security, system administration",
+   "p": "6, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants); two human reviewers of candidate states, profile Not stated",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "No token or money cost. Steps: median ratio of Residual to Clean Start agent turns (Table 4); predecessor steps and execution time reported descriptively",
+   "p": "6, 9, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Success rate under Residual Start (hidden tests; averaged within task over states, then across tasks); matched Clean Start success; Residual Gap = Clean − Residual (pp); conditional failure rate on tasks the agent solves from Clean Start",
+   "p": "6-8, 16-17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Acceptance-bias measures on DeepSWE: Same failing (failed continuations ending with exactly the initially failing tests); Initially failing tests passed from Clean vs Residual; Kept (share of predecessor lines kept); Left-out files changed (files changed by the reference solution but not by the predecessor); inspection of inherited changes; qualitative coding of 30 sampled failed continuations per agent",
+   "p": "8-9, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: source benchmark verifiers with hidden tests in Docker/CRIU-restored environments via Harbor; per-test outcomes, final patches and trajectories analysed by scripts; infrastructure failures rerun, never counted as task failures. Manual: two reviewers in construction; sampled failed continuations inspected (30 per agent)",
+   "p": "5, 9, 15-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors for a configuration; quality and cost verdicts for every entry: no criterion stated by the authors. Values (Residual Start / matched Clean Start / Gap, %): DeepSWE (mini-swe-agent): Gemini-3.8-Flash 20.0 / 72.2 / 52.2; Qwen-3.8-Flash 30.6 / 51.1 / 20.6; GLM-5.3-Flash 15.4 / 68.9 / 53.5; GPT-6-Sol 33.5 / 65.6 / 32.0; Kimi-K2.8-Preview 13.0 / 57.8 / 44.8. Terminal-Bench (Terminus-2): Gemini-3.8-Flash 14.3 / 47.6 / 33.3; Qwen-3.8-Flash 12.7 / 33.3 / 20.6; GLM-5.3-Flash 14.3 / 38.1 / 23.8; GPT-6-Sol 36.5 / 71.4 / 34.9; Kimi-K2.8-Preview 20.6 / 42.9 / 22.2. Steps ratio Residual/Clean (DeepSWE): GLM 0.57, Gemini 0.70, Kimi 0.56, GPT 1.02, Qwen 0.84",
+   "p": "7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 111 source tasks (198 Residual States). Compared: five agents, each under Clean Start and Residual Start. Baseline: Clean Start of the same agent on the same tasks. Held constant: request, verifier, harness, system prompt, evaluation budget (source benchmark defaults), model settings; only the starting state changes. Acceptance: hidden tests of the source benchmark. Repetitions: Not stated (apparently one run per state; up to three states per task averaged). Human intervention: none",
+   "p": "5-7, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Every agent loses under Residual Start: gaps 20.6-53.5 pp (DeepSWE) and 20.6-34.9 pp (Terminal-Bench); predecessor-group gaps 19.0-51.8. GPT-6-Sol best under Residual Start on both tracks (33.5%, 36.5%); Qwen-3.8-Flash smallest gap. DeepSWE ranking reverses (GLM-5.3-Flash +17.8 over Qwen under Clean, Qwen +15.2 over GLM under Residual). On tasks solved from Clean Start, conditional failure 63.4-79.0% (DeepSWE) and 61.9-81.3% (Terminal-Bench) for three agents. Acceptance bias: 58.9-88.2% of failed continuations end with the same failing tests; agents keep 86.4-98.6% of predecessor lines; change left-out files in 6.7-15.0% vs 40.5-47.9% from Clean Start. No significance tests",
+   "p": "7-9, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: distinguished agents and exposed ranking changes and a large gap not visible from clean starts; consistent across predecessor groups. Repeatability not assessed (no repeated runs or statistical tests). Limitations of the method stated: only 198 states, two source benchmarks and three predecessor families; acceptance-bias analysis only on DeepSWE; predecessor groups cover different tasks",
+   "p": "7-8, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: 198 states from 111 tasks, two source benchmarks, three predecessor families; acceptance-bias analysis limited to DeepSWE; predecessor groups cover different task sets. Gaps / future work: extend to human-produced work and other handoff settings; Residualization applicable to any benchmark with hidden tests; agents should check inherited work against the request",
+   "p": "9-10, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code released on GitHub; Residual States, reconstruction manifests, filtering records and per-run outcomes promised 'upon publication'. No pre-registration. Number of runs per state not stated. Limitations given only in a short appendix (F). Table 3 read from a garbled extraction; values checked against the stated gaps (computed before rounding: Qwen DeepSWE 51.1 − 30.6 shown as 20.6). Programming languages: TypeScript, Go, Python, JavaScript, Rust (DeepSWE); shell/machine tasks (Terminal-Bench)",
+   "p": "1, 7, 11, 14, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and contributions (Starting-State Robustness, SWE-Residual, findings) stated",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task formulation, four-stage construction, reconstruction, metrics and run selection described in detail",
+   "p": "4-6, 14-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models, reasoning effort, temperature and benchmark versions given; harness (mini-swe-agent, Terminus-2, Harbor) versions not given",
+   "p": "6, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark described in detail and code on GitHub, but the Residual States are to be released only upon publication",
+   "p": "1, 6, 11, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): success judged by the source benchmarks' hidden tests, never exposed to the agent",
+   "p": "4-5, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): success, gap and acceptance-bias metrics defined; cost only as a step ratio, no tokens, time or money for evaluated agents",
+   "p": "6, 9, 16-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): matched Clean Start of the same agent on the same tasks, with identical request, verifier, harness and budget",
+   "p": "7, 15-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repeated runs reported and no statistical tests of differences",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results across all agents and tracks",
+   "p": "7-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations appendix on scope only; no threats-to-validity discussion",
+   "p": "18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic and Tencent authors; evaluated models and harnesses are not theirs",
+   "p": "1, 6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

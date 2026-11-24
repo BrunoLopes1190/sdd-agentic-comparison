@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486099",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Salim, M., Latendresse, J., Khatoonabadi, S., Shihab, E. (2026). Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering. In: Proceedings of MSR '26, April 13-14, 2026, Rio de Janeiro, Brazil. ACM, 5 pages (DOI placeholder in the paper). Read from arXiv:2601.14470v1 [cs.SE], 20 Jan 2026",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — MSR '26 (Mining Software Repositories), Rio de Janeiro, April 13-14, 2026, ACM; work-in-progress short paper (5 pages); venue from the paper's ACM header (DOI left as placeholder); full text read from arXiv:2601.14470v1",
+   "p": "1-2, 4",
+   "verdict": "uncertain",
+   "why": "The only venue evidence is the ACM template header (MSR '26, Rio de Janeiro), which still has the placeholder conference title and DOI; the record came only from the arXiv export, so publication at MSR 2026 is not confirmed",
+   "doubt": "O cabeçalho ACM indica MSR '26, mas o título da conferência e o DOI são placeholders e o registo só veio do arXiv. Confirma se foi publicado no MSR 2026; se não, passa a Preprint."
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: Data-driven Analysis of Software (DAS) Lab, Concordia University, Montreal, Canada (all four authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — empirical analysis of token consumption in one LLM multi-agent system (ChatDev with GPT-5) over 30 development tasks, with a mapping of ChatDev phases to SDLC stages proposed as a standardised evaluation framework",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "ChatDev LLM-based multi-agent framework ('chat chain', waterfall-like: design -> coding -> testing); version not stated. Backbone model GPT-5 (gpt-5-2025-08-07) for all agents. No SDD approach",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not stated for ChatDev beyond its phases (role agents produce design decisions, source code, reviews, environment docs and user manuals); input is a single natural-language task prompt from the ProgramDev dataset",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "ChatDev phases mapped to stages (Table 2): Design = DemandAnalysis, LanguageChoose; Coding = Coding; Code Completion = CodeComplete; Code Review = CodeReview (iterative programmer-reviewer dialogue); Testing = Test; Documentation = EnvironmentDoc, Reflection, Manual. Agents decide autonomously which phases run (Code Completion in 6/30 tasks, Testing in 12/30)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated runs); authors suggest a human-in-the-loop checkpoint before Code Review as a possible optimisation",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full ChatDev workflow on each task",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (multi-agent waterfall framework; no specification-driven approach; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: small programs built from a natural-language prompt (from simple algorithms such as Fibonacci to applications such as a chess game)",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "30 tasks from the ProgramDev dataset; reasoning tokens per task 17,280-40,000; code size not stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General small programs and games (ProgramDev prompts); not further stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens per development stage (share of total task tokens, mean and ±1 SD) and split into input, output and reasoning tokens per stage and overall; no money or time reported",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (task success or correctness not measured)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Number of tasks in which each phase was executed (n per stage)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: ChatDev instrumented to log every LLM call (prompt, response, input/output/reasoning token counts); Python scripts aggregate tokens per mapped stage over the 30 runs",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Single configuration: ChatDev (version not stated) + GPT-5 (gpt-5-2025-08-07, temperature 1.0 default), 30 ProgramDev tasks, one run each. Criterion: none stated; values: Code Review avg 59.4% of task tokens, Code Completion 26.8% (n=6), Documentation 20.1%, Testing 10.3% (n=12), Coding 8.6%, Design 2.4%; overall 53.9% input, 24.4% output, 21.6% reasoning tokens. Quality verdict: not measured. Cost verdict: no criterion stated by the authors (they call the input-heavy review cycle a 'significant inefficiency')",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (one system and one model; no configurations compared). Stages compared within ChatDev only",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A between configurations. Within ChatDev: Code Review dominates token use (59.4%); initial Coding (8.6%) and Design (2.4%) are cheap; input tokens dominate all stages except Coding, which is output-heavy (58.0% output vs 6.9% input); Documentation 80.2% input",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A (no comparison). The stage mapping is proposed as a framework for comparing LLM-MA architectures in future work; authors state it is one of several possible mappings",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Threats: single LLM-MA system (ChatDev) and single LLM (GPT-5); 30 tasks may not represent all scenarios (no public large-scale SE agent-trace benchmark); Code Completion (n=6) and Testing (n=12) profiles rest on small samples; phase-to-stage mapping is one possible abstraction. Future work: more tasks, other LLMs, other LLM-MA systems (e.g. MetaGPT), link between token use and failure modes, validate the mapping; design token-efficient collaboration protocols",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Stage percentages are per-task averages over the tasks where each stage ran, so they do not sum to 100% (59.4 + 26.8 + 20.1 + 10.3 + 8.6 + 2.4). Model version printed 'gpt-52025-08-07' in text vs 'gpt-5-2025-08-07' in Table 1. Upper bound of reasoning tokens exactly 40,000. Venue from the ACM template header (MSR '26) with placeholder DOI and conference title; confirm publication. Values from text and Table 3. Data: dataset of 30 traces and replication package on Zenodo (zenodo.org/records/17430187). No pre-registration. Programming language: Not stated (analysis scripts in Python)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question 'What are the token consumption patterns of LLM-MA systems for software development tasks?' stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task source, model settings, instrumentation, mapping and aggregation described, with a complete replication package",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-5 snapshot gpt-5-2025-08-07 given; ChatDev version not stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks from the public ProgramDev dataset; traces released on Zenodo",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): effectiveness of the generated software is not measured",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): token cost metrics defined; no quality metrics",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline or alternative system",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per task; only ±1 SD across tasks, no repetitions or statistical analysis",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): descriptive findings follow from the data, but 'strong empirical evidence' for a communication tax and cost-structure claims (greenfield vs refactoring) go beyond one system, one model and 30 tasks",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Threats to Validity section",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): MSR '26 conference paper per the ACM header (to confirm)",
+   "p": "1-2",
+   "verdict": "uncertain",
+   "why": "Depends on the venue: Yes only if the MSR '26 acceptance shown in the ACM header is real; the header keeps placeholder text and DOI",
+   "doubt": "Depende de o artigo ter sido mesmo aceite no MSR '26 (o cabeçalho tem placeholders). Se confirmares a publicação fica Yes; se não, No."
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Concordia University) are independent of ChatDev and GPT-5",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed; the stage mapping is an evaluation method)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

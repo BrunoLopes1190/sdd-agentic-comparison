@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486810",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Vangala, B. P., Gehani, A., Malik, T. (2026). AI-Generated Code Is Not Reproducible (Yet): An Empirical Study of Execution Reliability in LLM-Based Coding Agents. In: ACM Conference on Reproducibility and Replicability (ACM REP '26), Delft, Netherlands, pp. 33-46. ACM. https://doi.org/10.1145/3820002.3828581",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ACM REP '26 (4th ACM Conference on Reproducibility and Replicability), Delft, 14 pages",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of EECS, University of Missouri, USA (Vangala, Malik); Computer Science Laboratory, SRI International, USA (Gehani)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — three coding agents (Claude Code, Codex, Gemini Code Assist) each generate 100 artefacts from standardised prompts in Python, JavaScript and Java (300 artefacts) executed in a clean sandbox; introduces the execution-reliability metric and a two-layer (claimed vs runtime) dependency framework, plus a failure taxonomy and a self-correction experiment",
+   "p": "1-2, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents (Table 1), invoked through their CLIs with default tools and permissions: Claude Code (version not stated) + claude-opus-4-1; OpenAI Codex CLI 0.52.0 + 'OpenAI GPT-4 (code)' / 'GPT-4-class code model'; Gemini Code Assist (version not stated) + gemini-2.5-pro",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Standardised prompt template (Fig. 2) requiring (1) complete working code, (2) a complete requirements.txt / package.json / pom.xml with all dependencies and versions, (3) brief usage instructions, '100% reproducible in a clean environment'. Output modelled as the triple source code, dependency specification, usage instructions",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Single-prompt generation by the agent; then clean-sandbox execution; failed artefacts go through Algorithm 1 (failure classification with limited repair, at most 5 rounds); separate self-correction experiment feeding errors back to the same agent for up to 5 iterations",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during generation; in post-failure analysis a human applies scope-minimal fixes and labels failures (single developer)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); one-shot artefact generation from a prompt",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven workflow); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (complete artefacts generated from scratch from prompts)",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 prompts (40 Python, 35 JavaScript, 25 Java) x 3 agents = 300 artefacts; tasks from single-library utilities to multi-framework applications; artefact code size Not stated",
+   "p": "4-5, 10-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Data processing, web services, security tooling, DevOps automation, machine learning (also web scraping, API, utility, real-time, cloud, messaging; Appendix A)",
+   "p": "5, 12-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Execution reliability E = share of prompts whose artefact compiles or executes to completion in the clean sandbox with zero manual intervention (partial executions lacking an external service count as failures), overall, by language and by agent-language pair with Wilson 95% CIs",
+   "p": "3, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Dependency specification quality: completeness gap (number of directly imported packages missing from the manifest); runtime multiplier (runtime / claimed dependency counts)",
+   "p": "3, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure taxonomy of 95 non-successful artefacts (Code Errors: Syntax Errors, Malformed Output; Environment: Configuration, System Error, Dependency, Other); self-correction effectiveness by error category (qualitative); absence of lock files or pinned transitive versions",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: execution in snapshot-restored AWS EC2 sandboxes (Ubuntu 22.04, python:3.10-slim, node:18-slim, maven:3.9-eclipse-temurin-17), only package-index network access; runtime dependencies via Sciunit/strace (Python), npm list --all --json (JavaScript), mvn dependency:tree (Java). Manual: failure categorisation and minimal fixes by a single developer (Algorithm 1)",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: artefact executes successfully out-of-the-box with zero manual intervention (per artefact); no success criterion stated for an agent, so quality verdict: no criterion stated by the authors; cost not measured (cost verdict: no criterion stated by the authors). One artefact per prompt.\n- Claude Code + claude-opus-4-1: 73/100 (73.0%); failed 27 (4 partial); Python 32/40 (80.0%, CI 65.2-89.5), JavaScript 21/35 (60.0%), Java 20/25 (80.0%, CI 60.9-91.1); failures Code 10 / Environment 17, Malformed Output 0, Configuration 5, Dependency 2\n- Codex CLI 0.52.0 + OpenAI GPT-4-class code model: 60/100 (60.0%); failed 40 (3 partial); Python 35/40 (87.5%), JavaScript 19/35 (54.3%), Java 6/25 (24.0%); failures Code 21 / Environment 19, Syntax 13, Malformed Output 8, Configuration 11, Dependency 3\n- Gemini Code Assist + gemini-2.5-pro: 72/100 (72.0%); failed 28 (7 partial); Python 40/40 (100.0%, CI 91.2-100.0), JavaScript 25/35 (71.4%), Java 7/25 (28.0%); failures Code 16 / Environment 12, Malformed Output 8, Configuration 2, Dependency 2\n- Self-correction (same agents, up to 5 feedback iterations on the 95 failures): dependency errors usually fixed in 1-2 iterations; syntax errors resistant; configuration mixed; all 16 Malformed Output artefacts unfixable (no per-agent counts)",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 prompts (GPT-4o-generated candidates, manually curated), same template for all agents. Configurations: 3 agents with their default models. Baseline: none. Held constant: prompt template and prompts, clean execution environment restored from a snapshot, no network beyond package indexes during execution; network enabled during generation. Acceptance: execution to completion in the sandbox (no functional tests). Repetitions: one artefact per agent-prompt pair. Human intervention: none in generation; human minimal fixes only in post-failure classification, not counted for reliability",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Overall 205/300 (68.3%); Claude 73.0%, Gemini 72.0%, Codex 60.0%. By language: Python 89.2% [82.4, 93.6], JavaScript 61.9% [52.3, 70.6], Java 44.0% [33.2, 55.3], non-overlapping CIs. Java: Claude 80.0% vs Gemini 28.0% and Codex 24.0%, non-overlapping CIs. Failures: Code 49.5% (Syntax 32.6%, Malformed 16.8%), Environment 50.5% (Configuration 18.9%, Other 13.7%, System 10.5%, Dependency 7.4%). 94% of artefacts declare all direct imports, 6% miss exactly one. Runtime multiplier: JavaScript 31.4x (3.0 to 94.8), Java 9.4x (3.0 to 27.7), Python 4.3x (2.6 to 11.1), artefact-weighted ~15x; no agent emitted lock files",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished languages and, for Java, agents (non-overlapping Wilson CIs); overall agent differences not tested. Repeatability: single generation per prompt; agents evolve, generalisation beyond the configurations cautioned. Limitations stated: no weighting by task difficulty; failure labels and minimal fixes by a single developer; single zero-shot prompt template",
+   "p": "5-6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: metric not weighted by task difficulty; single-developer labelling; single zero-shot prompt template (few-shot, chain-of-thought or explicit pinning instructions may narrow gaps); results tied to evaluated agent versions; language effects (ecosystem vs training data) not isolated. Gaps: coding-agent evaluation should treat clean-environment executability as a first-class metric alongside functional correctness; agents do not emit locked/pinned dependency files; self-correction only a partial remedy; agent selection should use language-specific evidence",
+   "p": "5-6, 8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: text says all three agents perform comparably on Python 'with overlapping confidence intervals' (p. 6), but Table 4 gives Claude [65.2, 89.5] and Gemini [91.2, 100.0], which do not overlap; the conclusion says the 15x expansion is 'among successful artifacts' (p. 10) while Section 4.6 computes it over all artefacts of a language (p. 7-8); Codex model only described as 'OpenAI GPT-4 (code)' / 'GPT-4-class'. 15x reproduces as the artefact-weighted mean of 4.3x, 9.4x, 31.4x. Self-correction results qualitative only. Data: authors state they release all prompts, artefacts, execution logs and failure labels, but no link is given; prompt catalog in Appendix A. No pre-registration. Programming languages: Python, JavaScript (Node.js), Java (Maven)",
+   "p": "5-8, 10-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question on clean-environment executability of agent artefacts and four contributions stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): prompt template and catalog, infrastructure, runtimes, tooling and Algorithm 1 described",
+   "p": "3-5, 10-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude and Gemini models identified (claude-opus-4-1, gemini-2.5-pro) and Codex CLI 0.52.0, but Codex model vague and Claude Code / Gemini Code Assist versions not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): all 100 prompts listed in Appendix A",
+   "p": "10-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): objective execution in a clean sandbox, but no functional tests and failure labels by one developer",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): execution reliability and dependency metrics defined; no cost metrics",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): three agents under the same prompts and execution environment",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Wilson 95% CIs, but one generation per prompt and agent, no repetitions",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow, but the Python 'overlapping CIs' claim contradicts Table 4 and the 15x figure is attributed to successful artefacts only in the conclusion",
+   "p": "6-8, 10",
+   "verdict": "uncertain",
+   "why": "Main conclusions (68.3%, language and Java agent differences, failure split) follow from Tables 2-5; the two slips (Python 'overlapping CIs' vs Table 4; 15x 'among successful artifacts' in the conclusion vs all artefacts in 4.6) are minor, so another reader could score Yes rather than Partly",
+   "doubt": "As conclusões principais seguem dos resultados; há dois deslizes (ICs de Python 'sobrepostos' vs Tabela 4; 15x atribuído só aos artefactos bem-sucedidos). Decide se basta para Partly ou se é Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations discussed (difficulty weighting, single labeller, single prompt, evolving agents)",
+   "p": "5, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM REP '26 conference, peer-reviewed",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): University of Missouri and SRI International; not vendors of the agents (Sciunit, co-authored by Malik, is only a measurement tool)",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

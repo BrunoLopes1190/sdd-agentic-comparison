@@ -1,0 +1,359 @@
+{
+"key": "rayyan-800486344",
+"model": "Claude Opus 5.5 (subagent)",
+"round": 1,
+"fields": [
+{
+"f": "Reference",
+"v": "Podivilov, A., Lomshakov, V., Savin, S., Startsev, M., Pozharskiy, R., Parshin, M., Nikolenko, S. (2026). AgentLens: Production-Assessed Trajectory Reviews for Coding Agent Evaluation. arXiv:2607.06624v2 [cs.AI], 14 Jul 2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Year",
+"v": "2026",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Publication type",
+"v": "Preprint — arXiv:2607.06624v2 [cs.AI]; no published venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Author affiliation",
+"v": "Explyt (Podivilov, Lomshakov, Savin, Startsev, Pozharskiy, Parshin; industry, vendor of the Explyt AI Agent); St. Petersburg Department of the Steklov Institute of Mathematics and St. Petersburg State University (Nikolenko)",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Nature of the study",
+"v": "Proposes an evaluation method; secondary: Compares — AgentLens benchmark that evaluates full interactive trajectories of coding agents with formal verifiers plus LLM-judge reviews on five dimensions, a quality index, side-by-side reviews and a nightly regression pipeline; leaderboard of 17 harness/model configurations on Java tasks",
+"p": "1-2, 9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Approach(es): name and version",
+"v": "No SDD approach. Harnesses: Explyt AI Agent (EAA, the authors' own IntelliJ IDEA coding assistant) and Claude Code; versions not stated. Models: Opus 4.7 (EAA; Claude Code with xhigh effort), GPT-5.5, Sonnet 4.6 (EAA and Claude Code), GLM-5.1 (self-hosted and OpenRouter), DeepSeek V4 Flash, DeepSeek V4 Pro, Haiku 4.5 (EAA and Claude Code), Gemini 3.1 Pro Preview, Gemini 3 Flash, MiniMax 2.7, Qwen 3.6 Plus, Mimo V2.5 Pro, Kimi K2.6. Judge: GPT-5.4",
+"p": "9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Artefacts prescribed",
+"v": "None prescribed by an SDD approach. Each scenario gives a task objective with a sequence of instructions and interaction steps (e.g. mandated step headers 'STARTING STEP N', approval before edits, required reports)",
+"p": "3, 16",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Phases of the flow",
+"v": "Scenario-defined workflows (from developer interviews and production clusters): reconnaissance, plan, approval, implementation, verification (tests/build), final report; the simulated user ends the dialog",
+"p": "3, 16-18",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human review points",
+"v": "No real human. An LLM user simulator with a persona (default: relaxed, intervenes only on clear failure; toxic: mildly frustrated; helpful available but not in the released fold) interacts with the agent and approves steps",
+"p": "3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Parts exercised",
+"v": "N/A (no SDD approach); full interactive sessions run with a simulated user",
+"p": "3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "SDD level",
+"v": "Not classifiable (no specification artefact; authors do not use SDD terms)",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Task type",
+"v": "Existing code bases (open-source Java projects matched to anonymised production-usage clusters; e.g. unit testing, legacy DB-logic migration, API documentation, bug fixes, refactors)",
+"p": "3, 29-30",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Size",
+"v": "Released fold: 16 scenarios × 2 personas (default, toxic) = 32 trajectories per configuration; 17 configurations; repository size Not stated",
+"p": "3, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Domain",
+"v": "Java enterprise/backend development (Spring Boot, JPA, Liquibase, Kafka, OpenAPI/Swagger), production-like coding-assistant work",
+"p": "16-17, 30",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Team profile",
+"v": "N/A (no human participants in runs). Workflows obtained from interviews with programmers (number not stated) and anonymised summaries of consenting product users",
+"p": "3",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Cost metrics",
+"v": "Deterministic telemetry: interaction cost (price), cache hit rate, latency/agent time, generation-token throughput, generation tokens. Not in the leaderboard; reported only in examples (DeepSeek V4 Pro vs Flash: $21.20 vs $9.13, 18,987 s vs 10,973 s; Gemini 3.1 Pro total agent time 14,968 s) and 'a single run with Opus 4.7 can exceed $100'",
+"p": "5, 13, 18-19, 23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Functional quality metrics",
+"v": "Formal verification pass rate (scenario passes only if all verifiers pass: repository-state checks, regex checks, Maven/Gradle test execution, test coverage, build-task output, IDE static analysis); End Result LLM-judge score",
+"p": "4-5, 10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Internal quality metrics",
+"v": "None separately (IDE static-analysis 'no errors' verifier is part of formal verification)",
+"p": "4",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Human effort metrics",
+"v": "None",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Other outcome metrics",
+"v": "LLM-judge scores (0/0.5/1 ordinal, aggregated 0-100) with written reviews: Instruction Compliance, Pitfalls, Pleasantness, Tool Calls; Quality Index = unweighted mean of five judge metrics and formal verification; tool telemetry (per-tool success rates, tool calls per chat, parallel calls); termination reason; side-by-side pairwise scores [-5..5] with p-values; Spearman correlation of QI with Artificial Analysis benchmarks",
+"p": "4-6, 12",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "How metrics are collected",
+"v": "Automatic: formal verifiers and telemetry from runs in a CI pipeline (manual, nightly, weekly). LLM-as-judge: GPT-5.4 scores single trajectories for the leaderboard; pairwise judge for side-by-side. LLM judge validity rests on informal internal pairwise-annotation experiments (no formal agreement study). User simulator model not stated",
+"p": "4-5, 8-9, 13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Evaluation (each configuration)",
+"v": "No success criterion stated by the authors for a configuration; quality and cost verdicts: no criterion stated by the authors. Values (QI; Formal; End; Instr.; Pitfalls; Pleasant.; Tools), 32 trajectories, judge GPT-5.4, 1 run unless noted: (1) EAA + Opus 4.7: 81.5; 81.2; 94.0; 75.0; 64.0; 92.0; 83.0. (2) Claude Code + Opus 4.7 (xhigh): 76.2; 81.2; 91.0; 69.0; 58.0; 78.0; 80.0. (3) EAA + GPT-5.5: 73.0; 75.0; 78.0; 70.0; 55.0; 80.0; 80.0. (4) EAA + Sonnet 4.6: 70.2; 81.2; 66.0; 62.0; 56.0; 73.0; 83.0. (5) Claude Code + Sonnet 4.6: 70.1; 90.6; 80.0; 62.0; 55.0; 75.0; 58.0. (6) EAA + GLM-5.1 self-hosted (5 runs): 67.3±0.9; 72.5; 71.8; 57.4; 53.2; 75.8; 73.0. (7) EAA + DeepSeek V4 Flash: 64.8; 87.5; 73.0; 50.0; 50.0; 66.0; 62.0. (8) EAA + DeepSeek V4 Pro: 64.1; 87.5; 66.0; 53.0; 48.0; 69.0; 61.0. (9) Claude Code + Haiku 4.5: 63.6; 84.4; 78.0; 58.0; 48.0; 58.0; 55.0. (10) EAA + GLM-5.1: 60.6; 80.6; 60.0; 53.0; 48.0; 61.0; 61.0. (11) EAA + Haiku 4.5: 58.2; 75.0; 72.0; 55.0; 47.0; 47.0; 53.0. (12) EAA + Gemini 3.1 Pro Preview: 54.5; 71.9; 62.0; 52.0; 41.0; 50.0; 50.0. (13) EAA + Gemini 3 Flash: 52.7; 75.0; 66.0; 48.0; 41.0; 39.0; 47.0. (14) EAA + MiniMax 2.7: 50.8; 70.0; 52.0; 47.0; 38.0; 43.0; 55.0. (15) EAA + Qwen 3.6 Plus: 49.1; 65.6; 58.0; 45.0; 39.0; 42.0; 45.0. (16) EAA + Mimo V2.5 Pro: 45.1; 62.5; 50.0; 38.0; 32.0; 36.0; 52.0. (17) EAA + Kimi K2.6 (provider-side instability): 28.1; 42.9; 29.0; 33.0; 19.0; 21.0; 24.0",
+"p": "10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: design",
+"v": "Tasks: 16 Java scenarios × 2 personas (32 trajectories). Configurations: 17 harness + model pairs (EAA and Claude Code; Opus 4.7, Sonnet 4.6, Haiku 4.5 in both harnesses). Baseline: none designated (side-by-side against an anchor run in the regression pipeline). Held constant: scenarios, personas, judge GPT-5.4, high reasoning effort where supported; providers differ (official APIs, OpenRouter, self-hosted). Acceptance tests: formal verifiers (tests, repo state, regex, static analysis). Repetitions: 1 run per configuration except EAA + GLM-5.1 self-hosted (5 runs). Human intervention: none (simulated user). Bias checks: order-swap test and judge self-preference test (GPT-5.5 vs Sonnet 4.6 judges)",
+"p": "3, 7-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: result",
+"v": "EAA + Opus 4.7 highest QI (81.5), then Claude Code + Opus 4.7 (76.2) and EAA + GPT-5.5 (73.0); Kimi K2.6 last (28.1) due to an OpenRouter tool-parser bug, not capability. Harness: same formal result for Opus (26 vs 26 passes) but reviews favour EAA; Claude Code + Haiku better than EAA + Haiku (63.6 vs 58.2; edit_file success 0.93 vs 0.66; Pitfalls side-by-side p = 0.038); Sonnet near tie (70.2 vs 70.1). DeepSeek V4 Flash vs Pro: QI 64.8 vs 64.1; Flash cheaper and faster ($9.13 vs $21.20, p = 0.0011; 10,973 s vs 18,987 s, p = 0.029); End Result difference not significant (p = 0.117). QI correlates most with APEX-Agents-AA (ρ = 0.82), negatively with IFBench (ρ = −0.41) and τ2-Bench Telecom (ρ = −0.25). Significance tested only in side-by-side reviews",
+"p": "10-12, 19-23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Comparison: did the method work",
+"v": "It separated configurations and explained differences through reviews (e.g. provider bug, parallel-tool-calling regression caught nightly). Repeatability: GLM-5.1 five runs, QI mean 67.28, SD 0.94; 60.5% of QI variance from formal verification; 15 of 32 scenario-persona points passed in all runs, 1 failed in all, 16 flaky. Order-swap residuals small. Judges disagreed on the winner in 23% of task-metric comparisons (18% self-favouring, 5% opposite), half from Pleasantness; average shift ~4% of the pairwise range. Limitations stated: Java only; third-party providers outside their control; cost; benchmark built around their own assistant; judge validity not yet formally established",
+"p": "7-8, 12-13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Conclusions: limitations and gaps",
+"v": "Limitations: specific class of coding-agent tasks, Java-only release; third-party API providers affect latency, routing, versioning and availability (leaderboard differences partly reflect serving conditions); a run can exceed $100; built around the authors' own assistant (neutrality needs external use); LLM-judge validity rests on informal internal experiments. Future work: integrations for Codex, OpenCode and more IDEs (PyCharm, Rider, WebStorm); more task folds (e.g. test writing); formal judge-human and judge-judge agreement study",
+"p": "4, 12-13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Notes",
+"v": "Inconsistencies: §4.2 says DeepSeek V4 Pro has a 'statistically significant instruction-compliance advantage', but Appendix B gives Instruction Compliance p = 0.855 (metrics_value −0.0187). Correlation tables use n = 15 while the leaderboard has 17 rows; AA correlation uses 11 models (Kimi excluded, OpenRouter GLM used). In the extracted text the Pleasant. and Tools columns of Table 6 are detached and were assigned by row order (QI recomputes correctly, e.g. 81.5 and 54.5). Formal 81.2 = 26/32 and 87.5 = 28/32 match appendix counts. User-simulator model not stated; prices and hashes masked in example reports. Code: https://github.com/agent-lens/agent-lens-bench (open source). No pre-registration. Programming language: Java (Maven/Gradle, IntelliJ IDEA)",
+"p": "1, 6, 10-13, 19-21",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q1",
+"v": "Yes (1): aims and contributions stated (production-assessed trajectory-level benchmark, protocol, side-by-side, pipeline)",
+"p": "1-2",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q2",
+"v": "Partly (0.5): protocol, metrics, judge prompts (examples) and pipeline described, code open source; user-simulator model, EAA version and run metadata not given",
+"p": "3-8, 18-29",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q3",
+"v": "Partly (0.5): model versions named (e.g. Opus 4.7, GPT-5.5, GLM-5.1, judge GPT-5.4); harness versions (EAA plugin hash masked, Claude Code) not given; simulator model not stated",
+"p": "9-10, 18",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q4",
+"v": "Partly (0.5): task sources and families described and benchmark released on GitHub; the 16 scenarios are not described individually in the paper",
+"p": "1, 3, 29-30",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q5",
+"v": "Partly (0.5): formal verifiers (tests, repo state, static analysis) are independent, but five of six QI components are LLM-judge scores without a formal agreement study",
+"p": "4-5, 13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q6",
+"v": "Partly (0.5): quality metrics defined; cost telemetry defined but not reported in the leaderboard, only in examples",
+"p": "4-5, 10, 23",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q7",
+"v": "Yes (1): all configurations run on the same scenarios, personas and judge; same models compared across two harnesses",
+"p": "9-10",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q8",
+"v": "Partly (0.5): five repeated runs and variance decomposition for one configuration; side-by-side p-values; leaderboard configurations run once",
+"p": "7, 10-11",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q9",
+"v": "Partly (0.5): leaderboard conclusions follow, but the claimed significant instruction-compliance advantage of DeepSeek V4 Pro contradicts p = 0.855, and explanations (Claude Code familiarity, models 'trained for evaluation-style competence') are speculative",
+"p": "10, 12, 21",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q10",
+"v": "Yes (1): limitations section (Java only, providers, cost, own-assistant bias, judge validity)",
+"p": "12-13",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q11",
+"v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+"p": "1",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "Q12",
+"v": "Partly (0.5): six authors are from Explyt, vendor of the Explyt AI Agent used in 14 of 17 configurations; Claude Code (3 configurations) and the models are from independent vendors",
+"p": "1, 9-10, 13",
+"verdict": "corrected",
+"why": "Table 6 has 14 EAA rows and 3 Claude Code rows, not 13 of 17; score unchanged.",
+"doubt": ""
+},
+{
+"f": "Q13",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE1",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE2",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE3",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+},
+{
+"f": "DARE4",
+"v": "N/A",
+"p": "—",
+"verdict": "confirmed",
+"why": "",
+"doubt": ""
+}
+]
+}

@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486609",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Qiao, X., Wang, Y., Lin, J., Ji, X., Lv, D., Huang, Y., Suo, S., Fan, S., Duan, N., Wang, J. (2026). JoyFrontBench: Evaluating Front-End Coding Agents through Goal-Oriented Acceptance Contracts. arXiv:2611.14952v1 [cs.SE], 11 Nov 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.14952v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "JD.com (all authors; industry)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark JoyFrontBench of 100 front-end problems (764 tasks, 2,596 atomic criteria) with goal-oriented acceptance contracts (core tasks, mandatory criteria, completion threshold) and metrics ATS, CTPR, ASR; five models under OpenHands and OpenCode compared",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harnesses: OpenHands (reference) and OpenCode, unchanged upstream with benchmark adapters (versions not stated). Models: Qwen3.8 Max (Aug. 2026 GA), Kimi K3, GPT-5.6 Sol, DeepSeek-V4-Pro-0813, GLM-5.3",
+   "p": "5, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an SDD approach. Per problem: Chinese-language generation specification (artifact, functional/interaction, visual/layout requirements, engineering constraints) given to the agent; withheld evaluation rubric with capability labels, tasks, atomic criteria, mandatory criteria, core tasks and validation protocols; reference artifact for pairwise comparison",
+   "p": "4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent: generate front-end implementation and mock data from the specification in a fresh Docker workspace (harness-native loop). Evaluation: build/runtime checks -> evidence-grounded GPT-5.5 judging with Playwright -> deterministic audit with up to three remediation rounds -> deterministic scoring",
+   "p": "3-5, 12-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs. Construction: two reviewers independently review specifications and rubrics, third adjudicates; reference implementations checked by hand along primary workflows",
+   "p": "4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous generation runs",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; specifications are task inputs; authors do not use SDD terms)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (self-contained front-end applications generated from scratch)",
+   "p": "4, 9, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 problems (70 test, 30 public), 764 tasks, 2,596 atomic criteria (11-52 per problem); generated code size Not stated",
+   "p": "1, 4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Front-end web applications: Web and Business Interfaces (30), Demonstrations and Concept Visualizations (23), Applications (21), SVG and Vector-Graphics Generation (13), Data Visualization (13); requirements from JD.com practitioners",
+   "p": "4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs). Requirements elicited from 30+ front-end, full-stack and software engineers and data analysts at JD.com; reviewers with at least one year of front-end experience",
+   "p": "4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Public set only, per harness (not per model): mean generation latency 39.65 min (OpenCode) and 59.24 min (OpenHands); mean tokens per run 6.18M and 9.52M; budgets 5 h and 500 steps/iterations",
+   "p": "6, 12, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Average Task Score (ATS), Core-Task Pass Rate (CTPR), Application Success Rate (ASR, all core tasks pass and build/runtime operable on the same artifact in one run; τ = 0.8)",
+   "p": "5, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Capability scores in eight dimensions (incl. Visual Quality via pairwise Good/Same/Bad against reference); repeatability shares (all pass / mixed / all fail over three runs); failure composition (mandatory only / completion only / both); judge-human agreement (exact agreement, Cohen's κ, Macro-F1, Pearson, Spearman, RMSE/SD, mean error); threshold sensitivity",
+   "p": "6-8, 16-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: build/runtime checks, Playwright evidence (screenshots, state, network, traces), GPT-5.5 judge (high reasoning) per criterion with evidence links, deterministic auditor and scorer. Judge validated on the public set against an adjudicated human reference (two annotators + adjudicator): 726 pointwise criteria, 83.47% agreement, κ = 0.651",
+   "p": "4-5, 8, 12-13, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors: application success (Sqr = 1) when operable and every core task meets all mandatory criteria and τ = 0.8; reported as rate (ASR), no target rate set, so quality verdict per configuration: no criterion stated by the authors; cost: no criterion stated by the authors. Test set, 70 problems, 3 runs; ATS / CTPR / ASR under OpenHands, ASR under OpenCode: (1) OpenHands + Qwen3.8 Max: 89.56 / 83.02 / 57.62. (2) OpenHands + Kimi K3: 88.98 / 82.62 / 56.67. (3) OpenHands + GPT-5.6 Sol: 90.53 / 82.34 / 55.71. (4) OpenHands + DeepSeek-V4-Pro-0813: 85.77 / 80.16 / 47.62. (5) OpenHands + GLM-5.3: 83.63 / 72.82 / 40.00. (6) OpenCode + Qwen3.8 Max: ASR 56.67. (7) OpenCode + Kimi K3: 45.71. (8) OpenCode + GPT-5.6 Sol: 46.67. (9) OpenCode + DeepSeek-V4-Pro-0813: 35.71. (10) OpenCode + GLM-5.3: 49.05. Means: OH 87.69 / 80.19 / 51.52; OC ASR 46.76. OpenCode ATS and CTPR not reported",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 70-problem test set (30-problem public set for threshold selection, diagnostics, human agreement; rules fixed before test evaluation). Configurations: 5 models x 2 harnesses. Baseline: none (OpenHands as reference harness). Held constant: specification, clean Docker workspace, network and dependency policies, Playwright 1.58.1, model registry, 5 h budget, nominal 500 iterations/steps; harness-native loop, context management and stopping kept. Acceptance tests: acceptance contracts judged by GPT-5.5 with evidence audit. Repetitions: 3 scheduled runs per model-harness-problem; infrastructure failures rerun. Human intervention: none",
+   "p": "4-6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Under OpenHands, Qwen3.8 Max has the highest ASR (57.62%), top three within two points; GPT-5.6 Sol highest ATS (90.53%) but third in ASR. High ATS (mean 87.69%) coexists with much lower ASR (51.52%). Harness changes rankings: OH-OC ASR difference -9.05 to +11.90 points (GLM-5.3 second under OpenCode, fifth under OpenHands). 48.6% of model-problem conditions have mixed outcomes over three runs (Kimi K3 65.7%). Visual Quality lowest capability (mean 70.46%). No significance tests",
+   "p": "6-7",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: ASR separates application success from graded scores and reveals harness and run-to-run effects, but top models differ by under two points with no statistical test. Authors' stated limits: one organisational setting, Chinese-language specifications, self-contained apps; acceptance depends on rubrics and threshold; human validation covers atomic verdicts, not application-level acceptance; three runs mix generation and evaluation variation; rankings specific to tested configurations and budgets",
+   "p": "6, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: single organisational setting; Chinese-language specifications; self-contained front-end applications without external services; acceptance determined by reviewed rubrics and threshold chosen on the public set; human-reference evaluation does not validate application-level acceptance; repeated runs capture both generation and evaluation variation; rankings tied to tested configurations and budgets. Gap: aggregate task scores do not characterise application success; core-goal fulfilment should be assessed explicitly",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values for OpenCode ATS/CTPR not given. Resource use reported only for the public set and per harness. Judge GPT-5.5 is from the same vendor as evaluated GPT-5.6 Sol; GPT-5.6 Sol also used for de-identification of specifications; possible self-preference not discussed. Harness versions not stated. No data, code or benchmark link given in the text (the 30-problem set is called 'public'). No pre-registration. Programming language: front-end (web, SVG); specifications in Chinese",
+   "p": "4, 6, 9, 11-12, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and three contributions clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): metrics, acceptance rules, controls and audit workflow described; judge instructions/skills, adapters and benchmark not provided",
+   "p": "4-5, 11-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model releases dated and judge and Playwright versions given; OpenHands and OpenCode versions not stated",
+   "p": "4, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): problems, categories and rubrics described in aggregate; no link to the benchmark",
+   "p": "4, 11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): acceptance judged by an LLM judge (GPT-5.5) with evidence audit, validated against an adjudicated human reference (κ = 0.651); no executable acceptance tests beyond build/runtime checks",
+   "p": "4-5, 8, 19",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Acceptance contracts (core tasks, mandatory criteria) are fixed before generation and judged by GPT-5.5 against Playwright evidence with a deterministic audit, and the judge was checked against an adjudicated human reference (83.47% agreement, kappa = 0.651, p. 8). Whether an evidence-grounded LLM judge validated against humans counts as an independent criterion (Yes) or only partly (Partly) is a judgement."
+    }
+   ],
+   "warn": "A aceitação é decidida por um juiz LLM (GPT-5.5) com evidência Playwright, validado contra referência humana (κ = 0.651). Decide se isso conta como critério independente (Yes) ou só Partly."
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined formally; cost (latency, tokens) only per harness on the public set",
+   "p": "5, 13-14, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five models under two harnesses on the same problems, workspace, policies and budgets",
+   "p": "5-6, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three runs per condition and repeatability distributions reported; no confidence intervals or significance tests",
+   "p": "6, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results and are scoped to tested configurations",
+   "p": "6, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph; judge-vendor overlap and lack of statistical testing not discussed",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): JD.com authors independent of the model vendors and of OpenHands/OpenCode",
+   "p": "1, 12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

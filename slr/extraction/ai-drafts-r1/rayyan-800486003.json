@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486003",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jiang, Z., Deng, L., Cao, J., Pradel, M., Liu, Z. (2026). Doc2Feat-Bench: Evaluating Documentation-Driven Feature Addition. In: Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany, ACM. https://doi.org/10.1145/3832783.3837489. Read from arXiv:2507.18130v4 [cs.SE], 3 Aug 2026 (earlier versions titled NoCode-bench)",
+   "p": "1, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ASE 2026 (41st IEEE/ACM International Conference on Automated Software Engineering), ACM, DOI 10.1145/3832783.3837489; full text read from arXiv:2507.18130v4, which carries the ASE reference format",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Zhejiang University, College of Computer Science and Technology and State Key Laboratory of Blockchain and Data Security, China (Jiang, Deng, Liu); Hong Kong University of Science and Technology (Cao); CISPA Helmholtz Center for Information Security, Germany (Pradel)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — new benchmark (Doc2Feat-Bench, 634 tasks; Verified subset of 114) for documentation-driven feature addition, used to compare 8 LLMs with two scaffolds (Agentless, OpenHands)",
+   "p": "1-2, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Setting: documentation-driven feature addition (documentation diff as the feature specification; authors cite README-driven development, OpenAPI workflows and spec-driven development / GitHub Spec Kit as documentation-first practices). Scaffolds evaluated: Agentless-1.0 (pipeline-based) and OpenHands CodeAct Agent (agent-based; version not stated)",
+   "p": "1-2, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Task input: the documentation change (diff of public-facing docs) plus the full codebase at the base commit; optional identifier hints (undocumented, test-referenced entity names); PR numbers/URLs masked. Expected output: a code patch",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed for the agent. Agentless: hierarchical localization (files, classes/methods, lines) then patch generation with post-processing; OpenHands: model-driven tool use in a sandbox. Benchmark construction in five phases: project selection, instance collection, environment construction, instance filtering, input refinement",
+   "p": "2-5, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent runs (autonomous). Humans only in benchmark construction: manual environment fixes and annotation of the Verified subset (two annotators per task)",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only: the documentation diff used as the task input to autonomous scaffolds; no SDD workflow run",
+   "p": "2, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: 'documentation updates act as executable, public-facing feature specifications that software engineering agents translate into code changes')",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: feature addition in mature open-source projects",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Full: 634 tasks from 10 projects (from 3,263 PRs, 1,571 candidates), about 114k code changes in total; golden patches on average 2.65 files, 10.32 hunks, 179.12 changed lines; 13.56% need new files. Verified: 114 tasks; 2.39 files, 8.96 hunks, 179.22 lines. Mean documentation-change length 739.06 (Full) and 820.65 (Verified), unit not stated",
+   "p": "1, 3-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python open-source libraries, developer tools and frameworks (10 of the 12 SWE-bench projects, e.g. astropy, matplotlib, scikit-learn, seaborn, pylint, pytest; flask and sympy excluded)",
+   "p": "2-3, 6, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants). Verified-subset annotators: five, with at least three years of Python and a bachelor's degree or higher",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "#Token: average token cost per instance. Estimated cost of running four models on Full: USD 5,124 (reason for not running them)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Success% (patch passes the accompanying tests); Applied% (patch applies); RT% (regression tests, P2P, all pass); Feature Validation Rate FV-Micro (passed F2P tests over all F2P tests) and FV-Macro (mean per-instance F2P pass rate), new metric",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "File% (file matched rate between model-edited and reference files); single-file vs multi-file success (Table 6); failure categories from manual analysis of 160 failed runs; Levenshtein similarity of successful patches to ground truth (leakage check, mean 0.48)",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: patches applied and tests run in per-project Docker images with conda environments; F2P/P2P test sets from before/after logs; token counts. Manual: failure analysis of 160 failed instances (10 per model per scaffold) from execution traces; Verified subset annotated by two annotators per task (Cohen's kappa 0.4193); filtered-instance analysis by two authors (kappa 0.932 and 0.913)",
+   "p": "4-6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per instance: patch passes the accompanying tests; no criterion stated by the authors for a configuration, so quality and cost verdicts for every entry: no criterion stated by the authors. Values Success% / Applied% / RT% / FV-Micro / FV-Macro / File% / #Token. Doc2Feat-Bench Verified (114), Agentless-1.0: (1) Qwen3-235B-A22B 13.16 / 100.00 / 76.32 / 8.75 / 22.39 / 42.98 / 0.12M; (2) DeepSeek-v3-0324 21.05 / 98.25 / 78.95 / 7.96 / 32.80 / 57.14 / 0.30M; (3) DeepSeek-R1-0528 25.44 / 93.86 / 73.68 / 10.87 / 35.52 / 50.47 / 0.50M; (4) Qwen3-Coder-480B-A35B 28.07 / 100.00 / 82.46 / 9.03 / 40.12 / 54.39 / 0.45M; (5) GPT-4o-2024-11-20 13.16 / 100.00 / 67.54 / 7.97 / 22.32 / 47.37 / 0.11M; (6) Gemini-2.5-Pro 12.28 / 100.00 / 74.56 / 6.22 / 20.55 / 48.25 / 0.29M; (7) Claude-4-Sonnet 28.07 / 100.00 / 79.82 / 8.47 / 38.48 / 57.89 / 0.33M; (8) GPT-5-mini 26.32 / 98.25 / 82.46 / 10.63 / 37.82 / 53.98 / 0.21M. Verified, OpenHands CodeAct: (9) Qwen3-235B 7.89 / 64.91 / 47.37 / 1.96 / 14.03 / 45.61 / 0.24M; (10) DeepSeek-v3 11.40 / 65.79 / 49.12 / 1.68 / 18.29 / 56.14 / 0.59M; (11) DeepSeek-R1 7.02 / 47.37 / 46.49 / 0.47 / 10.86 / 38.60 / 0.39M; (12) Qwen3-Coder-480B 37.72 / 92.11 / 84.21 / 10.96 / 50.45 / 63.16 / 2.91M; (13) GPT-4o 5.26 / 63.16 / 57.89 / 0.45 / 6.76 / 34.21 / 0.58M; (14) Gemini-2.5-Pro 0.00 / 54.39 / 61.40 / 0.01 / 0.29 / 0.00 / 0.47M (invalid tool-call formats); (15) Claude-4-Sonnet 25.44 / 68.42 / 69.30 / 11.25 / 36.48 / 67.54 / 2.32M; (16) GPT-5-mini 36.84 / 87.72 / 80.70 / 12.61 / 49.64 / 64.60 / 1.69M. Doc2Feat-Bench Full (634), Agentless-1.0: (17) Qwen3-235B 6.62 / 99.37 / 75.24 / 10.78 / 15.77 / 39.46 / 0.19M; (18) DeepSeek-v3 11.83 / 99.84 / 77.44 / 16.02 / 24.09 / 47.48 / 0.31M; (19) DeepSeek-R1 14.83 / 95.90 / 79.34 / 10.53 / 25.78 / 44.89 / 0.57M; (20) GPT-4o 9.31 / 97.00 / 71.14 / 8.68 / 17.81 / 43.58 / 0.11M",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: Doc2Feat-Bench Verified (114) for 8 models x 2 scaffolds; Full (634) for 4 models with Agentless only (cost). Configurations: model x scaffold. Baseline: none formal; SWE-bench scores of the same model/scaffold used as reference (e.g. Claude-4-Sonnet + OpenHands 70.4% on SWE-bench Verified; Qwen3-Coder + OpenHands 69.60% on SWE-bench). Held constant: task inputs (documentation diff, masked references), evaluation Docker images, test oracle. Acceptance tests: developer-written F2P and P2P tests. Repetitions: Not stated (single run implied). Human intervention: none. Whether identifier hints were given in the experiments: Not stated",
+   "p": "2, 4-5, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Verified: best Qwen3-Coder-480B + OpenHands 37.72%, then GPT-5-mini + OpenHands 36.84%; Gemini-2.5-Pro + OpenHands 0%. Agentless better on average than OpenHands: success 20.94 vs 16.45, Applied 98.80 vs 67.98, RT 76.97 vs 62.06, FV-Micro 8.74 vs 4.92, FV-Macro 31.25 vs 23.35, File% 51.56 vs 46.23, tokens 0.29M vs 1.15M (OpenHands context overflow gives incomplete or empty patches). Full: four-model average success falls from 18.20% (Verified) to 10.65%, best DeepSeek-R1 14.83%; rankings largely preserved except Qwen3-235B vs GPT-4o. Multi-file tasks: best 20.75% (Verified) and 6.40% (Full). Far below SWE-bench results. No significance tests",
+   "p": "2, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models and scaffolds (0% to 37.72%) and showed a gap to SWE-bench; model rankings largely consistent between Verified and Full, taken by the authors as support for validity. Repeatability not assessed (no repeated runs). Limitations stated: task quality (incomplete docs, partial tests; 124 of 238 sampled candidates, 52.1%, filtered), data leakage risk, Python-only projects with structured release notes, only two scaffolds",
+   "p": "5-6, 9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: documentation changes may be incomplete and tests may not fully cover the feature (mitigated by Verified subset); possible data leakage (PR numbers masked; mean Levenshtein similarity 0.48); only Python projects with feature-labelled release notes; only Agentless and OpenHands scaffolds. Gaps: agents' cross-file editing, understanding of existing code modules (39.38% of examined failures break existing features), and interpretation of documentation semantics (exceptions 33.13%, edge conditions 20.00%, unspecified invalid input 7.88%); extension to other languages",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: Fig. 5 labels the golden patch of a pylint task with path '/django/forms/models.py' (p. 10); FV-Micro on Full (Table 5) is higher than on Verified (Table 4) for three of the four models (Qwen3-235B 8.75 to 10.78, DeepSeek-v3 7.96 to 16.02, GPT-4o 7.97 to 8.68) while their success rates fall, not discussed (p. 8-9); Table 4 values were rebuilt from a garbled text extraction (columns split across lines) and should be checked against the PDF (p. 8). 'About 114k code changes' unit not defined (p. 1). Data: replication package and online appendix at https://doi.org/10.5281/zenodo.21762257; repository https://github.com/Doc2Feat-bench/Doc2Featbench; leaderboard http://doc2featbench.org (p. 12). No pre-registration. Programming language: Python",
+   "p": "1, 8-10, 12",
+   "verdict": "corrected",
+   "why": "The draft said FV-Micro is above FV-Macro in Table 5 for three of four models; in Table 5 FV-Micro is below FV-Macro for all four (e.g. 10.78 vs 15.77). The real oddity is FV-Micro rising from Verified to Full for three models while success falls"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (benchmark for documentation-driven feature addition) and RQ1-RQ3 stated",
+   "p": "1-2, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): five-phase construction, Verified annotation, scaffolds, metrics described; replication package released",
+   "p": "2-8, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): some model versions dated (DeepSeek-v3-0324, DeepSeek-R1-0528, GPT-4o-2024-11-20) and Agentless-1.0 given; Claude-4-Sonnet, Gemini-2.5-Pro, GPT-5-mini and the OpenHands version not versioned; thinking modes stated (Qwen3-235B thinking, GPT-5-mini medium), other generation settings (e.g. temperature) not stated",
+   "p": "7-8",
+   "verdict": "corrected",
+   "why": "The draft said generation settings were not stated; Section 4.2 gives the thinking modes for Qwen3-235B and GPT-5-mini. Score unchanged"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark tasks described and publicly available (Zenodo, GitHub)",
+   "p": "2-7, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): success judged by developer-written F2P and regression tests; Verified subset human-validated",
+   "p": "4-6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): success, applied, regression, FV and file metrics defined, plus token cost",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 8 models and 2 scaffolds evaluated on the same tasks and environment",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run per configuration, no repetitions or statistical tests of differences",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results; mixed findings reported (Agentless better on average though the best single result is with OpenHands)",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (internal and external)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published at ASE 2026 (ACM, DOI 10.1145/3832783.3837489); full text read from arXiv",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; evaluated scaffolds (Agentless, OpenHands) and models are not theirs",
+   "p": "1, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

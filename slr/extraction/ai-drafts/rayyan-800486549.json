@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486549",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jiang, H., Sabouri, S., Haghighi, S., Chattopadhyay, S. (2026). Your Wish Is My Commit: Over-Compliant Refactoring in AI Coding Agents. arXiv:2610.36346v1 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.36346v1 (26 Oct 2026); no published venue stated (record only in the arXiv export)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Southern California, Los Angeles, USA (Jiang, Sabouri, Chattopadhyay); Open Science Lab (Haghighi)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — controlled study of over-compliance under repeated refactoring requests (2 agents, 5 models, 60 Java codebases, 10 turns) and six behavioural signals (S1-S6) to measure it",
+   "p": "1-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations: Codex CLI with GPT-5.4, GPT-5.4-mini, GPT-5.5; Claude Code CLI with Claude Opus 4.8, Claude Sonnet 4.6; reasoning effort high. Agent CLI versions Not stated. Simulated developer: LLM-based agent restricted to asking for more refactoring (model Not stated; prompt in supplementary material)",
+   "p": "1, 3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no SDD approach; requests give no file, target or reason)",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A. Protocol: baseline snapshot V0 -> 10 turns in one resumed CLI session, each a refactoring request from the simulated developer -> version Vt committed per turn on an isolated branch/worktree",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (simulated developer)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach); authors do not use SDD terms",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code: iterative refactoring of already clean code with no stopping criterion",
+   "p": "1, 3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "60 Java codebases: 50 algorithmic single files (13-229 lines) and 10 object-oriented student projects (16-34 source files, 1,395-2,065 lines); 3,000 turns (60 x 5 models x 10 turns). Ablation on large open-source repositories (DBeaver, Elasticsearch, Guava, Spring Boot, Termux)",
+   "p": "1, 4-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Algorithms and data structures (GeeksforGeeks reference solutions of Cormen et al. topics); object-oriented course assignments (Menagerie corpus)",
+   "p": "4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (simulated novice 'vibe coder'; expert-style simulated developer in an ablation)",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (tokens, time or money not measured; authors frame churn as the direct cost, see Other outcome metrics)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (functional correctness after refactoring not verified, stated as a limitation)",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "SonarQube Community Build 25.1 (SonarJava 8.8): cyclomatic and cognitive complexity, code smells, duplication density, SQALE maintainability rating, technical-debt ratio; CK 0.7.0: coupling between objects (CBO), per-method cyclomatic complexity; measured at V0 and after every turn",
+   "p": "4-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (review burden argued, not measured)",
+   "p": "1, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "First stop turn t*; S1 pre-convergence churn and S2 post-convergence modification (line changes normalised by original LoC); S3 verbal-refusal edit rate; S4 feature rollback/removal, S5 reimplementation loop, S6 patch-region recurrence (CST via RefDiff); RefDiff outcome composition; nodes added vs deleted; Extract vs Inline counts; stop-language categories (refusal, optimum-awareness, questioning)",
+   "p": "2-3, 5-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: line diffs between committed turns; RefDiff 2.0.0 Code Structure Tree with an adapted multi-turn driver; SonarQube and CK static analysis; keyword regex detector of stop claims (precision 0.720, recall 0.947, F1 0.818 on 3,000 turns). Manual: two authors' collaborative qualitative coding of stop turns (two rounds) to derive the categories; two authors inspected the selected submissions",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion stated by the authors: a calibrated agent declines on turn 1 (t* = 1) or stops after one warranted pass (t* = 2) (p. 5). Values (Algorithms / OOP): mean t*; S1 pre-stop churn (x original LoC); S2 post-stop churn; S3 edit-despite-stop-claim rate. One run per codebase.\n- Claude Code + Claude Opus 4.8: t* 3.24 / ~7; S1 9.41 / 0.47; S2 6.69 / Not stated in text; S3 24.3% / 71.7%\n- Claude Code + Claude Sonnet 4.6: t* ~5 / ~6.6; S1 8.22 / Not stated in text; S2 1.44 / Not stated in text; S3 36.0% / Not stated in text\n- Codex + GPT-5.5: t* near 10 / near 10; S1 9.52 / Not stated in text; S2 0.40 / Not stated in text; S3 4.0% / Not stated in text\n- Codex + GPT-5.4-mini: t* near 10 / near 10; S1 20.52 / Not stated in text; S2 Not stated in text; S3 4.0% / Not stated in text\n- Codex + GPT-5.4: t* 10 (never stops on Algorithms) / near 10; S1 30.97 / 0.88; S2 0 (never stops) / Not stated in text; S3 16.0% / Not stated in text\n- Ablation (reasoning effort none-xhigh, GPT-5.5, binary-search subject, 10 replicas each): substantial edits at every level; higher effort more rollback and reimplementation\n- Ablation (developer prompt: static 'refactor', novice, expert-style): over-compliance persists; expert style increases pre-stop churn and rollback\n- Ablation (large open-source repositories): behaviour persists, single turns change thousands of lines\nVerdicts: quality: does not work for all five configurations (all exceed the expected t* of 1-2 and keep editing); cost: no criterion stated by the authors",
+   "p": "4-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 50 algorithmic + 10 object-oriented Java codebases (plus large-repository ablation). Configurations: 5 agent+model pairs. Baseline: none (expected behaviour t* = 1-2 used as reference). Held constant: simulated developer and its system prompt, T = 10 turns, high reasoning effort, isolated branch/worktree per codebase, session resumed each turn. Acceptance tests: none (functional correctness not checked). Repetitions: one run per codebase (ten replicas only in the reasoning-effort ablation). Human intervention: none",
+   "p": "3-4, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No model stopped at t* <= 2. Claude models stop earlier (Opus 4.8 mean t* 3.24 on Algorithms) than GPT models (near 10). Pre-stop churn lowest for Sonnet 4.6 (8.22x) and highest for GPT-5.4 (30.97x) on Algorithms; Opus 4.8 has the largest post-stop churn (6.69x) and edits despite a stop claim in 71.7% of such turns on OOP. Every model adds more nodes than it deletes (e.g. Opus 42.1 vs 6.6; GPT-5.4 47.9 vs 16.4) and extracts far more than it inlines. Rollback S4 highest for GPT-5.4 (13.0); GPT models re-edit the same region 22.9-25.5% vs Claude 3.74-12.78%. Quality metrics improve mostly after turn 1 then plateau while CBO keeps rising. No significance tests (mean +- SEM)",
+   "p": "4-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished model families on stopping, churn, stability and locality. Repeatability: single run per codebase; authors argue consistency across 60 codebases makes run noise unlikely to drive results; reasoning-effort ablation used ten replicas. Limitations stated: method-level CST granularity (S4-S6 miss statement-level edits), stochastic outputs with a single run, Java only, worst-case simulated user, no functional-correctness check",
+   "p": "4, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: RefDiff granularity; single run per codebase; modest dataset of 60 Java codebases; Java only; worst-case simulated user; functional correctness not verified. Gaps: link between over-compliance and correctness; other languages; detectors based on differential testing, invariants, metric gating and slicing; training to reward stopping",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Reporting inconsistencies: the codebase-scale ablation says 'four large open-source Java repositories' but lists five (DBeaver, Elasticsearch, Guava, Spring Boot, Termux) (p. 5); limitations also say 'four' (p. 10). Table II gives Extract/Inline 1.4/0.1 (14.0x) for Opus, 2.7/0.5 (5.4x) for Sonnet and 8.0/0.3 (26.7x) for GPT-5.5 on Algorithms, while the text gives 1.3 vs 0.1 (~13x), 2.4 vs 0.5 (~4.8x) and 7.9 vs 0.3 (~26x) (p. 7-8). Per-model S1/S2/S3 values partly read from Figure 4 (pdftotext); OOP values for some models not given in the text. Supplementary material (prompts, ablations): figshare (anonymous link). No pre-registration. Programming language: Java",
+   "p": "4-8, 10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol, signals and tools described; simulated-developer model not stated; prompts and ablation setups only in supplementary material",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning effort given; Codex and Claude Code CLI versions and the simulated-developer model not stated (analysis tool versions given)",
+   "p": "1, 4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): datasets and their public sources described; supplementary package on figshare",
+   "p": "3-4, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): signals computed with independent tools (diffs, RefDiff, SonarQube, CK), but that the edits are unnecessary is assumed from the design and functional correctness is not checked",
+   "p": "4, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): behavioural and internal-quality metrics defined; no cost (tokens, time, money)",
+   "p": "2-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five agent+model configurations under the same protocol and codebases",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): single run per codebase; mean +- SEM over 60 codebases; ten replicas only in one ablation; no tests of differences",
+   "p": "4, 7, 10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main findings follow, but the claim that over-compliance originates in model priors rests on ablations reported only in the supplement, and harms (defects, review burden) are inferred, not measured",
+   "p": "8-10",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Main findings follow from the results; the claim that over-compliance comes from model priors rests on ablations only summarised in the paper (full results in the supplement), and harms such as defects and review burden are argued from literature, not measured. Another reader could give Yes."
+    }
+   ],
+   "warn": "As conclusões principais seguem dos resultados, mas a origem nos 'model priors' assenta em ablações só resumidas (detalhe no suplemento) e os danos não são medidos. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section covers measurement granularity, stochasticity, dataset, language, simulated user and correctness",
+   "p": "10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university and Open Science Lab authors, not vendors of the agents or models evaluated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "key": "rayyan-800498191",
+ "model": "Claude Opus 5.5 (subagent)",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Hu, H., Zhang, Q., Yu, S., Chen, Z., Luo, T., Fang, C., Chen, Z., Xiao, L. (2026). Beyond the Model: Demystifying Harness Effects in Software Engineering Agents. arXiv:2609.32459v1 [cs.SE], 26 Sep 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (cs.SE), page header 'ISE Research'; venue Not stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Nanjing University of Science and Technology, China (Hu, Q. Zhang, Zhifei Chen, Xiao); Technical University of Munich, Germany (Yu); Nanjing University, China (Luo, Fang, Zhenyu Chen)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — Study 1: two harnesses (mini-SWE-agent, OpenCode) x 10 open-weight models x 3 benchmarks (60 configurations); Study 2: component-level ablation with NanoHarness, the authors' modular harness built on mini-SWE-agent (tool registry, context compression, explicit planning, subagents, lazy skills), compared with OpenCode and Claude Code",
+   "p": "1-5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent harnesses: mini-SWE-agent (lightweight, bash-only), OpenCode (product-level), Claude Code (Table 6 only); no versions stated. NanoHarness (authors', no version) with five plug-in components: tool registry (read_file, write_file, edit_file, glob), context compression, explicit planning (TodoWrite-style todo_write), general SE subagents / task-specific subagents, lazy skills (SKILL.md). Secondary data: matched-model SWE-bench Verified leaderboard results (SWE-agent, OpenHands, Tools)",
+   "p": "2, 4-6, 10"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts). NanoHarness components use: a todo list (max 10 items, one in_progress) rendered into the prompt; SKILL.md files with metadata forming a skill catalog (6 skills: Terminal Workflow, Minimal Implementation, Build Diagnostics, Test Triage, CLI Fuzzing, Submission Review, Table 1); structured subagent reports via finish_subagent",
+   "p": "4-5"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a development flow (agent loop). NanoHarness general subagents follow the SDLC: requirement_analysis, architecture_design, code_generation, test_generation, defect_repair; task-specific subagents: behaviour analysis, differential testing, submission review; parent agent keeps task control, budget and final submission",
+   "p": "4-5"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous benchmark runs)",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full harnesses run on benchmarks (Study 1); each NanoHarness component added individually and all combined (ablation, Study 2)",
+   "p": "4, 9"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent harnesses, no specification); authors' term: 'agent harness'",
+   "p": "2-3"
+  },
+  {
+   "f": "Task type",
+   "v": "Both: existing code bases (SWE-bench Pro issue repair; GitTaskBench repository-centric task solving) and new project (ProgramBench repository generation from scratch)",
+   "p": "5, 8"
+  },
+  {
+   "f": "Size",
+   "v": "Benchmarks: ProgramBench 200 instances (RQ1.2 random sample of 70: 20 easy, 21 medium, 29 hard; RQ2/RQ3 full 200), SWE-bench Pro 731 (RQ1.1 random sample of 300), GitTaskBench 54 (all). 60 configurations in Study 1; 8 harness variants x 2 models in Study 2. Over 10B (Qwen) and 20B (DeepSeek) prompt tokens",
+   "p": "2, 5-6, 8, 12"
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source software; languages: ProgramBench Rust, Go, C/C++, Java, Haskell; SWE-bench Pro Python, JS/TS, Go; GitTaskBench Python",
+   "p": "5"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average per-sample steps, tool calls, prompt tokens and response tokens (Tables 4, 5, 7); total estimated cost over USD 7,000 (threats). No per-configuration money or time",
+   "p": "7, 11, 12"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve rate (%) on SWE-bench Pro and GitTaskBench; ProgramBench score (share of behavioural tests passed, e.g. 4425/6491 tests in a case; not formally defined)",
+   "p": "7-9, 11"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Probing counts per trajectory (executable probes on the reference binary, Figure 13); failure modes (excessive vs insufficient probing) from manual trajectory inspection",
+   "p": "10-11"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark evaluation (SWE-bench Pro and ProgramBench in Docker, no network, 20 CPUs, 60 GB; GitTaskBench locally in an isolated workspace); trajectory logs for steps, tool calls and tokens. Manual: inspection of failed and low-scoring mini-SWE-agent trajectories. SWE-bench Verified matched-model numbers collected from the public leaderboard",
+   "p": "5-6, 10"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for any configuration; values only. Study 1 (temperature 0.0, non-thinking mode; per-model values mostly only in Figures 5-10; endpoint values given): (a) mini-SWE-agent + Qwen3.7-Max: SWE-bench Pro 37.3%; (b) OpenCode + Qwen3.7-Max: SWE-bench Pro 40.0% (gap 2.67 pp; gap for Qwen3-Max about 6 pp); (c) mini-SWE-agent + DeepSeek-V4-Pro: SWE-bench Pro 33.7%; (d) OpenCode + DeepSeek-V4-Pro: 34.3%. ProgramBench N=70 endpoint labels 52.3/47.8 (Qwen3.7-Max) and 48.2/41.7 (DeepSeek-V4-Pro); GitTaskBench 74.1/72.2 (Qwen3.7-Max) and 72.2/70.4 (DeepSeek-V4-Pro), harness assignment of these labels not readable from the text. Other 8 models x 2 harnesses x 3 benchmarks: figures only. Study 2, ProgramBench N=200 (ablation): (e) mini-SWE-agent + Qwen3.7-Max: 42.88, 104.13 steps, 3,978,148 prompt tokens/sample; (f) +tools: +4.57 pp; (g) +planning and (h) +skills: +1.36/+0.81 pp (order from figure); (i) +context compression: -4.86 pp, prompt tokens -54.29%; (j) +task-specific subagents: +5.91 pp; (k) +general subagents: -0.70 pp; (l) NanoHarness (all): 50.25 (+7.37 pp), prompt tokens +16.37%, tool calls +131.18%. (m) mini-SWE-agent + DeepSeek-V4-Pro: 45.14, 10,065,204 prompt tokens; (n) +tools +3.54; (o) +planning +0.77; (p) +skills +3.07 (figure order); (q) +context -3.85, prompt tokens -77.02%; (r) +specific subagents +4.46; (s) +general subagents -2.31; (t) NanoHarness: 51.35 (+6.21), prompt tokens +7.26%. Product harnesses on ProgramBench: (u) OpenCode + Qwen3.7-Max 51.68, (v) Claude Code + Qwen3.7-Max 52.33, (w) OpenCode + DeepSeek-V4-Pro 52.48, (x) Claude Code + DeepSeek-V4-Pro 52.76. Quality and cost verdicts: no criterion stated by the authors",
+   "p": "6-11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: three public benchmarks (random subsets in RQ1, same instances across matched configurations). Configurations: Study 1 3 benchmarks x 2 harnesses x 10 models (Qwen3-Max, Qwen3.5-Plus, Qwen3.6-Plus, Qwen3.6-Max, Qwen3.7-Max; DeepSeek-R1, -V3 (0324), -V3.1, -V3.2, -V4-Pro); Study 2 mini-SWE-agent + each component, NanoHarness, OpenCode, Claude Code, with Qwen3.7-Max and DeepSeek-V4-Pro. Baseline: mini-SWE-agent. Held constant: model (per comparison), instances, temperature 0.0, step limit (250 SWE-bench Pro/GitTaskBench; 300 ProgramBench, reduced from 1,000), 6-hour wall-clock limit, 3-minute command timeout, container resources. Acceptance: benchmark test suites. Repetitions: not stated (one run per configuration implied). Human intervention: none",
+   "p": "4-6, 9-10"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Harness gain shrinks with model capability on SWE-bench Pro (Qwen OpenCode advantage 6.00 -> 2.67 pp; DeepSeek non-monotonic, V4-Pro 34.3 vs 33.7); on ProgramBench and GitTaskBench complex harnesses help mainly stronger models. Ablation: tools (+4.57/+3.54) and task-specific subagents (+5.91/+4.46) best; context compression (-4.86/-3.85) and general subagents (-0.70/-2.31) hurt; NanoHarness +7.37/+6.21 pp over mini-SWE-agent, 1.43-2.08 pp below OpenCode/Claude Code. No significance tests",
+   "p": "7-11"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished harnesses and components on single runs; no repetitions or statistical tests, so repeatability not shown. Limitations stated: only five components, two model families, primary experiments on ProgramBench only",
+   "p": "12"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Internal: only five harness components (others omitted); only Qwen and DeepSeek model families. External: main experiments on ProgramBench, may not generalise. Cost reductions: subsets in RQ1, step limit reduced to 300. Future work: more components",
+   "p": "6, 12"
+  },
+  {
+   "f": "Notes",
+   "v": "No code, data or replication package mentioned for NanoHarness. No pre-registration. Single run per configuration at temperature 0. Many Study 1 values readable only from figures (pdftotext jumbled bar labels); +planning/+skills values assigned from figure order. Table 6 writes gains as '%' while text uses percentage points. Harness versions not given. RQ1.1 also reuses SWE-bench Verified leaderboard data (Table 3). Programming languages: Rust, Go, C/C++, Java, Haskell, Python, JS/TS (benchmarks)",
+   "p": "5-10, 12"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 with sub-questions stated",
+   "p": "5"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): limits, temperature, samples, container settings and component designs described; no NanoHarness code, prompts or sampled instance IDs released",
+   "p": "4-6"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and snapshots given (DeepSeek-R1 original, V3 = V3-0324); harness versions (mini-SWE-agent, OpenCode, Claude Code) not stated",
+   "p": "5-6"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): three public benchmarks described (Table 2) and available",
+   "p": "5"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark test suites / resolve checks",
+   "p": "5"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and token/step cost measured, but ProgramBench score not defined and cost not monetised per configuration",
+   "p": "7, 11"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): mini-SWE-agent baseline under the same model, instances and limits",
+   "p": "6, 9"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration, no statistical analysis of differences",
+   "p": "6"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): negative results reported (compression, general subagents), but trends drawn from single runs and small gaps (e.g. 0.6 pp) without tests",
+   "p": "7-11"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short internal/external threats section; single runs and construct issues not discussed",
+   "p": "12"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors built NanoHarness; mini-SWE-agent, OpenCode and Claude Code are not theirs",
+   "p": "4, 10"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): NanoHarness is a lightweight layer on mini-SWE-agent with stated budgets and container resources, but code not released and running cost per task not stated (whole study over USD 7,000)",
+   "p": "4-6, 12"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

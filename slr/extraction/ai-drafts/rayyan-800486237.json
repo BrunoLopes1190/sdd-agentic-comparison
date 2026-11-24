@@ -1,0 +1,333 @@
+{
+ "key": "rayyan-800486237",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lin, J.-K. (2026). BUILD-AND-FIND: An Effort-Aware Protocol for Evaluating Agent-Managed Codebases. arXiv:2605.06136v1 [cs.SE], 7 May 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.06136v1 [cs.SE]; marked 'Preprint.', no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "National Yang Ming Chiao Tung University, Taiwan (single author, Jhen-Ke Lin)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — BUILD-AND-FIND builder–finder benchmark protocol: a builder agent creates a repository from a hidden specification, a finder agent sees only the repository and a specification-traced multiple-choice question bank; measures recovery accuracy, repeatability, implementation coverage and inspection effort. Applied to 12 agent configurations (Claude Code and Codex, 6 models x 2 reasoning-effort levels) on 2 Rust task families",
+   "p": "1-2, 5",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Main nature is clear. The secondary nature could be 'Compares' instead of 'Evaluates': the empirical validation ranks the 12 configurations (Rb, AELS), but the authors present it as panel-local validation of the protocol, not as a comparison of agents."
+    }
+   ],
+   "warn": "A natureza secundária pode ser 'Compares' (o artigo ordena 12 configurações por Rb/AELS) ou 'Evaluates' (validação do protocolo). Vê a secção 4.5 e o Apêndice F e decide."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents compared (each as builder and as finder): Claude Code 2.1.114 with claude-opus-4-7, claude-sonnet-4-6, mimo-v2.5-pro, mimo-v2.5 (MiMo models run through the Claude Code harness); Codex CLI 0.124.0 with gpt-5.5, gpt-5.4-mini; each at high and low reasoning effort (12 configurations). Benchmark harness BUILD-AND-FIND 0.1.0",
+   "p": "5, 14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no SDD approach). In the protocol: a hidden YAML task specification of intended behaviours and design choices (given to the builder only) and a 15-item four-option multiple-choice question bank whose gold answers are traced to specification items (given to the finder)",
+   "p": "3, 13, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for an SDD flow. Protocol steps: build (builder receives rendered prompt from the hidden spec, writes the codebase in an isolated workspace) -> validate (root-level cargo build --release compile probe, structural metadata) -> find (finder gets a read-only clone plus shuffled question bank, writes find_answers.json) -> exact-match grading -> artifact-question audit",
+   "p": "3, 11-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A (agents run autonomously; no human intervention described). Author-side reviews: specifications and question banks manually reviewed; 24 of 720 artifact-question labels manually reviewed; manual leakage audit of 48 artifacts; post-hoc evidence audit of 72 correct answers",
+   "p": "5, 17-18, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach run; builders work from a hidden specification prompt only)",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; the authors speak of a 'hidden repository specification' given to the builder and treat generated code as 'external memory' / 'communication artifact')",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (builders create a self-contained repository from scratch: tasks scratch_minidb, scratch_nanoweb); finders inspect the generated code base",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "2 task families, 15 questions each; generated artifacts median about 4.2k source LOC, many 2k-9k LOC; 48 artifact-present builds (41 compile-pass), 1,728 find records (1,476 primary), 25,920 raw question rows (22,140 primary; 21,312 scored after audit)",
+   "p": "5, 25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Systems software: a minimal database (scratch_minidb) and a minimal web server (scratch_nanoweb), in Rust; synthetic tasks",
+   "p": "5, 17, 25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents only)",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Vendor-reported tokens (input incl. cache, output incl. reasoning, total, mean per run) by role and configuration (Table 17); whole release more than 1.1B tokens, primary panel about 954M, controls 19.2M. Finder inspection effort in novel agent inspection bytes (retrieval + tool-call bytes) used for Rb. wall_clock_seconds recorded but not reported",
+   "p": "4, 23-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Root-level compile probe (cargo build --release): 41/48 pass; builder-side implementation coverage = share of artifact-question pairs audited as implemented-gold (85.0-100.0%). No behavioural/functional test suite",
+   "p": "5, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Agent-facing artifact legibility: conditional inspection effort Rb (geometric mean over all-correct finder-task cells of builder effort / minimum builder effort in the cell; lower is better); aggregate AELS0.1 = A x S x C x Rb^-0.1 (tie-breaker diagnostic)",
+   "p": "4-5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Recovery accuracy (exact-match MCQ on audited scoring set); all-correct runs; task-level recovery gate; repeatability (3-trial agreement, reliable questions); lift over question-only and spec-only controls; low-prior subset recovery; Kendall tau rank stability between finders; builder–finder affinity residuals; post-hoc evidence-audit labels (supported/partial/unsupported/prior-like); qualitative artifact patterns",
+   "p": "4-8, 16-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: harness with a local observation layer recording novel retrieval and tool-call bytes plus vendor tokens; deterministic exact-match grading with seeded option shuffling; compile probe; deterministic transforms from append-only records. Semi-automatic: artifact-question audit (696 of 720 labels by consensus of two base finders, codex_gpt5_5 and claude_code_opus_4_7; 24 manual review). Manual: leakage audit of 48 artifacts; evidence audit of 72 sampled correct answers by an auditor",
+   "p": "5, 13, 17-18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark BUILD-AND-FIND, 2 Rust tasks, each configuration as builder (values: implementation coverage Table 11; AELS / audited recovery A / repeatability S / cell coverage C / Rb Table 9; build tokens mean per run Table 17). Success criterion: none stated by the authors for a verdict (recovery and stability are gates for interpreting effort, no pass threshold for a configuration). (1) Codex + GPT-5.5 high: coverage 100%; AELS 0.970, A 0.988, S 0.985, C 1.000, Rb 1.033; 3,217k tokens/build. (2) Codex + GPT-5.5 low: 98.3%; 0.950, 0.975, 0.987, 1.000, Rb 1.137 (1.151 in text); 1,922k. (3) Claude Code + Opus 4.7 high: 100%; 0.949, 0.996, 0.993, 1.000, 1.514; 6,419k. (4) Codex + GPT-5.4-mini high: 100%; 0.948, 0.991, 0.983, 1.000, 1.320; 7,471k. (5) Claude Code + Opus 4.7 low: 100%; 0.934, 0.994, 0.993, 1.000, 1.727; 4,744k. (6) Claude Code + Sonnet 4.6 low: 95.0%; 0.876, 0.942, 0.984, 1.000, 1.750; 3,281k. (7) Claude Code + MiMo 2.5 low: 95.0%; 0.767, 0.915, 0.976, 0.917, 1.927; 10,564k. (8) Claude Code + Sonnet 4.6 high: 96.7%; 0.685, 0.960, 0.989, 0.750, 1.483; 7,709k. (9) Codex + GPT-5.4-mini low: 85.0%; 0.498, 0.886, 0.982, 0.583, 1.202; 2,231k. (10) Claude Code + MiMo 2.5 Pro low: 93.3%; 0.456, 0.989, 0.978, 0.500, 1.799; 9,643k. (11) Claude Code + MiMo 2.5 high: 88.3%; 0.390, 0.857, 0.960, 0.500, 1.715; 15,335k. (12) Claude Code + MiMo 2.5 Pro high: 93.3%; 0.362, 0.466, 0.498, 0.417, 1.908; 14,445k. As finders, formal recovery 97.2-99.8% (Table 8). Quality verdict and cost verdict for every configuration: no criterion stated by the authors. Controls (question-only 94.5%, spec-only 99.9% accuracy) are calibration baselines, not configurations",
+   "p": "6-7, 15-18, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 2 Rust task families (scratch_minidb, scratch_nanoweb), 15 spec-traced MCQs each. Configurations: 12 (2 harnesses x 6 models x high/low effort), full builder x finder grid. Baselines/controls: question-only and spec-only finder runs. Held constant: hidden specs, deterministically rendered builder/finder prompts (prompt and spec hashes recorded), isolated workspaces, read-only artifact clones, base seed 20260501; harness varies with model family (MiMo through Claude Code). Acceptance: compile probe gate, gold answers traced to spec, artifact-question audit. Repetitions: 2 build trials per builder-task cell, 3 find trials per artifact-finder cell; high- and low-effort panels analysed separately. Human intervention: none described during runs",
+   "p": "3-5, 11-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Recovery near saturation: artifact-conditioned accuracy 98.9% vs 94.5% question-only (+4.4 pp), spec-only 99.9%; low-prior subset 97.9% vs 88.9% (+9.0 pp). Implementation coverage 85.0-100.0%; implementation-aware recovery 84.0-99.4%. Effort: GPT-5.5 artifacts needed least inspection (Rb 1.033 high panel, 1.151 low panel); GPT-5.4-mini-high second (1.320); GPT-5.4-mini-low nearly tied with GPT-5.5-low but 11/12 cells. AELS ranks GPT-5.5-high first (0.970) and MiMo 2.5 Pro-high last (0.362). Same-family affinity positive (OpenAI/Codex +0.076, Claude +0.041, MiMo +0.027). Qualitative: Codex artifacts more concise, Claude artifacts more README/comment prose, MiMo more variable. No significance tests; results described as panel-local and prior-conditioned",
+   "p": "6-8, 16, 18, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly. Accuracy did not discriminate (question-only already 94.5%), so effort carried the comparison; effort and coverage did separate configurations. Repeatability: 97.5% 3-trial agreement in formal runs. Finder rank agreement (Kendall tau) moderate and positive at high effort, task-dependent at low effort; affinity shows legibility is reader-dependent. Evidence audit: 65/72 sampled correct answers supported by artifact evidence. Limitations stated: high priors, panel-local claims, effort proxy only valid after gates, MiMo results confounded with Claude Code harness, live reruns subject to model drift",
+   "p": "6-8, 14-15, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Claims scoped to the released panel, two task families, finder policies and strong priors (question-only 94.5%). Does not measure runtime correctness, security, deployment readiness or human maintainability. Implementation audit is artifact inspection, not a behavioural conformance test suite. Public task packs may be contaminated; private packs needed. Single language (Rust); repeated trials costly (>1.1B tokens). Live reruns depend on provider models, CLIs and drift. Gaps: downstream modification success as the next layer; restricted-view ablations (README-only, source-only, tests-only, config-only); evidence fields as graded outputs; family-diverse finder panels",
+   "p": "2, 8-9, 15, 19, 24-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: GPT-5.5-low Rb is 1.151 in text (p. 7) but 1.137 in Table 9 (p. 16); Table 9 cell coverage C (e.g. Sonnet 4.6-high 0.750, GPT-5.4-mini-low 0.583, MiMo 2.5-high 0.500, MiMo 2.5 Pro-high 0.417) disagrees with Figure 1 cell counts (12/12, 11/12, 12/12, 6/12) and with the text saying GPT-5.4-mini-low rose from 7/12 to 11/12 after the audit, so Table 9 may be pre-audit; MiMo 2.5 Pro-high A = 0.466 and S = 0.498 in Table 9 vs 99.8% minidb recovery in Table 3, and its AELS 0.362 does not equal A x S x C x Rb^-0.1 from its own row (about 0.09), while the other rows do. Values above taken from Tables 9, 11, 17 and text p. 7. Release of harness, tasks, artifacts, records, scripts and evidence audit claimed, but no URL given in the text (only internal paths such as runs_release/...). No pre-registration. Programming language of tasks: Rust (harness in Python 3.13.5). Runs orchestrated on a MacBook Pro M1 Pro; inference on provider infrastructure. Single author",
+   "p": "7, 9, 15-16, 23",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "corrected",
+     "why": "Added a further reporting inconsistency: the MiMo 2.5 Pro-high row of Table 9 does not satisfy the AELS formula (Eq. 7), unlike the other 11 rows; also MiMo 2.5 Pro-high C 0.417 vs 6/12 in Figure 1."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (artifact-evidenced recovery as an evaluation layer) and four contributions clearly stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): protocol given as pseudocode, seeds, trial counts, metric equations, versions and execution stack; task specs and prompts not in the paper (release claimed without a link)",
+   "p": "11-16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.114, codex-cli 0.124.0, model identifiers and effort settings, harness 0.1.0",
+   "p": "14-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): the two task families are named and briefly described (minidb, nanoweb, 15 MCQs each), but the specifications and questions are not shown and no link to the claimed release is given",
+   "p": "5, 9, 24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): finder answers graded by exact match against gold answers traced to the hidden specification; compile probe; artifact-question audit (mostly by two finder agents' consensus, 24 manual)",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): metrics defined with equations; cover cost (vendor tokens, inspection bytes) and quality (recovery, implementation coverage, compile pass)",
+   "p": "4-5, 15-16, 23-24",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 12 configurations under the same tasks, prompts and seeds, plus question-only and spec-only controls",
+   "p": "4-5, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): repeated trials (2 build, 3 find), repeatability agreement and Kendall tau reported; no significance tests or confidence intervals for differences between configurations",
+   "p": "5-7, 20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions scoped as panel-local and prior-conditioned; saturation of accuracy acknowledged",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 scope and limitations and benchmark-card known biases",
+   "p": "8-9, 24-25",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic author; evaluated agents (Claude Code, Codex, MiMo models) are third-party tools",
+   "p": "1, 14",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The evaluated agents and models are third-party, so Yes fits; but the author also created the protocol whose validity the study evaluates, which a reader could treat as evaluating the author's own approach (Partly)."
+    }
+   ],
+   "warn": "As ferramentas avaliadas (Claude Code, Codex, MiMo) são de terceiros, mas o protocolo avaliado é do próprio autor. Decide se isso conta como fornecedor (Partly) ou mantém Yes."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

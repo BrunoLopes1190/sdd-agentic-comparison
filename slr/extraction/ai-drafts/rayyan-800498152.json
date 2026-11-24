@@ -1,0 +1,327 @@
+{
+ "key": "rayyan-800498152",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jarmak, S. (2026). Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model. Version 1.0.0, August 2026. arXiv:2608.13867v1 [cs.SE], 14 Aug 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.13867v1 [cs.SE]; self-published technical review and engineering monograph (313 pages, web edition and companion repository), no published venue",
+   "p": "1-2, 313",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Not stated on the title page. The data statement says the author built and operates CodeScaleBench 'at the vendor whose retrieval product supplies one of its two arms' (repository github.com/sourcegraph/CodeScaleBench, i.e. Sourcegraph, industry)",
+   "p": "1, 313",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Review; secondary: Conceptual — structured multivocal review (164 scholarly works, 100 practitioner records, 29 benchmark records, 17 author-system case records) synthesized into a reliability dependency chain framework and a catalog of 206 reliability records (193 gated practices, 56 developed in depth, 13 research leads), with runnable evaluation protocols and author-system measurements as illustrations",
+   "p": "2, xii-xx (file p13-21)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Engineering practices for coding-agent systems (ERCA-NNN catalog, v1.0.0), including 'consolidated-spec restarts' (restart a drifting run from one authoritative consolidated specification plus an execution handoff) and a no-file baseline for standing repository context files (AGENTS.md-type), citing Gloaguen et al. (2026) and Khatri (2026) null results",
+   "p": "151, 155-156, 159-160 (file p177, 181-182, 185-186)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "For the consolidated-spec restart practice: a consolidated specification (settled requirements, constraints, definitions, interfaces, open questions; versioned, superseding earlier proposals), an execution handoff (repository state, completed changes, current failures, verification done, raw artifacts) and a starting instruction naming the authoritative sources. Elsewhere: evaluation records (paired per-item outcomes, cost, model/harness/prompt versions), failure taxonomy, decision rules fixed before results",
+   "p": "xx, 155-156 (file p21, 181-182)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not an SDD flow. Dependency chain of six layers: measurement, grading, containment and recovery, retrieval and context, review and accountability, allocation and cost. 'Minimum pass': rerun a decision with paired baseline (3 runs per item), record success/cost/configuration, exercise permitted and prohibited actions, verify a completion claim, read 20 failed runs, fix a decision rule before the next promotion",
+   "p": "xii-xiii, xx (file p13-14, 21)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Treated as an engineered control (Part V): verification interfaces, risk-based escalation, autonomy widened one action class at a time, effective gates that can change execution, accountable ownership; for spec restarts, the restart boundary belongs to the control plane, not to the failing run",
+   "p": "156, 178-209 (file p182, 204-235)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (review; not run as an SDD approach). Author-system measurements on own systems (CodeScaleBench retrieval arms, 199-trace diagnostic corpus, 1,286-item fleet ledger) as illustrations",
+   "p": "125, 151, 287 (file p151, 177, 313)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (system reliability review; the author uses 'consolidated specification' for restarts but no SDD levels)",
+   "p": "155 (file p181)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Both / not restricted; operating conditions assumed: large organizational codebases with many repositories (author measurements on repositories of millions to tens of millions of lines)",
+   "p": "xi (file p12)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "Review corpus: 164 scholarly works (118 base, 11 update audit, 9 SE coverage probe, 21 distributed-systems synthesis, plus targeted additions), 100 practitioner records, 29 benchmark records, 17 author-system cases; 244 candidate practices -> 214 retained -> 206 records. Author measurement: CodeScaleBench 370 paired tasks in 20 suites, 46 anchor repositories (56 distinct), nine languages, repositories up to ~35M lines (Chromium)",
+   "p": "xii-xviii, 125 (file p13-19, 151)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering in large organizations (enterprise-scale, multi-repository work)",
+   "p": "xi, 125 (file p12, 151)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants). Intended reader: senior engineers, evaluation leads, technical owners",
+   "p": "xi (file p12)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Recommended (not measured as results): inference and tool cost, tokens, model calls, elapsed time, cost per completed/accepted task, labeling and adjudication hours, reviewer queue time; cost-accuracy frontier for configuration selection",
+   "p": "16-19, 153, 160, 255 (file p42-45, 179, 186, 281)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Recommended: execution-based acceptance checks, paired per-item outcomes, pass@k and pass^k (k=3 to start), verified resolution separate from submission; in the author measurement, paired end-to-end reward on CodeScaleBench",
+   "p": "35-45, 125, 255 (file p61-71, 151, 281)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None specific (design review discussed qualitatively)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Recommended: reviewer queue time, labeling and adjudication hours, approval and modification rates for autonomy calibration",
+   "p": "xxv, 255 (file p26, 281)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Retrieval metrics (Precision@10, Recall@k, share of tasks with at least one needed file), effective context length, grader agreement (Cohen's/Fleiss's kappa), recovery under fault injection, failure taxonomy labels",
+   "p": "46-56, 98-111, 125-130, 152-154 (file p72-82, 124-137, 151-156, 178-180)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Review: retrieval via SciX/SciX Agent, Code Intelligence Digest (author-operated), OpenAlex probe, DBLP title census; LLM-assisted claim extraction, evidence-group proposal and challenge passes, final decisions by the author alone; no inter-rater agreement (blinded packet released for external graders). Author measurements: automatic benchmark scoring with bootstrap CIs; trace corpus analysed by the author",
+   "p": "xii-xix (file p13-20), 125",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A for the review as a whole (no configuration run as a study). Author-system illustration (Ch. 12, CodeScaleBench, 370 paired tasks): (1) baseline arm, local repositories with built-in file tools, agent and model not stated in the text: Precision@10 0.095, Recall@10 0.120, tasks with at least one needed file 0.33; (2) retrieval arm, same code through a retrieval server (author's employer's product), agent and model not stated: Precision@10 0.313, Recall@10 0.272, share 0.56; paired end-to-end reward difference +0.0349 (bootstrap 95% CI +0.0130 to +0.0579, author says the CI understates uncertainty). No success criterion stated by the authors; quality and cost verdict: no criterion stated by the authors",
+   "p": "125-126 (file p151-152)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (review). Recommends paired comparisons on identical task versions, cheapest credible baseline, k=3 runs per item for screening, power analysis sized to the smallest decision-relevant effect, pinned model/harness/prompt/decoding versions, decision rules fixed before execution, no-file baseline for context files",
+   "p": "2-19, xx, 159-160, 254-255 (file p28-45, 21, 185-186, 280-281)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Synthesis: many apparent model failures originate in the surrounding system; improvements at one layer often do not propagate to end-to-end outcomes (e.g. retrieval metrics roughly doubled while end-to-end reward moved +0.035); advertised context is not usable context; standing context files showed no task benefit and ~20% added cost in Gloaguen et al. (2026), with Khatri (2026) bounding any correctness effect to about 10-15 points; Spearman -0.004 between urgency rank and having strong evidence across 52 ranked practices",
+   "p": "2, xix, 125, 151, 159 (file p20, 151, 177, 185)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Search structured, not exhaustive; ACM DL, IEEE Xplore and Scopus searches not performed (access failures); original interactive queries not fully logged (reconstructed); single-author adjudication, no inter-rater agreement; evidence uneven, recent capability measurements age quickly; practitioner reports prone to selection and survivorship bias; Part VI is a research agenda by transfer from adjacent fields; author-system cases are illustrations, not independent evidence. Gaps: controlled comparison of isolation and authority designs against observed incidents; a recovery benchmark with published fault menu",
+   "p": "2, xiv-xix, 254 (file p15-20, 280)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Companion repository https://github.com/sjarmak/engineering-reliable-coding-agents (catalog, evidence ledger, thread protocols, screening decisions, checksums, blinded grading packet); CodeScaleBench public (github.com/sourcegraph/CodeScaleBench, tag v1-mixed371); 199-trace corpus and 1,286-item fleet ledger not redistributed. Conflict of interest: the retrieval measurement compares the author's employer's retrieval product with a baseline (author acknowledges, treats as illustration). Single author. Cut-off 26 Jul 2026, update audit to 6 Aug 2026. Page references give printed page and file page; only front matter, Ch. 4, 12, 14, 20 and data statement read in full for this draft (313-page document). No pre-registration. Programming language: N/A (nine languages in CodeScaleBench)",
+   "p": "xii-xvi, 125, 287 (file p13-17, 151, 313)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "Partly (0.5): entry criterion (at least one measured result, mechanism, incident, benchmark property or practice relevant to coding-agent reliability) and screening exclusions stated, but broad; distributed-systems and later additions entered by targeted citation-driven selection outside the thread protocol",
+   "p": "xiii, xvii (file p14, 18)",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The entry criterion and screening exclusions are explicitly stated (p. xvii), which under Kitchenham's DARE reading could be Yes; Partly rests on the targeted citation-driven admissions (distributed-systems synthesis, post-cutoff case) that bypassed the thread protocol."
+    }
+   ],
+   "warn": "Os critérios de inclusão estão explícitos (p. xvii), mas cerca de 30 fontes entraram por seleção dirigida fora do protocolo. Decide se isto baixa DARE1 para Partly ou se fica Yes."
+  },
+  {
+   "f": "DARE2",
+   "v": "Partly (0.5): several sources (SciX/arXiv, practitioner digest, OpenAlex probe of eight SE venues, DBLP census) and cut-off dates given; ACM DL, IEEE Xplore and Scopus not searched; exact queries not preserved; author states search is not exhaustive",
+   "p": "xii-xvi (file p13-17)",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "Partly (0.5): evidence graded into strong, directional, corroborating and null/conflicting per scoped claim with challenge passes and a downgrade audit; single author, no inter-rater agreement",
+   "p": "xvii-xix (file p18-20)",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "Evidence is graded per scoped claim (strong/directional/corroborating/null) with explicit definitions, challenge passes and a downgrade audit (p. xvii-xviii); this is a defined quality assessment, but per claim rather than per primary study and by a single adjudicator, so Yes or Partly are both defensible."
+    }
+   ],
+   "warn": "A qualidade é avaliada por afirmação (quatro grupos de evidência definidos), não por estudo primário, e só pelo autor. Confirma nas p. xvii-xviii se aceitas isto como Yes ou mantens Partly."
+  },
+  {
+   "f": "DARE4",
+   "v": "Yes (1): each chapter has a 'Sources and evidence' section listing each item with identifier, claim supported and evidence group; machine-readable ledger in the companion",
+   "p": "xxiii (file p24); e.g. Ch. 4 back matter, 45 (file p71)",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

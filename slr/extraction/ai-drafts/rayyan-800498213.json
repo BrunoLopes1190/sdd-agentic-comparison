@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800498213",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Turkel, E., Sun, M., Ayyar, K., Dunigan, S., Lu, J., Shcherban, V., Shih, H.-S., Wang, X., Zhang, T. (2026). OpenGameEval: Benchmarking Agentic Programming and Exploration in a Stateful Game Engine. arXiv:2610.02563v1 [cs.LG], 1 Oct 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (cs.LG); venue Not stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Roblox (all nine authors; industry)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — OpenGameEval benchmark and framework for agentic game development in Roblox Studio (113 scored tasks), with evaluation of 13 frontier models (16 attempts per task) and an analysis of exploration behaviour as a predictor of success",
+   "p": "1-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "N/A as an SDD approach. One fixed scaffold (authors' tool-calling loop; 8 of the Roblox Studio assistant's tools; system prompt based on the Roblox assistant, not released) with 13 models: Claude Fable 5, Gemini 3 Flash, Claude Opus 4.8, Gemini 3.1 Pro, Gemini 3.5 Flash, GPT-5.6-sol, GPT-5.5, Claude Opus 4.7, GLM-5, GPT-5.6-terra, GPT-5.6-luna, GPT-5.4, GLM-4.7",
+   "p": "3, 5, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification). Benchmark task file: natural-language prompt, placefile, hooks setup / reference / check_scene / check_game; per-task dependency annotations (instances and scripts the reference solution touches)",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A. Agent loop: prompt as single user turn -> autonomous tool calls (observation: search_game_tree, script_read, script_grep, script_search, inspect_instance; action: multi_edit, execute_luau, insert_from_creator_store) -> ends when the model stops, at 300 s, or at 200 tool calls",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (tool calls accepted automatically, no follow-up prompting)",
+   "p": "3, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Model + fixed scaffold runs on the benchmark; no SDD approach",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of models, no specification)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mostly existing code base / populated game (63 of 84 core tasks); 21 core tasks start from an empty baseplate or flat terrain (construction); 29 debugging tasks with planted defects",
+   "p": "3-4",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "113 scored tasks (84 core: 59 script-authoring, 25 scene-change; 29 debugging) on 11 of 17 place files; 16 attempts per task per model; 17,472 core attempts over 1,092 model-task cells; median 7 tool calls per attempt",
+   "p": "3-4, 13, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Game development in Roblox Studio (Luau), e.g. racing, laser tag, suburban town, city",
+   "p": "3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean tool calls per run, observation calls per run, tool-error rate, timeout share (300 s budget); no tokens, money or time",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "pass@1, pass@5, cons@5, all@5 (unbiased estimators from 16 attempts); a task passes only if check_scene and check_game pass",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Exploration coverage (share of annotated dependencies observed before the first action on them); observation share; expected-tool match; sequencing features; IRT discrimination; between-model agreement on solved tasks; contamination check",
+   "p": "5-9, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: executable checks in edit and play mode with simulated player input; tool usage from transcripts; statistics (task bootstrap, paired bootstrap, Wilcoxon, Fisher, Holm, placebo baselines, linear probability models with task and model fixed effects, 2PL IRT). Manual: tasks, checks, reference solutions and dependency annotations written by people; checks screened with reference solution, null arm and reading",
+   "p": "5-9, 13-14, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: the authors' fixed tool-calling scaffold (8 Roblox Studio tools, system prompt based on the Roblox assistant), reasoning effort high, 16 attempts per task. No success criterion stated by the authors for judging a model (task pass = all check phases pass). Values: core pass@1, pass@5, cons@5, all@5 (%); mean tool calls per run, observation share (%); tool error %; timeout %; debugging-suite pass@1. (a) Claude Fable 5: 51.7, 63.7, 51.8, 39.4; 6.4, 62; err 1.17; timeout 2.31; debug 65.5. (b) Gemini 3 Flash: 51.6, 66.7, 51.8, 34.5; 10.8, 65; err 1.94; timeout 0.15; debug 57.3. (c) Claude Opus 4.8: 51.5, 65.9, 52.4, 35.0; 7.0, 68; err 1.31; timeout 2.16; debug 62.7. (d) Gemini 3.1 Pro: 51.3, 66.6, 50.9, 36.7; 7.8, 52; err 2.95; timeout 0.00; debug 63.6. (e) Gemini 3.5 Flash: 50.6, 66.1, 51.3, 33.7; 12.9, 64; err 2.12; timeout 1.64; debug 52.4. (f) GPT-5.6-sol: 47.3, 60.5, 46.5, 35.4; 10.4, 82; err 0.89; timeout 2.31; debug 58.8. (g) GPT-5.5: 46.1, 61.6, 46.3, 30.5; 8.7, 79; err 0.74; timeout 1.49; debug 57.1. (h) Claude Opus 4.7: 45.5, 60.8, 45.4, 30.7; 5.0, 59; err 2.82; timeout 0.82; debug 59.1. (i) GLM-5: 42.9, 61.2, 45.3, 20.3; 8.4, 70; err 2.48; timeout 1.04; debug 59.1. (j) GPT-5.6-terra: 40.4, 53.5, 40.3, 27.5; 9.7, 78; err 1.05; timeout 1.56; debug 58.8. (k) GPT-5.6-luna: 40.3, 56.2, 40.5, 24.9; 12.0, 81; err 1.44; timeout 0.74; debug 65.1. (l) GPT-5.4: 40.0, 55.0, 40.3, 24.5; 12.1, 85; err 1.14; timeout 3.57; debug 51.3. (m) GLM-4.7: 36.7, 56.0, 37.3, 17.0; 8.6, 64; err 3.74; timeout 0.00; debug 50.2. Quality and cost verdicts: no criterion stated by the authors (for every entry)",
+   "p": "5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 84 core + 29 debugging tasks, scored separately. Configurations: 13 models with one scaffold. Baseline: none (null arm, a do-nothing agent, used only to validate checks). Held constant: system prompt, tools, 300 s time budget, 200 tool-call budget, 16 attempts, engine version; reasoning effort high; sampling set per family. Acceptance: hand-written executable checks validated against reference solutions. Repetitions: 16 attempts per task; infrastructure failures relaunched, timeouts scored as failures. Human intervention: none. Runs May-July 2026",
+   "p": "3-5, 13, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Top five models within 1.1 pp (50.6-51.7% pass@1); paired tests separate 34 of 78 model pairs (15 after Holm). Top five: union of solved tasks 58, intersection 27 (placebo 47/37). Spread among top five 5.0 pp on script-authoring, 12.5 pp on scene-change, 13.1 pp on debugging. Consistency gap about 31 points from pass@5 to all@5. Coverage from none to full: +13.4 pp on scene-only (95% CI [+1.2, +25.7]) and +9.8 pp on script-only ([+3.6, +16.0]); difference between arms not significant (p = 0.59)",
+   "p": "5-9, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Paired comparisons and placebo baselines distinguish models that average similar rates; 16 attempts allow reliability metrics; minimum detectable effect 9.2 pp for the median pair. Limitations: system prompt and hosted runtime not released; single engine and language; coverage needs annotations; IRT on only 13 models",
+   "p": "5-6, 9, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single engine and language (Luau); exploration proxy tied to the eight-tool action space; coverage depends on manual dependency annotation; text-only agents (no visual feedback); checks may be wrong (screened; null arm passes 5 tasks); scripted, not model-driven play-time checks; system prompt and runtime not open; contamination risk (no consistent evidence found). Future: automatic dependency derivation",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Released under MIT at https://github.com/Roblox/open-game-eval: tasks, place files, annotations, plugin, leaderboard; 67 of 113 reference solutions public; system prompt and session runtime not released. LLM tools assisted software development, analysis and editing. Four tasks dropped after check screens (117 -> 113). Table 1 error and timeout columns separated from rows in extracted text; mapped by row order (consistent with text: Gemini 3.1 Pro and GLM-4.7 0%, GPT-5.4 3.6%). No pre-registration. Programming language: Luau",
+   "p": "1, 3, 9-10, 13-15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims stated as three main results and the exploration question",
+   "p": "2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): scaffold, budgets, metrics and statistics described in detail, but system prompt and hosted runtime not released",
+   "p": "3, 9, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names, reasoning effort and sampling parameters given; scaffold proprietary and engine version pinned but not stated in text",
+   "p": "3, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): all tasks listed (Appendix H) and released",
+   "p": "4, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable checks validated against reference solutions and a null arm",
+   "p": "3, 9, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; cost only as tool calls and timeouts",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 models under identical scaffold, prompt, tools and budgets",
+   "p": "5, 13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 16 attempts per task, paired bootstrap, Wilcoxon, Fisher, Holm, placebo baselines",
+   "p": "5-6, 17",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims hedged (associations, not causal; one engine)",
+   "p": "8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8 limitations and threats",
+   "p": "9-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Roblox) do not make the evaluated models; note the scaffold and engine are Roblox's",
+   "p": "1, 3",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "All authors are from Roblox; the evaluated models are not theirs, but every configuration runs on the authors' own fixed scaffold based on the Roblox assistant (system prompt not released) inside Roblox Studio. Whether the scaffold makes them a vendor of what is evaluated is a judgement (Yes if only models are the object, Partly if the scaffold counts)"
+    }
+   ],
+   "warn": "Os autores (Roblox) não fazem os modelos, mas o scaffold fixo e o motor são da Roblox; decide se isso conta como fornecedor (Partly) ou se o objeto avaliado são só os modelos (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: proposes an evaluation method, not an approach",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

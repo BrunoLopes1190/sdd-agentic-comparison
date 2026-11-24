@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486515",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ge, Y., Liu, S., Gao, P., Ge, C., Liu, C., Wang, Y., Mei, L., Bi, B., Yao, J., Guo, J., Cheng, X. (2026). Doc2Harness: Benchmarking LLMs on Long-Horizon Harness Engineering of Coding Agents. arXiv:2610.20344v1 [cs.SE], 14 Oct 2026. Project page geyuyao.com/doc2harness",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v1, 14 Oct 2026)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.20344v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Institute of Computing Technology, Chinese Academy of Sciences (Ge, Liu, Mei, Bi, Yao, Guo, Cheng); Tsinghua University (Gao, C. Ge); Peking University (C. Liu); Southeast University (Y. Wang)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — two-stage benchmark Doc2Harness for long-horizon harness engineering: a build model inside a fixed builder harness (OpenCode) builds a complete coding-agent harness from a development document and an interface-only contract skeleton (Stage 1); the frozen harness is driven by a scripted mock model on 328 test cases with positive controls (Stage 2); 19 frontier models compared, 3 builds each",
+   "p": "1-4, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Benchmark setting: build model + builder harness OpenCode 1.17.0 (non-interactive 'opencode run', resumed with --continue), given a development document (clauses consolidated from the user documentation of 12 harnesses: Claude Code, Kimi Code, Gemini CLI, Qwen Code, OpenCode, OpenClaw, Codex CLI, Aider, OpenHands, Cline, Crush, Cursor) and a contract skeleton distilled from mini-swe-agent",
+   "p": "3-5, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Input artefacts of the benchmark: (1) development document whose basic unit is the clause, each with syntax, meaning and expected behaviour, observable through four channels (requests to the model, files on disk, exit code, command output); chapters (Table 1): deliverable and runtime interface, built-in tools, top-level commands and subcommands, permission/role modes, sandbox and deny rules, global flags, in-session commands and shortcuts, persistent memory, convention files, consistency rules, exit codes, API for automated evaluation; (2) contract skeleton: five Python source files (~70 lines), install script, entry script, project config; three immutable interfaces (CLI, headless entry point, evaluation API). Output: candidate harness (submission)",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Stage 1 construction: builder reads document and skeleton, builds the candidate harness in an isolated container, submits; automatic contract check (compiles and installs, required commands present, no placeholder stubs, three interfaces in place; form not behaviour); on failure returned for revision, on success frozen. Stage 2 evaluation: frozen harness driven by a scripted mock model, one container per test case, effects read from four channels, positive controls gate the status before the assertion decides PASS/FAIL",
+   "p": "3-4, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the run (scripted prompts, automatic contract check and test assertions). Humans only design the document and test cases (manual issue review, cross-harness comparison, single-variable expansion)",
+   "p": "3-7, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full build runs from a specification-like development document plus interface skeleton, then black-box testing of the result",
+   "p": "3-4, 9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark input format; authors do not use SDD terms; wording: 'development document', 'clauses', 'contract skeleton', 'behavioral conformance')",
+   "p": "4, 14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: construction of a complete coding-agent harness from an interface-only skeleton (~99.6% of a representative harness written by the build model)",
+   "p": "3, 5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "328 test cases in 9 categories (session state 84, file operations 75, permissions 61, headless 40, direct drive 33, interactive terminal 20, artifact checks 7, startup 7, extension discovery 1); 130 gated by positive controls. Representative candidate harness ~30 Python files, ~16,000 lines; per-model mean 1,271-16,681 code lines, 1,062-19,208 across the 57 builds. Test sources: 21,083 issues mined from Claude Code, OpenCode, Gemini CLI, Kimi Code",
+   "p": "5-6, 8-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Developer tooling: coding-agent harnesses (CLI, tools, permissions, session state, memory)",
+   "p": "2-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; fully automated runs)",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None reported (budgets only: 2-hour wall-clock limit, up to 24 turns, at most 3 submissions per build; 900 s per test case)",
+   "p": "9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate over the 328 test cases (mean ± SD over three scored builds), per category; a test case passes only if its assertion and every gating positive control pass; pass rate on ordinary vs boundary scenarios",
+   "p": "4, 8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Architecture of the candidate harnesses: code lines (non-blank), module count, lines per module, largest-module share (Table 4); dedicated module per category by filename keyword; correlations with pass rate",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Strong-weak gap per category; floor / ceiling / discriminating test cases (Table 3); rank variation across categories; pairwise correlations between categories (mean +0.521); KR-20 internal consistency (0.913); between-model variance share and coefficient of variation across builds; partial correlations of module count and lines per module with pass rate (leave-one-model-out check)",
+   "p": "9-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Stage 2 containers with a scripted mock model, assertions on four channels, positive controls, 900 s timeout (FAIL on timeout); each test case executed once per candidate harness; source-code parsing of the 57 harnesses for architecture metrics. Manual (by the authors): synthesis of test cases (ranking and reviewing issues until marginal yield drops, clustering, filtering; cross-harness diff; single-variable expansion with distance check)",
+   "p": "5-9, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Configurations = build model + OpenCode 1.17.0 builder harness, 3 independent builds each, scored on 328 test cases. Criterion per test case: PASS when assertion and gating positive controls pass; no configuration-level success criterion stated by the authors. Overall pass rate % (mean ± SD, Table 2): (a) GPT-6 Astra 53.05 ± 0.25; (b) Opus 5 46.65 ± 1.80; (c) Qwen3.8 Max 45.83 ± 0.14; (d) GPT-5.6-sol 43.80 ± 2.44; (e) Grok 4.7 43.50 ± 2.49; (f) GLM 5.3 42.07 ± 1.39; (g) MiMo-V2.6-Flash 41.87 ± 3.29; (h) Step 5 Preview 40.75 ± 3.29; (i) DeepSeek V4.1 Flash 40.24 ± 0.86; (j) Hy4 preview 38.92 ± 1.46; (k) Kimi K3 38.31 ± 1.28; (l) Opus 4.8 38.01 ± 0.87; (m) GPT-5.5 34.65 ± 1.42; (n) Doubao Seed 2.1 Pro 32.62 ± 1.51; (o) Opus 4.7 32.22 ± 1.66; (p) DeepSeek V4 Pro 31.91 ± 1.23; (q) Opus 4.6 28.25 ± 0.14; (r) GLM 5.2 27.64 ± 1.01; (s) Hy3 27.44 ± 0.43; mean 38.30. Mean code lines per build (Table 4): GPT-6 Astra 7,964; Opus 5 13,845; Qwen3.8 Max 16,681; GPT-5.5 1,271 (others in Table 4). Quality verdict and cost verdict for each: no criterion stated by the authors; no cost measured",
+   "p": "9-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: one build task (same development document and contract skeleton) scored on 328 test cases. Configurations: 19 models from 11 vendors. Baseline: none (models ranked against each other). Held constant: builder harness OpenCode 1.17.0 (chosen over vendor harnesses such as Claude Code or Codex CLI to avoid advantaging their model families), task prompt, empty preflight-checked container without network except the model gateway, same server (AMD EPYC 7K83, 48 logical processors, 128 GB), compaction at 80% of context window, 2-hour limit, 24 turns, 3 submissions; deterministic mock model in Stage 2. Acceptance tests: 328 test cases with positive controls. Repetitions: 3 independent builds per model; each test case run once per build. Human intervention: none (scripted further prompts when no submission yet)",
+   "p": "4-5, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-6 Astra best at 53.05% vs Hy3 27.44% (gap ~26 pp); even the best fails nearly half. Opus 5 leads on ordinary scenarios (80.68% vs 72.46% for GPT-6 Astra) but GPT-6 Astra leads on boundary scenarios (48.97% vs 37.02%). GPT-6 Astra leads 4 of 6 main categories, Grok 4.7 and Qwen3.8 Max the other two; ranks vary by up to 16 positions across categories. Code lines correlate with pass rate (0.614 across builds, 0.629 between model means); module count has partial correlation −0.423 with pass rate controlling for code lines (lines per module +0.504). No significance tests between models; SD over 3 builds reported",
+   "p": "9-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the models: ~26 pp spread, 256 of 328 test cases discriminating, permissions category strong-weak gap 50.8 pp; KR-20 0.913. Repeatability: SD across the 3 builds 0.14-3.29 pp; 95.9% of code-line variance between models, CV across builds 12.7%. Limitations stated: single build per run (no build-evaluate-repair loop), contract check tests form not behaviour so an early submitter's score is a lower bound; correlated test variants from single-variable expansion; 56 floor test cases give no discrimination; interactive terminal near saturation (79.9%)",
+   "p": "9-11, 13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: protocol measures a single build with up to three submissions, no improvement from behavioural feedback after freezing; contract check verifies form not behaviour, pass rate of early submitters is a lower bound; one defect can fail several correlated test cases. Gaps (related work): prior harness benchmarks infer harness quality from downstream tasks, confounded by the driving model and test-time search; none adjudicates clause by clause whether a harness conforms to a specification. Finding: failures concentrate on how cross-cutting functionality is split across modules",
+   "p": "13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Programming language: Python (skeleton and candidate harnesses). Replication package: project page geyuyao.com/doc2harness given; release of document, test suite or code not stated explicitly. Pre-registration: none stated. Values from Table 2 (pdftotext jumbled the per-category columns; overall pass rates read from the 'All' column and match text and Fig. 1). Intro says 'several hundred test cases'; Section 2.5 gives 328. Fig. 1 shows rounded values (e.g. 53, 47). Builder prompt text not reproduced in the paper",
+   "p": "1-2, 8-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (deterministic benchmark of harness construction) and contributions stated",
+   "p": "2-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction, test synthesis, positive controls and configuration described; exact prompts, development document and test suite not included in the paper, availability only implied by a project page",
+   "p": "3-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): builder harness OpenCode 1.17.0 and the 19 models named with versions; settings (compaction threshold, limits) given",
+   "p": "8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): task, document chapters and test categories described; availability of the document and tests not stated explicitly (project page only)",
+   "p": "1, 4-5, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): pass/fail decided by deterministic assertions on four observable channels, gated by positive controls",
+   "p": "4, 7-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): pass rate and architecture metrics defined; no cost metrics (tokens, money, time) reported",
+   "p": "9-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 19 models compared under the same builder harness, inputs, limits and test suite",
+   "p": "4, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 independent builds per model with SD and between-model variance analysis, KR-20, correlations; no significance tests of differences between models",
+   "p": "9-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main results (unsaturated suite, ~26 pp spread, best model fails nearly half) follow from Table 2; but the abstract and conclusion state that failures 'cluster around' / 'concentrate on one implementation choice' (module splitting), which rests only on correlations (partial r = -0.423 for module count) with no failure analysis",
+   "p": "9-12, 14",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "The architecture claim in abstract and conclusion ('failures are not random but concentrate on one implementation choice', p. 14) goes beyond the correlational evidence of §4.3 (p. 11-12); whether this is enough for Partly or still Yes is a judgement."
+    }
+   ],
+   "warn": "A conclusão diz que as falhas 'se concentram' na divisão em módulos, mas só há correlações parciais (§4.3). Decide se isto é exagero suficiente para Parcial ou se mantém Sim. O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short Limitations section (single build, form-only contract check, correlated test cases); no threats-to-validity discussion of test-suite construction bias, mock-model realism or generalisation",
+   "p": "13-14",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; they do not develop OpenCode or any of the 19 models evaluated",
+   "p": "1, 4, 8-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

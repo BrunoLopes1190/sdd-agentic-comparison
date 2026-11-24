@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800486458",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhang, K., Zhong, M., Chang, C.-Y., Lin, Y., Xiong, Z., Jiang, Z., Yuan, Z., Li, Z., Lin, B., Hu, M., & Wang, H. (2026). AsynCodeBench: Benchmarking Collaboration of Asynchronous Multi-Agent Systems in Software Engineering. arXiv:2609.32662v1 [cs.SE], 26 Sep 2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.32662v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: University of Houston; Texas A&M University; New York University; UCSD; Worcester Polytechnic Institute; Oregon State University",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — AsynCodeBench, a dependency-centric benchmark for asynchronous multi-agent software engineering (19 tasks from 16 repositories, 52 directed dependencies with executable Dependency Checkers) with metrics ADPR and DRS; compares five execution protocols across ten open-weight models",
+   "p": "1, 3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Five execution protocols (multi-agent workflows) on the OpenHands harness (version Not stated): SINGLE (one agent), SERIAL (specialists with producer-to-consumer handoffs), ASYNC-PRIVATE (concurrent specialists in private workspaces), ASYNC-MANAGER-RO (read-only manager coordinates), ASYNC-MANAGER (manager with bounded repair). Ten open-weight models: Qwen3.5-9B, Qwen3.5-27B, Qwen3.6-27B, Qwen3.8-27B, Qwen3-Coder-Next (FP8), DeepSeek-V4-Flash (0731), Gemma-4-26B-A4B-it, Muse-Glimmer-30B, GLM-4.7-Flash, Nemotron-3.5-Lightning-30B-A3B",
+   "p": "5, 17-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Task package: fixed repository revision, answer-free task instruction, scoped writable paths, task-specific pytest evaluator; dependency graph (defined before evaluation) and Dependency Checkers (upstream, downstream, integrated); manager may inspect task specification, dependency graph, artifacts and checker diagnostics",
+   "p": "3-5, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per protocol: SINGLE solves the whole task; SERIAL: upstream specialist, integration, then downstream specialist; ASYNC-PRIVATE: concurrent specialists, scope validation, deterministic integration in dependency order; manager variants add planning, feedback, scoped follow-up attempts and (ASYNC-MANAGER) scoped repair patches after integration; checkpoints of the integrated workspace recorded",
+   "p": "5, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (manager is an LLM agent). Humans only in benchmark construction: three reviewers validate tasks and each dependency edge",
+   "p": "5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full multi-agent workflows run end to end",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'execution protocols', 'dependency graph', 'asynchronous multi-agent software engineering')",
+   "p": "3-5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (best reading): implementation tasks in real repositories at fixed revisions with scoped writable paths; 15 tasks from Commit0 ('library generation from scratch': library implementation removed from the repository) and 4 from merged Apache TVM PRs (feature work in an existing code base)",
+   "p": "5, 16",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "15 of 19 tasks come from Commit0, which the cited source calls 'library generation from scratch' (the agent re-implements a library inside a stubbed repository), so they sit between new project and existing code base; only the 4 TVM PR tasks are clearly existing-code-base work. The paper itself does not classify them."
+    }
+   ],
+   "warn": "15 das 19 tarefas vêm do Commit0 (gerar uma biblioteca a partir de um repositório com a implementação removida); só as 4 do TVM são claramente código existente. Vê o Apêndice A.2 e decide entre new project e existing code base. O valor foi corrigido na verificação 1; confirma-o no texto."
+  },
+  {
+   "f": "Size",
+   "v": "19 tasks from 16 repositories; 52 dependency edges; 156 checker groups, 508 selector references; 148 test files, 4,884 pytest items; 3-49 writable files per task; 95 task-protocol scenarios; 190 model-task outcomes per protocol",
+   "p": "5, 16, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Framework and library engineering (32%), systems and storage (32%), compiler/IR engineering (21%), network protocols (11%), security (5%); e.g. cachetools, tinydb, requests, flask, marshmallow, python-rsa, Apache TVM",
+   "p": "5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (multi-agent systems; no human developers)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean reported tokens per task (M); within-model quality-cost Pareto frontiers",
+   "p": "8-9, 24, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Test Pass Rate (fraction of test points passed in the repository-level test suite); number of fully successful tasks out of 19",
+   "p": "4, 30",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "ADPR (Asynchronous Dependency Pass Rate: share of dependencies satisfied in the final integrated workspace); DRS (normalized Dependency Resolution Step: first checkpoint at which a dependency passes; 1 = never); cumulative dependency closure over normalized logical steps ('hopping window'); Pearson/Spearman correlation between Test Pass Rate and ADPR",
+   "p": "4-6, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: task-specific pytest evaluators and executable Dependency Checkers run on integrated-workspace checkpoints; token counts as reported by the harness. Dependency graphs and tasks validated manually by three reviewers",
+   "p": "4-5, 16, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: Test Pass Rate and ADPR on pytest evaluators and Dependency Checkers; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One run per model-task-protocol (no repetitions stated). Each entry: OpenHands + model; Test Pass / ADPR (%) / tokens (M) for SINGLE, SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER. (a) Qwen3.5-9B: 24.44/14.21/5.18; 15.83/5.96/8.01; 15.13/0.00/8.32; 28.44/1.05/15.53; 36.93/2.81/15.48. (b) Qwen3.5-27B: 42.13/12.28/4.13; 47.91/14.91/6.18; 31.15/7.19/6.67; 49.33/20.18/12.41; 59.15/31.58/14.00. (c) Qwen3.6-27B: 57.45/36.84/4.96; 64.01/49.12/8.35; 55.79/21.93/8.18; 63.32/22.81/13.88; 76.70/63.16/14.49. (d) Qwen3.8-27B: 93.62/77.19/3.45; 79.53/57.89/8.02; 81.76/55.26/7.09; 82.33/57.89/12.78; 86.67/64.91/13.73. (e) Qwen3-Coder-Next: 51.18/30.70/4.69; 39.77/7.02/9.49; 33.55/3.51/8.66; 28.83/5.26/17.89; 45.97/16.49/16.38. (f) DeepSeek-V4: 93.64/78.95/2.54; 87.84/66.67/6.89; 75.75/45.61/6.92; 80.36/64.21/11.61; 89.85/71.93/13.65. (g) Gemma-4-26B: 26.51/1.05/0.93; 32.65/1.05/2.49; 26.37/1.05/3.14; 36.40/5.96/3.64; 49.18/20.18/20.20. (h) Muse-Glimmer-30B: 47.67/20.35/4.83; 49.48/15.79/8.32; 38.81/6.32/7.99; 41.67/4.56/14.06; 55.45/28.07/16.08. (i) GLM-4.7-Flash: 44.77/1.05/3.50; 33.85/8.77/7.06; 28.20/0.00/7.10; 37.58/2.81/12.34; 34.68/6.32/13.79. (j) Nemotron-3.5: 28.99/1.05/5.72; 28.14/0.00/9.82; 32.94/1.05/9.82; 31.50/2.81/14.04; 39.89/7.72/17.79. Normalized DRS per configuration in Tables 10-11",
+   "p": "24, 29",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 19 AsynCodeBench tasks. Configurations: 5 protocols x 10 models (40 multi-agent model-protocol configurations plus SINGLE). Constant: task package, OpenHands harness, task-specific Docker environment, same decomposition for SERIAL vs ASYNC-PRIVATE. Baseline: SINGLE (one agent per model). Acceptance: pytest evaluators and pre-defined Dependency Checkers. Repetitions: not stated (one outcome per model-task-protocol). Human intervention: none",
+   "p": "5, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Six of ten models improve over SINGLE under their best multi-agent protocol (+7.8 to +22.7%), four do not (e.g. Qwen3.8-27B 93.6% -> 86.7%, DeepSeek-V4 93.6% -> 89.9%). Test Pass Rate and ADPR imperfectly associated under ASYNC-MANAGER-RO (Pearson r = 0.617, Spearman rho = 0.613); 32 outcomes with >=80% Test Pass but <50% ADPR. No protocol improves ADPR for all models (Qwen3.6-27B: -14.9% ASYNC-PRIVATE to +26.3% ASYNC-MANAGER). Multi-agent protocols cost more tokens; Pareto frontiers differ under the two quality metrics for 5 of 10 models. No significance tests",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: dependency-level metrics distinguished protocols and models and exposed failures hidden by test pass rates, but repeatability not assessed (single run, no variance). Limitations of the comparison method not stated by the authors",
+   "p": "6-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: multi-agent systems lack a direct measure of collaboration; task-level outcomes conflate coding ability with coordination; stronger standalone coding does not translate into stronger collaboration; timing of dependency resolution (hopping window) is a dimension of collaboration capability",
+   "p": "1-2, 6-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Text uses 'DeepSeek-V4' but Table 4 checkpoint is deepseek-v4-flash-0731; 'Nemotron-3.5' is Nemotron-3.5-Lightning-30B-A3B. Abstract says 'model families, scales, and generations' but all models are open-weight; harness OpenHands without version. 'Pre-register' refers to fixing Dependency Checkers before evaluation, not study pre-registration. Human review results 'in our anonymized repository'. Code at github.com/KaituoZhang/AsynCodeBench. AI use statement: ChatGPT used for writing, ideas, design feedback and code. No pre-registration. Programming language: Python (16 tasks) and Python+C++ (3 TVM tasks)",
+   "p": "1, 4, 10, 16-17, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and RQ1-RQ4 stated",
+   "p": "2, 5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark, metrics and protocols described in detail, but harness version, inference settings and run budgets not given",
+   "p": "3-5, 15-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): exact model checkpoints listed, but OpenHands version not stated",
+   "p": "5, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks inventoried with sources and released on GitHub",
+   "p": "1, 5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): repository test suites and executable Dependency Checkers, dependency graphs validated by three reviewers",
+   "p": "4-5, 16",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): Test Pass Rate, ADPR and DRS defined; token cost reported",
+   "p": "4-5, 8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): SINGLE baseline and four protocols under the same harness and tasks for every model",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration; only correlations reported, no tests of differences",
+   "p": "6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results and report that multi-agent execution is not uniformly better",
+   "p": "6-10",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): harness and models are not by the authors (academic authors)",
+   "p": "1, 19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

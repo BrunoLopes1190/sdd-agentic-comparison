@@ -1,0 +1,321 @@
+{
+ "key": "rayyan-800498238",
+ "model": "Claude Opus 5.5 (subagent)",
+ "rounds": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhu, W., Lei, X., Lai, Z., Gong, Z., He, T., Yu, S., Li, W., Xu, J., Xu, Z., Miao, Z., Wu, G., Wang, Z., Bai, Y., Li, J., Liu, Z., Fan, J., Wu, Y., Wu, Y., Liu, J., Gu, Q., Deng, A. (2026). ANCHOR: Assessing Naturalistic Constraint Hierarchies and Ordering in Repository-Grounded Agentic Coding. arXiv:2610.16859v3 [cs.CL], 17 Nov 2026. Dataset: https://huggingface.co/datasets/Yone-01/ANCHOR; code: https://github.com/bupterlxp/ANCHOR",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.16859v3 [cs.CL], 17 Nov 2026; no published venue stated",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Southern University of Science and Technology (Zhu, W. Li); Nanjing University (Lei, Gong, He, Yanan Wu, J. Liu); National University of Singapore (Yu, J. Xu); Beihang University (Z. Xu); University of Michigan (Fan); Independent Researchers (Lai, Miao, G. Wu, Z. Wang, Bai, J. Li, Z. Liu, Yan Wu, Gu, Deng)",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ANCHOR for engineering constraint following (10-category, 78-leaf constraint taxonomy; automated pipeline composing atomic constraints with AND/THEN/PRIORITY relations; trajectory-grounded rule + LLM judging), used to compare 19 agent configurations (2 scaffolds × 10 models) on 358 repository tasks, with and without constraints",
+   "p": "1-2, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Scaffolds OpenCode and Cline (versions not given) with DeepSeek-V3.2, GLM-5, GLM-5.1, GPT-5.3-Codex, GPT-5.4, Kimi-K2.5, Qwen-3.5-Plus, GPT-5.4-Mini, Qwen-3.5-Flash (both scaffolds) and Claude Opus 4.8 (Cline only). Settings: constrained instruction vs task-only instruction",
+   "p": "11, 15",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark instance: a natural developer instruction (short task description plus a list of constraint items; composites rendered as one item preserving AND/THEN/PRIORITY semantics) paired with a structured constraint object; evaluation checklist with, per item, a question, pass condition, judge type and evidence type (code diff, trajectory incl. final response, or commit messages). Construction uses a compressed project-context card from DeepWiki documentation",
+   "p": "6-8",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed for the agent beyond the constraints themselves (e.g. reproduce before fix, add regression test, report commands). Benchmark construction in 5 steps: context compression, leaf selection, atomic instantiation and filtering, composite construction, query synthesis. Evaluation: checklist generation, hybrid rule/LLM judging, dependency aggregation",
+   "p": "6-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs (autonomous). Humans in benchmark validation: five senior engineers audit atomic constraints of 50 instances; five evaluators label 480 checklist items to validate the LLM judge; taxonomy refined by a panel of senior software engineers",
+   "p": "3, 7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only: structured task-level engineering constraints (atomic and composite) embedded in the developer instruction, given to autonomous coding agents; no SDD workflow run",
+   "p": "6-7, 11",
+   "rev": [
+    {
+     "round": 1,
+     "verdict": "uncertain",
+     "why": "No SDD approach is run; the constraint lists are task instructions of a benchmark. 'Specification format only' is one reading; another reader could record N/A (no SDD workflow, only constrained natural-language developer instructions)."
+    }
+   ],
+   "warn": "Não há abordagem SDD; as restrições são apenas instruções de tarefa do benchmark. Decide se 'specification format only' se aplica ou se o campo deve ser N/A, de forma coerente com outros benchmarks."
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: 'engineering constraint following', 'task-level engineering requirements specified by the developer instruction')",
+   "p": "1-3",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: repository tasks from real GitHub issues (via SWE-Compass) with gold patches and executable tests",
+   "p": "5",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Size",
+   "v": "358 tasks from 23 repositories, 8 language groups; 2,836 atomic constraints and 600 relation items (AND 250, THEN 327, PRIORITY 23), mean 7.9 atomics + 1.7 relations per task. Reference patches: 213 modify ≤2 files, 87 modify 3-4, 58 >4; 218 ≤50 changed lines, 76 51-150, 64 >150. Repository sizes Not stated",
+   "p": "4, 11-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories in Python, Go, Java, TypeScript, Rust, C, C++ and C# (e.g. 33cn/chain33, a Go blockchain node); application domains not enumerated",
+   "p": "5-6",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants). Validation engineers: five senior software engineers, 6-12 years of experience (mean 8.4), backend, infrastructure, full-stack and review backgrounds",
+   "p": "7-9",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured; evaluation cost mentioned only qualitatively as a limitation ('significant compute cost')",
+   "p": "20",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task completion (original repository test harness, 30-min timeout), task-only and constrained",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Constraint compliance: ACR (atomic compliance rate), CCR (composite/relation compliance rate), IPR (item pass rate over all checklist items), FCCR (fraction of tasks passing every checklist item); category-level Macro ACR; CCR by relation type and composite size; FCCR on task-successful vs failed trajectories; attributed error patterns E1-E6 (not perceived, misunderstood, deprioritized, capability limitation, scaffold interference, partial compliance)",
+   "p": "10-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: runs in isolated Docker sandboxes from a clean checkout, full interaction trace recorded; rule-based judges (path_filter, file_count, line_count, command_presence, command_arg_check, action_sequence, import_check, regex_match) and an LLM judge on evidence excerpts (judge model not named); task-bootstrap 95% CIs for category plots; error attribution by an LLM prompt. Judge validated on 480 items against majority of five human evaluators (inter-evaluator κ = 0.83; judge κ = 0.78, 89.4% agreement). Constraint audit by five engineers (Gwet AC1 0.91-0.97)",
+   "p": "8-11, 18",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors for a configuration; quality and cost verdicts for every entry: no criterion stated by the authors. Values on ANCHOR, 358 tasks (task-only completion / constrained completion / ACR / CCR / IPR / FCCR, %): OpenCode + DeepSeek-V3.2 24.3 / 23.2 / 40.7 / 28.3 / 38.5 / 1.7; OpenCode + GLM-5 31.8 / 33.5 / 59.2 / 52.5 / 58.0 / 4.2; OpenCode + GLM-5.1 36.0 / 35.5 / 60.6 / 57.3 / 60.0 / 6.1; OpenCode + GPT-5.3-Codex 35.5 / 37.4 / 68.9 / 63.4 / 67.9 / 12.3; OpenCode + GPT-5.4 34.9 / 36.3 / 67.4 / 62.6 / 66.6 / 11.5; OpenCode + Kimi-K2.5 27.4 / 29.3 / 57.6 / 50.2 / 56.3 / 4.2; OpenCode + Qwen-3.5-Plus 28.2 / 32.7 / 52.6 / 47.5 / 51.7 / 2.5; OpenCode + GPT-5.4-Mini 31.2 / 30.6 / 60.1 / 51.1 / 58.5 / 7.3; OpenCode + Qwen-3.5-Flash 21.5 / 18.7 / 35.7 / 27.4 / 34.3 / 1.0; Cline + DeepSeek-V3.2 27.6 / 23.5 / 51.2 / 38.5 / 49.0 / 2.5; Cline + GLM-5 33.2 / 33.2 / 61.4 / 56.7 / 60.6 / 5.6; Cline + GLM-5.1 34.9 / 33.8 / 61.2 / 57.0 / 60.5 / 7.8; Cline + GPT-5.3-Codex 36.9 / 37.7 / 64.1 / 57.5 / 62.9 / 9.2; Cline + GPT-5.4 33.5 / 36.9 / 64.3 / 60.9 / 63.7 / 12.0; Cline + Kimi-K2.5 32.7 / 31.0 / 59.4 / 57.9 / 59.1 / 3.9; Cline + Qwen-3.5-Plus 29.3 / 32.1 / 45.9 / 40.8 / 45.0 / 2.2; Cline + GPT-5.4-Mini 23.1 / 22.3 / 32.4 / 23.5 / 30.8 / 4.1; Cline + Qwen-3.5-Flash 24.9 / 22.7 / 50.4 / 39.2 / 48.4 / 2.8; Cline + Claude Opus 4.8 45.3 / 43.6 / 70.1 / 63.7 / 69.0 / 19.0",
+   "p": "13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: the same 358 ANCHOR tasks for all configurations. Configurations: 19 (primary paired set 14 = 7 models × OpenCode and Cline; extended paired set 18; plus Claude Opus 4.8 under Cline). Baseline: task-only setting (same agent, original task objective without engineering constraints). Held constant: tasks, clean checkout in isolated Docker sandbox, restricted network, original test harness, 30-min timeout, checklist and judges. Acceptance: repository tests for completion; checklist judged by rules and an LLM judge. Repetitions: one run per configuration (bootstrap intervals over tasks, not repeated runs). Human intervention: none",
+   "p": "11, 15, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best: Cline + Claude Opus 4.8 (ACR 70.1, CCR 63.7, IPR 69.0, FCCR 19.0, completion 43.6); FCCR 7.0 points above Cline + GPT-5.4 (12.0). ACR exceeds CCR by 6.7 points on average. Adding constraints changes completion by +0.7 points on average in the primary set (range −4.1 to +4.5; about +0.1 over all 19). Same model, different scaffold: GPT-5.3-Codex completion 37.4 vs 37.7 but IPR 67.9 vs 62.9; GPT-5.4-Mini IPR 58.5 (OpenCode) vs 30.8 (Cline). Hardest categories: Reporting 41.0 Macro ACR, Workflow 50.1, Tool Execution 55.7, Testing 56.6; easiest Dependency 72.4. THEN hardest relation (CCR 46.7 vs AND 58.1, PRIORITY 64.0). Completion and IPR correlate (Spearman 0.87-0.91). Error attribution: E1 not perceived 38.2%, E3 deprioritized 21.9%, E6 partial 14.5%, E5 scaffold 6.9%, E4 capability 5.2%. No significance tests for configuration differences",
+   "p": "12-19",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: separated constraint compliance from task completion and distinguished configurations (IPR 30.8-69.0) and scaffold-model interactions. Judge agreement with humans κ = 0.78 (0.86 rule-verifiable, 0.69 THEN/PRIORITY); ranking on the human-labelled subset Spearman 0.96 with the full judge ranking. Repeatability not assessed (single runs). Limitations stated: no cross-provider judge or prompt-sensitivity study; possible judge bias toward same-vendor models; audit covers 50 instances; gold patch visible at construction; FCCR severity-blind; small categories; differences descriptive without significance tests",
+   "p": "9-10, 14-15, 20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: high evaluation cost; LLM judge may share biases with evaluated models, no cross-vendor judge or controlled prompt swaps; error labels are LLM interpretations, not causal; constraint audit covers only 50 instances and atomics; gold patch exposed during construction (indirect leakage possible); FCCR sensitive to any failed item and checklist size, penalizes overridden lower-priority items; category imbalance; only two open-source scaffolds, Claude Opus 4.8 only under Cline; taxonomy may miss niche domains; interactions between composites not modelled. Gaps / future work: patch-blind construction ablation, full-set audit, cross-vendor judges, applicability-aware scoring, versioned releases with contamination monitoring",
+   "p": "20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Dataset (Hugging Face) and code, prompts and taxonomy (GitHub) released. No pre-registration. LLM judge, construction LLM and scaffold versions are not identified in the text. Version read is arXiv v3. Table 5 read from a garbled text extraction; values checked against the text (e.g. GPT-5.3-Codex 37.4/37.7, IPR 67.9/62.9, FCCR 12.3/9.2; GPT-5.4-Mini IPR 58.5/30.8) and the reported mean completion change (+0.7, recomputed from the table). Several authors also authored SWE-Compass, the source of the tasks. Same five engineers did the constraint audit and the judge study, described as not having participated in benchmark construction. Programming languages: Python, Go, Java, TypeScript, Rust, C, C++, C#",
+   "p": "1, 5, 7-8, 12-13",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (evaluate engineering constraint following) and contributions stated",
+   "p": "1-2",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): taxonomy, construction pipeline, checklist and metrics described with prompts in appendix and repository; the LLM judge and generation models are not named",
+   "p": "3-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): foundation models named with version-level names (e.g. GPT-5.3-Codex, GLM-5.1); OpenCode and Cline versions, generation settings and judge model not given",
+   "p": "11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described (Figure 6, Table 2) and dataset and code publicly available",
+   "p": "1, 3, 11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): completion by original repository tests; compliance by rules and an LLM judge validated against five human evaluators (κ = 0.78)",
+   "p": "8-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): completion and four compliance metrics formally defined; no cost metrics",
+   "p": "10-11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): task-only baseline and 19 configurations on the same tasks and sandbox",
+   "p": "11-12",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): one run per configuration; task-bootstrap CIs for category estimates only; scaffold differences without significance tests",
+   "p": "11, 15, 21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results and are hedged (descriptive associations, no causal claims); mixed results reported",
+   "p": "12-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section",
+   "p": "20-21",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic and independent authors; evaluated scaffolds (OpenCode, Cline) and models are not theirs",
+   "p": "1, 11",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "rev": [],
+   "warn": ""
+  }
+ ]
+}

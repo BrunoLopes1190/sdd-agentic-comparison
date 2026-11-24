@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486381",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 1,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Xue, P., Yuan, H. Y., Wang, X., Chen, J., Zhang, H., Chen, B., Ding, Z., Li, Z., Shang, W. (2026). SWE-NFI: Studying and Benchmarking Coding Agents for Non-Functional Improvements. arXiv:2607.27409 (version not shown in the text; ACM-style manuscript)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.27409 (from the access log); ACM template, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: York University (Canada), Hong Kong University of Science and Technology (Guangzhou), Singapore Management University, University of Waterloo; one independent researcher (Toronto)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SWE-NFI benchmark (188 tasks from merged Python PRs, 92 executable rules over five non-functional improvement aspects, functional preservation checks) and an empirical comparison of eight coding-agent configurations against a human reference",
+   "p": "1-2, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Coding-agent configurations compared (no SDD approach): Codex + gpt-5.3-codex; Claude Code Agent + claude-sonnet-4-6; Aider + gpt-4.1 / deepseek-chat / gemini-2.5-flash; mini-SWE-agent + gpt-4.1 / deepseek-chat / gemini-2.5-flash. Agent versions not stated. Human Reference = merged PR revision",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts; agents receive a natural-language task description and code_before)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs (fully automated evaluation); humans only in benchmark construction (rule derivation, task validation, task descriptions, preservation checks)",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (coding agents evaluated on benchmark tasks; no approach exercised)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach); authors do not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: behaviour-preserving non-functional improvement (maintenance) of real code from merged pull requests; single-file and multi-file",
+   "p": "1-2, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "188 tasks (145 single-file, 43 multi-file) from 48 repositories, drawn from 100 Python repositories with >= 45,000 stars (226,955 PR-file records -> 6,775 positive -> 1,215 candidates -> 484 validated); 90 Documentation tasks, one multi-file Logic Patterns task; 8 configurations x 5 runs",
+   "p": "5-6, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source Python projects (popular GitHub repositories); not domain-specific",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in the evaluation)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Execution time (s) and token consumption (input + output) per benchmark repetition; time and tokens per successful task (successful = valid, passes preservation checks and positive NFI improvement)",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Valid-output rate (non-empty, syntactically parseable Python); Functional Preservation Pass (FPC) rate on task-specific checks",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "NFI improvement per aspect: change in normalized rule score (share of satisfied rules) between code_before and revised code, for Documentation, Error Handling, Library Constraints, Coding Style, Logic Patterns (92 rules: 17 required, 54 prohibited, 21 threshold-based, e.g. cyclomatic complexity <= 10); aggregate NFI improvement; compared with the human reference improvement",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Run-to-run consistency: per-run values, mean and standard deviation of valid rate, FPC rate and aggregate NFI over five runs; single-file vs multi-file differences",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: task-specific functional preservation checks (validated on all 188 human references) and rule checkers built on Ruff, Radon, AST analyses and custom scripts; no LLM-as-a-judge. Time and tokens measured per run. Manual only in construction: rule derivation (kappa 0.73), task validation by two authors (kappa 0.71), task descriptions and checks drafted and reviewed by two authors",
+   "p": "4-6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for configurations (per-task success = valid + passes checks + positive NFI; comparisons with the Human Reference are descriptive). Values are means over 5 runs; NFI aspects Doc/EH/LC/CS/LP in percentage points. (1) Codex + gpt-5.3-codex: valid 99.3%, FPC 64.8%, 6.8/2.1/1.6/2.0/1.3, aggregate 12.7 (sd 0.4); 21.08 s and 4,339 tokens per successful task. Verdicts: no criterion stated by the authors. (2) Claude Code + claude-sonnet-4-6: valid 93.7%, FPC 70.0% (highest), 7.4/2.1/1.4/1.0/0.7, aggregate 13.0 (sd 0.2); 14,330 s and 50.7M tokens per repetition, 120.02 s and 424,970 tokens per successful task. Verdicts: no criterion stated by the authors. (3) Aider + gpt-4.1: valid 96.4%, FPC 66.3%, 8.1/2.3/-1.1/0.1/0.9, aggregate 13.6 (sd 0.3). Verdicts: no criterion stated by the authors. (4) Aider + deepseek-chat: valid 73.9%, FPC 67.0%, 6.0/2.5/0.5/1.2/0.7, aggregate 11.7. Verdicts: no criterion stated by the authors. (5) Aider + gemini-2.5-flash: valid 95.8%, FPC 59.1%, 7.0/2.1/-0.5/0.6/0.7, aggregate 12.2. Verdicts: no criterion stated by the authors. (6) mini-SWE-agent + gpt-4.1: valid 98.4%, FPC 4.8%, all aspects 0.0, no successful task; 816 s and 327k tokens per repetition. Verdicts: no criterion stated by the authors. (7) mini-SWE-agent + deepseek-chat: valid 83.8%, FPC 11.5%, 2.7/1.6/2.1/1.0/0.6, aggregate 6.7; 11,780 s and 32.1M tokens per repetition. Verdicts: no criterion stated by the authors. (8) mini-SWE-agent + gemini-2.5-flash: valid 91.1%, FPC 5.3%, 0.0/0.0/0.5/0.9/0.0, aggregate 0.9. Verdicts: no criterion stated by the authors. Human Reference: 8.0/2.0/1.1/1.5/1.5",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 188 SWE-NFI tasks; same input to all agents (task description + code_before; code_after hidden). Configurations: 2 commercial agents with their own models, 2 open-source agents x 3 backbone models (8). Baseline: Human Reference (merged PR revision); open-source agents share models to isolate the model. Held constant: task input, evaluation suite; temperature 0 where supported. Acceptance: task-specific functional preservation checks, then rule-based NFI scoring. Repetitions: 5 per configuration and task, mean and sd reported; no statistical tests. Human intervention: none",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations on FPC rate, aspect-level NFI and cost; repeatable across five runs (low sd). Limitations stated: rules equally weighted and thresholds partly operational choices, so scores reflect the rule set only; Python only; uneven task distribution across aspects and scopes (one multi-file Logic Patterns task); manual construction steps may introduce subjectivity",
+   "p": "4, 8, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Rule set cannot capture all software quality; threshold checks may miss or penalise contextually appropriate code; Python only; sparse subsets to be read with caution; stochastic agents (mitigated by 5 runs). Gaps: non-functional improvement as a distinct agent capability; logic-pattern improvement and multi-file coordination; extend to other languages and underrepresented categories; rules as feedback signals for NFI-aware agents",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Programming language: Python. No data or replication package link given in the text (benchmark described as a 'reproducible foundation'). No pre-registration. arXiv identifier not printed in the text (taken from the access log). RQ2 summary lists Coding Style among aspects 'consistently' reduced in multi-file tasks (up to 1.4), while the results text names only Error Handling and Logic Patterns as consistent decreases; Table 4 S-M values for Coding Style are all positive (+0.1 to +1.4). Token values per repetition for Codex and Aider appear only in Fig. 2 (text: under one million). Agent versions, prompts, timeouts and the mini-SWE-agent failure causes not reported",
+   "p": "4-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and RQ1-RQ4 stated",
+   "p": "1-2, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark construction and scoring detailed; agent settings (versions, prompts, timeouts, tool configuration) not described and no artefact link",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model identifiers given (gpt-5.3-codex, claude-sonnet-4-6, gpt-4.1, gemini-2.5-flash, deepseek-chat); agent versions not stated",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks and construction described in detail, but no availability link in the text",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): task-specific functional preservation checks validated on human references and deterministic rule checkers; human reference as comparator",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality (valid rate, FPC rate, NFI improvement) and cost (time, tokens, per successful task) defined",
+   "p": "4-6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): eight configurations and a human reference evaluated on the same tasks and inputs",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): five repetitions with sd reported; no statistical test of differences",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): comparisons labelled descriptive; mixed results (agents above and below human per aspect) reported",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Threats to Validity section (construct, internal, external)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors independent of OpenAI, Anthropic, Aider, mini-SWE-agent, Google and DeepSeek",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: proposes a benchmark, not an approach",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}
