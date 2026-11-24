@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486717",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Corrected: Table I reports first-turn resolution 0.85, the draft gave only the 0.25 from the H1 text. Unclear: QA accuracy and SUS come from scenarios (Table III) that do not match the experiment microtasks, and per-condition success is not reported, so the 'works' quality verdict for F rests on H1/H3 as the authors frame them."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values checked against Table I, Table III, H1-H3 text and V-D. Still unclear: QA accuracy, acceptance and FTR come from scenarios (Table III) that do not match the experiment microtasks and are not split by condition, and per-condition task success is not reported, so the 'works' quality verdict for F rests on H1/H3 as the authors frame them."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values rechecked against Tables I, III, IV and H1-H3. Per-condition task success is not reported, and the QA figures (Table III) come from scenarios that are not the experiment microtasks and are not split by condition; it is also not stated whether the 50-user SUS study used a chatbot built under F. The 'works' quality verdict for F therefore rests on the authors' H1/H3 framing."
     }
    ],
-   "warn": "O veredicto 'works' de F apoia-se no QA (cenários diferentes das microtarefas) e no SUS > 68; o sucesso por condição não é dado. Confirma se aceitas 'works' ou preferes 'não determinável'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os valores de QA (Tabela III) vêm de cenários que não são as microtarefas e não são separados por condição; o estudo SUS não diz que chatbot usou. Confirma 'works' para F e 'não determinável' para o baseline."
   },
   {
    "f": "Comparison: design",
@@ -193,16 +203,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: A/F time ratio 2.44 [2.05, 3.02] (Table I, V-B), 2.48 [2.05, 3.02] (V-A, limitations), 2.29 [1.40, 3.63] (abstract, H2); cost 1.88 [1.56, 2.15] (Table I), 1.85 [1.56, 2.16] (V-A), 1.76 [1.12, 2.58] (abstract, H2); first-turn resolution 0.85 (Table I) vs 0.25 (H1 text); SUS CI [68.6, 72.6] (Table I, abstract, Table IV) vs [68.6, 75.9] (H3); success adjudicated 'by two raters' (IV-G) vs 'by the experimenter' (IV-L), blinded raters claimed in threats; Takeaways claim reduced latency and improved token efficiency while Table I shows comparable values; QA scenarios in Table III (Check-in & Proof, Plan Modification, Sales Inquiry, Weekly Plan Ingestion) do not match the experiment microtasks; conclusion speaks of citizen developers although participants were professional developers. Values used here: Table I and the abstract/H2 as labelled. Replication: text says prompts, task variants, log schemas and acceptance tests were released and the implementation is open source, but no link is given. Pre-registration: not claimed (outcomes and exclusions called 'pre-specified'). Ethics: exempted. Programming language: C#/.NET",
+   "v": "Inconsistencies: A/F time ratio 2.44 [2.05, 3.02] (Table I, V-B), 2.48 [2.05, 3.02] (V-A, limitations), 2.29 [1.40, 3.63] (abstract, H2); cost 1.88 [1.56, 2.15] (Table I), 1.85 [1.56, 2.16] (V-A), 1.76 [1.12, 2.58] (abstract, H2); first-turn resolution 0.85 (Table I) vs 0.25 (H1 text); SUS CI [68.6, 72.6] (Table I, abstract, Table IV) vs [68.6, 75.9] (H3); success adjudicated 'by two raters' (IV-G) vs 'by the experimenter' (IV-L), blinded raters claimed in threats; unit of analysis given as the microtask (T = 8, bootstrap resampling tasks; IV-C, IV-L) but also as participant-level aggregates (participant × condition, 'Balancing runs' and 'Rationale', IV-L); developer survey dimensions given as satisfaction, efficiency and ease of navigation (IV-K) vs satisfaction, perceived quality and perceived productivity (V-D); Takeaways claim reduced latency and improved token efficiency while Table I shows comparable values; QA scenarios in Table III (Check-in & Proof, Plan Modification, Sales Inquiry, Weekly Plan Ingestion) do not match the experiment microtasks; conclusion speaks of citizen developers although participants were professional developers. Values used here: Table I and the abstract/H2 as labelled. Replication: text says prompts, task variants, log schemas and acceptance tests were released and the implementation is open source, but no link is given. Pre-registration: not claimed (outcomes and exclusions called 'pre-specified'). Ethics: exempted. Programming language: C#/.NET",
    "p": "1, 4-8",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Missing inconsistency: first-turn resolution is 0.85 in Table I (p. 5) but strict first-turn resolution 0.25 in the H1 text (p. 6)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Two reporting inconsistencies were missing: the unit of analysis is the microtask in IV-C/IV-L but participant-level aggregates in 'Balancing runs'/'Rationale' (p. 5); the survey dimensions differ between IV-K and V-D (p. 5-6)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -292,7 +307,7 @@
      "why": "Author's rule of 2026-11-23: when the authors' own approach is compared with external baselines, Q12 is Partly, not No."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q13",

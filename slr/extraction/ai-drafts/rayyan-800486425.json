@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486425",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -131,9 +131,14 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Patch scope ratios (agent vs gold) and SNC indicators of gold patches are descriptive size and task measures, not maintainability or technical-debt measures; the authors say patch scope is not a quality goal (p. 6) and size does not measure review effort (p. 9). Moved to Other outcome metrics, but another reader could keep patch scope as an internal quality proxy"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Patch scope ratios (agent vs gold files, lines, callables) and the gold-patch SNC indicators describe size and location of changes, not maintainability or technical debt; the authors say resolved patches are not shown equivalent in maintainability (p. 5), smaller patches are not quality goals (p. 6) and patch size does not measure review effort (p. 9). Another reader could still treat patch scope vs gold as an internal-quality proxy."
     }
    ],
-   "warn": "As razões de âmbito do patch (ficheiros, linhas, callables vs gold) e os indicadores SNC não medem manutenibilidade; decide se ficam em métricas de qualidade interna ou só em outras métricas. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "As razões de âmbito do patch face ao gold e os indicadores SNC não medem manutenibilidade segundo os autores (p. 5, 6, 9); decide se ficam em métricas de qualidade interna ou só em outras métricas."
   },
   {
    "f": "Human effort metrics",
@@ -151,9 +156,14 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Follows the move of the patch scope ratios and SNC indicators out of Internal quality metrics (see that field)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Content checked against pp. 3-8 and correct; its scope depends on the decision in Internal quality metrics (patch scope ratios and SNC indicators placed here)."
     }
    ],
-   "warn": "Depende da decisão no campo de qualidade interna: se as razões de âmbito do patch e os indicadores SNC ficarem lá, retira-os daqui. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Depende da decisão no campo de qualidade interna: se as razões de âmbito do patch e os indicadores SNC passarem para lá, retira-os daqui."
   },
   {
    "f": "How metrics are collected",
@@ -173,7 +183,7 @@
      "why": "Haiku's SNC Cramer's V range was given as 0.15-0.35, but Table II read row-wise (the reading confirmed by the behaviour block, where Qwen 9B/27B explore = .02/.03 n.s. as stated in the text) gives 0.21-0.35 for Haiku; 0.15 belongs to Sonnet. Added the per-configuration V values for all six configurations, rebuilt from the jumbled table"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -261,9 +271,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Q7 asks for a baseline or an alternative under the same conditions; the six configurations are alternatives run under the same tasks and harness. The draft gave Partly because scaffolds differ across families and there is no baseline, but the scaffold is part of the configuration (the authors compare deployed configurations, p. 10)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Six configurations run on the same 2,487 tasks with the same Harbor harness, Docker environments, timeouts and default decoding (p. 3), so alternatives under the same conditions exist; but there is no baseline and the two families use different scaffolds, which the authors name as a confound for cross-family contrasts (p. 10). Yes vs Partly is a judgement; the value changed between rounds."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Six configurations run on the same 2,487 tasks under the same Harbor harness, Docker environments, timeouts and default decoding (p. 3), so alternatives under the same conditions exist; but there is no baseline, and the two families use different scaffolds, which the authors name as a confound for cross-family contrasts (p. 10). Yes vs Partly is a judgement; the value changed between rounds."
     }
    ],
-   "warn": "As seis configurações correm nas mesmas tarefas e harness, mas os scaffolds diferem entre famílias e não há baseline; decide entre Yes (alternativas nas mesmas condições) e Partly. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Há seis configurações nas mesmas tarefas e harness, mas sem baseline e com scaffolds diferentes entre famílias (p. 10). Decide se Q7 é Yes ou Partly."
   },
   {
    "f": "Q8",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498221",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -89,9 +89,14 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft did not classify new project vs existing code base; the scenarios modify existing files, so existing code base is implied, but the sandbox repositories are not described (p. 6-8)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The draft did not classify new project vs existing code base; the scenarios modify existing files, so existing code base is implied, but the sandbox repositories are not described (p. 6-8)"
     }
    ],
-   "warn": "O artigo não descreve os repositórios sandbox; os cenários alteram código já existente, o que sugere existing code base. Confirma no repositório NP-Bench se quiseres. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O artigo não descreve os repositórios sandbox; os cenários alteram código já existente, o que sugere existing code base. Confirma no repositório NP-Bench se quiseres."
   },
   {
    "f": "Size",
@@ -158,9 +163,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "No success criterion stated by the authors for judging an arm (CTSR defines run success, no target rate). Tier A (deterministic, scripted agents, no model): (a) C0: CTSR 1/9, merge conflicts 13, wasted LOC 54; effect-by-N (N=8) wasted LOC 28. (b) C1-DETECT: 4/9, 12, 49; N=8 28. (c) C1-PLAN: 9/9, 0, 0; N=8 0; fan-out routing 100% hit, 0% false positives. Tier B (live agents, coding agent not stated): contract migration CTSR: (d) C0 + Claude Opus 4.8 (K=15) 0.00; (e) C1-DETECT + Opus 4.8 0.00; (f) C1-PLAN + Opus 4.8 1.00 [0.80, 1.00]; (g) C0 + Claude Haiku 4.5 (K=5) 0.00; (h) C1-DETECT + Haiku 0.00; (i) C1-PLAN + Haiku 0.60 [0.23, 0.88]; (j) C0 + GPT-5-Codex (K=5) 0.00; (k) C1-DETECT + GPT-5-Codex 0.00; (l) C1-PLAN + GPT-5-Codex 1.00 [0.57, 1.00]. Fan-out (Opus, K=3, N=2/4/8): (m) C0 adaptation 0.00; (n) C1-DETECT 0.00; (o) C1-PLAN 1.00. Shared file (Opus, K=5): (p) C1-PLAN scope leakage 0.00 (0 of 5). Memory (Opus and Haiku, K=5): (q) without memory repeated-mistake 1.00; (r) with memory 0.00. Routing: (s) single agent with full context vs (t) routed fact: no accuracy gap at 10k/50k/100k tokens (Opus up to about 280k); 280k prompt overflowed Haiku's window (5/5 failures). Quality and cost verdicts: no criterion stated by the authors",
+   "v": "No success criterion stated by the authors for judging an arm (CTSR defines run success, no target rate). Tier A (deterministic, scripted agents, no model): (a) C0: CTSR 1/9, merge conflicts 13, wasted LOC 54; effect-by-N (N=8) wasted LOC 28. (b) C1-DETECT: 4/9, 12, 49; N=8 28. (c) C1-PLAN: 9/9, 0, 0; N=8 0. Cross-repo routing of the coordination plane on the fan-out scenario (used for the warnings, i.e. the coordination arms): 100% hit, 0% false positives. Tier B (live agents, coding agent not stated): contract migration CTSR: (d) C0 + Claude Opus 4.8 (K=15) 0.00; (e) C1-DETECT + Opus 4.8 0.00; (f) C1-PLAN + Opus 4.8 1.00 [0.80, 1.00]; (g) C0 + Claude Haiku 4.5 (K=5) 0.00; (h) C1-DETECT + Haiku 0.00; (i) C1-PLAN + Haiku 0.60 [0.23, 0.88]; (j) C0 + GPT-5-Codex (K=5) 0.00; (k) C1-DETECT + GPT-5-Codex 0.00; (l) C1-PLAN + GPT-5-Codex 1.00 [0.57, 1.00]. Fan-out (Opus, K=3, N=2/4/8): (m) C0 adaptation 0.00; (n) C1-DETECT 0.00; (o) C1-PLAN 1.00. Shared file (Opus, K=5): (p) C1-PLAN scope leakage 0.00 (0 of 5). Memory (Opus and Haiku, K=5): (q) without memory repeated-mistake 1.00; (r) with memory 0.00. Routing: (s) single agent with full context vs (t) routed fact: no accuracy gap at 10k/50k/100k tokens (Opus up to about 280k); 280k prompt overflowed Haiku's window (5/5 failures). Quality and cost verdicts: no criterion stated by the authors",
    "p": "5-8",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The 100% routing hit / 0% false positives (p. 6) belongs to the plane's routing engine, whose warnings are the C1-DETECT mechanism ('the two real consumers are warned'), not to the C1-PLAN arm alone; reattributed"
+    }
+   ],
    "warn": ""
   },
   {
@@ -277,16 +288,26 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): the author built Nerveplane, the planner and the C1-DETECT arm",
+   "v": "Partly (0.5): the single author built Nerveplane, the planner (C1-PLAN) and the C1-DETECT arm (vendor of the approach); the C0 arm is live agents on third-party models (Claude Opus 4.8, Haiku 4.5, GPT-5-Codex) with no coordination, which the author did not create",
    "p": "3",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "The single author built Nerveplane, the planner and the C1-DETECT arm; C0 is 'no coordination', not an external approach, so the §5 'Partly' case (some approaches external) does not clearly apply; No is the best value but the 2026-11-23 rule on external baselines could be read as Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The single author built Nerveplane, the planner and the C1-DETECT arm; C0 is 'no coordination', not an external approach, so the §5 'Partly' case (some approaches external) does not clearly apply; No is the best value but the 2026-11-23 rule on external baselines could be read as Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Round 2 gave No because C0 is 'no coordination' rather than an external approach; but the 2026-11-23 rule (own approach compared with external baselines = Partly) and how other drafts score a 'same agent without the tool' baseline (e.g. vanilla agent, no-skill arms) point to Partly. Which reading applies is the author's call"
     }
    ],
-   "warn": "O autor criou o Nerveplane e os três braços; o C0 é só 'sem coordenação', não uma abordagem externa. Decide entre No e Partly segundo a regra de 23-11."
+   "warn": "O autor criou o Nerveplane, o planner e o C1-DETECT; o C0 são agentes com modelos de terceiros sem coordenação. Decide se isso conta como baseline externa (Partly) ou não (No). O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q13",
@@ -297,6 +318,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Requirements are stated (local daemon, SQLite, MCP, works with common agents, open source), but scopes must be hand-declared and running cost is not given; Partly vs Yes is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Requirements are stated (local daemon, SQLite, MCP, works with common agents, open source), but scopes must be hand-declared and running cost is not given; Partly vs Yes is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Requirements are stated (local-first daemon, SQLite, MCP, open source, works with Claude Code, Codex and OpenCode, p. 3, 9), but scopes must be hand-declared (scope inference unbuilt) and the running cost of live runs is not given; Partly vs Yes is a judgement"
     }
    ],
    "warn": "O planner é open source e local, mas exige declarar os scopes à mão e não indica custo; decide entre Partly e Yes."

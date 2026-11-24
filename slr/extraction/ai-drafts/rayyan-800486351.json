@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486351",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main nature 'Compares' is clear. The secondary 'Proposes an approach' rests on the hybrid routing gateway, which is only sketched (Fig. 13, future work) and assessed by an offline counterfactual replay of routing policies (contribution 6 is framed as a frontier analysis, not a proposal). Another reader could drop the secondary nature; it decides whether Q13 applies and how Q12 is scored"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature 'Compares' is clear. Section VI-C calls the gateway 'the proposed hybrid routing gateway' and scores its policies by offline replay, but it is only sketched (Fig. 13 as future work) and contribution 6 frames it as a frontier analysis; another reader could drop the secondary nature, which drives Q12 and Q13"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature 'Compares' is clear. Section VI-C calls the gateway 'the proposed hybrid routing gateway' and scores its policies by offline replay, but it is only sketched (Fig. 13 as future work) and contribution 6 frames it as a frontier analysis; another reader could drop the secondary nature, which drives Q12 and Q13"
     }
    ],
-   "warn": "O gateway de encaminhamento híbrido é só esboçado (Fig. 13, trabalho futuro) e avaliado por replay offline. Decide se a natureza secundária 'Proposes an approach' se mantém; isso decide se Q13 se aplica e o valor de Q12."
+   "warn": "A secção VI-C chama-lhe 'proposed hybrid routing gateway', mas só é avaliado por replay offline e o protótipo fica para trabalho futuro. Decide se mantens a natureza secundária 'Proposes an approach'; isso decide Q12 e Q13."
   },
   {
    "f": "Approach(es): name and version",
@@ -88,9 +98,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper says specs are written before implementation and kept in a versioned specs/ folder (Table V), and Markdown specification files are 36.6% of Period A insertions; whether specs are maintained alongside the code after delivery (spec-anchored) is not stated, so spec-first vs spec-anchored is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Specs are written first and kept in a versioned specs/ folder (Table V); 36.6% of Period A insertions are Markdown specification files; whether they are maintained with the code after delivery is not stated, so spec-first vs spec-anchored is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Specs are written first and kept in a versioned specs/ folder (Table V); 36.6% of Period A insertions are Markdown specification files; whether they are maintained with the code after delivery is not stated, so spec-first vs spec-anchored is a judgement"
     }
    ],
-   "warn": "O artigo diz que as specs precedem a implementação e ficam versionadas em specs/ (Tabela V), mas não diz se são mantidas depois. Confirma nas secções IV-F e V-B e escolhe spec-first ou spec-anchored."
+   "warn": "As specs precedem a implementação e ficam versionadas em specs/ (Tabela V), mas o artigo não diz se são mantidas depois da entrega. Confirma na secção IV-F e escolhe spec-first ou spec-anchored."
   },
   {
    "f": "Task type",
@@ -290,9 +310,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Draft gave Yes. If the routing gateway is kept as the authors' proposed approach (secondary nature), its policies are compared with the pure-API and pure-local configurations (Table XIV), and the author's rule of 2026-11-23 then gives Partly. If the gateway is not counted as an approach evaluated, Yes stands"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Depends on the nature: if the routing gateway counts as the authors' approach, its policies are compared with pure-API and pure-local in Table XIV, so Partly (rule of 2026-11-23); if not, the authors are independent of Anthropic, Opencode and Zhipu and Yes stands"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Depends on the nature: if the routing gateway counts as the authors' approach, its policies are compared with pure-API and pure-local in Table XIV, so Partly (rule of 2026-11-23); if not, the authors are independent of Anthropic, Opencode and Zhipu and Yes stands"
     }
    ],
-   "warn": "Se o gateway híbrido conta como abordagem dos autores avaliada (replay da Tabela XIV contra API pura e local puro), Q12 é Partly pela regra de 2026-11-23; se não conta, Yes. Decide em conjunto com a natureza. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Se o gateway híbrido conta como abordagem dos autores avaliada (Tabela XIV contra API pura e local puro), Q12 é Partly; se não conta, Yes. Decide em conjunto com a natureza do estudo."
   },
   {
    "f": "Q13",
@@ -303,9 +333,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Applies only if the secondary nature 'Proposes an approach' is kept. Requirements are stated (cloud API plus a 4x B200 tray at about $2,560 per month shared, MLOps support), and whether that is within reach of a typical team is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Applies only if the secondary nature 'Proposes an approach' is kept; requirements are stated (cloud API plus a 4x B200 tray at about $2,560 per month shared, MLOps support) and whether that is within reach of a typical team is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Applies only if the secondary nature 'Proposes an approach' is kept; requirements are stated (cloud API plus a 4x B200 tray at about $2,560 per month shared, MLOps support) and whether that is within reach of a typical team is a judgement"
     }
    ],
-   "warn": "Só se aplica se mantiveres a natureza 'Proposes an approach'. Os requisitos estão declarados (API cloud e um tray 4x B200 partilhado, cerca de 2560 USD/mês); decide se isso está ao alcance de uma equipa típica, ou N/A."
+   "warn": "Só se aplica se mantiveres 'Proposes an approach'. Os requisitos estão declarados (API cloud e tray 4x B200 partilhado, cerca de 2560 USD/mês); decide se estão ao alcance de uma equipa típica, ou N/A."
   },
   {
    "f": "DARE1",

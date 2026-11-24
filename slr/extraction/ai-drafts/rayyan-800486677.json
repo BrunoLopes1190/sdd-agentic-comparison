@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486677",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -84,8 +84,19 @@
    "f": "Task type",
    "v": "Existing code bases: regenerating a removed microservice inside an existing microservice system (Incremental) or from requirements alone with all traces removed (Clean State, likened to greenfield)",
    "p": "2, 5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Incremental is clearly an existing code base. For Clean State the paper is inconsistent: p. 2 says agents work 'without any information of the system implementation' and likens it to greenfield, while p. 5 says only the target service's traces are removed from the system, so the other services seem to remain in the repository"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Incremental is clearly an existing code base. Clean State removes only the target service's directory, configuration and incoming API calls (p. 5), so the other services stay in the repository; yet p. 2 says agents work 'without any information of the system implementation' and likens it to greenfield projects."
+    }
+   ],
+   "warn": "No Clean State só se removem os vestígios do serviço-alvo (p. 5), mas a p. 2 diz que o agente não tem informação da implementação e compara a greenfield. Decide se conta como new project ou existing code base."
   },
   {
    "f": "Size",
@@ -196,7 +207,7 @@
      "why": "The draft claimed Claude Code was accessed by subscription, but the text only says the method used is marked in bold in Table II, which the extracted text does not show; the claim is unsupported"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -263,9 +274,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement call: most conclusions follow and mixed results are reported, but 'maintainable code' rests on size/complexity metrics only and the lessons learned present P2 'degradation' although P1 vs P2 was not significant (p = 0.140); another reader could score Yes"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement call: most conclusions follow and mixed results are reported, but 'maintainable code' rests on size/complexity metrics only and the lessons learned say P2 'degraded' incremental generation although P1 vs P2 was not significant (p = 0.140); another reader could score Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Most conclusions follow and mixed results are reported, but 'maintainable code' (abstract, p. 10) rests only on SLOC and complexity, and the lessons learned (p. 9) say P2 'degraded' incremental generation although P1 vs P2 was not significant (p = 0.140, p. 7). Another reader could score Yes."
     }
    ],
-   "warn": "As conclusões seguem os resultados, mas 'código manutenível' baseia-se só em SLOC e complexidade e a 'degradação' com P2 não é significativa. Decide se isso baixa Q9 para Partly ou se mantém Yes."
+   "warn": "As conclusões seguem os resultados, mas 'código manutenível' baseia-se só em SLOC e complexidade e a 'degradação' com P2 não é significativa (p = 0,140). Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

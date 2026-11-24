@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486810",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -257,9 +257,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main conclusions (68.3%, language and Java agent differences, failure split) follow from Tables 2-5; the two slips (Python 'overlapping CIs' vs Table 4; 15x 'among successful artifacts' in the conclusion vs all artefacts in 4.6) are minor, so another reader could score Yes rather than Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main conclusions (68.3% overall, language hierarchy, Java agent gap, near-even code/environment split) follow from Tables 2-5 with Wilson CIs. Two slips: Section 4.3 says all agents' Python CIs overlap, but Claude [65.2, 89.5] and Gemini [91.2, 100.0] do not; the 15x expansion is attributed to successful artefacts in the introduction and conclusion but computed over all artefacts of a language in Section 4.6. Partly kept; a reader judging the slips minor could score Yes."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main conclusions (68.3% overall, language hierarchy, Java agent gap, near-even code/environment split) follow from Tables 2-5 with Wilson CIs. Two slips: Section 4.3 says all agents' Python CIs overlap, but Claude [65.2, 89.5] and Gemini [91.2, 100.0] do not; the 15x expansion is attributed to successful artefacts in the introduction (p. 2) and conclusion (p. 10) but computed over all artefacts of a language in Section 4.6. Partly kept; a reader judging the slips minor could score Yes."
     }
    ],
-   "warn": "As conclusões principais seguem dos resultados; há dois deslizes (ICs de Python 'sobrepostos' vs Tabela 4; 15x atribuído só aos artefactos bem-sucedidos). Decide se basta para Partly ou se é Yes."
+   "warn": "As conclusões principais seguem das Tabelas 2-5; há dois deslizes (ICs de Python 'sobrepostos' vs Tabela 4; 15x atribuído só a artefactos bem-sucedidos vs todos na secção 4.6). Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

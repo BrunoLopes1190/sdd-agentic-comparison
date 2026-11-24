@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486369",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Missed a reporting inconsistency: §4.1 (p. 4) claims the fewest tokens in Python and most in OCaml for all models, contradicted by Table 17 medians (Sonnet Rust < Python; GLM OCaml < Rust) and Table 2 (Gemma Java 0.85x)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -214,9 +214,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Setup, prompt, limits, hyperparameters and model specification are given, but the 100 randomly sampled problems are not listed, the mini-swe-agent version is missing and code/data are only promised; Yes vs Partly is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Setup, prompt, limits, hyperparameters and model specification are given, but the 100 randomly sampled problems are not listed, the mini-swe-agent version is missing and code/data are only promised; Yes vs Partly is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Scaffold, full prompt template (§B), container versions, limits, hyperparameters, mixed-model specification (§K) and labelling taxonomy are given, but the 100 randomly sampled problems are not listed, the mini-swe-agent version is missing and code/data are only promised upon publication; Yes vs Partly is a judgement."
     }
    ],
-   "warn": "O método está bem descrito, mas a lista dos 100 problemas sorteados, a versão do mini-swe-agent e o código não estão disponíveis. Decide se Q2 é Yes ou Partly."
+   "warn": "O método está muito detalhado (prompt, limites, hiperparâmetros, modelo estatístico), mas a lista dos 100 problemas e a versão do mini-swe-agent faltam. Decide entre Sim e Parcial."
   },
   {
    "f": "Q3",
@@ -276,9 +286,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "There is a dedicated Limitations section (p. 9) on generalization to models, languages, scaffold and task type; it does not discuss single runs per problem or LLM span labelling. Partly vs Yes is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is a dedicated Limitations section (p. 9) on generalization to models, languages, scaffold and task type; it does not discuss single runs per problem or LLM span labelling. Partly vs Yes is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "A dedicated Limitations section (p. 9) covers generalization to other models, languages, scaffolds and repository-scale tasks; it does not discuss single runs per problem or the LLM span labelling. Partly vs Yes is a judgement."
     }
    ],
-   "warn": "Há secção de Limitations (p. 9) sobre generalização, mas não trata da execução única nem da rotulagem por LLM. Decide se chega para Yes ou fica Partly."
+   "warn": "Há secção de limitações (p. 9) sobre generalização, mas não discute uma só execução por problema nem a rotulagem por LLM. Decide entre Parcial e Sim."
   },
   {
    "f": "Q11",

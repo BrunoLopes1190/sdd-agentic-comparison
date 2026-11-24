@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486191",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main nature right. The two case studies are explicitly comparisons ('Model Comparison' of five models; Basic vs Advanced harness, with and without Context Files), so the secondary nature reads better as Compares than Evaluates; a reader could keep Evaluates since the comparisons serve to demonstrate the benchmark."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes an evaluation method: REAP/Harvest) is right. The secondary nature is a judgement: the two case studies compare five models and two harnesses with/without Context Files (Compares), but they serve to demonstrate the benchmark, so a reader could keep Evaluates or no secondary nature."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature (proposes an evaluation method: REAP/Harvest) is right. The secondary nature is a judgement: the two case studies compare five models and two harnesses with/without Context Files (Compares), but they serve to demonstrate the benchmark, so a reader could keep Evaluates or no secondary nature."
     }
    ],
-   "warn": "A natureza secundária pode ser Compares (os dois estudos de caso comparam cinco modelos e dois harnesses) ou Evaluates; confirma nas secções 4.4 e 4.5 e escolhe. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "A natureza secundária pode ser Compares (os dois estudos de caso comparam cinco modelos e dois harnesses) ou Evaluates; confirma nas secções 4.4 e 4.5 e escolhe."
   },
   {
    "f": "Approach(es): name and version",

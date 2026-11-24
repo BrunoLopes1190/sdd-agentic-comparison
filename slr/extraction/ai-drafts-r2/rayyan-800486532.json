@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486532",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, J., Wang, D., Zhao, X., Bai, Y., Zhu, X., Zhang, Y., Yin, C., Shi, W., Prabhu, G., Rajagopal, K. G., Levert, B., Yi, D., Rabinovich, A., Chen, Z. (2026). SWE-Clar: Can Coding Agents Clarify Incomplete Client Requirements and Deliver Greenfield Software? arXiv:2610.31854v1 [cs.SE], 22 Oct 2026. Preprint, under review. Data and code: https://github.com/upwork/SWE-Clar",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v1, 22 Oct 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.31854v1 [cs.SE]; 'Preprint. Under review.' (venue not named)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Science and Technology of China (Li, Bai, Zhu, Shi; work done with NUS); National University of Singapore (Li, Zhao, Bai, Zhu, Zhang, Shi); Upwork Inc. (Wang, Yin, Prabhu, Rajagopal, Levert, Yi, Rabinovich, Chen)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark SWE-Clar of 100 greenfield tasks from real Upwork jobs (>= US$4,000 each): multi-round requirement clarification with a simulated client agent (replies reviewed by a supervisor agent), then two isolated branches from the frozen clarification context: implementation scored by acceptance tests and clarification assessment scored on 512 requirement questions; nine models compared; ablations on requirement availability and clarification timing",
+   "p": "1-4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named SDD approach. Workflow under test: 'clarification before coding' (clarify, freeze context, then implement without further client guidance), compared with no client interaction, complete requirements upfront, and 'continued clarification' (questions interleaved with coding). Coding agent runtime: Pi (version Not stated) with GPT-6 Astra, GPT-5.6 Sol, GPT-5.6 Luna, Claude Fable 5.1, Claude Opus 5, GLM-5.3, GLM-5.3 Flash, Kimi K3, Qwen-3.8 Max at maximum reasoning effort; client, supervisor and judge agents GPT-5.6 Luna",
+   "p": "6-7, 14, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark artefacts: incomplete initial request plus workspace (starter project, permitted files, data, runtime); private complete requirements as requirement units (RUs) with per-requirement delivery interfaces, project README and delivery agreement (client-side only); frozen clarification context (initial request, approved conversation, workspace observations); 512 requirement questions with reference answers; acceptance tests; agreed delivery interfaces (invocation, inputs, outputs) fixed before evaluation",
+   "p": "3-5, 14, 22-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "1) Requirement clarification: coding agent inspects materials and asks the client agent questions; a supervisor agent reviews each client draft (accuracy, completeness, scope) before it reaches the coding agent; agent calls finish_clarification. 2) Context frozen. 3a) Implementation branch: implement, run own checks, submit_delivery, then private acceptance tests. 3b) Clarification assessment branch: answer requirement questions read-only, graded by a judge agent",
+   "p": "3-4, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (supervisor and judge are LLM agents). Humans: two reviewers with industry backgrounds cross-checked tasks, questions and tests; manual checks of judge labels on reviewed samples; manual adjudication of reference conflicts",
+   "p": "5, 13, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the benchmark's clarify-then-implement protocol run end to end by agents; no named SDD approach",
+   "p": "3-4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (requirements clarified in conversation, not a specification artefact; authors' wording 'requirement clarification', 'complete requirements', 'frozen clarification context', 'delivery interfaces')",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (greenfield software; starter projects provide structure and sometimes baseline functionality, 0% of RUs pass initially)",
+   "p": "1, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 tasks selected from 122 candidate Upwork jobs (>= 8 milestones, >= US$4,000, >= 20 messages); 512 requirement units / questions, 3-7 per task (~5); 4,418 reviewed client questions in saved conversations",
+   "p": "2, 5, 13, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Freelance client commissions: web applications 35, backend logic 16, data and integration 12, media and AI 11, scientific tools 8, systems and devices 7, mobile applications 6, games 5",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs; simulated client). Task reviewers: two with 'relevant industry backgrounds'",
+   "p": "5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean USD per task for coding-agent calls during clarification and implementation (client, supervisor, answering and judge calls excluded), from recorded input, output and cache usage at actual rates",
+   "p": "15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Implementation score = task pass rate (task passes only if all acceptance tests pass; primary outcome); auxiliary RU pass rate (share of passing requirement units per task)",
+   "p": "4, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Clarification score (requirement answers graded Correct 1 / Partial 0.5 / Incorrect 0, averaged per task); strict answer correctness; joint answer / code-test outcome distribution; requirement disclosure during clarification (fully disclosed hidden RUs per round); answers after full disclosure; supervisor revision outcomes; requirement disclosure timing in source conversations",
+   "p": "4, 7-9, 17-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: private acceptance tests (validated with reference, behaviourally equivalent and targeted incorrect implementations); LLM judge (GPT-5.6 Luna) grades requirement answers with a rubric, without code outcomes; model-assisted annotation of disclosure; cost from recorded token usage. Manual: two reviewers cross-check tasks; manual checks of judge agreement on reviewed samples (agreement not quantified); 95% task-bootstrap CIs (10,000 resamples)",
+   "p": "4-5, 13, 15-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "100 tasks per configuration; runs per task Not stated (appears one). Criterion per task: pass = all acceptance tests pass; no configuration-level success criterion stated by the authors. Pi + model, standard protocol (implementation score % [95% CI] / clarification score % / RU pass % / USD per task): (a) GPT-6 Astra 67.0 [58, 76] / 87.5 / 88.5 / 5.391; (b) Claude Opus 5 63.0 [53, 72] / 84.0 / 87.2 / 9.694; (c) Claude Fable 5.1 60.0 [50, 69] / 84.3 / 86.7 / 11.033; (d) GPT-5.6 Sol 57.0 [47, 67] / 78.1 / 84.4 / 1.965; (e) Qwen-3.8 Max 55.0 [45, 64] / 81.3 / 85.9 / 1.703; (f) GLM-5.3 54.0 [44, 64] / 76.8 / 82.4 / 1.393; (g) Kimi K3 49.0 [39, 59] / 76.9 / 82.2 / 1.338; (h) GPT-5.6 Luna 49.0 [39, 59] / 71.8 / 82.7 / 0.103; (i) GLM-5.3 Flash 39.0 [30, 49] / 73.2 / 77.8 / 0.095. Requirement conditions (implementation / clarification / RU pass): GPT-5.6 Luna no interaction 6.0 / 41.4 / 37.5, complete requirements 75.0 / 93.1 / 93.2; GLM-5.3 Flash no interaction 5.0 / 35.1 / 36.0, complete requirements 71.0 / 96.2 / 91.1. Continued clarification (implementation / clarification): GPT-5.6 Luna 26.0 / 59.0; GLM-5.3 Flash 13.0 / 50.9. Quality and cost verdicts: no criterion stated by the authors",
+   "p": "7-8, 16, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: same 100 SWE-Clar tasks for every model. Configurations: 9 coding models in the Pi runtime at maximum reasoning effort; requirement-condition and timing ablations on GPT-5.6 Luna and GLM-5.3 Flash. Baselines: no client interaction and complete requirements upfront (RQ2); continued clarification (Appendix D). Held constant: runtime, prompts (given in Appendix F), client/supervisor/judge model (GPT-5.6 Luna), rubric, 900 s inactivity timeout, up to 5 retries on execution errors; no limit on clarification rounds; response length at provider defaults. Acceptance tests: private, per RU. Repetitions: Not stated (one run per task implied). Human intervention: none",
+   "p": "6-7, 14, 16, 20, 22-29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-6 Astra highest implementation score (67.0%) but fails 33 tasks; range 39.0-67.0%; implementation and clarification scores correlate across models (Pearson r = 0.89). Clarification vs no interaction: Luna +43.0 pp [33, 53], Flash +34.0 pp [25, 43]; complete vs standard: +26.0 pp [14, 37] and +32.0 pp [20, 43]; clarification closes 62.3% and 51.5% of the gap. Clarification before coding beats continued clarification by 23 and 26 pp implementation and 12.8 and 22.3 pp clarification. Code-test pass rate 86.3-91.3% for correctly answered RUs vs 33.9-68.4% for incorrect ones. Higher cost does not consistently mean higher completion (Astra cheaper than both Claude models). Supervisor review: 46.0% of 561 revised replies go from incorrect to correct, 2.9% the reverse",
+   "p": "7-8, 15-17, 20-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models (39-67%) and information conditions (paired 95% intervals exclude zero); model-level CIs overlap for neighbouring models (e.g. 67 [58, 76] vs 63 [53, 72]). Acceptance tests validated with equivalent and incorrect implementations. Repeatability: not addressed (no repeated runs reported). Limitations of the comparison method stated by the authors: conversation timestamps do not establish when implementation began or client availability; disclosure rate and clarification score not directly comparable",
+   "p": "5, 7, 13, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: existing clarification benchmarks use programming datasets or repositories, assume continuous client feedback, or assess information acquisition only; agents end clarification with 46-66% of hidden requirements not fully disclosed; acquiring information does not guarantee understanding; future work: changing requirements, different client availability patterns, better clarification and carrying requirements through implementation planning and verification",
+   "p": "2, 5, 9-10, 17-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Relevant to SDD: requirements fixed before implementation (clarify-then-freeze) outperform interleaved clarification on two models; complete upfront requirements give the highest scores. Data and code released (MIT): https://github.com/upwork/SWE-Clar, with prompts, harness, reference, equivalent and incorrect implementations. Pre-registration: none. Programming language: Not stated per task (various runtimes). Possible biases not discussed by the authors: GPT-6 Astra (the top coding model) built the tasks, questions, tests and reference implementations with humans; GPT-5.6 Luna is both an evaluated coding model and the client, supervisor and judge. Judge-human agreement claimed but not quantified. Upwork-affiliated authors; tasks from Upwork jobs. Figure 6 orders Fable 5.1 before Opus 5 while Table 2 orders Opus 5 first (scores consistent)",
+   "p": "5, 7-8, 10, 13, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three RQs and two design principles stated",
+   "p": "2-3, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): protocol, roles, information access, scoring rubric, timeouts and full prompts given; code and data released",
+   "p": "3-5, 14-15, 21-29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning effort named; Pi runtime version and model API versions not stated",
+   "p": "6-7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 100 tasks described and released with tests and reference implementations",
+   "p": "5, 10, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): implementation judged by private acceptance tests validated with equivalent and incorrect implementations; clarification judged by an LLM judge against reference answers (agreement with humans not quantified)",
+   "p": "4, 13, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): implementation, clarification and RU metrics defined; cost in USD per task",
+   "p": "4, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): nine models under the same protocol; no-interaction and complete-requirement baselines and a continued-clarification alternative",
+   "p": "6-8, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): task-bootstrap 95% CIs and paired intervals reported; number of runs per task not stated, no repeated runs",
+   "p": "7, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results and are hedged (association, 'one possible explanation'); mixed answer-code agreement reported",
+   "p": "7-10, 19-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity section; only isolated caveats (e.g. conversation timestamps)",
+   "p": "5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint marked 'Under review'",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors (universities and Upwork) do not develop the nine evaluated models or the Pi runtime; but Appendix D compares the authors' own design principle 'clarification before coding' (the benchmark protocol) with an alternative workflow (continued clarification), and their principle comes out ahead",
+   "p": "1, 6, 14, 20",
+   "verdict": "uncertain",
+   "why": "The nine models and the Pi runtime are not the authors'; but 'clarification before coding' is the authors' own stated design principle (p. 2-3) and Appendix D (p. 20) compares it with continued clarification, where it wins. Under the rule of 2026-11-23 an own approach compared with alternatives gives Partly; whether a benchmark design principle counts as an approach is a judgement. Upwork authors also supplied the task source (not a vendor of an evaluated tool).",
+   "doubt": "Os autores comparam o seu próprio princípio (clarificar antes de programar) com clarificação contínua no Apêndice D. Decide se isto conta como abordagem própria (Parcial) ou se, sendo só desenho do benchmark, fica Sim."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

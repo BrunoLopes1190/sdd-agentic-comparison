@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486453",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -166,9 +166,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft read 834 runs / 417 pairs as '2 runs per mined pair' repetitions; the paper only says 'Of 834 runs on 417 validated Django pairs' and names two harnesses, so the two runs per pair may be the two tasks or the two harnesses, not repetitions."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Section 4 only says 'Of 834 runs on 417 validated Django pairs' and that the model ran with mini-swe-agent and OpenHands; 834 = 2 x 417 fits the two tasks of each pair (one solve each, reused in blind), but the two harnesses or repetitions are also possible readings."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The text (abstract, §4) only says '834 runs on 417 validated Django pairs' and that the model ran with mini-swe-agent and OpenHands; 834 = 2 x 417 can mean one solve per task of each pair, one run per harness, or two repetitions. The rest of the field is supported by §2-§4 and Table 1."
     }
    ],
-   "warn": "O artigo diz 834 runs em 417 pares, mas não explica se são as duas tarefas do par, os dois harnesses ou repetições. Confirma na secção 4 e decide se conta como repetição. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O artigo só diz '834 runs em 417 pares' e usa dois harnesses (mini-swe-agent e OpenHands). Confirma na secção 4 se as 2 runs por par são as duas tarefas, os dois harnesses ou repetições."
   },
   {
    "f": "Comparison: result",
@@ -258,7 +268,7 @@
      "why": "Score unchanged; removed the claim of '2 per mined pair' repetitions, which the text does not support (834 runs on 417 pairs may be the two tasks or two harnesses)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q9",

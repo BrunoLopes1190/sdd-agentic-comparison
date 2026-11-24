@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486073",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -161,7 +161,7 @@
      "why": "The turns and tool calls per task (Tables 6 and 7) were not kept as metric values for the OpenHands configurations, and the cost verdict was written as 'not measured' instead of 'no criterion stated by the authors' (rule of 2026-11-23); test-visible ablation by difficulty added from Table 8"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -202,7 +202,7 @@
      "why": "Missing inconsistency: Table 6 lists DeepSeek-V3.2 at 22.2% (its turns/score ratio is computed from 22.2) while Table 3, Fig. 5 and the text on p. 12 give 27.6%"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -269,9 +269,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement call: negative results are reported openly, but the context-window and planning explanations rest on correlations, and the headline figures in the abstract and conclusion differ from the tables; another reader could give Yes"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement call: negative results are reported openly, but the context-window and planning explanations rest on correlations without tests, and the headline figures in the abstract (below 40%) and conclusion (39.6%) differ from Table 3; another reader could give Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement call: negative and mixed results are reported openly (largely unsolved, <60% even with visible tests), but the context-window and planning explanations rest on correlations over 9 models without tests, and the abstract ('below 40%'), p. 9 ('only five repositories') and conclusion (39.6%) do not match Table 3; another reader could give Yes"
     }
    ],
-   "warn": "Os resultados negativos estão relatados, mas as causas (janela de contexto, planeamento) assentam em correlações e o resumo/conclusão diferem das tabelas. Decide entre Partly e Yes."
+   "warn": "Os resultados negativos são relatados, mas as explicações (janela de contexto, planeamento) assentam em correlações sem testes e os números do resumo e da conclusão divergem da Tabela 3. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

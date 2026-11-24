@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498059",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Trivedi, P., Schmitt, O. (2026). Does Code Cleanliness Affect Coding Agents? A Controlled Minimal-Pair Study. arXiv:2605.20049v1 [cs.SE], 19 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (no venue stated)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "SonarSource (both authors; industry, vendor of SonarQube)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — controlled minimal-pair experiment on whether code cleanliness (SonarQube issues, cognitive complexity) affects Claude Code's pass rate and footprint (660 trials, 33 tasks, 6 repository pairs); secondary: Proposes an evaluation method — minimal-pair protocol and benchmark (Slopify/Vibeclean pipelines, task suite with hidden tests)",
+   "p": "1-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent: Claude Code (default tool set, version Not stated) with Claude Sonnet 4.6 (Claude Haiku 4.5 also swept, excluded). Varied factor: codebase cleanliness (cleaner vs messier side of a minimal pair). Pair-construction pipelines by the authors: Slopify (degrade a clean repo) and Vibeclean (clean a messy repo), agent-driven; benchmark built on Harbor v0.4.0",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). The agent reads only a task description in externally observable terms (inputs/outputs, scenarios, definition of done; no files or functions named). Pipelines use build_instructions.md and per-directory summary.md files",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for the evaluated agent (single autonomous Claude Code run per task). Pair construction: Slopify Build -> Explore -> Transform; Vibeclean Build -> Clean, each phase a fresh agent with tests rerun. Task generation in five phases: agent difference map -> agent task outlines -> manual curation -> agent writes instruction, hidden tests, reference implementation -> automated checks (reference passes both sides, untouched repo fails)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the evaluated agent runs. In benchmark construction: authors manually select, edit and curate task outlines; tasks failing automated checks after two iterations rewritten by hand or dropped; manual interventions in comment normalisation",
+   "p": "4, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full Claude Code runs on coding tasks in two variants of each repository",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach; the variable is code cleanliness); authors' terms: 'code cleanliness', 'minimal pairs'",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: feature/change tasks on six repositories (three public, three private SonarSource), shaped like SWE-bench instances",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "6 minimal pairs, 26.2k-136.7k NCLOC per side (Table 1: sonar-sca 128.8/136.7k, sonar-caas-poc 26.2/31.5k, sonarcloud-codedatalake 45.6/38.4k, commons-bcel 55.1/54.8k, genie 118.8/116.7k, ckan 133.4/132.1k); 33 tasks (13 cognitive-hotspot, 14 multi-module, 6 calibration); 660 trials (33 x 2 sides x 10)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Java and Python codebases (three each): SonarSource internal services (sonar-sca, sonar-caas-poc, sonarcloud-codedatalake), Apache commons-bcel (bytecode library), Netflix Genie (job orchestration), CKAN (data portal)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs, no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input tokens and output tokens per trial (subagent tokens included; cached and uncached not distinguished); reasoning characters; conversation turns. No money (tokens used as cost proxy)",
+   "p": "5-6, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate: fraction of the task's hidden tests passing on the agent's final state (hidden tests at the application's public surface)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None on agent output (no SonarQube scan of the agent's final state). Codebase cleanliness itself (independent variable) measured by SonarQube issues, issue density and cognitive-complexity density per kLOC",
+   "p": "4, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Trajectory: turns before first edit, characters before first edit. Navigation: distinct files read, file revisitation (re-reads of a file already read and edited), lines edited (final patch size). Comment-volume ablation: comment-line gap and suppression markers",
+   "p": "6, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic from agent trajectories and hidden tests in containerised Harbor sandboxes; reasoning measured as plaintext characters of reasoning blocks (API folds reasoning into output tokens). Median-threshold outlier filter per (task, side): trials more than 50% off the median dropped (9.7% of trials); micro-averaged percent difference (cleaner - messier)/messier; pass rate as pp difference. SonarQube Cloud Enterprise (default quality gate) for cleanliness",
+   "p": "2, 5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent Claude Code + Claude Sonnet 4.6, 33 tasks x 10 runs per side. No success criterion stated by the authors (pass rate and footprint deltas reported). (a) Cleaner side: pass rate 0.913; footprint vs messier: input tokens -7.1%, output -8.5%, reasoning chars -11.1%, conversation messages -7.0%, messages before first edit -3.6%, chars before first edit -4.6%, files read +3.2%, revisits -33.8%, lines edited -3.2%; quality and cost verdicts: no criterion stated by the authors. (b) Messier side (reference): pass rate 0.921; absolute token values not reported; verdicts: no criterion stated by the authors. (c) Ablation, comment-normalised pairs (4 pairs, n = 5 per cell): input-token delta sonar-caas-poc +1.2% -> -18.0% (LOC-adjusted +2.9% -> -13.0%), sonar-sca +1.3% -> -8.5%, sonarcloud-codedatalake -29.0% -> -30.6%, genie +5.2% -> +3.0%; no criterion stated. Claude Code + Claude Haiku 4.5 swept but excluded (pass rate too low to read footprint; values not reported)",
+   "p": "5-7, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Project/tasks: 33 author-authored tasks on 6 behaviourally equivalent minimal pairs (3 Slopify, 3 Vibeclean), routed through hotspots, described in externally observable terms, hidden tests at public surface, reference implementations; three tracks (13 cognitive-hotspot, 14 multi-module, 6 calibration as neutral control). Configurations compared: cleaner vs messier side of each pair. Baseline: messier side (deltas relative to it). Held constant: agent (Claude Code, default tools), model (Sonnet 4.6), task description, sandbox (identical except /app source tree), agent blind to side. Acceptance tests: hidden test suites (reference passes both sides; untouched repo fails). Repetitions: 10 per task per side (5 in ablation). Human intervention: none during runs. Ablation: comment and suppression-marker normalisation",
+   "p": "3-6, 9-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Pass rate unchanged: 0.913 cleaner vs 0.921 messier (-0.9 pp). Cleaner code: input tokens -7.1%, output -8.5%, reasoning chars -11.1%, conversation messages -7.0%, file revisitation -33.8% (same direction on every repo, -7% ckan to -69% commons-bcel), files read +3.2%. By track: multi-module pass -2.6 pp, input -10.7%, revisits -50.8%; cognitive-hotspot pass +0.1 pp, input +1.8%, files read +11.2%, revisits -20.2%; calibration 0.0 pp, input +3.8%. Per-task input-token deltas -47% to +44% (median -4.5%), cleaner cheaper on 16 of 27 tasks. Comment normalisation strengthens or keeps the effect; markers negligible. No significance test reported",
+   "p": "6-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: distinguished the sides on footprint (pooled over hundreds of trials) but not on pass rate; calibration track flat as expected (sanity check). Trial-to-trial variance large (max/min input tokens about 2.5x per group, over 2x in 72% of groups); a per-task delta of about 10% may be noise; no statistical test. Limitations stated: author-curated end to end (selection bias), one configuration, tokens not dollars, hidden tests only, comment normalisation manual and variable",
+   "p": "7-10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: repositories, pairs and tasks all author-curated; one configuration (Claude Code + Sonnet 4.6; Haiku too noisy; no GPT/Gemini or other harnesses), Python and Java only; tokens as cost proxy, not dollars; only hidden tests checked, not existing repository tests; no SonarQube scan of agent output; 'cleaner'/'messier' are within-pair labels; short-horizon only. Gaps: whether per-task savings compound over long-term agent-driven evolution (port minimal pairs to SlopCodeBench-style settings); whether agents on cleaner code produce cleaner code; transfer to other models and harnesses",
+   "p": "10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 per-repo rows garbled by text extraction; only the Dataset row and the per-repo revisitation range from the text are used. Table 1 CogComp/kLOC column partly garbled. Abstract 'reduce file revisitations by 34%' = Table 2 -33.8%. Fig. 2 caption says 27 tasks (calibration excluded). Authors are SonarSource employees and use SonarQube as the cleanliness proxy (interest in maintainability findings). Benchmark 'designed for reuse' but no release link or replication package given; three repositories private. No pre-registration. Programming languages: Java and Python",
+   "p": "1-4, 6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pair construction, task rules, metrics and filter described, but agent prompts for the pipelines and tasks not given, three repositories private and no package released",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Sonnet 4.6, Harbor v0.4.0 and SonarQube Cloud Enterprise named; Claude Code version not stated",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): repositories, tracks and an example task described; tasks and hidden tests not stated as available and three repositories are private",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden test suites at the public surface, checked against reference implementations (though authored by the authors)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass rate (quality) and input/output tokens (cost) defined, plus trajectory and navigation metrics",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): cleaner vs messier side under identical agent, model, task and sandbox; calibration tasks as neutral control",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 10 repetitions per task and side, outlier filter and variance analysis, but no statistical test or confidence intervals for the differences",
+   "p": "5-6, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null pass-rate result reported; small trajectory effects not over-interpreted; ablation conclusions hedged",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 Limitations",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): the evaluated agent (Claude Code, Anthropic) is not the authors'; note authors are SonarSource employees and SonarQube defines cleanliness",
+   "p": "1-2, 5",
+   "verdict": "uncertain",
+   "why": "Under §5 the evaluated tool (Claude Code + Sonnet 4.6, Anthropic) is not the authors', so Yes; but both authors are SonarSource employees, SonarQube rule violations define the independent variable and the result supports SonarQube's value, so a reader could score Partly",
+   "doubt": "Ambos os autores são da SonarSource e o SonarQube define a 'limpeza' do código, mas a ferramenta avaliada é o Claude Code. Decide se este interesse baixa o Q12 para Partly ou se fica Yes."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed; the secondary contribution is an evaluation method)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

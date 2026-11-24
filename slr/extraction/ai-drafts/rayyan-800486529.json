@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486529",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -35,8 +35,19 @@
    "f": "Nature of the study",
    "v": "Evaluates; secondary: Proposes an evaluation method — defines specification–oracle gaps (tests that depend on names, paths or literals the natural-language task specification does not state), builds a static audit for five languages, and evaluates SWE-Milestone v1.0.2 (98 graded milestones, 35 published agent runs) in depth plus four further benchmarks (SWE-EVO, SWE-Chain, SWE-bench Verified, DeepSWE) from public data; no agents run by the author",
    "p": "1-2, 4, 9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main vs secondary order is a judgement: the contributions list (p. 1-2) puts the definition/taxonomy and the static audit (an evaluation method for test-graded benchmarks, validated in RQ4) first, and the SWE-Milestone study second; the paper runs no agents and re-analyses published runs. 'Proposes an evaluation method; secondary: Evaluates' fits as well as the current order."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main vs secondary order is a judgement: the contributions (p. 1-2) put the definition/taxonomy and the static audit (an evaluation method for test-graded benchmarks, validated in RQ4) first and the SWE-Milestone study second; the author runs no agents and re-analyses published runs. 'Proposes an evaluation method; secondary: Evaluates' fits as well as the current order."
+    }
+   ],
+   "warn": "O artigo propõe uma auditoria (método de avaliação de benchmarks) e aplica-a ao SWE-Milestone sem correr agentes. Decide se a natureza principal é Evaluates ou Proposes an evaluation method."
   },
   {
    "f": "Approach(es): name and version",
@@ -75,9 +86,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The study evaluates no SDD approach and runs no agents (Ethics statement, p. 9), so 'Specification format only' (a part of an approach) may not fit; the specifications analysed are benchmark task texts. Other records without an SDD approach use N/A; 'not run, document-based' is the closest form category."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No SDD approach is evaluated and the author runs no agents (Ethics statement, p. 9); what is analysed is benchmark task specifications (SRS, release notes, issues, instructions) against their test oracles. N/A (as for other records without an SDD approach) and 'not run, document-based' both fit; 'specification format only' would treat benchmark task texts as an SDD artefact."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No SDD approach is evaluated and the author runs no agents (Ethics statement, p. 9); what is analysed is benchmark task specifications against their test oracles. N/A (as for other records without an SDD approach) and 'not run, document-based' both fit."
     }
    ],
-   "warn": "O estudo não aplica nenhuma abordagem SDD nem corre agentes; analisa especificações de tarefas de benchmarks contra os testes. Decide entre N/A (sem abordagem SDD), 'not run, document-based' ou 'specification format only'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O estudo não aplica nenhuma abordagem SDD nem corre agentes; analisa especificações de tarefas de benchmarks contra os testes. Decide entre N/A (sem abordagem SDD) e 'not run, document-based'."
   },
   {
    "f": "SDD level",

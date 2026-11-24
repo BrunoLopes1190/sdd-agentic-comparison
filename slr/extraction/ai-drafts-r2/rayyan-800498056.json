@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498056",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ren, Q., Zou, S., Huang, S., Zhang, Z., Shi, K., Fang, Z., Zhao, Y., Zeng, Y., Su, Q., Chen, L., Wang, Y., Chen, Z., Chu, X., Zhao, F. (2026). SaaSBench: Exploring the Boundaries of Coding Agents in Long-Horizon Enterprise SaaS Engineering. arXiv:2605.17526v1 [cs.SE], 17 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv ('Preprint', no venue stated)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Science and Technology of China (most authors; corresponding author F. Zhao); AMAP, Alibaba Group (S. Zou, Y. Wang corresponding, X. Chu)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method — SaaSBench benchmark (30 from-scratch enterprise SaaS tasks with PRD, knowledge base, Docker environment and DAG-based hybrid test suite); secondary: Compares — 8 models in OpenHands and Claude Code, plus GPT-5.4 and Claude Opus 4.7 in Codex CLI",
+   "p": "1-3, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent frameworks: OpenHands v1.6.0 (CodeActAgent), Claude Code CLI v2.1.126, Codex CLI 0.128.0. Models: GPT-5.4 (xhigh reasoning), Gemini 3.1 Pro, Claude Opus 4.7, Kimi K2.6, Qwen 3.6 Plus, DeepSeek V4 Pro, GLM 5.1, MiniMax M2.7. Agent input: long PRD (task.md) plus ambiguity-resolution knowledge base (knowledge_base.json) and a task prompt",
+   "p": "7, 18-22, 27-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark inputs (not an approach): long-context Product Requirements Document per task (technical requirements, data models, business workflows, API contracts, permission policies, boundary rules, deployment constraints, build steps; 4,363 lines on average), ambiguity-resolution knowledge base (KB) of behavioural details (e.g. pagination, deletion semantics), prompt with environment and deployment instructions; DAG test suite kept hidden",
+   "p": "2, 5, 27-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for the agents (single autonomous rollout from PRD + KB to a running system: create project, install dependencies, run migrations, create 3 evaluation users, start server). Benchmark construction: domain definition and seed repository selection -> PRD construction (annotators + agents) -> KB and environment building -> DAG test-suite construction -> quality validation (PRD alignment review, reference implementation must pass)",
+   "p": "4-6, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during rollouts (human-in-the-loop deliberately disabled). In construction: annotators' cold-start validation of seed repositories, two additional annotators review each PRD with a checklist, test-suite validation against the reference implementation",
+   "p": "5-6, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous agent runs from a PRD",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark; agents work from a requirements document but no SDD approach is evaluated); authors' terms: 'product requirements document (PRD)', 'knowledge base'",
+   "p": "2, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New projects: build and deploy a full-stack SaaS system from scratch (empty /app) from a PRD derived from an open-source seed repository",
+   "p": "2, 6, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "30 tasks (one per SaaS category, 6 domains); PRDs 4,363 lines on average; 5,370 validation nodes with 6,167 dependency edges; total maxScore per task 174-1,489 (17,299.1 overall); 8 programming languages, 6 databases, 5 frontend and 8 backend frameworks (13 frameworks); budget up to 500 steps and 10,800 s per rollout",
+   "p": "1-2, 7, 18, 24-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Enterprise SaaS: Customer & Growth, Productivity & Collaboration, Commerce & Finance, Data & Content Infrastructure, Security/Identity & Infrastructure, Domain & Workflow platforms (e.g. CRM, help desk, forum, e-commerce, billing, identity server)",
+   "p": "7, 14-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs). Benchmark built by experienced doctoral researchers with Cursor",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Steps, total tokens and average wall time per task, reported for OpenHands only (Table 4). No money",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "'Pass@1': unweighted mean over 30 tasks of the normalised per-task score (sum of node scores / total maxScore, scaled 0-100), one rollout per task; node-coverage rate (share of validation nodes in PASSED state); scores by SaaS domain and by six capability dimensions (Deploy, Data, API, Logic, AuthZ, Quality)",
+   "p": "7-8, 18, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "'Quality' capability dimension (code organisation, frontend rendering quality, edge-case handling, engineering robustness), partly scored by LLM-as-judge rubrics",
+   "p": "8, 24-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure-mode taxonomy over 480 capability units from two agents: T1 disciplined end-to-end, T2 single-backbone bottleneck, T3 runnable but shallow logic, T4 superficially reachable but structurally incomplete, T5 non-runnable/unstable stack",
+   "p": "9-10, 24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: DAG test suite executed in topological order on the running system; nodes are primitive chains (HTTP requests, login, DB checks) scored binary, weighted or llm-as-judge; unmet prerequisites marked Skipped dependency (score 0, kept in denominator). LLM-as-judge: Claude Sonnet 4.5, temperature 0, rubric prompts given. Failure-mode classification of capability units from execution traces (classifier Not stated)",
+   "p": "5-6, 23-24, 28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark: 30 SaaSBench tasks, 1 rollout per task, score = mean normalised node score (0-100). No success criterion stated by the authors for a configuration. OpenHands v1.6.0 (score / node coverage / steps / tokens / time): (a) + Qwen 3.6 Plus 4.09 / 5.85 / 258 / 12.4M / 1h12m; (b) + Kimi K2.6 8.36 / 8.94 / 159 / 9.0M / 2h17m; (c) + MiniMax M2.7 6.78 / 6.43 / 279 / 24.4M / 56m12s; (d) + GPT-5.4 7.44 / 8.83 / 36 / 1.4M / 7m16s; (e) + Gemini 3.1 Pro 8.10 / 8.91 / 84 / 4.1M / 12m52s; (f) + DeepSeek V4 Pro 10.97 / 10.55 / 223 / 9.8M / 1h24m; (g) + GLM 5.1 10.23 / 11.21 / 218 / 8.2M / 1h52m; (h) + Claude Opus 4.7 18.12 / 18.24 / 102 / 12.1M / 29m55s. Claude Code v2.1.126 (score / node coverage; cost not reported): (i) + Qwen 3.6 Plus 5.95 / 6.10; (j) + Kimi K2.6 9.70 / 9.70; (k) + MiniMax M2.7 9.26 / 10.62; (l) + GPT-5.4 10.62 / 9.81; (m) + Gemini 3.1 Pro 10.12 / 10.12; (n) + DeepSeek V4 Pro 13.19 / 12.13; (o) + GLM 5.1 13.60 / 15.28; (p) + Claude Opus 4.7 20.68 / 18.50. Codex CLI 0.128.0: (q) + GPT-5.4 and (r) + Claude Opus 4.7: values only in Figure 4(a). Quality and cost verdicts for every entry: no criterion stated by the authors",
+   "p": "9, 11, 18-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 30 SaaSBench tasks (PRD + KB, pre-built Docker environment with database). Configurations: 8 models x 2 frameworks (OpenHands, Claude Code), plus GPT-5.4 and Opus 4.7 in Codex CLI. Baseline: none designated. Held constant: task inputs and prompt template, environment, budgets (500 steps, 10,800 s wall clock, 900 s per tool call), temperature 0 where supported (1.0 for reasoning models per vendor), retries only on network errors; Claude Code restricted to 12 core tools, OpenHands MCP disabled. Acceptance tests: hidden DAG test suites validated against the seed repository's reference implementation; LLM judge Claude Sonnet 4.5 at temperature 0. Repetitions: 1 rollout per task (pass@1), no retries after failure. Human intervention: none (fully autonomous)",
+   "p": "6-7, 18-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best Claude Code + Opus 4.7 at 20.68; Claude Code mean 11.64 vs OpenHands 9.26; Claude Code scored higher than OpenHands for every model. Domains: better on SI and DCI, weaker on CF and PC. Capability dimensions: Deploy highest, Quality lowest. Same model differs across frameworks; commercial IDE-based frameworks often outperform open-source ones (Figure 4a). More steps do not mean higher scores (GPT-5.4 36 steps 7.44; MiniMax 279 steps 6.78). Failures: T5 63.5%, T4 32.1%, T3 3.8%, T2 0.6%, T1 0% (over 95% fail before deep business logic). No significance tests",
+   "p": "9-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: separated models and frameworks (wide score range 4.09-20.68) and located failures via DAG dependencies, but with one rollout per task and no variance estimate or statistical test, repeatability not shown. Limitations of the comparison not discussed beyond noting autonomous mode is a lower bound for interactive IDE use",
+   "p": "8-10, 18, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations (Appendix F): may not cover all variants of enterprise software construction or qualitative factors in engineering decisions; autonomous setting is a lower bound of interactive use. Gaps / future work: more tasks, categories and technology stacks; dynamic scenarios (iterative requirement updates, maintenance, multi-stage evolution); agents need process discipline, deployment stability and dependency management",
+   "p": "10, 22, 31",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 garbled by text extraction; pass@1 rows rebuilt from Table 4 (OpenHands) and from row means matching the text (OpenHands 9.26, Claude Code 11.64; best 20.68); node-coverage columns assigned by row order; per-domain scores not recoverable from text. Despite the name, 'Pass@1' is a mean partial score over validation nodes, not a binary pass rate. Codex CLI results and failure-mode breakdown are only in Figure 4. Claude Code version in Appendix B.3 is v2.1.126. Failure analysis on 480 capability units 'from two agents' (which ones Not stated). Abstract says 13 frameworks; Section 3.4 says 5 frontend + 8 backend. Code released at github.com/ShadeCloak/SaaSbench. No pre-registration. Programming languages: 8 (Python, Java, Go and others; per-task in Table 9)",
+   "p": "1, 7-9, 18-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and three contributions stated (benchmark, evaluation paradigm, systematic evaluation)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction, evaluation protocol, scoring, inference configuration and full prompts described; code released",
+   "p": "4-6, 18-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): OpenHands v1.6.0, Claude Code v2.1.126, Codex CLI 0.128.0 and model identifiers given",
+   "p": "20-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 30 tasks and seed repositories listed (Tables 5, 9); benchmark released on GitHub",
+   "p": "1, 14-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden DAG test suites validated against reference implementations; LLM judge only where deterministic checks cannot apply",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality score and node coverage defined; cost (steps, tokens, time) reported for OpenHands only and tokens not defined",
+   "p": "7, 9, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): same 8 models under two frameworks (and two models under a third) with the same tasks, budgets and environment",
+   "p": "7, 9, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one rollout per task per configuration, no variance or statistical analysis",
+   "p": "18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): rankings follow from the scores, but the explanation of framework differences (tool and context management) is asserted without analysis and no uncertainty is considered",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): brief generic limitations in Appendix F; no threats to validity (single rollout, LLM judge, construction bias)",
+   "p": "31",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of the agent frameworks (OpenHands, Claude Code, Codex CLI), but three authors are from Alibaba Group (AMAP) and Alibaba's Qwen 3.6 Plus is one of the evaluated models",
+   "p": "1, 7",
+   "verdict": "uncertain",
+   "why": "The tools evaluated are the agent frameworks (OpenHands, Claude Code, Codex CLI), none from the authors' organisations; three authors are from AMAP, Alibaba Group, and Alibaba's Qwen 3.6 Plus is one of 8 backend models (Table 11 lists Alibaba as its vendor). AMAP is not the Qwen team, so Yes is also defensible. Partly kept",
+   "doubt": "Três autores são da AMAP (Alibaba) e o Qwen 3.6 Plus, da Alibaba, é um dos oito modelos avaliados; as ferramentas avaliadas (OpenHands, Claude Code, Codex) não são deles. Decide se conta como fornecedor (Partly) ou não (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed; the study proposes a benchmark)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

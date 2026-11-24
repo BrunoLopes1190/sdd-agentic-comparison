@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486578",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main nature is a judgement: the paper is both an evaluation of six model-harness configurations (title 'Evaluating Coding Agents on Project Takeover') and the proposal of an evaluation framework and benchmark (ReqMemBench, contributions p. 2-3). 'Proposes an evaluation method; secondary: Compares' is defensible; 'Compares; secondary: Proposes an evaluation method' is also possible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values in the field are right (349/44 diagnostic targets, 37/7 delivery targets, six configurations, four conditions). The main nature is a judgement: the title and abstract frame it as an evaluation of coding agents (six model-harness configurations), while two of three contributions (p. 2-3) are the evaluation framework and ReqMemBench. 'Compares' or 'Evaluates' as main nature would also be defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Field values checked (349/44, 37/7, six configurations, four conditions). Main nature is a judgement: title/abstract frame an evaluation of six model-harness configurations, while two of three contributions (p. 2-3) are the evaluation framework and ReqMemBench."
     }
    ],
-   "warn": "O artigo avalia seis configurações e propõe o benchmark ReqMemBench; decide se a natureza principal é 'Proposes an evaluation method' (contribuições p. 2-3) ou 'Compares' com o benchmark como secundário."
+   "warn": "O artigo avalia seis configurações e também propõe o ReqMemBench; decide se a natureza principal é 'Proposes an evaluation method' (contribuições p. 2-3) ou 'Compares'/'Evaluates' com o benchmark como secundário."
   },
   {
    "f": "Approach(es): name and version",
@@ -270,9 +280,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Section 7 states limitations (37 tasks, six configurations, semantic-judgement uncertainty) but not single runs or non-determinism; Partly vs Yes is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Section 7 (p. 9) states limits on task count, configurations and semantic-judgement uncertainty, but not the single run per condition or non-determinism; Partly vs Yes is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Section 7 (p. 9) covers task count, configurations and semantic-judgement uncertainty, but not single runs or non-determinism; Partly vs Yes is a judgement."
     }
    ],
-   "warn": "A secção 7 discute limitações, mas não as execuções únicas nem o não-determinismo; decide se isso basta para Yes ou fica Partly."
+   "warn": "A secção 7 discute limitações, mas não a execução única nem o não-determinismo; decide se basta para Yes ou fica Partly."
   },
   {
    "f": "Q11",

@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486562",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lu, A., Zeng, Y., Lan, S., Xu, S., Bao, J., Yan, K., Lin, H., Ren, K. (2026). Harvesting SWE Benchmarks from Wild Vibe Coding Sessions. arXiv:2611.02440v1 [cs.SE], 2 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.02440v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "ShanghaiTech University; ByteDance, China; Shanghai AI Laboratory (academia and industry)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SessionFarmer, an automated framework that turns in-the-wild developer-agent (vibe coding) sessions and repository checkpoints into executable SWE benchmark tasks (episode reconstruction, environment, task statement, rubrics, refined tests); builds CropChat (242 public tasks) and CropEnterprise (56 internal tasks); validates artefacts (requirement coverage, test accuracy, developer audit) and evaluates 12 model-harness configurations",
+   "p": "1-3, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Evaluated configurations: 4 models (gpt-5.5-2026-04-24, gpt-5.6-terra, glm-5.2, kimi-k3) x 3 open-source harnesses (Codex 0.149.1, Pi 0.84.2, OpenCode 1.18.23), reasoning effort Medium; all 12 on CropChat, 3 gpt-5.6-terra configurations on CropEnterprise. Construction pipeline: Pi 0.84.2 with gpt-5.6-sol (high effort) for agent roles; deepseek-v4-flash-0731 for single-call judgments and the quality judge",
+   "p": "7-8, 22, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark artefacts per task: base repository snapshot, self-contained task statement as a flat list of atomic requirement clauses ('obligations', each citing supporting conversation events), frozen offline Docker environment, hidden unit-test suite, hidden engineering-quality rubrics (Clarity, Design, Repository fit), requirement-breaking mutants, gold patch",
+   "p": "4, 6-7, 20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no approach). SessionFarmer pipeline: (a) episode reconstruction (work clusters, LLM session relevance filtering, LLM episode partitioning, qualification); (b) environment reconstruction (Environment Builder, offline validation); (c) task statement and rubric authoring (Task Author, LLM validator, gold quality gate, mutants); (d) test construction (Test Author, criteria-based and blind-solver refinement). Evaluation: agent gets base repo and statement, single autonomous rollout within 2,700 s",
+   "p": "4-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs or pipeline (fully automated). Post-hoc audit: 4 full-time engineers who authored the original code reviewed 28 CropEnterprise tasks (2 reviewers each, 56 reviews) for episode boundaries, sessions, statements and rubrics",
+   "p": "8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full autonomous agent runs on all tasks (3 rollouts per configuration); SessionFarmer run end to end; no SDD approach exercised",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; tasks are given as synthesized self-contained specifications of requirement clauses, but the authors do not use SDD terms)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: tasks start from a base repository checkpoint of real repositories (CropEnterprise: 32 bug fixes, 22 feature implementations, 2 refactorings)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "CropChat: 242 tasks, 61 repositories, 14 languages; mean 1.17 sessions, statement 374.2 words, gold patch 12.0 files / 904.2 lines (median 8 files / 411 lines), 11.67 unit tests (median 11); 100-5,000 implementation lines per episode. CropEnterprise: 56 tasks from 375 sessions in one TypeScript repository (1,592 source files, 473.3k LOC), median 9.5 files / 319.5 lines",
+   "p": "5, 7-8, 27",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Real-world open-source repositories from the public SWE-Chat dataset (mostly TypeScript and Go) and an internal enterprise development-platform monorepo (ByteDance)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A for runs (autonomous agents). Source data from real developers' vibe coding sessions; audit by 4 full-time software engineers who authored the original commits",
+   "p": "8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Per configuration: median rollout time (min) +/- pooled within-task SD; mean processed input/output tokens per rollout; timeout rate; tool calls per rollout (Fig. 4b). Construction cost: 4,406.6M input / 41.1M output tokens, 427.7 active worker hours; per task 18.2M input, 0.17M output tokens, 1.77 worker hours",
+   "p": "8-10, 22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@1, Pass@3, Pass3 (all three rollouts solved), MechanicalResolved (all hidden test scenarios pass), partial unit-test pass rate; pass = MechanicalResolved and QualityResolved. Test-suite verdict accuracy: FP, FN, FPR, FNR, balanced accuracy against gpt-6-astra correctness labels",
+   "p": "8-9, 12, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "QualityResolved: LLM judge scores Clarity, Design, Repository fit 0-2 in 3 trials; median total >= 3 and no dimension scored 0 in more than one trial; continuous quality score 0-6 (Table 14)",
+   "p": "6, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None for agents; construction cost per task in worker hours compared with >40 h maintainer effort per FrontierCode task",
+   "p": "22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Requirement coverage of statements (covered/partial/missing) under First message, First session and Full episode evidence; share of tasks with later-turn or multi-session requirements; functional roles of later sessions; developer endorsement rates of boundaries, sessions, statements, rubrics; outcome consistency across rollouts; task size vs solve fraction correlations",
+   "p": "10-12, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests in a network-isolated container; LLM quality judge (deepseek-v4-flash-0731, 3 votes); harness logs for time, tokens and tool calls; bootstrap CIs for size correlations. LLM-based: patch correctness labels by gpt-6-astra for test accuracy; requirement ledger audit. Manual: developer audit on CropEnterprise",
+   "p": "8, 11-12, 30-31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion for a configuration: none stated by the authors (rollout pass = MechanicalResolved and QualityResolved). Values Pass@1 / Pass@3 / Pass3 / Mech. / Quality (%), median time (min), input/output tokens. CropChat (242 tasks, 3 rollouts): (1) gpt-5.5 + Codex: 24.9/36.8/14.0/26.0/95.7; 7.7; 3.59M/19.1k. (2) gpt-5.5 + Pi: 24.1/37.2/12.4/25.1/96.8; 11.7; 3.92M/19.4k. (3) gpt-5.5 + OpenCode: 25.2/36.0/14.0/26.1/94.1; 7.9; 2.62M/11.5k. (4) gpt-5.6-terra + Codex: 26.4/37.6/15.7/27.1/90.6; 4.2; 1.11M/10.4k. (5) gpt-5.6-terra + Pi: 26.0/36.0/16.1/26.4/90.3; 4.7; 0.99M/8.5k. (6) gpt-5.6-terra + OpenCode: 25.2/34.3/16.1/25.7/89.9; 4.8; 0.86M/6.8k. (7) glm-5.2 + Codex: 24.3/34.9/14.1/25.9/94.7; 15.6; 5.53M/34.7k. (8) glm-5.2 + Pi: 21.1/30.6/12.8/23.7/96.0; 16.4; 4.87M/32.1k. (9) glm-5.2 + OpenCode: 23.6/33.5/14.0/24.4/95.2; 12.2; 5.67M/14.8k. (10) kimi-k3 + Codex: 39.3/57.3/23.8/42.9/97.2; 14.1; 2.93M/23.1k. (11) kimi-k3 + Pi: 30.9/43.0/19.0/35.3/98.9; 19.7; 2.50M/27.2k. (12) kimi-k3 + OpenCode: 36.1/52.1/22.7/39.9/94.8; 16.4; 2.72M/12.8k. CropEnterprise (56 tasks): (13) gpt-5.6-terra + Codex: 20.8/28.6/16.1/21.4/94.6; 3.9; 1.94M/14.4k. (14) gpt-5.6-terra + Pi: 17.3/25.0/12.5/18.5/85.7; 3.4; 1.27M/7.4k. (15) gpt-5.6-terra + OpenCode: 15.5/23.2/10.7/21.4/78.6; 4.3; 1.69M/7.5k. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. Ablation (benchmark construction): test suites without refinement vs SessionFarmer on 30 CropChat tasks, BAcc 61.9 vs 70.8 (terra solver) and 53.3 vs 60.5 (gpt-5.5). Ablation (statement evidence): full requirement coverage on multi-session tasks 26% (first message), 54% (first session), 75% (full episode); single-session 49% vs 78%",
+   "p": "9, 11-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: CropChat (242) and CropEnterprise (56). Configurations: 4 models x 3 harnesses (12) on CropChat; 3 terra configurations on CropEnterprise. Baseline: none for agents (test-refinement ablation compared with initial suites and with SWE-Bench-Pro and DeepSWE official suites). Held constant: task statements, frozen environments, 4 vCPU / 8 GB containers, 2,700 s limit, reasoning effort Medium, no temperature override, project-level OpenCode configs and Codex hooks disabled, repository instruction files kept. Acceptance tests: hidden synthesized and refined unit tests plus LLM quality gate. Repetitions: 3 independent rollouts per task and configuration. Human intervention: none",
+   "p": "8, 12, 29-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "kimi-k3 + Codex best (Pass@1 39.3%); kimi-k3 leads under every harness and beats the other models by 9.6-12.4 pp harness-averaged; harness sensitivity model-dependent: gpt-5.5 and terra vary 1.1-1.2 pp, glm-5.2 3.2 pp, kimi-k3 drops 8.4 pp from Codex to Pi (timeouts 6.1% to 12.7%). terra fastest (median 4.2-4.8 min, 0.86-1.11M input tokens). Quality gate rejects 2.1% of test-passing rollouts on CropChat vs 12.6% on CropEnterprise (OpenCode QualityResolved 16.0 pp below Codex). 22.8% of task-configuration pairs inconsistent across 3 runs; 26.0% of tasks unsolved across all 36 rollouts; larger gold diffs and longer statements lower solve rates (rho about -0.42). No significance tests between configurations",
+   "p": "9-10, 30-31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models clearly (kimi-k3 vs others) and showed harness effects for some models; between gpt-5.5, terra and glm-5.2 differences are small. Repeated (3 rollouts) and run-to-run variance reported (Pass3, within-task time SD 2.2-4.8 min). Authors conclude reliable comparisons need models and harnesses evaluated jointly and multi-run reporting; no other limitations of the comparison stated",
+   "p": "10, 13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats-to-validity section. Gaps / future uses: learning from real developer-agent experience (experience reuse, skills), comparing original interactive sessions with autonomous rollouts, underspecified task variants with user simulators, verifiable training environments for reinforcement learning; 63 CropChat tasks unsolved by any configuration as a failure-analysis set",
+   "p": "13, 33",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 2 (p. 9), Table 3 (p. 12), Table 13-14 (p. 30). Checks: 63 unsolved tasks / 242 = 26.0% (p. 9, 33) consistent; Table 15 uses 61 never-resolved among 239 fully scored tasks (p. 31). Patch-correctness ground truth for test accuracy is an LLM (gpt-6-astra), not humans (p. 12). The same model family (deepseek-v4-flash) judges rubric quality in construction and evaluation (p. 7, 30). Only gpt-5.5 has a dated snapshot; other model versions undated (p. 30). Code at https://github.com/bytedance/SessionFarmer and CropChat at https://huggingface.co/datasets/ByteDance/SessionFarmer-CropChat, footnote says links will be updated with complete resources (p. 1); CropEnterprise is internal and not released (p. 13). Prompts in Appendix E. AI use statement: LLMs generated the benchmark artefacts and drafted parts of the paper (p. 13). No pre-registration. Languages: 14, mainly TypeScript (111 tasks), Go (64), Python (17), Ruby (12), Rust (11); CropEnterprise TypeScript",
+   "p": "1, 7-9, 12-13, 30-31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (turn wild sessions into reproducible SWE tasks) and RQ1-RQ2 stated, plus agent evaluation goals",
+   "p": "1-3, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, algorithms, prompts, configuration limits, evaluation settings and metrics described in detail (Appendices A, C, E); code released",
+   "p": "4-8, 17-34",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness versions (Pi 0.84.2, Codex 0.149.1, OpenCode 1.18.23), models, reasoning effort and judge model identified (Table 13); only gpt-5.5 has a dated snapshot",
+   "p": "22, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): CropChat described and released on Hugging Face (links to be completed); CropEnterprise proprietary, not released",
+   "p": "1, 8, 13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): verdicts from hidden LLM-synthesized tests refined against mutants and a blind solver, plus an LLM quality judge; test accuracy validated only against LLM (gpt-6-astra) labels; developer audit covers statements and rubrics on CropEnterprise only",
+   "p": "6-7, 12",
+   "verdict": "uncertain",
+   "why": "The hidden test suites are acceptance tests the agent never sees (towards Yes), but they are synthesized by the authors' own LLM pipeline, their accuracy is checked only against gpt-6-astra labels (Table 3, p. 12), and the quality gate is an LLM judge; Partly and Yes are both defensible.",
+   "doubt": "Os testes escondidos são gerados por LLM pelo próprio pipeline dos autores e validados só contra rótulos do gpt-6-astra (Tabela 3, p. 12). Decide se isso conta como critério independente (Yes) ou só Partly."
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality (Pass@1/3, Pass3, Mech., Quality) and cost (time, tokens, timeouts) metrics defined",
+   "p": "8, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 12 model-harness configurations under the same tasks, environments and budget; ablations against unrefined test suites and narrower evidence",
+   "p": "8-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 rollouts per task, consistency metrics and within-task SD reported; no significance tests of differences between configurations",
+   "p": "9-10, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results, including higher false-positive rates after refinement and the remaining coverage gap",
+   "p": "11-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity discussion",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (ShanghaiTech, ByteDance, Shanghai AI Laboratory) are not vendors of the evaluated models or harnesses; SessionFarmer is their own evaluation method, not an evaluated coding approach",
+   "p": "1, 8",
+   "verdict": "uncertain",
+   "why": "Authors are independent of the evaluated models and harnesses, but the study also evaluates its own SessionFarmer artefacts (test-suite accuracy, developer audit) and compares its refined suites with the official SWE-Bench-Pro and DeepSWE suites (Table 3, p. 12); if SessionFarmer counts as an evaluated approach, §5 and the 2026-11-23 rule would give Partly.",
+   "doubt": "Os autores avaliam também o próprio SessionFarmer e comparam as suas suites com as do SWE-Bench-Pro e DeepSWE (Tabela 3, p. 12). Decide se isso conta como abordagem avaliada (Partly) ou se Q12 só olha para modelos e harnesses (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

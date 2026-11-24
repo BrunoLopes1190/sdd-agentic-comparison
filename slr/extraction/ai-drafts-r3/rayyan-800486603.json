@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486603",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Agarwal, S., Lvova, O., Sergeyuk, A., Serova, A., Bryksin, T., Zimmermann, T., Vasilescu, B. (2026). The AI Era's Lines of Code? A Case Study on What an Engineer's Token Spend Measures. arXiv:2611.13396v1 [cs.SE], 10 Nov 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.13396v1 [cs.SE] (IEEE conference format); no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Carnegie Mellon University (Agarwal, Vasilescu); JetBrains (Lvova, Serova; industry); JetBrains Research (Sergeyuk, Bryksin; industry); University of California, Irvine (Zimmermann)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — industrial case study at JetBrains: five-week person-week panel linking gateway telemetry of coding-agent token spend to commits of 404 engineers, plus an anonymous internal survey (412 respondents); RQ1 relation of spend to output, RQ2 where spend not tied to output goes",
+   "p": "1-2, 3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Two company-paid coding agents, anonymised as Agent A (69% of tokens) and Agent B (31%); models not named (a new frontier model released in week 3 took 45% of spend within two weeks); versions not stated",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (natural, voluntary agent use; no prescribed workflow)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (engineers review agent output in their own work; not studied)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no approach; observational use of coding agents in practice)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (established IDE product codebases; 71% of commits change the shared IDE platform)",
+   "p": "3-4, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "404 engineers, 1,827 person-weeks (1,599 with metered use), 3.1 million agent calls, five analysis weeks (2026-06-29 to 2026-08-02) plus seven-week pre-period; survey 412 respondents, 525 evaluations (197 of the two coding agents by 184 technical respondents). Repository size Not stated",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Software development tools (JetBrains IDE products)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Professional engineers at JetBrains (about 2,600 employees): roles from job titles (developer, QA engineer, team lead or manager, intern, other); 72% of survey respondents in technical roles, 16% team leads",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Weekly token spend per engineer (from internal gateway; most tokens are context re-sent each turn); credits (company cost unit) as sensitivity check (Spearman 0.97 with tokens); agent calls, tokens per call, session length; engineers' own time not measured",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (commit counts miss code quality); bug-linked commits in the following week used as a friction signal",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Self-reported hours saved or lost per week (survey; median 10, IQR 5-20); cognitive load rating; time spent on colleagues' suspected AI-generated material (mean 1.6 h/week)",
+   "p": "5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Output: commits per week, lines changed, days with a commit, bug-linked commits; elasticity of tokens on commits; 90th/10th percentile spend ratio within commit quintiles; share of deviance explained; share of spend not tied to output (floor and curve estimate); rank stability; survey: activity types, enabled work, productivity and six work-aspect ratings, thematic codes of free text",
+   "p": "3-8, 13-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: pseudonymized gateway telemetry and repository records (commit author dates, size bins, issue links), company directory. Statistical: Poisson QML with person and week fixed effects, Mundlak within-between, cluster bootstrap CIs, instrumental variables, cross-validated deviance, lead-lag correlations. Manual/self-report: anonymous survey; free text coded thematically with an AI tool and reviewed by one author",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A as configurations: no configuration is run; the study evaluates a metric (token spend) over natural use of two anonymised agents. No success criterion for the agents stated by the authors; quality and cost verdicts: no criterion stated by the authors. Values: within-person elasticity d = 0.26 [0.19, 0.32] (IV 0.48); commits on tokens 0.13 [0.03, 0.32]; between-person slope 0.38; work metrics explain 38% between and 13% within; spend not tied to output 3.0% floor to ~39-42% upper bound; by dominant tool share 43% (Agent A only), 37% (Agent B only), 34% (both); within-person slope 0.20 on Agent A-dominant weeks vs 0.49 on Agent B-dominant weeks",
+   "p": "6-7, 13-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Observational panel: compares an engineer's weeks with one another (person and week fixed effects) and engineers with each other; no configurations, baseline or acceptance tests; no intervention (voluntary use, no spending target). Sensitivity: time units 1 day-4 weeks, alternative outputs and model forms, credits instead of tokens",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Spend varies mostly between engineers (person explains 79% of deviance in sample); doubling an engineer's commits goes with ~20% more tokens, doubling spend with ~10% more commits; within commit quintiles the 90th percentile spend is 39-240x the 10th; up to about two fifths of spend not tied to the week's commits; role and team predict held-out engineers worse than the weekly average (-6%). Survey: 89% of technical evaluations report non-coding use; hours saved rise with non-coding breadth (0.24 [0.06, 0.43]) but not with coding use (0.08 [-0.10, 0.27])",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A (no configurations compared). The panel separated within- from between-engineer variation; authors note estimates are associations, five weeks is short (between-within difference 0.15 [-0.04, 0.36] inconclusive), commits are a noisy proxy, survey cannot be linked to telemetry",
+   "p": "3-6, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Associations not causal effects (engineers choose spend); one company that builds AI coding tools (some use may be testing its own agents), established codebases, voluntary use; commits miss quality, review and design work; five weeks only; telemetry lacks session content, so spend not tied to output cannot be split into useful work and waste; self-reported hours may be overstated. Gaps: record which task each agent session served; develop validated measures of the value of agent-assisted work",
+   "p": "2-3, 9-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "No reporting inconsistency found: 'of the 34 engineers in the top decile by tokens per commit in odd weeks, only 17 remain there in even weeks' (p. 10, SM A) agrees with Fig. 12 (17 in the top decile of both halves, 34 in the top decile of only one half = 17 odd-only + 17 even-only; overlap 50%). Agents and models anonymised. Raw data and survey not published (anonymized records possibly under NDA via the JetBrains authors); replication package with analysis scripts and supplementary material: github.com/CMUSTRUDEL/token-study-replication. No pre-registration. Programming language: Not stated",
+   "p": "3, 10-11, 13, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two research questions clearly stated",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): models and procedures described with specifications in the replication package, but the data cannot be published (NDA only)",
+   "p": "3-5, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): agents anonymised as Agent A/B; models and versions not identified",
+   "p": "3, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): setting and data described; data not available (privacy)",
+   "p": "3-5, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): output measured from repository records (commits), independent of the authors' judgement but a proxy that misses quality; survey outcomes self-reported",
+   "p": "3-4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): cost (tokens, credits) and output metrics defined; quality not measured",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): observational panel with no baseline or alternative condition (within- and between-person comparisons only)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): cluster bootstrap CIs, fixed effects, cross-validation, IV and extensive sensitivity analyses",
+   "p": "4-5, 13-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow and are framed as associations, with stated uncertainty",
+   "p": "6, 9-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations discussed in methods and discussion (associations, setting, commits as proxy), no dedicated threats section",
+   "p": "3-4, 9-10",
+   "verdict": "uncertain",
+   "why": "No threats-to-validity section, but limitations are discussed in several places: associations not causal (p. 3), commits miss quality, review and design (p. 4), transfer limits of the setting (p. 9), five weeks too short (p. 6), self-reports may overstate (p. 10). Partly vs Yes is a judgement.",
+   "doubt": "Não há secção de ameaças à validade, mas as limitações aparecem espalhadas (p. 3, 4, 9, 10). Decide se isso chega para Yes ou se fica Partly."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): four authors work at JetBrains, which builds AI coding tools and whose own agents may be among those metered (authors note possible testing of own agents); agents are anonymised",
+   "p": "1, 5, 9",
+   "verdict": "uncertain",
+   "why": "Four of seven authors work at JetBrains, which builds AI coding tools; p. 9 says some metered use may be testing of its own agents, but Agent A and Agent B are anonymised, so it is unclear whether a JetBrains tool is among those studied. The object evaluated is a metric (token spend), so Yes or Partly are both defensible.",
+   "doubt": "Quatro autores são da JetBrains e os agentes estão anonimizados (Agent A/B); um deles pode ser da própria JetBrains. Decide se isto conta como vendor (Partly) ou se os autores são independentes (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

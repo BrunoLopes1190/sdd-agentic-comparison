@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486110",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -250,9 +250,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Single evaluation pass per configuration (p. 5), so no repetitions; the only difference test is a paired t-test claimed in Appendix H without details and not matching the main text. Spearman correlations concern tasks, not configuration differences. Partly vs No is a judgement call."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Single evaluation pass per configuration and problem (p. 5), so no repetitions; the only test of differences is a paired t-test asserted in Appendix H (p. 16) without details and inconsistent with the main text. Spearman correlations (Table 4) relate task variables, not configuration differences. Partly vs No is a judgement call."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Single evaluation pass per configuration and problem (p. 5: 'we run a single evaluation pass'), so no repetitions. The only test of configuration differences is a paired t-test (Cursor vs Claude Code) asserted in Appendix H (p. 16) without details; Spearman correlations (Table 4) relate per-problem variables, not configurations. Partly vs No is a judgement call."
     }
    ],
-   "warn": "Há uma só execução por configuração; o único teste de diferenças é um t-test no Apêndice H sem detalhes. Decide se as correlações de Spearman chegam para Partly ou se deve ser No."
+   "warn": "Há uma só execução por configuração e o único teste de diferenças é um t-test no Apêndice H sem detalhes. Decide se isto e as correlações de Spearman chegam para Partly ou se deve ser No."
   },
   {
    "f": "Q9",

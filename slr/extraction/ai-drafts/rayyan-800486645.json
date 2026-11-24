@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486645",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The '53 studies reported Pass@k' statement is on p. 7461 (Sec. VIII.C), not 7462; page of the 'recently-dated references' note added"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

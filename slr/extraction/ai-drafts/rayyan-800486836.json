@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486836",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -154,8 +154,19 @@
    "f": "Evaluation (each configuration)",
    "v": "(1) RACER (Confucius-based agents, models not stated), production, months 6-10: DAT per diff relative to regular manual diffs: RACER-withChange 0.337, RACER-noChange 0.042; 15% of BE diffs completed by RACER and landed; 35% of landed RACER-initiated diffs unmodified; net savings after subtracting RACER-engineering effort: total saved [39, 57.4] rescaled DAT units, [2.51, 3.71] rescaled engineers; DiD interaction post:racer_refactored −0.05 (t = −3.24, p < 0.01), adj. R² = 0.12. Cost verdict: works (authors' criterion: effort saved exceeds effort to build and maintain the agent; compute cost excluded). Quality verdict: works (authors' criterion: downstream maintenance-effort reduction at least as strong as for human refactoring). (2) Manual baseline (human BE diffs / human-refactored files, no agent): DAT per diff 0.760 of regular diffs; 5.3% of diffs and 3.7% of DAT; DAT decreased post-intervention (post −0.20). Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
    "p": "6-9 (Tables 1-3, 5)",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values checked against Tables 1-3 and 5. The cost criterion (savings exceed the effort to build and maintain the agent) is stated by the authors (§5.1). The quality criterion (downstream maintenance-effort reduction at least as strong as human refactoring, §4) is the authors' but is a comparison with the baseline, while §6 asks each configuration to be judged on its own; the 'works' quality verdict is therefore debatable."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values rechecked against Tables 1-3 and 5. The cost criterion (savings exceed agent engineering effort, §5.1) is the authors'. The quality criterion (§4: downstream maintenance-effort gains comparable to manual refactoring, 'not AI slop') is the authors' but defined relative to the human baseline, while §6 asks each configuration to be judged on its own, so 'works' is debatable."
+    }
+   ],
+   "warn": "O critério de qualidade dos autores é comparativo (redução de esforço pelo menos igual à refatoração humana), e o §6 pede veredicto por configuração isolada. Decide se aceitas 'works' ou 'no criterion stated by the authors'."
   },
   {
    "f": "Comparison: design",
@@ -187,16 +198,21 @@
   },
   {
    "f": "Notes",
-   "v": "All quantitative results are rescaled (Tables 1-3), so absolute effort, diff counts and engineer numbers are not reported; the text's 'several hundred engineers' cannot be checked against Table 3 ([2.51, 3.71] rescaled). Possible inconsistencies: '35% of landed RACER-initiated diffs unmodified' vs Table 2 (0.0030 / (0.0030 + 0.0048) ≈ 38%); '15% of all BE diffs' matches RACER-initiated / BE-non-RACER in Table 2 (0.0078 / 0.0533 ≈ 15%) but is about 13% when RACER diffs are counted within all BE diffs (0.0078 / 0.0611); data said to cover 'nine months' while tables use months 1-10; 'four-month period' vs Mnth 6-10; text says agent engineering effort was spent 'over months 1-5' while Tables 2-3 count RACER-engineering over Mnth 1-10; DAT expanded as 'Dependent Authoring Time' in §6.1; abstract says 'as strong as or stronger', results say 'larger'; RACER called 'fully autonomous' (§3.10) although every diff is human-reviewed; 'MetaGen API [10] for AI model access' cites an unrelated metaheuristics framework. Values used: Tables 1-3 and 5. LLMs used are not named. No data or replication package (internal data); no pre-registration. Programming languages: C++, Hack, Python, JavaScript",
+   "v": "All quantitative results are rescaled (Tables 1-3), so absolute effort, diff counts and engineer numbers are not reported; the text's 'several hundred engineers' cannot be checked against Table 3 ([2.51, 3.71] rescaled). Possible inconsistencies: '35% of landed RACER-initiated diffs unmodified' vs Table 2 (0.0030 / (0.0030 + 0.0048) ≈ 38%); '15% of all BE diffs' matches RACER-initiated / BE-non-RACER in Table 2 (0.0078 / 0.0533 ≈ 15%) but is about 13% when RACER diffs are counted within all BE diffs (0.0078 / 0.0611); data said to cover 'nine months' while tables use months 1-10; 'four-month period' vs Mnth 6-10; text says agent engineering effort was spent 'over months 1-5' while Tables 2-3 count RACER-engineering over Mnth 1-10; DAT expanded as 'Dependent Authoring Time' in §6.1; abstract says 'as strong as or stronger', results say 'larger'; RACER called 'fully autonomous' (§3.10) although every diff is human-reviewed; 'MetaGen API [10] for AI model access' cites an unrelated metaheuristics framework. Table 3 (jumbled in the extraction, rebuilt by column order): the listed components do not add up to the stated totals: DAT [111, 126] − [0.8, 4.1] − 16.3 − 16.8 − 36.4 gives about 37.4-55.7, not [39, 57.4]; engineers [7.14, 8.15] − [0.05, 0.27] − 1.06 − 1.09 − 2.36 gives about 2.36-3.59, not [2.51, 3.71] (p. 7). Values used: Tables 1-3 and 5. LLMs used are not named. No data or replication package (internal data); no pre-registration. Programming languages: C++, Hack, Python, JavaScript",
    "p": "1, 5-9",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "The 15% figure is derivable from Table 2 as RACER-initiated over BE-non-RACER diffs (≈14.6%), so 'not directly derivable' was wrong. Added two inconsistencies: engineering effort period (months 1-5 in text vs Mnth 1-10 in tables, p. 7) and the MetaGen citation [10] pointing to an unrelated framework (p. 3, 11)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Added an arithmetic inconsistency the draft missed: in Table 3 the listed savings and costs do not sum to the stated 'Total Saved' ranges, in DAT or in engineers (p. 7)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -277,10 +293,21 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): all authors are from Meta, which built RACER and Confucius",
+   "v": "Partly (0.5): all authors are from Meta, which built RACER and Confucius (vendor of the evaluated agent); the comparison is with a manual (human) baseline that no author is vendor of",
    "p": "1, 3",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The author's rule of 2026-11-23 makes Q12 Partly when the authors' own approach is compared with external baselines; here the only baseline is manual human work, not another tool, so No (only RACER is a tool, and it is theirs) is equally defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All authors are from Meta, which built RACER; the only comparison is with manual human work, not another tool. Whether the 'external baseline = Partly' rule of 2026-11-23 covers a human baseline is a judgement; No is equally defensible."
+    }
+   ],
+   "warn": "Todos os autores são da Meta (criadora do RACER); o único baseline é trabalho manual humano, não outra ferramenta. Decide se a regra 'baseline externo = Partly' se aplica aqui ou se fica No."
   },
   {
    "f": "Q13",

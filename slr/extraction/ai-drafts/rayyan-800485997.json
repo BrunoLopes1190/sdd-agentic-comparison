@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485997",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -168,7 +168,7 @@
      "why": "The draft said all 6 tasks were chosen as unsolved by OpenHands alone; Appendix B states this only for the GAIA and SWE-Bench tasks (p. 22, 24); the matplotlib tasks were created by the authors (p. 25)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -193,16 +193,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: abstract and text say '35% increase in task correctness', which is percentage points (25% to 60%) (p. 2, 9); p. 9 lists '(µ = 25% ... compared to µ = 60% ... respectively)' after naming agents first, order inferred from 'increase'; text labels C1 = new tasks and C2 = cognitive load (p. 11) while Table 2 has C1 = cognitive load and C2 = new tasks (p. 10); Table 3 F2 reads 'continue to use OpenHands over Github Copilot' (p. 13) while the survey item reads 'continue to use Github Copilot over OpenHands' (p. 28); text says all participants used GitHub Copilot at least once a week (p. 5) while Figs. 8-9 have a category 'Used to use Github Copilot, not currently use anymore' (p. 28-29); Copilot's own agent mode was available to participants (p. 21) and its use is not reported. Effort measured differently for the two conditions (p. 8-9). Correctness values only in Fig. 4 and text. Analysis scripts at https://github.com/valeriechen/copilot-agent-comparison (p. 9); screen recordings not released (p. 27). No pre-registration. Programming language: Python",
+   "v": "Inconsistencies: abstract and text say '35% increase in task correctness', which is percentage points (25% to 60%) (p. 2, 9); p. 9 lists '(µ = 25% ... compared to µ = 60% ... respectively)' after naming agents first, order inferred from 'increase'; text labels C1 = new tasks and C2 = cognitive load (p. 11) while Table 2 has C1 = cognitive load and C2 = new tasks (p. 10); the survey items in Appendix C.2 are worded in the opposite direction to the statements reported in Tables 2-3 for satisfaction ('less satisfied using OpenHands' vs C5 'more satisfied'), output understanding ('better understanding of Github Copilot outputs than OpenHands' vs C6 'of OpenHands outputs than Github Copilot outputs') and future use ('continue to use Github Copilot over OpenHands' vs F2 'continue to use OpenHands over Github Copilot') (p. 10, 13, 27-28); text says all participants used GitHub Copilot at least once a week (p. 5) while Figs. 8-9 have a category 'Used to use Github Copilot, not currently use anymore' (p. 28-29); Copilot's own agent mode was available to participants (p. 21) and its use is not reported. Effort measured differently for the two conditions (p. 8-9). Correctness values only in Fig. 4 and text. Analysis scripts at https://github.com/valeriechen/copilot-agent-comparison (p. 9); screen recordings not released (p. 27). No pre-registration. Programming language: Python",
    "p": "2, 5, 8-13, 21, 27-29",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Missing inconsistency added: participants said to be weekly Copilot users (p. 5) vs a 'no longer use Copilot' category in Figs. 8-9 (p. 28-29)"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Only the F2 reversal was listed; the survey items for C5 (satisfaction) and C6 (output understanding) are also worded opposite to Table 2 (Appendix C.2, p. 27-28), so the reported distributions may be inverted for these items too"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -241,6 +246,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Correctness is judged on final code against task specifications, which are partly ground-truth based (GAIA answers, SWE-Bench issues), but who graded and how (tests, rubric) is not described; could be read as Partly or No"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Correctness is judged on final code snapshots against the task specifications (GAIA answers, SWE-Bench issues; matplotlib tasks 'easily verified by the participant and grader', p. 25), but who graded and how (tests, rubric) is not described; Partly or No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Correctness is judged on final code snapshots against the task specifications (GAIA answers, SWE-Bench issues; matplotlib tasks 'easily verified by the participant and grader', p. 25), but who graded and how (tests, rubric) is not described; Partly or No"
     }
    ],
    "warn": "O artigo não diz quem avaliou a correção nem se usou testes ou resposta de referência (pp. 8-9, 25). Decide se é Partly ou No."
@@ -254,6 +269,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Correctness (quality) and user time (effort) are defined; whether user effort time counts as the cost side (§6 lists time as a cost metric) is a judgement; no tokens or money"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Correctness (quality) and user effort time are defined; §6 lists time as a cost metric, so user time could count as the cost side (Yes); no tokens or money measured (Partly)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Correctness (quality) and user effort time are defined; §6 lists time as a cost metric, so user time could count as the cost side (Yes); no tokens or money measured (Partly)"
     }
    ],
    "warn": "Mede correção e tempo do utilizador, mas não tokens nem dinheiro. Decide se o tempo do utilizador conta como custo (Yes) ou não (Partly)."

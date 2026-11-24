@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485977",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -24,6 +24,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "v2 (Aug 2025) is marked 'Preprint. Under review.' and carries a NeurIPS checklist; whether it was later published at a venue cannot be settled from the text."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "v2 (Aug 2025) is marked 'Preprint. Under review.' and carries a NeurIPS checklist; whether it was later published at a venue cannot be settled from the text."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "v2 (Aug 2025) is marked 'Preprint. Under review.' and carries a NeurIPS checklist; whether it was later published at a venue cannot be settled from the text."
     }
@@ -172,10 +182,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "Bolt.diy best framework on DeepSeek-V3; best general model Bolt.diy + DeepSeek-R1 (27.8%), close to Claude-3.5-Sonnet (26.4%, best appearance 3.0). Authors' WebGen-LM-32B reaches 38.2% (base Qwen2.5-Coder-32B 9.5%). Smaller open-source models lag. Design validation tests easiest, functional tests hardest; Content Presentation instructions easiest. No significance tests",
+   "v": "Bolt.diy best framework on DeepSeek-V3; best general model Bolt.diy + DeepSeek-R1 (27.8%), close to Claude-3.5-Sonnet (26.4%, best appearance 3.0). Authors' WebGen-LM-32B reaches 38.2% (base Qwen2.5-Coder-32B 9.5%). Smaller open-source models lag. Design validation tests easiest in most configurations, functional tests hardest; Content Presentation instructions easiest for all configurations except WebGen-LM-7B and WebGen-LM-14B, where Data Management is highest (38.1 and 31.6, Table 4). No significance tests",
    "p": "8-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Table 4 does not support 'Content Presentation easiest' for every configuration: WebGen-LM-7B (38.1) and WebGen-LM-14B (31.6) score highest on Data Management."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -193,16 +209,21 @@
   },
   {
    "f": "Notes",
-   "v": "Calls DeepSeek-R1 'the best proprietary model' (pp. 1, 8) although it is an open-weight model. Paragraph 'Web Development Project Descriptions Collection' duplicated (p. 5). Table 8 (test-case categories) gives Total 667, but its main categories sum to 647 (339 + 186 + 122), matching the 647 test cases stated elsewhere. NeurIPS paper checklist included (pp. 37ff.), suggesting a NeurIPS submission; check whether published. Appendix L says 'We will add this discussion to the revised paper'. Table 1 file and LOC averages only from DeepSeek-V3 runs. Values from Tables 3-6. Replication package: https://github.com/mnluzimu/WebGen-Bench (data-generation, training and testing code, datasets, model weights; MIT licence). No pre-registration. Programming language: TypeScript/JavaScript, HTML, CSS",
+   "v": "Calls DeepSeek-R1 'the best proprietary model' (pp. 1, 8) although it is an open-weight model. Paragraph 'Web Development Project Descriptions Collection' duplicated (p. 5). Table 8 (test-case categories) gives Total 667, but its main categories sum to 647 (339 + 186 + 122), matching the 647 test cases stated elsewhere. Text says Content Presentation 'consistently demonstrates the highest accuracies' (p. 8), but Table 4 shows Data Management highest for WebGen-LM-7B (38.1 vs 27.9) and WebGen-LM-14B (31.6 vs 30.2). NeurIPS paper checklist included (pp. 37ff.), suggesting a NeurIPS submission; check whether published. Appendix L says 'We will add this discussion to the revised paper'. Table 1 file and LOC averages only from DeepSeek-V3 runs. Values from Tables 3-6. Replication package: https://github.com/mnluzimu/WebGen-Bench (data-generation, training and testing code, datasets, model weights; MIT licence). No pre-registration. Programming language: TypeScript/JavaScript, HTML, CSS",
    "p": "1-2, 5, 8, 14, 23, 37",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Missed a reporting inconsistency: Table 8 total 667 vs 647 test cases (sum of its own categories is 647)."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added a missed reporting inconsistency: the 'Content Presentation consistently highest' claim is contradicted by Table 4 for WebGen-LM-7B and WebGen-LM-14B."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -241,6 +262,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The criterion is independent (human-reviewed test cases), but the verdicts come from a VLM UI agent, validated against humans (86.1-94.4%); whether that is Yes or Partly is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The criterion is independent (human-reviewed test cases), but the verdicts come from a VLM UI agent, validated against humans (86.1-94.4%); whether that is Yes or Partly is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The criterion is independent (human-reviewed test cases), but the verdicts come from a VLM UI agent, validated against human testers on three configurations (86.1-94.4% alignment); whether that is Yes or Partly is a judgement."
     }
    ],
    "warn": "Os casos de teste foram revistos por humanos, mas quem decide é um agente VLM (86-94% de concordância com humanos). Decide se isto é critério independente (Sim) ou Parcial."
@@ -289,6 +320,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Follows the publication type: No (0) as an 'under review' preprint; Yes (1) if it was later published at a peer-reviewed venue."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Follows the publication type: No (0) as an 'under review' preprint; Yes (1) if it was later published at a peer-reviewed venue."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Follows the publication type: No (0) as an 'under review' preprint; Yes (1) if it was later published at a peer-reviewed venue."
     }
    ],
    "warn": "Depende de o artigo ter sido publicado depois (checklist NeurIPS sugere submissão). Confirma a venue; se publicado, Q11 = Sim (1)."
@@ -309,6 +350,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Besides the benchmark, the authors propose WebGen-Instruct and the fine-tuned WebGen-LM models (trained on 8-32 A800 GPUs); a reader could treat this as a proposed approach for which Q13 applies."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Besides the benchmark, the authors propose WebGen-Instruct and the fine-tuned WebGen-LM models (trained on 8-32 A800 GPUs); a reader could treat this as a proposed approach for which Q13 applies."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Besides the benchmark, the authors propose WebGen-Instruct and the fine-tuned WebGen-LM models (trained on 8, 16 and 32 A800 GPUs); a reader could treat this as a proposed approach for which Q13 applies."
     }
    ],
    "warn": "Os autores também propõem o WebGen-LM (fine-tuning em 8-32 GPUs A800). Decide se isto conta como 'abordagem proposta'; se sim, Q13 aplica-se (provavelmente Parcial ou Não pela exigência de computação)."

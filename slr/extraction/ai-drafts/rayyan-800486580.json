@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486580",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Metric values checked against Table 3, Fig. 1 and Section 4.2 and are right. But the study is about what similarity scores show, not about whether a configuration 'works': the 25% threshold is an operational threshold for the study question (p. 6, 15), and the harness pass is the only acceptance check. Whether the harness pass or the joint criterion counts as an authors' success criterion for a works/partly/does not work quality verdict is a judgement; no verdict words are given in the value."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "All numbers checked against Table 3, Fig. 1 and Section 4.2 (p. 8-10) and are right. Open point: the authors define a pass ('A candidate passes when all cases succeed', p. 6) and the joint criterion at an operational 25% threshold (p. 6, 15), but these serve the study question (what similarity shows), not whether a configuration works; the value gives no works/partly/does not work words. Whether to turn the harness pass into a quality verdict is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Numbers re-checked against Table 3, Fig. 1 and Section 4.2 (p. 8-10): right. Open point: the authors define a harness pass ('A candidate passes when all cases succeed', p. 6) and use 25% as an operational threshold (p. 6, 15), but these answer the study question (what a similarity score shows), not whether a configuration works; turning the harness pass into a quality verdict is a judgement."
     }
    ],
-   "warn": "O estudo não avalia se uma configuração 'funciona'; o limiar de 25% é operacional. Decide se o harness (todas passam no RQ1) conta como critério de sucesso para dar veredicto de qualidade, ou se fica 'no criterion stated by the authors'."
+   "warn": "O harness define 'pass', mas serve a pergunta do estudo e o limiar de 25% é operacional. Decide se dás veredicto de qualidade com base no harness (todas passam no RQ1) ou se fica 'no criterion stated by the authors'."
   },
   {
    "f": "Comparison: design",

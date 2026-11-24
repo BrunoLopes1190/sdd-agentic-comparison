@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486602",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The draft listed the reasoning-effort wording as an inconsistency, but Sec. 5.2 (p. 14) states the platform default high-effort setting is 'max, xhigh or high, depending on the provider', and the Table 2 caption says these are the platform defaults; it is not a reporting inconsistency. Also added the Gemini/Qwen/DeepSeek settings from Table 2."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -242,9 +242,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Time is one of the §6 cost metrics, and median container time plus agent steps are reported per model (Table 6), so cost is covered; but container time includes grading and only medians are given, so Partly is also defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Quality metrics are well defined (Eq. 1-2, p. 7-9). Cost is reported only as agent steps and median container wall-clock time, and container time includes grading (Table 6, p. 14); no tokens or money. Whether this covers cost (Yes) or only partly (Partly) is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Quality metrics are well defined (Eq. 1-2, p. 7-9). Cost appears only as agent steps and median container wall-clock time, which includes grading (Table 6, p. 14); no tokens or money. Yes vs Partly is a judgement."
     }
    ],
-   "warn": "O custo só aparece como passos e tempo de contentor (inclui avaliação), sem tokens nem dinheiro. Decide se isso cobre o custo (Yes) ou se fica Partly. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O custo só aparece como passos e tempo de contentor (que inclui a avaliação), sem tokens nem dinheiro. Decide se isso cobre o custo (Yes) ou se fica Partly."
   },
   {
    "f": "Q7",

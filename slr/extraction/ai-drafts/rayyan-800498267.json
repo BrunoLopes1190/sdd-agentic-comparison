@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498267",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,6 +40,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper describes its sources (DBLP titles, arXiv abstracts, 22 Sep 2026) and a scope (peer-reviewed full papers 2025-2026, empirical studies of agentic coding tools on SE tasks, venue and length filters), but the inclusion and exclusion criteria themselves are only in the Zenodo supplement. It is meta-research on reporting practice, so 'Review' (DARE) vs 'Evaluates' (Q1-Q13) is a judgement under the 2026-11-23 rule."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper describes its sources (DBLP titles, arXiv abstracts, 22 Sep 2026) and a scope (peer-reviewed full papers 2025-2026, empirical studies of agentic coding tools on SE tasks, venue and length filters), but the inclusion and exclusion criteria themselves are only in the Zenodo supplement. It is meta-research on reporting practice, so 'Review' (DARE) vs 'Evaluates' (Q1-Q13) is a judgement under the 2026-11-23 rule."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Sources (DBLP titles, arXiv abstracts, 22 Sep 2026) and the scope are described on p. 3, but the inclusion and exclusion criteria are only in the Zenodo supplement. The object is reporting practice of primary studies (meta-research), so 'Review' (DARE) vs 'Evaluates' (Q1-Q13) under the 2026-11-23 rule is a judgement; the secondary 'Proposes an evaluation method' (reference harness requirements, planned design) is also arguable."
     }
    ],
    "warn": "A pesquisa e as fontes estão descritas (p. 3), mas os critérios de inclusão só estão no suplemento Zenodo. Decide se conta como Review (DARE) ou como estudo avaliado com Q1–Q13."
@@ -312,6 +322,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The study's object is the reporting completeness of each included experiment (21 DQs), which is a form of appraisal of the included studies; whether this counts as assessing their quality/validity (Yes) or not (Partly) is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The study's object is the reporting completeness of each included experiment (21 DQs), which is a form of appraisal of the included studies; whether this counts as assessing their quality/validity (Yes) or not (Partly) is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The study appraises the reporting completeness of each included experiment (21 DQs), which is a form of appraisal of the included studies, but not of the validity of their results; Yes vs Partly is a judgement."
     }
    ],
    "warn": "O estudo avalia a completude do relato de cada experiência (21 DQs), mas não a validade dos resultados. Decide se isso conta como avaliação de qualidade (Sim) ou só parcial."

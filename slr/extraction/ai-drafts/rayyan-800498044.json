@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498044",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -175,7 +175,7 @@
      "why": "'Newer model versions in each family score higher' is not true for every comparison: in Table 3 DeepSeek V3.1 beats V3.2 on C2Rust (39.45 vs 37.41), and Mini-SWE is below OpenHands for Minimax-M2.5 on C2Rust (Tables 2-3, p. 7)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -202,7 +202,7 @@
      "why": "Missing inconsistency: the benchmark-validity claim of progressive gains within model families is contradicted by DeepSeek V3.1 vs V3.2 with Mini-SWE-Agent on C2Rust (Table 3, p. 7)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -271,7 +271,7 @@
      "why": "Score unchanged; added that the model-family ordering used to argue benchmark validity is contradicted in Table 3 (p. 7)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q10",
@@ -298,8 +298,19 @@
    "f": "Q13",
    "v": "Partly (0.5): ACE uses standard coding agents and is feasible where an executable reference implementation exists (e.g. migration), but it needs the source repository as oracle, unavailable for new development, and its cost or compute is not reported",
    "p": "6, 8, 14",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "ACE's requirements are only partly stated: it runs on standard coding agents (tools named), but its compute, token or money cost is not reported (Fig. 3 covers only the base runs) and it needs an executable source repository as oracle (p. 6, 8, 14). Partly is defensible, but under the missing-information rule another reader could score No"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "ACE's requirements are only partly stated: it runs on standard coding agents (OpenHands-bash, Mini-SWE-Agent) with a testing agent, but its token, compute or money cost is not reported (Fig. 3 covers only the base OpenHands-bash runs), and it needs an executable source repository as oracle (p. 6, 8, 14). Partly is defensible; under the missing-information rule another reader could score No"
+    }
+   ],
+   "warn": "O artigo não reporta custo nem computação do ACE e este exige o repositório original como oráculo. Decide se fica Partly ou No pela regra de informação em falta."
   },
   {
    "f": "DARE1",

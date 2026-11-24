@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486248",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lam, M. H., Wang, C., Liu, H., Xiao, J., Li, H., Huang, J., Zhuo, T. Y., Lyu, M. R. (2026). SWE-Chain: Benchmarking Coding Agents on Chained Release-Level Package Upgrades. arXiv:2605.14415v1 [cs.SE], 14 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.14415v1 [cs.SE]; marked 'Preprint.', no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The Chinese University of Hong Kong (Lam, Wang, Xiao, Lyu); Independent (Liu); ELLIS and Technical University of Darmstadt (Li); Johns Hopkins University (Huang); Monash University (Zhuo)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SWE-Chain benchmark of chained release-level package upgrades (each step starts from the agent's own previous codebase), with the DecompSynth pipeline that synthesizes upgrade specifications from release notes and code diffs; 9 agent-model configurations compared, plus a specification-granularity study (L1-L5)",
+   "p": "1-2, 6, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach named. Benchmark input: DecompSynth-synthesized upgrade specifications (default L3: problem statement + conceptual expectations and constraints), with granularity variants L1-L5. Agents compared: Claude Code (2.1.113-2.1.126) with Claude-Opus-4.7 (xhigh), Claude-Opus-4.6, Claude-Sonnet-4.6; Codex CLI (0.121.0-0.128.0) with GPT-5.5 (xhigh), GPT-5.4, GPT-5.3-Codex; OpenCode (1.14.18-1.14.32) with GPT-5.4, GLM-5.1, MiniMax-M2.7-HS; other models at high reasoning effort when available",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per version transition, an upgrade specification file (specs_<old>_<new>.md) with one entry per task: problem statement, expectation (grounded / conceptual), constraints (grounded / conceptual), behaviour list, acceptance criteria (Given/When/Then style); intermediate JSON task schema (title, type, runtime_impact, description, significance, confidence, difficulty). In the Fix stage, an error_report.md of execution errors from hidden tests",
+   "p": "3-4, 20-24, 31-32",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark construction: collect release notes, issues/PRs and diffs -> manual review -> Docker environment per chain -> cross-version validation (FAIL_TO_PASS / ERROR_TO_PASS tests). DecompSynth: divide (hunk-to-task matching in batches, up to 3 retries) -> conquer (per-task specification synthesis, schema validation; extra tasks from unmatched hunks). Evaluation per step: Build (agent implements upgrade from the specification in a new session; chain stops if build fails) -> hidden tests -> Fix (one repair attempt from the error report if execution errors) -> next version",
+   "p": "2-4, 18-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Manual quality review of parsed release notes (normalize formatting, exclude unsuitable releases or chains); Dockerfiles designed manually; no human quality assessment of synthesized specifications (stated limitation); no human in the agent loop",
+   "p": "2, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (synthesized specification given to the agent as input at each upgrade step; five granularity variants tested on one chain)",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms; a per-release 'upgrade specification' is given as input and evaluated against hidden tests)",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (continuous maintenance of real Python packages through consecutive release upgrades, each step building on the agent's previous codebase)",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "12 upgrade chains, 9 packages, 155 version transitions, 1,660 tasks (1,565 + 95 extra); starting code without tests 1.6k-104k Python LOC (3.4k-152k all files); code diff per chain 3,369-14,120 lines",
+   "p": "3, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries and tools: attrs, conan, Flask, Jinja2, poetry, PyJWT, pytest, urllib3, xarray",
+   "p": "3, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents in headless mode)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Per chain on average: agent runtime in hours (Build and Build+Fix), monetary cost (USD), tokens, number of tool calls, tool-call success rate (Table 5)",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolving = sum TP / sum (TP+FN) over upgrade-related tests; Precision = sum TP / sum (TP+FP), FP = regressed previously passing non-upgrade tests; F1; Final Passing (final codebase health); micro-averaged over steps per chain, averaged over chains; Build and Build+Fix regimes; per-step cumulative resolving trajectories",
+   "p": "5-6, 26",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Stability of the DecompSynth divide step over 10 runs (exact match 93.66%, Jaccard 94.54%, core agreement 95.38%); chain difficulty index (normalized code size and diff per upgrade)",
+   "p": "4, 15-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden test suites of the target version run in an isolated container built from the target version (pytest plugins stub unavailable imports and keep partial reports; test configuration overridden to prevent shortcuts); test outcomes classified per Table 2. Runtime, cost, tokens and tool calls from agent runs (source of cost figures not stated)",
+   "p": "5-6, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark SWE-Chain, 12 chains, L3 specifications; values Build+Fix resolving / precision / F1 / final passing (Build resolving, Build precision) from Table 3; cost per chain from Table 5. Success criterion: none stated by the authors. (1) Claude Code + Claude-Opus-4.7 (xhigh): 60.8% / 80.6% / 68.5% / 91.9% (Build 58.3%, 67.4%); $150.39, 350.7M tokens, 3.43 h. (2) Claude Code + Claude-Opus-4.6: 44.3% / 64.9% / 50.8% / 85.8% (38.8%, 51.3%); $71.78, 179.4M, 3.25 h. (3) Claude Code + Claude-Sonnet-4.6: 39.8% / 66.5% / 45.9% / 84.5% (34.4%, 53.4%); $58.68, 203.9M, 4.84 h. (4) Codex + GPT-5.5 (xhigh): 57.5% / 80.1% / 64.8% / 92.2% (52.2%, 72.0%); $131.34, 184.7M, 3.48 h. (5) Codex + GPT-5.4: 47.5% / 72.2% / 54.9% / 90.4% (45.3%, 59.2%); $39.84, 100.9M, 2.28 h. (6) Codex + GPT-5.3-Codex: 51.8% / 76.3% / 59.2% / 90.9% (47.1%, 70.5%); $41.59, 155.2M, 2.77 h. (7) OpenCode + GPT-5.4: 43.4% / 63.8% / 46.5% / 89.7% (39.3%, 54.7%); $22.98, 61.1M, 2.44 h. (8) OpenCode + GLM-5.1: 38.1% / 49.9% / 40.1% / 84.1% (27.5%, 31.8%); $20.09, 67.5M, 4.44 h. (9) OpenCode + MiniMax-M2.7-HS: 20.2% / 34.2% / 21.2% / 70.3% (14.5%, 25.8%); $9.51, 115.0M, 2.68 h. Ablation (specification granularity, pytest 8.0 chain, Build+Fix, resolving / precision / F1, Table 4): Claude-Opus-4.7 L1 44.5/8.9/14.8, L2 62.6/7.8/13.9, L3 66.1/88.1/75.5, L4 66.7/89.2/76.3, L5 73.9/93.5/82.5; GPT-5.5 L1 47.4/9.9/16.3, L2 44.5/9.5/15.7, L3 53.4/92.1/67.6, L4 68.1/93.3/78.7, L5 67.8/89.7/77.3. Quality verdict and cost verdict for every entry: no criterion stated by the authors",
+   "p": "6, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 12 chains of consecutive releases of 9 Python packages. Configurations: 9 (8 models on 3 agent CLIs; GPT-5.4 on both Codex and OpenCode). Baseline: none as such; L1 specification (raw release notes + issues/PRs, SWE-EVO-like) serves as reference in the granularity study. Held constant: specifications (L3), chain-level Docker image, prompts (Prompts 5 and 6), forbidden-tool list and blocked domains, unified headless harness, new session per step, workspace layout. Not held constant: reasoning effort (xhigh for Opus-4.7 and GPT-5.5, high for others), CLI versions varied within ranges over the run period (Apr 17-May 5, 2026). Acceptance: hidden upgrade-related and regression tests from the real release test suites. Repetitions: one run per configuration (no repeated sampling). Human intervention: none; one automated Fix attempt",
+   "p": "4-5, 8, 17, 24, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude-Opus-4.7 (Claude Code) best (60.8% resolving, 80.6% precision, 68.5% F1), then GPT-5.5 (Codex) (57.5%, 80.1%, 64.8%); average 44.8% / 65.4% / 50.2%. Build+Fix raised average precision 54.0% -> 65.4% and resolving 39.7% -> 44.8%. GPT-5.3-Codex beat GPT-5.4 in Codex; GPT-5.4 better in Codex than in OpenCode (47.5% vs 43.4% resolving); open-weight models lowest. Chain-level average resolving 23.3%-68.5%; no agent dominates all chains. Most capable configurations most costly ($150.39 and $131.34 per chain), but more resource use does not imply better results (Sonnet-4.6 longest runtime). Specification granularity: L1 and L2 give precision below 10%, adding expectations and constraints (L3) raises precision to 88-92%; L4/L5 improve further (best F1 82.5% Opus L5, 78.7% GPT-5.5 L4). No significance tests",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Authors claim the benchmark is feasible and discriminative: it separated models, model families, coding specialization and agent CLIs, and chains by difficulty. Repeatability not assessed for agent runs (single run per configuration, stated limitation due to cost up to about $150 per chain); stability checked only for the specification synthesis step. Limitations of the method stated: no human check of specifications, Python-only, few open-weight models, no repeated runs",
+   "p": "6-7, 16, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No human quality assessment of synthesized specifications (too costly); only 12 Python package chains, limited coverage of other languages, build systems and ecosystems; eight models on three CLIs with only two open-weight models; no sampling-based repeated runs because of cost. Risks: overgeneralization to proprietary, non-Python, UI-heavy software or poorly documented requirements; unsafe automation. Gap: agents still struggle to carry their own changes forward across chained releases without breaking functionality; need for agents that maintain coherent, evolvable codebases",
+   "p": "9, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 3 (p. 6), Table 4 (p. 8), Table 5 (p. 9) and Figure 2 (p. 7); Table 1 task counts sum to 1,565 + 95 extra = 1,660 and upgrades to 155, consistent with the text. Reasoning effort differs between configurations (xhigh vs high), a confound for the comparison. Specifications were synthesized with GPT-5.4 (Codex, xhigh), the same family as some evaluated agents; not discussed. Possible training-data contamination with the public package code is not discussed (anti-cheating covers only web/registry access). Algorithm 3 stops the chain if a build fails; not mentioned in the main text. Code on GitHub and dataset on HuggingFace (links named on p. 1, URLs not in the extracted text). LLM use for writing and scaffolding code declared. No pre-registration. Programming language: Python",
+   "p": "1, 3-9, 19, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central research question stated explicitly and contributions listed",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, pseudocode, all prompts, environment, tool restrictions and metrics given; code and dataset released",
+   "p": "2-5, 18-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): model versions, reasoning efforts and CLI version ranges (Claude Code 2.1.113-2.1.126, Codex 0.121.0-0.128.0, OpenCode 1.14.18-1.14.32) given; exact version per run not given",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): chains listed with repositories, versions, licenses and sizes; dataset on HuggingFace and code on GitHub",
+   "p": "1, 3, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden test suites of the real target releases (upgrade-related and regression tests)",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolving, precision, F1 defined by equations; cost (USD), tokens and runtime reported",
+   "p": "5-6, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 9 configurations under the same specifications, environment and prompts; L1 raw release-note specification as reference in the granularity study",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration, no repetitions or statistical analysis of differences (stated limitation); repetition only for the synthesis divide step",
+   "p": "16, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results, low absolute performance and cases where more cost did not help are reported",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations appendix (four points) and broader-impact risks; no threats-to-validity analysis (e.g. data contamination, effort-level confound)",
+   "p": "37",
+   "verdict": "uncertain",
+   "why": "Appendix K (p. 37) lists four limitations and Appendix L the risks of overgeneralization, but there is no threats-to-validity analysis; data contamination and the reasoning-effort confound (xhigh vs high) are not discussed. Partly is defensible; a reader could give Yes because limitations are explicitly discussed.",
+   "doubt": "Há um apêndice de limitações (K) com quatro pontos e riscos no apêndice L, mas sem secção de ameaças à validade. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; evaluated agents are third-party tools. The specification pipeline (DecompSynth) is the authors' own and its granularity variants are compared, but it is a benchmark input, not an evaluated development approach",
+   "p": "1, 5, 8",
+   "verdict": "uncertain",
+   "why": "The evaluated agents are third-party, but the granularity study (Table 4, p. 8) compares the authors' own DecompSynth specification formats (L2-L5) with the external SWE-EVO-style L1 input; under the 2026-11-23 rule this could make Q12 Partly.",
+   "doubt": "Os agentes avaliados são de terceiros, mas o estudo de granularidade (Tabela 4) compara as especificações DecompSynth dos autores com o formato L1 do SWE-EVO. Decide se isso torna Q12 Partly ou mantém Yes."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

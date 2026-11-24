@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486003",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,16 +187,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: Fig. 5 labels the golden patch of a pylint task with path '/django/forms/models.py' (p. 10); FV-Micro on Full (Table 5) is higher than on Verified (Table 4) for three of the four models (Qwen3-235B 8.75 to 10.78, DeepSeek-v3 7.96 to 16.02, GPT-4o 7.97 to 8.68) while their success rates fall, not discussed (p. 8-9); Table 4 values were rebuilt from a garbled text extraction (columns split across lines) and should be checked against the PDF (p. 8). 'About 114k code changes' unit not defined (p. 1). Data: replication package and online appendix at https://doi.org/10.5281/zenodo.21762257; repository https://github.com/Doc2Feat-bench/Doc2Featbench; leaderboard http://doc2featbench.org (p. 12). No pre-registration. Programming language: Python",
+   "v": "Inconsistencies: Fig. 5 labels the golden patch of a pylint task with path '/django/forms/models.py' (p. 10); FV-Micro on Full (Table 5) is higher than on Verified (Table 4) for three of the four models (Qwen3-235B 8.75 to 10.78, DeepSeek-v3 7.96 to 16.02, GPT-4o 7.97 to 8.68) while their success rates fall, not discussed (p. 8-9); the failure-analysis percentages (39.38%, 33.13%, 20.00%, 7.88%) have no stated denominator and 7.88% is not a whole number of the 160 examined instances (12.6) (p. 9-10); Table 4 values were rebuilt from a garbled text extraction (columns split across lines) and should be checked against the PDF (p. 8). 'About 114k code changes' unit not defined (p. 1). Data: replication package and online appendix at https://doi.org/10.5281/zenodo.21762257; repository https://github.com/Doc2Feat-bench/Doc2Featbench; leaderboard http://doc2featbench.org (p. 12). No pre-registration. Programming language: Python",
    "p": "1, 8-10, 12",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "The draft said FV-Micro is above FV-Macro in Table 5 for three of four models; in Table 5 FV-Micro is below FV-Macro for all four (e.g. 10.78 vs 15.77). The real oddity is FV-Micro rising from Verified to Full for three models while success falls"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missing inconsistency added: the failure-category percentages in RQ3 have no stated denominator, and 7.88% does not correspond to a whole count of the 160 examined failures (p. 9-10)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -223,7 +228,7 @@
      "why": "The draft said generation settings were not stated; Section 4.2 gives the thinking modes for Qwen3-235B and GPT-5-mini. Score unchanged"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q4",

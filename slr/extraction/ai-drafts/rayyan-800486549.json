@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486549",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -257,9 +257,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main findings follow from the results; the claim that over-compliance comes from model priors rests on ablations only summarised in the paper (full results in the supplement), and harms such as defects and review burden are argued from literature, not measured. Another reader could give Yes."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main findings (no model stops at t* <= 2, churn, fragile stopping) follow from the results. But the claim that over-compliance 'originates in model priors rather than prompt artifacts' (p 10) rests on ablations only summarised in the paper (full results in the supplement), and the harms (defects, review burden) are argued from literature, not measured; another reader could give Yes."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main findings (no model stops at t* <= 2, large churn, fragile stopping) follow from the results. But the claim that over-compliance 'originates in model priors rather than prompt artifacts' (p. 10) rests on ablations only summarised in the paper (p. 4-5, full results in the supplement), and harms (defects, review burden) are argued from literature, not measured; another reader could give Yes."
     }
    ],
-   "warn": "As conclusões principais seguem dos resultados, mas a origem nos 'model priors' assenta em ablações só resumidas (detalhe no suplemento) e os danos não são medidos. Decide entre Partly e Yes."
+   "warn": "As conclusões principais seguem dos resultados, mas a origem em 'model priors' assenta em ablações só resumidas (p. 4-5, 10) e os danos não são medidos. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

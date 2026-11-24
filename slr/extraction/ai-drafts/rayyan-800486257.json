@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486257",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -229,6 +229,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Effectiveness is judged by an LLM-agent runtime evaluator against the frozen specification, not by fixed acceptance tests; it is validated on a 43-artifact human-review subset (85.0% agreement on Usable, 50.0% on three-way labels). Partly is defensible, but a reader could give Yes (independent of the authors, checked against human review) or lower it given the weak three-way agreement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Effectiveness is judged by an LLM-agent runtime evaluator against the frozen specification, not by fixed acceptance tests; it is validated on a 43-artifact human-review subset (85.0% agreement on Usable, 50.0% on three-way labels). Partly is defensible, but a reader could give Yes (independent of the authors, checked against human review) or lower it given the weak three-way agreement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Effectiveness is judged by an LLM-agent runtime evaluator (Codex CLI + gpt-5.4-agent) against the frozen specification, not by fixed acceptance tests; it is validated on a 43-artifact human-review subset (85.0% agreement on Usable, but only 50.0% on three-way labels, Figure 4). Partly is defensible; a reader could give Yes (checked against independent human review) or lower it given the weak three-way agreement."
     }
    ],
    "warn": "A avaliação é feita por um agente LLM (Codex + gpt-5.4) contra a especificação, validado num subconjunto de 43 artefactos revistos por humanos. Decide se isto conta como critério independente (Yes) ou Partly."
@@ -270,6 +280,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Section 5 is a short limitations paragraph (evaluator not a substitute for humans, game-only scope, template-built specifications); single run, evaluator-model overlap and the unnamed harness are not discussed. Partly is defensible, but a reader could give Yes because limitations are explicitly discussed."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Section 5 is a short limitations paragraph (evaluator not a substitute for humans, game-only scope, template-built specifications); single run, evaluator-model overlap and the unnamed harness are not discussed. Partly is defensible, but a reader could give Yes because limitations are explicitly discussed."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Section 5 (p. 9) is a short limitations paragraph (evaluator not a substitute for human review, game-only scope, template-built specifications, limits of constructed preconditions); single run, the overlap of the OpenAI evaluator model with the evaluated GPT-5.5 and the unnamed generation harness are not discussed. Partly is defensible; a reader could give Yes because limitations are explicitly discussed."
     }
    ],
    "warn": "A secção 5 discute limitações em poucas linhas, sem referir execução única nem sobreposição do modelo avaliador (OpenAI) com o GPT-5.5 avaliado. Decide entre Partly e Yes."

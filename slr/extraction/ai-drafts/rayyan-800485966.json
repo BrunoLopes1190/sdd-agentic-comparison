@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485966",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -26,6 +26,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The extracted arXiv v2 text names no venue, but the ACL-style format (Limitation section, ACL references) suggests it may have been published (possibly Findings of ACL 2025); not confirmable from the text."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The extracted arXiv v2 text names no venue, but the ACL-style format (Limitation section, ACL references) suggests it may have been published (possibly Findings of ACL 2025); not confirmable from the text."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The arXiv v2 text names no venue, but the ACL-style format (Limitation section, ACL references) suggests it may have been published (possibly Findings of ACL 2025); not confirmable from the text."
     }
    ],
    "warn": "O texto do arXiv não indica venue, mas o formato é ACL; confirma no Google Scholar/ACL Anthology se foi publicado (p.ex. Findings of ACL 2025) e muda para Conference se for o caso."
@@ -39,9 +49,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an evaluation method; secondary: Compares — benchmark ProjectEval (20 project-level missions, 284 user-interaction-simulation test cases, three input levels) and comparison of 15 LLMs plus OpenHands + GPT-4o under cascade vs direct generation",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ProjectEval (20 project-level missions, 284 user-interaction-simulation test cases, three input levels) and comparison of 16 LLMs plus OpenHands + GPT-4o under cascade vs direct generation",
    "p": "1-2, 6",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The paper evaluates 16 LLMs, not 15 (8 open-source, 3 code LLMs, 5 closed-source incl. Gemini 2.0-pro; Tables 4, 5, 7 and Appendix B), plus OpenHands + GPT-4o."
+    }
+   ],
    "warn": ""
   },
   {
@@ -125,7 +141,7 @@
      "why": "The GPT-4o evaluation cost is a cost of that configuration's run, not only a benchmark cost; the draft said no cost per configuration."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Functional quality metrics",
@@ -173,21 +189,33 @@
      "why": "Cost was given for GPT-4o (USD 28.02 for the Pass@5 run, p. 6); the draft marked cost N/A for every configuration."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
-   "v": "Project/tasks: 20 ProjectEval missions. Configurations: 15 LLMs (open-source, closed-source, code LLMs) x input level (L1, L2, L3) x mode (cascade, direct); OpenHands + GPT-4o. Baseline: none (cascade vs direct compared within model). Held constant: missions, prompt template (JSON output), temperature 0, default settings, evaluation machine. Acceptance tests: user-interaction-simulation testcodes validated against the canonical solution (100% pass). Repetitions: Pass@1 and Pass@5 (5 samples); Gemini 2.0-pro and OpenHands Pass@1 only. Human intervention: none (OpenHands runs without user interaction)",
+   "v": "Project/tasks: 20 ProjectEval missions. Configurations: 16 LLMs (open-source, closed-source, code LLMs) x input level (L1, L2, L3) x mode (cascade, direct); OpenHands + GPT-4o. Baseline: none (cascade vs direct compared within model). Held constant: missions, prompt template (JSON output), temperature 0, default settings, evaluation machine. Acceptance tests: user-interaction-simulation testcodes validated against the canonical solution (100% pass). Repetitions: Pass@1 and Pass@5 (5 samples); Gemini 2.0-pro and OpenHands Pass@1 only. Human intervention: none (OpenHands runs without user interaction)",
    "p": "4-8, 12, 15",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The paper evaluates 16 LLMs, not 15 (8 open-source, 3 code LLMs, 5 closed-source incl. Gemini 2.0-pro; Tables 4, 5, 7 and Appendix B), plus OpenHands + GPT-4o."
+    }
+   ],
    "warn": ""
   },
   {
    "f": "Comparison: result",
-   "v": "GPT-4o best (Pass@5 avg 12.49; only model above 15% at some level); closed-source > open-source; code LLMs near zero; OpenHands + GPT-4o lower than GPT-4o alone (7.39 vs 19.72 Pass@1 direct L1) but above Gemini 1.5 pro. Cascade vs direct: similarity indicators about 2.06% higher for cascade at Level 1, Gemmas, Mistral and Gemini 1.5 pro better with cascade, but GPT-4o better with direct generation on Pass@5; Pass@5 averages: cascade 2.37 vs direct 2.69. Failure causes: invalid JSON output, missing essential files, omitted content. No significance tests",
+   "v": "GPT-4o best (Pass@5 avg 12.49; only model above 15% at some level); closed-source > open-source; code LLMs near zero; OpenHands + GPT-4o lower than GPT-4o alone (7.39 vs 19.72 Pass@1 direct L1); authors say it beats Gemini 1.5 pro, but on Pass@1 direct L1 both score 7.39 (Table 7), OpenHands is higher only on similarity indicators (Code CodeBLEU 22.96 vs 15.97, PV 35.51 vs 9.99, Table 5). Cascade vs direct: similarity indicators about 2.06% higher for cascade at Level 1, Gemmas, Mistral and Gemini 1.5 pro better with cascade, but GPT-4o better with direct generation on Pass@5; Pass@5 averages: cascade 2.37 vs direct 2.69. Failure causes: invalid JSON output, missing essential files, omitted content. No significance tests",
    "p": "6-9, 15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "'OpenHands above Gemini 1.5 pro' is not supported by Pass@1: both score 7.39 at direct L1 (Table 7); OpenHands is ahead only on the similarity indicators (Table 5)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -205,10 +233,16 @@
   },
   {
    "f": "Notes",
-   "v": "Model naming inconsistent: tables say Llama-3.1-7B, Appendix B says Llama3.1-8B; Gemini 2.0 vs Gemini-2.0-pro. Conclusion 'cascade generation is better than direct generation' (p. 8) rests on similarity indicators and conflicts with Pass@5 averages (cascade 2.37 vs direct 2.69, Table 4) and GPT-4o results. Benchmark built with GPT-4o, which is also the best model (authors argue Gemini 1.5 pro is close). Difficulty tiers defined but not reported ('no distinction'). Values from Tables 4, 5 and 7. Replication package: https://github.com/RyanLoil/ProjectEval/ (dataset, code, evaluation machine). No pre-registration. Programming language: Python (Django)",
+   "v": "Model naming inconsistent: tables say Llama-3.1-7B, Appendix B says Llama3.1-8B; Gemini 2.0 vs Gemini-2.0-pro. Conclusion 'cascade generation is better than direct generation' (p. 8) rests on similarity indicators and conflicts with Pass@5 averages (cascade 2.37 vs direct 2.69, Table 4) and GPT-4o results. Claim that OpenHands + GPT-4o 'still beat the Gemini1.5-pro' (p. 7) not supported by Pass@1: both 7.39 at direct L1 (Table 7); holds only for similarity indicators (Table 5). Benchmark built with GPT-4o, which is also the best model (authors argue Gemini 1.5 pro is close). Difficulty tiers defined but not reported ('no distinction'). Values from Tables 4, 5 and 7. Replication package: https://github.com/RyanLoil/ProjectEval/ (dataset, code, evaluation machine). No pre-registration. Programming language: Python (Django)",
    "p": "1, 4, 6-8, 12, 15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added a missed reporting inconsistency: the OpenHands-beats-Gemini-1.5-pro claim ties on Pass@1 (7.39 vs 7.39, Table 7)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -287,6 +321,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "Depends on the venue: No (0) if it is only an arXiv preprint; Yes (1) if it was published at a peer-reviewed venue (possibly Findings of ACL 2025), which the text does not state."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Depends on the venue: No (0) if it is only an arXiv preprint; Yes (1) if it was published at a peer-reviewed venue (possibly Findings of ACL 2025), which the text does not state."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "Depends on the venue: No (0) if it is only an arXiv preprint; Yes (1) if it was published at a peer-reviewed venue (possibly Findings of ACL 2025), which the text does not state."
     }

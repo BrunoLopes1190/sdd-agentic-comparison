@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486569",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, H., Hou, J., Shen, H., et al., Hao, Y., Li, X. (2026). PersonaCodeBench: Evaluating Coding Agents in Persona-driven Human-Interactive Sessions. arXiv:2611.05739v1 [cs.AI], 3 Nov 2026 (31 authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.05739v1 [cs.AI]; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academic, USA/UK: University of California Los Angeles, University of Southern California, UIUC, University of Illinois Chicago, MIT, University of Chicago, Texas A&M, Carnegie Mellon, University of the Arts London, Amherst College, Northwestern, Harvard, UT Dallas, Purdue, Ohio State, Northeastern; repository under MatrAIx-ai",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — PersonaCodeBench, a benchmark that turns user personas into verifiable evolved requirements disclosed progressively in simulated multi-turn coding sessions (controller, user simulator, online requirement evaluator, completion and personalization verifiers); leaderboard of 28 model/effort configurations on the 100-pair Lite release, persona analysis, disclosure ablations and reliability audits",
+   "p": "1-2, 5-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Evaluated: 28 model/reasoning-effort configurations, e.g. Gemini 4 Argon (medium, high), Claude Haiku 5.5, Sonnet 5.5, Opus 5.5 (medium, high), Fable 5.1, GPT-6.1 Sol (medium, high, xhigh), GPT-6 Sol, GPT-6 Luna, GPT-6 Astra (medium, high, xhigh, max), GPT-5.6 Terra, GPT-5.5, Grok 4.7, Grok 4.6, DeepSeek V4.1, Gemini 3.8 Flash, Qwen 3.8 Flash Next, Qwen 3.8 27B, GLM-5.3, GLM-5.3 Flash, Kimi-K3 (mixed settings); each source's own agent scaffold retained (scaffolds not named per configuration); Harbor 0.23.0 with Docker; GPT-6 Luna (medium) as user simulator and judge",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark artefacts per task-persona binding: native task specification, environment and verifier; static persona profile; frozen evolved requirements, each with applicability, task bindings, disclosure trigger, dependencies, acceptance conditions, required evidence and feedback when Unmet. Typical deliverables required of the agent: explanations, scope manifests, review lists, PR drafts, validation reports, rollback scripts, handoff summaries",
+   "p": "2, 5, 8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no approach). Evaluation workflow: (1) preparation and opening (frozen binding, environment, opening request, possibly with initial-intent blurring); (2) agent work, evidence and online requirement evaluation; (3) feedback and controlled progression (Unmet obligations get feedback, satisfied ones allow disclosure of the next requirement); (4) final verification (completion verifier and personalization verifier). Construction: collection, persona adaptation and fit, contrastive screening, release",
+   "p": "5-7, 17-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Simulated user (LLM) reviews and gives feedback during the session; no real human in runs. Construction review of task-persona compatibility and checker contracts (reviewers not specified); blinded expert review of 148 requirement judgments for reliability",
+   "p": "5-7, 24-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full simulated multi-turn agent sessions on the 100-pair Lite release for each configuration; no SDD approach exercised",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mostly existing code bases (SWE-bench Pro, SWE-bench-Live, DeepSWE, SWE-Together tasks) plus terminal tasks (Terminal-bench 3), adapted into persona-driven sessions",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "Lite: 100 task-persona pairs (Terminal-bench 3: 23, DeepSWE: 28, SWE-bench-Live: 19, SWE-Together: 4, SWE-bench Pro: 26), 186 evolved requirements (42 tasks with one, 30 with two, 28 with three), 35 persona IDs. Full: 231 pairs, 422 requirements, 66 persona IDs, from 2,104 original tasks (10.98% retained after screening)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering tasks from five source benchmarks; persona scenarios such as first-time PR contributor, student, manager, analyst, designer, founder, shop owner, senior reviewer, data scientist, test-focused lead",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Simulated users (personas) with varied roles, expertise and constraints; no real participants in runs. Reliability review by two software engineering experts",
+   "p": "3-4, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total agent cost in USD plotted against Joint pass (Fig. 1a, log scale; values not tabulated); time-budget multipliers (1x, 2x, 3x) and timeouts; preparation, interaction and verification watchdogs",
+   "p": "1, 19, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Joint pass (completion verifier accepts the native task and personalization verifier accepts all mandatory evolved requirements within budget and validity conditions); completion pass; per-source pass rates; conditional pass rate on common non-timeout tasks",
+   "p": "7-8, 10, 28",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (interaction effort mentioned as a future comparison target, not measured)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Personalization pass (persona fulfilment); per-persona Joint and personalization pass; discrimination of completion vs personalization outcomes (179/874 = 20.5% of native passes fail persona criteria); LLM judge split-vote rates; agreement of automated requirement judgments with experts",
+   "p": "8-10, 24-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: native verifiers of the source benchmarks; personalization verifier combining deterministic checks and LLM judges (GPT-6 Luna, three votes); online requirement evaluator; Harbor/Docker logs. Reliability: replayed checker fixtures (133 outcomes), voting consistency, blinded expert review of 148 judgments (71.0% agreement, Cohen's kappa 0.473; accept/reject 77.2%, MCC 0.541)",
+   "p": "6-7, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "PersonaCodeBench Lite (100 pairs), repetitions not reported (Section 3.1 says repetitions 'must be frozen' but gives no number; whole-number percentages over 100 tasks and the 26 x 99 run-task records of App. D.3 suggest one run per configuration). Success criterion for a configuration: none stated by the authors (Joint pass is the per-episode success criterion). Joint pass / Terminal-bench 3 pass (%): (1) Gemini 4 Argon medium 19.0/8.7; (2) Gemini 4 Argon high 23.0/13.0; (3) Claude Haiku 5.5 high 11.0/0.0; (4) GPT-6.1 Sol medium 31.0/4.3; (5) GPT-6.1 Sol high 38.0/17.4; (6) GPT-6.1 Sol xhigh 42.0/17.4; (7) Claude Sonnet 5.5 high 26.0/8.7; (8) Claude Opus 5.5 medium 40.0/8.7; (9) Claude Opus 5.5 high 39.0/4.3; (10) GPT-6 Sol max 18.0/0.0; (11) GPT-6 Luna medium 19.0/0.0; (12) Grok 4.7 high 24.0/8.7; (13) DeepSeek V4.1 max 5.0/0.0; (14) GPT-6 Astra medium 38.0/17.4; (15) GPT-6 Astra high 45.0/17.4; (16) GPT-6 Astra xhigh 45.0/8.7; (17) GPT-6 Astra max 48.0/17.4; (18) Gemini 3.8 Flash medium 17.0/0.0; (19) Gemini 3.8 Flash high 17.0/0.0; (20) Claude Fable 5.1 high 39.0/4.3; (21) Qwen 3.8 Flash Next medium 1.0/0.0; (22) GLM-5.3 Flash max 15.0/0.0; (23) Qwen 3.8 27B medium 6.0/0.0; (24) GLM-5.3 high 22.0/4.3; (25) Grok 4.6 medium 17.0/0.0; (26) Kimi-K3 mixed 6.0/0.0; (27) GPT-5.6 Terra xhigh 34.0/8.7; (28) GPT-5.5 xhigh 18.0/4.3. Best per source (text): SWE-bench Pro 80.8% (GPT-6 Astra max), SWE-bench-Live 57.9% (Claude Opus 5.5 medium), DeepSWE 57.1% (GPT-6.1 Sol xhigh). For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. Ablation (GPT-6 Luna, Joint / completion / personalization %): default 19.0/24.0/50.0; all requirements at opening 20.0/26.0/51.0; without persona 45.0/45.0/-",
+   "p": "7-8, 10, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 Lite task-persona pairs. Configurations: 28 model/effort settings; time-budget ladder (max effort at 1x, 2x, 3x) for some models. Baseline: ablations without persona (native-only with neutral simulated user) and with all requirements at opening, for GPT-6 Luna only. Held constant: task-persona assignments, source-specific scaffold, simulator and grading configuration (GPT-6 Luna medium), declared budget policy, Harbor 0.23.0. Acceptance tests: native verifiers plus personalization verifier. Repetitions: repetitions not reported (Section 3.1 says repetitions 'must be frozen' but gives no number; whole-number percentages over 100 tasks and the 26 x 99 run-task records of App. D.3 suggest one run per configuration); the ablation is explicitly single-run. Human intervention: none (simulated user)",
+   "p": "7, 10, 24, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-6 Astra max highest Joint pass (48%), then GPT-6.1 Sol xhigh (42%), Claude Opus 5.5 medium (40%), Claude Fable 5.1 and Opus 5.5 high (39%); best Terminal-bench 3 only 17.4% (4/23); leaders differ by source. Removing persona requirements raises GPT-6 Luna Joint pass from 19% to 45% and completion from 24% to 45%; giving all requirements upfront changes Joint pass only 19% to 20%. Higher effort does not consistently increase conditional pass rates; paired sign tests on 33 within-model setting pairs: only GPT-5.6 Terra high-to-xhigh p = 0.049, none significant after Bonferroni",
+   "p": "8, 10, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (1% to 48% Joint pass) and separated completion from personalization outcomes (20.5% of native passes fail persona criteria). Repetitions not reported (apparently a single run per configuration; ablation explicitly single-run). Limitations stated: fixed-denominator scoring mixes task performance with evaluation coverage (errors and unexecuted tasks count as zero); SWE-Together has only 4 tasks; persona comparisons descriptive with small groups; conditional rates subject to selection; LLM judge accuracy only moderately aligned with experts; personalization is an operational proxy, not human satisfaction",
+   "p": "8, 10, 24-25, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: personalization measured as explicit-requirement fulfilment, not human satisfaction; simulator and judge behaviour not fully validated with humans; uneven safeguards across source profiles; proportional sampling does not remove upstream selection effects; small persona groups. Gaps / next steps: complete the study comparing task completion, personalization and interaction effort; validate simulator and judge with human review; broaden task-level control coverage",
+   "p": "2, 6, 8, 12, 22-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 2 (p. 7), Table 3 (p. 8), Table 4 (p. 10); per-source cells of Table 2 are garbled in the text extraction, so only Joint pass and Terminal-bench 3 columns and text-reported maxima are used. GPT-6 Luna is at once the contrastive-screening reference agent (tasks kept where it passes natively but fails with persona), the user simulator, the judge and an evaluated model (19% Joint pass), a possible selection bias not discussed (p. 6-7). Section 3.1 says deployment identifiers, decoding settings, repetitions, hardware and budgets 'must be frozen' but does not report them (p. 7). Conclusion lists human validation of judges as future work although App. D.6 reports a blinded expert review (p. 12, 25). Kimi-K3 mixes original settings and high-effort repairs (p. 8). Cost values only in Fig. 1 (p. 1). Code at https://github.com/MatrAIx-ai/PersonaCodeBench (p. 1). No pre-registration. Languages (Full): Python 30.3%, Go 20.3%, JavaScript 15.6%, TypeScript 11.3%, C++ 5.2%, others",
+   "p": "1, 4, 6-8, 12, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim clear: evaluate whether coding agents complete tasks while satisfying persona-specific requirements",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction and interaction protocol described in detail, but deployment identifiers, decoding settings, repetitions and budgets not reported and construction reviewers not specified",
+   "p": "5-7, 17-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning efforts named, Harbor 0.23.0 given; source-specific agent scaffolds and model snapshots not identified",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks from public benchmarks, composition described (Table 1, Figs. 3, 8-9) and Lite release on GitHub",
+   "p": "1, 6, 29",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): native correctness by source benchmark verifiers; personalization by deterministic checks and LLM judges with only moderate agreement with experts (kappa 0.473)",
+   "p": "7, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): Joint, completion and personalization pass defined; cost only plotted in USD without definition or table",
+   "p": "1, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 28 configurations under the same task-persona assignments, simulator, grading and budget; ablations against native-only and upfront-disclosure variants",
+   "p": "7, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): number of runs per configuration not reported (apparently one; the ablation is explicitly single-run); paired sign tests with Bonferroni correction only for within-model effort settings in the appendix",
+   "p": "7, 10, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions are hedged and follow from results, including non-significant and mixed findings",
+   "p": "8-12, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations and validity caveats discussed throughout (scoring rule, small groups, selection, judge reliability, proxy for satisfaction), though no dedicated section",
+   "p": "8-10, 22-25, 28-30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors, not vendors of the evaluated models; the benchmark is their own evaluation method, not an evaluated approach",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

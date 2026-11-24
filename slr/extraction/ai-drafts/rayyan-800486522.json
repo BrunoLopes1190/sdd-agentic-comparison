@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486522",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -250,9 +250,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft gave Yes while itself noting that the six main configurations are not compared statistically and Table 3 shows no dispersion; the tests cover only ablations (effort, feedback) and tool behaviours (p. 7, 9, 20). Comparable records with 3 repetitions and no between-configuration tests were scored Partly."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "3 independent trials per task, with per-trial strict success shown in Table 3 (Trial 1/2/3, plus strict@3 and best-of-3), noise-calibrated timing, and significance tests for ablations and tool behaviours (Jonckheere-Terpstra, McNemar, Fisher, Spearman; p. 7, 9, 20). But no test of differences between the six main configurations. Yes (repetitions and statistics present) vs Partly (main comparison untested) is a judgement; round 1 also hesitated (Yes in the draft, Partly in r1)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "3 independent trials per task with per-trial strict success (Table 3: Trial 1/2/3, strict@3, best-of-3), noise-calibrated timing, and significance tests for ablations and tool behaviours (Jonckheere-Terpstra, McNemar, Fisher, Spearman; p. 7, 9, 20). But no dispersion measure and no test of differences between the six main configurations. Yes vs Partly is a judgement; earlier rounds also hesitated."
     }
    ],
-   "warn": "Há 3 tentativas e testes estatísticos nas ablações, mas nenhum teste nem dispersão entre as seis configurações principais (Tabela 3). Decide entre Sim e Parcial, coerente com estudos semelhantes. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Há 3 tentativas com taxas por tentativa (Tabela 3) e testes estatísticos nas ablações, mas nenhum teste entre as seis configurações principais. Decide entre Sim e Parcial, coerente com estudos semelhantes."
   },
   {
    "f": "Q9",

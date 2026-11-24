@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486535",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -273,8 +273,19 @@
    "f": "Q12",
    "v": "Yes (1): university authors, not vendors of the agents or models evaluated",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Most authors are at universities, but two authors (Li R., Mao) give the affiliation 'Somewhere on the Earth', so their independence from the evaluated vendors cannot be checked; the paper also used OpenAI Codex and GPT-5.6 Sol (an evaluated system) to build and audit the benchmark. Yes kept as best value since nothing links any author to a vendor."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No author is linked to OpenAI, Anthropic or the open-weight model vendors, but two authors (Li R., Mao) give 'Somewhere on the Earth' as affiliation (p. 1), so their independence cannot be checked; under the missing-information rule another reader could score Partly. Yes kept as best value."
+    }
+   ],
+   "warn": "Dois autores têm afiliação 'Somewhere on the Earth' (p. 1); a independência deles não é verificável. Decide se mantém Yes ou baixa para Partly por falta de informação."
   },
   {
    "f": "Q13",

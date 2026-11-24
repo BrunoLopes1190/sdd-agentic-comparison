@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486503",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The draft listed 98.3% vs 98.7% as an unresolved inconsistency; Table 13 (p. 40) shows 98.3% is GPT-5.5 + Codex's contested Blue success, so the two figures measure different denominators. Also added that the two fixed solvers differ by study and the 'preliminary' vs 'direct evidence' wording."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -256,10 +256,21 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): claims are hedged ('preliminary evidence'), overlapping CIs and the inconclusive harness ablation are reported",
+   "v": "Yes (1): the main text hedges the self-scaling claim ('preliminary evidence', 'early evidence'), and overlapping CIs, the inconclusive harness ablation and the 6.0% oracle false negatives are reported; but Appendix K calls the 12-14-task, one-draw-per-task ladder result 'direct evidence' for self-scaling",
    "p": "7-9, 37-38",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: the abstract and conclusion hedge, but Appendix K (p. 32) presents the small ladder (39 tasks, one solver draw each) as 'direct evidence' of the self-scaling property; another reader could score Partly for that overclaim."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: the abstract and conclusion hedge, but Appendix K (p. 32) presents the small ladder (39 tasks, one solver draw each) as 'direct evidence' of the self-scaling property; another reader could score Partly for that overclaim."
+    }
+   ],
+   "warn": "O resumo diz 'preliminary evidence', mas o Apêndice K (p. 32) chama 'direct evidence' a uma escada de só 39 tarefas com uma execução cada; decide se isso baixa Q9 para Partly."
   },
   {
    "f": "Q10",

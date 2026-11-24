@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486274",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -105,7 +105,7 @@
      "why": "The paper says T1 tokenizes 'C source code' (Table 1); 'C subset' is not stated in the text."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Team profile",
@@ -165,9 +165,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Baseline row had metric values but no verdict (every configuration, baseline included, gets its own verdict). Two criteria are stated: the end-to-end 'correctly and completely accomplishes every task' rule (Opus-4.7 fails, T4 68.4) and a per-task pass threshold of 60 (Opus-4.7 passes every task), so Opus-4.7 could be 'does not work' or 'partly'."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Baseline row had metric values but no verdict (every configuration, baseline included, gets its own verdict). Two criteria are stated: the end-to-end 'correctly and completely accomplishes every task' rule (Opus-4.7 fails, T4 68.4) and a per-task pass threshold of 60 (Opus-4.7 passes every task), so Opus-4.7 could be 'does not work' or 'partly'."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Metric values checked against Table 4 and the AEI/time/token figures on p. 11-12. Two success criteria are stated: the end-to-end tier rule (p. 1: a tier is reached only if every task up to it is correctly and completely accomplished; none of the 15 completes T0-T5) and a per-task passing threshold of 60 (p. 5, bold in Table 4), under which Opus-4.7 passes all six tasks. Which one the quality verdict should use is a judgement (Opus-4.7: does not work vs partly/works)."
     }
    ],
-   "warn": "Há dois critérios: tarefa completa (100) e limiar de 60% por tarefa. Pelo limiar de 60, o Opus-4.7 passa todas as tarefas. Decide qual critério usar e se o Opus-4.7 fica 'does not work' ou 'partly'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O artigo dá dois critérios: completar toda a pipeline (ninguém consegue) e o limiar de 60 por tarefa (Opus-4.7 passa todas). Escolhe qual usar para o veredicto de qualidade, sobretudo do Opus-4.7."
   },
   {
    "f": "Comparison: design",
@@ -208,7 +218,7 @@
      "why": "'C++' as the programming language and 'C subset' are not stated in the text (only the toolchain LLVM 14, ANTLR, pybind11, CMake and 'C source code' are)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -296,9 +306,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The compared objects (15 models, OpenHands SDK) are third-party, but the authors built RAMP, YatCC, the AI Hub gateway and the unified agent backend on top of the OpenHands SDK (footnote 2), and state 'We evaluate RAMP'. Whether their own evaluation infrastructure counts as an evaluated tool (Partly) or not (Yes) is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The compared objects (15 models, OpenHands SDK) are third-party, but the authors built RAMP, YatCC, the AI Hub gateway and the unified agent backend on top of the OpenHands SDK (footnote 2), and state 'We evaluate RAMP'. Whether their own evaluation infrastructure counts as an evaluated tool (Partly) or not (Yes) is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The compared objects (15 models, OpenHands SDK) are third-party, but the authors built RAMP, YatCC, the AI Hub gateway and the unified backend on the OpenHands SDK (footnote 2) and write 'We evaluate RAMP using 15 representative models'. Whether their own evaluation infrastructure counts as an evaluated tool (Partly) or not (Yes) is a judgement."
     }
    ],
-   "warn": "Os modelos e o OpenHands SDK são de terceiros, mas o backend do agente, o RAMP e o YatCC são dos autores, que dizem 'We evaluate RAMP'. Decide se Q12 fica Yes ou Partly."
+   "warn": "Os modelos e o OpenHands são de terceiros, mas os autores criaram o RAMP, o YatCC e o backend usado. Decide se a infraestrutura própria conta como ferramenta avaliada (Parcial) ou não (Sim)."
   },
   {
    "f": "Q13",

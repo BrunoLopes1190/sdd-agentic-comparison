@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800498231",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, J., Qian, H., Hu, Y., Zhang, J., Liu, Z. (2026). AgentSWE: Can Coding Agents Build the Agent You Actually Want? arXiv:2610.13361v1 [cs.SE], 9 Oct 2026. Code: https://github.com/VectorSpaceLab/AgentSWE",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.13361v1 [cs.SE], 9 Oct 2026; pages marked 'Preprint'; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Beijing Academy of Artificial Intelligence (Wang, Qian, Hu, Liu); Institute of Automation, Chinese Academy of Sciences (Wang, Zhang); Renmin University of China (Hu), China",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — new benchmark AgentSWE (25 tasks: 10 Creation, 10 Editing, 5 Optimization) for 'agent software engineering' (coding agents building agents from natural-language requirements), used to compare five builders (Codex harness + five models), further harness-model pairings, and condition variants (development cases, prompt priors, case budget)",
+   "p": "1-3, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Builders (coding agents) evaluated: Codex 0.144.1 harness with GPT-5.6 Sol, GPT-5.5, DeepSeek-V4-Pro, DeepSeek-V4-Flash, Qwen3.6-35B-A3B (main); harness studies with DSH (DeepSeek Harness) 0.1.1-rc.2, Claude Code 2.1.251, OpenCode 1.18.25, Pi 0.84.3 (models incl. GLM-5.3); repeated-build and condition studies with Codex + DeepSeek-V4.1-Flash. Prompt priors appended to the builder instruction: Strategy A (prescribed design/architecture) and Strategy B (self-created synthetic cases and end-to-end self-verification)",
+   "p": "6-7, 9-10, 25-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Task input (the 'commission'): requirement q = (g, I, C, R) published as four Markdown files: 01_task_goal.md (goal, target users, non-goals), 02_interface_and_delivery.md (run command, input/output contract, deliverables), 03_requirements_and_constraints.md (functional requirements, constraints, verifiable hard requirements), 04_resources.md (runtime, budgets, models, search); plus initial artefact a0 (empty / pinned production repo / runnable starter) and 2 public development cases (Creation, Editing). Editing deliverables: solution.patch, edit_report.json, run_report.json. Held-out cases and Result rubrics stay with the evaluator",
+   "p": "4-6, 20-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed as a method. Evaluation flow: (1) develop in one persistent builder session: submit snapshots, run on development cases, receive scores and summarized feedback, revise, within time/submission budgets; (2) freeze the delivery (Creation: final workspace; Editing: last accepted submission; Optimization: best accepted dev candidate); (3) held-out execution in an isolated pinned runtime through a fixed model gateway; (4) scoring by validity gates then rubric judge, or native evaluator for Optimization",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the builder runs (autonomous). Humans only in benchmark construction: authors verify and refine task materials drafted by GPT-5.6 Sol; authors review AI-proposed failure-mode labels",
+   "p": "5, 11, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only: structured natural-language requirement documents (goal, interface, constraints, resources) used as task input for autonomous coding agents; no SDD workflow run. Prompt priors (Strategy A/B) tested as condition variants",
+   "p": "4-6, 9-10",
+   "verdict": "uncertain",
+   "why": "No SDD approach is run; the four requirement Markdown files are only the benchmark's task input. 'Specification format only' is one reading; another reader could record N/A (no SDD workflow, only a structured natural-language task brief).",
+   "doubt": "O estudo não corre nenhuma abordagem SDD; os quatro ficheiros de requisitos são apenas o input das tarefas. Decide se 'specification format only' se aplica ou se o campo deve ser N/A."
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: the builder is handed 'a commission' with 'a natural-language requirement q = (g, I, C, R)' and is graded on 'requirement fidelity')",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Both: Creation = new project from an empty workspace (build a complete agent from a natural-language requirement); Editing = existing code base (add capabilities to pinned production agent repositories without regression); Optimization = existing runnable agent improved toward a benchmark objective",
+   "p": "4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "25 tasks; 150 development and 365 held-out cases in total. Creation and Editing: 2 development / 6 held-out cases per task; Optimization: 10-50 / 25-100 per task (BrowseComp 50/100, τ3 20/40, TerminalBench 10/40, PinchBench 20/40, OSWorld 10/25). Code size of deliveries and repositories Not stated (one example delivery: a 2,073-line script)",
+   "p": "6, 20, 33",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Building LLM agents. Creation domains: vulnerability validation, database analytics, desktop GUI automation, document-to-PPTX, document QA, formal theorem proving, repository bug repair, web extraction, scientific PDF translation, web research report. Editing: coding agents (Claude Code plugins, Aider, OpenHands, OpenClaw, Codex CLI) and domain agents (AI-Scientist-v2, DeepCode, DeepTutor, Dyad, OpenWiki). Optimization: BrowseComp, τ3, TerminalBench, PinchBench, OSWorld",
+   "p": "5-6, 8, 20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; 'The benchmark involves no human subjects')",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None reported as an outcome. Budgets fixed per family (Creation: up to 10 submissions, 8 h, 600 s per case; Editing: 5 accepted submissions, 5 h; Optimization: 5 accepted rounds, 16 h, native call/token/time caps). Execution time of each held-out Creation execution shown (Fig. 11) for gate analysis",
+   "p": "28, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Result (0-100): mean partial-credit score over held-out cases on a task-specific rubric derived from the requirement, with validity gates (zero for no launch, timeout, no parseable deliverable; Editing: patch must apply) and ceilings; family scores macro-averaged. Optimization: gap closure S = 100γ, γ = (J(â) − J(a0)) / (J* − J(a0)) on held-out instances of the native objective; per-instance W/L/T vs starter. Gap between development and held-out fidelity F_D − F_D̄",
+   "p": "4-7, 30",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Static assessment of each frozen Creation source by the LLM judge on a shared 8-dimension rubric (0-100: requirement coverage 20; interface/lifecycle, evidence integrity, safety/privacy 15 each; recovery/honest failure, testability/observability, maintainability/generalization 10 each; resource discipline 5); mean 41.8",
+   "p": "9, 29",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure modes from trajectory analysis: overfitting to visible cases (14 of 25 Optimization runs, 13 of 33 delivering Editing runs), hollow runtimes (157 of 270 held-out Creation executions fail a validity gate; 28 of 33 Editing runs leave capabilities absent/uninvoked/incomplete), unsupported completion claims (6 of 42 Creation reports, 3 of 19 Optimization reports; delivered Editing agents in 13 of 33 runs); outcome categories of executions (graded, error exit, timeout, other gate); starter-score SD across repeated evaluation",
+   "p": "8-9, 28, 32-33",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Harbor containers, deterministic gates, then an LLM judge applying the Result rubric to artefacts, traces and state (GPT-5.6 Sol xhigh for Creation, DeepSeek-V4.1-Flash max for Editing); native benchmark evaluators for Optimization; two-sided sign tests per Optimization run. Task materials, cases and rubrics synthesized by Codex + GPT-5.6 Sol and reviewed by the authors. Manual with AI assistance: trajectory/failure analysis with AI-proposed labels reviewed by the authors against the records",
+   "p": "5-7, 11, 30, 32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors for a configuration; quality and cost verdicts for every entry: no criterion stated by the authors. Main comparison (Codex harness, one build per task; Creation / Editing mean Result, Optimization mean S): Codex + GPT-5.6 Sol 13.7 / 23.9 / 4.7; Codex + GPT-5.5 5.8 / 31.6 / 1.2; Codex + DeepSeek-V4-Pro 19.1 / 31.6 / −4.0; Codex + DeepSeek-V4-Flash 15.1 / 14.0 (delivers on 4 of 10 Editing tasks) / −7.1; Codex + Qwen3.6-35B-A3B 2.3 / 0.0 (no candidate submitted on any Editing task) / 0.9. Harness study (one run each; Creation GUI / PDF Result; Optimization τ3 / PinchBench S): DSH + DS-V4-Pro 19.7 / 20.3; −28.6 / −39.7; DSH + DS-V4-Flash 18.7 / 30.5; 4.8 / −1.7; Claude Code + DS-V4-Pro 16.2 / 15.3; Claude Code + DS-V4-Flash 12.7 / 5.8; Claude Code + GLM-5.3 0.0 / 19.2; −19.0 / 13.0; OpenCode + GPT-5.6 Sol 0.0 / 26.7; OpenCode + GPT-5.5 0.0 / 42.8; Pi + GPT-5.6 Sol 0.0 / 18.3; −4.8 / 33.8; Pi + GPT-5.5 0.0 / 0.0. AgentSWE-Lite (8 tasks, 3 builds each, DeepSeek-V4.1-Flash as runtime and judge; Creation / Editing / Optimization means): Codex + GPT-5.6 Sol 23.1 / 29.3 / 14.8; Codex + DeepSeek-V4.1-Flash 33.5 / 29.3 / 18.7; Codex + Qwen3.6 0.0 / 2.0 / 3.4. Ablations (Codex + DeepSeek-V4.1-Flash, 3 runs per condition, mean Result): development cases 0/1/2/4: PDF 0.0 / 21.7 / 34.3 / 33.2, PPTX 4.2 / 15.0 / 33.5 / 15.2; prompt priors none / Strategy A / Strategy B: PDF 39.2 / 40.4 / 48.9, PPTX 29.6 / 7.4 / 31.2; extended budget (1,500 s per case, all 10 Creation tasks): last development score 70.3 vs held-out 31.5 on average",
+   "p": "2, 7-11, 28, 30",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: the 25 AgentSWE tasks (main), subsets for harness study (2 Creation + 2 Optimization tasks), AgentSWE-Lite (8 tasks), ablations (2 Creation tasks; extended budget all 10). Configurations: builder = harness × model. Baseline: no baseline configuration; in Optimization the starter agent a0 is scored on the same held-out instances. Held constant: task package, budgets, frozen delivery, runtime model per family through a benchmark gateway, judge per family; harness fixed (Codex) in the main comparison, model fixed when varying harness. Acceptance: held-out cases hidden from the builder, validity gates plus rubric scored by an LLM judge (Creation, Editing) or native benchmark evaluator (Optimization). Repetitions: main and harness studies one build per pairing; Lite and ablations three independent builds per condition. Human intervention: none during builds",
+   "p": "6-7, 9-11, 28, 35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best on Creation DeepSeek-V4-Pro (19.1, yet below 20 on 8 of 10 tasks); Editing GPT-5.5 and DeepSeek-V4-Pro 31.6; Optimization no builder closes more than 5% of the gap on average (13 of 25 runs above starter, 9 below, 3 equal; sign test significant in 5 runs: 3 BrowseComp gains, 2 losses). Creation runs ending development at ≥90 average 9.9 on held-out; Optimization candidates gain 13.1 on development vs 1.8 held-out. Harness matters with model fixed (GPT-5.5 PDF 21.8 Codex vs 42.8 OpenCode; DS-V4-Flash 5.8 Claude Code vs 30.5 DSH); no harness leads for every model. Two development cases raise Result by 34.3 (PDF) and 29.3 (PPTX) over zero; Strategy A lowers PPTX 29.6 → 7.4, Strategy B raises PDF 39.2 → 48.9 'within run-to-run variation'. No significance tests between builders",
+   "p": "2, 7-11, 30",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished builders only partly: all score low and differences are task-specific; held-out testing exposed the development/held-out gap the benchmark targets. Repeatability limited: builds of the same pairing vary widely (GPT-5.6 Sol 32.8, 33.3, 90.5 on DeepTutor; DeepSeek-V4.1-Flash 0.0, 33.3, 56.8 on repository repair); starter-score SD across repeated evaluation 4.5 (τ3) to 20.8 (PinchBench). Limitations stated by the authors: single build per pairing in main and harness studies; LLM judge errors and judge sharing a model family with builders; levels not comparable across families or studies",
+   "p": "11, 28, 35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: main and harness studies build each pairing once; native Optimization objectives vary between repeated evaluations; Creation/Editing scores inherit model-judge errors, judge shares a model family with at least one builder; one runtime model and judge per family, so levels are not comparable across families; condition studies compared only within themselves. Gaps / future work: harnesses that test against the requirement and verify completion claims; training that rewards behaviour on unseen cases",
+   "p": "11, 35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Benchmark, task packages, cases, rubrics, judge prompts, evaluators and harness released (GitHub VectorSpaceLab/AgentSWE), with AgentSWE-Lite; upstream code fetched by pinned commit where licence forbids redistribution. No pre-registration. Task materials and rubrics generated by GPT-5.6 Sol and revised by the authors (AI use statement). Tables 1, 4, 5 and 11 read from a garbled text extraction; Table 1 means cross-checked with Fig. 1 and text (Creation average 11.2 matches; GPT-5.6 Sol Optimization row 32.3/4.3/−10.0/−14.9/12.0 gives mean 4.7); Table 4 values rebuilt from the garbled layout and consistent with the Codex rows of Table 1 (τ3 4.3/0.0/15.8/−50.0, PinchBench −14.9/−11.1/−38.7/−34.4) and with the text. No inconsistency found in the counts checked (33 delivering Editing runs; 1,225 paired Optimization instances, W/L/T 175/125/925; 270 traced executions). Programming language: Not stated overall (Creation entry points are Python run_agent.py; OpenHands Editing task in TypeScript)",
+   "p": "6, 8, 10-11, 20-22, 30",
+   "verdict": "corrected",
+   "why": "Round 1 left the Table 4 Optimization column assignment as 'inferred and should be checked'; the rebuilt values match the Codex rows of Table 1 and the text, so the note now records the check and that values were rebuilt."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (whether coding agents deliver the agent a requirement describes) and three contributions stated",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task construction, package, evaluation protocol, settings, budgets, builder instructions and prompt priors given; benchmark and harness released",
+   "p": "4-7, 25-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness versions (Codex 0.144.1, Claude Code 2.1.251, OpenCode 1.18.25, Pi 0.84.3, DSH 0.1.1-rc.2, Harbor 0.20.0) and model names with effort settings given (Table 9)",
+   "p": "7, 15, 27-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described (Table 6, representative cards) and publicly available",
+   "p": "5-6, 11, 20-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): held-out cases hidden from builders, validity gates and native evaluators (Optimization) are independent; but Creation/Editing scores come from an LLM judge applying LLM-generated rubrics, with no human validation of the judge reported",
+   "p": "6-7, 11, 35",
+   "verdict": "uncertain",
+   "why": "Held-out cases with requirement-derived rubrics, deterministic validity gates and native evaluators are independent of the authors' judgement; but Creation/Editing scores come from an LLM judge applying LLM-generated rubrics with no reported human validation. Partly vs Yes is a judgement call.",
+   "doubt": "Os casos held-out com rubricas e gates determinísticos funcionam como testes de aceitação, mas a nota final de Creation/Editing é dada por um LLM juiz sem validação humana. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics (Result, gap closure, static score) defined; cost (tokens, money, time) not measured, only fixed budgets",
+   "p": "4-7, 28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five builders on the same tasks and conditions; Optimization starter scored on the same held-out instances",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): main comparison one build per pairing; three independent builds in the Lite and condition studies (reported descriptively); sign tests only per Optimization run against the starter; no tests of differences between builders",
+   "p": "8, 10-11, 28, 30, 35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions (builders rarely deliver; failure modes) follow from results; negative and mixed results reported",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (repetition, model-based judging, evaluation settings)",
+   "p": "35",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (BAAI, CAS, Renmin); evaluated harnesses and models are not theirs",
+   "p": "1, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

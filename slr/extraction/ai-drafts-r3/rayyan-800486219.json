@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486219",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lei, X., Che, X., Xiong, J., Zhang, C., Huang, Y., Zhou, C., Huang, H., Liu, M., Zhu, L., Ye, H., Hao, J., Deng, K., Zhan, Z., Li, H., Li, D., Yao, Y., Sun, M., Zhang, Z., Liu, J. (2026). WebCompass: Towards Multimodal Web Coding Evaluation for Code Language Models. arXiv:2604.18224v1 [cs.SE], 20 Apr 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2604.18224v1 [cs.SE], 20 Apr 2026; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Nanjing University; Kuaishou Technology (per-author mapping not given)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — WebCompass, a multimodal web-coding benchmark (text, image, video inputs; generation, editing, repair; 7 task categories, 1,526 tasks) with checklist-guided LLM-as-a-Judge for editing/repair and a new Agent-as-a-Judge (Claude Code + Chrome DevTools MCP) for generation; ten models compared",
+   "p": "1-3, 8-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations are models only, with no agent harness: each model is prompted directly and answers in a single response (generation: whole repository as Markdown, one fenced block per file; editing/repair: search/replace blocks, 'You must complete the task in single response'; Appendix A.6.3-A.6.5). Models: Claude-Opus-4.5, Gemini-3-Pro-Preview, Gemini-3-Flash-Preview, GPT-5.2, Claude-Sonnet-4.5, Qwen3-VL-235B-A22B-Instruct/-Thinking, Qwen3-VL-32B-Instruct, Qwen3-VL-30B-A3B-Thinking/-Instruct; auxiliary Qwen3-32B (text-only comparison). Judge: Claude Code v2.0.67 with Chrome DevTools MCP Server v0.19.0, Claude-Opus-4.5 as judge model",
+   "p": "10-11, 18, 25-26, 29-32",
+   "verdict": "corrected",
+   "why": "The draft said the agent was not stated; the prompt templates in Appendix A.6 show the evaluated models answer in one response with no agent (generation as Markdown files, editing/repair as search/replace blocks).",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Text-guided generation input: structured web design document (page content, interaction behaviours, visual appearance) elaborated by an LLM acting as product manager from underspecified queries. Editing: requirements stating what to change without implementation details ('specify goals, not methods'). Repair: vague defect hints, ground-truth search/replace annotations. Evaluation: LLM-generated checklist (task, operation sequence, expected result, criteria, max score)",
+   "p": "4-6, 9-10, 28-29",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for the evaluated models (one output per task: repository for generation, patch for editing/repair). Agent-as-a-Judge: checklist generation -> browser interaction -> adaptive code verification (synthesised JavaScript tests, selector-only adaptation) -> evidence-grounded scoring",
+   "p": "3-4, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in generation by the models; humans in dataset curation (expert review of all instances, recording videos) and in judge validation (200-sample subset)",
+   "p": "4-6, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not an SDD workflow; models evaluated on the benchmark",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'structured web design document', 'specify goals, not methods', 'Spec Implementation' dimension",
+   "p": "4, 6, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Both: new project (text-, vision- and video-guided generation of a complete web code repository) and existing code base (text/vision-guided editing and diagnostic/visual-diagnostic repair via patches on prototypes of 32k-64k characters)",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "1,526 tasks: 123 text-guided, 109 vision-guided, 94 video-guided generation; 300 each for text-guided editing, vision-guided editing, diagnostic repair, visual-diagnostic repair; 50 curated prototypes (single- and multi-page variants); Easy/Medium/Hard labels. Framework subset: 180 tasks (60 per category) x React/Vue/Vanilla",
+   "p": "2, 5, 7, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Front-end web development (HTML, CSS, JavaScript; React, Vue, Vanilla); 15 generation domains (e.g. e-commerce and fintech, enterprise, games, education), 16 editing operation types, 11 repair defect types",
+   "p": "6-7, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (model outputs; annotators for curation and judge validation not described)",
+   "p": "6, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None for the evaluated models; judge cost per sample only (Claude-Opus-4.5 $4.66, Sonnet-4.5 $2.34, Haiku-4.5 $1.02)",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "0-100 scores per dimension (harmonic mean of normalised checklist items, epsilon = 1 smoothing). Generation: Runnability (RUN), Spec Implementation (SPI); Editing: Instruction Targeting (ITG), Feature Integrity (FTI); Repair: Root-Cause Targeting (RCT), Interaction Integrity (ITI); Overall = arithmetic mean of nine dimensions; Pass@1 and Worst-of-n (W@2, W@4)",
+   "p": "8, 10-11, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Patch complexity (changed lines, patch count/hunks), repair patches compared with human ground truth",
+   "p": "15-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Visual dimensions: Design Quality (DSQ), Style Conformance (STC), Reference Fidelity (RFF); scores by difficulty, framework, subtask type, thinking vs instruct, text-only vs vision-language; error taxonomy (15 types in 4 domains plus repair-specific E5.x) with root causes; judge-human agreement (Pearson r, rank differences)",
+   "p": "8, 12-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Editing/repair: patches applied, project launched in headless Chromium, screenshots and logs scored by LLM judge against a checklist (0-10 per dimension, structured JSON). Generation: Agent-as-a-Judge (Claude Code + Chrome DevTools MCP) runs the site, interacts, synthesises JavaScript tests; scores without auditable evidence discarded. Judge chosen by agreement with humans on 200 samples (Opus-4.5 r = 0.93-0.96). Error classification by LLM prompt",
+   "p": "8-12, 19, 26-28",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No criterion stated by the authors for any entry (quality and cost; cost not measured). Values RUN/SPI/DSQ | ITG/FTI/STC | RCT/ITI/RFF | Overall: (a) Claude-Opus-4.5 77.18/68.95/62.26 | 71.86/65.82/60.83 | 48.45/85.54/65.71 | 67.40; (b) Gemini-3-Pro-Preview 74.05/55.76/64.07 | 69.52/65.14/58.16 | 54.16/87.30/72.00 | 66.68; (c) Gemini-3-Flash-Preview 74.87/54.32/62.42 | 65.95/62.35/57.21 | 53.18/86.84/71.65 | 65.42; (d) GPT-5.2 75.38/60.22/55.92 | 66.97/62.70/56.63 | 41.24/79.33/58.70 | 61.90; (e) Claude-Sonnet-4.5 65.30/50.37/56.78 | 60.06/53.71/45.51 | 40.44/80.63/61.31 | 57.12; (f) Qwen3-VL-235B-A22B-Instruct 61.26/42.14/47.06 | 27.74/25.48/23.53 | 27.30/68.87/46.88 | 41.14; (g) Qwen3-VL-235B-A22B-Thinking 63.86/35.02/45.21 | 22.15/21.67/19.06 | 27.02/68.74/46.28 | 38.78; (h) Qwen3-VL-32B-Instruct 50.39/25.62/34.56 | 26.96/26.62/22.78 | 24.67/61.93/43.27 | 35.20; (i) Qwen3-VL-30B-A3B-Thinking 47.37/20.87/37.47 | 19.82/21.21/18.20 | 18.08/51.85/31.31 | 29.58; (j) Qwen3-VL-30B-A3B-Instruct 41.79/20.80/29.28 | 20.57/20.97/17.93 | 19.32/50.71/31.35 | 28.08. Text-only subset Overall: (k) Qwen3-32B 31.60; (l) Qwen3-VL-32B-Instruct 36.49. Worst-of-4: Gemini-3-Pro-Preview 66.96 -> 53.56 (~80% retained); Qwen3-VL-235B-A22B-Instruct 39.95 -> 27.78 (~69.5%)",
+   "p": "11, 16, 18, 27",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: same 1,526 WebCompass instances for all ten models; subsets for framework (180 tasks x React/Vue/Vanilla, four models), text-only comparison, thinking vs instruct, Worst-of-4 (two models). Baseline: none designated; repair has ground-truth patches and fixed screenshots. Held constant: inputs, judge (Claude-Opus-4.5), evaluation environment (Linux, headless Chromium, per-task timeouts). Acceptance criteria: LLM-generated checklists scored by LLM or agent judge; no deterministic test suites except patch applicability. Repetitions: single sample (Pass@1) for main results; n = 4 for two models. No statistical tests. Human intervention: none",
+   "p": "8-12, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude-Opus-4.5 (67.40) and Gemini-3-Pro-Preview (66.68) best, with complementary strengths (Opus leads RUN and ITG; Gemini leads RCT and RFF); best open model Qwen3-VL-235B-A22B-Instruct 41.14, over 26 points behind; 30B models below half the top scores. Generation/editing ordering executability > functional > visual for closed models; repair ITI >> RFF > RCT. Editing especially hard for open models (18-28). Vanilla best for generation/editing, Vue weakest; GPT-5.2 best repair with React. Scores fall with difficulty (Gemini-3-Pro SPI 89.83 Easy -> 37.64 Hard). Animation edits and semantic-error repairs hardest. Thinking mode raises RUN but lowers SPI for 235B (35.02 vs 42.14). Feature Missing and Resource Fail are 40-55% of generation errors; Defect Not Addressed dominates repair errors (49-74%)",
+   "p": "11-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models, task types, frameworks and difficulty levels; judge agreement with humans r = 0.93-0.96 (Opus-4.5) and model rankings within one rank of human rankings. Repeatability: main results single-sample; Worst-of-4 shows notable drops (e.g. Qwen3-VL-235B retains ~69.5%). Limitations stated: cannot keep pace with highly dynamic pages (games, timing-dependent animation); static benchmark with contamination risk; Agent-as-a-Judge is expensive; structured design documents test instruction following rather than creative intent",
+   "p": "12-13, 16, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Front-end only (no back-end, database, API, deployment); structured queries trade creative-intent assessment for determinism; limited real-time interaction with dynamic pages; static benchmark contamination risk; evaluation cost of Agent-as-a-Judge. Gaps: visual design understanding, output consistency, holistic evaluation of user-facing artefacts",
+   "p": "22, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: text says the visual dimension is the lowest axis in Generation for all ten models, but in Table 3 SPI is below DSQ for Gemini-3-Pro (55.76 vs 64.07), Gemini-3-Flash, Claude-Sonnet-4.5 and all Qwen models; difficulty analysis names 'Gemini-2.5 Pro', not an evaluated model; Worst-of-n Pass@1 values for editing and repair (Table 8, e.g. Gemini ITG 74.84, RCT 50.95; Qwen ITG 26.33) equal the Vanilla framework subset (Table 6), not Table 3, while the generation Pass@1 values match neither table; the subset used is not stated; conclusion '~25 points' vs 'over 26 points' (67.40 vs 41.14); Figure 8 uses harmonic mean of three dimensions while Table 3 Overall is an arithmetic mean of nine. Claude-Opus-4.5 is both an evaluated model and the judge (Claude Code orchestrator), a self-preference risk not discussed. Evaluated models answer in a single response (Appendix A.6 prompts); temperature, token limits and API settings not stated. Values from Tables 3, 4, 5, 8 (pp. 11-12, 18, 27). Data: dataset on Hugging Face (NJU-LINK/WebCompass), code on GitHub, project page. Pre-registration: not stated. Programming languages: HTML/CSS/JavaScript (React, Vue, Vanilla)",
+   "p": "1, 11-16, 18, 22, 25-27, 29-32",
+   "verdict": "corrected",
+   "why": "Two claims fixed: the A.6 prompts show single-response generation (the draft said agentic vs single call was not stated); and only the editing/repair Pass@1 values of Table 8 match the Vanilla subset of Table 6, the generation values do not.",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): gap and three contributions explicit",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): data construction, judging protocol, scoring and prompts (including the single-response task prompts) described, data and code released; decoding settings of the evaluated models (temperature, token limits) and the human validation procedure (annotators, instructions for the 200-sample study) not described",
+   "p": "4-12, 26-34",
+   "verdict": "corrected",
+   "why": "Score unchanged, but the reason was partly wrong: how the models were run (single response, no agent) is shown in the Appendix A.6 prompts.",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): evaluated models named with versions (e.g. Claude-Opus-4.5, Gemini-3-Pro-Preview, GPT-5.2, Qwen3-VL variants, Table 7); no agent harness is used (single-response prompts, Appendix A.6); judge tooling versioned (Claude Code v2.0.67, Chrome DevTools MCP v0.19.0); API snapshot dates not given",
+   "p": "10-11, 26, 29-32",
+   "verdict": "uncertain",
+   "why": "The previous Partly rested on an unstated inference harness, but the models are prompted directly with no agent. Whether named model releases without API snapshot dates count as identified versions is a judgement.",
+   "doubt": "Os modelos são chamados diretamente, sem agente, e as versões estão nomeadas, mas sem datas de snapshot da API. Decide entre Yes e Partly (apêndice A.6 e tabela 7)."
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described in detail and publicly available (Hugging Face)",
+   "p": "1, 4-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM and agent judges with LLM-generated checklists, validated against human judgements on 200 samples (r = 0.93-0.96); no deterministic acceptance tests",
+   "p": "8-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality dimensions and scoring formula defined; no cost metrics for the evaluated models",
+   "p": "8, 10-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): ten models on the same tasks and judge; controlled sub-comparisons (frameworks, thinking vs instruct, text-only vs VL)",
+   "p": "11-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Worst-of-4 for two models; main results single-sample, no statistical tests",
+   "p": "11, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): most conclusions follow from the tables, but the claim that the visual axis is lowest in Generation for all models is contradicted by Table 3",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Appendix A.1 Limitations",
+   "p": "25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Nanjing University and Kuaishou authors are not vendors of the models evaluated (Anthropic, Google, OpenAI, Alibaba Qwen)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

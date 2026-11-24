@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486073",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ding, J., Long, S., Pu, C., Zhang, G., Zhou, H. (leading authors), et al.; corresponding Chen, X., Huang, W., Zhang, G. (2025). NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents. arXiv:2512.12730v2 [cs.CL], 8 Jan 2026",
+   "p": "1, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2025 (arXiv v1 2025; v2 dated 8 Jan 2026)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2512.12730v2 [cs.CL]",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry and academia: ByteDance Seed China (corresponding authors), M-A-P, 2077AI, Humanlaya Data, Nanjing University, Peking University, Beijing University of Posts and Telecommunications, Beihang University",
+   "p": "1, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — NL2Repo-Bench benchmark (104 tasks: build a complete installable Python library from a single natural-language requirements document in an empty workspace, scored by the upstream pytest suite); baseline results for 10 models in OpenHands-CodeAct plus Claude Code and Cursor-CLI, with failure analysis and two ablations",
+   "p": "1-3, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Coding agents/frameworks compared: OpenHands-CodeAct agent (main framework), Claude Code, Cursor-CLI; no versions. Models: DeepSeek-V3.1, DeepSeek-V3.2, Qwen3-235B-Instruct, Qwen3-235B-Thinking, Kimi-k2, GLM-4.6, Claude-Sonnet-4, Claude-Sonnet-4.5, Gemini-3-pro (via Cursor-CLI), GPT-5. No SDD approach",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark input (not an approach): one natural-language specification document per task with four sections: Project Description; Supports (third-party packages with versions, expected directory structure); API Usage Guide (classes, functions, signatures, expected behaviour, import instructions); Implementation Nodes (concrete examples for critical APIs). Average ~18,800 tokens. Written by annotators by reverse-engineering the upstream repository (AST-assisted, AI drafting allowed, manually verified)",
+   "p": "2, 5-7, 24-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "No prescribed flow: agent gets an empty workspace with the spec document and a single initialization instruction, then works autonomously (free choice of tools, unlimited rounds); workspace is then packaged and the upstream pytest suite run in a Docker testing image. Benchmark construction: repository selection -> environment/test validation -> spec writing -> human expert review, static AST coverage check, preliminary agent runs with failure analysis by a senior engineer -> refinement",
+   "p": "4-8, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs (fully autonomous after one instruction). Human review only in benchmark construction (Python experts verify spec fidelity; senior engineer analyses failing tests)",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent run from specification to repository (the specification is the benchmark input, not an SDD workflow)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of coding agents; the input is a detailed natural-language 'specification' document, but no SDD approach; authors do not use SDD terms)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: generate a complete installable Python library from scratch (empty workspace) reproducing a real open-source repository",
+   "p": "2, 4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "104 tasks; source repositories 300-120,000 LOC at selection; difficulty Easy <=1,500 LOC (26), Medium 1,500-4,000 LOC (46), Hard >=4,000 LOC (32); spec ~18,800 tokens on average; ~180 interaction turns on average for Claude-Sonnet-4.5",
+   "p": "4, 7, 12, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python libraries in 9 categories: Web Development 10, Testing 13, Utility Libraries 11, Machine Learning 7, Data Analysis & Processing 18, Database Interaction 7, Networking Tools 9, Batch File Processing 5, System Tools 24",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in the runs; annotators, Python experts and a senior Python engineer build the benchmark)",
+   "p": "6, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "No token, time or money metrics. Effort proxies: interaction turns per task (avg, std, max; turns/score ratio, Table 6); total tool invocations and per task (Table 7, Fig. 7 axis labelled 'Cost/Effort')",
+   "p": "12-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Average test pass rate on the upstream pytest suite (task score; overall, by difficulty and by category); Pass@1 count = number of tasks whose full test suite passes in a single run",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Early-termination rate (finish invoked within <100 turns) and non-finish rate (finish never invoked); tool-call distribution and correlation of tool usage with score (Table 5); tool-transition workflow patterns (edit-test loop, navigation trap, blind editing); failure taxonomy (ImportError/ModuleNotFound, test-suite alignment); performance by context-window size",
+   "p": "10-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: generated workspace run against the original pytest suite in a per-task Docker image (modified so collection errors do not abort the run); tool calls and turns from agent traces. Manual/qualitative: case analyses of failures and workflow patterns",
+   "p": "6, 8, 12-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark NL2Repo-Bench, 104 tasks, one run each. Criterion: average pass rate on upstream tests and Pass@1 count; no success criterion stated by the authors. Overall % (Pass@1) [avg turns; tool calls per task, Tables 6-7, OpenHands only]: (1) Claude Code + Claude-Sonnet-4.5: 40.2 (3); (2) OpenHands + Claude-Sonnet-4.5: 39.9 (3) [181.6; 85.98]; (3) Cursor-CLI + Claude-Sonnet-4.5: 39.2 (4); (4) OpenHands + Claude-Sonnet-4: 37.0 (5) [180.7; 85.38]; (5) Cursor-CLI + Gemini-3-pro: 34.2 (3); (6) OpenHands + DeepSeek-V3.2: 27.6 (1) [254.3; 120.59]; (7) OpenHands + Kimi-k2: 22.7 (3) [275.1; 126.42]; (8) OpenHands + DeepSeek-V3.1: 22.2 (1) [202.3; 94.88]; (9) OpenHands + GPT-5: 21.7 (1) [78.4; 34.30]; (10) OpenHands + Qwen3-Instruct: 17.9 (1) [212.9; 100.28]; (11) OpenHands + GLM-4.6: 17.5 (2) [138.6; 62.79]; (12) OpenHands + Qwen3-Thinking: 13.8 (1) [70.2; 30.13]. For each: quality verdict no criterion stated by the authors (authors call long-horizon repository generation 'largely unsolved'); cost verdict no criterion stated by the authors (no tokens, time or money; only turns and tool calls as effort proxies, not reported for Claude Code and Cursor-CLI). Ablation (round limit 50-500, Claude-Sonnet-4.5, framework not stated): score rises up to 200 rounds then saturates (values only in Fig. 9); no criterion stated. Ablation (Claude Code + Claude-Sonnet-4.5 with all tests visible): 59.4% (Pass@1 18) vs 40.2% (3); Easy 73.2 / Medium 67.5 / Hard 35.6; no criterion stated",
+   "p": "1, 8-9, 11-13, 16-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 104 NL2Repo tasks (spec document + empty workspace). Configurations: 10 models in OpenHands-CodeAct (Gemini-3-pro via Cursor-CLI because of agent-in-a-loop errors in OpenHands) plus Claude-Sonnet-4.5 in Claude Code and Cursor-CLI. Baseline: none (leaderboard). Held constant: task document, empty workspace, single initialization instruction, no human input, no round limit, same Docker evaluation image; model fixed (Claude-Sonnet-4.5) across three frameworks to isolate the framework. Acceptance tests: upstream repository pytest suites (hidden from the agent). Repetitions: single run (Pass@1). Human intervention: none after the initial instruction",
+   "p": "7-8, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Code + Claude-Sonnet-4.5 best (40.2%), then OpenHands + Claude-Sonnet-4.5 39.9% and Cursor-CLI 39.2%; Qwen3-Thinking lowest (13.8%). Same model differs by <1% across the three frameworks, so model capability dominates ('model-centric benchmark'). Performance falls with difficulty (e.g. Claude Code 51.8 Easy / 44.5 Medium / 25.1 Hard). Long-context models lead; GPT-5 halts awaiting user input (non-finish 84.5%); Qwen3-Thinking early-terminates in 49.0%. task_tracker usage correlates 0.711 with score. Showing tests raises Claude Code to 59.4%. No significance tests",
+   "p": "8-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models clearly (13.8-40.2%) and difficulty levels; did not distinguish frameworks with the same model (<1%), which the authors read as the benchmark being model-centric. Repeatability not assessed (single run, no variance reported). No limitations of the comparison method stated",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats section. Gaps stated: long-horizon repository generation largely unsolved; progress needs agentic planning, self-verification/self-correction loops, global coherence mechanisms and reliable environment management beyond larger context windows; early termination of thinking models and 'collaborative bias' of GPT-5",
+   "p": "1, 3, 17-18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract 'below 40%' and conclusion 'Claude-Sonnet-4.5 ... 39.6% pass rate' vs Table 3 40.2% (Claude Code) / 39.9% (OpenHands); text 'below 40.5%' (p. 9); text says the strongest model fully passes 'only five repositories' but Table 3 gives Pass@1 3 for the top configuration (5 is Claude-Sonnet-4); Table 6 gives DeepSeek-V3.2 a score of 22.2% (and turns/score 1145.5 computed from it) vs 27.6% in Table 3, Fig. 5 and the text; Fig. 6 N=8980 for Claude-Sonnet-4 vs Table 7 total 8880. Values from Table 3 used. Data: dataset, Docker environments and evaluation toolkit released (github.com/multimodal-art-projection/NL2RepoBench). No pre-registration. Programming language: Python",
+   "p": "1, 8-9, 12-14, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (evaluate long-horizon repository generation) and contributions stated",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark construction, setup and scoring described in detail, but the initialization instruction/prompt, agent framework versions and configuration not given",
+   "p": "4-8, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (some without exact snapshot, e.g. GPT-5, Kimi-k2); agent frameworks named without versions",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): construction and categories described; dataset and environments released",
+   "p": "4-7, 18",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): upstream repository pytest suites, hidden from the agent",
+   "p": "2, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): pass rate and Pass@1 defined; no cost metric (only turns and tool calls)",
+   "p": "8, 12-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all configurations on the same tasks, workspace, instruction and evaluation image; same model across three frameworks",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single run per configuration, no variance or statistical tests of differences",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): negative results reported, but causal claims (context window, planning tools, thinking-model 'hallucination of verification') rest on correlations/hypotheses, and summary figures in abstract/conclusion differ from the tables",
+   "p": "9-16, 18",
+   "verdict": "uncertain",
+   "why": "Judgement call: negative results are reported openly, but the context-window and planning explanations rest on correlations without tests, and the headline figures in the abstract (below 40%) and conclusion (39.6%) differ from Table 3; another reader could give Yes",
+   "doubt": "Os resultados negativos estão relatados, mas as causas (janela de contexto, planeamento) assentam em correlações e o resumo/conclusão diferem da Tabela 3. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats to validity discussed",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (ByteDance Seed and academic partners) are independent of the evaluated agents and models; no ByteDance model is evaluated",
+   "p": "1, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation benchmark, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

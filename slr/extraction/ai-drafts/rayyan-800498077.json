@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498077",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Missed reporting inconsistency: solved counts in Table 4 vs pass rates in Table 2 differ for four of six cells"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -263,9 +263,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Pass-rate nulls are reported as noise, but 'failure fingerprints replicate across models' and 'OpenCode's positive verdicts can be trusted' rest on one trial per cell with small counts, and the Table 2/Table 4 solved-count mismatch is not acknowledged; a reader could score Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Pass-rate differences are correctly treated as within noise and the cost claim rests on non-overlapping CIs, but the claims that failure fingerprints 'replicate' across models and that OpenCode's 'positive verdicts can be trusted' (Sec. 5.2) rest on one trial per cell with small counts, and the Table 2 vs Table 4 solved-count mismatch (4 of 6 cells) is not acknowledged. Yes or Partly both defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Pass-rate differences are correctly treated as within noise and the cost claim rests on non-overlapping bootstrap CIs, but the claims that failure fingerprints 'replicate' across models and that OpenCode's 'positive verdicts can be trusted' (Sec. 5.2) rest on one trial per cell with small counts, and the Table 2 vs Table 4 solved-count mismatch (4 of 6 cells) is not acknowledged. Yes or Partly both defensible"
     }
    ],
-   "warn": "As 'impressões digitais' de falha e a confiança nos veredictos do OpenCode assentam num só ensaio por célula com contagens pequenas, e as Tabelas 2 e 4 não batem certo. Decide entre Yes e Partly."
+   "warn": "As 'impressões digitais' de falha e a confiança nos veredictos do OpenCode assentam num só ensaio por célula com contagens pequenas, e as Tabelas 2 e 4 não batem certo em quatro células. Decide entre Yes e Partly."
   },
   {
    "f": "Q10",

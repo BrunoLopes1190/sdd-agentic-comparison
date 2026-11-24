@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486575",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The URL https://multistepswe.com does not appear anywhere in the full text (p. 1 only shows the link labels 'Leaderboard' and 'GitHub'); unsupported value removed"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

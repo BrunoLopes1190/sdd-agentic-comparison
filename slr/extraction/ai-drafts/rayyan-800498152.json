@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498152",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -292,9 +292,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The entry criterion and screening exclusions are explicitly stated (p. xvii), which under Kitchenham's DARE reading could be Yes; Partly rests on the targeted citation-driven admissions (distributed-systems synthesis, post-cutoff case) that bypassed the thread protocol."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The entry criterion and screening exclusions are explicit (p. xvii, file p18), which Kitchenham scores Yes; Partly rests on the 21 distributed-systems works and other records admitted by targeted citation-driven selection outside the thread protocol (p. xiii, file p14). Both readings are defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The entry criterion and screening exclusions are explicit (p. xvii, file p18), which Kitchenham scores Yes; Partly rests on the 21 distributed-systems works and other records admitted by targeted citation-driven selection outside the thread protocol (p. xiii, file p14). Both readings are defensible."
     }
    ],
-   "warn": "Os critérios de inclusão estão explícitos (p. xvii), mas cerca de 30 fontes entraram por seleção dirigida fora do protocolo. Decide se isto baixa DARE1 para Partly ou se fica Yes."
+   "warn": "Os critérios de entrada e exclusão são explícitos (p. xvii), mas parte das fontes entrou por seleção dirigida fora do protocolo (p. xiii). Decide entre Yes e Partly."
   },
   {
    "f": "DARE2",
@@ -312,9 +322,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Evidence is graded per scoped claim (strong/directional/corroborating/null) with explicit definitions, challenge passes and a downgrade audit (p. xvii-xviii); this is a defined quality assessment, but per claim rather than per primary study and by a single adjudicator, so Yes or Partly are both defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Quality is assessed per scoped claim (strong/directional/corroborating/null, defined on p. xvii-xviii, file p18-19) with challenge passes and a downgrade audit, not per primary study, and by a single adjudicator with no inter-rater agreement. Yes or Partly both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Quality is assessed per scoped claim (strong/directional/corroborating/null, defined on p. xvii-xviii, file p18-19) with challenge passes and a downgrade audit, not per primary study, and by a single adjudicator with no inter-rater agreement. Yes or Partly both defensible."
     }
    ],
-   "warn": "A qualidade é avaliada por afirmação (quatro grupos de evidência definidos), não por estudo primário, e só pelo autor. Confirma nas p. xvii-xviii se aceitas isto como Yes ou mantens Partly."
+   "warn": "A qualidade é avaliada por afirmação (grupos de evidência), não por estudo primário, e só pela autora. Confirma nas p. xvii-xviii e decide entre Yes e Partly."
   },
   {
    "f": "DARE4",

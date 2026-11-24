@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800497976",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,10 +187,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: the year distribution in Fig. 6 sums to 151 papers (7 + 33 + 81 + 30) while 152 are stated (pp. 11-12); SWE-Agent described as a multi-agent system with Architect, Coder and Reviewer agents (p. 15), to be checked against its cited source. Search period and cut-off date not stated (web sources accessed 2025-09-15). Fig. 6 legend shows Boolean OR between the term clusters, the text says 'Boolean operators' (pp. 11-12). No quality assessment and no per-study extraction table. No data package. Pre-registration: not claimed. Programming language: N/A",
-   "p": "11-12, 15, 27",
-   "rev": [],
-   "warn": ""
+   "v": "Inconsistencies: the year distribution in Fig. 6 sums to 151 papers (7 + 33 + 81 + 30) while 152 are stated (pp. 11-12); SWE-Agent described as a multi-agent system with Architect, Coder and Reviewer agents (p. 15), but reference [242] is Yang et al. 2024, 'SWE-agent: Agent-computer interfaces enable automated software engineering', to be checked against that source; the same reference [242] is also cited for SWE-bench Multimodal (p. 22). Search period and cut-off date not stated (web sources accessed 2025-09-15). Fig. 5 (survey methodology) shows Boolean OR between the term clusters, the text says 'Boolean operators' (pp. 11-12). No quality assessment and no per-study extraction table. No data package. Pre-registration: not claimed. Programming language: N/A",
+   "p": "11-12, 15, 22, 27",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The OR between the term clusters is drawn in Fig. 5 (survey methodology), not in Fig. 6 (year distribution) (p. 11)."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Missed a citation inconsistency: [242] (the SWE-agent paper, Yang et al. 2024) is also cited as the source of SWE-bench Multimodal in the benchmark section (p. 22); added the identity of [242] for the SWE-Agent multi-agent claim."
+    }
+   ],
+   "warn": "O valor foi corrigido nas verificações 2 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",

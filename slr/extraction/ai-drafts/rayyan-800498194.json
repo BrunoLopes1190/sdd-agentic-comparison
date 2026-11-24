@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498194",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -175,7 +175,7 @@
      "why": "The draft said the authors call 'the differences' descriptive; the text (App. B.1, p. 20) says this only of the recovery-rate difference, and separately warns against generalising the task-type reversal"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",

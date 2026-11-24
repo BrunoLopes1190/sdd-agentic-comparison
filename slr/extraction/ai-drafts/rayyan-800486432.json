@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486432",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper is mainly a narrative synthesis (no search described, so conceptual per the 2026-11-23 rule), but its stated contributions are four constructs and a proposed Agentic SDLC Control Plane architecture (Figure 5, 'proposed for further validation'); 'Proposes an approach' as main nature with 'Conceptual' secondary is also defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No search sources or selection procedure are described (only relevance to six questions, p. 2), so it is not a Review under the 2026-11-23 rule. The paper calls itself a 'structured systems synthesis' (p. 16), but its stated contributions are four constructs, including a proposed Agentic SDLC Control Plane (Figure 5, p. 10) and a metric set 'proposed for further validation' (p. 17); 'Proposes an approach' as main nature with 'Conceptual' secondary is also defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No search sources or selection procedure are described (only relevance to six questions, p. 2), so it is not a Review under the 2026-11-23 rule. The paper calls itself a 'structured systems synthesis' (p. 16), but its stated contributions are four constructs, including a proposed Agentic SDLC Control Plane (Figure 5, p. 10) and a metric set 'proposed for further validation' (p. 17); 'Proposes an approach' as main nature with 'Conceptual' secondary is also defensible."
     }
    ],
-   "warn": "O artigo é sobretudo uma síntese narrativa, mas propõe um control plane e quatro construtos (secção 12 e nota final); decide se a natureza principal é Conceptual ou Proposes an approach."
+   "warn": "O artigo é uma síntese sem pesquisa descrita, mas propõe um Control Plane e métricas (pp. 10-12). Decide se a natureza principal é Conceptual ou Proposes an approach."
   },
   {
    "f": "Approach(es): name and version",
@@ -291,9 +301,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper says the control plane 'can begin as a policy and telemetry layer' around existing IDE agents, CI, Git hosting and scanners (p. 10), which names tools, but gives no compute, cost or effort to build it; under the rule that missing information scores No, No (0) is also defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper says the control plane 'does not need to replace IDE agents, CI systems, Git hosting, security scanners, or deployment platforms' and 'can begin as a policy and telemetry layer around them' (p. 10), which names the tools, but it states no compute, cost or effort to build it; with missing information scoring No, No (0) is also defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper says the control plane 'does not need to replace IDE agents, CI systems, Git hosting, security scanners, or deployment platforms' and 'can begin as a policy and telemetry layer around them' (p. 10), which names the tools, but it states no compute, cost or effort to build it; with missing information scoring No, No (0) is also defensible."
     }
    ],
-   "warn": "O artigo diz que o control plane pode começar como camada sobre ferramentas existentes, mas não dá custo, computação nem esforço; decide entre Partly e No (informação em falta conta No)."
+   "warn": "O Control Plane assenta em ferramentas existentes (p. 10), mas o artigo não indica custo, computação nem esforço de implementação. Decide se Q13 é Partly ou No."
   },
   {
    "f": "DARE1",

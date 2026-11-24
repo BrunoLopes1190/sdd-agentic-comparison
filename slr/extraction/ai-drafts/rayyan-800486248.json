@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486248",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -264,6 +264,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Appendix K lists four limitations and Appendix L gives risks of overgeneralization; there is no threats-to-validity section and contamination and the reasoning-effort confound are not discussed. Partly is defensible, but a reader could give Yes because limitations are explicitly discussed."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Appendix K lists four limitations and Appendix L gives risks of overgeneralization; there is no threats-to-validity section and contamination and the reasoning-effort confound are not discussed. Partly is defensible, but a reader could give Yes because limitations are explicitly discussed."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Appendix K (p. 37) lists four limitations and Appendix L the risks of overgeneralization, but there is no threats-to-validity analysis; data contamination and the reasoning-effort confound (xhigh vs high) are not discussed. Partly is defensible; a reader could give Yes because limitations are explicitly discussed."
     }
    ],
    "warn": "Há um apêndice de limitações (K) com quatro pontos e riscos no apêndice L, mas sem secção de ameaças à validade. Decide entre Partly e Yes."
@@ -284,6 +294,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The evaluated agents are third-party, but the granularity study (Table 4) compares the authors' own DecompSynth specification formats (L3-L5) with the external SWE-EVO-style L1 input; under the 2026-11-23 rule this could make Q12 Partly."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The evaluated agents are third-party, but the granularity study (Table 4) compares the authors' own DecompSynth specification formats (L3-L5) with the external SWE-EVO-style L1 input; under the 2026-11-23 rule this could make Q12 Partly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The evaluated agents are third-party, but the granularity study (Table 4, p. 8) compares the authors' own DecompSynth specification formats (L2-L5) with the external SWE-EVO-style L1 input; under the 2026-11-23 rule this could make Q12 Partly."
     }
    ],
    "warn": "Os agentes avaliados são de terceiros, mas o estudo de granularidade (Tabela 4) compara as especificações DecompSynth dos autores com o formato L1 do SWE-EVO. Decide se isso torna Q12 Partly ou mantém Yes."

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486193",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -77,8 +77,19 @@
    "f": "SDD level",
    "v": "Not classifiable; authors' wording: 'PRD-based coding', 'single-shot specification where agent receives aggregated requirements upfront', 'high-level feature specification'",
    "p": "1, 4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The study is a benchmark, not an SDD approach, so 'not classifiable' is defensible; but the PRD setting gives the agent an upfront requirements document and has a planner write PLAN.md before any code, which a reader could map to spec-first for that configuration."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The study is a benchmark, not an SDD approach, so 'not classifiable' is defensible; but the PRD setting gives the agent an upfront requirements document and has a planner write PLAN.md before any code, which a reader could map to spec-first for that configuration."
+    }
+   ],
+   "warn": "O cenário PRD dá um documento de requisitos e um PLAN.md antes do código, o que pode ser spec-first; o resto não é SDD. Decide entre not classifiable e spec-first (só PRD), secções 3.1 e 8.1.2."
   },
   {
    "f": "Task type",
@@ -145,10 +156,16 @@
   },
   {
    "f": "How metrics are collected",
-   "v": "Automatic: tests executed in isolated Docker containers (network restricted, test files read-only, git history pruned); SonarQube static analysis; cost per task from API usage. LLM-based: PR categories by an LLM classifier; failure modes of Claude Sonnet 4.5 traces categorised by Gemini 3.0 Pro (no human validation reported)",
+   "v": "Automatic: tests executed in isolated Docker containers (network restricted, test files read-only, git history pruned); SonarQube static analysis; average cost per task reported (how it is computed is not stated). LLM-based: PR categories by an LLM classifier; failure modes of Claude Sonnet 4.5 traces categorised by Gemini 3.0 Pro (no human validation reported)",
    "p": "4, 7-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The draft said cost per task comes 'from API usage'; the paper reports average cost per task (Tables 3, 7, 10) but never says how it is computed."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Evaluation (each configuration)",
@@ -161,7 +178,7 @@
      "why": "Incomplete: Table 12 has six Aider configurations with file paths (Individual, Global and Local, each with two models) and gives their average P2P/F2P values; the draft listed only Local and gave no values."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -172,9 +189,15 @@
   },
   {
    "f": "Comparison: result",
-   "v": "Individual PR setting scores higher than Global and PRD on Mini and Lite: e.g. Sonnet 4.5 66.25% -> 43.75% (Global), Gemini 3 Flash 51.25% -> 31.25% (Mini) and 56.52% -> 36.59% (Lite); authors report up to 20 pp inflation and a 15-25% decrease across LLMs; same trend with Aider. Pass rate drops with chain length and test-suite size (GPT-5.2 Chat PRD from >60% to ~10% in the largest test bin). F2P falls while P2P stays high as statefulness increases (Sonnet F2P about -30 pp Individual -> PRD; Gemini Flash Lite 52.45% -> 27.65%). PRD and Global cost more per task than Individual (e.g. Sonnet $14.27 / $21.46 / $47.08). Agents show higher cognitive complexity and SQALE debt than human code (e.g. Gemini 3 Pro 7/7 Haystack PRs with debt surging in the final bin). Dominant failure mode in Global: 'Solving Previous Issues' 44.4% (20), then incorrect implementation 20.0% (9), out of budget 13.3% (6). No significance tests",
-   "p": "7-9, 14-16",
-   "rev": [],
+   "v": "Individual PR setting scores higher than Global and PRD on Mini and Lite (totals; not in every repository, e.g. Sonnet 4.5 Conan 8 Individual vs 10 Global): e.g. Sonnet 4.5 66.25% -> 43.75% (Global), Gemini 3 Flash 51.25% -> 31.25% (Mini) and 56.52% -> 36.59% (Lite); authors report up to 20 pp inflation and a 15-25% decrease across LLMs; same trend with Aider. Pass rate drops with chain length and test-suite size (GPT-5.2 Chat PRD from >60% to ~10% in the largest test bin). F2P falls while P2P stays high as statefulness increases (Sonnet F2P about -30 pp Individual -> PRD; Gemini Flash Lite 52.45% -> 27.65%). With OpenHands, PRD and Global cost more per task than Individual (e.g. Sonnet $14.27 / $21.46 / $47.08); with Aider, Codex Mini costs about the same or less ($0.64 / $0.63 / $0.58) while Gemini 2.5 Flash costs more ($0.82 / $2.52 / $3.96). Agents show higher cognitive complexity and SQALE debt than human code (e.g. Gemini 3 Pro 7/7 Haystack PRs with debt surging in the final bin). Dominant failure mode in Global: 'Solving Previous Issues' 44.4% (20), then incorrect implementation 20.0% (9), out of budget 13.3% (6). No significance tests",
+   "p": "7-9, 14-16, 18",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The cost claim was unscoped: it holds for OpenHands, but in Aider Table 10 Codex Mini costs $0.64 Individual, $0.63 Global and $0.58 PRD. Also added that the Individual advantage holds on totals but not in every repository (Table 3)."
+    }
+   ],
    "warn": ""
   },
   {
@@ -202,7 +225,7 @@
      "why": "Table 12 values now used had to be rebuilt from jumbled text; the Local inconsistency was stated imprecisely (only the per-repository values repeat Table 11 PRD, the averages differ)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

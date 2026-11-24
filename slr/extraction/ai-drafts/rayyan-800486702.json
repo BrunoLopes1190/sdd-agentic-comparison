@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486702",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Metric values check out against Tables V, VII and VIII. The quality zones are the authors' own classification, but they classify DX/integration (a min-max index relative to the three tools compared, so the chatbot is near 0 by construction), not the correctness of the code produced; mapping Zone 1/3/4 to does not work/partly/works is the extractor's reading, not a criterion the authors state as success"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Metric values check out against Tables V, VII and VIII (Table VIII columns confirmed by recomputing Itotal with Eq. 2). The quality zones are the authors' own classification, but they rate integration/DX on a min-max index relative to the three tools (the chatbot is near 0 by construction), not the quality of the code produced, so reading Zone 1/3/4 as does not work/partly/works is the extractor's mapping. Also, Table I sets a stated target Rrev < 1, met by all three tools (0.87, 0.42, 0.15), which could support an effort/cost verdict that the draft does not use"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Metric values match Tables V, VII and VIII. The quality zones (p. 3) are the authors' own classification, but they grade integration/DX on a min-max index relative to the three tools (the chatbot is near 0 by construction), not the quality of the produced code, so reading Zone 1/3/4 as does not work/partly/works is the extractor's mapping. Table I also gives a target Rrev < 1, met by all three tools (0.87, 0.42, 0.15), which the draft does not use."
     }
    ],
-   "warn": "As zonas do AI-Dev Index são dos autores, mas medem integração/DX relativa às três ferramentas, não a qualidade do código. Decide se servem de critério de sucesso ou se o veredicto deve ser 'no criterion stated by the authors'."
+   "warn": "As zonas do AI-Dev Index medem integração/DX relativa às três ferramentas, não a qualidade do código; a meta Rrev < 1 é cumprida por todas. Decide se servem de critério ou se fica 'no criterion stated by the authors'."
   },
   {
    "f": "Comparison: design",

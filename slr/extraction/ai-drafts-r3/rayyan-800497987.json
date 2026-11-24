@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800497987",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shafin, W. I., Rafi, M. N., Li, Z., Chen, T.-H. (2025). Evaluating Software Process Models for Multi-Agent Class-Level Code Generation. arXiv:2511.09794v1 [cs.SE], 12 Nov 2025",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2025 (v1, 12 Nov 2025)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2511.09794v1 [cs.SE], 12 Nov 2025; ACM template placeholders ('Conference acronym XX', 2018), no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "SPEAR Lab, Concordia University, Montreal, Canada (Shafin, Rafi, Chen); York University, Toronto, Canada (Li)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares — ablation study of a Waterfall-style multi-agent LLM workflow (Requirement, Design, Implementation, Testing; full and without Requirement, Design or Testing) against direct prompting (RawPrompt) with three LLMs on 100 ClassEval tasks: Pass@1, SonarQube quality, runtime error types and a manual root-cause taxonomy",
+   "p": "1-2, 4-5",
+   "verdict": "uncertain",
+   "why": "The Waterfall multi-agent workflow is the authors' class-level adaptation of the SOEN-101 prompt structure (§3.1), and Q12 already treats them as its vendor (Partly). The paper frames itself as an evaluation ('first systematic study', 'empirical comparison of Waterfall-activity ablations'), so 'Compares' holds, but a reader could file it as 'Proposes an approach; secondary: Compares', which would make Q13 applicable.",
+   "doubt": "O workflow Waterfall é uma adaptação dos próprios autores (do SOEN-101), mas o artigo apresenta-se como estudo de avaliação. Decide se fica Compares ou Proposes an approach; neste caso a Q13 passa a aplicar-se."
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Waterfall-inspired multi-agent workflow (authors' class-level adaptation of the SOEN-101 prompt structure), four agent roles: Requirement Engineer, Architect, Developer, Tester; variants Full, w/o-Requirement, w/o-Design, w/o-Testing; baseline RawPrompt. Models: gpt-4o-mini-2024-07-18, deepseek-chat (DeepSeek-V3-0324), claude-3-5-haiku-20241022; temperature 0.8. No coding-agent tool (custom pipeline); no version of the workflow",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Requirements document (method signatures, class variables, inter-dependencies), design document (architecture, class structure, method interactions), code document (single class), test case document (at least five test cases per method), unittest test script, test report",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Requirement → Design → Implementation → Testing, sequential with document handoffs; each phase self-refined with feedback from other roles; after the test report the Developer may run up to three bug-fix cycles",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the workflow (agents review each other). Authors manually fixed simple syntax errors (parentheses, full stops) before re-running the evaluation for the error analysis",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow and ablations removing one phase at a time (Implementation always kept)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'Waterfall-inspired' workflow with 'document-driven communication'; requirements and design documents generated per task before code and not maintained)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New code: class-level generation from ClassEval class skeletons (no existing code base)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 ClassEval Python class tasks (average 33.1 tests per class); 1,500 generated samples (100 tasks × 3 models × 5 workflows)",
+   "p": "4-5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Benchmark programming tasks (ClassEval Python classes; mixed functionality, e.g., file, sqlite3 and PDF handling)",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money reported)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@1 at class level and function level (ClassEval tests); runtime error type frequencies (Table 3)",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "SonarQube issue density per 10 ncLOC: Software Quality (Security, Reliability, Maintainability) and Clean Code attributes (Consistency, Intentionality, Adaptability, Responsibility); Security and Responsibility all zero",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Root-cause taxonomy of failing classes: Missing Code, Return Mismatch, Input Validation, Semantic Failure, Dataset, Environment, with subtypes (Tables 4-5)",
+   "p": "7-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: ClassEval framework (Pass@1); SonarQube dashboard, one project per workflow; runtime errors from executing the tests. Manual: error-type recording (simple syntax errors fixed and re-run; repeated errors per class counted once); root-cause labelling of each failing class against task description, unit tests and reference implementation (no inter-rater agreement reported)",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion for all: ClassEval unit tests (a class passes only if all its method tests pass); no threshold for 'works'. Values: Pass@1 class / function; SonarQube issue density per 10 ncLOC Maintainability, Consistency, Intentionality, Adaptability (lower is better); total runtime errors (Table 3). Reliability issue densities range 0-0.0109 (column order jumbled in the extracted Table 2). gpt-4o-mini-2024-07-18, temperature 0.8: (1) RawPrompt (baseline): 0.35 / 0.6853; 0.2254, 0.1211, 0.0908, 0.0135; 82 errors. (2) Waterfall Full: 0.21 (-40%) / 0.5478; 0.2188, 0.0774, 0.0796, 0.0663; 122. (3) w/o-Requirement (ablation): 0.23 / 0.5458; 0.1991, 0.0801, 0.0618, 0.0595; 106. (4) w/o-Design (ablation): 0.21 / 0.5896; 0.2141, 0.0818, 0.0987, 0.0409; 109. (5) w/o-Testing (ablation): 0.22 / 0.5458; 0.1820, 0.0688, 0.0738, 0.0393; 118. deepseek-chat (DeepSeek-V3-0324): (6) RawPrompt: 0.46 / 0.7529; 0.2015, 0.1085, 0.0558, 0.0372; 81. (7) Full: 0.32 / 0.6255; 0.2075, 0.0889, 0.0692, 0.0514; 96. (8) w/o-Requirement: 0.29 / 0.6554; 0.2049, 0.0916, 0.0632, 0.0567; 94. (9) w/o-Design: 0.31 / 0.6793; 0.2001, 0.0703, 0.0575, 0.0724; 95. (10) w/o-Testing: 0.19 / 0.5378; 0.1564, 0.0842, 0.0321, 0.0421; 124. claude-3-5-haiku-20241022: (11) RawPrompt: 0.21 / 0.3685; 0.1659, 0.0869, 0.0435, 0.0356; 89. (12) Full: 0.22 / 0.6255; 0.1736, 0.0825, 0.0282, 0.0629; 99. (13) w/o-Requirement: 0.24 / 0.6056; 0.1591, 0.0807, 0.0546, 0.0261; 102. (14) w/o-Design: 0.29 / 0.6275; 0.1734, 0.0759, 0.0477, 0.0499; 98. (15) w/o-Testing: 0.17 / 0.4343; 0.1501, 0.0813, 0.0396, 0.0292; 111. No coding-agent tool (custom pipeline). Quality verdict for each: no criterion stated by the authors. Cost verdict: not measured",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 ClassEval tasks. Configurations: 3 models × (RawPrompt + 4 Waterfall variants). Baseline: RawPrompt (direct generation from the task description). Held constant: tasks, role prompt template, temperature 0.8, holistic class generation, evaluation framework. Acceptance tests: ClassEval unit tests. Repetitions: one sample per task (Pass@1). Human intervention: manual fixing of simple syntax errors before re-running (error analysis)",
+   "p": "4-5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Class-level Pass@1 falls under Waterfall for gpt-4o-mini (0.35 → 0.21-0.23, -34% to -40%) and deepseek-chat (0.46 → 0.19-0.32, -30% to -59%) and rises for claude-3.5-haiku (0.21 → 0.22-0.29) except w/o-Testing (0.17); function-level for claude +18% to +70%. Maintainability issues lower for gpt-4o-mini (-3% to -19%), mixed for the others; Consistency issues lower for all (-5% to -43%); Adaptability issues higher for gpt-4o-mini (+191% to +391%) and deepseek-chat (+13% to +95%), mixed for claude. Runtime errors +10% to +53%; most errors with w/o-Testing for deepseek-chat (124) and claude-3.5-haiku (111), with Full for gpt-4o-mini (122 vs 118 for w/o-Testing). Missing Code falls; Semantic Failure, Return Mismatch and Input Validation rise; Dataset issues most common (47-62). No significance tests",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Ablation distinguished phase effects (Testing strongest, Requirement and Design modest) and model-dependent effects. Not repeated: one sample at temperature 0.8, variability not estimated. Limitations stated: Pass@1 volatile; qualitative root-cause analysis subjective; Waterfall only approximated by LLM roles; LLM-generated tests",
+   "p": "2, 6-7, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Threats: subjective manual root-cause analysis and possible categorisation inconsistencies; Pass@1 single-attempt and volatile; approximation of the real Waterfall process and phase combinations; LLM-generated test suites. Gaps / future work: adaptive pipelines that enable or skip stages, cross-stage memory and reconciliation, conflict-resolution meta-agent preferring the benchmark contract; benchmarks with explicit contract policies, dual scores (correctness and design quality), spec-faithfulness checks, ambiguity labels; LLM-based evaluators; Pynguin or hybrid test generation",
+   "p": "9-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract figures (-37.8%, -39.8%, +9.5%) are not in Table 2; they equal the averages of the four Waterfall variants' class-level changes (pp. 1, 6). Text says w/o-Test 'consistently leads to the highest failure rates across all models' and also that 'the full Waterfall process leads to the highest number of runtime errors' (p. 8); Table 3 gives gpt-4o-mini Full 122 vs w/o-Test 118, deepseek-chat 96 vs 124, claude 99 vs 111. Text says deepseek-chat Missing Code fell 'from 10 to just a single case' (p. 9) while Table 5 gives 1 for RawPrompt (p. 10). RQ2 says all 1,500 samples were evaluated manually (p. 7), the threats section says outputs were 'randomly sampled' (p. 10). Text says reliability worsens in all Waterfall settings (p. 6), but Table 2 has zero reliability issues in some variant cells. Table 2 Reliability column and Table 5 Waterfall columns jumbled in the extracted text. Code and data: anonymous repository (anonymous.4open.science/r/LLMCLWA-3XB). Pre-registration: not claimed. Programming language: Python",
+   "p": "1, 6-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three RQs stated (accuracy, error types, root causes)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): roles, prompt template, phase flow, ablations, models with snapshots, temperature, dataset and evaluation described; code and data released",
+   "p": "2-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): model snapshot versions and temperature given; no agent tool used (custom pipeline); SonarQube documentation version 10.6 cited",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public ClassEval benchmark described",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): ClassEval unit tests and SonarQube static analysis",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): correctness and code-quality metrics defined; no cost metric",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): RawPrompt baseline with the same tasks and models",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one sample per task at temperature 0.8, no statistical tests",
+   "p": "5, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mixed and negative correctness results reported, but the claim of 'cleaner, more maintainable code' overstates mixed maintainability results for two models",
+   "p": "1, 6-7, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (internal, external, construct)",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): the evaluated Waterfall workflow was designed by the authors (adapted from SOEN-101), but it is compared with a RawPrompt baseline that is not theirs; independent of the model vendors",
+   "p": "2-3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

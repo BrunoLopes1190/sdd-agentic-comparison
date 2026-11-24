@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486867",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The authors design their own 'single-shot design methodology' (base prompt template plus five prompt variants) and test it; a reader could file the paper as 'Proposes an approach' (then Q13 applies and Q12 may become Partly) rather than 'Evaluates'."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The authors design their own 'single-shot design methodology' (base prompt template plus five prompt variants) and test it; a reader could file the paper as 'Proposes an approach' (then Q13 applies and Q12 may become Partly) rather than 'Evaluates'."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors design their own 'single-shot design methodology' (base prompt template plus five prompt variants, §4) and test it; a reader could file the paper as 'Proposes an approach' (then Q13 applies and Q12 may become Partly) rather than 'Evaluates' the agent and models."
     }
    ],
-   "warn": "Os autores criam a 'single-shot design methodology' (prompts próprios) e testam-na. Decide se é Evaluates ou Proposes an approach; se for a segunda, a Q13 aplica-se e a Q12 pode passar a Partly."
+   "warn": "Os autores criam a 'single-shot design methodology' (prompts próprios, §4) e testam-na. Decide se é Evaluates ou Proposes an approach; se for a segunda, a Q13 aplica-se e a Q12 pode passar a Partly."
   },
   {
    "f": "Approach(es): name and version",
@@ -158,9 +168,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Success criterion for all: feature present and fully functional (no overall threshold). (1) GPT-5.3 Codex + GitHub Copilot agent mode (Xhigh), five prompt variants, one run each: text and temporal query worked in all variants; DRES authentication worked, frame and text submission failed; text submission missing in Feature Hinting, Exact Requirements and Exact Reqs + Planning; non-functional elements (Progressive Hints field, Bayes button without candidate selection); per-variant feature counts in Table 1 not reliably recoverable from the extracted text. (2) Claude Opus 4.6 + Copilot agent mode (High), five variants: text and temporal query in all; submission errors; text submission missing in No Constraints; stale results in Exact Reqs + Planning; Exact Requirements system judged best. (3) Claude Opus 4.6 + Copilot, Exact Requirements + DRES Submission Fix (refined prompt, fresh generation): fully functional submission plus earlier search features; used at LSC '26 (operators 13th and 16th of 31, no issues). (4) Gemini 3.1 Pro + Copilot, five variants: interfaces could not display data (unhandled CORS, wrong thumbnail paths); excluded from the analysis. Quality verdict for each: no criterion stated by the authors. Cost verdict: not measured",
+   "v": "Success criterion for all: feature present and fully functional (no overall threshold). (1) GPT-5.3 Codex + GitHub Copilot agent mode (Xhigh), five prompt variants, one run each: text and temporal query worked in all variants; DRES authentication worked, frame and text submission failed; text submission missing in Feature Hinting, Exact Requirements and Exact Reqs + Planning; non-functional elements (Paper Info: Progressive Hints field and a textual-answer field with no way to send it to DRES; Exact Requirements: Bayes button without candidate selection); usability issues: item IDs typed manually instead of selected (No Constraints, Paper Info), old results not cleared (Paper Info); per-variant feature counts in Table 1 not reliably recoverable from the extracted text. (2) Claude Opus 4.6 + Copilot agent mode (High), five variants: text and temporal query in all; submission errors; text submission missing in No Constraints; stale results in Exact Reqs + Planning; Exact Requirements system judged best. (3) Claude Opus 4.6 + Copilot, Exact Requirements + DRES Submission Fix (refined prompt, fresh generation): fully functional submission plus earlier search features; used at LSC '26 (operators 13th and 16th of 31, no issues). (4) Gemini 3.1 Pro + Copilot, five variants: interfaces could not display data (unhandled CORS, wrong thumbnail paths); excluded from the analysis. Quality verdict for each: no criterion stated by the authors. Cost verdict: not measured",
    "p": "12-14",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The GPT-5.3 Codex entry omitted the usability issues the paper reports for it (manual ID typing in No Constraints and Paper Info, stale results in Paper Info) and the textual-answer field with no submission in Paper Info (p. 13), while the Claude entry listed its equivalent issue."
+    }
+   ],
    "warn": ""
   },
   {
@@ -251,7 +267,7 @@
      "why": "Q7 asks for a baseline or an alternative evaluated under the same conditions; two models and five prompt variants were run in the same agent, with the same base prompt and APIs and the same feature check, which meets it. A missing manual-development baseline does not lower the score."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q8",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486386",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Main nature 'Compares' is clear. The secondary 'Proposes an approach' rests on the adaptive efficiency controller of Section 8, which the authors call 'a proposed follow-up' and 'a design implication, not an evaluated result'; the fixed controller arms (policy, rewrite, effort, full) are evaluated only in the dsh extension. The paper also proposes a trajectory cost model and benchmark reporting requirements, which could instead make the secondary nature 'Proposes an evaluation method'. This choice decides whether Q13 applies"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main nature 'Compares' is clear. The adaptive controller of Section 8 is 'a proposed follow-up ... not evaluated' (pp. 8, 10), so 'Proposes an approach' rests on a design only; the trajectory cost model (Sec. 7) and the benchmark reporting requirements (Sec. 9) could instead support 'Proposes an evaluation method'. The choice decides whether Q13 applies"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main nature 'Compares' is clear. Two candidates for the secondary nature: the trained adaptive controller of Section 8 is design only ('not evaluated', pp. 8, 11), but the rule-based controller arms (policy, rewrite, effort, full) inherited from the authors' 'frozen activation benchmark' are evaluated in Sec. 6.1 and App. O; alternatively the cost model (Sec. 7) and reporting requirements (Sec. 9) support 'Proposes an evaluation method'. The choice decides Q13"
     }
    ],
-   "warn": "A natureza secundária pode ser 'Proposes an approach' (controlador adaptativo, só desenhado, secção 8) ou 'Proposes an evaluation method' (modelo de custo e requisitos de benchmark, secções 7 e 9). Decide; isso define se Q13 se aplica."
+   "warn": "Há um controlador avaliado (braços policy/rewrite/effort, secção 6.1 e apêndice O) e outro só desenhado (secção 8). Decide se a natureza secundária é 'Proposes an approach' ou 'Proposes an evaluation method'; isso decide Q13."
   },
   {
    "f": "Approach(es): name and version",
@@ -165,9 +175,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft gave quality 'works' (on 'high success') to configurations (1)-(4) and (8), but the authors state only a per-task test criterion and no success-rate threshold for a configuration, so 'works' rested on a cut-off chosen by the extractor (author's rule of 2026-11-23); changed to 'no criterion stated by the authors'. Whether the per-task hidden tests count as an authors' criterion that licenses a quality verdict is a judgement. Also noted that the 95.2% vs 96.5% success is the aggregate branching audit (225 blocks), not the holdout alone"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values match Table 3, Table 5 and Appendices J, K, M, N, O. Quality is left 'no criterion stated' because the authors give per-task hidden tests but no success-rate threshold per configuration; cost verdicts use the authors' preregistered 'wasteful' rule (ratio > 1.5, CI lower bound > 1.1, no success gain; A.5), but mapping 'neutral' to 'works' and applying the rule to output-token ratios for Sonnet 5 are extractor judgements"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values match Table 3, Table 5 and Appendices J, K, M, N, O. Quality is left 'no criterion stated' because the authors give per-task hidden tests but no success-rate threshold per configuration; cost verdicts use the authors' preregistered 'wasteful' rule (ratio > 1.5, CI lower bound > 1.1, no success gain; A.5), but mapping 'neutral' to 'works' and applying the rule to output-token ratios for Sonnet 5 are extractor judgements"
     }
    ],
-   "warn": "Os autores definem sucesso por tarefa (testes ocultos), mas não um limiar de taxa de sucesso por configuração. Decide se isso basta para dar 'works' à qualidade com ~95-100% de sucesso, ou se fica 'no criterion stated'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os autores só dão sucesso por tarefa (testes ocultos), sem limiar por configuração; o custo usa a regra 'wasteful' (A.5). Decide se 'neutral' equivale a 'works' e se a qualidade fica 'no criterion stated'."
   },
   {
    "f": "Comparison: design",
@@ -290,6 +310,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The controller arms (policy, rewrite, effort, full) compared with the dsh and Claude Code baselines are not attributed to any third party and are most likely the authors' own, which gives Partly under the author's rule of 2026-11-23; but the paper never says explicitly who built them. If they are not the authors', Yes"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The controller arms (policy, rewrite, effort, full) come from the authors' 'frozen activation benchmark' (Sec. 6.1, App. O) and are compared with each harness baseline, but the paper never states explicitly who built them; if they are the authors' own, Partly (rule of 2026-11-23), otherwise Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The controller arms (policy, rewrite, effort, full) come from the authors' 'frozen activation benchmark' (Sec. 6.1, App. O) and are compared with each harness baseline, but the paper never states explicitly who built them; if they are the authors' own, Partly (rule of 2026-11-23), otherwise Yes"
     }
    ],
    "warn": "O artigo não diz explicitamente quem criou os braços do controlador (policy, rewrite, effort). Se forem dos autores, Q12 é Partly; se não, Yes. Confirma no apêndice O e na secção 6.1."
@@ -303,9 +333,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Applies only if the secondary nature 'Proposes an approach' is kept. The controller's stated requirements (logged telemetry, a small tabular or gradient-boosted model, no extra LLM) are within reach, but it is not built and data and cost needs are not quantified, so Partly is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Applies only if the secondary nature 'Proposes an approach' is kept. Section 8 states the controller needs logged telemetry and a small tabular or gradient-boosted model, no extra LLM, but it is not built and data and cost needs are not quantified, so Partly is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Applies only if 'Proposes an approach' is kept. Section 8 states the trained controller needs only logged telemetry and a small tabular or gradient-boosted model, no extra LLM, but it is not built or quantified; the evaluated rule-based arms (efficiency policy text, prompt rewrite, effort override) need no extra infrastructure, which would argue for a higher score if they count as the approach"
     }
    ],
-   "warn": "Só se aplica se mantiveres 'Proposes an approach'. O controlador declara precisar só de telemetria e de um modelo pequeno, mas não foi construído nem quantificado. Decide Partly, outro valor, ou N/A."
+   "warn": "Só se aplica com 'Proposes an approach'. O controlador da secção 8 não foi construído; os braços avaliados (policy, rewrite, effort) quase não exigem infraestrutura. Decide qual conta e escolhe Partly, Yes ou N/A."
   },
   {
    "f": "DARE1",

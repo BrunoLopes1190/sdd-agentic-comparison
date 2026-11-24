@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498213",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -278,9 +278,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "All authors are from Roblox; the evaluated models are not theirs, but every configuration runs on the authors' own fixed scaffold based on the Roblox assistant (system prompt not released) inside Roblox Studio. Whether the scaffold makes them a vendor of what is evaluated is a judgement (Yes if only models are the object, Partly if the scaffold counts)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "All authors are from Roblox; the 13 evaluated models are not theirs, but every run uses the authors' own fixed scaffold (system prompt based on the Roblox assistant, not released) inside Roblox Studio, and the paper says results are a property of model plus scaffold (p. 3). Yes if only the models are the object, Partly if the scaffold counts"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All nine authors are from Roblox; the 13 models are not theirs, but every result is 'a property of the model together with one fixed scaffold' (p. 3) whose system prompt comes from the Roblox assistant and whose tools and engine are Roblox's. Yes if only the models are the evaluated object, Partly if the scaffold counts as an evaluated tool"
     }
    ],
-   "warn": "Os autores (Roblox) não fazem os modelos, mas o scaffold fixo e o motor são da Roblox; decide se isso conta como fornecedor (Partly) ou se o objeto avaliado são só os modelos (Yes)."
+   "warn": "Os autores (Roblox) não fazem os modelos, mas o scaffold fixo, o prompt e o motor são da Roblox; decide se isso conta como fornecedor (Partly) ou se o objeto avaliado são só os modelos (Yes)."
   },
   {
    "f": "Q13",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486809",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -152,16 +152,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criteria stated by the author: correctness gate (no regression vs the paired baseline) for quality; the tools' advertised savings (65% caveman, 63% Token-Eff.; 63-75% overall) as the claim tested for cost. 5 trials per task per arm, 7 tasks.\n- No tool (baseline) + Claude Code + Claude Sonnet (alias 'sonnet', not pinned): all runs passed the checks; output ~0.6% of session tokens and ~20% of dollar cost (pooled). Quality verdict: works (gate passed); cost verdict: no criterion stated by the author (reference arm)\n- caveman skill + Claude Code + Claude Sonnet: mean output change ~-6%; per-task output change slugify +54%, debounce -28%, bugfix -31% (p=0.002), bigO -18%, regex-email -28% (p=0.006), review-doc -8%, refactor-suite +21%; bill -1% pooled (+5% unweighted per-task), 95% CI [-21%, +31%], p~0.66, n=7; slugify arm ~70% more cached tokens and ~66% higher cost; compressing an instructions file by 68% gave no significant session saving; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 65% not reached, bill flat)\n- claude-token-efficient + Claude Code + Claude Sonnet: per-task output change -2%, -7%, -6%, +6%, +127% (regex-email, p=0.037, not significant after Bonferroni), +54%, +33%; bill +10%, 95% CI [-8%, +29%], p~0.22; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 63% not reached, bill flat or higher)\n- Pilot: no-tool runs on Claude Haiku (2 tasks x 2 trials): output 1.1% of session tokens; verdicts: no criterion stated by the author",
+   "v": "Criteria stated by the author: correctness gate (no regression vs the paired baseline) for quality; the tools' advertised savings (65% caveman, 63% Token-Eff.; 63-75% overall) as the claim tested for cost. 5 trials per task per arm, 7 tasks.\n- No tool (baseline) + Claude Code + Claude Sonnet (alias 'sonnet', not pinned): all runs passed the checks; output ~0.6% of session tokens and ~20% of dollar cost (pooled). Quality verdict: works (gate passed); cost verdict: no criterion stated by the author (reference arm)\n- caveman skill + Claude Code + Claude Sonnet: mean output change ~-6%; per-task output change slugify +54%, debounce -28%, bugfix -31% (p=0.002), bigO -18%, regex-email -28% (p=0.006), review-doc -8%, refactor-suite +21%; bill -1% pooled (+5% unweighted per-task), 95% CI [-21%, +31%], p~0.66, n=7; slugify arm ~70% more cached tokens and ~66% higher cost; compressing an instructions file by 68% gave no significant session saving; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 65% not reached, bill flat)\n- claude-token-efficient + Claude Code + Claude Sonnet: per-task output change -2%, -7%, -6%, +6%, +127% (regex-email, p=0.037, not significant after Bonferroni), +54%, +33%; bill +10%, 95% CI [-8%, +29%], p~0.22; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 63% not reached, bill flat or higher)\n- Pilot: Claude Code + Claude Haiku (2 tasks x 2 trials; which arms were run is not stated): output 1.1% of session tokens; verdicts: no criterion stated by the author",
    "p": "2-4",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "Values checked against Table 2 and Section 4 and correct. The cost verdicts rest on the tools' advertised savings (65%, 63%), which the author tests as a claim; whether a vendor's advertised figure counts as a success criterion stated by the authors (rule of 2026-11-23) is a judgement, and the cost verdict is necessarily relative to the no-tool baseline"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "All values match Table 2 and Sections 4-5. The quality criterion (no regression vs paired baseline) is the author's own gate. The cost verdicts rest on the tools' advertised savings (65%/75% caveman, 63% Token-Eff.), which the author tests as the claim; whether a vendor-advertised figure counts as a success criterion stated by the authors (rule of 2026-11-23) is a judgement, and the alternative is 'no criterion stated by the authors' for cost."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values match Table 2 and Sections 4-5. One fix: the Haiku pilot was described as 'no-tool runs', but the paper (p. 4) does not say which arms the pilot ran. Open judgement: the quality criterion (no regression vs paired baseline) is the author's own gate, but the cost verdicts rest on the tools' advertised savings (65%/75% caveman, 63% Token-Eff.), which the author tests as the claim; whether a vendor-advertised figure counts as a success criterion stated by the authors (rule of 2026-11-23) is a judgement, the alternative being 'no criterion stated by the authors' for cost."
     }
    ],
-   "warn": "Os veredictos de custo usam as poupanças anunciadas pelas ferramentas (65%, 63%) como critério. Decide se isso conta como critério declarado pelo autor ou se fica 'no criterion stated by the authors'."
+   "warn": "Os veredictos de custo usam como critério as poupanças anunciadas pelas ferramentas (65%, 63%), que o autor testa. Decide se isso conta como critério declarado pelo autor ou se o custo fica 'no criterion stated by the authors'. O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -263,9 +273,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The body is careful (CIs cannot resolve differences below ~13%, p-values descriptive), but the abstract and conclusion state the bill 'does not move at all' while the caveman CI is [-21%, +31%] with n=7; another reader could score Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The body is careful (CIs cannot resolve bill differences below ~13%, p-values read as descriptive, 'we do not claim these tools do nothing'), but the abstract and conclusion say the bill 'does not move at all' although the caveman CI is [-21%, +31%] with n=7. Yes kept as best value; another reader could score Partly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The body is careful (CIs cannot resolve bill differences below ~13%, p-values read as descriptive, 'we do not claim these tools do nothing'), but the abstract and conclusion say the bill 'does not move at all' although the caveman CI is [-21%, +31%] with n=7. Yes kept as best value; another reader could score Partly."
     }
    ],
-   "warn": "O resumo e a conclusão dizem que a fatura 'does not move at all', mas o IC é [-21%, +31%] com n=7. Decide entre Yes e Partly; vê secções 4.1 e 5."
+   "warn": "O resumo e a conclusão dizem que a fatura 'does not move at all', mas o IC do caveman é [-21%, +31%] com n=7. Decide entre Yes e Partly; vê secções 4.1, 5 e 7."
   },
   {
    "f": "Q10",

@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498042",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Dente, F., Satriani, D., Papotti, P. (2026). Constraint Decay: The Fragility of LLM Agents in Backend Code Generation. Published as a conference paper at COLM 2026 (Conference on Language Modeling). Read from arXiv:2605.06445v2 [cs.SE], 18 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — COLM 2026 (Conference on Language Modeling) (header 'Published as a conference paper at COLM 2026'); full text read from arXiv:2605.06445v2",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "EURECOM, France (Dente, Papotti); University of Basilicata, Italy (Satriani). Academic; funded by EU Horizon Europe AI4SWEng (No. 101189909) and 3IA Côte d'Azur (ANR-23-IACL-0001)",
+   "p": "1, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — controlled study of how layered structural constraints (Clean Architecture, database engine, ORM) affect LLM agents generating a multi-file REST backend from a fixed OpenAPI contract (80 greenfield tasks over 8 frameworks, L0-L3), with 20 feature-implementation tasks, framework sensitivity and failure root-cause analysis; open-source evaluation pipeline with behavioral tests and static verifiers",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach named. Input format: OpenAPI 3.0 specification (RealWorld Conduit API) plus prompt constraint blocks. Scaffolds: Mini-SWE-Agent (instance prompt replaced with a 4-step generative workflow) and OpenHands (re-prompting wrapper against premature halting, up to 6 turns); versions Not stated. Models: Devstral-Small (24B), Qwen3-Coder-Next (80B), Qwen3-235B-A22B-Instruct, MiniMax-M2.5, Kimi-K2.5, GPT-5-mini, GPT-5.2, GPT-5.4",
+   "p": "3-6, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task (benchmark input): OpenAPI 3.0 YAML specification (~500 lines, 19 endpoints, 5 resource groups); structural constraint blocks (Clean Architecture with four layers routes/handlers, services/use cases, models/entities, repository/data access in separate directories with top-down dependencies; SQLite or PostgreSQL with schema created at startup; SQLAlchemy or Sequelize ORM); mandatory files requirements.txt/package.json and run.sh; server configuration (port, /api prefix, health-check); description of the evaluation pipeline",
+   "p": "3-4, 17-19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a prescribed development flow. Mini-SWE-Agent injected workflow: analyze the codebase -> edit/create source code -> test edge cases -> submit. Evaluation pipeline: build phase (agent codes, builds, starts server in a container; patch extracted) -> evaluate phase (patch applied in a pristine container, server started, health-check polled, Postman/Newman suite run, static verifiers run)",
+   "p": "5, 22-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated runs, no manual intervention); one author manually labelled 50 failures to validate the LLM judge",
+   "p": "9, 14, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents run end to end from a structured specification (OpenAPI) with varying structural constraints",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors do not use SDD terms ('leveraging OpenAPI specifications as a structured way of expressing functional requirements', 'API-first development', 'evaluation methodology inspired by Behavior-Driven Development', 'rigorous adherence to structured specifications')",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Both: new projects (80 greenfield generation tasks from an empty repository) and existing code bases (20 feature-implementation tasks re-implementing ablated features in RealWorld repositories)",
+   "p": "1, 3, 8, 18-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "One API contract: 19 CRUD endpoints, OpenAPI ~500 lines. 80 generation tasks = 8 frameworks x 10 constraint combinations (L0 8, L1 24, L2 32, L3 16); generated patches ~500-2,000 added lines. 20 feature tasks over 5 repositories (4 each), 161-2,604 lines removed across 2-46 files. Test suite: 32 requests, 291 assertions. Subset of 16 tasks for 3 configurations. ~4 billion tokens in total",
+   "p": "4-6, 8, 18-21, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Web backend REST API (RealWorld Conduit blogging platform: articles, comments, users, profiles, tags) in Python 3.12 (Flask, FastAPI, Django, aiohttp) and Node.js 20 (Express, Fastify, Hono, Koa)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Token consumption: average and total input/output tokens per run by constraint level and per agent-model pair (Appendix I); cost limit left unbounded; no money or time reported",
+   "p": "6, 21-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Assert% (A%): mean fraction of the 291 behavioral assertions passed across runs (zeroed when a structural verifier fails; also reported raw); pass@k (unbiased estimator; success = full behavioral suite passes and all applicable verifiers pass); pass@1 on feature tasks",
+   "p": "5, 8, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Structural compliance by static verifiers: architecture (>=3 of 4 Clean Architecture layers, no upward imports), database engine evidence, ORM evidence (used as pass/fail gates, not reported separately)",
+   "p": "5, 14-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Marginal effect of each constraint on A% via matched-pair differences (± stderr); A% by framework (± stderr) and best-to-worst spread; failure taxonomy (7 coarse categories, 6 logic-error root causes) for four Mini-SWE configurations; LLM-judge agreement (Cohen's kappa 0.975); subset-vs-full correlation (Pearson r 0.948, Spearman rho 0.932)",
+   "p": "7-10, 13-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Postman collection run with Newman against the server in a pristine Docker container (PostgreSQL 16 service); static regex verifiers on the added lines of the patch; token counts from runs. LLM-as-judge: GPT-5.2 (temperature 0) classifies failures from last 20 trajectory turns, test results, server logs and verifier outputs, validated by one author on 50 samples (98% accuracy)",
+   "p": "5, 9, 14-16, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion (task level): run succeeds when the full behavioral suite passes and all applicable verifiers pass; no configuration-level threshold. n=3 trials per task; Mini-SWE-Agent max 300 iterations, OpenHands max 200; cost unbounded. Generation tasks, A% L0 / L1 / L2 / L3; pass@1 L0 / L1 / L2 / L3; delta A% (Table 2): (a) Mini-SWE + GPT-5-mini 51.7 / 46.8 / 27.1 / 23.7; 25.0 / 22.2 / 16.7 / 4.2; -28.0. (b) OpenHands + GPT-5-mini 65.8 / 63.2 / 56.7 / 52.2; 62.5 / 47.2 / 39.6 / 33.3; -13.6. (c) Mini-SWE + Qwen3-Coder-Next 86.4 / 66.4 / 52.6 / 46.1; 45.8 / 25.0 / 13.5 / 6.2; -40.2. (d) OpenHands + Qwen3-Coder-Next 73.0 / 51.7 / 42.7 / 27.6; 45.8 / 16.7 / 16.7 / 4.2; -45.5. (e) Mini-SWE + Qwen3-235B-A22B 29.6 / 10.7 / 9.1 / 2.3; 20.8 / 1.4 / 2.1 / 0.0; -27.3. (f) OpenHands + Qwen3-235B-A22B 26.2 / 17.7 / 3.1 / 0.8; 12.5 / 2.8 / 0.0 / 0.0; -25.4. (g) Mini-SWE + MiniMax-M2.5 90.5 / 79.3 / 75.0 / 66.8; 62.5 / 41.7 / 37.5 / 29.2; -23.7. (h) Mini-SWE + GPT-5.4 97.5 / 81.9 / 81.9 / 80.0; 62.5 / 53.6 / 50.5 / 64.6; -17.5. (i) OpenHands + MiniMax-M2.5 (16-task subset) 95.6 / 97.0 / 87.3 / 78.6; 41.7 / 41.7 / 16.7 / 8.3; -17.0. (j) Mini-SWE + Kimi-K2.5 (subset) 85.4 / 70.9 / 62.9 / 53.7; 66.7 / 41.7 / 8.3 / 33.3; -31.7. (k) Mini-SWE + GPT-5.2 (subset) 78.2 / 49.3 / 27.1 / 48.0; 58.3 / 33.3 / 0.0 / 25.0; -30.2. (l) Mini-SWE + Devstral-Small A% 6.8 / 4.7 / 2.3 / 2.9 (Table 7; excluded from analysis). Feature-implementation tasks, pass@1 Mini-SWE / OpenHands (Table 3b, as extracted): GPT-5-mini 15.0 / 48.3; GPT-5.2 (single run) 50.0 / 55.0; MiniMax-M2.5 46.7 / 38.3; Qwen3-Coder-Next 16.7 / 18.3. For every configuration: quality: no criterion stated by the authors (authors call L3 results unreliable for production without a threshold); cost: no criterion stated by the authors",
+   "p": "5-8, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Project/tasks: one fixed OpenAPI contract (RealWorld Conduit) instantiated in 80 generation tasks (8 frameworks x 10 constraint combinations, L0 baseline to L3) plus 20 feature tasks. Configurations: 12 scaffold-model pairs over 2 scaffolds and 8 models (Kimi-K2.5, GPT-5.2 and Devstral-Small only with Mini-SWE; Mini-SWE + Devstral-Small excluded from the analysis for near-zero scores, leaving 11 analysed pairs; 3 pairs on a 16-task subset, validated by correlation with full-set scores). Baseline: L0 (framework only, no structural constraints). Held constant: API contract, behavioral test suite, Docker infrastructure, iteration limits per scaffold, prompt template; matched-pair design for marginal constraint effects. Acceptance tests: 291-assertion Postman suite plus static verifiers. Repetitions: 3 trials per task (GPT-5.2 single run on feature tasks). Human intervention: none (automatic re-prompting in OpenHands)",
+   "p": "3-6, 8, 13, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Constraint decay: the nine configurations with L0 A% >50% lose on average 27.48 pp A% from L0 to L3 (worst OpenHands + Qwen3-Coder-Next -45 pp, best OpenHands + MiniMax-M2.5 -17 pp). Marginal effects on A%: PostgreSQL -20.4 ± 2.5 pp, SQLite -16.1 ± 2.6, Clean Architecture -8.8 ± 1.7, SQLAlchemy -4.8 ± 2.6, Sequelize +1.8 ± 2.2. Verifier enforcement changes A% by at most 2.7 pp. Scaffold: OpenHands better for GPT-5-mini and MiniMax-M2.5, worse for Qwen3-Coder-Next. Frameworks (mid-tier configurations): Express 69.2%, Koa 69.8%, Flask 63.6% vs Django 37.4%, FastAPI 34.5%, Hono 25.0% A%; spread 43-69 pp, falling to 16 pp (MiniMax-M2.5) and 21 pp (GPT-5.4). Failures: logic errors 62.1-76.6% of failed runs for three models (GPT-5-mini 50.5% server startup failures); data-layer defects 36.5-60.9% of logic errors (48.4% on average). Feature tasks: only GPT-5.2 exceeds 50% pass@1. Authors: 'the precise effect size should be interpreted with caution'; no significance tests on the decay",
+   "p": "1, 6-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished constraint levels, frameworks and models; A% more stable than pass@1, which authors call noisy. Repeatability: 3 trials per task with standard errors; subset validated against the full set (r 0.948); LLM judge validated (kappa 0.975). Limitations stated by the authors: verifiers are static and pattern-based (possible false positives, false-reject rate <=0.5%); variance of the drop is substantial; feature tasks cannot isolate structural constraints as the cause; single API contract chosen for internal validity; pre-training exposure to the RealWorld specification likely",
+   "p": "4, 7-8, 13-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No separate threats-to-validity section; limitations stated in text and appendices: static, pattern-based verifiers; one API contract (RealWorld Conduit) likely seen in pre-training; effect size uncertain due to variance; subset evaluation for three configurations due to cost; feature tasks only a sanity check. Gaps: agents unreliable for production-grade backends; need structural awareness via retrieval-augmented framework documentation, constraint-oriented planning, or pre-training on convention-heavy codebases; benchmarks should go beyond purely functional checks",
+   "p": "4, 7-8, 10, 15-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Reporting inconsistencies: abstract and contributions give an average loss of 27.28 points (p. 1-2) while Section 5.1 and its takeaway give 27.48 pp (p. 7-8; 27.48 matches Table 2 for the nine configurations); text calls OpenHands + MiniMax-M2.5 'the strongest L3 configuration' with 78.6% A% and 8.3% pass@1 (p. 7), but Mini-SWE + GPT-5.4 has 80.0% A% and 64.6% pass@1 at L3 (Table 2); the verifier comparison gives average decay 26 vs 27 pp (p. 8, 16), a different basis from 27.48; Section 4 says a 're-aligned system prompt' was injected into Mini-SWE-Agent (p. 6), while Appendix K says only the instance prompt was replaced and the system prompt remained identical to upstream (p. 24); subset correlation given as r = 0.94 / rho = 0.93 in the text (p. 6) and 0.948 / 0.932 in Appendix A (p. 13-14). Feature-task repositories use Prisma or SQLAlchemy (Table 10) while the generation ORM constraint for Node is Sequelize. Table 3b and Table 8 layout garbled in text extraction; Table 3b values read in row order (consistent with 'only GPT-5.2 exceeds 50% pass@1'). Replication package: https://github.com/francdente/constraint-decay (pipeline, tasks, trajectories, analysis scripts). No pre-registration. Programming languages: Python and JavaScript/TypeScript (Node.js)",
+   "p": "1-2, 6-8, 13-17, 20, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and RQ1-RQ3 (constraint accumulation, framework sensitivity, root causes) stated",
+   "p": "2, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task design, prompt template, constraint blocks, verifiers, infrastructure, scaffold modifications and iteration limits described; pipeline and tasks open-sourced",
+   "p": "3-6, 14-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (with parameter sizes for open models); Mini-SWE-Agent and OpenHands versions and model snapshots/temperatures of the agents Not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks, specification, test suite and repositories described and released",
+   "p": "2, 4, 18-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): implementation-independent behavioral test suite (291 assertions) plus static verifiers; LLM failure judge validated against human labels",
+   "p": "5, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): A% and pass@k defined; token consumption reported per level and configuration",
+   "p": "5, 21-22",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): L0 baseline vs constrained levels under the same contract and tests; matched pairs per constraint; two scaffolds compared",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 trials per task, standard errors, correlation tests for the subset; no significance tests on the decay or framework differences (authors note substantial variance)",
+   "p": "5-8, 13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions follow the data and effect size is hedged, but the abstract's 27.28 vs 27.48, the 'strongest L3 configuration' claim contradicted by Table 2, and generalisation to 'production-grade backend development' from one API contract",
+   "p": "1, 7, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats section, but limitations discussed in text and appendices (verifier limitations, subset representativeness, effect-size caution, choice of one API contract, pre-training exposure)",
+   "p": "4, 7-8, 13-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): COLM 2026 conference paper",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; scaffolds and models evaluated are not theirs (they adapted Mini-SWE-Agent and OpenHands prompts only)",
+   "p": "1, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (evaluation study; proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

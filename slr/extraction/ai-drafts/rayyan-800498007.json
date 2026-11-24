@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498007",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -14,7 +14,7 @@
      "why": "The record has a published version (KDD '26, ACM, DOI 10.1145/3770855.3818488, per slr/exports/acm-S2-2026-11-18.bib and the access log 'arXiv version of the DOI record'); the reference gave only the arXiv version. Author order follows the published record (Tang before Yang)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Year",
@@ -34,7 +34,7 @@
      "why": "Was Preprint, but the paper is published at KDD '26 (ACM export, slr/exports/acm-S2-2026-11-18.bib); a published paper read from arXiv keeps the venue type"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Author affiliation",
@@ -159,7 +159,7 @@
      "why": "The text gives 3 runs only for Claude Code + Opus 4.5; for Codex + Opus 4.5 it says 'stable at 4% across runs' without the number of runs (p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "How metrics are collected",
@@ -179,7 +179,7 @@
      "why": "Values match Tables 4 and 5; but '3 runs' for Codex + Opus 4.5 is not in the text (only 'perfectly stable at 4% across runs', p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -192,7 +192,7 @@
      "why": "The number of runs (3) is stated only for Claude Code + Opus 4.5 (p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -212,7 +212,7 @@
      "why": "'3 runs for two configurations' is not supported for Codex + Opus 4.5 (number of runs not stated, p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
@@ -232,7 +232,7 @@
      "why": "Missing inconsistencies: the 'consistently outperform' claim is contradicted by GPT-5.1 (OpenCode 6% vs Cursor 2%, Codex 0%); the 'Table 3' cross-reference is wrong; and the published version's abstract corrects the 7.4% wording"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -266,8 +266,19 @@
    "f": "Q5",
    "v": "Partly (0.5): human-validated task test suites built from the PRD and reference patch (independent of the agents), but tests are pattern checks on the diff text, without compiling or running the code",
    "p": "2, 4",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The test suites are acceptance tests built from the PRD and a human reference patch and human-validated (independent of the agents), which could support Yes; Partly rests on the tests being pattern checks on the diff text without compiling or running the code (p. 2, 4). Either reading is defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The test suites are acceptance tests built from the PRD and a human reference patch and human-validated, independent of the agents (p. 2, 4), which could support Yes; Partly rests on the tests being pattern checks on the diff text, without compiling or running the code (p. 2, 4, 14). A judgement call"
+    }
+   ],
+   "warn": "Os testes são de aceitação independentes, mas só inspecionam o texto do diff, sem compilar nem executar. Decide se isso basta para Yes ou se fica Partly."
   },
   {
    "f": "Q6",
@@ -294,7 +305,7 @@
      "why": "Score unchanged; '3 runs for two configurations' is not supported for Codex + Opus 4.5 (p. 6)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q9",
@@ -307,7 +318,7 @@
      "why": "Score unchanged; added the GPT-5.1 counter-example to the 'consistently outperform' conclusion (Tables 5-6), which the justification missed"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q10",
@@ -327,7 +338,7 @@
      "why": "Was No (preprint), but the paper is published in peer-reviewed KDD '26 proceedings (ACM export)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q12",

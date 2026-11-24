@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486445",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wen, B., Wang, C., Gui, J., Zhang, H., Niu, Y., Ke, P., Yang, D., Wang, H., & Huang, M. (2026). MTAC-IFBench: Benchmarking Instruction-Following in Multi-Turn Agentic Coding. arXiv:2609.14992v1 [cs.CL], 14 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.14992v1 [cs.CL]; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia and industry: CoAI Group, Tsinghua University; Zhipu AI; University of Electronic Science and Technology of China (first author interned at Zhipu AI)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — MTAC-IFBench, a benchmark of instruction-following in multi-turn agentic coding (100 instances, 7.04 turns and 91.33 constraints per instance, constraint taxonomy of 6 primary and 18 secondary categories, checklists verified by scripts and judge agents), used to compare 11 LLMs under Claude Code and 8 under OpenCode",
+   "p": "1-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent harnesses Claude Code v2.1.14 (standard harness) and OpenCode v1.1.21, each with 11 resp. 8 LLMs (Claude-Opus-4.6, Gemini-3.1-Pro, Qwen3.6-Plus, Seed-2.0-Pro, Claude-Haiku-4.5, GLM-5.2, GLM-5.1, DeepSeek-V4-Pro, DeepSeek-V4-Flash, Kimi-K2.6, Qwen3.5-27B). Context mechanism studied: repository policy file (e.g. Claude.md) carrying global constraints",
+   "p": "2, 5, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Benchmark inputs: repository policy file (Claude.md / system prompt) with immutable global constraints (up to 8) and multi-turn user instructions (5-10 turns) with functional requirements and constraints that are added or replaced per turn; constraint checklist per turn and function checklist for the final project",
+   "p": "1-5, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed). Benchmark construction: instruction collection, multi-turn expansion, taxonomy-guided constraint integration with validation, checklist generation, manual quality inspection. Evaluation: instructions fed turn by turn to the code agent; trace and project per turn checked by scripts or judge agents",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A for the agents (no human intervention during runs). Humans only in benchmark construction: 17 annotators inspect instructions and revise checklists; 5 data engineers and authors spot-check",
+   "p": "5, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (repository policy file / Claude.md as context) plus multi-turn instructions, run with full agent harnesses",
+   "p": "2, 4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'repository policy files (e.g., Claude.md)', 'multi-turn progressive software development instructions')",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project built progressively over 5-10 turns (first turn requests a project skeleton, later turns add or modify features)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 instances; avg 7.04 turns, 91.33 constraint checklist items and 16.07 function checklist items per instance; 9,133 constraints in total. Project size not stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Frontend development (24), application development (20), UI/UX optimization (19), build and deployment (10), data analysis (22), machine learning (5)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; no human developers in the runs)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured for the agents. Benchmark curation cost ~2,400$ for manual inspection; judge-agent cost discussed qualitatively as a limitation",
+   "p": "9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "BSR (Build Success Rate, final project executable), FSR (Function Success Rate, share of function checklist items satisfied), F-ISR (Function-Instruction Success Rate, all functional requirements satisfied)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None as separate metrics; constraint categories include style, naming, complexity (loop nesting, directory levels, cyclomatic complexity), checked within CSR",
+   "p": "3, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Instruction-following: CSR_t (Constraint Success Rate, share of constraints satisfied at turn t) and C-ISR_t (all constraints satisfied at turn t), bucketed by turn interval; CSR per constraint category and per constraint source (policy file vs new vs updated user constraints); CSR by placement (policy file vs system prompt vs first user prompt); Kendall correlation of model rankings across harnesses; agreement, P-F1, N-F1 of automatic vs manual evaluation",
+   "p": "5-7, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: verification scripts generated by Claude-Opus-4.6 for objective constraints; judge agents on Claude Code v2.1.14 with Claude-Sonnet-4.6 (function checklists, Playwright allowed) and DeepSeek-V4-Pro (constraint checklists). Evaluation method assigned per item manually. Validated on 600 sampled items against manual assessment by two annotators plus a third inspector (agreement 0.921 code, 0.924 judge agent on constraints; 0.855 on functions)",
+   "p": "4-5, 7, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: checklist items verified by scripts or judge agents; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. Single run per configuration (no repetitions stated). Claude Code v2.1.14, avg CSR / avg C-ISR (%) (Table 2; C-ISR averages read from the garbled table, matching the text for GLM-5.2): (a) + Claude-Opus-4.6: 78.6 / 8.7; BSR 98.0, FSR 90.2, F-ISR 37.0. (b) + Gemini-3.1-Pro: 71.0 / 11.1; BSR 90.0, FSR 66.5, F-ISR 14.0. (c) + Qwen3.6-Plus: 68.8 / 2.0; BSR 96.0, FSR 66.5, F-ISR 9.0. (d) + Seed-2.0-Pro: 66.9 / 2.6. (e) + Claude-Haiku-4.5: 64.7 / 1.9. (f) + GLM-5.2: 80.4 / 12.7. (g) + GLM-5.1: 76.5 / 8.9; BSR 98.0, FSR 83.0, F-ISR 29.0. (h) + DeepSeek-V4-Pro: 74.7 / 6.4; BSR 97.0, FSR 79.2, F-ISR 26.0. (i) + Kimi-K2.6: 73.2 / 7.8; BSR 97.0, FSR 75.2, F-ISR 29.0. (j) + DeepSeek-V4-Flash: 70.0 / 3.4. (k) + Qwen3.5-27B: 60.6 / 1.1. (BSR/FSR/F-ISR given in Table 3 only for the six models listed.) OpenCode v1.1.21, avg CSR / avg C-ISR: Qwen3.6-Plus 68.0 / 2.4; Seed-2.0-Pro 67.2 / 4.3; Claude-Haiku-4.5 61.8 / 1.0 (avg C-ISR read from garbled Table 5); GLM-5.2 76.8 / 6.7; GLM-5.1 74.3 / 4.5; DeepSeek-V4-Pro 72.2 / 5.9; DeepSeek-V4-Flash 63.7 / 1.1; Qwen3.5-27B 61.8 / 1.0. Cost: not measured",
+   "p": "5-6, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 MTAC-IFBench instances. Configurations: 11 LLMs under Claude Code v2.1.14 (main); 8 LLMs under OpenCode v1.1.21 (harness comparison); constraint placement experiment on 30 sampled instances (policy file vs system prompt vs first-turn user prompt). Constant: harness, default API decoding parameters, same instructions and policy files. Baseline: none (models ranked against each other). Acceptance: per-item checklists verified by scripts and judge agents. Repetitions: not stated (single run). Human intervention: none during runs",
+   "p": "5-7, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GLM-5.2 best on instruction-following (CSR 80.4%, C-ISR 12.7%), Qwen3.5-27B lowest (CSR 60.6%); CSR 60.6-80.4% but C-ISR mostly below 10%, near zero after six turns for most models. Claude-Opus-4.6 best on functional correctness (FSR 90.2, F-ISR 37.0). C-ISR of all models well below F-ISR. Claude Code gives higher CSR/C-ISR than OpenCode (e.g. GLM-5.2 CSR 80.4 -> 76.8, C-ISR 12.7 -> 6.7), but OpenCode shows less decay over turns; rankings largely stable across harnesses (strong Kendall correlation, values not given in text). Policy-file constraints decay less than user-instruction constraints; updates harder than additions; policy-file placement gives the best compliance vs system or user prompt. No significance tests",
+   "p": "5-7, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: benchmark separated models and harnesses and exposed decay over turns; automatic evaluation agreed with manual assessment (85.5-92.4%). Repeatability not assessed (single run, no variance reported). Limitations stated by the authors: possible judge biases (self-enhancement, verbosity), judge-agent cost, coverage of development scenarios",
+   "p": "6-7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: potential evaluation bias of model-based judging; extra cost of judge agents; limited coverage of development scenarios (e.g. no security remediation or database migration). Gaps: existing benchmarks are outcome-oriented and single-turn; instruction-following in multi-turn agentic coding underexplored; agents weak on orchestration, project-wide consistency and quantitative control; harness should be standardised and reported; keeping important constraints in the repository policy file is advised",
+   "p": "2, 6-7, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 and Table 5 are garbled in the extracted text (last-bucket C-ISR and averages displaced to separate lines); C-ISR averages reconstructed and consistent with text for GLM-5.2 (12.7 Claude Code, 6.7 OpenCode). Table 3 (functional correctness) lists only 6 of 11 models in the extracted text. Text says 'compare eight LLMs' under OpenCode; Table 5 lists 8. Authors include Zhipu AI staff, and Zhipu's GLM-5.2/GLM-5.1 are evaluated (GLM-5.2 ranked first). Code (github.com/abelperry/AgentProbe) and dataset (huggingface.co/datasets/thu-coai/MTAC-IFBench) released. No pre-registration. Programming language: not stated (tasks include frontend, npm-deployed projects)",
+   "p": "1, 5-6, 10-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim to evaluate multi-turn instruction-following of code agents clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, prompts (Appendix D), sampling, evaluation protocol and judge setup described",
+   "p": "4-5, 9-10, 13-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code v2.1.14, OpenCode v1.1.21 and model versions named; default decoding parameters",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark described and released on Hugging Face, code on GitHub",
+   "p": "1, 5, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): per-item checklists checked by scripts and judge agents, validated against manual assessment",
+   "p": "4-5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics (CSR, C-ISR, BSR, FSR, F-ISR) defined, but no cost metrics",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 11 models under the same harness and conditions; 8 under a second harness",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistical tests of differences reported (only rank correlation across harnesses)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the tables, including weak results for all models",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): Limitations appendix covers judge bias, cost and coverage, but not single-run variability or threats from synthetic instructions",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): harnesses and most models are independent, but authors include Zhipu AI staff and Zhipu's GLM-5.2/GLM-5.1 are evaluated",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

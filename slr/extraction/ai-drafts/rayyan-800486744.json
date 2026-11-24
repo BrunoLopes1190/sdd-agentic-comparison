@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486744",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Values check out (Tables I-IV). The authors' only success check during the run is 'visibly operational in the browser without blocking errors'; the security/quality baseline (Table V framework) is proposed afterwards, though the authors state the app 'does not meet the baseline quality standards' and its security 'would be unacceptable in any production context'. 'Partly' combines both; 'does not work' (production) or 'works' (prototype) are also defensible"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values check out (Tables I-IV). The only success check used during the run is 'visibly operational in the browser without blocking errors'; the security/quality baseline (Table V) is proposed afterwards, though the authors state the app 'does not meet the baseline quality standards' and its security 'would be unacceptable in any production context'. 'Partly' combines both; 'does not work' (production) or 'works' (prototype) are also defensible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values match Tables I-IV. The only success check used during the run is 'visibly operational in the browser without blocking errors' (p. 3); the security/quality baseline (Table V) is proposed afterwards, though the authors state the app 'does not meet the baseline quality standards' (p. 6) and its security 'would be unacceptable in any production context' (p. 8). 'Partly' combines both; 'does not work' (production) or 'works' (prototype) are also defensible."
     }
    ],
-   "warn": "O único critério durante a execução é a app funcionar no browser; o baseline de segurança e qualidade é proposto depois. Decide se o veredicto de qualidade é partly, does not work ou works (protótipo)."
+   "warn": "O único critério durante a execução é a app funcionar no browser; o baseline de segurança e qualidade (Tabela V) é proposto depois. Decide se o veredicto de qualidade é partly, does not work ou works (protótipo)."
   },
   {
    "f": "Comparison: design",
@@ -249,9 +259,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The classical baseline is estimated by three developers and literature data, not executed; Q7 asks for a baseline evaluated under the same conditions, so No is as defensible as Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The classical baseline is estimated by three developers and literature data, never executed; Q7 asks for a baseline evaluated under the same conditions, so No is as defensible as Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The classical baseline is estimated from literature and three developers, never executed (p. 3); Q7 asks for a baseline evaluated under the same conditions, so No is as defensible as Partly."
     }
    ],
-   "warn": "A linha de base clássica é só estimada por três programadores, não executada. Decide se isso conta como Partly ou se Q7 deve ser No."
+   "warn": "A linha de base clássica é só estimada (literatura e três programadores), nunca executada. Decide se isso conta como Partly ou se Q7 deve ser No."
   },
   {
    "f": "Q8",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486390",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -161,7 +161,7 @@
      "why": "The Qwen3-VL-Flash macro row is readable in the text layer (p. 6): Layout 8.0 ... S_inbox 8.9, S_outbox 14.5, Score 10.0; the value said it was garbled."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -193,16 +193,21 @@
   },
   {
    "f": "Notes",
-   "v": "Values from Table 3 (p. 6), Tables 4-5 and Figure 4 (p. 7); Table 3 is partly garbled in the text layer (per-dimension cells of the top three macro rows hard to align; Scores confirmed by the text and Table 4). Inconsistencies: text says lightweight Gemini models outperform Claude-4.7-Opus, but Gemini-3.1-Flash-Lite (58.8) is below Claude-4.7-Opus (63.0) on macro; Kimi-K2.6 is said to 'better align with human perception' but no human study is reported; Kimi-K2.6 is corrupt agent, difficulty filter, judge and evaluated model (marked * in micro). Thresholds (tau) and judge prompts not given. Code and data 'will soon be released' (not available). No pre-registration. Programming language: HTML/CSS",
+   "v": "Values from Table 3 (p. 6), Tables 4-5 and Figure 4 (p. 7); Table 3 is partly garbled in the text layer (per-dimension cells of the top three macro rows hard to align; Scores confirmed by the text and Table 4). Inconsistencies: text says lightweight Gemini models outperform larger models such as Claude-4.7-Opus and Gemini-3.1-Pro-Preview; this holds only pairwise (Gemini-3.5-Flash 65.5 > Claude-4.7-Opus 63.0; Gemini-3.1-Flash-Lite 58.8 > Gemini-3.1-Pro-Preview 50.3), while Gemini-3.1-Flash-Lite is below Claude-4.7-Opus on macro; Kimi-K2.6 is said to 'better align with human perception' but no human study is reported; Kimi-K2.6 is corrupt agent, difficulty filter, judge and evaluated model (marked * in micro). Thresholds (tau) and judge prompts not given. Code and data 'will soon be released' (not available). No pre-registration. Programming language: HTML/CSS",
    "p": "1, 5-7",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "The Qwen3-VL-Flash macro row is complete in the text layer (Score 10.0); the garbled cells are the per-dimension values of the first three macro rows (Gemini-3.5-Flash, Kimi-K2.6, Claude-4.7-Opus)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The p. 6 claim names both Claude-4.7-Opus and Gemini-3.1-Pro-Preview and is supported pairwise by Table 3, so it is loose wording rather than a plain contradiction; the per-dimension cells of the first three macro rows can be aligned with the 'w/o Caption' rows of Table 4."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -262,9 +267,15 @@
   },
   {
    "f": "Q9",
-   "v": "Partly (0.5): main findings follow from Table 3, but the lightweight-model claim and the human-alignment claim for the judge are not supported by the reported data",
+   "v": "Partly (0.5): main findings follow from Table 3, but the claim that the Kimi-K2.6 judge 'better aligns with human perception' is not backed by any reported human study, and the lightweight-model claim holds only pairwise",
    "p": "6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Score unchanged; the lightweight-model claim is partly supported by Table 3 (Gemini-3.5-Flash > Claude-4.7-Opus, Gemini-3.1-Flash-Lite > Gemini-3.1-Pro-Preview), so 'not supported' overstated it."
+    }
+   ],
    "warn": ""
   },
   {

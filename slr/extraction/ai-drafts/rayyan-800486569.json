@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486569",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -161,7 +161,7 @@
      "why": "The paper never states the number of runs per configuration: Section 3.1 only says repetitions 'must be frozen' (p. 7); one run is an inference, only the ablation is explicitly single-run (p. 10)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -174,7 +174,7 @@
      "why": "The paper never states the number of runs per configuration: Section 3.1 only says repetitions 'must be frozen' (p. 7); one run is an inference, only the ablation is explicitly single-run (p. 10)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -194,7 +194,7 @@
      "why": "The paper never states the number of runs per configuration: Section 3.1 only says repetitions 'must be frozen' (p. 7); one run is an inference, only the ablation is explicitly single-run (p. 10)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",
@@ -261,9 +261,15 @@
   },
   {
    "f": "Q8",
-   "v": "Partly (0.5): single run per configuration; paired sign tests with Bonferroni correction only for within-model settings in the appendix",
-   "p": "10, 30",
-   "rev": [],
+   "v": "Partly (0.5): number of runs per configuration not reported (apparently one; the ablation is explicitly single-run); paired sign tests with Bonferroni correction only for within-model effort settings in the appendix",
+   "p": "7, 10, 30",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "'Single run per configuration' was stated as fact, but the paper does not report repetitions (p. 7); only the ablation is explicitly single-run (p. 10). Score unchanged"
+    }
+   ],
    "warn": ""
   },
   {

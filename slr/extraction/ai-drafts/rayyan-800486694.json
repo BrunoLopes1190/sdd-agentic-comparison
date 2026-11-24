@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486694",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -175,7 +175,7 @@
      "why": "The significance claim is only between the three top-tier tools and DeepSeek (p. 6), not among all four tools as the draft implied; so the GPT vs Claude lead is not shown to be significant. Equal-weighted totals added."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -193,16 +193,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: Delphi panel stated as 15 experts but composition sums to 12 (5 + 4 + 3) (p. 4); Figure 1 numbers the phases differently from the text (e.g. survey and AHP/expert panel phases in another order; figure text is jumbled in the extraction) (p. 3-4); Table 4 ranking row (GPT 1st, Claude 2nd, Gemini 3rd, DeepSeek 4th) does not say which weighting it uses: it matches user and equal weighting but not the expert weighting, where the text says Claude leads (p. 6, 8); text says trustworthiness shows 'the largest variation' (39.29) while sustainability varies by 52.77 (p. 6), the conclusion names both as largest gaps (p. 10); metric prefix GF- in Figure 2 vs GA- in Tables 2-3; 'DeepSeek Coder (v3.2)' (p. 4) vs 'DeepSeek v3.2' elsewhere. Values used: Table 4 (p. 8). Statistical test for p < 0.05 not named; correlations on 4 tools; validation partly circular (QAID scores built from leaderboards validated against other leaderboards). No data or replication package (text claims 'publicly documented measurement criteria' but gives no link); no pre-registration. Programming language: Not stated",
+   "v": "Inconsistencies: Delphi panel stated as 15 experts but composition sums to 12 (5 + 4 + 3) (p. 4); Figure 1 numbers the phases differently from the text (e.g. survey and AHP/expert panel phases in another order; figure text is jumbled in the extraction) (p. 3-4); Table 4 ranking row (GPT 1st, Claude 2nd, Gemini 3rd, DeepSeek 4th) does not say which weighting it uses: it matches user and equal weighting but not the expert weighting, where the text says Claude leads (p. 6, 8); text says Gemini 'consistently ranks third (61.91–61.98)' but its equal-weighted total is 60.10 (p. 6, 8); text says trustworthiness shows 'the largest variation' (39.29) while sustainability varies by 52.77 (p. 6), the conclusion names both as largest gaps (p. 10); validation Tables 5-7 (p. 9): the ranks shown give Spearman 0.80 for Table 5 (one swap, Gemini/GPT) and 1.00 for Table 6 (identical ranks), not the reported 0.90 and 0.90; with n = 4 the reported p < 0.01 and p < 0.001 cannot be reached (smallest exact p is about 0.04); Table 7 ranks GPT 2nd and Claude 1st although both have HELM 0.97; metric prefix GF- in Figure 2 vs GA- in Tables 2-3; 'DeepSeek Coder (v3.2)' (p. 4) vs 'DeepSeek v3.2' elsewhere. Values used: Table 4 (p. 8). Statistical test for p < 0.05 not named; validation partly circular (QAID scores built from leaderboards validated against other leaderboards). No data or replication package (text claims 'publicly documented measurement criteria' but gives no link); no pre-registration. Programming language: Not stated",
    "p": "3-10",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "The Table 4 ranking row is unlabelled and matches the user and equal weightings (GPT 64.86/64.66 > Claude 62.94/63.51), so it is not a plain contradiction; reworded as an unlabelled row that does not match the expert weighting. Figure 1 order is hard to read from the extracted text, so the claim is softened."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Added inconsistencies the draft missed: reported Spearman values and p-values in Tables 5-7 do not match the ranks shown (0.80 and 1.00 rather than 0.90 and 0.90; p < 0.01 impossible with n = 4), and Gemini's 'third (61.91–61.98)' range leaves out its equal-weighted 60.10."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -262,16 +267,26 @@
   },
   {
    "f": "Q9",
-   "v": "Partly (0.5): rankings follow from Table 4, but 'largest variation' for trustworthiness ignores the larger sustainability gap (52.77), the significance claim gives no test or statistics, and 'validates technical rigor' rests on correlations over 4 tools with partly overlapping sources; the unlabelled Table 4 ranking row does not match the expert-weighted totals",
+   "v": "Partly (0.5): rankings follow from Table 4, but 'largest variation' for trustworthiness ignores the larger sustainability gap (52.77), the significance claim gives no test or statistics, and 'validates technical rigor' rests on correlations over 4 tools that do not match the ranks shown and report p-values not reachable with n = 4; the unlabelled Table 4 ranking row does not match the expert-weighted totals",
    "p": "6, 8-10",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "Partly is a judgement: the main conclusions (no tool dominates, rankings shift with weights) do follow from Table 4; the problems are overclaims and inconsistencies rather than conclusions contradicting the data. A reader could give Yes or Partly. The ranking-row point was weakened (row matches user/equal weighting)."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly is a judgement: the main conclusions (no tool dominates, rankings shift with weights) follow from Table 4; the problems are overclaims in the validation and inconsistencies rather than conclusions contradicting the main data. Added the Spearman/p-value mismatch found this round."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Rechecked Tables 4-7: Spearman for Table 5 ranks is 0.80 and n = 4 cannot give p < 0.01, so the validation claim is overstated; the main conclusions (no tool dominates, rankings shift with weights) do follow from Table 4. Partly vs Yes is a judgement."
     }
    ],
-   "warn": "As conclusões principais seguem da Tabela 4, mas há exageros (validação com 4 ferramentas, teste estatístico não nomeado, 'maior variação'). Decide entre Partly e Yes. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "As conclusões principais seguem da Tabela 4, mas a validação exagera (Spearman e p-values das Tabelas 5-7 não batem com as ordens, n = 4). Decide entre Partly e Yes. O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q10",

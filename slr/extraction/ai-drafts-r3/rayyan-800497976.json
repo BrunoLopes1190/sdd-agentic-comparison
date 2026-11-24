@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800497976",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, H., Gong, J., Zhang, H., Xu, J., Wang, Z. (2025). AI Agentic Programming: A Survey of Techniques, Challenges, and Opportunities. arXiv:2508.11126v2 [cs.SE], 15 Sep 2025",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2025 (v2, 15 Sep 2025; first version August 2025 per arXiv ID)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2508.11126v2 [cs.SE], 15 Sep 2025; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Leeds, UK (all five authors)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Review; secondary: Conceptual — survey following an SLR method (Google Scholar, ACM DL, IEEE Xplore, SpringerLink, arXiv and top-tier venues, Boolean term clusters, two-reviewer screening, inclusion/exclusion criteria, citation chaining; 152 papers), with a taxonomy of agent behaviour dimensions and system categories, a cost discussion, challenges and future directions",
+   "p": "1-2, 11-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "N/A (no SDD approach; surveys coding agents and systems, e.g., GitHub Copilot, Amazon Q Developer, Tabnine, Cursor, Claude Opus 4-powered agent, Google Jules, DevGPT, Kimi K2, Gemini 2, Voyager, CAMEL, CodePlan, ChatDev, AutoCodeRover, SWE-Agent; context management of 8 agents in Table 4)",
+   "p": "10, 13-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts; as future direction, structured inputs such as constraints, test cases and a structured intent language for agents)",
+   "p": "25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (generic agent loop: plan, generate, call tools, test, refine; planning-centric agents: task decomposition then execution monitoring)",
+   "p": "3-4, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A (future direction: mixed-initiative workflows in which the developer inspects, accepts, rejects or refines agent output; undo and audit trails)",
+   "p": "24-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (literature review)",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (reviewed studies and systems cover new code and existing code bases)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "7,700 papers retrieved; 395 to full text; 141 met the criteria; 152 after citation chaining (2022-2025); 15 systems compared in Table 5; 14 benchmarks in Table 8",
+   "p": "11-12, 16, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "LLM-based coding agents / AI agentic programming in general",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "N/A (review; Table 6 token prices for 14 models, USD per 1M tokens as of Sep 2025; qualitative cost of reasoning strategies: standard CoT about twice the tokens of short reasoning, tool-augmented iteration more)",
+   "p": "16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "N/A (review; lists benchmarks such as HumanEval, MBPP, SWE-Bench, Terminal-Bench; Fig. 9 shows top-10 model scores on GSO, LiveCodeBench, AA-LCR, Terminal-Bench, source not stated)",
+   "p": "17-18, 22-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "N/A (systems classified by proactivity, multi-turn, tool use, adaptivity; calls for metrics on robustness, tool usage efficiency, recovery from failure, use of feedback)",
+   "p": "13-16, 23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (literature review; no data extraction form or coding procedure described)",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (review; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Synthesis: agents move from reactive single-turn assistants to proactive, multi-turn, tool-augmented agents; benchmarks mostly Python, small, self-contained and non-interactive (SWE-Bench 65% function-level); toolchains and languages are human-centric; memory, safety, multi-agent protocols and domain adaptation remain open",
+   "p": "13-19, 22-23",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Gaps in the field: benchmarks for real workflows (multi-language, large code bases, interactive and tool-integrated tasks); metrics beyond functional correctness; standard multi-agent protocols; domain-specific models; safety, privacy and trust; toolchains exposing structured feedback and IR; scalable memory; human-AI collaboration; structured languages to state intent and constraints. Limitations of the survey itself: not discussed",
+   "p": "17-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: the year distribution in Fig. 6 sums to 151 papers (7 + 33 + 81 + 30) while 152 are stated (pp. 11-12); SWE-Agent described as a multi-agent system with Architect, Coder and Reviewer agents (p. 15), but reference [242] is Yang et al. 2024, 'SWE-agent: Agent-computer interfaces enable automated software engineering', to be checked against that source; the same reference [242] is also cited for SWE-bench Multimodal (p. 22). Search period and cut-off date not stated (web sources accessed 2025-09-15). Fig. 5 (survey methodology) shows Boolean OR between the term clusters, the text says 'Boolean operators' (pp. 11-12). No quality assessment and no per-study extraction table. No data package. Pre-registration: not claimed. Programming language: N/A",
+   "p": "11-12, 15, 22, 27",
+   "verdict": "corrected",
+   "why": "Missed a citation inconsistency: [242] (the SWE-agent paper, Yang et al. 2024) is also cited as the source of SWE-bench Multimodal in the benchmark section (p. 22); added the identity of [242] for the SWE-Agent multi-agent claim."
+  },
+  {
+   "f": "Q1",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "Yes (1): five inclusion and two exclusion criteria listed and appropriate to the scope",
+   "p": "12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "Yes (1): five databases, top-tier venues, industry releases, explicit term clusters, two-reviewer screening and backward/forward citation chaining; search period and date not stated",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "No (0): no quality assessment of the included studies",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "Partly (0.5): representative systems classified in Fig. 7 and Table 5 and described narratively; no per-study data for the 152 papers",
+   "p": "13-16",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

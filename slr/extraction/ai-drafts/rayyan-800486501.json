@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486501",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -105,7 +105,7 @@
      "why": "The draft said 'varied domains' and gave reportlib as an example domain; the paper never states the domains of its repositories, and reportlib appears only in the Fig. 1 illustration of the task inputs."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Team profile",

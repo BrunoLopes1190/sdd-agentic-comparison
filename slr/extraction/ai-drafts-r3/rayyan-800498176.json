@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498176",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Conn, N. J. (2026). DeltaSelect: Affordable A/B Testing for Coding Agents. arXiv:2609.19607v1 [cs.SE], 17 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.19607v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Conn Castle Studios (industry, single author; also author of the open-source Agent Layer orchestration layer evaluated in the case study)",
+   "p": "1, 11, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — DeltaSelect selects a small fixed task set from repeated public benchmark trials (DeepSWE v1.1) by conservative one-run correlation, calibrates fractional F2P results to the full-score scale and fits a dollar budget, for baseline-versus-candidate comparisons during development; case study revising Agent Layer skills and instructions with gpt-5.6-luna low in Codex",
+   "p": "1-3, 6-11, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent Layer (author's open-source orchestration layer, version not stated) bundle of editable skills and instructions for planning, plan review, implementation, delegation (Agent Dispatch) and code review: initial version vs adopted version (10 configurations, 13 evaluations); baselines: bare Codex CLI with gpt-5.6-luna (low/medium/high reasoning) and published DeepSWE mini-swe-agent results",
+   "p": "11, 13-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill and instruction files bundled with Agent Layer (planning, plan review, implementation, delegation, review); for the method: a frozen experiment specification (ranked tasks, repetitions, calibration coefficients, weights, price assumptions, snapshot checksum, seeds)",
+   "p": "3, 11, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Workflow under test: planning, plan review, implementation (possibly delegated to subagents), code review, continuation/resume; adopted version adds scope checks so plan-review and code-review findings are accepted only within the user's request. Method: rank tasks, calibrate, allocate budget, validate baseline in target harness, freeze specification, run baseline and candidate",
+   "p": "6, 11, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Plan review and code review are performed by agents in the workflow; the human (developer) decides whether to adopt each revision, using judgement when a change fixes a known problem without measured harm",
+   "p": "17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (Agent Layer skills and instructions run in Codex on 8 DeepSWE tasks)",
+   "p": "13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skills and instruction bundle with planning and review steps; no SDD terms used by the author)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (DeepSWE long-horizon engineering tasks with fail-to-pass and pass-to-pass verifier tests)",
+   "p": "1-2, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "Published-data analysis: DeepSWE v1.1 snapshot of 22,586 trials (22,417 usable), 18 models, 50 model-effort configurations, 113 tasks, four runs per cell. Case study: 8 selected tasks (411 F2P checks), 13 evaluations, one run per task each",
+   "p": "6, 13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (DeepSWE open-source repositories: e.g. koota, testem, expr, wasmi, go-git, scriggo, bandit)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; single developer-author)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Recorded model cost in USD (request-level token and billing data including failed, retried, delegated, continued and abandoned work, priced at the 16 Aug 2026 gpt-5.6-luna rates); per-task trial prices from the snapshot; number of model calls",
+   "p": "8, 11, 13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Calibrated task-set score (F2P mapped by per-task OLS to the full DeepSWE score scale, inverse residual-variance weights); raw F2P checks passed; P2P preserved; binary resolution",
+   "p": "1-2, 7-8, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Fifth-percentile Pearson correlation of one-run task results with full-benchmark score (task reliability); repeatability ranges; build or verifier failures",
+   "p": "2, 7, 10-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: DeepSWE verifier records (F2P, P2P, binary); request-level token and billing telemetry; harness records task and environment checksums, client and model versions, reasoning effort. Statistics: 10,000 deterministic resamples (seeded from snapshot checksum), Welch-Satterthwaite test with variance transferred from published Luna medium runs, exact paired sign-flip test for cost",
+   "p": "7, 10-11, 13-14, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the author for any configuration judged on its own; the case-study goal was relative ('lower cost without sacrificing score', Table 1), so quality and cost verdict: no criterion stated by the authors. On the 8 selected tasks, one run per task: (1) Codex + gpt-5.6-luna low, bare (baseline): calibrated score 20.43% (unchanged repeat 14.84%), $0.32; published mini-swe-agent estimate -0.54%, $0.13; (2) Codex + gpt-5.6-luna medium, bare: 45.50%, $1.34 (published 19.38%, $0.38); (3) Codex + gpt-5.6-luna high, bare (earlier, non-certified environment): 56.33%, $3.00 (published 53.34%, $2.04); (4) Agent Layer initial skills and instructions + Codex + gpt-5.6-luna low: 36.46%, $4.18, F2P 251/411, 55 model calls; (5) Agent Layer adopted skills and instructions (evaluation 13) + Codex + gpt-5.6-luna low: 42.36%, $1.75, F2P 265/411, 37 calls; intermediate revisions scored 23.15-43.72% at $1.76-2.64 where costs are reported (evaluations 6 and 7 were cheaper than $1.76, values not given). Published-data projection: Claude Opus 5 medium vs Gemini 3.6 Flash high distinguished with 9 tasks at $113.08 (p=0.0473) vs $3,063.63 for the full protocol",
+   "p": "11-18",
+   "verdict": "uncertain",
+   "why": "Values checked against Table 1 and pp. 13-18 (intermediate range 23.15-43.72% includes the unchanged repeat; costs $1.76-2.64 where reported). The only stated goal, lower cost without sacrificing score (Table 1, p. 16), is relative to the initial version; under the 2026-11-23 rule and the judged-on-its-own rule this gives no own verdict, but a reader could take it as a success criterion for the adopted configuration.",
+   "doubt": "O único critério do autor é relativo (menor custo sem perder score face à versão inicial, Tabela 1, p. 16). Decide se conta como critério de sucesso ou se fica \"no criterion stated by the authors\"."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 8 DeepSWE tasks selected under a $0.65 one-run budget for published gpt-5.6-luna low. Configurations: bare Codex at three reasoning levels vs published mini-swe-agent; Agent Layer skill revisions (10 configurations, 13 evaluations). Held constant: model gpt-5.6-luna low, Codex harness, tasks, calibration, weights, repetitions, task and environment checksums (low and medium only). Baseline: bare Codex Luna low and the initial skills version. Acceptance tests: DeepSWE verifier tests. Repetitions: one run per task; three configurations repeated once. Human intervention: none during runs; author decides adoption",
+   "p": "11, 13-14, 16-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Adopted vs initial skills: cost -$2.43 (-58.1%), lower on all 8 tasks (exact sign-flip p=0.008); calibrated score +5.90 pp (42.36% vs 36.46%), not significant (SE 5.90 points, Welch df 29.23, p=0.326 with transferred variance). Initial skills beat bare Codex Luna low (36.46% vs 20.43%) at 13x the cost; bare Luna medium scored 45.50% at $1.34, above the adopted skills. Codex scores were 21.0, 26.1 and 3.0 points above published mini-swe-agent estimates and cost 1.5-3.5x more. Only 22 of 113 DeepSWE tasks (19.5%) had fifth-percentile one-run correlation >= 0.50",
+   "p": "1-2, 14, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Author: the fixed task set gave a stable measurement and diagnosable transcripts across iterations; projected to distinguish a known 20.3-point gap at 27.1x lower cost. Limits: selector not compared with random, cheapest-first or median-correlation selection at equal cost; value of fractional scoring, calibration and weighting not isolated; in-sample (same snapshot for ranking and example); one run per task in Codex, variance transferred from mini-swe-agent; repeated configurations moved 0.7-4.3 points; published results do not transfer across harnesses",
+   "p": "12, 17-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Small fixed set cannot cover full benchmark capabilities and risks specialization to selected tasks; small sets magnify broken tasks; selector and scoring choices need direct comparisons; OLS may fit poorly at the extremes; related tasks violate independence; evidence from one DeepSWE snapshot, one model family and one custom harness; several evaluations changed more than one instruction, so the 58.1% cost reduction cannot be attributed to a single edit. Future: matched-cost selector comparisons, nonlinear calibration, covariance-aware methods",
+   "p": "18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Tool and source: https://agent-layer.dev/deltaselect, https://github.com/conn-castle/agent-layer (pinned DeepSWE data included). Values from Table 1 and text. Reporting points: Figure 5 cost differences (+$0.95, +$0.97) differ by 1 cent from the text values ($0.38 -> $1.34, $2.04 -> $3.00); the high-reasoning Codex run predates the environment checksum control; one DeepSWE task has three trials for Gemini. Comparison chosen retrospectively, explicitly not preregistered (p. 10). Programming languages: not stated (DeepSWE repositories in TypeScript/JavaScript, Rust, Go, Python inferred from task names)",
+   "p": "10, 12-15, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question stated (can one run per selected task support frequent baseline-versus-candidate comparisons without full-benchmark cost)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): ranking, calibration, weighting, budget scan, tests, seeds and pricing specified; tool and data released",
+   "p": "6-11, 13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model and reasoning levels named; Codex client version and Agent Layer version recorded by the harness but not reported",
+   "p": "11, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): eight tasks named from the public DeepSWE v1.1 snapshot, which ships with the tool",
+   "p": "6, 13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): DeepSWE verifier fail-to-pass and pass-to-pass tests",
+   "p": "1-2, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): calibrated score, raw F2P and recorded cost defined and reported",
+   "p": "7-8, 13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): initial skills version and bare Codex at the same model, harness and tasks",
+   "p": "13, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Welch test and exact sign-flip test, resampling-based repeatability ranges; but one run per task in Codex with variance transferred from another harness; three configurations repeated once",
+   "p": "10, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims scoped; score gain reported as not significant; harness gap described as planning mismatch, not causal effect",
+   "p": "14-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 6 Limitations and Future Work",
+   "p": "18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): the author created Agent Layer and its skills bundle evaluated in the case study (vendor); bare Codex baseline and DeepSWE data are third-party",
+   "p": "1, 11, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method; the Agent Layer skills are the object of the case study, not a proposed approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

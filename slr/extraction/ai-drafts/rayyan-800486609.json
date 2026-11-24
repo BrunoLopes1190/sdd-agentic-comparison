@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486609",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -229,9 +229,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Acceptance contracts (core tasks, mandatory criteria) are fixed before generation and judged by GPT-5.5 against Playwright evidence with a deterministic audit, and the judge was checked against an adjudicated human reference (83.47% agreement, kappa = 0.651, p. 8). Whether an evidence-grounded LLM judge validated against humans counts as an independent criterion (Yes) or only partly (Partly) is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Acceptance contracts (core tasks, mandatory criteria, tau = 0.8) are fixed before generation and judged by GPT-5.5 on Playwright evidence with a deterministic audit; the judge was checked against an adjudicated human reference on the public set (83.47% agreement, kappa = 0.651, p. 8, 19), but application-level acceptance was not validated by humans (p. 9). Whether this evidence-grounded LLM judge counts as an independent criterion (Yes) or only partly (Partly) is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Acceptance contracts (core tasks, mandatory criteria, tau = 0.8) are fixed before generation and judged by GPT-5.5 on Playwright evidence with a deterministic audit; the judge was checked against an adjudicated human reference on the public set (83.47% agreement, kappa = 0.651, p. 8, 19), but application-level acceptance was not validated by humans (p. 9, 19). Yes vs Partly is a judgement."
     }
    ],
-   "warn": "A aceitação é decidida por um juiz LLM (GPT-5.5) com evidência Playwright, validado contra referência humana (κ = 0.651). Decide se isso conta como critério independente (Yes) ou só Partly."
+   "warn": "A aceitação é decidida por um juiz LLM (GPT-5.5) com evidência Playwright, validado contra referência humana (κ = 0.651), mas não ao nível da aplicação. Decide se isso conta como critério independente (Yes) ou só Partly."
   },
   {
    "f": "Q6",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486137",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -89,6 +89,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The agent starts from an empty target workspace (p. 2) but must reproduce a complete existing source repository in another language; the form's two values (new project / existing code base) both fit partly."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The agent starts from an empty target workspace (p. 2) but must reproduce a complete existing source repository in another language (migration); both form values (new project / existing code base) fit partly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The agent starts from an empty target workspace (/workspace/dst/, p. 2, 5) but must reproduce a complete existing source repository in another language (migration, 'reconstruction challenge', p. 1); both form values (new project / existing code base) fit partly."
     }
    ],
    "warn": "O agente parte de uma pasta de destino vazia, mas traduz um repositório existente completo. Decide se classificas como existing code base (migração) ou new project."
@@ -167,7 +177,7 @@
      "why": "Appendix A.3 (p. 9-10) names only the agents for the preliminary experiment, not the models, so '+ GPT-5.2' and '+ Opus 4.5' there were unsupported; entry (f) also lacked its verdicts."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -199,9 +209,15 @@
   },
   {
    "f": "Notes",
-   "v": "Values from Table 3 (p. 6); Table 4 per-benchmark values are scrambled in the text layout, only those quoted in the text are reliable. Repository URL differs: arXiv text github.com/Modelcode-ai/mcode-benchmark, ACM abstract github.com/Modelcode-ai-research/mcode-benchmark. Section 3.1 'Prompt Design' lists constraints, while Figure 5 shows v1 without them; v3 (Figure 6) was used for all reported results. Tier averages are across all four agents, not per agent. Preliminary and iterative-refinement experiments use an earlier 10-benchmark suite and are not comparable to the main results (stated). Authors are all employees of Modelcode AI (industry). No pre-registration. Languages: C, C++, Go, Java, Python, Rust, TypeScript, JavaScript",
+   "v": "Values from Table 3 (p. 6); Table 4 per-benchmark values are scrambled in the text layout, only those quoted in the text are reliable. Tier counts inconsistent: Section 2.4 gives Medium 7 / Large 11 (ledger, 50.0K LOC, counted as Medium), while Table 4 lists ledger under Large (6 Medium, 12 Large); the tier averages 91.3% / 66.9% / 15.3% do not say which split they use. Repository URL differs: arXiv text github.com/Modelcode-ai/mcode-benchmark, ACM abstract github.com/Modelcode-ai-research/mcode-benchmark. Section 3.1 'Prompt Design' lists constraints, while Figure 5 shows v1 without them; v3 (Figure 6) was used for all reported results. Tier averages are across all four agents, not per agent. Preliminary and iterative-refinement experiments use an earlier 10-benchmark suite and are not comparable to the main results (stated). Authors are all employees of Modelcode AI (industry). No pre-registration. Languages: C, C++, Go, Java, Python, Rust, TypeScript, JavaScript",
    "p": "1, 4-6, 9-10",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missing reporting inconsistency: Section 2.4 (p. 4-5) counts 7 Medium / 11 Large projects with ledger (50.0K) as Medium, but Table 4 (p. 6) places ledger under Large."
+    }
+   ],
    "warn": ""
   },
   {

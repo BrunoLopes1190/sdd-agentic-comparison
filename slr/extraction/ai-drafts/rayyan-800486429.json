@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486429",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,9 +82,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The design document is fixed before implementation and directs it (spec-first behaviour), but the paper says nothing about what happens to the spec afterwards; 'not classifiable' vs 'spec-first' is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "A pre-existing design document fixed storage, schema, entity-resolution algorithm and retrieval strategy before implementation and directed it (p. 2), which is spec-first behaviour; the paper says nothing about whether the spec was kept or updated afterwards, so 'not classifiable' vs 'spec-first' is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "A pre-existing design document fixed storage, schema, entity-resolution algorithm and retrieval strategy before implementation and directed it (p. 2), which is spec-first behaviour; the paper says nothing about whether the spec was kept or updated afterwards, so 'not classifiable' vs 'spec-first' is a judgement."
     }
    ],
-   "warn": "A especificação é fixada antes e guia a implementação, mas o artigo não descreve o ciclo de vida dela; decide entre spec-first e not classifiable (secção 2)."
+   "warn": "O design document é fixado antes da implementação (p. 2), mas o artigo não diz se foi mantido depois. Decide entre spec-first e not classifiable."
   },
   {
    "f": "Task type",
@@ -116,9 +126,14 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper never says who operated the agent; it mentions only 'a user-reported symptom' and 'a human caught this'. 'Single author operating the agent' is an inference"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper mentions only 'a user-reported symptom' (p. 2), 'user-observed latency' (Table 1) and 'a human caught this' (p. 4); it never says who operated the agent or their experience. That it was the single author is an inference."
     }
    ],
-   "warn": "O artigo fala só de um 'user' e de 'a human' que testou; não diz que é o autor nem a experiência. Confirma nas secções 1 e 5 e decide se registas 'not stated'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O artigo só refere 'um utilizador' e 'um humano' (p. 2, 4), sem dizer quem operou o agente nem a sua experiência; confirma se aceitas 'não indicado'."
   },
   {
    "f": "Cost metrics",
@@ -285,8 +300,14 @@
    "f": "Q12",
    "v": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach",
    "p": "1",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The author (Amazon) is not the vendor of Claude, but the CLI coding tool used is not named (p. 2); an Amazon author may have used an Amazon CLI that runs Claude, and §5 scores missing information as No. Yes kept as best value since the agent's model vendor is known to be independent."
+    }
+   ],
+   "warn": "A ferramenta CLI não é identificada e o autor é da Amazon, que tem CLIs próprias com Claude. Decide se Q12 fica Yes ou desce para Partly/No por falta de informação."
   },
   {
    "f": "Q13",

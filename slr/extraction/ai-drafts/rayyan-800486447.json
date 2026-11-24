@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486447",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -278,9 +278,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No evaluated model or harness is made by the authors' employers, so Yes holds by the letter of §5; but most authors are from Microsoft Research / Microsoft AI, a close commercial partner of OpenAI, whose GPT-6 Astra ranks first. Whether that partnership counts as vendor dependence is a judgement call."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "By the letter of §5 Yes holds: no evaluated model or the R2E-Gym harness is made by the authors or their employers. But most authors are at Microsoft, OpenAI's close commercial partner, the top model is OpenAI's GPT-6 Astra, and the tasks were built with OpenAI's GPT-5.6 Sol; whether that counts as dependence is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "By the letter of §5 Yes holds: none of the evaluated models (OpenAI, Anthropic, Google, xAI) nor the base R2E-Gym harness is made by the authors' employers (KAIST, Microsoft). Whether Microsoft's commercial tie to OpenAI (top model GPT-6 Astra; tasks built with GPT-5.6 Sol) counts as dependence is a judgement."
     }
    ],
-   "warn": "Os autores são da Microsoft, parceira comercial da OpenAI, e o GPT-6 Astra (OpenAI) fica em primeiro. Decide se esta ligação conta como dependência do fornecedor (Partly) ou se mantém Yes."
+   "warn": "Os autores são da Microsoft, parceira da OpenAI; o GPT-6 Astra fica em primeiro e as tarefas foram geradas com o GPT-5.6 Sol. Decide se isto conta como dependência (Partly) ou se mantém Yes."
   },
   {
    "f": "Q13",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486458",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -89,9 +89,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "15 of 19 tasks come from Commit0, which the cited source calls 'library generation from scratch' (the agent re-implements a library inside a stubbed repository), so they sit between new project and existing code base; only the 4 TVM PR tasks are clearly existing-code-base work. The paper itself does not classify them."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Appendix A.2: 15 of 19 tasks derive from Commit0 (cited as 'library generation from scratch': implementation removed from a repository at a fixed revision) and 4 from merged Apache TVM PRs. The paper does not classify the tasks as new project or existing code base."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Appendix A.2 and Table 1: 15 of 19 tasks derive from Commit0 (cited as 'Library generation from scratch'; implementation to be completed inside a repository at a fixed revision with scoped writable paths) and 4 from merged Apache TVM PRs. The paper does not itself classify the tasks as new project or existing code base."
     }
    ],
-   "warn": "15 das 19 tarefas vêm do Commit0 (gerar uma biblioteca a partir de um repositório com a implementação removida); só as 4 do TVM são claramente código existente. Vê o Apêndice A.2 e decide entre new project e existing code base. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "15 das 19 tarefas vêm do Commit0 (biblioteca a reimplementar dentro de um repositório existente); só as 4 do TVM são claramente evolução de código existente. Vê o Apêndice A.2 e decide entre new project e existing code base."
   },
   {
    "f": "Size",
@@ -123,10 +133,16 @@
   },
   {
    "f": "Functional quality metrics",
-   "v": "Test Pass Rate (fraction of test points passed in the repository-level test suite); number of fully successful tasks out of 19",
-   "p": "4, 30",
-   "rev": [],
-   "warn": ""
+   "v": "Test Pass Rate (fraction of test points passed in the repository-level test suite); Final Task Success Rate (number of tasks out of 19 with a complete task pass and full dependency resolution, ADPR = 1; Table 12)",
+   "p": "4, 23, 30",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The draft gave 'number of fully successful tasks out of 19' without its definition; Appendix H (p. 23) defines Final Task Success Rate as a complete task pass AND ADPR = 1, so it is not a pure test-based success count."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Internal quality metrics",
@@ -158,9 +174,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criterion: Test Pass Rate and ADPR on pytest evaluators and Dependency Checkers; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One run per model-task-protocol (no repetitions stated). Each entry: OpenHands + model; Test Pass / ADPR (%) / tokens (M) for SINGLE, SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER. (a) Qwen3.5-9B: 24.44/14.21/5.18; 15.83/5.96/8.01; 15.13/0.00/8.32; 28.44/1.05/15.53; 36.93/2.81/15.48. (b) Qwen3.5-27B: 42.13/12.28/4.13; 47.91/14.91/6.18; 31.15/7.19/6.67; 49.33/20.18/12.41; 59.15/31.58/14.00. (c) Qwen3.6-27B: 57.45/36.84/4.96; 64.01/49.12/8.35; 55.79/21.93/8.18; 63.32/22.81/13.88; 76.70/63.16/14.49. (d) Qwen3.8-27B: 93.62/77.19/3.45; 79.53/57.89/8.02; 81.76/55.26/7.09; 82.33/57.89/12.78; 86.67/64.91/13.73. (e) Qwen3-Coder-Next: 51.18/30.70/4.69; 39.77/7.02/9.49; 33.55/3.51/8.66; 28.83/5.26/17.89; 45.97/16.49/16.38. (f) DeepSeek-V4: 93.64/78.95/2.54; 87.84/66.67/6.89; 75.75/45.61/6.92; 80.36/64.21/11.61; 89.85/71.93/13.65. (g) Gemma-4-26B: 26.51/1.05/0.93; 32.65/1.05/2.49; 26.37/1.05/3.14; 36.40/5.96/3.64; 49.18/20.18/20.20. (h) Muse-Glimmer-30B: 47.67/20.35/4.83; 49.48/15.79/8.32; 38.81/6.32/7.99; 41.67/4.56/14.06; 55.45/28.07/16.08. (i) GLM-4.7-Flash: 44.77/1.05/3.50; 33.85/8.77/7.06; 28.20/0.00/7.10; 37.58/2.81/12.34; 34.68/6.32/13.79. (j) Nemotron-3.5: 28.99/1.05/5.72; 28.14/0.00/9.82; 32.94/1.05/9.82; 31.50/2.81/14.04; 39.89/7.72/17.79. Normalized DRS per configuration in Tables 10-11",
+   "v": "Criterion: Test Pass Rate and ADPR on pytest evaluators and Dependency Checkers; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One run per model-task-protocol (no repetitions stated). Each entry: OpenHands + model; Test Pass / ADPR (%) / tokens (M) for SINGLE, SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER. (a) Qwen3.5-9B: 24.44/14.21/5.18; 15.83/5.96/8.01; 15.13/0.00/8.32; 28.44/1.05/15.53; 36.93/2.81/15.48 (token value a lower bound: one incomplete token record, Table 10 note). (b) Qwen3.5-27B: 42.13/12.28/4.13; 47.91/14.91/6.18; 31.15/7.19/6.67; 49.33/20.18/12.41; 59.15/31.58/14.00. (c) Qwen3.6-27B: 57.45/36.84/4.96; 64.01/49.12/8.35; 55.79/21.93/8.18; 63.32/22.81/13.88; 76.70/63.16/14.49. (d) Qwen3.8-27B: 93.62/77.19/3.45; 79.53/57.89/8.02; 81.76/55.26/7.09; 82.33/57.89/12.78; 86.67/64.91/13.73. (e) Qwen3-Coder-Next: 51.18/30.70/4.69; 39.77/7.02/9.49; 33.55/3.51/8.66; 28.83/5.26/17.89; 45.97/16.49/16.38. (f) DeepSeek-V4: 93.64/78.95/2.54; 87.84/66.67/6.89; 75.75/45.61/6.92; 80.36/64.21/11.61; 89.85/71.93/13.65. (g) Gemma-4-26B: 26.51/1.05/0.93; 32.65/1.05/2.49; 26.37/1.05/3.14; 36.40/5.96/3.64; 49.18/20.18/20.20. (h) Muse-Glimmer-30B: 47.67/20.35/4.83; 49.48/15.79/8.32; 38.81/6.32/7.99; 41.67/4.56/14.06; 55.45/28.07/16.08. (i) GLM-4.7-Flash: 44.77/1.05/3.50; 33.85/8.77/7.06; 28.20/0.00/7.10; 37.58/2.81/12.34; 34.68/6.32/13.79. (j) Nemotron-3.5: 28.99/1.05/5.72; 28.14/0.00/9.82; 32.94/1.05/9.82; 31.50/2.81/14.04; 39.89/7.72/17.79. Normalized DRS per configuration in Tables 10-11",
    "p": "24, 29",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "All values match Tables 10-11, but the Qwen3.5-9B ASYNC-MANAGER token cost (15.48M) is marked in Table 10 as a lower bound due to one incomplete token record; the caveat was missing."
+    }
+   ],
    "warn": ""
   },
   {

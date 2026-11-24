@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498042",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -168,7 +168,7 @@
      "why": "Count was '11 scaffold-model pairs (2 scaffolds, 8 models)'; with 8 models there are 12 pairs (Table 7 includes Mini-SWE + Devstral-Small), of which 11 are analysed in Table 2 (p. 6, 16)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: result",
@@ -202,7 +202,7 @@
      "why": "Missing inconsistency: Mini-SWE-Agent system prompt described as re-aligned (p. 6) but as unchanged in Appendix K (p. 24); added the rounding difference of the subset correlation and the basis for the Table 3b reading"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

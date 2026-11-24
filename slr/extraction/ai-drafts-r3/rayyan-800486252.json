@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486252",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Xu, X., Yang, R., Shen, H., Xu, W., Gao, B., Wu, R., Shi, K., Xie, W., Chen, X., Wu, M., Zeng, J., Heinrich, M., Zhang, E., Chen, L., Li, K., Chang, B. (2026). RoadmapBench: Evaluating Long-Horizon Agentic Software Development Across Version Upgrades. arXiv:2605.15846v2 [cs.SE], 19 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.15846v2 [cs.SE]; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "UniPat AI; Peking University; Fudan University; The University of Hong Kong; Tsinghua University; 0G Labs; Pipeline Lab (mixed industry and academia)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — RoadmapBench, 115 long-horizon multi-target tasks from real open-source version upgrades (17 repositories, 5 languages), each with a roadmap instruction and per-target weighted tests; 13 models compared under OpenHands, 11 also under Terminus 2 (scaffold ablation)",
+   "p": "1-3, 5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Benchmark input: multi-target roadmap instruction (instruction.md). Agents compared: OpenHands scaffold (version not stated) with Claude-Opus-4.7 (xhigh), Claude-Opus-4.6, GPT-5.4 (high), Gemini-3.1-Pro (high), DeepSeek-V4-Pro (high), GLM-5.1, Kimi-K2.6, Mimo-V2.5-Pro, Qwen3.6-Plus, Kimi-K2.5, MiniMax-M2.7, Qwen3.5-397B, Seed-2.0-Pro (high); Terminus 2 (Harbor reference agent, version not stated) with 11 of these models; extended thinking enabled for all",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task a roadmap instruction (instruction.md): overview, goals, numbered targets each with objective and requirements (API signatures, parameter semantics, defaults, exceptions) without implementation details, and completion criteria; per-target test files with weights; task.toml, Dockerfile, gold patch (hidden)",
+   "p": "3-4, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark construction: repository mining (filters, in-depth search, expert review) -> task construction (Docker environment pinned at source version, future history pruned; roadmap from release narratives and diffs; tests adapted from upstream; gold patch) -> static validation (compliance, target-level instruction-test alignment, oracle revalidation) -> rollout-based quality control (agents of three tiers, attribution of failures to task or model, repair). Evaluation: agent implements the roadmap in the source-version snapshot within 2 h, then weighted per-target tests",
+   "p": "4-6, 21-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Expert review of repositories and version pairs; Ph.D.-student annotators (co-authors) review generated instructions and repair task-side defects; expert attribution of agent failures (two annotators on 40 trajectories, Cohen's kappa 0.83, third annotator for disagreements); 50 automated failure classifications manually validated. No human in the agent loop",
+   "p": "4, 15, 23-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (roadmap instruction given as agent input; no SDD workflow run)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms; they speak of a 'multi-target roadmap instruction' / 'roadmap specifications')",
+   "p": "3, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (implement the functionality of the next release starting from a source-version repository snapshot)",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "115 tasks; oracle patches <300 to >30,000 lines changed, median about 3,700 (3,714) lines and 51 files; 3-12 targets per task, median 5; repositories about 20 KB to 10 MB source",
+   "p": "1, 4-5, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories in 5 domains: ML & Data (Polars, PyG, Optuna, spaCy; 36 tasks), Web & RPC (Falcon, Fiber, Kitex; 17), ORM & Validation (MikroORM, Prisma, Valibot, Diesel; 25), Infra & Tooling (Glaze, thread-pool, Ruff; 23), UI & Rendering (Fyne, Ratatui, Slint; 14)",
+   "p": "5, 16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in the agent runs; annotators are Ph.D. students in computer science, co-authors)",
+   "p": "15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average agent turns per task, average output tokens per task (K), tool calls per task by intent (Explore, Edit, Create, Execute, Plan, Think); cumulative resolved rate by step budget. 2-hour wall-clock budget per task. No monetary cost for agents (failure classification cost about $350)",
+   "p": "6-9, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved rate (all targets pass) and Completion Score (mean weighted fraction of passed targets, weights by complexity); per-domain resolved rate; subtask pass rate by change type and difficulty",
+   "p": "4, 6-7, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (stated limitation: tests do not assess code quality or maintainability)",
+   "p": "15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure-mode taxonomy of 3,603 failed subtasks (Implementation Error, Build Error, Missing Implementation, Interface Mismatch, Agent Failure; 14 sub-types); resolved rate against complexity proxies (files, lines, targets) with 95% Wilson CIs; scaffold sensitivity; impact of quality control on scores",
+   "p": "10-12, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: weighted per-target test suites (adapted from upstream) run on the agent's repository; turns, tokens and tool calls from trajectories (tool calls classified by OpenHands action type). Semi-automatic: failure modes classified by Claude-Sonnet-4.6 via Claude Code, 88% category-level agreement with expert labels on 50 samples",
+   "p": "4, 6-7, 9, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark RoadmapBench, 115 tasks, single trial per model (Table 2). Values: resolved rate / Completion Score / avg turns / avg output tokens (K). Success criterion: none stated by the authors. OpenHands: (1) Claude-Opus-4.7 39.1% / 0.692 / 140.2 / 44. (2) Claude-Opus-4.6 32.2% / 0.627 / 140.7 / 42. (3) GPT-5.4 29.6% / 0.497 / 170.7 / 93. (4) Gemini-3.1-Pro 20.9% / 0.439 / 133.4 / 26. (5) DeepSeek-V4-Pro 18.3% / 0.486 / 140.2 / 64. (6) GLM-5.1 18.3% / 0.453 / 163.2 / 38. (7) Kimi-K2.6 14.8% / 0.432 / 158.9 / 76. (8) Mimo-V2.5-Pro 13.9% / 0.440 / 155.5 / 66. (9) Qwen3.6-Plus 12.2% / 0.424 / 150.3 / 47. (10) Kimi-K2.5 11.3% / 0.378 / 110.3 / 29. (11) MiniMax-M2.7 10.4% / 0.332 / 123.5 / 38. (12) Qwen3.5-397B 9.6% / 0.383 / 110.5 / 35. (13) Seed-2.0-Pro 5.2% / 0.177 / 40.1 / 9. Terminus 2 (ablation, scaffold): (14) Claude-Opus-4.7 38.3% / 0.681 / 59.2 / 22. (15) Claude-Opus-4.6 31.3% / 0.666 / 82.7 / 43. (16) GLM-5.1 20.9% / 0.512 / 93.8 / 57. (17) Qwen3.6-Plus 16.5% / 0.508 / 129.6 / 64. (18) Kimi-K2.6 15.7% / 0.409 / 111.7 / 53. (19) DeepSeek-V4-Pro 10.4% / 0.395 / 149.2 / 80. (20) Mimo-V2.5-Pro 10.4% / 0.344 / 113.7 / 155. (21) Qwen3.5-397B 10.4% / 0.337 / 90.1 / 43. (22) Kimi-K2.5 7.8% / 0.360 / 90.2 / 33. (23) MiniMax-M2.7 4.3% / 0.279 / 126.2 / 41. (24) Seed-2.0-Pro 2.6% / 0.135 / 55.9 / 20. Quality verdict and cost verdict for every entry: no criterion stated by the authors",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 115 version-upgrade tasks, 17 repositories, 5 languages. Configurations: 13 models under OpenHands; 11 under Terminus 2 as scaffold ablation. Baseline: none (models compared to each other; SWE-bench Verified scores cited for contrast). Held constant: scaffold within each set, pinned Docker environments, roadmap instructions, 2-hour budget, extended thinking, no access to target code/tests/oracle, blocked upstream access. Not held constant: reasoning effort (xhigh for Opus-4.7, high for some, default for others). Acceptance: weighted per-target tests adapted from upstream, validated against the gold patch. Repetitions: single trial per model. Human intervention: none during runs",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude-Opus-4.7 best (39.1% resolved, 0.692 CS), then Claude-Opus-4.6 (32.2%) and GPT-5.4 (29.6%); others 5.2%-20.9%. Completion Score always higher than resolved rate (partial progress common). ML & Data hardest, ORM & Validation more tractable, UI & Rendering widest spread (Opus-4.7 64.3%). Resolved rate falls with files, lines and number of targets. Stronger models explore less (Opus-4.7 35% Explore, about 101 tool calls) and convert steps into edits; GLM-5.1 uses more steps (163 vs 140) for 20 pp less. Scaffold: top models robust (Opus-4.6 0.9 pp difference), mid/lower tiers swing 3-10 pp; OpenHands better for most (DeepSeek-V4-Pro +7.9 pp, MiniMax-M2.7 +6.1 pp), Terminus 2 better for GLM-5.1 (+2.6 pp) and Qwen3.6-Plus (+4.3 pp). Failures shift from Implementation Error (strong models) to Build Error and Missing Implementation (weak models). No significance tests between models",
+   "p": "7-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: wide spread of resolved rates (5.2%-39.1%) and Completion Score separates capability tiers better than binary outcomes; quality control requires distinguishable scores across tiers before a task is finalized. Repeatability not assessed (single trial per model). Limitations of the method stated: scaffold sensitivity, tests do not assess code quality, limited ecosystem coverage",
+   "p": "2, 5, 7-8, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Only two scaffolds (OpenHands, Terminus 2); performance is scaffold-sensitive. Tests verify behaviour but not code quality, maintainability or idiomatic style; multi-dimensional metrics are future work. Limited subset of ecosystems despite 5 languages. Gap: long-horizon multi-target software development remains largely unsolved; failures occur at integration, correctness and construction-level reliability",
+   "p": "12, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: text says in ML & Data 'six of thirteen models resolve no tasks' and 'only the top three exceed 8%' (p. 8), but Table 2 (p. 7) shows 0.0% for three models under OpenHands (Kimi-K2.5, Qwen3.5-397B, Seed-2.0-Pro; six zeros only when both scaffolds are counted) and 8.3% for four further models; Opus-4.7 averages 101 tool calls in §5.2 text and 102 in Figure 6(b); post-QC Terminus scores in Appendix Table 4 (p. 23: Claude-Opus-4.6 30.4% / 0.683, GLM-5.1 20.4% / 0.511, Kimi-K2.5 7.1% / 0.348) differ from Table 2 Terminus rows (31.3% / 0.666, 20.9% / 0.512, 7.8% / 0.360); Appendix G.1 (p. 21) lists the five target languages as Python, TypeScript, Go, Rust, Java, but the benchmark contains C++ (Glaze, thread-pool) and no Java (Table 3, p. 16). Values taken from Table 2. Quality control used agents of three capability tiers and kept only tasks where tiers score differently, which can shape the benchmark towards the models used; Appendix Table 4 suggests these were Claude-Opus-4.6, GLM-5.1 and Kimi-K2.5 under Terminus 2, which are also evaluated models (not stated explicitly). Iterative QC: 45 of 115 tasks needed at least one fix round (average 3.1 rounds). Static review by experts assisted by Claude-Opus-4.7. Repository identities and versions anonymized in instructions. Code (github.com/UniPat-AI/RoadmapBench), dataset (HuggingFace UnipatAI/RoadmapBench) and leaderboard released. No pre-registration. Languages: Python, TypeScript, C++, Go, Rust",
+   "p": "1, 7-9, 15-16, 21, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (evaluate long-horizon multi-target development) and contributions clearly stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, validation criteria, metrics, scaffolds and inference settings described; code and dataset public",
+   "p": "4-6, 21-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and reasoning settings given; OpenHands and Terminus 2 versions not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): repositories, languages, task counts and sizes listed; full example task; dataset on HuggingFace",
+   "p": "1, 16, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): per-target tests adapted from upstream suites, validated against the gold patch and checked for instruction-test alignment",
+   "p": "4-5, 22-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolved rate and Completion Score defined by equations; cost covered by turns, output tokens and tool calls (no money)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 models under the same scaffold and tasks; second scaffold as ablation",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single trial per model, no repetitions; 95% Wilson CIs only for resolved rate within complexity bins, not for differences between configurations; no statistical test of differences",
+   "p": "7, 10",
+   "verdict": "uncertain",
+   "why": "Table 2 states a single trial per model and no test of differences between models; the 95% Wilson CIs (Figure 7, p. 10) are for resolved rate within complexity bins, not for the configuration comparison. No follows §5, but a reader could credit the CIs as Partly (round 1 gave Partly).",
+   "doubt": "Só há uma execução por modelo; os intervalos de Wilson (Fig. 7) são por classes de complexidade, não para diferenças entre modelos. Decide entre No e Partly."
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results and stress low absolute performance; one domain claim does not match Table 2",
+   "p": "7-8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations appendix (scaffolds, test-only evaluation, ecosystem coverage); no threats-to-validity discussion (e.g. single trial, QC bias, contamination only briefly mentioned)",
+   "p": "15-16",
+   "verdict": "uncertain",
+   "why": "Appendix A (p. 15) lists three limitations (scaffolds, test-only evaluation, ecosystem coverage); single trial, QC bias towards the tier models and contamination (only a remark on temporal spread, p. 16) are not discussed as threats. Partly is defensible; a reader could give Yes because limitations are explicitly discussed.",
+   "doubt": "O Apêndice A tem três limitações, sem discutir execução única, viés do controlo de qualidade ou contaminação. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors from universities and UniPat AI / 0G Labs / Pipeline Lab; none of the evaluated models or scaffolds is theirs",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

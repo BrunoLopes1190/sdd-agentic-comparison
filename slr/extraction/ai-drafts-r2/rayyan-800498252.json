@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800498252",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, T., Guan, Y., Li, S., Wang, W., Yu, G., Lv, C. (2026). When Coding Agents Outpace Review: Evaluating PRD-Driven Development in Mature Enterprise Repositories. arXiv:2610.26394v1 [cs.SE], 19 Oct 2026. Code: https://github.com/TianqiLiu1/PACE-Bench",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.26394v1 [cs.SE], 19 Oct 2026; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Zhejiang University (Liu, Li, Wang; Liu during an internship at Alibaba); Alibaba Taobao & Tmall Group (Guan, Yu, Lv), China — industry/academia",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark PACE-Bench (43 enterprise PRD-driven brownfield tasks, 750 expert-audited Code Points) with criterion synthesis, layered evidence-based evaluator and symptom-signal attribution, used to compare 11 model-scaffold configurations, knowledge-injection variants and three releases of the authors' platform harness",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named SDD approach; PRD-driven development as the task setting. Configurations: OpenHands 1.21.0 with GPT-5.6-Sol, GLM-5.2, Qwen3.7-Max, Kimi-K2.6, Opus-4.8, Gemini-3.1-Pro-Preview, DeepSeek-V4-Pro, MiniMax-M2.7, Qwen3.8-27B; native scaffolds Codex + GPT-5.6-Sol and QwenCode + Qwen3.7-Max (versions not given). Authors' internal coding-agent platform harness releases v1, v2, v3 with Opus-4.5 (v1 organizes frontend work into clarification, decomposition, design and coding)",
+   "p": "4-5, 11-12, 14-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent input: a standardized PRD (prd/prd.md) reconstructed from production records, with sections goals, scope, functional requirements, business rules, technical constraints, acceptance criteria, open items; base repository. Hidden evaluation artefacts: frozen Code Points (acceptance criteria, provenance, evidence hints, permitted alternatives, weight)",
+   "p": "2-3, 18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed for agents in the main study (instruction: implement all PRD requirements, inspect patterns, run relevant tests, inspect final diff). Authors' harness v1: clarification, decomposition, design, coding; v2 adds complex-task handling and subtask tracking; v3 adds plan-completion event. Benchmark: PRD reconstruction, bidirectional Code Point synthesis, expert review; evaluation L0 structural checks, L1 call-graph evidence localization, L2 semantic judgment, deterministic aggregation; symptom-signal attribution",
+   "p": "2-4, 15, 18-19",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None in agent runs (autonomous). Humans in benchmark: business-domain experts select cases and audit all 750 Code Points (56 revised or removed); three technical annotators re-evaluate all 750 verdicts on Qwen patches; engineers inspect diagnoses to revise the harness",
+   "p": "3, 9, 12, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only: a standardized PRD as the agent's task input; no SDD workflow run in the main comparison (harness releases add a clarification/decomposition/design/coding flow, evaluated only as whole releases)",
+   "p": "2-5, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; the PRD is a one-off task input)",
+   "p": "1-2",
+   "verdict": "uncertain",
+   "why": "The authors do not use SDD terms, but the setting is 'PRD-driven development': a standardized PRD (prd/prd.md) reconstructed before implementation is the agent's sole task input and is not maintained afterwards, which matches Böckeler's spec-first. 'Not classifiable' is also defensible because no SDD tool or workflow is run.",
+   "doubt": "O PRD normalizado é escrito antes do código e é o único input do agente, o que se aproxima de spec-first, mas os autores não falam de SDD. Decide entre spec-first e not classifiable."
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: incremental PRD fulfilment (feature development) in mature enterprise brownfield repositories",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "43 tasks, 750 Code Points (median 16 per case); repository size median 120,616 code lines; PRD length median 2,799 characters; reference changes median 1,465 lines across 15 files (mean 1,749.93 lines, 17.58 files)",
+   "p": "3-4, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Enterprise e-commerce (Alibaba Taobao & Tmall): games & engagement 16, membership & promotions 11, product & commerce 7, content & discovery 5, engineering & data 4; objectives: business workflows 19, maintenance & testing 9, services & platforms 8, data & analytics 7",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents). Business-domain experts and three platform-side technical annotators, company employees in China; experience not quantified",
+   "p": "3, 10, 12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money for agent runs). Process counts per case: tool uses (59.8-122.8), verification commands, self-checks",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Functional score Sc = weighted mean of Code Point verdicts (Covered 1, Partial 0.5, Missing 0), cases weighted equally, mean ± SE; success rate = share of cases with Sc ≥ 95 and zero Missing (complete delivery); point-level pass@k and pass^k, case-level success@k / success^k over 3 runs",
+   "p": "4, 8, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Auxiliary code-quality observations (0-100), not part of the score: convention, architectural scope, naming-contract adherence, test delivery (on 9 cases requiring tests); syntax check 98.7-99.8",
+   "p": "7, 17-18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None in the benchmark. Platform rollout observation: mean requirement delivery time fell from 30.36 to 14.03 days (Feb-Aug), not controlled",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Weighted acceptance loss by outcome symptom (contract/target mismatch, integration/registration gap, test-delivery gap, incomplete implementation); process signals from traces (verification gap, unretrieved files, error recovery); evaluator agreement (exact, weighted κ, severe inversions); execution vs judging variability; platform code adoption (monthly median 64.76% → 86.37%)",
+   "p": "4-9, 13, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: frozen Code Points scored by L0 deterministic checks, L1 call-graph evidence localization and L2 semantic judge (Opus-4.8, default reasoning, 8,192 output tokens) with deterministic aggregation; process signals and symptoms by deterministic rules over saved traces and patches; quality observations by an LLM prompt. Validation: positive (reference patches) and four negative controls; agreement with a consensus of three technical annotators on all 750 Qwen3.7-Max Run 1 verdicts; three executions and three judging records for Qwen3.7-Max",
+   "p": "4, 6-8, 12-14, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per case: complete delivery = Sc ≥ 95 and zero Missing; no criterion stated by the authors for a configuration, so quality and cost verdicts for every entry: no criterion stated by the authors. Values on 43 cases (score mean ± SE; complete-delivery rate): OpenHands 1.21.0 + GPT-5.6-Sol 78.08 ± 2.71, 14.0%; + GLM-5.2 68.80 ± 3.72, 9.3%; + Qwen3.7-Max 66.70 ± 3.45, 7.0% (three executions 66.70 / 65.44 / 65.37); + Kimi-K2.6 63.09 ± 3.79, 4.7%; + Opus-4.8 61.68 ± 4.39, 7.0%; + Gemini-3.1-Pro-Preview 61.30 ± 3.84, 2.3%; + DeepSeek-V4-Pro 61.00 ± 3.65, 9.3%; + MiniMax-M2.7 52.13 ± 3.64, 2.3%; + Qwen3.8-27B 12.25 ± 3.12, 0.0% (17 empty patches); Codex + GPT-5.6-Sol 76.78 ± 2.81, 14.0%; QwenCode + Qwen3.7-Max 65.69 ± 3.83, 11.6%. Authors' platform harness + Opus-4.5: v1 59.37, v2 61.34, v3 63.04 (2.3% each). Knowledge injection, Qwen3.7-Max on 28 cases: no knowledge 58.54, locators only 57.80, repository-matched 59.23, shared long context 57.03",
+   "p": "5, 8, 12, 15, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: the same 43 PRD tasks and base repositories for all configurations (knowledge study: 28 cases, 525 Code Points). Configurations: 9 models in a common OpenHands 1.21.0 scaffold (iteration limit 200, tool concurrency 4) and 2 native scaffolds; three harness releases with the same model. Baseline: none formal; paired scaffold comparisons, no-knowledge input as baseline for knowledge study, earlier release for harness study. Held constant: PRD, base, frozen Code Points and weights, judge. Acceptance: frozen expert-audited Code Points judged by the layered evaluator. Repetitions: one execution per configuration except three for Qwen3.7-Max. Human intervention: none",
+   "p": "4-5, 8, 11-12, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5.6-Sol (OpenHands) best: 78.1 and 14.0% (6 of 43); eight common-scaffold models span 26.0 points (52.1-78.1). Codex + GPT-5.6-Sol similar (76.8, 14.0%); QwenCode raises Qwen3.7-Max completion from 7.0% to 11.6% with a 1.01-point lower mean. Difficulty tracks the share of derived/implicit Code Points (75.0, 61.6, 56.8; ρ = −.410, p = .006, BH-adjusted p = .076) rather than size (|ρ| ≤ .083). Incomplete implementation and integration gaps account for 72.0% of weighted loss (65.8-78.1% per model). Static knowledge injection: −1.51 to +0.69 points (no consistent gain). Harness releases: 59.37 → 61.34 → 63.04 (+3.67). Execution variation 3.7 times judging variation (mean case SD 8.77 vs 2.36). No significance tests between configurations",
+   "p": "5-9, 16-17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: controls separate fulfilment from superficial matches (reference 98.35, empty/unrelated/cross-case 0.00, identifier-only 4.03); full pipeline agreement with expert consensus 95.2%, weighted κ = .945, no severe inversions, vs 76.0-78.0% for judge baselines; judging more stable than execution. Repeatability of agent runs limited: pass@3 68.4% vs pass^3 33.2% of points. Limitations: consensus reference built only on Qwen patches; scores and diagnoses linked by co-occurrence, not causation; tasks drawn only from user-agent interaction records",
+   "p": "6-9, 12-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: tasks only from real user-agent interactions on one platform, no other construction sources (e.g. merge requests); production PRDs, repositories and records stay under organizational access control; knowledge result limited to fixed inputs on 28 cases; process signals co-occur with symptoms without establishing cause; identifier-only control shows the semantic judge can grant structural Partial credit. Gaps / future work: extend diagnosis-guided feedback to knowledge evolution and targeted model training",
+   "p": "6, 8, 10, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Code (construction, evaluation, schemas, scoring, attribution) on GitHub; production requirement documents, repository snapshots and records not released (organizational access control). No pre-registration. The semantic judge (Opus-4.8) is also an evaluated model. Main-table Qwen result keeps earlier point judgments outside its targeted review, while the knowledge study uses new judgments (authors note the two no-knowledge means differ). Platform rollout metrics (adoption, delivery time) are uncontrolled monthly aggregates. Table 3 values read from a garbled extraction. Programming languages: Java (alone or with Groovy, SQL, HTML), TypeScript (alone or with CSS, JS), Python",
+   "p": "4, 7, 9, 11-12, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim, contributions and RQ1-RQ5 stated",
+   "p": "1-2, 5-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction, scoring rules, prompts and settings documented, but the production tasks are not available, so the study cannot be replicated",
+   "p": "2-4, 11-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): OpenHands 1.21.0, model names, judge (Opus-4.8) and settings given; Codex and QwenCode versions and the internal harness not versioned beyond v1-v3",
+   "p": "4-5, 11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described statistically (Figures 2-3), but PRDs and repositories are not publicly available",
+   "p": "3-4, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): expert-audited acceptance criteria scored by a validated evaluator (95.2% agreement with an independent annotator consensus; positive and negative controls)",
+   "p": "3, 6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): functional score, success rate and quality observations defined; no cost metrics (only tool-use counts)",
+   "p": "4, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 11 configurations on the same tasks and frozen criteria; paired knowledge and harness-release comparisons",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): case-level SE reported and three executions for one configuration; no repetitions for others and no tests of differences between configurations",
+   "p": "5, 8, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow and are hedged (e.g. knowledge result limited to these inputs; co-occurrence not causation)",
+   "p": "5-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations section limited to data sources; other limits noted only in passing",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors from Alibaba evaluate Alibaba's Qwen models and QwenCode and their own platform harness; the other models and scaffolds are independent",
+   "p": "1, 4-5, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

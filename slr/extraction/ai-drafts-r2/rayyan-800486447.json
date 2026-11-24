@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486447",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Kim, J., Kim, M., Kim, Y. J., Pereira, M., Côté, M.-A., Sordoni, A., Yuan, X., & Shi, Z. (2026). ProgramDistill: From Interactive Web Apps to Verifiable Reference-Guided SWE Tasks. arXiv:2609.18805v1 [cs.SE], 16 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.18805v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia and industry: KAIST; Microsoft Research Montréal; Microsoft AI",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — ProgramDistill, a benchmark of reference-guided web development built by an automated mine-craft-patch pipeline (1,975 replay-verified behaviors, 4,063 tasks from 26 web applications), used to compare nine frontier models in partial-application reconstruction and three in full-application reconstruction",
+   "p": "1-2, 7-8, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents compared: one modified R2E-Gym harness (tools execute_bash, file_editor, search, finish, plus browser CLI) with nine models: GPT-6 Astra, GPT-5.6 Sol, Claude Opus 5, Claude Sonnet 5, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.1 Pro Preview, Grok 4.6, GPT-5.3 Codex. Harness version: Not stated. Benchmark construction pipeline (mine-craft-patch) uses GPT-5.6 Sol",
+   "p": "2, 8, 23-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Task inputs: a working reference application (source hidden), the masked current repository and a generated behavioral problem statement (partial reconstruction), or a minimal executable scaffold and a product-level capability description (full reconstruction); replay-verified behavior traces serve as hidden verifiers; gold patches",
+   "p": "5-6, 10, 33-37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed). Pipeline: mine (discover and replay-verify behaviors), craft (mask implementations, validate, compose cumulative tasks), patch (agent restores behavior). Agent instruction: explore reference, edit current application, validate against reference, submit; fresh verifier replays traces",
+   "p": "2-6, 24, 35",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None: tasks constructed without human intervention and agents run autonomously",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs on repair and reconstruction tasks where the working application acts as the specification",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'treat running software itself as part of the specification', 'shift from specification consumption to specification discovery')",
+   "p": "1, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (partial-application reconstruction: restore masked features in a repository) and new project from a minimal scaffold (full-application reconstruction)",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "26 web applications (18 OSWorld-derived, 8 open-source projects/SaaS clones); 4,063 tasks (2,862 atomic, 1,201 cumulative); evaluation suite ProgramDistill-300 (50 atomic, 250 cumulative, restoration depth 1-8, 269 lineages); full reconstruction: 12 applications, 590 atomic and 413 cumulative behavior tests. Restoration code size grows 9.3x from depth 1 to 8 (absolute LOC not stated in text)",
+   "p": "7-8, 9-11, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Interactive web applications (e.g. Trello and Jira clones, AWS Console, Baserow, Reactive Resume, Actual Budget, MailHub, StreamView, W&B, banking, insurance, scheduling)",
+   "p": "7, 11, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean trajectory cost in USD (uncached input, cached input and output tokens x LiteLLM list prices); agent steps; wall-clock time for one representative run (GPT-6 Astra: 300 tasks in ~557 min on four servers, 48.2 min mean per trial); prompt size per step",
+   "p": "8, 12, 37, 39",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Binary score (whole task lineage passes replay verification), chain score (partial credit for recovered prefix); full reconstruction: atomic behavior recovery and cumulative binary/chain recovery",
+   "p": "6, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (patches need not match the gold patch; only behavior checked). Retention of unchanged target files and mask stub lines in final patches reported",
+   "p": "6, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Interaction behaviour: reference/current observation steps, read/search steps, edit/write steps, browser state returns; shortcut attempts (Git history, public source fetches, protected harness probes, direct reference probes); failure categories (not observed, observed not implemented, wrong observable form, wrong state/result)",
+   "p": "9-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: fresh verifier rebuilds the submitted application and replays held-out traces without LLM intervention; cost from token logs and LiteLLM prices; trajectory statistics from logs. Failure analysis of 977 failed atomic behaviors classified with GPT-6 Astra",
+   "p": "4, 6, 12, 24, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: replay verification of behavior traces (binary/chain score); no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One trial per task per configuration (no repetitions stated). Partial-application reconstruction, ProgramDistill-300, modified R2E-Gym harness, high reasoning effort; mean binary score, mean cost per trajectory: (a) + GPT-6 Astra: 84.3%, $33.99 (depth 1 100%, depth 8 64.0%). (b) + Claude Opus 5: 68.7%, $28.86 (96% -> 32%). (c) + GPT-5.6 Sol: 60.7%, $16.01 (92% -> 32%). (d) + Grok 4.6: 48.3%, $8.83. (e) + Claude Sonnet 5: 47.3%, $13.12. (f) + GPT-5.3 Codex: 45.7%, $5.99. (g) + Gemini 3.7 Flash: 45.3%, $3.89. (h) + Gemini 3.6 Flash: 29.7%, cost in figure only. (i) + Gemini 3.1 Pro Preview: 22.3%, cost in figure only. Full-application reconstruction, 12 apps, one run each, max reasoning effort; atomic recovery / cumulative binary / cumulative chain: (j) + GPT-6 Astra: 58.98 / 49.15 / 64.58%. (k) + Claude Opus 5: 42.03 / 28.81 / 47.42%. (l) + GPT-5.6 Sol: 33.39 / 21.07 / 34.22%. Mean steps per run ~719, 628, 719",
+   "p": "8-9, 11-12, 37-39",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: ProgramDistill-300 (stratified by restoration depth, round-robin across 26 apps) and 12 apps for full reconstruction. Configurations: nine models in the same modified R2E-Gym harness (three in full reconstruction). Constant: harness, tools, instructions, isolation (no Git history, no egress, hidden grading files), step and token limits (partial: 1,000 steps, high effort; full: 10,000 steps, max effort). Baseline: none (gold patch replay used as solvability control). Acceptance: replay of held-out behavior traces in a fresh verifier. Repetitions: not stated (single trial). Human intervention: none",
+   "p": "6, 8, 11, 23-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Partial reconstruction: GPT-6 Astra best (84.3%), 15.7 points above Opus 5 at ~18% higher cost per trajectory; middle tier 45.3-48.3%; Gemini 3.7 Flash nearly matches GPT-5.3 Codex at lower cost ($3.89 vs $5.99); performance falls with restoration depth for all models. Full reconstruction: Astra > Opus 5 > Sol on atomic and cumulative recovery, same order as partial. Logic-and-UI masks harder than logic-only (Astra 16.0-point binary gap). Shortcut attempts in 7.2% of trajectories (Grok 4.6 19.0%, Astra 0.3%). No significance tests",
+   "p": "8-11, 38",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: it separated models and gave a controllable difficulty axis; model order consistent across partial and full settings. Repeatability not assessed (single trial, no variance). Limitations stated by the authors: text-only browser observations, self-contained web apps only, construction model (GPT-5.6 Sol) may affect task coverage and quality, dependence on browser and harness infrastructure",
+   "p": "11, 14-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: no screenshot inputs or visual fidelity evaluation; only self-contained web applications (no external services, nondeterministic state, desktop or mobile); construction relies on one model; sensitivity to browser helper and harness not characterised; potential misuse for cloning applications. Gaps: agents' observation and validation effort per behavior falls as depth grows; most full-reconstruction failures are behaviors never observed (59.2%); agents' own validation misses mismatches",
+   "p": "10, 12, 14-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Abstract and introduction quote full-reconstruction cumulative success 49.2% / 28.8%; Table 1 gives 49.15 / 28.81. Per-trajectory costs for Gemini 3.6 Flash and Gemini 3.1 Pro Preview only in Figure 7(a). Table 1 is garbled in the extracted text; means taken from text. Benchmark not yet public ('working on a public release'); applications pinned to commits (Table 3). No pre-registration. Programming language: web stacks (Django, Angular, React, Next.js); full reconstruction contract in JavaScript (app.js)",
+   "p": "1-2, 8, 11, 19, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim to build a benchmark for reference-guided web development and evaluate coding agents clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, prompts, harness settings, isolation and scoring described in detail",
+   "p": "2-6, 23-37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and reasoning effort given, harness settings tabulated, but harness version not stated",
+   "p": "8, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks and applications described with pinned commits, but the benchmark is not yet released",
+   "p": "1, 7-8, 19",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): replay-verified behavior traces in a fresh verifier, gold patches as positive control",
+   "p": "4-6, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): binary and chain scores defined; cost per trajectory and steps reported",
+   "p": "6, 8, 37",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): nine models under the same harness and conditions",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single trial per task, no variance or statistical tests of differences",
+   "p": "8, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results, including the weak full-reconstruction results",
+   "p": "11-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations discussed (observations, scope, construction model, infrastructure), but not single-trial variability",
+   "p": "14-15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): no evaluated model or harness is by the authors (Microsoft authors; models from OpenAI, Anthropic, Google, xAI)",
+   "p": "1, 8",
+   "verdict": "uncertain",
+   "why": "By the letter of §5 Yes holds: no evaluated model or the R2E-Gym harness is made by the authors or their employers. But most authors are at Microsoft, OpenAI's close commercial partner, the top model is OpenAI's GPT-6 Astra, and the tasks were built with OpenAI's GPT-5.6 Sol; whether that counts as dependence is a judgement.",
+   "doubt": "Os autores são da Microsoft (parceira da OpenAI); o GPT-6 Astra fica em primeiro e as tarefas foram criadas com o GPT-5.6 Sol. Decide se isto conta como dependência do fornecedor (Partly) ou mantém Yes."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

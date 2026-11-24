@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486513",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -257,9 +257,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Null effects are reported and conclusions mostly follow, but the headline claim (abstract and conclusion: of 40 comparisons only two change speedup significantly) cannot be reconciled from the text with §IV-D, which reports significant speedup changes for the Language packet (OSS-120B C), the CPF (OSS-120B) and Blind in 3 of 8 setups; Table XIII does not show which 40 pairs are counted. If Blind is in the 40, the headline understates the effects and Partly would fit."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Null effects are reported and conclusions mostly follow, but the headline 'of 40 comparisons only two change speedup significantly' (abstract, conclusion) is not traceable to Table XIII. The two significant non-Blind cases in §IV-D (Language packet OSS-120B C, CPF OSS-120B) give exactly two, so the count fits only if the Blind setups (3 of 8 significant) are left out of the 40, although Blind is one of the eight interventions of Table XII. If Blind is in the 40, the headline understates the effects and Partly would fit."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Null effects are reported and conclusions mostly follow, but the headline 'of 40 comparisons only two change speedup significantly' (abstract, conclusion) is not traceable to Table XIII. The two significant non-Blind cases in §IV-D (Language packet OSS-120B C, CPF OSS-120B) give exactly two, so the count fits only if the Blind setups (3 of 8 significant) are left out of the 40, although Blind is one of the eight interventions of Table XII. If Blind is in the 40, the headline understates the effects and Partly would fit."
     }
    ],
-   "warn": "O resumo diz que só 2 de 40 comparações mudam a speedup, mas a §IV-D mostra pelo menos 5 (incluindo Blind). Confirma na Tabela XIII/Fig. 3 e 5 quais são as 40 e decide entre Yes e Partly."
+   "warn": "O resumo diz que só 2 de 40 comparações mudam a speedup; isso só bate certo se as 8 comparações Blind (3 significativas) ficarem fora das 40. Confirma na Tabela XIII e decide entre Yes e Partly."
   },
   {
    "f": "Q10",

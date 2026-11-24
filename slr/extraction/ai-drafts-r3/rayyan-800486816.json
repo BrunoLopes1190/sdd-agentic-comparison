@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486816",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jureczka, M., Paleczek, A., Campbell, A., Przystalski, K. (2026). BDD-Bench: A Behavior-Driven Benchmark for Coding Agents across the Application Lifecycle. In: Proceedings of the 1st International Workshop on Agentic AI for Next-Generation Software Development (AgenticDev '26), Munich, Germany, pp. 32-41. ACM. https://doi.org/10.1145/3843282.3844426",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop — AgenticDev '26 (1st International Workshop on Agentic AI for Next-Generation Software Development), Munich, ACM, 10 pages; received 2026-07-25, accepted 2026-08-20",
+   "p": "1-2, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Jagiellonian University, Krakow, and Exadel, Krakow (Jureczka, Przystalski); AGH University of Krakow and Exadel, Krakow (Paleczek); Exadel, Warsaw (Campbell)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — BDD-Bench, a repository-level benchmark of 111 chronologically ordered instances from 5 Python repositories in which agents implement executable Gherkin specifications on an evolving codebase (lifecycle mode); 13 models compared in mini-swe-agent 2.4.5 with 3 runs each; failure taxonomy and matched golden- vs agent-prefix reruns",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD tool evaluated; executable BDD specifications (Gherkin with pytest-bdd or behave step definitions) are the task input. Configurations: mini-swe-agent 2.4.5 with GPT-5.5, GPT-5.4 Mini, GPT-5 Mini, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, Claude Opus 4.8, Claude Sonnet 5, Claude Haiku 4.5, DeepSeek V4 Pro, DeepSeek V4 Flash, Gemini 3.5 Flash, Gemini 3.1 Flash Lite",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per instance: golden test patch (original Gherkin feature files and step definitions), one visible silver test patch (LLM-generated Gherkin scenarios for implied behaviour: adjacent inputs, edge cases, failure paths) and one withheld silver hidden patch; environment patch; common agent prompt naming the full-suite test command, visible Gherkin specifications as the behavioural specification, prohibited edits and completion marker",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per stage: agent receives baseline repository, environment changes, visible golden and silver test patches, repository tree and test command; changes production code only; full grading suite (new visible, prior visible as regression, new and prior hidden) runs once; pass: merge and carry forward; fail: chain stops. Benchmark construction: PR collection, executable states in Docker, chain construction (fail-to-pass), patch extraction, silver/hidden test generation with review",
+   "p": "1, 3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Benchmark construction: static review and execution testing of generated test patches; iterative review of hidden patches linked to repeated early failures or flagged by an LLM reviewer; manual spot checks of the LLM judge's failure labels. None during agent runs",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (executable Gherkin scenarios as task input and acceptance tests); no SDD workflow run",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark; executable BDD specifications as task input). Authors' wording: 'Recent specification-driven development (SDD) workflows similarly place a structured specification before implementation ... BDD-Bench grounds the same principle in Gherkin scenarios linked to step definitions'",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (historical states of five open-source Python repositories, evolving codebase across chained instances)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "111 instances from 5 repositories (qutebrowser 39, jrnl 22, python-pptx 21, open-web-calendar 16, partcad 13), from 3,186 collected PRs/feature spans; golden production patches mean 918.7 LOC (median 362) across 26.4 files (median 16); 389 visible and 409 hidden scenarios added",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Browser, journaling CLI, presentation library, web calendar, CAD framework",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None reported per model (USD 10 per-run budget and 250-step limit as constraints; budget exhaustion counted as a generation failure)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Instance-resolution rate (resolved / 111, blocked stages unresolved); production-Python-LOC-weighted resolution rate; resolved/attempted stages; full chains (of 15 repository-run pairs); means over 3 runs with min-max; matched-rerun resolution rate from golden vs agent prefix",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (direct technical-debt metrics named as future work)",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Generation failures (step limit, cost budget, context saturation, out-of-memory, no submission); failure taxonomy of the first stopping point per chain (hidden-failure subtypes: regression, missing surface, narrow implementation, state propagation, side effect, observable contract); first stopping points by repository instance",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: grading suite in reconstructed Docker images, offline, git history stripped, flaky tests excluded. Failure labels assigned by a Claude Opus 4.8 judge run through mini-swe-agent in the failing container; manual check of a random sample and a global spot-check pass, no inter-rater study",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: an instance is resolved when the diff applies and one run of the full grading command passes; no criterion stated for a configuration, so quality verdict and cost verdict for every entry: no criterion stated by the authors. Values (Table 3, three-run means): LOC-weighted rate (min-max); instance rate; resolved/attempted; full chains; generation failures.\n- mini-swe-agent 2.4.5 + Claude Opus 4.8: 29.5% (19.7-46.4); 45.0%; 150/162 (92.6%); 3/15; 4/15\n- mini-swe-agent 2.4.5 + GPT-5.5: 26.0% (19.9-37.9); 43.5%; 145/156 (92.9%); 4/15; 0/15\n- mini-swe-agent 2.4.5 + Claude Sonnet 5: 24.1% (14.7-37.9); 36.6%; 122/134 (91.0%); 3/15; 1/15\n- mini-swe-agent 2.4.5 + GPT-5.6 Luna: 19.7% (19.7-19.9); 36.0%; 120/132 (90.9%); 3/15; 0/15\n- mini-swe-agent 2.4.5 + GPT-5.6 Sol: 19.4% (17.0-20.8); 38.7%; 129/141 (91.5%); 3/15; 0/15\n- mini-swe-agent 2.4.5 + DeepSeek V4 Pro: 16.7% (14.1-19.7); 25.5%; 85/99 (85.9%); 1/15; 0/15\n- mini-swe-agent 2.4.5 + GPT-5.4 Mini: 16.3% (13.7-18.6); 24.0%; 80/95 (84.2%); 0/15; 3/15\n- mini-swe-agent 2.4.5 + GPT-5.6 Terra: 15.9% (14.2-17.0); 26.4%; 88/102 (86.3%); 1/15; 0/15\n- mini-swe-agent 2.4.5 + DeepSeek V4 Flash: 12.3% (9.6-13.8); 13.5%; 45/60 (75.0%); 0/15; 0/15\n- mini-swe-agent 2.4.5 + GPT-5 Mini: 9.9% (9.5-10.7); 10.8%; 36/51 (70.6%); 0/15; 1/15\n- mini-swe-agent 2.4.5 + Gemini 3.5 Flash: 9.1% (8.9-9.2); 9.9%; 33/48 (68.8%); 0/15; 12/15\n- mini-swe-agent 2.4.5 + Claude Haiku 4.5: 6.3% (0.8-9.3); 6.6%; 22/37 (59.5%); 0/15; 0/15\n- mini-swe-agent 2.4.5 + Gemini 3.1 Flash Lite: 0.2% (0.2-0.2); 1.5%; 5/20 (25.0%); 0/15; 2/15\n- Golden reference (lifecycle sanity check): resolves all instances\n- Matched reruns (Claude Sonnet 5, GPT-5.6 Luna, DeepSeek V4 Pro, DeepSeek V4 Flash; 3 runs from golden prefix vs 3 from agent prefix per first-failing context): values only in Fig. 5; no systematic advantage for either prefix",
+   "p": "4-7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 111 instances in 5 chronological repository chains, lifecycle mode (classic mode for golden-prefix reruns). Configurations: 13 models in one harness. Baseline: none for the model comparison (golden reference only as sanity check). Held constant: mini-swe-agent 2.4.5, common prompt, high reasoning, max 250 steps, USD 10 per run, each model's max output tokens, 8 GB containers, 1 h per command, offline, git history stripped, unshuffled manifest. Acceptance tests: visible golden and silver scenarios, hidden silver scenarios and accumulated regression checks, fail-to-pass validated against the golden patch. Repetitions: 3 runs per model (39 runs). Human intervention: none (hung containers restarted, filesystem kept)",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 4.8 best (45.0% instances, 29.5% LOC-weighted), then GPT-5.5 (43.5%, 26.0%) and Claude Sonnet 5 (36.6%, 24.1%); Gemini 3.1 Flash Lite lowest (1.5%, 0.2%). Seven models resolve >=85% of attempted stages; progress set by where chains first stop and by generation failures. 18 full chains across 7 configurations (16 jrnl, 2 python-pptx). Of 177 stopping points: 115 hidden-specification failures, 29 visible-test failures, 23 generation failures (cost budget 12, context 11), 10 disallowed-patch/broken-test; 0 benchmark faults; hidden failures mainly narrow implementation (36) and missing surface (34). Matched reruns: neither prefix systematically better; deeper prefixes slightly favour golden; exploratory. No significance tests; three-run ranges often overlap",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished strong from weak models (1.5-45.0%), but with three runs the ranges are descriptive and overlap, so fine-grained rankings are not supported. Limitations stated: single harness; LOC weighting is not a validated difficulty measure; possible training-data contamination; GPT-5.5 generated the silver tests and was evaluated, Claude Opus 4.8 was both judge and top model (self-preference bias); only the first failing stage analysed (censoring)",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: five Python repositories and two BDD frameworks, selection criteria and 50-line threshold may bias; memorisation not ruled out; one harness; three runs; LOC-weighted metric; shared-model and self-preference biases in test generation and failure judging; first-failure censoring. Gaps / future work: more repositories, languages, BDD frameworks, repetitions and harnesses; controlled studies isolating a single carried-forward defect with technical-debt metrics (defect density, duplication, maintainability); strongest agents still pass visible tests but fail withheld variants",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Consistency checks: Table 3 counts add up (18 full chains across 7 configurations; 23 generation failures = 12 cost budget + 11 context); 177 stopping points = 115 hidden + 29 visible + 23 generation + 10 disallowed/broken; 115 hidden failures = 36+34+18+15+12. Text 'four of twelve Claude Opus 4.8 stopping points' vs '4 of 15 ... chains' consistent (3 chains complete). Table 3 values read from a jumbled extraction (columns split); full chains and generation failures re-aligned by row order. Benchmark and tooling at github.com/michalJur/BDD-Bench. No pre-registration. Programming language: Python (Gherkin specifications)",
+   "p": "2, 5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): main contribution and three design elements stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, chain construction, test generation, execution settings and metrics described; tooling released",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness version (mini-swe-agent 2.4.5) and model versions named (no snapshot IDs)",
+   "p": "4",
+   "verdict": "uncertain",
+   "why": "The harness version is given (mini-swe-agent 2.4.5, ref. 25) and all 13 models are named with their version (e.g. Claude Opus 4.8, GPT-5.6 Luna), with 'high reasoning' stated, but no API snapshot IDs or access dates are given; whether named model versions without snapshot IDs earn Yes or Partly is a consistency judgement across studies. Yes kept.",
+   "doubt": "O harness tem versão (mini-swe-agent 2.4.5) e os modelos têm nome e versão, mas sem IDs de snapshot nem datas. Decide entre Yes e Partly, de forma coerente com os outros estudos."
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): repositories and instances described (Table 1-2); benchmark public on GitHub",
+   "p": "2-4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable BDD tests including hidden scenarios, validated fail-to-pass against the golden patch",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): resolution metrics defined; no cost metric reported (budget only as a limit)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 models under the same harness and settings; golden vs agent prefix compared under the same task, tests and harness",
+   "p": "4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 runs with min-max ranges; no statistical tests, authors call ranges descriptive",
+   "p": "4-5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions cautious; mixed prefix result reported as exploratory",
+   "p": "5, 7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): AgenticDev '26 workshop (ACM), peer-reviewed",
+   "p": "1-2, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Jagiellonian University, AGH and Exadel; not vendors of the evaluated models or of mini-swe-agent",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

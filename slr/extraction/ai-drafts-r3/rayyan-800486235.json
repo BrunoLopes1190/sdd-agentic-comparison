@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486235",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Saxena, S., Trivedi, N., Jyothi, V. (2026). SWE-WebDevBench: Evaluating Coding Agent Application Platforms as Virtual Software Agencies. arXiv:2605.04637v1 [cs.MA], 6 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.04637v1 [cs.MA], 6 May 2026 (dated March 2026 on the title page); no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "BaseThesis Labs (Saxena); QwikBuild (Trivedi, Jyothi), the vendor of one of the six evaluated platforms (conflict of interest disclosed)",
+   "p": "1, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SWE-WebDev Bench, a 68-metric framework (25 primary, 43 diagnostic, 7 groups) along Interaction Mode (ACR/AMR), Agency Angle (PM/Engineering/Ops) and Complexity Tier (T4/T5), with canary requirements; six AI app-building platforms compared on three ACR prompts, AMR shown for one platform",
+   "p": "1-2, 5-9, 13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Six commercial AI app-building platforms (snapshot February-March 2026; underlying models not stated): Base44 (low-code generator), Emergent E1-OPUS (agentic with config Q&A), Lovable in Plan Mode (plan-then-build), QwikBuild (multi-agent with a PM agent; authors' affiliation), Replit Agent3 (autonomous agent), Vercel v0-Max (single-shot generation)",
+   "p": "10, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not prescribed by the benchmark; observed platform artefacts: QwikBuild 12-section PRD (Product Overview, Scope v0/v1, Features, Roles, Data Model, Auth, Dashboards, Background Jobs, Acceptance Criteria, Risks & Open Questions, Handoff Notes) and execution plan; Base44 plan with 'Intent & Goal', 'Audience & Roles', 'Core Flows', 'What NOT to Do'; v0-Max TodoManager task breakdown. Benchmark inputs: business prompts with embedded canary requirements and deliberate contradictions",
+   "p": "10-12, 18-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Platform flow: prompt -> PM clarification (0-15 questions; 0 for Replit and Base44 on P1/P3) -> PRD/plan -> build -> deploy; AMR: modification prompt -> change acknowledgment -> plan update -> code. Evaluation protocol (7 phases, 14 days per platform x prompt): build execution, code quality audit, integration and security testing, feature and canary testing, AMR change injection, human panel and cost aggregation, diagnostic scoring",
+   "p": "10, 12, 18-19, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "User (evaluator) answers platform clarification questions and resolves flagged contradictions (e.g. QwikBuild integrates the user's choice into the PRD before building); human re-prompts and manual edits after generation counted as PHE",
+   "p": "18-21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each platform (requirement elicitation to deployment); AMR (modification) only for QwikBuild",
+   "p": "12, 23-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'specification bottleneck', 'Post-PRD human effort', 'closed-loop code generation' where build-time discoveries feed back into planning",
+   "p": "8, 16, 28",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (ACR: full-stack application from a natural-language business prompt) and existing code base (AMR: modification of the deployed ACR application; QwikBuild only)",
+   "p": "5, 11, 23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "6 prompts (3 ACR, 3 AMR) in 3 domains; 6 platforms; 18 ACR evaluation cells plus 3 AMR cells (QwikBuild); 80 canary requirements (21 Original, 37 New, 18 Surviving, 4 Contradiction); complexity tiers T4 (multi-role SaaS) and T5 (AI-native)",
+   "p": "1, 9-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Business web applications: EdTech (Indian coaching institute, JEE/NEET), Field Service (10-state ticket lifecycle, SLA, GST invoicing), FinTech-AI (multi-stage AI analysis, Monte Carlo, credit system)",
+   "p": "10-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "Target user: non-technical business user (prompts written as founder message, enterprise RFP, complex specification); evaluators: the authors (two affiliated with QwikBuild) and a three-person expert panel including one external evaluator; not blinded",
+   "p": "10-11, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total Cost of Correctness (TCC: platform billing, compute time and human effort as one monetary figure; values not given in the main tables); Effort-to-Fix (ETF) and Feature Gap Delta (FGD) in developer-hours; build time noted anecdotally (v0-Max timed out at 10m37s on P2)",
+   "p": "8, 12, 14, 19, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Feature Completeness Score (FCS); Core Integration Score (CIS); External Service Reliability (ESR); Cron & Background Jobs Score (CBS); AI-Inside-App (AIA); Code Change Impact Score (CCIS); regressions and new features working (AMR); deployment success",
+   "p": "7-8, 14, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Schema Design (SDS), Backend Logic (BLS), Frontend Engineering (FES), Code Hygiene (CHS), Architecture (ARC); Security Score (SS, OWASP Top 10), Scalability Architecture (SAS), Concurrency & Load (CLS, k6); Engineering Score = weighted mean of G2-G6",
+   "p": "7-8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Effort-to-Fix (ETF, developer-hours to production quality, expert panel); Post-PRD Human Effort (PHE: re-prompts and hours of manual code edits); Feature Gap Delta (FGD, developer-hours for missing features)",
+   "p": "8, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Business Intent Fidelity (BIF), Canary Retention Rate (CRR), Claim Drift Index (CDI), SEO & Web Standards (SWS), Lead & Growth (LGS), Multilingual (MLS), AI Feature Quality (AFQ); 43 diagnostics incl. Explicit Capture Rate, Inference Quality Score, Conversational Guidance, Under-Clarification Rate, Plan Structural Validity, contradiction detection, Adaptive Coherence Score, Change Acknowledgment and Plan Update Rates, per-stage canary survival",
+   "p": "7-8, 17-19, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Four judge tiers: Tier 0 automated (HTTP endpoint tests, Lighthouse, k6, npm audit; ~40% of Engineering Score); Tier 1 LLM judge (Claude 3.5 Sonnet, temperature 0, 9 prompt templates, platform identity hidden; kappa 0.82 vs a human on 36 items); Tier 2 LLM + human validation (kappa 0.71 on 18 items); Tier 3 three-person expert panel (kappa 0.64) for BIF, ETF, FGD. Manual verification of FCS and CRR against the reference specification; TCC from billing and effort logs",
+   "p": "9, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: authors' per-metric 'aspirational' targets (Engineering Score 60%, FCS 85, CRR 80, SS 90, CLS 70, ETF <=16 h, FGD <=40 h, CDI <=10), described as the minimum for production deployment but 'not to define pass/fail gates'; the authors nevertheless report pass/fail against them ('fails 17 of 22 metrics'). ACR averages over P1-P3 (Engineering Score; FCS; CRR; SS; CBS; ETF h; FGD h; CDI %): (a) Base44: 30.6; 46.7; 24.3; 31.3; 15.0; 65.7; 29.3; 35.7. (b) Emergent E1-OPUS: 46.9; 65.0; 57.0; 50.7; 20.3; 26.0; 19.0; 17.7. (c) Lovable Plan Mode: 42.5; 32.7; 21.7; 51.7; 2.0; 50.7; 36.3; 37.3. (d) QwikBuild: 54.5; 84.0; 97.7; 63.7; 49.3; 14.7; 9.3; 4.0. (e) Replit Agent3: 47.8; 53.0; 54.0; 40.0; 29.7; 37.3; 25.7; 14.0. (f) v0-Max: 25.1; 23.3; 17.7; 34.3; 0.0; 54.7; 41.7; 33.7. Quality verdict against the authors' targets: does not work for all six (no Engineering Score >= 60; no platform passes more than 5 of 22 metrics). Cost: TCC defined but no values reported, so no cost verdict; effort targets give mixed results (ETF <= 16 h met only by QwikBuild, 14.7 h; FGD <= 40 h met by all except v0-Max, 41.7 h). (g) QwikBuild AMR (P4-P6, scored by affiliated authors): zero regressions; ACS 84% (P4) to 90% (P6) vs 85% target; new features working 12/15, 7/9, 8/9; most metrics 1-24 pp below ACR (CBS -24.3, CRR -14.0)",
+   "p": "8-9, 14, 21, 23-25",
+   "verdict": "uncertain",
+   "why": "Values checked against Table 6 and Table 5 and §5.6 (all correct). Whether the per-metric targets count as an authors' success criterion is a judgement: they are called the 'minimum quality level ... necessary for production deployment' but 'not to define pass/fail gates', yet the authors report pass/fail counts against them. Cost: TCC has no values; ETF and FGD point in opposite directions.",
+   "doubt": "Os autores dão metas por métrica mas dizem que não são critérios de aprovação; decide se contam como critério. O custo (TCC) não tem valores; ETF e FGD dão veredictos opostos, por isso não dei veredicto de custo."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: same six prompts (3 ACR with different authoring styles, 3 AMR) on all platforms for ACR. Configurations: six platforms; AMR only QwikBuild. Baseline: none; authors' target thresholds as reference. Held constant: prompts, canary requirements, 7-phase protocol, LLM judge and rubrics. Not controlled: underlying models, platform tiers, evaluator blinding. Acceptance: automated tests (HTTP, Lighthouse, k6, npm audit) plus LLM and expert judgement against a reference specification. Repetitions: one run per cell; no significance tests or CIs (authors estimate 15-20 prompts in 5-7 domains needed). Human intervention: evaluator answers platform questions; re-prompts counted",
+   "p": "9-13, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "QwikBuild highest Engineering Score (54.5%), then Replit (47.8), Emergent (46.9), Lovable (42.5), Base44 (30.6), v0-Max (25.1); no platform above 60%; descriptive only, no significance tests. CRR 17.7-97.7%; IQS 20-70; Frontend Engineering within 6 points for four platforms (68-74%) while CBS ranges 0-49%; best Security Score 63.7% (target 90), CLS 6-42%; ETF 14.7-65.7 developer-hours. All six detected the marked P2 contradiction, three asked the user to resolve it; only one detected the unmarked P1 contradiction. Domain swings up to 13 points (Replit P1 41.5 vs P3 54.5). v0-Max highest SWS (40.3%) despite lowest Engineering Score",
+   "p": "14-24, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished platforms and surfaced per-platform blind spots; 42% of metric pairs weakly correlated (|tau| <= 0.40), groups not independent factors. Repeatability: single snapshot and single run, small calibration samples (kappa 0.82/0.71/0.64). Limitations stated: conflict of interest and no blinding; single evaluator for some metrics; small sample; platform version sensitivity; AMR only for one platform; prompt wording and benchmark emphasis on PM behaviour and T4/T5 complexity may favour platforms with PM agents",
+   "p": "8-9, 13, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: author affiliation with QwikBuild; no blinding; single evaluator for some metrics; six prompts, no inferential statistics; snapshot Feb-Mar 2026; AMR asymmetry; prompt sensitivity; design may favour certain architectures. Gaps: requirement elicitation and specification fidelity, backend infrastructure (background jobs, external services), security hardening, code hygiene, web standards; closed-loop code generation proposed; need for independent, blinded, larger-scale replications",
+   "p": "30-31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: Figure 4 caption calls the CRR range (17.7-97.7%) a '3.5x variation in inference quality', while the text gives 5.5x for CRR and 3.5x for IQS; Figure 2 caption says canaries are 'embedded across 9 prompts' vs six prompts elsewhere; Table 12 shows no Engineering Score for Base44 on P1 ('-') while Table 5 gives 30.2; §5.6 says AMR scores are '1-14 pp' below ACR but CBS drops 24.3 pp; title page dated March 2026, arXiv v1 6 May 2026. Claims without analysis: PM elicitation 'accounts for approximately 10-15% of the observed quality gap'; 'strongly predicts downstream quality'. AMR results scored by QwikBuild-affiliated authors. Values from Tables 5, 6, 8, 12, 14, 15 (pp. 14, 17, 21, 24-25). Table 6 FGD and CDI rows rebuilt from jumbled text by position (targets <=40 and <=10, then six values each in platform order B0, E1, L0, Q1, R3, V0); consistent with the P1 values in Tables 12 and 16 and with the text (Base44 CDI 35%). Table 16 places ETF in G7, while Table 2 puts it in G5. Data: prompts, 80 canary specifications, 9 judge prompts, raw scores (CSV), rubrics and anonymisation scripts at github.com/snowmountainAi/webdevbench. Pre-registration: not stated. Programming languages: not stated (generated full-stack web apps; npm ecosystem mentioned)",
+   "p": "1, 6, 14-16, 21, 23, 28, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): guiding question and five contributions explicit",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol, metric groups, weighting and judge tiers described, prompts and rubrics released; underlying models, platform plans and detailed scoring of many metrics (supplementary) not in the paper; no blinding",
+   "p": "5-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): platform names and modes given (Replit Agent3, Emergent E1-OPUS, Lovable Plan Mode, v0-Max) with snapshot period; underlying models and versions not stated; judge Claude 3.5 Sonnet",
+   "p": "9-10, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): prompts and canary requirements described and released",
+   "p": "10-12, 31",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): about 40% of the Engineering Score from automated tools; the rest from LLM judge and expert panel (incl. affiliated authors, unblinded) with small calibration samples",
+   "p": "9, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): 68 metrics defined, covering quality, security, human effort and cost (ETF, FGD, TCC)",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six platforms on the same ACR prompts and protocol (AMR only for one platform)",
+   "p": "12-14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per cell, no significance tests or confidence intervals (stated by the authors)",
+   "p": "13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): results framed as descriptive with caveats, but some causal-sounding claims (elicitation share of the gap, 'strongly predicts') lack analysis and some figures contradict the text",
+   "p": "13, 16, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): §7.6 Limitations and Bias Mitigation",
+   "p": "30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): two of three authors are affiliated with QwikBuild, one of the six platforms evaluated (and the only one evaluated on AMR); independent of the other five",
+   "p": "1, 10, 30",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800498005",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lu, Z., Ren, H., Yang, Y., Wang, K., Zong, Z., Zhan, M., Li, H. (2026). FullStack-Agent: Enhancing Agentic Full-Stack Web Coding via Development-Oriented Testing and Repository Back-Translation. arXiv:2602.03798v1 [cs.SE], 3 Feb 2026. https://arxiv.org/abs/2602.03798",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2602.03798v1 [cs.SE], 3 Feb 2026 ('Preprint. February 4, 2026'); no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Multimedia Laboratory (MMLab), The Chinese University of Hong Kong (all); Shenzhen Loop Area Institute and Ace Robotics (Li). Corresponding author Zhan uses a sensetime.com address (company not listed as affiliation)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — FullStack-Agent: FullStack-Dev (multi-agent full-stack web development framework with planning, backend and frontend coding agents and dedicated debugging tools), FullStack-Learn (iterative self-improvement by repository back-translation and augmentation, SFT of the backbone LLM) and FullStack-Bench (benchmark with frontend, backend and database test cases and agent judges); compared with five agent baselines on two models, with ablations",
+   "p": "1-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "FullStack-Dev (FullStack-Agent), no version; backbone LLMs Qwen3-Coder-480B-A35B-Instruct and Qwen3-Coder-30B-A3B-Instruct; fine-tuned FullStack-Learn-LM-round1 and -round2 (from Qwen3-Coder-30B-A3B-Instruct). Baselines (open-source implementations, versions/commits not stated): WebGen-Agent, TDDev, Bolt.diy, OpenHands, Qwen-Code",
+   "p": "2, 5-7, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "User instruction; template choice (Next.js frontend, NestJS backend; Vue.js and Django in an extension); Planning Agent output in JSON: backendPlan (entities with fields, apiEndpoints with method, path, request/response schemas typed to the finest granularity, status codes, businessRules, nonFunctional) and frontendPlan (pages, routes, layout, dataFlows, navigationLinks, sharedComponents); backend API summary (features implemented, successful API tests, demo data, known issues) passed to the frontend agent; generated repository",
+   "p": "2-3, 16, 20-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Template selection and pure-frontend decision; (2) Planning Agent produces frontend and backend plans; (3) Backend Coding Agent implements the backend plan, validates all APIs with the backend debugging tool, injects demo data, writes a summary; (4) Frontend Coding Agent implements the frontend on the backend APIs and validates with the GUI-agent frontend debugging tool. Agents run in sandboxes; max 400 tool calls",
+   "p": "2-3, 6, 20-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated pipeline)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (automated generation from user instruction on FullStack-Bench), plus ablations removing the multi-agent mechanism and debugging tools",
+   "p": "5-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (closest to spec-first: a structured JSON plan is generated per run and drives the coding agents, not maintained afterwards); authors do not use SDD terms",
+   "p": "3, 21",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project: full-stack website generated from scratch (from a template) from a natural-language user instruction",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "FullStack-Bench: 101 user instructions (from WebGen-Bench), 647 frontend, 604 backend, 389 database test cases. Training: 2K trajectories from crawled GitHub repositories (round 1) + 8K from augmented repositories (round 2). Generated repository sizes Not stated",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Web applications (full-stack websites: frontend, backend API, PostgreSQL database); TypeScript/JavaScript (Next.js, NestJS)",
+   "p": "5, 11-12, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents). Judge validation by four student volunteers with computer-science bachelor's degrees",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None for generation (no tokens, time or money). Only: Backend Coding Agent average iterations 74.9 with vs 115.5 without the backend debugging tool. Training compute: 2 epochs on 32 H800 GPUs",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "FE Acc. = (N_YES + 0.5 × N_PARTIAL) / N_Total × 100% (GUI-agent judge); FE Acc. w/ Valid DB (YES/PARTIAL counted only if database-log check passes; main metric); BE Acc. and BE Acc. w/ Valid DB (share of YES backend API test cases); DB Acc. (share of YES database test cases on a schema snapshot)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Appearance Score (1-5, GUI-agent graded, following WebGen-Bench); human alignment accuracy of the judges; error taxonomy of failed cases (9 frontend, 4 backend, 4 database error types)",
+   "p": "5, 7, 14-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic, by agent judges: frontend by a GUI agent with Qwen3-VL-235B-A22B-Instruct plus database-log validation; backend by a judge agent (Qwen3-Coder-480B-A35B-Instruct) that gathers API information and sends requests; database by a judge on a JSON snapshot (column names and first five rows). Manual: 200 sampled instances per test type checked by four student annotators; 300 error cases (50 per agent) manually categorised",
+   "p": "5, 7, 14-16",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Values FE Acc. / FE w/ Valid DB / BE Acc. / BE w/ Valid DB / DB Acc. / Appearance (Table 2). Qwen3-Coder-480B-A35B-Instruct: (1) WebGen-Agent 61.4 / 56.0 / 67.2 / 39.6 / 62.0 / 3.63; (2) TDDev 23.3 / 21.8 / 41.2 / 10.8 / 28.5 / 1.96; (3) OpenHands 45.1 / 40.4 / 64.9 / 35.8 / 72.5 / 2.66; (4) Bolt.diy 22.8 / 20.3 / 35.9 / 12.7 / 13.6 / 1.96; (5) Qwen-Code 39.9 / 36.2 / 59.3 / 25.8 / 68.4 / 2.40; (6) FullStack-Dev 67.8 / 64.7 / 83.4 / 77.8 / 77.9 / 3.72. Qwen3-Coder-30B-A3B-Instruct: (7) WebGen-Agent 39.5 / 35.8 / 25.0 / 16.6 / 14.4 / 2.49; (8) TDDev 13.7 / 12.5 / 13.4 / 8.8 / 6.9 / 1.21; (9) OpenHands 21.5 / 19.4 / 26.7 / 16.7 / 22.6 / 1.62; (10) Bolt.diy 5.9 / 5.0 / 5.6 / 3.6 / 13.1 / 0.46; (11) Qwen-Code 7.0 / 6.0 / 20.9 / 9.9 / 18.3 / 0.75; (12) FullStack-Dev 41.4 / 37.2 / 45.5 / 38.7 / 50.9 / 2.97. FullStack-Learn (Table 3): (13) FullStack-Dev + FullStack-Learn-LM-round1 (2K crawled) 49.3 / 42.3 / 55.6 / 45.4 / 51.2 / 3.32; (14) FullStack-Dev + FullStack-Learn-LM-round2 (2K + 8K augmented) 52.5 / 46.9 / 57.6 / 48.2 / 53.7 / 3.40. Ablations, 480B (Table 4): (15) w/o multi-agent 66.5 / 62.1 / 78.0 / 61.4 / 63.5 / 3.43; (16) w/o backend debugging tool 65.5 / 62.1 / 71.7 / 57.9 / 76.6 / 3.23; (17) w/o frontend debugging tool 55.1 / 51.9 / 79.0 / 76.6 / 75.6 / 3.17; (18) w/o either debugging tool 54.0 / 51.0 / 71.7 / 61.9 / 74.8 / 3.01. Ablation, 30B (Table 5): (19) trained on 2K directly generated trajectories 40.2 / 36.2 / 50.7 / 33.6 / 47.8 / 2.87. Extension, 480B (Table 8): (20) FullStack-Dev with Next.js + Vue.js and NestJS + Django templates 70.6 / 68.1 / 80.5 / 78.5 / 81.0 / 3.58. All entries: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors (cost not measured)",
+   "p": "6-8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmark: FullStack-Bench (101 instructions, 1,640 test cases). Configurations: 6 agent frameworks × 2 backbone LLMs; FullStack-Learn models on FullStack-Dev; ablations. Held constant: backbone LLM per comparison, instructions, test cases and judges; baselines wrapped in an explicit full-stack prompt (Fig. 2) because they default to frontend-only. FullStack-Dev: greedy decoding (temperature 0), context 131,072, max 400 tool calls; baseline run settings not stated beyond open-source implementations. Acceptance tests: agent-judged test cases (validated against humans). Repetitions: single run. No human intervention. Training data decontaminated against the benchmark (5-gram Jaccard > 0.6, embedding cosine > 0.7)",
+   "p": "5-7, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "FullStack-Dev best with both models: 480B 64.7 / 77.8 / 77.9 (FE w/ DB / BE w/ DB / DB) vs WebGen-Agent 56.0 / 39.6 / 62.0, i.e. +8.7, +38.2, +15.9 points (OpenHands has the best baseline DB Acc., 72.5); 30B 37.2 / 38.7 / 50.9. Baselines' backend accuracies are far below frontend ones (mock data). FullStack-Learn round 2 improves the 30B model by +9.7, +9.5, +2.8 points; back-translated data beats directly generated trajectories. Ablations: removing the multi-agent mechanism lowers all metrics; each debugging tool mainly affects its own side. No significance tests",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations, and the database-validated metrics exposed frontend-only/mock-backend outputs that GUI-only metrics miss; judge reliability checked against humans (alignment 90.5% frontend, 94.0% backend, 97.5% database, 200 samples each). Repeatability not tested (single greedy run). Limitations of the comparison not stated by the authors, apart from using only two templates for stability",
+   "p": "6-7, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps motivating the work: existing agents generate frontend-only sites masking missing backends; existing benchmarks (WebGen-Bench) judge only UI-level interactions. Impact statement: possible reduced demand for programmers and unclear responsibility for errors or vulnerabilities in agent-generated websites. Only two templates used for stability and compute",
+   "p": "1, 9, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: '+8.7%, 38.2%, 15.9%' over 'the previous state-of-the-art' are percentage points against WebGen-Agent, but OpenHands has a higher DB Acc. (72.5 vs 62.0), so the DB margin over the best baseline is 5.4 points (Table 2 vs abstract, p. 1, 6); model called 'Qwen3-Coder-30B-Instruct' (abstract, conclusion) vs 'Qwen3-Coder-30B-A3B-Instruct'; Table 3 row 'Qwen3-Coder-30B-A3B-Inst.' is FullStack-Dev with the base model (same values as Table 2); extension (Table 8): the claimed increase holds for the main metrics (FE w/ Valid DB 64.7 to 68.1, BE w/ Valid DB 77.8 to 78.5, DB 77.9 to 81.0), but BE Acc. without the database check falls 83.4 to 80.5 and appearance 3.72 to 3.58. Values used: Tables 2-5, 8. Code released at https://github.com/mnluzimu/FullStack-Agent; baseline implementation code 'will' be released. WebGen-Agent and WebGen-Bench are the same authors' prior work. No pre-registration. Programming language: TypeScript/JavaScript (Next.js, NestJS); Python (Django) in the extension",
+   "p": "1, 6-8, 12, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): challenges and three contributions clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): prompts, tools, algorithms, training and inference settings given in the paper and appendices; code released",
+   "p": "3-6, 11-23",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): backbone and judge models identified with exact names; baseline agent versions or commits not stated",
+   "p": "5-6, 14",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): FullStack-Bench described (instructions from WebGen-Bench, test-case counts and construction) and code released on GitHub",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark test cases executed by agent judges whose verdicts were checked by human annotators (90.5-97.5% alignment)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): functional metrics defined; no cost metrics (tokens, time, money), only iteration counts in one ablation",
+   "p": "3, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): five baselines run with the same backbone models on the same benchmark and judges",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single greedy run per configuration; no repetitions or statistical tests",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow from Tables 2-5, but the DB margin is reported against WebGen-Agent, called 'the previous state-of-the-art', rather than against the strongest baseline on that metric (OpenHands, 72.5), and gains from single greedy runs are presented without any test or caveat",
+   "p": "1, 6, 12",
+   "verdict": "uncertain",
+   "why": "The main conclusions follow from Tables 2-5 and 8. What remains debatable: the DB margin is stated against WebGen-Agent ('previous state-of-the-art', the authors' own earlier agent) rather than the best baseline on that metric (OpenHands 72.5), and gains from single greedy runs are claimed with no test, caveat or limitations section. A reader could give Yes.",
+   "doubt": "As conclusões seguem das tabelas, mas a margem de DB é medida contra o WebGen-Agent (dos mesmos autores) e não contra o OpenHands, e tudo vem de uma única execução. Decide entre Partly e Yes."
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed (impact statement only)",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): the authors created FullStack-Dev, FullStack-Learn and the baseline WebGen-Agent; the other baselines (TDDev, Bolt.diy, OpenHands, Qwen-Code) are independent",
+   "p": "1, 6, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source code and open-weight models; but the best results use Qwen3-Coder-480B (heavy to host), FullStack-Learn needs 32 H800 GPUs, and inference costs are not stated",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

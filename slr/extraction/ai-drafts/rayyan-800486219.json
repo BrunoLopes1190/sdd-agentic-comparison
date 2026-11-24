@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486219",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,10 +40,16 @@
   },
   {
    "f": "Approach(es): name and version",
-   "v": "No SDD approach. Configurations are models only, agent not stated (models produce a repository or a patch from the task input): Claude-Opus-4.5, Gemini-3-Pro-Preview, Gemini-3-Flash-Preview, GPT-5.2, Claude-Sonnet-4.5, Qwen3-VL-235B-A22B-Instruct/-Thinking, Qwen3-VL-32B-Instruct, Qwen3-VL-30B-A3B-Thinking/-Instruct; auxiliary Qwen3-32B (text-only comparison). Judge: Claude Code v2.0.67 with Chrome DevTools MCP Server v0.19.0, Claude-Opus-4.5 as judge model",
-   "p": "10-11, 18, 25-26",
-   "rev": [],
-   "warn": ""
+   "v": "No SDD approach. Configurations are models only, with no agent harness: each model is prompted directly and answers in a single response (generation: whole repository as Markdown, one fenced block per file; editing/repair: search/replace blocks, 'You must complete the task in single response'; Appendix A.6.3-A.6.5). Models: Claude-Opus-4.5, Gemini-3-Pro-Preview, Gemini-3-Flash-Preview, GPT-5.2, Claude-Sonnet-4.5, Qwen3-VL-235B-A22B-Instruct/-Thinking, Qwen3-VL-32B-Instruct, Qwen3-VL-30B-A3B-Thinking/-Instruct; auxiliary Qwen3-32B (text-only comparison). Judge: Claude Code v2.0.67 with Chrome DevTools MCP Server v0.19.0, Claude-Opus-4.5 as judge model",
+   "p": "10-11, 18, 25-26, 29-32",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The draft said the agent was not stated; the prompt templates in Appendix A.6 show the evaluated models answer in one response with no agent (generation as Markdown files, editing/repair as search/replace blocks)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Artefacts prescribed",
@@ -187,10 +193,16 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: text says the visual dimension is the lowest axis in Generation for all ten models, but in Table 3 SPI is below DSQ for Gemini-3-Pro (55.76 vs 64.07), Gemini-3-Flash, Claude-Sonnet-4.5 and all Qwen models; difficulty analysis names 'Gemini-2.5 Pro', not an evaluated model; Worst-of-n Pass@1 values (Table 8, e.g. Gemini ITG 74.84, RCT 50.95) match the Vanilla framework subset (Table 6), not Table 3, and the subset is not stated; conclusion '~25 points' vs 'over 26 points' (67.40 vs 41.14); Figure 8 uses harmonic mean of three dimensions while Table 3 Overall is an arithmetic mean of nine. Claude-Opus-4.5 is both an evaluated model and the judge (Claude Code orchestrator), a self-preference risk not discussed. Inference settings of the evaluated models (agentic or single call, temperature, limits) not stated. Values from Tables 3, 4, 5, 8 (pp. 11-12, 18, 27). Data: dataset on Hugging Face (NJU-LINK/WebCompass), code on GitHub, project page. Pre-registration: not stated. Programming languages: HTML/CSS/JavaScript (React, Vue, Vanilla)",
-   "p": "1, 11-16, 18, 22, 25-27",
-   "rev": [],
-   "warn": ""
+   "v": "Inconsistencies: text says the visual dimension is the lowest axis in Generation for all ten models, but in Table 3 SPI is below DSQ for Gemini-3-Pro (55.76 vs 64.07), Gemini-3-Flash, Claude-Sonnet-4.5 and all Qwen models; difficulty analysis names 'Gemini-2.5 Pro', not an evaluated model; Worst-of-n Pass@1 values for editing and repair (Table 8, e.g. Gemini ITG 74.84, RCT 50.95; Qwen ITG 26.33) equal the Vanilla framework subset (Table 6), not Table 3, while the generation Pass@1 values match neither table; the subset used is not stated; conclusion '~25 points' vs 'over 26 points' (67.40 vs 41.14); Figure 8 uses harmonic mean of three dimensions while Table 3 Overall is an arithmetic mean of nine. Claude-Opus-4.5 is both an evaluated model and the judge (Claude Code orchestrator), a self-preference risk not discussed. Evaluated models answer in a single response (Appendix A.6 prompts); temperature, token limits and API settings not stated. Values from Tables 3, 4, 5, 8 (pp. 11-12, 18, 27). Data: dataset on Hugging Face (NJU-LINK/WebCompass), code on GitHub, project page. Pre-registration: not stated. Programming languages: HTML/CSS/JavaScript (React, Vue, Vanilla)",
+   "p": "1, 11-16, 18, 22, 25-27, 29-32",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Two claims fixed: the A.6 prompts show single-response generation (the draft said agentic vs single call was not stated); and only the editing/repair Pass@1 values of Table 8 match the Vanilla subset of Table 6, the generation values do not."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -201,17 +213,29 @@
   },
   {
    "f": "Q2",
-   "v": "Partly (0.5): data construction, judging protocol, scoring and prompts described, data and code released; how the evaluated models were run (single call or agent, decoding settings) and the human validation procedure not described",
-   "p": "4-12, 26-29",
-   "rev": [],
-   "warn": ""
+   "v": "Partly (0.5): data construction, judging protocol, scoring and prompts (including the single-response task prompts) described, data and code released; decoding settings of the evaluated models (temperature, token limits) and the human validation procedure (annotators, instructions for the 200-sample study) not described",
+   "p": "4-12, 26-34",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Score unchanged, but the reason was partly wrong: how the models were run (single response, no agent) is shown in the Appendix A.6 prompts."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q3",
-   "v": "Partly (0.5): model versions named and judge tooling versioned (Claude Code v2.0.67, Chrome DevTools MCP v0.19.0); inference harness for the evaluated models not stated",
-   "p": "10-11, 26",
-   "rev": [],
-   "warn": ""
+   "v": "Yes (1): evaluated models named with versions (e.g. Claude-Opus-4.5, Gemini-3-Pro-Preview, GPT-5.2, Qwen3-VL variants, Table 7); no agent harness is used (single-response prompts, Appendix A.6); judge tooling versioned (Claude Code v2.0.67, Chrome DevTools MCP v0.19.0); API snapshot dates not given",
+   "p": "10-11, 26, 29-32",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The previous Partly rested on an unstated inference harness, but the models are prompted directly with no agent. Whether named model releases without API snapshot dates count as identified versions is a judgement."
+    }
+   ],
+   "warn": "Os modelos são chamados diretamente, sem agente, e as versões estão nomeadas, mas sem datas de snapshot da API. Decide entre Yes e Partly (apêndice A.6 e tabela 7). O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q4",

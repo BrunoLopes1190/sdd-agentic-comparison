@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486645",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Otoum, N., Elkhalili, N. (2026). Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review. IEEE Access, 14, 7443-7465. https://doi.org/10.1109/ACCESS.2026.3652325",
+   "p": "7443",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026 (received 6 Dec 2025, accepted 30 Dec 2025, published 12 Jan 2026)",
+   "p": "7443",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — IEEE Access, vol. 14, pp. 7443-7465, DOI 10.1109/ACCESS.2026.3652325 (open access, CC BY 4.0)",
+   "p": "7443",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of Software Engineering, University of Petra, Amman, Jordan (both authors; academic)",
+   "p": "7443",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Review — systematic literature review of 61 studies (2022-2025) on methods, frameworks and techniques of agentic software engineering, with described sources, search string, inclusion/exclusion criteria, two-reviewer screening (kappa 0.82 / 0.79), quality threshold (>= 8/15) and backward snowballing",
+   "p": "7445-7447",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "N/A (no SDD approach; taxonomy of agentic SE approaches: goal-oriented/behavior-driven agents, agent-based modeling and simulation tools, LLM integration in agent workflows, architectural patterns, SE processes adapted for agents; examples SWE-agent, RepairAgent, Reflexion, MetaGPT, ChatDev, CodeAgent, VerilogCoder)",
+   "p": "7449-7451, 7461",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts discussed; MetaGPT/ChatDev role-based agents mentioned without their artefacts)",
+   "p": "7450-7451",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A (human-agent collaboration and trust discussed generally; hybrid human-agent workflows recommended)",
+   "p": "7456-7458",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (literature review)",
+   "p": "7446-7448",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD; specifications mentioned only as natural-language input to agents and LLM + formal specification as future direction)",
+   "p": "7444, 7460",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (reviewed studies span code generation, program repair, code review, testing, maintenance and end-to-end development)",
+   "p": "7455-7456",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "61 included studies (434 records, 176 after deduplication, 156 after title/abstract screening, 61 after full text; 8 snowballing candidates all rejected)",
+   "p": "7447",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Agentic software engineering in general (intelligent programming assistants, maintenance agents, co-programming agents, adaptive user interfaces)",
+   "p": "7455",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "N/A (review; reports that 41% of studies include cost-effectiveness measures)",
+   "p": "7454",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "N/A (review; reports Pass@k in 89% of code-generation studies, task completion rates in 76% of multi-agent studies; benchmarks HumanEval, MBPP, SWE-bench used in 67% of studies)",
+   "p": "7453-7454",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "N/A (review; notes little evidence on long-term maintainability of agent-written code)",
+   "p": "7456",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "N/A (review; human preference scores in 63% of human-agent studies; human evaluation in 29% of studies)",
+   "p": "7453-7454",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "N/A (descriptive distributions: single-agent 34.4%, multi-agent 41.0%, human-agent collaboration 23.0%, tool-augmented 21.3%, hybrid 24.6%; autonomy rating 1-4 rising from 2.3 in 2022 to 3.8 in 2024; adoption barriers in 29 studies: trust/reliability 78%, legacy integration 64%, lack of standard metrics 59%, skills gaps 52%)",
+   "p": "7448-7449, 7451-7453, 7456",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (standardized extraction form; mixed-method thematic analysis, taxonomy construction, gap and temporal trend analysis; autonomy rated independently by two reviewers and averaged)",
+   "p": "7448, 7453",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (review; no configuration run)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Synthesis: trend to higher autonomy and from single- to multi-agent systems; tool-augmented, environment-aware agents reported to outperform isolated agents; evaluation heterogeneous and not standardized, preventing cross-study comparison; qualitative comparison of approaches in Table 3 (content not available in the text)",
+   "p": "7451-7454",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Review limitations: possible missed studies, subjective quality assessment, extraction inconsistencies, publication bias, 2022-2025 and English-only scope, variable definition of 'agentic', metric diversity, small subcategories, heterogeneity; meta-analysis not possible (53 studies reported Pass@k but data sufficient only for 28; funnel plot suggests negative results under-represented). Gaps: no standardized evaluation frameworks/benchmarks for comparing agentic approaches; coordination mechanisms; long-term maintainability of agent-generated code; human-agent collaboration guidelines; real-world and longitudinal studies; security, explainability, ethics",
+   "p": "7444, 7457-7462",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Not about SDD. Protocol not registered publicly, provided as supplementary material; full search strings and kappa values per criterion also in the supplementary material (not seen). Search date only 'the time of the search in 2025'; exact cut-off not stated. Tables 1-8 and Figures 1-4 are images not present in the text, so per-category quality scores and Table 4/5/6 values not extracted. Possible inconsistencies: 434 records reduced to 176 after deduplication only (p. 7447); Pass@k 'used by 89% of code generation studies' vs '53 studies reported Pass@k' (pp. 7454, 7461); 'Note on recently-dated references (2024-2025)' calls them forthcoming although the review is 2026 (p. 7446). No replication package beyond supplementary material; programming language N/A",
+   "p": "7445-7447, 7454, 7461",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (review: DARE)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "Yes (1): inclusion (I1-I7) and exclusion (E1-E6) criteria listed and appropriate to the agentic SE scope",
+   "p": "7446-7447",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "Yes (1): six sources (ACM DL, IEEE Xplore, Scopus, Web of Science, Google Scholar, arXiv), search string reported, backward snowballing; exact search date not stated",
+   "p": "7446-7447",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "Yes (1): five-criterion quality checklist (0-3 each, threshold 8/15), two independent reviewers with kappa >= 0.72; average scores per category in Table 2 (image, values not in text)",
+   "p": "7447, 7463",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "Partly (0.5): studies grouped by taxonomy category with counts and narrative descriptions of examples; per-study data only in tables not available in text; no systematic per-study results",
+   "p": "7448-7456",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

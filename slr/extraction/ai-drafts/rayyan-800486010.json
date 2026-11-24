@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486010",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,16 +187,26 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: abstract gives problem description in 48% and code structure in 48% of prompts (p. 1), while Table II gives problem description 0.56 (27/48) and file/modular structure 0.12 (6/48) (p. 4); abstract percentages for dissatisfaction factors (77%, 42%, 25%) not traceable in Table III (p. 1, 5); text r = 0.45 (p = 0.0015) for met functional requirements vs 0.34* in Table III (p. 5); implementation guidance 'r = -0.3' in text vs -0.37* in Table II (p. 4); text says unmet functional requirements in '16 of the 48 tasks (33%)' while Table III gives 16 mentions in 13 tasks (p. 5); 'Nine participants' on executability vs 9 mentions by 7 participants in Table III (p. 5-6); 'Five participants (P1, P5, P6, P8, P9, P16)' lists six (p. 7); two-way ANOVA F(1, 11) = 3.46 with p = 0.0004 is implausible (p. 7); two prompt types both labelled 'Type II' (p. 4). Per-tool results only in Fig. 2. Supplementary material (tasks, prompts, interview protocol) at https://figshare.com/s/a13d7a90f13f2fcc2105 (p. 3, 11). IRB approved; no pre-registration. Programming languages: JavaScript and Python",
+   "v": "Inconsistencies: abstract gives problem description in 48% and code structure in 48% of prompts (p. 1), while Table II gives problem description 0.56 (27/48) and file/modular structure 0.12 (6/48) (p. 4); abstract percentages for dissatisfaction factors (77%, 42%, 25%) not traceable in Table III (p. 1, 5); text r = 0.45 (p = 0.0015) for met functional requirements vs 0.34* in Table III (p. 5); implementation guidance 'r = -0.3' in text vs -0.37* in Table II (p. 4); text says unmet functional requirements in '16 of the 48 tasks (33%)' while Table III gives 16 mentions in 13 tasks (p. 5); 'Nine participants' on executability vs 9 mentions by 7 participants in Table III (p. 5-6); 'Of all seven readability-related statements, five ... while four ... The other two' adds up to eleven (Table III: 7 mentions) (p. 6); 'Five participants (P1, P5, P6, P8, P9, P16)' lists six (p. 7); two-way ANOVA F(1, 11) = 3.46 with p = 0.0004 is implausible (p. 7); two prompt types both labelled 'Type II' (p. 4); ignored context is called the 'primary and sole contributor' of poor maintainability with eleven participants listed (P1, P2, P4, P8-P10, P12-P16), while Table III gives poor maintainability 6 mentions in 6 tasks by 6 participants (p. 5, 7). Per-tool results only in Fig. 2. Supplementary material (tasks, prompts, interview protocol) at https://figshare.com/s/a13d7a90f13f2fcc2105 (p. 3, 11). IRB approved; no pre-registration. Programming languages: JavaScript and Python",
    "p": "1, 3-7, 11",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Two missed inconsistencies added: '16 of the 48 tasks' vs 13 tasks in Table III, and 'Nine participants' vs 7 participants in Table III for executability"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missing inconsistency added: the readability paragraph counts seven statements but splits them into 5 + 4 + 2 (p. 6)"
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Missing inconsistency added: the ignored-context paragraph attributes poor maintainability to eleven listed participants, while Table III counts it for only six participants (p. 5, 7)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -230,8 +240,19 @@
    "f": "Q5",
    "v": "Partly (0.5): code judged only by participants' subjective ratings after running it; no acceptance tests or independent ground truth",
    "p": "3, 5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Code quality is judged only by the participants' own 1-5 ratings after running the code (no tests or ground truth); participants are not the authors, and half are professional developers, so this could be read as partial independent review (Partly) or as purely subjective judgement (No)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Code quality is judged only by the participants' own 1-5 ratings after running the code (no tests or ground truth); participants are not the authors, and half are professional developers, so this could be read as partial independent review (Partly) or as purely subjective judgement (No)"
+    }
+   ],
+   "warn": "A qualidade do código é julgada só pelas notas subjetivas dos participantes, sem testes nem resposta de referência. Decide se isso conta como critério independente parcial (Partly) ou não (No)."
   },
   {
    "f": "Q6",
@@ -249,6 +270,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Two tools run on the same tasks and environment, counterbalanced but between-subjects, with different LLMs and no stated baseline; whether this is 'an alternative evaluated under the same conditions' (Yes) or only partly so is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Two tools run on the same tasks and environment, counterbalanced but between-subjects, with different LLMs and no stated baseline; the authors say they do not compare the tools directly (p. 10); Partly or Yes is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Two tools run on the same tasks and environment, counterbalanced but between-subjects, with different LLMs and no stated baseline; the authors say they do not compare the tools directly (p. 10); Partly or Yes is a judgement"
     }
    ],
    "warn": "Copilot e GPT-Engineer usam as mesmas tarefas e ambiente, mas participantes e modelos diferentes, e não há baseline declarada. Decide entre Partly e Yes."

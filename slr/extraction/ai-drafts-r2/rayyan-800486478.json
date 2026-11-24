@@ -1,0 +1,315 @@
+{
+ "key": "rayyan-800486478",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ding, H., Bi, C., Zhu, J., Yang, J., Deitke, M., Yin, P., Wang, Z., Hou, R. (2026). E2E-SWE: Benchmarking LLMs on Building Working Codebases from Scratch. arXiv:2609.38335v1 [cs.SE], 29 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.38335v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Meta Superintelligence Labs (industry; vendor of the evaluated model Muse Spark 1.3)",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — E2E-SWE benchmark of 186 whole-repository generation tasks in 11 languages, with engineer-authored hidden tests, test-driven specifications and an LLM static and rollout-guided review-and-repair loop; 13 frontier models compared under one ReAct scaffold, plus a re-evaluation on NL2Repo-Bench",
+   "p": "1-4, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Scaffold: simple ReAct agent similar to mini-SWE-agent with an extra edit tool and submit tool (no name or version). Models (effort): Claude Fable 5 (high), Claude Opus 5 (xhigh), Claude Sonnet 5 (xhigh), Claude Opus 4.8 (xhigh), Claude Opus 4.6 (high), GPT-5.6 Sol (max), GPT-5.6 Terra (max), GPT-5.5 (xhigh), Muse Spark 1.3 (max), Gemini 3.8 Flash (high), Gemini 3.6 Flash (high), Kimi K3 (high), GLM-5.2 (high). Ablation: reasoning-effort sweep for Claude Opus 4.8 and GPT-5.5. Task format: Harbor",
+   "p": "3, 5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent receives only a natural-language specification (instruction.md), written test-driven after the hidden suite: states every tested user-facing behaviour, leaves internal design unspecified. Agent must deliver a complete repository and a setup.sh script that installs it. Task package: instruction.md, hidden tests/ (CTRF report), solution/solve.sh reference, task.toml",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Evaluation: agent builds the repository offline from the specification in an empty workspace (4-hour budget, 1M context tokens, 1,000 turns) and submits; repository copied to a fresh container, setup.sh run, hidden tests executed; resolved only if all pass. Task lifecycle: (1) creation by an engineer with an LLM (tests first, then specification), (2) refinement by static review (test quality, spec fairness) and rollout-guided review with a repair agent, (3) evaluation",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs. In task creation, the software engineer reviews LLM-generated tests and specification and audits specification–test alignment assertion by assertion; later refinement is done by LLM reviewers and a revision agent",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents implement a full repository from a given specification",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach evaluated). Authors' wording: 'a human first collaborates with an LLM to turn project goals into a concrete specification, after which a coding agent autonomously implements that specification as a working repository. E2E-SWE isolates and evaluates the second stage'",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (complete, installable repository from an empty workspace)",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "186 tasks; hidden tests per task P10/P50/P90 21/38/96; specification 8,460/16,882/29,206 characters; reference repositories 12/46/144 code files and 2,398/7,360/25,457 code lines; 4 runs per model (744 attempts audited for 4 models)",
+   "p": "5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "13 functional categories: parsers and languages, devtools and analysis, query and database, concurrency and systems, serialization and formats, web and network, text and templating, numeric and scientific, data structures and algorithms, geometry and simulation, CLI and terminal, security and crypto, other",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in the evaluation; autonomous agents)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Average agent turns and average output tokens per rollout; reasoning tokens per trajectory (total, peak, peak share, peak position). No monetary cost or wall time reported",
+   "p": "6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@1: fraction of tasks fully resolved by a single rollout (every hidden test passes), averaged over 4 runs; no partial credit",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Generated lines of code per repository (non-blank implementation lines), compared with the reference; not used as a quality score",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Task solvability: share of attempts with failures attributed to task defects by an LLM judge (3.9%) and outcome flips if excluded (2.2%); memorization: 12-gram containment of generated vs reference code (max, tasks above 50% and 75%)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden tests in a fresh grading container emit a CTRF report; turns and tokens from trajectories; LOC and 12-gram containment computed with a code-aware tokenizer. Solvability attribution by an LLM judge (Claude Opus 5, max effort). DeepSWE and FrontierCode figures taken from their leaderboards",
+   "p": "3, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per task: all hidden tests pass; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. E2E-SWE, ReAct scaffold, 4 runs (pass@1 %; avg turns; avg output tokens k): (1) Claude Fable 5 high: 65.3; 56.3; 175.1. (2) Claude Opus 5 xhigh: 67.7; 120.2; 263.2. (3) Claude Sonnet 5 xhigh: 43.1; 176.6; 231.0. (4) Claude Opus 4.8 xhigh: 51.9; 87.6; 208.5. (5) Claude Opus 4.6 high: 22.6; 219.6; 120.4. (6) GPT-5.6 Sol max: 61.2; 67.7; 92.6. (7) GPT-5.6 Terra max: 51.8; 71.9; 116.7. (8) GPT-5.5 xhigh: 46.1; 59.5; 117.9. (9) Muse Spark 1.3 max: 45.2; 98.1; 157.0. (10) Gemini 3.8 Flash high: 36.7; 141.2; 165.8. (11) Gemini 3.6 Flash high: 11.7; 85.1; 114.5. (12) Kimi K3 high: 42.3; 94.9; 170.6. (13) GLM-5.2 high: 22.2; 137.7; 191.4. (14) Ablation, reasoning effort low to max for Opus 4.8 and GPT-5.5: pass@1 rises with effort up to xhigh; Opus 4.8 max uses more tokens without improving (values only in Figure 5). NL2Repo-Bench, one run (pass@1 %): Fable 5 19.2, Opus 5 22.1, Sonnet 5 13.5, Opus 4.8 13.5, Opus 4.6 8.7, GPT-5.6 Sol 7.7, Terra 8.7, GPT-5.5 12.5, Muse Spark 1.3 9.6, Gemini 3.8 Flash 8.7, Gemini 3.6 Flash 8.7, Kimi K3 14.4, GLM-5.2 9.6",
+   "p": "6-7, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 186 E2E-SWE tasks (and 104 NL2Repo-Bench tasks). Configurations: 13 models, each at the strongest reasoning effort that runs reliably within the 128K per-request output limit. Baseline: none designated; NL2Repo-Bench used as a comparison benchmark. Held constant: ReAct scaffold, 4-hour budget, 1M context tokens, 1,000 turns, no network, container images, hidden tests. Acceptance tests: engineer-authored hidden suites reviewed for solvability. Repetitions: 4 independent runs per model, averaged (NL2Repo-Bench: one run). Human intervention: none",
+   "p": "5-6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 5 highest pass@1 (67.7%), Claude Fable 5 65.3%, GPT-5.6 Sol 61.2%; lowest Gemini 3.6 Flash 11.7%. Opus 4.6 resolves far fewer tasks than GPT-5.6 Sol with over three times the turns; Fable 5 nearly matches Opus 5 with about two thirds of the tokens. Higher reasoning effort raises pass@1 up to saturation. Generated LOC reflects model style, not correctness. Strongest memorization signal for Fable 5, Opus 5 and Opus 4.8, but resolve-rate deltas on high-overlap tasks are −0.6, +9.6 and +5.3 pp. On NL2Repo-Bench scores cluster near 10% except Opus 5 and Fable 5. No significance tests",
+   "p": "6-9, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Authors claim it distinguishes models (11.7% to 67.7%) better than NL2Repo-Bench, where scores are compressed. Repeatability: 4 runs averaged, variance not reported. Solvability check: an LLM judge attributes failures to task defects in 3.9% of attempts, flipping 2.2%; authors note the judge may misclassify. Limitations of the comparison method otherwise not discussed",
+   "p": "6-8, 10, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations stated: solvability rates are LLM-judge attributions, not definitive defect counts; tasks grounded in public repositories may be memorized. Gaps: even the strongest model leaves nearly one third of tasks unresolved; whole-repository generation needs long, front-loaded planning; prior benchmarks with unsolvable tasks give near-zero, poorly separating scores. No dedicated limitations section",
+   "p": "2, 6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "No reporting inconsistencies found between text and Tables 2 and 4 (checked ratios on turns and tokens, NL2Repo 8–15 tasks). Reasoning-effort sweep values given only in Figure 5. LLMs used in task authoring and refinement reviewers not named (only the post-hoc judge: Claude Opus 5). Which run is used for Table 3 reasoning distribution not stated; containment uses one rollout per model. Data: code at https://github.com/facebookresearch/E2E-SWE. No pre-registration. Programming languages of tasks: Python (103), C++, Java, Go, C, Swift, JavaScript, TypeScript, C#, Rust, Kotlin. Task authors acknowledged by name (30 engineers)",
+   "p": "1, 5-9, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (evaluate end-to-end repository generation with solvable tasks) clearly stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): scaffold, budgets, task format and grading described and code released; task authoring depends on human engineers, and the LLMs and prompts used for creation and review are not given",
+   "p": "1, 3-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): all 13 models named with reasoning effort and references; custom ReAct scaffold described with its tools and limits; code released",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): corpus composition and statistics described; benchmark code released on GitHub",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): engineer-authored hidden test suites, reviewed for solvability, run in a fresh container",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass@1 defined; turns and output tokens reported as cost (no money or time)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 models under the same scaffold and budgets; also compared on NL2Repo-Bench",
+   "p": "5-6, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 4 independent runs averaged, but no variance or statistical tests reported",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from Table 2 and the audit, with mixed findings reported (memorization not guaranteeing success, saturation of effort)",
+   "p": "6-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): caveats on LLM-judge attribution and memorization only; no threats-to-validity or limitations section",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): Meta authors evaluate Meta's Muse Spark 1.3 among 13 models; independent of the other vendors; the benchmark is an evaluation method",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

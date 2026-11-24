@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485978",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,9 +187,15 @@
   },
   {
    "f": "Notes",
-   "v": "Possible inconsistency: Table 9 percentages are all multiples of 1/920 (e.g. 25.11% = 231/920, 6.52% = 60/920), suggesting 920 tasks (46 projects) were scored, not 50 x 20 = 1,000 (check). 'Pass@1' is reported with Best-of-5 sampling (p. 5), which differs from the usual single-sample Pass@1; Error@1 not defined. Abstract calls the lower SOTA 'significantly lower (better)'. Table 2 temperatures per vendor are hard to align from the text. Projects calibrated with claude-3-5-sonnet-20241022 (Appendix D), which may favour Claude models. Doubao is a ByteDance model evaluated by ByteDance authors. Replication package: https://github.com/bytedance/web-bench and Hugging Face dataset bytedance-research/WebBench. No pre-registration. Programming language: JavaScript/TypeScript, HTML, CSS",
-   "p": "1, 5, 26-28",
-   "rev": [],
+   "v": "Possible inconsistency: Table 9 percentages are all multiples of 1/920 (e.g. 25.11% = 231/920, 6.52% = 60/920), suggesting 920 tasks (46 projects) were scored, not 50 x 20 = 1,000 (check). 'Pass@1' is reported with Best-of-5 sampling (p. 5), which differs from the usual single-sample Pass@1; Error@1 not defined. Appendix C.2 (p. 26) says benchmark projects are 'mostly single files, a few single-digit files', which conflicts with Table 1 (reference solutions average 23.4 files, max 76). Abstract calls the lower SOTA 'significantly lower (better)'. Table 2 temperatures per vendor are hard to align from the text. Projects calibrated with claude-3-5-sonnet-20241022 (Appendix D), which may favour Claude models. Doubao is a ByteDance model evaluated by ByteDance authors. Replication package: https://github.com/bytedance/web-bench and Hugging Face dataset bytedance-research/WebBench. No pre-registration. Programming language: JavaScript/TypeScript, HTML, CSS",
+   "p": "1-2, 5, 26-28",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missed a reporting inconsistency: p. 26 describes the projects as mostly single files, while Table 1 gives 23.4 files on average per reference solution."
+    }
+   ],
    "warn": ""
   },
   {
@@ -208,10 +214,21 @@
   },
   {
    "f": "Q3",
-   "v": "Yes (1): model snapshot identifiers (Table 9) and per-vendor parameters (Table 2) given; agent is the authors' own Web-Agent (version Not stated)",
+   "v": "Partly (0.5): most models given with snapshot identifiers (Table 9) and per-vendor parameters (Table 2), but several are unversioned or aliases (e.g. deepseek-r1, gemini-2.5-pro, llama-3.3, minimax-text, moonshot-kimi-latest); Web-Agent (authors' own) version, Playwright and Node versions Not stated",
    "p": "5, 28",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Many models carry dated snapshot ids, but several are unversioned or 'latest' aliases and no agent/tool versions are given; Yes vs Partly is a judgement (comparable drafts score vague model versions Partly)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Many models carry dated snapshot ids (Table 9), but several are unversioned or aliases (deepseek-r1, gemini-2.5-pro, llama-3.3, minimax-text, moonshot-kimi-latest) and no Web-Agent, Playwright or Node versions are given; Yes vs Partly is a judgement."
+    }
+   ],
+   "warn": "Vários modelos têm versão datada, mas outros não (p.ex. moonshot-kimi-latest, deepseek-r1, llama-3.3) e a versão do Web-Agent não é dada. Decide entre Sim e Parcial."
   },
   {
    "f": "Q4",
@@ -276,6 +293,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "Partly rests on two judgements: the Web-Agent is the authors' own harness used in every configuration, and Doubao's link to ByteDance is not stated in the text (Table 9 lists the provider as 'Doubao'; Seed Team thanked)."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly rests on two judgements: the Web-Agent is the authors' own harness used in every configuration, and Doubao's link to ByteDance is not stated in the text (Table 9 lists the provider as 'Doubao'; Seed Team thanked)."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "Partly rests on two judgements: the Web-Agent is the authors' own harness used in every configuration, and Doubao's link to ByteDance is not stated in the text (Table 9 lists the provider as 'Doubao'; Seed Team thanked)."
     }

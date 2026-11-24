@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486816",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The reported author-order inconsistency is not in the paper: the title block is a two-column author grid, and the ACM reference format and running head both give Jureczka, Paleczek, Campbell, Przystalski; removed. Added that Table 3 was rebuilt from a jumbled extraction (protocol rule)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -221,9 +221,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Harness version (mini-swe-agent 2.4.5) is given and models are named by version, but no snapshot/API IDs or dates are given; other drafts scored similar cases Partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The harness version is given (mini-swe-agent 2.4.5, ref. 25) and all 13 models are named with their version (e.g. Claude Opus 4.8, GPT-5.6 Luna), but no API snapshot IDs or access dates for the models are given; whether named model versions without snapshot IDs earn Yes or Partly is a consistency judgement across studies. Yes kept."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The harness version is given (mini-swe-agent 2.4.5, ref. 25) and all 13 models are named with their version (e.g. Claude Opus 4.8, GPT-5.6 Luna), with 'high reasoning' stated, but no API snapshot IDs or access dates are given; whether named model versions without snapshot IDs earn Yes or Partly is a consistency judgement across studies. Yes kept."
     }
    ],
-   "warn": "A versão do harness (mini-swe-agent 2.4.5) está indicada e os modelos têm nome e versão, mas sem IDs de snapshot. Decide entre Yes e Partly, coerente com os outros estudos."
+   "warn": "O harness tem versão (mini-swe-agent 2.4.5) e os modelos têm nome e versão, mas sem IDs de snapshot nem datas. Decide entre Yes e Partly, de forma coerente com os outros estudos."
   },
   {
    "f": "Q4",

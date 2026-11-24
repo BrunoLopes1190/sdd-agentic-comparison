@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486568",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "A qualitative, document-based analysis of nine benchmark publications and datasets: 'Evaluates' (empirical analysis of artefacts, like repository mining) fits, but 'Conceptual' as main nature is defensible since nothing is run and the output is reflections and recommendations; the choice decides whether Q3-Q8 or Q13 apply."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "A qualitative, document-based analysis of nine benchmark publications and datasets: 'Evaluates' (empirical analysis of artefacts, like repository mining) fits, but 'Conceptual' as main nature is defensible since nothing is run and the output is reflections and recommendations; the choice decides whether Q3-Q8 or Q13 apply."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Document-based qualitative analysis of nine benchmark publications and datasets (RQ1, RQ2 with counts, p. 2-4): 'Evaluates' fits an empirical analysis of artefacts, but 'Conceptual' is defensible because nothing is run and half the output is reflections and future plans; the choice decides whether Q3-Q8 apply."
     }
    ],
-   "warn": "Estudo documental de nove benchmarks, sem execução de agentes. Decide se é Evaluates (análise empírica de artefactos) ou Conceptual; isso muda se Q3–Q8 ou Q13 se aplicam."
+   "warn": "Estudo documental de nove benchmarks, sem nada executado (p. 2-4). Decide entre Evaluates (análise empírica de artefactos, Q3–Q8 aplicam-se) e Conceptual (Q3–Q8 N/A); muda o score."
   },
   {
    "f": "Approach(es): name and version",
@@ -223,7 +233,7 @@
      "why": "Partly rested on benchmark versions, which are the objects studied (Q4), not agent/model/tool versions; the LLM used is not identified, and missing information scores No (§5)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q4",
@@ -290,9 +300,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No tool or approach is evaluated, only benchmarks, none by the authors (SAP and Heidelberg are not vendors of the analysed benchmarks); Yes is defensible, but by analogy with the 2026-11-23 rule (no tool evaluated) N/A is also defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No tool or approach is evaluated, only benchmarks, none by the authors (SAP and Heidelberg are not vendors of the analysed benchmarks); Yes is defensible, but by analogy with the 2026-11-23 rule (no tool evaluated) N/A is also defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No tool or approach is evaluated, only benchmarks, none by the authors (Heidelberg, Dalhousie, SAP; p. 1-2); Yes is defensible, but by analogy with the 2026-11-23 rule (nothing evaluated) N/A is also defensible."
     }
    ],
-   "warn": "O estudo não avalia nenhuma ferramenta, só benchmarks que não são dos autores. Decide entre Yes e N/A para Q12."
+   "warn": "O estudo não avalia nenhuma ferramenta, só analisa benchmarks de terceiros. Decide se Q12 é Yes (autores independentes) ou N/A por analogia com a regra de 2026-11-23."
   },
   {
    "f": "Q13",

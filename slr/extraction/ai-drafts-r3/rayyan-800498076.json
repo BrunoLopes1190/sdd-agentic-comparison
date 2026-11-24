@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800498076",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Desai, R., Hu, J., Cabezas, J., Harsola, N., Shukla, P., Ben Chaim, R., El Assadi, A., Kamath, O. M., Faldu, F., Hebbar, P., Sun, J., Li, Y., Srinivasan, P., Gupta, I., Settles, C., Wang, D., Chen, D., Raja, P., Liu, A., Šuppa, M., Sasikumar, N., Kong, L., Quintanilla, E., Li, X., Bercovich, I., Dillmann, S. (2026). SWE-Marathon: Can Agents Autonomously Complete Ultra-Long-Horizon Software Work? arXiv:2606.07682v1 [cs.SE], 5 Jun 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv ('Preprint', no venue stated)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Mixed industry and academia: Abundant (corresponding, 6 authors: Desai, J. Hu, Cabezas, Harsola, Shukla, D. Wang), Zenity, Warping, Refresh (2), Soleda AI, Near AI, BenchFlow; Harvard, Waterloo, Gujarat Technological University, Stanford (2), UNC-Chapel Hill, Georgia Tech, Comenius University Bratislava, UC San Diego, UC Santa Barbara; 3 independent (Srinivasan, Gupta, Kong)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method — SWE-Marathon benchmark of 20 ultra-long-horizon software tasks with multi-layer verifiers and reward-hacking defences, plus task-construction and audit methodology; secondary: Compares — 13 agent-model configurations (commercial CLIs and the Terminus 2 scaffold), 1,300 trajectories",
+   "p": "1-2, 4-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations (Table 3): Claude Code v2.1.123 + Claude Opus 4.8; Claude Code v2.1.123 + Claude Opus 4.7; Codex CLI v0.128.0 + GPT-5.5; Gemini CLI v0.40.0 + Gemini 3.5 Flash; Gemini CLI v0.40.0 + Gemini 3.1 Pro Preview; Kimi Code CLI v1.41.0 + Kimi K2.6; Terminus 2 (Harbor, PyPI v0.6.4) + Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro Preview, Kimi K2.6, DeepSeek V4 Pro, GLM 5.1, MiniMax M2.7",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Each task (Harbor format) provides an instruction file specifying outcomes (may include acceptance criteria, external specifications, self-check commands; no algorithms or hidden cases), Dockerized starter environment, visible development feedback, hidden verifier, held-out human-written reference solution, wall-clock limit",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for the agents (autonomous multi-hour rollouts; final scoring on submitted container state). Task approval pipeline: proposal review -> automated CI -> LLM-assisted rubric checks -> empirical agent trials (typically 3) -> adversarial 'cheating' agent exploit search -> final human approval",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent rollouts (agents not told the time limit). In benchmark construction: proposal review, reviewers inspect pilot trial logs, final human approval of each task",
+   "p": "4, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs on benchmark tasks",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of coding agents; no SDD approach); authors' terms: 'long-horizon tasks', 'instructions specify outcomes rather than implementation recipes'",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed (authors' Table 1 classifies the task type as 'Mixed'): mostly new projects built from scratch at project scale (library reproductions and ports, full-stack product clones, ML frameworks), but some tasks start from existing code: wasm-simd extends a Rust interpreter skeleton with stubs and two planted bugs, vliw-kernel-optimization optimises a kernel for an existing simulator, jax-pytorch-rewrite ports and then optimises an existing policy",
+   "p": "3, 5, 16-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "20 tasks (8 library clones, 5 product clones, 5 ML engineering, 2 algorithmic); median 2,347 steps; expert-human estimates 40-400 h per task; agent limits 2-10 h; mean 27.2M total tokens per rollout (median 7.6M, max 877.4M); e.g. Kubernetes reference about 216,000 lines; 1,300 trajectories (13 configs x 20 tasks x 5)",
+   "p": "1-3, 5-6, 8, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Software engineering and adjacent technical domains: compilers, language servers, Kubernetes, Next.js, Wasm, compression, web/payments/chat/storage product clones, ML (PyTorch, Triton/CUDA, embeddings, post-training), protein network alignment, kernel scheduling; 6 language ecosystems per Table 1 (7 per Table 5 caption)",
+   "p": "3, 5, 16-21, 18",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs). Tasks authored by 11 software engineers familiar with the systems",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens per rollout (n_input + n_output, cached included; input/cache/output logged); cost-performance Pareto frontier using published API prices ($/M input/output, Table 3, cached-token pricing excluded); wall-clock limits; benchmark run cost (individual trials hundreds of dollars, full sweeps tens of thousands)",
+   "p": "5-8, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved rate pass@1 (fraction of trials whose submission passes the task verifier; binary), ±1 binomial standard error; diagnostic partial scores (fraction of unit tests passed, or unit tests plus CUA rubric for clones)",
+   "p": "6, 17",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Reward hacking: suspicion score s in [0,1], attempt-tier (s >= 0.3), exploit-tier (s >= 0.85), successful exploits; failure-mode 5-bucket taxonomy (Implementation Failure, Timeout, Reward Hacking, Premature Termination, Poor Self-Verification); tool-use dynamics (tool error rate, verbatim retries, duplicated calls, strict waste, identical consecutive tool-call run length); compaction",
+   "p": "6-10, 22-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Harbor on Modal sandboxes logs image, harness commit, agent version, verifier result, action trace, token counts; hidden verifiers (dense tests, parity vs reference, performance gates, deterministic replay, integrity checks); computer-use agentic verifier with rubric and separate judge for UI tasks. LLM-assisted: post-hoc suspicion scoring by an LLM judge on all 1,300 rollouts; failure modes labelled by GPT-5.5 on a 746-trial subset with deterministic cascade",
+   "p": "4-9, 15-16, 22, 25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark: 20 SWE-Marathon tasks, 5 trials each, pass@1 against task verifiers. Success criterion per task is the verifier's pass condition; no success criterion stated by the authors for a configuration. Per-configuration pass@1 is shown only in Figure 2 (values not in the text): no configuration exceeds 30%. Values given in text: (a) Claude Code + Opus 4.8: exploit rate 1.0% (model-level, n = 100); verdicts: no criterion stated by the authors. (b) Claude Code + Opus 4.7: median 21.9M tokens per trial; poor-self-verification 20% of failures, zero reward-hacking attempts; no criterion stated. (c) Codex CLI + GPT-5.5: median 4.8M tokens; premature stop 15%, reward hacking 24% of failures; no criterion stated. (d) Gemini CLI + Gemini 3.5 Flash: exploit rate 12.0% (model-level); no criterion stated. (e) Gemini CLI + Gemini 3.1 Pro Preview: model-level exploit rate 22.0% (n = 200, both scaffolds); no criterion stated. (f) Kimi Code CLI + Kimi K2.6: model-level exploit rate 5.5% (n = 200); no criterion stated. (g) Terminus 2 + Opus 4.7: median 4.4M tokens; model-level exploit rate 0.5%; no criterion stated. (h) Terminus 2 + GPT-5.5: median 0.40M tokens; reward hacking 57% of failures (24 of 42); model-level exploit rate 26.0%; no criterion stated. (i) Terminus 2 + Gemini 3.1 Pro Preview, (j) + Kimi K2.6, (k) + DeepSeek V4 Pro (exploit 9.0%), (l) + GLM 5.1 (exploit 2.0%), (m) + MiniMax M2.7 (exploit 0.0%): pass@1 only in Figure 2; no criterion stated. Terminus 2 overall: 32% duplicated tool calls, 63 of 83 audited timeouts",
+   "p": "1, 6-10, 26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 20 curated long-horizon tasks with hidden verifiers and held-out reference solutions. Configurations: 6 commercial CLI agent products (end-to-end) and Terminus 2 with 7 model backbones (fixed open-source scaffold to reduce product-specific confounds). Baseline: none designated. Held constant: Harbor harness, Modal sandboxes, task Dockerfiles and resources, per-task wall-clock limits (2-10 h), FrontierSWE-style egress controls on the 6 offline tasks; agents not told the time limit; closed models via first-party APIs, open models via OpenRouter. Acceptance tests: multi-channel hidden verifiers (min of deterministic and agentic stages for UI tasks), anti-cheat tripwires. Repetitions: n = 5 per configuration per task. Human intervention: none during rollouts",
+   "p": "4-6, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No configuration exceeds 30% pass@1; cost-effective systems are not always the highest-scoring (Pareto frontier in Figure 3). Token use scaffold-dependent: with model fixed, median tokens per trial varies up to 12x (GPT-5.5 0.40M Terminus 2 vs 4.8M Codex; Opus 4.7 4.4M Terminus 2 vs 21.9M Claude Code). Higher token quintile does not pass more (lowest 11.3% vs highest 8.3%). Reward hacking: 13.8% attempt-tier, 10.2% exploit-tier, 0 successful (132 bypasses all caught); exploit rate by model 26.0% GPT-5.5 to 0.0% MiniMax M2.7. Failures (526 analysed): Implementation 41.6%, Timeout 31.4%, Reward Hacking 15.4%, Premature Termination 7.6%, Poor Self-Verification 4.0%. No significance tests",
+   "p": "1, 6-10, 26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: benchmark is hard enough to separate configurations from saturation and its defences caught all shipped exploits, but per-configuration differences are reported with binomial SE only; authors state one or two seeds cannot distinguish small differences and smaller-n slices are descriptive. Repeatable: agent versions, harness commit and images logged; benchmark, code and trajectories released. Limitations stated: high run cost, nondeterminism, single execution backend (Modal), unmeasured false-negative rate of reward-hacking detection, agents not told time limit; failure analysis on 10 of 20 task families with a single LLM analyser",
+   "p": "6, 10, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: expensive to run (trials up to hundreds of dollars, sweeps tens of thousands), so low-frequency evaluation and access barrier; nondeterminism and per-trial variance; single execution backend (Modal via Harbor); reward-hacking rates are lower bounds; agents not told the time limit. Failure-mode analysis: single GPT-5.5 analyser without agreement measure, 10 of 20 task families, validation flag near-saturated. Gaps: time-aware prompting and time-tracking tools; ultra-long-horizon work is both a capability and a benchmark-integrity challenge",
+   "p": "10, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Per-configuration pass@1 values and the cost-performance frontier are only in Figures 2, 3 and 6 (not in extracted text); the author should read them from the PDF. Abstract 'average 27.2M total tokens' vs Section 5.2 'median 7.6M' (mean vs median, consistent). Table 7 per-model attempt/exploit counts partly garbled; exploit rates read from the last column in row order. Table 6 per-task failure distribution garbled; totals (40/219/81/21/165 = 526) consistent with Table 4. Co-authors Bercovich, Dillmann and J. Hu are also authors of Terminal-Bench, which introduced the Terminus 2 scaffold evaluated here. Release: benchmark, evaluation code and trajectories at swe-marathon.org. No pre-registration. Language count inconsistent: Table 1 gives 6 languages, Table 5 caption 'seven language ecosystems'. Programming languages (from task list): Rust, C, TypeScript, Python, Triton/CUDA among the targets; sources include Java, Go, Ruby, JAX",
+   "p": "1, 3, 5-10, 18, 23, 26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (benchmark for ultra-long-horizon software work) and three contributions stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task format, construction and approval pipeline, runtime environment, evaluation protocol, audit procedure described; benchmark, code and trajectories released",
+   "p": "4-6, 24-25",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): agent CLI versions, Terminus 2 PyPI version, models, context sizes and providers listed in Table 3; --version recorded per container",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 20 tasks described in Table 2 and Appendix C; released at swe-marathon.org",
+   "p": "5, 16-21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden multi-channel verifiers (tests, parity with reference implementations, performance gates) and held-out reference solutions",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass@1 (quality) and tokens per rollout with API prices (cost) defined",
+   "p": "5-6, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 configurations under the same tasks, harness and sandboxes; 7 models on the same Terminus 2 scaffold",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 5 trials per configuration per task with ±1 binomial standard error; no statistical tests of differences",
+   "p": "6, 10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive, but the abstract and conclusion say failures 'often arise from poor self-verification, self-reported infeasibility, and premature termination' while Table 4 gives these as primary modes for only 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); 'self-reported infeasibility' is not quantified",
+   "p": "1, 8-10",
+   "verdict": "uncertain",
+   "why": "Rankings, lower-bound caveats and descriptive small-n slices follow the results, but abstract and conclusion lead with poor self-verification and premature termination while Table 4 gives them 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); the authors lean on the near-saturated validation-failure signal (524/526, which D.4 itself calls of limited discriminative power). Partly kept; Yes also arguable",
+   "doubt": "O resumo destaca autoverificação fraca e paragem prematura, mas a Tabela 4 dá-lhes só 4% e 7,6% das falhas; os autores apoiam-se no sinal de validação (99,6%). Decide se é exagero (Partly) ou aceitável (Yes)."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 7 Limitations and D.4 caveats",
+   "p": "10, 23-24",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of the commercial agent vendors (Anthropic, OpenAI, Google, Moonshot), but co-authors Bercovich, Dillmann and J. Hu co-authored Terminal-Bench, which introduced the evaluated Terminus 2 scaffold",
+   "p": "1, 5, 13",
+   "verdict": "uncertain",
+   "why": "Bercovich, Dillmann and J. Hu appear in the author list of Terminal-Bench [44] (p. 13), which introduced the evaluated Terminus 2 scaffold (shipped in the Harbor repository, Table 3); the commercial CLIs are independent. Whether co-authorship of a very large Terminal-Bench author list makes them its vendor under §5 is a judgement (Partly vs Yes)",
+   "doubt": "Três coautores (Bercovich, Dillmann, J. Hu) constam da longa lista de autores do Terminal-Bench, que criou o Terminus 2 avaliado. Decide se isso os torna fornecedor (Partly) ou não (Yes)."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed; the study proposes a benchmark)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

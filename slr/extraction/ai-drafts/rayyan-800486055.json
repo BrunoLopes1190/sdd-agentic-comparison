@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486055",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Missed inconsistency added: p. 8 says DDT's Dev and Test agents match SDAgent-Single, but the separate Developer and Tester agents belong to SDAgent-DT (p. 5)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -291,6 +291,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The contributions list the SDAgent implementation as '3. Approach: a standardized, open-source implementation ... providing a fair baseline for future comparative research' (p. 2); it can be read as a proposed approach (Q13 applies) or as an experimental set-up for the comparison (N/A)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Contribution 3 is labelled 'Approach: a standardized, open-source implementation of end-to-end development agent system, providing a fair baseline for future comparative research' (p. 2), but the SDAgent workflows are used as controlled experimental set-ups to compare workflow designs; whether this is a proposed approach (Q13 applies) or an experimental set-up (N/A) is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Contribution 3 is labelled 'Approach: a standardized, open-source implementation of end-to-end development agent system, providing a fair baseline for future comparative research' (p. 2), but the SDAgent workflows are used as controlled experimental set-ups to compare workflow designs; whether this is a proposed approach (Q13 applies) or an experimental set-up (N/A) is a judgement"
     }
    ],
    "warn": "O artigo chama 'Approach' às configurações SDAgent (contribuição 3, p. 2), mas usa-as só como base de comparação. Decide se conta como abordagem proposta (aplicar Q13) ou se fica N/A."

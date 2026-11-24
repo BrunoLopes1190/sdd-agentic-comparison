@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486827",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -161,7 +161,7 @@
      "why": "The open-source general model rows of Table 3 can be rebuilt (values read row by row, 6 per model; each row's own Avg and the column Avg row check out, and the text's Level 1 E2E claims match). Per-model values were missing."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -172,10 +172,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "GPT-5 best overall (avg 29.6; Level 3 44.6), Gemini 2.5-flash 15.5, GPT-3.5-turbo 2.7; open-source models low; coding models 0.0-7.5 at Level 3. E2E beats Cascade at Level 1 for Gemini-2.5-flash (16.7 vs 7.3) and GPT-5 (23.1 vs 12.6), and by at least 2.5 points for GPT-oss-20B, Llama-3.3-70B and Phi-4-14B; at Level 2 the E2E advantage persists only for Llama-3.3-70B and Qwen-3-30B favours Cascade (GPT-5 Cascade 34.6 vs E2E 33.2). Language: JavaScript highest overall average (9.0 vs Python 7.6, Java 5.7); Python leads among closed-source models. ALE improves all five models (+3.2 to +38.7 points). No significance tests",
+   "v": "GPT-5 best overall (avg 29.6; Level 3 44.6), Gemini 2.5-flash 15.5, GPT-3.5-turbo 2.7; open-source models low; coding models 0.0-7.5 at Level 3. E2E beats Cascade at Level 1 for Gemini-2.5-flash (16.7 vs 7.3) and GPT-5 (23.1 vs 12.6), and by at least 2.5 points for GPT-oss-20B, Llama-3.3-70B and Phi-4-14B; at Level 2 the E2E advantage persists only for Llama-3.3-70B and Qwen-3-30B favours Cascade (GPT-5 Cascade 34.6 vs E2E 33.2). Language: JavaScript highest overall average (9.0 vs Python 7.6, Java 5.7); authors say Python remains dominant among closed-source models, but Table 5 averages give Python highest only for GPT-5 (32.7 vs JS 32.5) and GPT-3.5-turbo (3.2 vs 2.7), while Gemini-2.5-flash is highest in JavaScript (17.0 vs Python 15.5). ALE improves all five models (+3.2 to +38.7 points). No significance tests",
    "p": "11-15",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Draft stated 'Python leads among closed-source models' as a result; Table 5 (p. 14) shows Gemini-2.5-flash averages JS 17.0 > Python 15.5, so this is only the authors' claim and holds for two of three closed-source models."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -193,16 +199,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: in Table 3 the Avg. row gives 4.8 in the Avg. column, below every per-setting average (4.4-8.1) (p. 12); text says the Level 2 E2E advantage 'persisted only for Llama-3.3-70B', but rebuilt Table 3 also gives Phi4-14B E2E L2 6.2 vs Cascade L2 3.1 (p. 11-12); ALE gains in text/Table 6 (+16.7, +3.2) differ by 0.1 from the before/after values (16.8, 3.3), rounding (p. 14-15); Table 6 caption repeats 'Bold emphasizes the difference between ProjectEvalPlus and its peers' (p. 15); 'theoretically proves' support for all languages without a formal proof (p. 9). Table 1, Table 4 and Table 5 open-source rows are jumbled in the extracted text and not used; the Table 3 open-source rows were rebuilt by reading the numbers row by row (6 per model), checked against each row's Avg and the column Avg row. 'LLM agents' are models; no agent framework named. Repository: https://github.com/RyanLoil/ProjectEvalPlus/ (open source). Pre-registration: not claimed. Programming languages: Python, Java, JavaScript (testcodes in Python)",
+   "v": "Inconsistencies: in Table 3 the Avg. row gives 4.8 in the Avg. column, below every per-setting average (4.4-8.1); the mean of the 11 per-model averages is about 7.6 (p. 12); text says the Level 2 E2E advantage 'persisted only for Llama-3.3-70B', but rebuilt Table 3 also gives Phi4-14B E2E L2 6.2 vs Cascade L2 3.1 (p. 11-12); text says Python 'remains dominant among closed-source agents', but Table 5 gives Gemini-2.5-flash JS 17.0 > Python 15.5 (p. 14); ALE gains in text and Table 6 do not all match the before/after values: GPT-5-mini Python→JavaScript 63.2→93.3 is +30.1 but reported +31.1; Gemini Python→Java +16.7 (values give 16.8), Gemma3-27B +3.2 (3.3) and +6.0 (6.1), rounding (p. 14-15); Table 6 caption repeats 'Bold emphasizes the difference between ProjectEvalPlus and its peers' (p. 15); 'theoretically proves' support for all languages without a formal proof (p. 9). Table 1, Table 4 and Table 5 open-source rows are jumbled in the extracted text and not used; the Table 3 open-source rows were rebuilt by reading the numbers row by row (6 per model), checked against each row's Avg and the column Avg row; the Table 5 closed-source rows (18 values each) read cleanly. 'LLM agents' are models; no agent framework named. Repository: https://github.com/RyanLoil/ProjectEvalPlus/ (open source). Pre-registration: not claimed. Programming languages: Python, Java, JavaScript (testcodes in Python)",
    "p": "2, 9, 11-15",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Open-source rows of Table 3 are recoverable (row-wise reading checked against row and column averages), and the rebuilt rows show an inconsistency with the text not recorded: Phi4-14B also has an E2E advantage at Level 2."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Missed two inconsistencies: GPT-5-mini Python→JavaScript gain reported +31.1 but values give +30.1 (Table 6, p. 15), and the closed-source Python-dominance claim contradicted by Gemini in Table 5 (p. 14)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -290,9 +301,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "ALE is the authors' own method and RQ3 evaluates it (with vs without ALE); under §5 that makes them its vendor for that part, which would give Partly. If ALE is seen only as benchmark construction tooling, Yes holds."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "ALE is the authors' own method and RQ3 evaluates it (with vs without ALE); under §5 that makes them its vendor for that part, which would give Partly. If ALE is seen only as benchmark construction tooling, Yes holds."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "ALE is the authors' own method and RQ3 evaluates it (with vs without ALE); under §5 that makes them its vendor for that part, which gives Partly. If ALE is seen only as benchmark construction tooling, Yes holds."
     }
    ],
-   "warn": "O ALE é método dos próprios autores e é avaliado na RQ3 (com vs sem ALE). Decide se conta como abordagem avaliada (Partly) ou só ferramenta de construção do benchmark (Yes). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O ALE é método dos próprios autores e é avaliado na RQ3 (com vs sem ALE). Decide se conta como abordagem avaliada (Partly) ou só ferramenta de construção do benchmark (Yes)."
   },
   {
    "f": "Q13",
@@ -301,6 +322,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "N/A holds if the study only proposes an evaluation method; if ALE is treated as a proposed approach (it is evaluated in RQ3), Q13 would apply."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "N/A holds if the study only proposes an evaluation method; if ALE is treated as a proposed approach (it is evaluated in RQ3), Q13 would apply."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "N/A holds if the study only proposes an evaluation method; if ALE is treated as a proposed approach (it is evaluated in RQ3), Q13 would apply."
     }

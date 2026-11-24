@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498191",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "NanoHarness is listed as contribution (2) but is built mainly as an ablation vehicle for the empirical study; 'Compares' with secondary 'Proposes an approach' is defensible, 'Evaluates' with no secondary is also possible and would remove Q13"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "NanoHarness is a stated contribution (2) but is built as a controlled ablation vehicle for the empirical study; 'Compares; secondary: Proposes an approach' is defensible, 'Compares' alone is also possible and would make Q13 N/A"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "NanoHarness is listed as contribution (2) but is described as a 'controlled harness variant' for component-level analysis (p. 2, 4); keeping 'secondary: Proposes an approach' is defensible, 'Compares' alone also, and that choice decides whether Q13 applies"
     }
    ],
-   "warn": "O NanoHarness é contribuição declarada mas serve sobretudo para a ablação; decide se a natureza secundária 'Proposes an approach' se mantém (afeta a aplicação de Q13)."
+   "warn": "O NanoHarness é contribuição declarada, mas o artigo apresenta-o como variante controlada para a ablação; decide se a natureza secundária 'Proposes an approach' se mantém (afeta Q13)."
   },
   {
    "f": "Approach(es): name and version",
@@ -158,16 +168,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "No success criterion stated by the authors for any configuration; values only. Study 1 (temperature 0.0, non-thinking mode; per-model values mostly only in Figures 5-10; endpoint values given): (a) mini-SWE-agent + Qwen3.7-Max: SWE-bench Pro 37.3%; (b) OpenCode + Qwen3.7-Max: SWE-bench Pro 40.0% (gap 2.67 pp; gap for Qwen3-Max about 6 pp); (c) mini-SWE-agent + DeepSeek-V4-Pro: SWE-bench Pro 33.7%; (d) OpenCode + DeepSeek-V4-Pro: 34.3%. ProgramBench N=70 endpoint labels 52.3/47.8 (Qwen3.7-Max) and 48.2/41.7 (DeepSeek-V4-Pro); GitTaskBench 74.1/72.2 (Qwen3.7-Max) and 72.2/70.4 (DeepSeek-V4-Pro); the figure labels do not say which harness each value belongs to, but the RQ1.2 text (complex harnesses benefit the strongest models on ProgramBench and GitTaskBench) implies the higher value is OpenCode (ProgramBench 52.3 and 48.2; GitTaskBench 74.1 and 72.2) and the lower mini-SWE-agent. Other 8 models x 2 harnesses x 3 benchmarks: figures only. Study 2, ProgramBench N=200 (ablation): (e) mini-SWE-agent + Qwen3.7-Max: 42.88, 104.13 steps, 3,978,148 prompt tokens/sample; (f) +tools: +4.57 pp; (g) +planning and (h) +skills: +1.36/+0.81 pp (order from figure); (i) +context compression: -4.86 pp, prompt tokens -54.29%; (j) +task-specific subagents: +5.91 pp; (k) +general subagents: -0.70 pp; (l) NanoHarness (all): 50.25 (+7.37 pp), prompt tokens +16.37%, tool calls +131.18%. (m) mini-SWE-agent + DeepSeek-V4-Pro: 45.14, 10,065,204 prompt tokens; (n) +tools +3.54; (o) +planning +0.77; (p) +skills +3.07 (figure order); (q) +context -3.85, prompt tokens -77.02%; (r) +specific subagents +4.46; (s) +general subagents -2.31; (t) NanoHarness: 51.35 (+6.21), prompt tokens +7.26%. Product harnesses on ProgramBench: (u) OpenCode + Qwen3.7-Max 51.68, (v) Claude Code + Qwen3.7-Max 52.33, (w) OpenCode + DeepSeek-V4-Pro 52.48, (x) Claude Code + DeepSeek-V4-Pro 52.76. Quality and cost verdicts: no criterion stated by the authors",
+   "v": "No success criterion stated by the authors for any configuration; values only. Study 1 (temperature 0.0, non-thinking mode; per-model values mostly only in Figures 5-10; endpoint values given): (a) mini-SWE-agent + Qwen3.7-Max: SWE-bench Pro 37.3%; Table 4 per sample: 43.58 steps, 42.36 tool calls, 770,319 prompt tokens, 18,732 response tokens; (b) OpenCode + Qwen3.7-Max: SWE-bench Pro 40.0% (gap 2.67 pp; gap for Qwen3-Max about 6 pp); 37.38 steps, 72.23 tool calls, 1,523,661 prompt, 14,921 response tokens; (c) mini-SWE-agent + DeepSeek-V4-Pro: SWE-bench Pro 33.7%; Table 5: 61.77 steps, 60.12 tool calls, 1,860,832 prompt, 29,326 response tokens; (d) OpenCode + DeepSeek-V4-Pro: 34.3%; 31.96 steps, 70.42 tool calls, 1,178,990 prompt, 16,397 response tokens. Tables 4-5 also give steps/tool calls/tokens for the other 8 models x 2 harnesses. ProgramBench N=70 endpoint labels 52.3/47.8 (Qwen3.7-Max) and 48.2/41.7 (DeepSeek-V4-Pro); GitTaskBench 74.1/72.2 (Qwen3.7-Max) and 72.2/70.4 (DeepSeek-V4-Pro); the figure labels do not say which harness each value belongs to, but the RQ1.2 text (complex harnesses benefit the strongest models on ProgramBench and GitTaskBench) implies the higher value is OpenCode (ProgramBench 52.3 and 48.2; GitTaskBench 74.1 and 72.2) and the lower mini-SWE-agent. Other 8 models x 2 harnesses x 3 benchmarks: scores in figures only. Study 2, ProgramBench N=200 (ablation): (e) mini-SWE-agent + Qwen3.7-Max: 42.88, 104.13 steps, 3,978,148 prompt tokens/sample; (f) +tools: +4.57 pp; (g) +planning and (h) +skills: +1.36/+0.81 pp (order from figure); (i) +context compression: -4.86 pp, prompt tokens -54.29%; (j) +task-specific subagents: +5.91 pp; (k) +general subagents: -0.70 pp; (l) NanoHarness (all): 50.25 (+7.37 pp), prompt tokens +16.37%, tool calls +131.18%. (m) mini-SWE-agent + DeepSeek-V4-Pro: 45.14, 142.19 steps, 10,065,204 prompt tokens; (n) +tools +3.54; (o) +planning +0.77; (p) +skills +3.07 (figure order); (q) +context -3.85, prompt tokens -77.02%; (r) +specific subagents +4.46; (s) +general subagents -2.31; (t) NanoHarness: 51.35 (+6.21), prompt tokens +7.26%, tool calls +83.58%. Full per-variant steps/tool calls/tokens in Table 7. Product harnesses on ProgramBench: (u) OpenCode + Qwen3.7-Max 51.68, (v) Claude Code + Qwen3.7-Max 52.33, (w) OpenCode + DeepSeek-V4-Pro 52.48, (x) Claude Code + DeepSeek-V4-Pro 52.76 (no cost values given for u-x). Quality and cost verdicts: no criterion stated by the authors",
    "p": "6-11",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "Values check against text, Tables 6-7 and figure labels; harness assignment of the RQ1.2 figure labels is not printed, only implied by the text (p. 8-9), so added as an inference to be confirmed in Figures 7-10"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Added the cost values of Tables 4-5 for configurations (a)-(d) (cost metric was missing for Study 1 entries) and the DeepSeek baseline step count; harness assignment of the RQ1.2 figure labels is still only implied by the text (p. 8), not printed"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values checked against Tables 4, 5, 7, Figures 5-12 labels and text; the harness of each RQ1.2 figure label (ProgramBench 52.3/47.8, 48.2/41.7; GitTaskBench 74.1/72.2, 72.2/70.4) is only implied by the RQ1.2 text (p. 8-9), not printed in the extracted text"
     }
    ],
-   "warn": "Os rótulos das Figuras 7-10 não dizem a que harness pertencem; o texto da RQ1.2 sugere que o valor mais alto é o OpenCode. Confirma nas figuras do PDF. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os rótulos das Figuras 7-10 não dizem a que harness pertencem; o texto da RQ1.2 sugere que o valor mais alto é o OpenCode. Confirma nas figuras do PDF. O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Comparison: design",
@@ -187,7 +207,7 @@
      "why": "Gap to product harnesses was given only for Qwen (1.43-2.08); the DeepSeek gaps 1.13 and 1.41 pp (p. 10) were missing"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -275,6 +295,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Negative results are reported, but trends and the 'diminishing gains' claim rest on single runs and small gaps; Partly vs Yes is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Negative results are reported (compression, general subagents), but the trends rest on single runs and small gaps without tests; Partly vs Yes is a judgement"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Negative results are reported (context compression, general subagents) and the claims match the numbers, but trends rest on single runs at temperature 0 and gaps as small as 0.6 pp, without tests; Partly vs Yes is a judgement"
     }
    ],
    "warn": "Os autores relatam resultados negativos, mas tiram tendências de execuções únicas com diferenças pequenas (0,6 pp); decide entre Partly e Yes."
@@ -309,9 +339,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "NanoHarness is lightweight and built on an open harness, but no code is released and per-task cost is not given; Partly is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Depends on keeping the secondary nature 'Proposes an approach'; NanoHarness is lightweight on an open harness, but code is not released and per-task cost is not given"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Applies only if the secondary nature 'Proposes an approach' is kept; NanoHarness is a lightweight layer on open mini-SWE-agent, but no code release and no per-task cost (only over USD 7,000 for the whole study, p. 12)"
     }
    ],
-   "warn": "O NanoHarness é leve, mas o código não é publicado e o custo por tarefa não é dado (só >7000 USD no total); decide se Partly é adequado."
+   "warn": "O NanoHarness é leve, mas o código não é publicado e o custo por tarefa não é dado (só >7000 USD no total); decide se Partly é adequado ou N/A se a natureza mudar."
   },
   {
    "f": "DARE1",

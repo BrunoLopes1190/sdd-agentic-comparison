@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486453",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Xia, H., Wu, E., & Park, Y. (2026). Passes Alone, Fails Together: Benchmarking Semantic Coordination in Parallel LLM-Agent Development. In Proceedings of the 2nd Workshop on Explainable and Reliable Software Systems (EXPRESS '26), October 4-9, 2026, Oakland, CA, USA. ACM, 6 pages. https://doi.org/10.1145/3842650.3843171 (also arXiv:2609.25396v1)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop — EXPRESS '26 (2nd Workshop on Explainable and Reliable Software Systems), ACM; received 2026-06-28, accepted 2026-07-31; 6 pages",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: University of Illinois Urbana-Champaign; Columbia University",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — stale, a benchmark for semantic coordination of parallel coding agents (patches that pass alone but fail when merged), with the interference metric Δblind, a deterministic PR-pair mining pipeline and three tiers (synthetic, mined PR pairs, constructed real-derived Django tasks); preliminary study with blind, informed and oracle-message (comm) conditions",
+   "p": "1-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Conditions: solo, blind (parallel agents without seeing each other's change, diffs merged), informed (sequential oracle, sees completed edits), comm (oracle message ~130 tokens describing the completed change). Agents: mini-swe-agent and OpenHands with 'a GPT-5-class coding model' (mined tier); GPT-5.5 (synthetic replication, real-derived tier). Versions: Not stated",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Task inputs: task description from the issue/PR (solution text removed), hidden gold test patch; in comm a templated message describing the other worker's completed change (new helper names, required arguments or return types)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A. Evaluation flow: agents solve tasks on a shared base commit (solo/blind), patches merged with git, agent test edits discarded, gold tests applied, combined test set run in every condition",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (agents run autonomously; human PRs used only as reference solutions and tests)",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs on paired tasks; communication condition exercises a single message artefact",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'semantic coordination', 'oracle message', 'informed' agent)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (Django; mining also on SymPy, xarray, seaborn): pairs of tasks from merged PRs, synthetic wrapper tasks over added helpers, and constructed consumer functions over real Django helpers",
+   "p": "2-4, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "Mined: 685 Django PRs -> 4,262 candidate pairs -> 417 validated pairs (834 runs); 30 pairs in other repos (SymPy 11, xarray 12, seaborn 7); 23 disjoint controls. Synthetic: 3 mechanisms x 4 degrees, 8 trials each (96 cells), n=4 helpers. Real-derived: 12 Django helpers x 3 mechanisms = 36 instances, 3 trials each (108 blind + 108 comm runs). More than 4,000 graded task solves in total",
+   "p": "2-3, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries (Django web framework; SymPy, xarray, seaborn for mining only)",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous parallel agents; scenario of isolated workers whose outputs are merged)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None for agents (oracle message length ~130 tokens reported; validation run on a 5-node cluster, 320 cores)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Hidden gold tests (fail-to-pass, SWE-bench-style); a pair is observable only when each patch passes its own task's tests",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Interference count Δblind (tests passing with each patch alone but failing when combined) and indicator Iblind = 1[Δblind > 0]; recovery rate under the oracle message; textual merge conflicts",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: same combined gold test set run on each patch alone and on the merge, after discarding agent test edits; deterministic pair validation (clean merge, base validity)",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: Δblind on the combined gold test set; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. (a) Synthetic tier, blind, agent/model not stated in that paragraph (GPT-5.5 replicated it): renames and required-argument changes Δblind = number of changed helpers, zero variance; mean interference 2.50. (b) Synthetic, informed: no failures for renames/arguments; 0.13 failures per run on return-type changes. (c) Synthetic, comm (oracle message ~130 tokens): mean interference 0.04 (98% reduction). (d) Mined Django tier, mini-swe-agent and OpenHands + 'GPT-5-class coding model', solo/blind: 1 of 834 runs with Δblind > 0 (one failing test) after corrected grading. (e) Mined, GPT-5.5 on most strongly coupled pairs: no interference in 72 runs. (f) Real-derived Django tier, GPT-5.5, blind: interference in 105/108 runs (97%), on all 12 helpers. (g) Real-derived, GPT-5.5, comm: 89/108 recovered (82%; 93% among cleanly merging patches; all 36 return-type runs recovered). Cost: not measured",
+   "p": "3-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: synthetic, mined PR pairs and constructed real-derived instances from a shared base commit. Conditions: solo vs blind (same patches reused in the merge, so run differences cannot explain Δblind), informed oracle (synthetic only), comm oracle message (synthetic and real-derived). Constant: model, harness, shared base, combined test set. Baseline: solo patches; informed as ideal-visibility baseline. Acceptance: hidden gold tests. Repetitions: 8 trials per synthetic setting, 3 trials per real-derived instance; mined tier 834 runs on 417 pairs, but the text does not say whether the two runs per pair are the two tasks of the pair, the two harnesses (mini-swe-agent, OpenHands) or repetitions. Human intervention: none",
+   "p": "2-4, 6",
+   "verdict": "uncertain",
+   "why": "The text (abstract, §4) only says '834 runs on 417 validated Django pairs' and that the model ran with mini-swe-agent and OpenHands; 834 = 2 x 417 can mean one solve per task of each pair, one run per harness, or two repetitions. The rest of the field is supported by §2-§4 and Table 1.",
+   "doubt": "O artigo só diz '834 runs em 417 pares' e usa dois harnesses (mini-swe-agent e OpenHands). Confirma na secção 4 se as 2 runs por par são as duas tarefas, os dois harnesses ou repetições."
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Blind parallel work produced interference on controlled tasks (synthetic: Δblind equals changed interfaces; real-derived: 97%); oracle message reduced synthetic interference by 98% (2.50 -> 0.04) and recovered 82% of real-derived runs; mined reviewed PR pairs showed almost no interference (1/834). Naive grading (different test sets, agent test edits) falsely inflated interference. No significance tests",
+   "p": "3-4, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: corrected grading separated patch-interaction failures from individual failures and distinguished blind vs oracle conditions on controlled tasks, but mined PR history gave almost no interference to measure. Limitations stated by the authors: constructed rates do not estimate real prevalence or severity; experiments limited to Django; scripted breaking patch; oracle messages assume complete descriptions; test coverage limits; pairs only",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: constructed failure rates do not measure real-world frequency or severity; agent experiments only on Django; constructed tasks use one scripted patch and constrain the agent; communication results assume complete descriptions of finalized changes; tests can miss failures and count one defect several times. Gaps: execution records of parallel agents before review needed; online communication (plans, unfinished patches, summaries) untested; extension to more than two tasks",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 and Section 4 speak of 'two model families', but only 'a GPT-5-class coding model' and GPT-5.5 are named; model in the synthetic tier not named explicitly. Contribution (2) gives 447 pairs = 417 Django + 30 other repos (Table 1). Synthetic tier: staleness degree k in {0..4} but Table 1 says 3x4 (4 degrees). Code available (github.com/illinoisdata/STALE-bench). No pre-registration. Programming language: Python",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim to measure semantic coordination failures of parallel agents stated, with three contributions",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): conditions, metric and mining pipeline described, but models, harness versions and settings only partly given (short workshop paper)",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-5.5, mini-swe-agent and OpenHands named, but mined-tier model given only as 'GPT-5-class' and no versions",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tiers, instances and helpers described (Table 2 lists helpers and anchor PRs); code repository released",
+   "p": "2-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden gold tests from human PRs, validated to fail on the shared base",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): interference metric defined, but no cost metrics",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): solo, blind, informed and comm conditions on the same tasks and patches",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): repeated trials in the synthetic (8 per setting) and real-derived (3 per instance) tiers, zero variance noted for renames/arguments, but no statistical tests or intervals; mined tier repetitions not stated",
+   "p": "3-4, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions bounded; negative mined-tier result reported and constructed rates explicitly not generalised",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): 'Threats to Validity' paragraph and scope statements",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM workshop paper (EXPRESS '26), accepted after review",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): evaluated models and harnesses (GPT-5.5, mini-swe-agent, OpenHands) are not by the authors",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

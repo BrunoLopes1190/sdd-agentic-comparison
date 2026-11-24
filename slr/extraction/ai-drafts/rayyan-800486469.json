@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486469",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -152,16 +152,26 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Success criterion per task: hidden-verifier pass thresholds chosen by the authors; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Revival (tasks restored in at least one run): (1) Claude Code + Fable 5.1: 10/10. (2) Claude Code + Sonnet 5: 8/10 (fails PyMOL after 120-turn budget). (3) Claude Code + Haiku 4.5: 4/10. Reconstruction (engines passed; valid runs; mean turns; cost USD): (4) Fable 5.1: 13/13; 13; 20.8; $95. (5) Opus 5: 13/13; 9; 74.1; $76. (6) Sonnet 5: 10/13; 13; 60.1; $35. (7) Haiku 4.5: 2/13; 15; 80.3; $15. (8) GPT-5.6 sol: 9/13; 13; 30.2; cost withheld. (9) GPT-5.6 luna: 6/13; 13; 35.3; withheld. (10) GPT-5.6 terra: 5/13; 13; 31.0; withheld. (11) GLM-5.3 flash: 7/13; 13; 83.1; withheld. (12) No-agent baseline: fails every task. (13) Ablation, Opus 5 reasoning effort low to max on ERP and 2D CAD: scores unchanged (5/5, 31/31); ERP cost $1.00 to $4.79, CAD $6.95 to $15.93. (14) Fable 5.1 plcforge toolchain: passes all nine acceptance checks incl. 298/300 fuzzed programs, $39.08 over three phases. (15) Fable 5.1 driving the reconstructed 2D CAD kernel: three parts pass all checks in 4-9 turns, under $1.02 each",
+   "v": "Success criterion per task: hidden-verifier pass thresholds chosen by the authors; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Revival (tasks restored in at least one run): (1) Claude Code + Fable 5.1: 10/10. (2) Claude Code + Sonnet 5: 8/10 (fails PyMOL after 120-turn budget). (3) Claude Code + Haiku 4.5: 4/10. Reconstruction (engines passed; valid runs; mean turns; cost USD): (4) Fable 5.1: 13/13; 13; 20.8; $95. (5) Opus 5: 13/13; 9; 74.1; $76. (6) Sonnet 5: 10/13; 13; 60.1; $35. (7) Haiku 4.5: 2/13; 15; 80.3; $15. (8) GPT-5.6 sol: 9/13; 13; 30.2; cost withheld. (9) GPT-5.6 luna: 6/13; 13; 35.3; withheld. (10) GPT-5.6 terra: 5/13; 13; 31.0; withheld. (11) GLM-5.3 flash: 7/13; 13; 83.1; withheld. (12) No-agent baseline: fails every task. (13) Ablation, Opus 5 reasoning effort low to max on ERP and 2D CAD: scores unchanged (5/5, 31/31); ERP cost $1.00 to $4.79, CAD $6.95 to $15.93. (14) Fable 5.1 plcforge toolchain: passes all nine acceptance checks incl. 298/300 fuzzed programs, $6.02 + $20.56 + $12.50 over three phases (total $39.08 summed by the extractor, not stated in the text). (15) Fable 5.1 driving the reconstructed 2D CAD kernel: three parts pass all checks in 4-9 turns, under $1.02 each",
    "p": "4-6, 13-14",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "Values check against Tables 1-4 and Section 7. The authors state task-level pass thresholds per engine, but no criterion for judging a model/configuration as a whole (e.g. how many tasks must pass); whether the per-task thresholds count as a success criterion that would allow verdicts is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values re-checked against Tables 1-4 and Section 7; the plcforge total ($39.08) is not in the text, so the per-phase costs are now given and the sum marked as computed. Still open: the authors give task-level pass thresholds but no criterion for judging a model as a whole, so whether verdicts can be given is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "All values re-checked against Tables 1, 3 and 4 and Section 7; they match. The authors define task-level pass thresholds (Table 2) but no criterion for judging a model or configuration as a whole, so whether a quality verdict may be derived from them is a judgement."
     }
    ],
-   "warn": "Os autores definem limiares de aprovação por tarefa, mas não um critério para o modelo no todo. Decide se esses limiares contam como critério de sucesso (permitindo veredictos) ou manténs 'no criterion stated'."
+   "warn": "Os valores batem com as Tabelas 1, 3 e 4. Há limiares de aprovação por tarefa, mas não um critério para a configuração no todo; decide se isso permite veredictos ou manténs 'no criterion stated'."
   },
   {
    "f": "Comparison: design",
@@ -202,7 +212,7 @@
      "why": "Removed the claimed inconsistency about the Table 1 caption: the caption names only Fable 5.1, Sonnet 5 and Haiku 4.5 as 'the same' models used in reconstruction, which is true, so there is no inconsistency. Added the table sources of the values."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

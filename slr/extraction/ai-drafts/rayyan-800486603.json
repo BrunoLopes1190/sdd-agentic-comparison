@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486603",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The draft flagged a possible inconsistency between the text (17 of 34 remain) and Fig. 12 (17 in both halves, 34 in one half only). The figures agree: 17 stay, 17 drop out of the odd-week top decile and 17 enter it in even weeks, so 34 are in one half only (Fig. 12 also says top-decile overlap = 50%)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -264,9 +264,20 @@
   {
    "f": "Q10",
    "v": "Partly (0.5): limitations discussed in methods and discussion (associations, setting, commits as proxy), no dedicated threats section",
-   "p": "3-4, 9",
-   "rev": [],
-   "warn": ""
+   "p": "3-4, 9-10",
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is no threats-to-validity section, but limitations are discussed in several places: associations not causal effects (p. 3), commits miss quality, review and design (p. 4), transfer limits of the setting (JetBrains builds AI tools, established codebases, voluntary use; p. 9), five weeks too short (p. 6), self-reports can overstate (p. 10). Partly (no dedicated section) vs Yes (limitations covered) is a judgement; p range widened to include p. 10."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No threats-to-validity section, but limitations are discussed in several places: associations not causal (p. 3), commits miss quality, review and design (p. 4), transfer limits of the setting (p. 9), five weeks too short (p. 6), self-reports may overstate (p. 10). Partly vs Yes is a judgement."
+    }
+   ],
+   "warn": "Não há secção de ameaças à validade, mas as limitações aparecem espalhadas (p. 3, 4, 9, 10). Decide se isso chega para Yes ou se fica Partly."
   },
   {
    "f": "Q11",
@@ -284,9 +295,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Four of seven authors work at JetBrains, which builds AI coding tools; the paper says some metered use may be testing of its own agents (p. 9), but the two agents are anonymised, so it is unclear whether a JetBrains tool is among those studied. The study evaluates a metric (token spend), not a tool, so Yes or Partly are both defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Four of seven authors work at JetBrains, which builds AI coding tools; p. 9 says some metered use may be testing of its own agents, but Agent A and Agent B are anonymised, so it is not clear whether a JetBrains tool is among those studied. The object evaluated is a metric (token spend), not a tool, so Yes or Partly are both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Four of seven authors work at JetBrains, which builds AI coding tools; p. 9 says some metered use may be testing of its own agents, but Agent A and Agent B are anonymised, so it is unclear whether a JetBrains tool is among those studied. The object evaluated is a metric (token spend), so Yes or Partly are both defensible."
     }
    ],
-   "warn": "Quatro autores são da JetBrains e os agentes estão anonimizados (Agent A/B); pode haver um agente da própria JetBrains. Decide se isto conta como vendor (Partly) ou se os autores são independentes (Yes)."
+   "warn": "Quatro autores são da JetBrains e os agentes estão anonimizados (Agent A/B); um deles pode ser da própria JetBrains. Decide se isto conta como vendor (Partly) ou se os autores são independentes (Yes)."
   },
   {
    "f": "Q13",

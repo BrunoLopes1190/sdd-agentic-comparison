@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486329",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -40,9 +40,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper frames itself as theory-building from a first-person case study (process model, catalog of 41 mechanisms, testable propositions); main nature could be Evaluates (case study of one configuration) or Proposes an approach (the governed environment / governance conversion), or Conceptual (theory). Kept the draft value; it drives Q12 and Q13."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "First-person case study used for theory building (process model, catalog of 41 mechanisms in ten families, testable propositions; §III-B, §III-C5, §VI). Main nature could be Evaluates (one governed configuration used for 12 weeks), Proposes an approach (governance conversion / governed engineering environment) or Conceptual (middle-range theory). Draft value kept; it drives Q12 and Q13."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "First-person case study whose stated result is theory building (§III-B, §III-C5: process model, catalog of 41 mechanisms, testable propositions). Evaluates (one governed setup used for 12 weeks), Proposes an approach (governance conversion / governed engineering environment) and Conceptual (middle-range theory) are all defensible; the choice drives Q12 and Q13."
     }
    ],
-   "warn": "O artigo é um estudo de caso na primeira pessoa que induz uma teoria e um catálogo de mecanismos; decide se a natureza principal é Evaluates, Proposes an approach ou Conceptual (afeta Q12 e Q13)."
+   "warn": "Estudo de caso na primeira pessoa que induz uma teoria e um catálogo de mecanismos; decide se a natureza principal é Evaluates, Proposes an approach ou Conceptual (afeta Q12 e Q13)."
   },
   {
    "f": "Approach(es): name and version",
@@ -193,9 +203,15 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: abstract gives 420 KLOC production code and 1.16 MLOC support; §III-C 'approximately 1.6 million lines of active artifacts'; Fig. 3 '400 KLOC product code + 1 MLOC controls, 3.1 M total lines'. Token figures are third-party estimates (Anthropic usage data opaque). Fig. 2 values not legible in the text. Data: description of the governed environment, controls and a Claude skill at https://davisjam.github.io/agent-governance-mechanisms/index.html; field notes and repository not released. No pre-registration. Programming languages: C#/.NET, Python, TypeScript. Funded by US NSF",
+   "v": "Size figures: abstract 420 KLOC production code and 1.16 MLOC support (tests, lints, documentation, agent tooling); §III-C1 'approximately 1.6 million lines of active artifacts' (consistent with 420 KLOC + 1.16 MLOC); Fig. 3 '400 KLOC product code + 1 MLOC controls, 3.1 M total lines + 10 K files' (rounded, and a total that differs from the 1.6 M active lines, not explained). Token figures are third-party estimates (Anthropic usage data opaque). Fig. 2 values not legible in the text. Data: description of the governed environment, controls and a Claude skill at https://davisjam.github.io/agent-governance-mechanisms/index.html; field notes and repository not released. No pre-registration. Programming languages: C#/.NET, Python, TypeScript. Funded by US NSF",
    "p": "1, 3-6, 10-11",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft listed 1.6 M lines of active artifacts (§III-C1) as inconsistent with 420 KLOC + 1.16 MLOC, but 0.42 + 1.16 = 1.58 M, so they agree; the only unexplained figure is Fig. 3's 3.1 M total lines."
+    }
+   ],
    "warn": ""
   },
   {
@@ -235,9 +251,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No independent measure of product effectiveness is reported: 'pass or substantially improve performance on accessibility checks' and 'no defects observed under the project's checks' give no figures; the second-author re-coding (10 incidents) validates the qualitative analysis, not the effectiveness of the approach. Partly is defensible; No (missing information) is also defensible."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No independent measure of product effectiveness with figures: 'pass or substantially improve performance on accessibility checks' (§IV-B4) and 'no defects observed under the project's checks' (§VII-B2). The second-author re-coding of 10 incidents checks the qualitative analysis, not the effectiveness of the approach. Partly and No (missing information) are both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Effectiveness rests on 'pass or substantially improve performance on accessibility checks' (§IV-B4) and 'no defects observed under the project's checks' (§VII-B2), with no figures. The second-author re-coding of 10 incidents validates the qualitative coding, not the approach. Partly or No (information missing) both defensible."
     }
    ],
-   "warn": "Só há verificações de acessibilidade sem números e uma recodificação de 10 incidentes por outro autor; decide se isto conta como critério independente (Partly) ou se é informação em falta (No)."
+   "warn": "Há só verificações de acessibilidade sem números e uma recodificação de 10 incidentes por outro autor; decide se conta como critério independente (Partly) ou se é informação em falta (No)."
   },
   {
    "f": "Q6",

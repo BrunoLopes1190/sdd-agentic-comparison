@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486562",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -229,9 +229,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Hidden test suites are acceptance tests not seen by the agent (points to Yes), but they are LLM-synthesized by the authors' own pipeline, their accuracy is checked only against LLM (gpt-6-astra) labels, and the quality gate is an LLM judge; Partly is a defensible judgement, Yes is too."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The hidden test suites are acceptance tests the agent never sees (towards Yes), but they are synthesized by the authors' own LLM pipeline, their accuracy is checked only against gpt-6-astra labels (Table 3), and the quality gate is an LLM judge; Partly and Yes are both defensible."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The hidden test suites are acceptance tests the agent never sees (towards Yes), but they are synthesized by the authors' own LLM pipeline, their accuracy is checked only against gpt-6-astra labels (Table 3, p. 12), and the quality gate is an LLM judge; Partly and Yes are both defensible."
     }
    ],
-   "warn": "Os testes ocultos são critério externo ao agente, mas foram gerados por LLM no pipeline dos autores e validados só contra rótulos de outro LLM (p. 6-7, 12). Decide entre Partly e Yes."
+   "warn": "Os testes escondidos são gerados por LLM pelo próprio pipeline dos autores e validados só contra rótulos do gpt-6-astra (Tabela 3, p. 12). Decide se isso conta como critério independente (Yes) ou só Partly."
   },
   {
    "f": "Q6",
@@ -279,8 +289,14 @@
    "f": "Q12",
    "v": "Yes (1): authors (ShanghaiTech, ByteDance, Shanghai AI Laboratory) are not vendors of the evaluated models or harnesses; SessionFarmer is their own evaluation method, not an evaluated coding approach",
    "p": "1, 8",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Authors are independent of the evaluated models and harnesses, but the study also evaluates its own SessionFarmer artefacts (test-suite accuracy, developer audit) and compares its refined suites with the official SWE-Bench-Pro and DeepSWE suites (Table 3, p. 12); if SessionFarmer counts as an evaluated approach, §5 and the 2026-11-23 rule would give Partly."
+    }
+   ],
+   "warn": "Os autores avaliam também o próprio SessionFarmer e comparam as suas suites com as do SWE-Bench-Pro e DeepSWE (Tabela 3, p. 12). Decide se isso conta como abordagem avaliada (Partly) ou se Q12 só olha para modelos e harnesses (Yes)."
   },
   {
    "f": "Q13",

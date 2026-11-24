@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486847",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -175,7 +175,7 @@
      "why": "D4 (Extension Structure) pass rate was missing; it is given only in the bottom row of Table 3 (41%), not in the text."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -193,10 +193,16 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: Table 2 S row gives 13 S outcomes for Case 001, 0 for Case 002 and 11 for Case 020 (32 in total) (p. 898), while the text gives 17/23, 16/23 and 15/23 and 64 in total (pp. 895, 898-899); a count of Fig. 6 gives 17 S for Case 001, matching the text. Table 3 Agent avg. 9.5 vs text 9.45 (rounding). Agent CLI tools not named ('Cx' not expanded). Artifact: https://github.com/ucrriple/NITR and Zenodo DOI 10.5281/zenodo.21154293. Pre-registration: not claimed. Programming language: C++ (CMake); oracles and harness in Python",
-   "p": "895-899, 902",
-   "rev": [],
-   "warn": ""
+   "v": "Inconsistencies: the Table 2 S row (13 for Case 001, 0 for 002, 4 for 006, 4 for 008, 0 for 015, 0 for 017, 11 for 020; 32 in total) (p. 898) does not match the Fig. 6 heatmap, which gives 17, 16, 6, 2, 1, 7 and 15 S outcomes for these cases and 64 in total (p. 900); the text follows Fig. 6 (17/23, 16/23, 15/23 for Cases 001, 002, 020; 6 S-type outcomes for Case 006; 64/483) (pp. 895, 899-900). A count of all 23 Fig. 6 rows gives 175 Pass, 152 F, 64 S, 50 B, 42 E, matching the reported percentages; the Table 2 Pass row matches Fig. 6. Table 3 Agent avg. 9.5 vs text 9.45 (rounding). Agent CLI tools not named ('Cx' not expanded). Artifact: https://github.com/ucrriple/NITR and Zenodo DOI 10.5281/zenodo.21154293. Pre-registration: not claimed. Programming language: C++ (CMake); oracles and harness in Python",
+   "p": "895-900, 902",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "The Table 2 S-row mismatch was incomplete: besides Cases 001, 002 and 020, Table 2 also disagrees with Fig. 6 on Cases 006 (4 vs 6, and text says 6), 008 (4 vs 2), 015 (0 vs 1) and 017 (0 vs 7); Fig. 6 totals match the text."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -279,8 +285,19 @@
    "f": "Q12",
    "v": "Yes (1): academic authors (one later at Qualcomm, not a vendor of the evaluated tools) independent of OpenAI, Anthropic, Google and Alibaba; the framework is theirs but no approach of theirs is evaluated",
    "p": "892",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Authors are academic and not vendors of the evaluated models, but the acknowledgements list 'Google Research Credit Awards' among the funding, and Gemini models (Google) are evaluated. Funding is not authorship, so Yes is defensible; a stricter reader could give Partly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Authors are academic and not vendors of the evaluated models, but the acknowledgements list 'Google Research Credit Awards' among the funding, and Gemini models (Google) are evaluated. Funding is not authorship, so Yes is defensible; a stricter reader could give Partly."
+    }
+   ],
+   "warn": "Os agradecimentos referem 'Google Research Credit Awards' e o estudo avalia modelos Gemini da Google. Decide se este financiamento (créditos) afeta a independência: Yes ou Partly."
   },
   {
    "f": "Q13",

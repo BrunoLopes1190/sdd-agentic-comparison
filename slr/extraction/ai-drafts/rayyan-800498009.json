@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498009",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,16 +187,21 @@
   },
   {
    "f": "Notes",
-   "v": "Reporting inconsistencies: abstract highlights Claude Opus 4.5 at 11.0% as state of the art, while Codex + GPT-5.1-Codex is best at 12.5% (p. 1 vs Table 2, p. 6); Table 5 'Original' GPT-5.1-Codex on Lite is 16.7 resolved / 53.9 passed (p. 8) while Table 2 Lite gives 20.0 / 60.22 (which matches the 'Verified' row); the text says L2 (from scratch) has 'lower resolved rates' (p. 10), but in Table 8 L2 resolved is equal or higher than L1 for 3 of 7 configurations (DeepSeek-V3.2 4.8 vs 5.9, OpenHands + Gemini 4.2 vs 5.9, Gemini-CLI 4.8 vs 5.9) and L2 % Passed is higher for 4 (e.g. Qwen3-Coder 22.4 vs 35.2); Appendix D says experiments use 'a unified OpenHands scaffold with multiple LLM backends (Claude, GPT, Gemini, Qwen)' (p. 18), but GPT was run only with Codex and four scaffolds were used; Section 4.1.1 heading calls OpenHands the 'baseline'. Claude Code '(routing)' not explained. Table 4 SWE-bench Verified column partly garbled in text extraction (mini-SWE-agent 60.00, 55.40, 74.20, 74.40; one OpenHands value 69.60). L1/L2 task counts not stated (166/34, rebuilt from Table 8 percentages and the Full resolved counts, e.g. Codex 23 + 2 = 25 = 12.5% of 200). Code: github.com/LiberCoders/FeatureBench; dataset released. No pre-registration. Programming language: Python",
+   "v": "Reporting inconsistencies: abstract highlights Claude Opus 4.5 at 11.0% as state of the art, while Codex + GPT-5.1-Codex is best at 12.5% (p. 1 vs Table 2, p. 6); Table 5 'Original' GPT-5.1-Codex on Lite is 16.7 resolved / 53.9 passed (p. 8) while Table 2 Lite gives 20.0 / 60.22 (which matches the 'Verified' row); likewise for Gemini-3-Pro the Table 5 'Verified' % Passed 43.4 matches Gemini-CLI Lite 43.38 in Table 2, while 'Original' 42.4 matches neither Gemini row (45.14, 43.38), so the Table 2 Lite results appear to use the manually verified prompts (scaffold of Table 5 not stated); the text says L2 (from scratch) has 'lower resolved rates' (p. 10), but in Table 8 L2 resolved is equal or higher than L1 for 3 of 7 configurations (DeepSeek-V3.2 4.8 vs 5.9, OpenHands + Gemini 4.2 vs 5.9, Gemini-CLI 4.8 vs 5.9) and L2 % Passed is higher for 4 (e.g. Qwen3-Coder 22.4 vs 35.2); Appendix D says experiments use 'a unified OpenHands scaffold with multiple LLM backends (Claude, GPT, Gemini, Qwen)' (p. 18), but GPT was run only with Codex and four scaffolds were used; Section 4.1.1 heading calls OpenHands the 'baseline'. Claude Code '(routing)' not explained. Table 4 SWE-bench Verified column partly garbled in text extraction (mini-SWE-agent 60.00, 55.40, 74.20, 74.40; one OpenHands value 69.60). L1/L2 task counts not stated (166/34, rebuilt from Table 8 percentages and the Full resolved counts, e.g. Codex 23 + 2 = 25 = 12.5% of 200). Code: github.com/LiberCoders/FeatureBench; dataset released. No pre-registration. Programming language: Python",
    "p": "1, 6-10, 18-19",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "L1/L2 counts were given as 'about 165/34' (sum 199); the Table 8 percentages fit 166/34 exactly (e.g. 19/166 = 11.4, 23/166 = 13.9). Also missing: the 'L2 has lower resolved rates' claim is contradicted by Table 8 for 3 of 7 configurations"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Missing: the Gemini-3-Pro rows of Table 5 show the same pattern as GPT-5.1-Codex (Verified 43.4 matches Table 2 Gemini-CLI Lite 43.38; Original 42.4 matches no Table 2 row), so Table 2 Lite seems to be on the verified prompts (p. 6, 8)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -265,7 +270,7 @@
      "why": "Score unchanged; added the L1/L2 claim that Table 8 contradicts for DeepSeek-V3.2 and both Gemini configurations (p. 9-10)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q10",

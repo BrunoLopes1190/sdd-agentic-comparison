@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486350",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,9 +82,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No SDD approach is named, but every task gives the agent a visible spec.md plus openapi.yaml described as the 'single source of truth' from which the whole service is generated and against which it is tested; a reader could classify this setting as spec-first rather than not classifiable. Kept the draft value."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No SDD approach is named or evaluated, but every task gives the agent a visible spec.md plus openapi.yaml described as 'the single source of truth for construction and evaluation' (§3.2), from which the whole service is generated and against which it is tested; a reader could classify the setting as spec-first rather than not classifiable."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No SDD approach is named or evaluated, yet each task hands the agent a spec.md plus openapi.yaml that is 'the single source of truth for construction and evaluation' (§3.2), the service is generated from it and tested only against it. A reader could call the setting spec-first instead of not classifiable."
     }
    ],
-   "warn": "O agente recebe spec.md e openapi.yaml como 'single source of truth' e gera o serviço a partir deles; decide se isto conta como spec-first ou se fica not classifiable por não haver abordagem SDD."
+   "warn": "O agente recebe spec.md e openapi.yaml como 'single source of truth' e gera o serviço a partir deles; decide se classificas como spec-first ou not classifiable por não haver abordagem SDD."
   },
   {
    "f": "Task type",

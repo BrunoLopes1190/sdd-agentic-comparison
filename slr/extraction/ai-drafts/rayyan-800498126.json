@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498126",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Missing inconsistency: the default GLM-5.1 think-8k result (37.4) equals the base-image row of Table XIV, while the ultimate image (described as the agent's environment) gives 28.4."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

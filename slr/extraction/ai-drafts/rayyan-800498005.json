@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498005",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,16 +187,21 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: '+8.7%, 38.2%, 15.9%' over 'the previous state-of-the-art' are percentage points against WebGen-Agent, but OpenHands has a higher DB Acc. (72.5 vs 62.0), so the DB margin over the best baseline is 5.4 points (Table 2 vs abstract, p. 1, 6); model called 'Qwen3-Coder-30B-Instruct' (abstract, conclusion) vs 'Qwen3-Coder-30B-A3B-Instruct'; Table 3 row 'Qwen3-Coder-30B-A3B-Inst.' is FullStack-Dev with the base model (same values as Table 2); extension (Table 8): the claimed increase holds for the main metrics (FE w/ Valid DB 64.7 to 68.1, BE w/ Valid DB 77.8 to 78.5, DB 77.9 to 81.0), but BE Acc. without the database check falls 83.4 to 80.5 and appearance 3.72 to 3.58. Values used: Tables 2-5, 8. Code released at https://github.com/mnluzimu/FullStack-Agent; baseline implementation code 'will' be released. WebGen-Agent and WebGen-Bench are the same authors' prior work. No pre-registration. Programming language: TypeScript/JavaScript (Next.js, NestJS); Python (Django) in the extension",
+   "v": "Inconsistencies: '+8.7%, 38.2%, 15.9%' over 'the previous state-of-the-art' are percentage points against WebGen-Agent, but OpenHands has a higher DB Acc. (72.5 vs 62.0), so the DB margin over the best baseline is 5.4 points (Table 2 vs abstract, p. 1, 6); model called 'Qwen3-Coder-30B-Instruct' (abstract, conclusion) vs 'Qwen3-Coder-30B-A3B-Instruct'; Table 3 row 'Qwen3-Coder-30B-A3B-Inst.' is FullStack-Dev with the base model (same values as Table 2); extension (Table 8): the claimed increase holds for the main metrics (FE w/ Valid DB 64.7 to 68.1, BE w/ Valid DB 77.8 to 78.5, DB 77.9 to 81.0), but BE Acc. without the database check falls 83.4 to 80.5 and appearance 3.72 to 3.58; Table 2 says the Appearance Score 'scales from 1-5' but reports 0.46 (Bolt.diy, 30B) and 0.75 (Qwen-Code, 30B), below the scale minimum (p. 6). Values used: Tables 2-5, 8. Code released at https://github.com/mnluzimu/FullStack-Agent; baseline implementation code 'will' be released. WebGen-Agent and WebGen-Bench are the same authors' prior work. No pre-registration. Programming language: TypeScript/JavaScript (Next.js, NestJS); Python (Django) in the extension",
    "p": "1, 6-8, 12, 14",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "The draft called the Table 8 extension claim contradicted by the BE Acc. drop, but the paper's main metrics are the 'w/ Valid DB' ones (p. 6), and all three of them rise (p. 12). Only the secondary BE Acc. and the appearance score fall, so this is a minor point, not a contradiction."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added a reporting inconsistency the draft missed: Table 2 states the Appearance Score scales from 1-5, yet two 30B baseline entries are 0.46 and 0.75 (p. 6)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -263,9 +268,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft's second reason (the template extension overstates gains) does not hold for the main metrics, which all rise in Table 8. What remains is the WebGen-Agent baseline choice for the DB margin and claims from single runs with no limitations section. A reader could give Yes."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The main conclusions follow from Tables 2-5 and 8. What remains debatable: the DB margin is stated against WebGen-Agent ('previous state-of-the-art', the authors' own earlier agent) rather than the best baseline on that metric (OpenHands 72.5), and gains from single greedy runs are claimed with no test, caveat or limitations section. A reader could give Yes."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main conclusions follow from Tables 2-5 and 8. Debatable: the DB margin is stated against WebGen-Agent ('previous state-of-the-art', the authors' own earlier agent) rather than the best baseline on that metric (OpenHands 72.5), and gains from single greedy runs are claimed with no test, caveat or limitations section. A reader could give Yes."
     }
    ],
-   "warn": "Sobra só a margem de DB medida contra o WebGen-Agent (o OpenHands tem DB mais alto) e resultados de uma só execução. Decide entre Partly e Yes. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "As conclusões seguem das tabelas, mas a margem de DB é medida contra o WebGen-Agent (dos mesmos autores) e não contra o OpenHands, e tudo vem de uma única execução. Decide entre Partly e Yes."
   },
   {
    "f": "Q10",

@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800486809",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zergetaev, E. (2026). Measuring the Wrong Number: Cost-Aware, Correctness-Gated Evaluation of Efficiency Claims in Multi-turn Agentic Coding. In: Proceedings of the 1st International Workshop on Agentic AI for Next-Generation Software Development (AgenticDev '26), Munich, Germany, pp. 143-148. ACM. https://doi.org/10.1145/3843282.3844423",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop — AgenticDev '26 (1st International Workshop on Agentic AI for Next-Generation Software Development), Munich, ACM, 6 pages; received 2026-07-22, accepted 2026-08-20",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher, Almaty, Kazakhstan",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — cost-aware, correctness-gated A/B harness (the ecosystem benchmark of the author's open-source vigiles auditor) applied to two token-efficiency tools vs a no-tool baseline in Claude Code on Claude Sonnet: 7 tasks x 5 trials x 2 arms x 2 tools = 140 runs",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Two third-party token-efficiency tools for Claude Code: 'caveman' skill (commit f06348c, fetched 2026-06-20; plugin with activation hook) and claude-token-efficient ('Token-Eff.', commit 0d30a6d, fetched 2026-06-21; project-memory file); compared with a no-tool baseline",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "caveman: a skill instructing terse, telegraphic answers, loaded through the agent's plugin mechanism with its own activation hook; it also has a feature that compresses an instructions file (shrank one by 68%). Token-Eff.: a compact project-memory file placed where the agent auto-loads it",
+   "p": "1-2, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no flow; artefacts loaded into every session)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (a skill; a project-memory file), installed as a user would",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (efficiency context artefacts, no specification); author does not use SDD terms",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Small self-contained coding tasks: new code (slugify, debounce, regex-email), changes to given code (off-by-one bugfix, review-doc over 3 files, refactor-suite over 5 files in 3 modules) and an analysis task (bigO)",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "7 tasks, each <=10 turns; 140 runs (July 2026); sessions around 100k tokens; refactor-suite largest task (5 files, 3 modules)",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Generic utility functions and small code reviews (author-written tasks)",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens by class (input, cache-read, cache-write, output) per run; dollar cost per run priced at published API list rates (2026-08); per-task output-token change; pooled-dollar bill change; output share of session tokens and of dollar cost",
+   "p": "2-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Deterministic structural correctness check per task, check(.) -> {0,1}; a skill-arm trial scoring below its paired baseline is a regression and disqualifies the run",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Structural ceiling on bill savings derived from output's share of cost (s x r; ~13% for a perfect 65% cut, ~16-18% with cross-turn compounding)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: harness records all token classes charged by the API per run and prices them; deterministic structural checks on the produced artefact. Statistics: Welch t-test per task, Bonferroni within each tool, paired t-test on the 7 per-task cost differences with 95% CI",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criteria stated by the author: correctness gate (no regression vs the paired baseline) for quality; the tools' advertised savings (65% caveman, 63% Token-Eff.; 63-75% overall) as the claim tested for cost. 5 trials per task per arm, 7 tasks.\n- No tool (baseline) + Claude Code + Claude Sonnet (alias 'sonnet', not pinned): all runs passed the checks; output ~0.6% of session tokens and ~20% of dollar cost (pooled). Quality verdict: works (gate passed); cost verdict: no criterion stated by the author (reference arm)\n- caveman skill + Claude Code + Claude Sonnet: mean output change ~-6%; per-task output change slugify +54%, debounce -28%, bugfix -31% (p=0.002), bigO -18%, regex-email -28% (p=0.006), review-doc -8%, refactor-suite +21%; bill -1% pooled (+5% unweighted per-task), 95% CI [-21%, +31%], p~0.66, n=7; slugify arm ~70% more cached tokens and ~66% higher cost; compressing an instructions file by 68% gave no significant session saving; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 65% not reached, bill flat)\n- claude-token-efficient + Claude Code + Claude Sonnet: per-task output change -2%, -7%, -6%, +6%, +127% (regex-email, p=0.037, not significant after Bonferroni), +54%, +33%; bill +10%, 95% CI [-8%, +29%], p~0.22; zero regressions. Quality verdict: works (no regressions on the shallow gate); cost verdict: does not work (advertised 63% not reached, bill flat or higher)\n- Pilot: Claude Code + Claude Haiku (2 tasks x 2 trials; which arms were run is not stated): output 1.1% of session tokens; verdicts: no criterion stated by the author",
+   "p": "2-4",
+   "verdict": "uncertain",
+   "why": "Values match Table 2 and Sections 4-5. One fix: the Haiku pilot was described as 'no-tool runs', but the paper (p. 4) does not say which arms the pilot ran. Open judgement: the quality criterion (no regression vs paired baseline) is the author's own gate, but the cost verdicts rest on the tools' advertised savings (65%/75% caveman, 63% Token-Eff.), which the author tests as the claim; whether a vendor-advertised figure counts as a success criterion stated by the authors (rule of 2026-11-23) is a judgement, the alternative being 'no criterion stated by the authors' for cost.",
+   "doubt": "Os veredictos de custo usam como critério as poupanças anunciadas pelas ferramentas (65%, 63%), que o autor testa. Decide se isso conta como critério declarado pelo autor ou se o custo fica 'no criterion stated by the authors'."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 7 author-written tasks with structural checks (Table 1). Configurations: baseline (no tool) vs tool installed as a user would, for 2 tools. Baseline: no tool, same agent and model. Held constant: agent (Claude Code), model alias 'sonnet' (build not pinned), tasks and checks; tools pinned to commits. Acceptance tests: deterministic structural checks (no code execution), regression vs paired baseline discards the run. Repetitions: 5 trials per task per arm (140 runs). Human intervention: Not stated",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "caveman: output cut ~6% on average (vs 65% advertised), two per-task cuts significant after Bonferroni (bugfix -31%, regex -28%); bill -1% pooled, not significant (CI [-21%, +31%]). Token-Eff.: bill +10%, not significant (CI [-8%, +29%]); its one significant per-task cell is a cost increase (+127%). CIs exclude savings near the advertised 63-75% but cannot resolve differences below ~13%. Output is ~20% of the bill, so even a perfect 65% output cut caps bill savings at ~13%",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Detected per-task output cuts of 28-31% and a 66% cost penalty at n=5, but could not settle bill differences below ~13% (wide CIs, p-values read as descriptive). Gate never fired; it is shallow (no execution). Limitations stated: 5 trials per task; one model (Sonnet; Haiku pilot only); short tasks (<=10 turns); one harness; two tools; author-written tasks and checks; model alias not pinned; trial-level rows not released (only per-task aggregates). Equivalence test (TOST) on a larger corpus and longer sessions as future work",
+   "p": "2, 4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: scale (5 trials), one model, short tasks, single harness, no multi-agent systems, two tools and author-written tasks, shallow correctness gate; latency and rate limits not evaluated. Gaps: agent-tooling claims are produced under conditions that do not match deployment; evaluation should measure dollar cost on realistic multi-turn sessions with a correctness gate and faithful installation; future work: TOST equivalence test, longer sessions, stronger gate that runs the code, larger task corpus",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Pooled bill -1% vs +5% unweighted per-task average for caveman, both reported (p. 3). Abstract says the bill 'does not move at all'; the CIs are wide ([-21%, +31%]). Harness, task and check definitions public (github.com/zernie/vigiles, bench/ecosystem/); per-task, per-arm aggregates released with a self-checking script; individual trial rows not released. The harness is the author's own tool (vigiles). No pre-registration. Programming language: Not stated (tasks use toLowerCase, setTimeout, toFixed, suggesting JavaScript)",
+   "p": "1-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): explicit RQ on how much the dollar bill changes and what bounds it",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): installation, tasks, gate, pricing and statistics described; harness and task definitions public",
+   "p": "2-3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): tool commits pinned, but the model is only the 'sonnet' alias (build not pinned) and the Claude Code version is not stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): seven tasks described in Table 1 and their definitions and checks public in the repository",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): deterministic structural checks rather than execution, written by the author",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost by token class and dollars defined, plus a correctness gate",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-tool baseline in the same agent, model and tasks",
+   "p": "2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 5 trials per arm, Welch and paired t-tests, 95% CIs, Bonferroni correction",
+   "p": "2-3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions scoped (does not claim the tools do nothing; small differences unresolved); mixed per-task results reported",
+   "p": "3-4",
+   "verdict": "uncertain",
+   "why": "The body is careful (CIs cannot resolve bill differences below ~13%, p-values read as descriptive, 'we do not claim these tools do nothing'), but the abstract and conclusion say the bill 'does not move at all' although the caveman CI is [-21%, +31%] with n=7. Yes kept as best value; another reader could score Partly.",
+   "doubt": "O resumo e a conclusão dizem que a fatura 'does not move at all', mas o IC do caveman é [-21%, +31%] com n=7. Decide entre Yes e Partly; vê secções 4.1, 5 e 7."
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats labelled by category (conclusion, internal, external, construct)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): AgenticDev '26 workshop (ACM), peer-reviewed",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): independent researcher; the evaluated tools are third-party (the vigiles harness is the measurement instrument, not an evaluated approach)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

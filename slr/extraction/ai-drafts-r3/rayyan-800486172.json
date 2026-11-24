@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486172",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Orlanski, G., Roy, D., Yun, A., Shin, C., Gu, A., Ge, A., Adila, D., Roberts, N., Sala, F., Albarghouthi, A. (2026). SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks. arXiv:2603.24755v2 [cs.SE], 7 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.24755v2 [cs.SE] ('Preprint'); no venue stated in the text or in the arXiv export",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Wisconsin-Madison (Orlanski, Yun, Shin, Ge, Adila, Roberts, Sala, Albarghouthi); Washington State University (Roy); MIT (Gu). Funded by Snorkel AI (Open Benchmarks Grants), DARPA and NSF",
+   "p": "1, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SlopCodeBench iterative benchmark (36 problems, 196 checkpoints) with two code-quality metrics (structural erosion, verbosity); evaluation of 15 models in native agent harnesses, calibration against 473 human Python repositories, and a prompting study (just-solve vs anti-slop vs plan-first)",
+   "p": "1-3, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agents/harnesses: Claude Code (2.0.51-2.1.111), Codex CLI (0.93.0-0.124.0), Cursor CLI 2026.04.13, Kimi CLI 1.37.0, OpenCode 1.4.3; models Opus 4.5/4.6/4.7, Sonnet 4.6, GPT 5.2 Codex, GPT 5.3 Codex, GPT 5.3 Spark, GPT 5.4, GPT 5.4 Mini, GPT 5.5, Composer 2, GLM 5.1, Kimi K2.5, Kimi K2.6, MiniMax M2.7. Prompt strategies: just-solve (baseline), anti-slop (quality guidance), plan-first (written plan before code)",
+   "p": "6, 8, 21-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A for the agents. Benchmark input per checkpoint: prose specification of external behaviour only (CLI arguments or API I/O, examples, normalization rules), no internal interfaces, no visible tests; agent must keep requirements.txt and a virtual environment. plan-first prompt requires a written plan before coding",
+   "p": "3-4, 15-18, 22-24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Iterative checkpoints: C1 implement from empty workspace; each later checkpoint extends the agent's own prior workspace from an updated spec, with no prior conversation context. plan-first prompt: plan -> simple solution -> ensure correct -> refactor",
+   "p": "2, 4, 24",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous agents; quality and correctness scored externally and withheld from the agent)",
+   "p": "2, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent workflow over multi-checkpoint iterative development; prompt variants exercised as a context mechanism",
+   "p": "4, 6, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent benchmark; authors speak of 'evolving specifications' but use no SDD terms)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project at the first checkpoint, then iterative extension of the agent's own code base under changing specifications",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "36 problems, 196 checkpoints (3-8 per problem); 2,869 agent checkpoints with quality measured; 13.18B tokens recorded overall (0.38B-1.14B per model normalized to 196 checkpoints). Human panel: 473 repositories, 13,667 sampled commits",
+   "p": "1, 4, 7-8, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Hand-written CLI and API tools: code search, config services, DAG execution, database migration, ETL, query engines, backup, password manager, EVE Online planners, LaTeX-to-Markdown, etc.; evaluated on the Python track only",
+   "p": "3-4, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; problems authored and reviewed by the paper's authors)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Cost per checkpoint ($/CKPT, mean +/- SD), net cost ($), minutes per checkpoint, token totals; cost growth across checkpoint phases (2.2x start to end)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Strict solve rate (all tests incl. regression), isolated solve rate (all non-regression tests of the checkpoint), core solve rate (core tests only), Partial (problems with at least one strictly solved checkpoint); pass rates per test category (core, error, functionality, regression)",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Structural erosion = share of complexity mass (CC x sqrt SLOC) in functions with CC > 10; verbosity = (lines flagged by 137 AST-grep rules union clone lines) / LOC; number of functions with CC >= 10; max CC; relative lines changed",
+   "p": "4-5, 7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Share of trajectories with rising erosion/verbosity; per-checkpoint growth rates (slopes) vs human repository histories; erosion-metric sensitivity correlations with next-checkpoint pass rate and cost",
+   "p": "7-8, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden test suites run via subprocess or served API with output normalization; static analysis (cyclomatic complexity with Radon-style cutoff, AST-grep rules, clone detection); cost and time from harness logs; each checkpoint in a fresh Docker container, 2-hour wall-clock limit, no turn or cost cap. Human panel metrics computed with the same tools on sampled commits",
+   "p": "4-6, 20-21, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark SlopCodeBench (36 problems, 196 checkpoints, Python). Criterion: hidden tests per checkpoint; no success criterion for a configuration stated by the authors. Values Strict/Iso/Core/Partial %; $/CKPT; Erosion; Verbosity (Table 8). Main runs, just-solve prompt: (1) Claude Code 2.0.51 + Opus 4.5: 9.2/17.3/57.7/25.0; 2.53; 0.70; 0.43. (2) Claude Code 2.1.32 + Opus 4.6: 9.7/20.9/67.3/27.8; 3.17; 0.75; 0.44. (3) Claude Code 2.1.111 + Opus 4.7: 8.2/20.9/65.8/36.1; 2.17; 0.76; 0.48. (4) Claude Code 2.1.44 + Sonnet 4.6: 7.1/16.8/57.7/27.8; 1.96; 0.75; 0.44. (5) Codex CLI 0.93.0 + GPT 5.2 Codex: 9.7/21.9/56.1/36.1; 0.85; 0.73; 0.50. (6) Codex CLI 0.98.0 + GPT 5.3 Codex: 11.2/26.0/60.7/41.7; 0.66; 0.64; 0.46. (7) Codex CLI 0.100.0 + GPT 5.3 Spark: 3.1/8.2/29.1/11.1; 0.20; 0.68; 0.48. (8) Codex CLI 0.110.0 + GPT 5.4: 10.7/23.5/62.8/36.1; 0.72; 0.51; 0.33. (9) Codex CLI 0.110.0 + GPT 5.4 Mini: 5.1/13.8/53.1/22.2; 0.45; 0.66; 0.42. (10) Codex CLI 0.124.0 + GPT 5.5: 14.8/28.1/66.8/50.0; 1.51; 0.49; 0.32. (11) Cursor CLI 2026.04.13 + Composer 2: 6.1/16.3/52.6/13.9; 0.44; 0.72; 0.45. (12) Claude Code 2.1.44 + GLM 5.1: 9.7/13.8/40.3/30.6; 1.47; 0.71; 0.41. (13) Kimi CLI 1.37.0 + Kimi K2.5: 4.6/9.7/39.8/19.4; 0.33; 0.72; 0.44. (14) Kimi CLI 1.37.0 + Kimi K2.6: 10.7/18.9/51.0/33.3; 0.74; 0.76; 0.51. (15) Claude Code 2.1.44 + MiniMax M2.7: 2.0/4.1/28.1/8.3; 0.34; 0.73; 0.47. Harness variants (just-solve): (16) OpenCode 1.4.3 + GLM 5.1: 5.6/8.2/20.4/19.4; 0.59; 0.70; 0.45. (17) OpenCode 1.4.3 + Kimi K2.5: 4.6/8.7/31.6/16.7; 0.53; 0.71; 0.46. (18) Claude Code 2.1.44 + Kimi K2.5: 3.6/7.1/29.6/16.7; 1.07; 0.71; 0.43. (19) OpenCode 1.4.3 + MiniMax M2.7: 1.5/3.6/21.9/5.6; 0.27; 0.75; 0.45. Prompt variants: (20) Codex + GPT 5.3 Codex anti-slop: 11.2/23.5/57.1/41.7; 0.73; 0.42; 0.31. (21) Codex + GPT 5.3 Codex plan-first: 8.2/21.4/62.2/33.3; 0.68; 0.55; 0.40. (22) Codex + GPT 5.4 anti-slop: 9.2/25.5/61.2/38.9; 0.90; 0.28; 0.24. (23) Codex + GPT 5.4 plan-first: 9.7/25.0/63.3/38.9; 0.83; 0.39; 0.30. (24) Codex + GPT 5.5 anti-slop: 9.2/24.0/63.3/38.9; 1.68; 0.21; 0.21. (25) Codex + GPT 5.5 plan-first: 8.2/24.0/67.3/30.6; 1.61; 0.29; 0.25. (26) Claude Code 2.1.44 + MiniMax M2.7 anti-slop: 2.6/4.1/29.1/11.1; 0.33; 0.51; 0.38. For each: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "p": "6, 9, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 36 SlopCodeBench problems, Python track. Configurations: 15 models in native harnesses (just-solve), plus harness variants (OpenCode, Claude Code for open models) and prompt variants (anti-slop, plan-first) on GPT 5.3 Codex, 5.4, 5.5. Baselines: just-solve prompt for the prompting study; human repository panel (473 repos) as calibration for quality. Held constant: problems and hidden tests, Docker image and tooling baseline, 2-hour limit, no turn or cost cap, reasoning effort high (none for Composer 2 and some OpenCode runs); harness version differs per model (earliest compatible). Acceptance tests: hidden tests (core, error, functionality, regression). Repetitions: not stated; one run per configuration reported. Human intervention: none",
+   "p": "5-6, 8, 20-21, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No configuration solves any problem end to end; best strict solve rate GPT 5.5 14.8% (iso 28.1%). Core pass rate falls from 64.6% to 35.5% across progress while cost per checkpoint grows 2.2x. Erosion rises in 77% and verbosity in 75.5% of trajectories; functions with CC >= 10 from 3.6 to 23.7. Agent code 2.3x more verbose (0.44 vs 0.19) and 2.0x more eroded (0.68 vs 0.34) than human repositories; per-checkpoint slopes 0.0144/0.0264 vs human 0.0022/0.0053. Anti-slop lowers verbosity 27.5-35.6% and erosion 34.3-57.6% on GPT models but not the degradation slope; prompts lower strict solve by 2.4 pp (anti-slop) and 3.6 pp (plan-first) and raise cost per checkpoint by 12.1% on average. No hypothesis tests; SDs and 95% CIs (Figure 4) only",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models (strict 1.5-14.8%) and exposed quality degradation invisible to pass rates; erosion metric stable across nine threshold/size variants (near-zero correlation with next-checkpoint pass rate, positive with cost). Repeatability not assessed (no repeated runs reported). Authors evaluate Python only due to cost",
+   "p": "3, 6-9, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats-to-validity section. Stated: only the Python track evaluated due to cost; human panel may include post-2022 LLM-assisted commits (checked, small shift). Gaps: agents degrade code under iteration; prompting improves initial quality but cannot stop erosion; existing benchmarks are single-shot",
+   "p": "3, 8-10, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: p. 6 says Opus 4.5 has the highest core solve rate (67.3%), but Table 8 gives Opus 4.5 57.7% and Opus 4.6 67.3% (Table 8 used). Growth vs humans: '6.6x' verbosity (p. 3) vs 'roughly 7x' (p. 8); abstract 'up to a third' vs RQ4 'erosion by up to 62.3%, verbosity by up to 34.8%' vs Section 3.4 (max 57.6% erosion, 35.6% verbosity); correctness drop '2.3 pp' (p. 3) vs 2.4/3.6 pp (p. 8). Table 7 omits Opus 4.7 and GPT 5.5 and lists Kimi K2.5 with Claude Code 2.1.44, while Table 1 values match the Kimi CLI 1.37.0 run of Table 8. Opus 4.7 forge main(): '7x in CC' with CC 13 -> 92 (p. 19). Table 1 layout scrambled; values taken from Table 8. 'Significantly' used without tests. Problems and code at scbench.ai. No pre-registration. Programming language: Python (benchmark language-agnostic)",
+   "p": "3, 6-8, 19, 22, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four RQs and benchmark desiderata clearly stated",
+   "p": "2-3, 5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task formulation, metric formulas, harness versions, prompts (Listings 8-10), environment and human panel construction described; code and problems released",
+   "p": "4-5, 20-25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness version, model and reasoning setting per run (Tables 7-8), despite some inconsistencies between them",
+   "p": "22, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 36 problems listed with checkpoints and design decisions (Tables 4-5), sample specs; available at scbench.ai",
+   "p": "2, 15-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden test suites; quality by deterministic static analysis; human repositories as calibration",
+   "p": "4-5, 7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): solve rates, erosion and verbosity defined; cost in $, time and tokens reported",
+   "p": "4-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 15 models under the same benchmark and environment; just-solve baseline for prompt variants; human panel calibration",
+   "p": "6, 8, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): SDs across checkpoints and 95% CIs for trajectories, sensitivity analysis of the metric; no repeated runs per configuration and no statistical tests of differences",
+   "p": "6-8, 19-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow (degradation, prompts do not stop it), negative results reported; but numeric claims inconsistent across sections and 'significantly' without tests",
+   "p": "3, 6-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity discussion; only remarks on Python-only scope and a temporal check of the human panel",
+   "p": "3, 25",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; no evaluated harness or model is theirs (funding from Snorkel AI benchmark grant, DARPA, NSF)",
+   "p": "1, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

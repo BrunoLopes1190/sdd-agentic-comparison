@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486515",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -257,9 +257,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The architecture claim in abstract and conclusion ('failures are not random but concentrate on one implementation choice', p. 14) goes beyond the correlational evidence of §4.3 (p. 11-12); whether this is enough for Partly or still Yes is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Main results (unsaturated suite, ~26 pp spread, best model fails nearly half) follow from Table 2, but the abstract ('failures cluster around how cross-cutting functionality is split across modules') and conclusion ('failures are not random but concentrate on one implementation choice', p. 14) rest only on the partial correlations of §4.3 (module count -0.423 controlling for code lines), with no failure analysis. Partly vs Yes is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Main results follow from Table 2, but the abstract ('failures cluster around how cross-cutting functionality is split across modules') and the conclusion ('concentrate on one implementation choice', p. 14) rest only on partial correlations in §4.3 (module count -0.423 controlling for code lines), with no failure analysis. Partly vs Yes is a judgement."
     }
    ],
-   "warn": "A conclusão diz que as falhas 'se concentram' na divisão em módulos, mas só há correlações parciais (§4.3). Decide se isto é exagero suficiente para Parcial ou se mantém Sim. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "A conclusão diz que as falhas 'se concentram' na divisão em módulos, mas só há correlações parciais (§4.3, p. 11-12). Decide se este exagero justifica Parcial ou se mantém Sim."
   },
   {
    "f": "Q10",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486319",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Metric values check against Tables 1-2 and Appendix J. The authors state the criterion (all 222 tests pass and the requested reusable library is what the demo runs), but they give no works/partly verdicts; the verdicts are the extractor's reading. They treat a dead or absent library as 'does not work' (GPT c3/c9) but an incomplete yet genuine library as 'partly' (c0), following the authors' framing that the library is the requested artefact; a reader applying the two-part criterion symmetrically could rate GPT c9 (parity 221-222, library dead) as partly, or Claude c3 (craft shed: no manifest, no unit tests) as partly"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Metric values re-checked against Tables 1-2 and Appendix J (all match). The authors state the criterion (all 222 tests pass, and the requested reusable library is what the demo actually runs, p. 2-3, 15) but give no works/partly verdict per configuration, so the verdicts are the extractor's application of that two-part criterion. Borderline: GPT c9 (parity 221-222, library dead or absent) could be read as partly rather than does not work; Claude c3 (222, all ND) as partly because manifest and unit tests were shed, though craft is not part of the stated criterion"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Metric values re-checked against Tables 1-2 and Appendix J (all match). The authors state the criterion (all 222 tests pass, and the requested reusable library is what the demo actually runs, p. 2-3) but give no works/partly verdict per configuration, so the verdicts are the extractor's application of that two-part criterion. Borderline: c0 runs (library real but 33-74 tests fail) are 'partly' though they miss the 222 criterion; GPT c9 (221-222, library dead or absent) could be partly rather than does not work; Claude c3 (222, all ND) could be partly because manifest and unit tests were shed, though craft is not in the stated criterion"
     }
    ],
-   "warn": "Os autores dão o critério (222 testes e biblioteca realmente usada) mas não dão veredictos. Confirma se GPT c3/c9 é 'does not work' e Claude c3 'works' apesar da perda de manifest e testes."
+   "warn": "Os autores dão o critério (222 testes e biblioteca realmente usada) mas não dão veredictos. Confirma se c0 é 'partly', GPT c3/c9 'does not work' e Claude c3 'works' apesar da perda de manifest e testes."
   },
   {
    "f": "Comparison: design",
@@ -188,7 +198,7 @@
      "why": "The draft said outcomes were consistent within c0 and c3/c9 except GPT c3-R3, but Table 1 shows Claude c9 runs differ (0, 1 and 3 dispositions) and c3/c9 GPT runs differ in kind (L2 vs L1 vs no library)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Conclusions: limitations and gaps",

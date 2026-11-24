@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486096",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Two inconsistencies were missing: the merge-resolver model differs between p. 4 (Qwen 3 Coder 1.5B) and App. B (Qwen2.5-Coder-0.5B), and Table 5 counts do not reproduce Table 6 percentages for GPT-5 and Claude"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -265,8 +265,19 @@
    "f": "Q10",
    "v": "No (0): no limitations or threats to validity discussed",
    "p": "—",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is no limitations or threats section, but some validity concerns are addressed in passing: scope choices (local tools only, one framework, no framework comparison, pp. 4 and 6), action-limit footnote (p. 4), merge-resolver effect (p. 5) and human validation of the LLM annotator (App. G); another reader could give Partly"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "There is no limitations or threats section, but some validity concerns are addressed in passing: scope choices (local tools only, one framework, no framework comparison, pp. 4 and 6), action-limit footnote (p. 4), merge-resolver effect (p. 5, App. B) and human validation of the LLM annotator (App. G); another reader could give Partly"
+    }
+   ],
+   "warn": "Não há secção de limitações ou ameaças à validade, mas algumas escolhas de âmbito e validações (anotador LLM, resolvedor de merge) são discutidas de passagem. Decide entre No e Partly."
   },
   {
    "f": "Q11",

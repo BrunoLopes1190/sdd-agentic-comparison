@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486532",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -278,9 +278,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Under the rule of 2026-11-23, an author's own approach compared with alternatives makes Q12 Partly. The clarify-before-coding protocol is the authors' stated design principle (p. 2-3) and is compared with continued clarification in Appendix D (p. 20); whether a benchmark design principle counts as an 'approach' is a judgement. The main model comparison is independent."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The nine models and the Pi runtime are not the authors'; but 'clarification before coding' is the authors' own stated design principle (p. 2-3) and Appendix D (p. 20) compares it with continued clarification, where it wins. Under the rule of 2026-11-23 an own approach compared with alternatives gives Partly; whether a benchmark design principle counts as an approach is a judgement. Upwork authors also supplied the task source (not a vendor of an evaluated tool)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The nine models and the Pi runtime are not the authors'; but 'clarification before coding' is the authors' own design principle (p. 2-3) and Appendix D (p. 20, Table 10) compares it with continued clarification, where it wins. Under the rule of 2026-11-23 an own approach compared with alternatives gives Partly; whether a benchmark design principle counts as an approach is a judgement. Upwork authors supplied the task source but are not vendors of an evaluated tool."
     }
    ],
-   "warn": "Os autores comparam o seu próprio princípio (clarificar antes de programar) com clarificação contínua no Apêndice D. Decide se isto conta como abordagem própria (Parcial) ou se, sendo só desenho do benchmark, fica Sim. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os autores comparam o seu próprio princípio (clarificar antes de programar) com clarificação contínua no Apêndice D. Decide se isto conta como abordagem própria (Parcial) ou se, sendo só desenho do benchmark, fica Sim."
   },
   {
    "f": "Q13",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498176",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Cost range of intermediate revisions was wrong: evaluations 6 and 7 were 'cheaper' than evaluation 5 ($1.76), so $1.76 is not the lower bound (p. 17). The verdict wording 'cost verdict judged by the author against that goal' gave no verdict; the only criterion is relative to the initial version, so it is unclear whether it counts as a success criterion under the 2026-11-23 rule."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values checked against Table 1 and pp. 13-18 (intermediate range 23.15-43.72% includes the unchanged repeat; .76-2.64 where reported). The only stated goal, lower cost without sacrificing score (Table 1, p. 16), is relative to the initial version; under the 2026-11-23 rule and the judged-on-its-own rule this gives no own verdict, but a reader could take it as a success criterion for the adopted configuration."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values checked against Table 1 and pp. 13-18 (intermediate range 23.15-43.72% includes the unchanged repeat; costs $1.76-2.64 where reported). The only stated goal, lower cost without sacrificing score (Table 1, p. 16), is relative to the initial version; under the 2026-11-23 rule and the judged-on-its-own rule this gives no own verdict, but a reader could take it as a success criterion for the adopted configuration."
     }
    ],
-   "warn": "O autor só dá um objetivo relativo (custo menor sem perder score face à versão inicial). Decide se isto conta como critério de sucesso para dar veredicto à versão adotada ou se fica 'no criterion stated'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O único critério do autor é relativo (menor custo sem perder score face à versão inicial, Tabela 1, p. 16). Decide se conta como critério de sucesso ou se fica \"no criterion stated by the authors\"."
   },
   {
    "f": "Comparison: design",

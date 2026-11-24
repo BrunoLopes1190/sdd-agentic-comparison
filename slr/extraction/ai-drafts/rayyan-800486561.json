@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486561",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -152,9 +152,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "BOBA-Bench AUTONOMOUS, 280 chains, 8 attempts, mini-swe-agent 2.4.6. Success criterion for a configuration: none stated by the authors. Values pass@1 [95% CI] / single attempt / strict pass@1 / regression rate / pass@8 / requests completed (%) / median calls per chain: (1) Claude Opus 5.5: 66.7 [61.3, 71.9] / 66.8 / 55.8 / 22.9 / 83.9 / 84.0 / 216. (2) Claude Opus 5: 61.6 [56.2, 66.8] / 60.7 / 50.5 / 28.1 / 82.9 / 80.8 / 401. (3) GPT-6 Astra: 53.2 [46.7, 59.5] / 51.1 / 38.7 / 35.1 / 63.9 / 75.2 / 182. (4) Claude Fable 5: 51.5 [45.8, 57.1] / 51.8 / 38.2 / 40.5 / 72.1 / 73.2 / 292. (5) GLM-5.3: 51.2 [45.4, 57.1] / 46.4 / 39.8 / 30.1 / 76.1 / 73.0 / 560. (6) GLM-5.3-Flash: 51.1 [45.1, 57.0] / 51.1 / 40.9 / 30.1 / 77.5 / 73.9 / 739. (7) GPT-6.1 Sol: 50.3 [43.9, 56.5] / 48.9 / 37.6 / 37.8 / 60.7 / 74.2 / 190. (8) GPT-5.6 Sol: 45.2 [39.0, 51.3] / 45.7 / 33.3 / 42.2 / 60.0 / 71.8 / 299. (9) Kimi K3: 44.2 [38.5, 50.0] / 45.4 / 33.7 / 42.8 / 68.2 / 68.8 / 388. (10) Claude Opus 4.8: 39.2 [33.3, 45.3] / 38.2 / 27.5 / 42.4 / 60.0 / 66.2 / 367. VERIFIED arm (same model + mini-swe-agent + one 'verification failed' repair round, 1 attempt), pass@1 autonomous attempt 1 -> verified [paired difference CI]: Opus 5.5 66.8->73.9 (+7.1 [2.5, 12.0]); Opus 5 60.7->69.6 (+8.9); GPT-6 Astra 51.1->53.9 (+2.9 [-2.4, 8.0]); Fable 5 51.8->63.9 (+12.1); GLM-5.3 46.4->68.6 (+22.1); GLM-5.3-Flash 51.1->67.1 (+16.1); GPT-6.1 Sol 48.9->52.9 (+3.9 [-0.4, 8.1]); GPT-5.6 Sol 45.7->46.8 (+1.1 [-2.9, 4.9]); Kimi K3 45.4->52.5 (+7.1); Opus 4.8 38.2->44.6 (+6.4); regression rate +3.2 to +8.9 pp; median calls per chain up (e.g. Opus 5.5 217->234). Harness arms (Codex CLI, OpenHands SDK, pi; 4 models, 58 chains): no harness completes more chains than mini-swe-agent, paired pass@1 differences 0 to -29 pp. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "v": "BOBA-Bench AUTONOMOUS, 280 chains, 8 attempts, mini-swe-agent 2.4.6. Success criterion for a configuration: none stated by the authors. Values pass@1 [95% CI] / single attempt / strict pass@1 / regression rate / pass@8 / requests completed (%) / median calls per chain: (1) Claude Opus 5.5: 66.7 [61.3, 71.9] / 66.8 / 55.8 / 22.9 / 83.9 / 84.0 / 216. (2) Claude Opus 5: 61.6 [56.2, 66.8] / 60.7 / 50.5 / 28.1 / 82.9 / 80.8 / 401. (3) GPT-6 Astra: 53.2 [46.7, 59.5] / 51.1 / 38.7 / 35.1 / 63.9 / 75.2 / 182. (4) Claude Fable 5: 51.5 [45.8, 57.1] / 51.8 / 38.2 / 40.5 / 72.1 / 73.2 / 292. (5) GLM-5.3: 51.2 [45.4, 57.1] / 46.4 / 39.8 / 30.1 / 76.1 / 73.0 / 560. (6) GLM-5.3-Flash: 51.1 [45.1, 57.0] / 51.1 / 40.9 / 30.1 / 77.5 / 73.9 / 739. (7) GPT-6.1 Sol: 50.3 [43.9, 56.5] / 48.9 / 37.6 / 37.8 / 60.7 / 74.2 / 190. (8) GPT-5.6 Sol: 45.2 [39.0, 51.3] / 45.7 / 33.3 / 42.2 / 60.0 / 71.8 / 299. (9) Kimi K3: 44.2 [38.5, 50.0] / 45.4 / 33.7 / 42.8 / 68.2 / 68.8 / 388. (10) Claude Opus 4.8: 39.2 [33.3, 45.3] / 38.2 / 27.5 / 42.4 / 60.0 / 66.2 / 367. VERIFIED arm (same model + mini-swe-agent + one 'verification failed' repair round, 1 attempt), pass@1 autonomous attempt 1 -> verified [paired difference CI]: Opus 5.5 66.8->73.9 (+7.1 [2.5, 12.0]); Opus 5 60.7->69.6 (+8.9); GPT-6 Astra 51.1->53.9 (+2.9 [-2.4, 8.0]); Fable 5 51.8->63.9 (+12.1); GLM-5.3 46.4->68.6 (+22.1); GLM-5.3-Flash 51.1->67.1 (+16.1); GPT-6.1 Sol 48.9->52.9 (+3.9 [-0.4, 8.1]); GPT-5.6 Sol 45.7->46.8 (+1.1 [-2.9, 4.9]); Kimi K3 45.4->52.5 (+7.1); Opus 4.8 38.2->44.6 (+6.4); regression rate +3.2 to +8.9 pp; median calls per chain up (e.g. Opus 5.5 217->234). Harness arms (58 chains, 52 repositories, 1 attempt; chains passed of 58, paired pass@1 difference vs the same model's mini-swe-agent attempt 1 in pp): Claude Opus 5.5: mini-swe-agent 39; Codex CLI 0.146.1 31 (-13.8 [-26.7, -1.7]); OpenHands SDK 1.46.0 34 (-8.6); pi 0.84.2 35 (-6.9). GPT-5.6 Sol: mini-swe-agent 32; Codex CLI 28 (-6.9); OpenHands SDK 32 (0.0); pi 23 (-15.5 [-27.3, -4.7]). Kimi K3: mini-swe-agent 30; Codex CLI 27 (-5.2); OpenHands SDK 28 (-3.4); pi 22 (-13.8). GLM-5.3-Flash: mini-swe-agent 32; Codex CLI 15 (-29.3 [-42.1, -16.9]); OpenHands SDK 22 (-17.2); pi 24 (-13.8); regression rate 36-62% under the harnesses vs 26% under mini-swe-agent. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
    "p": "5, 7, 32-33, 54-56",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The 12 harness-comparison configurations (4 models x Codex CLI, OpenHands SDK, pi) were summarised without their own values; each configuration now gets its pass@1 and paired difference from Table 44 (p. 56)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -187,16 +193,21 @@
   },
   {
    "f": "Notes",
-   "v": "Values from Table 2 (p. 5), Table 41 (p. 54), Table 23 (p. 35). Inconsistencies: abstract says agents complete 95% of requests one at a time, while Table 2 and p. 2 give 66-84% request completion (95% matches next-request success on verified foundations, Fig. 4) (p. 1-2, 5, 7); p. 2 says the bare message repairs 'a tenth to a third' of misses, p. 9 and p. 10 say 'a third to a half', Fig. 4 gives 8-30% to 28-60% (p. 2, 7, 9); Section 3.4 says the control settings use five models, but Fig. 4 shows ten and Section 4.2 / App. B.1 eleven models (p. 6-7, 17); Fig. 3 says Claude Opus 4.8 writes the specifications, the AI use statement says calls rotated over Opus 4.6-4.8 with GLM-5.2 as fallback, model per specification not recorded (p. 4, 11). Post hoc 14-chain exclusion documented in App. D.10 (p. 11, 30). Amazon Bedrock served most evaluated models (p. 33). Full release (benchmark, pipeline, contracts, gold patches, images, trajectories, grader, analysis scripts) at https://github.com/amazon-agi/BOBA-bench (p. 10). Pre-registration: the main study is not pre-registered; a pre-registered human review of 80 request slots (specification adequacy) is said to be prepared, with strata, seed and analysis fixed in advance, not yet run and no link given (p. 26). Programming language: Python",
-   "p": "1-2, 4-7, 9-11, 17, 26, 30, 33, 35",
+   "v": "Values from Table 2 (p. 5), Table 41 (p. 54), Table 44 (p. 56), Table 23 (p. 35). Inconsistencies: abstract says agents complete 95% of requests one at a time, while Table 2 and p. 2 give 66-84% request completion (95% matches next-request success on verified foundations, Fig. 4) (p. 1-2, 5, 7); p. 2 says the bare message repairs 'a tenth to a third' of misses, p. 9 (Sections 5.1 and 5.2, citing Table 37) says 'a third to a half', Fig. 4 gives 8-30% to 28-60% (p. 2, 7, 9); p. 9 says the repair round adds 47 to 294 calls per chain, while the medians of Table 41 rise by 17-163 calls (p. 9, 54); Section 3.4 says the control settings use five models, but Fig. 4 shows ten and Section 4.2 / App. B.1 eleven models (p. 6-7, 17); Fig. 3 says Claude Opus 4.8 writes the specifications, the AI use statement says calls rotated over Opus 4.6-4.8 with GLM-5.2 as fallback, model per specification not recorded (p. 4, 11). Post hoc 14-chain exclusion documented in App. D.10 (p. 11, 30). Amazon Bedrock served most evaluated models (p. 33). Full release (benchmark, pipeline, contracts, gold patches, images, trajectories, grader, analysis scripts) at https://github.com/amazon-agi/BOBA-bench (p. 10). Pre-registration: the main study is not pre-registered; a pre-registered human review of 80 request slots (specification adequacy) is said to be prepared, with strata, seed and analysis fixed in advance, not yet run and no link given (p. 26). Programming language: Python",
+   "p": "1-2, 4-7, 9-11, 17, 26, 30, 33, 35, 54, 56",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "'No pre-registration' was incomplete: p. 26 claims a pre-registered (prepared, not yet run, no link) human review of 80 request slots. Also added the Fig. 3 vs AI-statement discrepancy on the specification model; Table 23 is on p. 35 and Bedrock on p. 33"
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "'a third to a half' is on p. 9 only (not p. 10); added the calls-per-chain discrepancy between p. 9 (47-294) and Table 41 medians (17-163); Table 44 added as a source"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2; confirma-o no texto."
   },
   {
    "f": "Q1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498162",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -98,7 +98,7 @@
      "why": "Totals row of Tables 1 and 10 is 262 (budget hours), 136 (criteria), 264 (modules): per-task criteria sum to 136 (e.g. lang01 has 8) and 3,536 criterion verdicts = 136 x 26 (p. 12). The draft gave 262 criteria and 136 modules."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Domain",
@@ -202,7 +202,7 @@
      "why": "The draft said two verifier models are also evaluated systems, but four evaluated models supply five of the six verifiers (Fig. 6); the 'three tasks each' wording points to a split of tasks between the two annotators rather than an unexplained combination."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

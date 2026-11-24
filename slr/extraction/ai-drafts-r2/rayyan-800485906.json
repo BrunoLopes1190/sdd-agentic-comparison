@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800485906",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhang, Z., Zhang, H., Fei, H., Bao, Z., Chen, Y., Lei, Z., Liu, Z., Sun, Y., Xiao, M., Ye, Z., Zhang, Y., Zhu, H., Wen, Y., Shum, H.-Y. (2026). SWE-AGI: Benchmarking Specification-Driven Software Construction with MoonBit in the Era of Autonomous Agents. arXiv:2602.09447v2 [cs.SE], 11 Feb 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2602.09447v2 (cs.SE); no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "International Digital Economy Academy (IDEA), China (all authors); The Hong Kong University of Science and Technology (H. Zhang, H.-Y. Shum)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark SWE-AGI (22 specification-driven, from-scratch MoonBit construction tasks with hidden private tests) and evaluation of 10 frontier models through 4 agent CLIs, with a log-based behaviour analysis",
+   "p": "1-3, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach named; the benchmark itself frames a 'specification-driven' / 'spec-first', declaration-first workflow (TASK.md + normative specs/ + MoonBit declare scaffold + public tests). Agents evaluated: Codex CLI (gpt-5.3-codex xhigh, gpt-5.2-codex high), Claude Code (claude-opus-4.6, claude-opus-4.5, claude-sonnet-4.5, qwen3-max-thinking 2026-01-23, glm-4.7, deepseek-v3.2 / deepseek-reasoner), Gemini CLI (gemini-3-flash), Kimi CLI (kimi-k2.5-thinking); CLI versions Not stated",
+   "p": "2, 6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task, a starter repository: TASK.md (goal, scope, API, behavioural rules, acceptance criteria, constraints, test execution); specs/ (upstream standards, RFCs, reference documents); *_spec.mbt with declare-based fixed API declarations and helper contracts; public tests *_pub_test.mbt (about 10% of all tests); hidden private tests *_priv_test.mbt; moon.mod.json / moon.pkg.json manifests",
+   "p": "4, 6-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Interpret specifications -> design/implement against the fixed interface (agent may write its own spec-grounded tests) -> validate locally with moon test on public tests -> submit via swe-agi-submit -> receive pass/fail from hidden private tests -> repeat until a submission passes",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully autonomous runs; tests are human-validated during benchmark construction only)",
+   "p": "4, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the benchmark's own spec-first task format (spec documents + task statement + declared API scaffold + tests) run by agents; no named SDD approach",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable. Authors' wording: 'specification-driven construction', 'spec-first development', 'declaration-first workflows' (specifications are external standards/RFCs fixed as input, code is the output)",
+   "p": "1-2, 7",
+   "verdict": "uncertain",
+   "why": "No named SDD approach; the benchmark's own format (fixed specs, TASK.md and declared API written before code, not evolved) could be read as spec-first in Böckeler's sense or left as not classifiable.",
+   "doubt": "Não há abordagem SDD nomeada, mas as specs e o TASK.md são escritos antes do código e não evoluem; decide se classificas como spec-first ou mantens 'não classificável'."
+  },
+  {
+   "f": "Task type",
+   "v": "New project (from-scratch construction in a starter repository with a fixed API scaffold)",
+   "p": "2, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Size",
+   "v": "22 tasks (6 easy, 8 medium, 8 hard) in 7 categories; each task 10^3-10^4 lines of core logic (weeks to months of human effort); test suites per task 98 to 8,221 tests (total 1,604 easy, 5,284 medium, 15,638 hard)",
+   "p": "2, 5, 9, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Systems software: parsers, interpreters, binary decoders, protocol state machines and a CDCL SAT solver (e.g. csv, ini, yaml, toml, xml, html5, c99, lua, ecma262, python, r6rs, git_object, protobuf, zip, capnp, wasm, uri, hpack, url, pug, jq, cdcl)",
+   "p": "5, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no human participants)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Wall-clock time to solution / to final submission (hours); input/output tokens aggregated from tool logs; per-task dollar cost (exact from Claude Code logs; approximate from API price for Codex CLI, ignoring reasoning tokens); no budget enforced",
+   "p": "7-8, 10-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success rate (final submission compiles and passes all hidden private tests in a clean checkout); test-suite pass rate (public+private, passed/total; tier value is unweighted mean of per-task rates)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Implementation size (core LOC, non-test MoonBit lines) as a coarse proxy for system scale; no maintainability metric",
+   "p": "7, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Behaviour statistics: action count per task and share of logged tool actions per category (Spec, Plan, Read, Write, Debug, Hygiene, External search, Other), Tables 6, 7, 9",
+   "p": "12-13, 18-20",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: evaluator runs hidden private tests on submissions; tokens, time and cost from agent tool logs; behaviour categories by heuristic mapping of logged tool actions. Manual: test construction (canonical cases from specs, plus property-based, LLM-generated and fuzz cases, then manual triage)",
+   "p": "6, 8, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: task passed = compiles and zero failed hidden private tests. Single run per task (no repetitions stated). Full suite (22 tasks), tasks passed / mean test-suite pass rate easy, medium, hard / avg time easy, medium, hard: (a) Codex CLI + gpt-5.3-codex (xhigh): 19/22; 100%, 100%, 87.9%; 0.28h, 1.2h, 1.7h. (b) Codex CLI + gpt-5.2-codex (high): 17/22; 100%, 98.9%, 91.2%; 0.81h, 5.1h, 7.8h. (c) Claude Code + claude-opus-4.6: 15/22; 100%, 93.6%, 81.1%; 0.45h, 3.5h, 5.7h. (d) Claude Code + claude-opus-4.5: 10/22; 100%, 82.6%, 67.0%; 0.39h, 1.3h, 1.7h. Easy tier only (6 tasks), passed / mean pass rate / avg time: (e) Claude Code + claude-sonnet-4.5: 0/6, 76.1%, 0.32h; (f) Kimi CLI + kimi-k2.5: 2/6, 92.0%, 0.99h; (g) Claude Code + glm-4.7: 2/6, 64.2%, 0.70h; (h) Gemini CLI + gemini-3-flash: 2/6, 49.8%, 0.25h (repeated execution failures); (i) Claude Code + deepseek-v3.2: 1/6, 16.7%, 3.4h; (j) Claude Code + qwen3-max: 0/6, 13.9%, 2.6h. Per-task tokens and cost for (a)-(d) in Tables 4-5 (e.g. csv: gpt-5.3 ~1.85 USD, gpt-5.2 ~3.69, opus-4.6 12.44, opus-4.5 11.89); no tokens or cost reported for (e)-(j). For every configuration: quality: no criterion stated by the authors (task-level pass criterion only, no configuration-level threshold); cost: no criterion stated by the authors",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Project/tasks: 22 SWE-AGI tasks (easy-tier subset of 6 for six models). Configurations: 10 models via 4 agent front-ends (Codex CLI, Claude Code, Gemini CLI, Kimi CLI); no baseline without the spec format. Held constant: task repository, TASK.md, specs, scaffold, public/private tests, submission tool; agent front-end and thinking mode vary with model (not held constant). Acceptance tests: hidden private tests run by the evaluator. Repetitions: one run per task per model (not stated otherwise). Human intervention: none described; no budget limit; ecma262 for gpt-5.2-codex cut at a 42-hour snapshot",
+   "p": "4, 8, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "gpt-5.3-codex best (19/22, 86.4%) > gpt-5.2-codex (17/22, 77.3%) > claude-opus-4.6 (15/22, 68.2%) > claude-opus-4.5 (10/22, 45.5%); all four solve 6/6 easy, divergence on medium/hard. Other models solve at most 2/6 easy; kimi-k2.5 highest easy pass rate (92.0%). gpt-5.3-codex 3-5x faster than gpt-5.2-codex and smaller code on medium/hard; opus-4.6 better than opus-4.5 but slower on medium/hard. Behaviour: Read share grows with difficulty (hard: 41.4% gpt-5.3, 64.6% gpt-5.2, 50.2% opus-4.6, 43.5% opus-4.5). No significance testing",
+   "p": "1, 8-9, 12-13",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models clearly on medium/hard tiers and in the easy-tier sweep; near-misses (e.g. cdcl 99.8%, lua 96.4%) show binary pass/fail can hide close results. Repeatability: single runs, no variance; execution scripts, outputs and run logs to be released. Limitations stated: time and LOC influenced by front-end configuration and tool policies, to be read with caution; behaviour taxonomy heuristic and logging granularity differs across front-ends; Gemini CLI instability (gemini-3-pro omitted); Codex cost approximate",
+   "p": "8-12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No threats-to-validity section. Stated: spec-driven autonomous SWE increasingly viable but far from solved at production scale; performance drops sharply on hard, spec-intensive tasks; code reading/maintenance, not writing, is the bottleneck; runtime and memory performance not scored yet. Future work: heterogeneous distributed systems and legacy integration, library-centric workflows, multi-modal inputs, toolchain optimisation, security and maintainability",
+   "p": "3, 6, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Abstract says '1,000-10,000 lines' (text: 10^3-10^4). Claude Code costs show outliers not explained (lua opus-4.6 398.24 USD for 43.37M/155.4k tokens; zip opus-4.6 1016.53 USD for 58.10M/227.1k tokens; r6rs opus-4.6 190.32 USD for 21.28M/199.5k tokens, Table 5) vs about 25-50 USD for similar token counts. Tier pass rates are unweighted means of per-task rates, not totals (e.g. hard opus-4.6 81.1% vs 14625/15638 = 93.5%, Table 3; checked against Table 5). Several token/cost values N/A (Claude Code crash; gpt-5.2 ecma262 snapshot). Table 3 is jumbled in the extracted text: the easy-tier times and pass rates were matched to models by row order (checked against the per-task totals of Tables 4-5 for the four full-suite models). Benchmark built on MoonBit; repository under github.com/moonbitlang (SWE-AGI, SWE-AGI-Eval), scripts, outputs and logs 'will be released'. No pre-registration. Programming language: MoonBit",
+   "p": "1-2, 8-11",
+   "verdict": "corrected",
+   "why": "Added a third unexplained cost outlier in Table 5 (r6rs opus-4.6: 190.32 USD for only 21.28M input tokens), a reporting inconsistency the draft missed.",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (assess autonomous spec-driven construction at production scale) and three contributions stated",
+   "p": "1-3",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): task format, evaluation protocol and metrics described, front-ends and models named; agent prompts, CLI versions and run configuration details beyond thinking mode not given (scripts promised)",
+   "p": "4-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (some with modes/dates, e.g. qwen3-max-thinking 2026-01-23, xhigh/high thinking); agent CLI versions Not stated",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 22 tasks described (Appendix A), task repositories on GitHub (moonbitlang/SWE-AGI)",
+   "p": "5-6, 17",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden private test suites, human-validated, run by the evaluator",
+   "p": "6, 8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): metrics defined (Table 2) covering quality (task success, pass rate) and cost (time, tokens, USD)",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all models evaluated on the same tasks, tests and protocol (front-ends differ by model)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per task and model, no statistical analysis",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the results, including the sharp drop on hard tasks and near-miss failures",
+   "p": "9, 15",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no limitations section; caveats scattered (front-end influence on time/LOC, heuristic taxonomy, logging granularity, Codex cost estimate)",
+   "p": "9, 10, 12",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors do not develop the agents or models evaluated. Note: the benchmark language MoonBit and the repositories are under the moonbitlang GitHub organisation; the paper does not state the authors' link to MoonBit, and MoonBit is not an evaluated tool",
+   "p": "1-2, 8",
+   "verdict": "uncertain",
+   "why": "The evaluated tools (agents, models) are not the authors'; but the benchmark and its language MoonBit sit under the moonbitlang organisation, and the paper does not state the authors' link to MoonBit. Whether that matters for Q12 is a judgement.",
+   "doubt": "Os autores (IDEA) parecem ligados ao MoonBit, mas o artigo não o diz; o MoonBit não é ferramenta avaliada. Confirma se aceitas Sim ou se baixas para Parcial."
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

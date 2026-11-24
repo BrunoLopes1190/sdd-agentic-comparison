@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498056",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -278,9 +278,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement: the agent frameworks are independent of the authors, but three authors are from AMAP, Alibaba Group, and Alibaba's Qwen 3.6 Plus is one of 8 evaluated models; AMAP is not the Qwen team, so a reader could score Yes. Partly kept as best value"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The tools evaluated are the agent frameworks (OpenHands, Claude Code, Codex CLI), none from the authors' organisations; three authors are from AMAP, Alibaba Group, and Alibaba's Qwen 3.6 Plus is one of 8 backend models (Table 11 lists Alibaba as its vendor). AMAP is not the Qwen team, so Yes is also defensible. Partly kept"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The tools evaluated are the agent frameworks (OpenHands, Claude Code, Codex CLI), none from the authors' organisations; three authors (S. Zou, Y. Wang, X. Chu) are from AMAP, Alibaba Group, and Table 11 lists Alibaba as vendor of Qwen 3.6 Plus, one of the 8 backend models. AMAP is not the Qwen team, so Yes is also defensible. Partly kept"
     }
    ],
-   "warn": "Três autores são da AMAP (Alibaba) e o Qwen 3.6 Plus, da Alibaba, é um dos oito modelos avaliados, mas a AMAP não é a equipa Qwen. Decide se isto conta como fornecedor (Partly) ou não (Yes)."
+   "warn": "Três autores são da AMAP (Alibaba) e o Qwen 3.6 Plus, da Alibaba, é um dos oito modelos avaliados; as ferramentas avaliadas (OpenHands, Claude Code, Codex) não são deles. Decide se conta como fornecedor (Partly) ou não (Yes)."
   },
   {
    "f": "Q13",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485923",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,6 +82,16 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No named SDD approach; the spec-driven source gives the agent a scenario-level specification written before the code, which another reader could classify as spec-first."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No named SDD approach; the spec-driven source gives the agent a scenario-level specification written before the code, which another reader could classify as spec-first."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No named SDD approach; the spec-driven source gives the agent a standardized scenario-level specification with explicit acceptance structure, written before the code, which another reader could classify as spec-first."
     }
    ],
    "warn": "Não há abordagem SDD nomeada, mas as tarefas spec-driven partem de especificações por cenário escritas antes do código; decide se é spec-first ou 'não classificável'."
@@ -167,7 +177,7 @@
      "why": "Per-configuration Task Completion on the new-feature and bug-fix sources (Tables 5 and 7) was missing; only the spec-driven value was given."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -290,9 +300,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The paper does not state who develops DevEco Code (cited as OpenHarmony-SIG); the Huawei link is inferred. The agent is common to all configurations, so Partly vs No is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The paper does not state who develops DevEco Code (cited as OpenHarmony-SIG); the Huawei link is inferred. The agent is common to all configurations, so Partly vs No is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The paper cites DevEco Code as an OpenHarmony-SIG open-source agent and does not say Huawei develops it; the Huawei link is inferred from the DevEco name and author affiliation. The agent is fixed across configurations and the eight models are from other vendors, so Partly vs Yes/No is a judgement."
     }
    ],
-   "warn": "O artigo não diz que a Huawei desenvolve o DevEco Code (só cita OpenHarmony-SIG). Decide se a ligação Huawei conta como fornecedor e se fica Parcial ou Não."
+   "warn": "O artigo não diz que a Huawei desenvolve o DevEco Code (só cita OpenHarmony-SIG). Decide se a ligação Huawei conta como fornecedor e se fica Parcial, Sim ou Não."
   },
   {
    "f": "Q13",

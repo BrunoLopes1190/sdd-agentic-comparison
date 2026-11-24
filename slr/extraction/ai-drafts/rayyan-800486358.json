@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486358",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft gave quality 'works' to every Claude Code arm at 96-98% success, but the authors state only a per-task judge and explicitly no success-rate threshold or non-inferiority margin, so 'works' rested on a cut-off chosen by the extractor (author's rule of 2026-11-23). It also gave comparative verdicts in the single-shot study ('does not work for compression', cost per resolved row vs raw) and 'verdicts as above' for the long-session campaign; each configuration must be judged on its own. Whether the per-task deterministic judges count as an authors' success criterion that licenses a quality verdict is a judgement"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values match Tables 8-12 and 15 and sections 7.5 and 9. Two judgements remain: per-task deterministic judges are stated but no success-rate threshold or non-inferiority margin (p. 27), so quality is left 'no criterion stated'; and the cost verdicts rest on the authors' decision metric (paired CPS change below zero = saving, p. 4), which is relative to the baseline, while the protocol asks for each configuration judged on its own (baseline only gets 'reference')"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values match Tables 8-12 and 15 and sections 7.5 and 9. Two judgements remain: per-task deterministic judges are stated but no success-rate threshold or non-inferiority margin (p. 27), so quality is left 'no criterion stated'; and the cost verdicts rest on the authors' decision metric (paired CPS change below zero = saving, p. 4), which is relative to the baseline, while the protocol asks for each configuration judged on its own (baseline only gets 'reference')"
     }
    ],
-   "warn": "Os autores definem sucesso por tarefa (juízes determinísticos), mas não um limiar de taxa de sucesso nem margem de não-inferioridade (p. 27). Decide se isso basta para dar 'works' à qualidade com 96-98% de sucesso, ou se fica 'no criterion stated'. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os autores só dão juízes por tarefa (sem limiar nem margem, p. 27) e o critério de custo é a variação do CPS face ao baseline (p. 4). Decide se esse critério relativo serve para os veredictos de custo ou se ficam 'no criterion stated'."
   },
   {
    "f": "Comparison: design",

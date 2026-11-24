@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486623",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -259,8 +259,19 @@
    "f": "Q10",
    "v": "Partly (0.5): no threats section; scattered caveats (simulated-user reliability, non-causal associations, token totals)",
    "p": "5, 15, 29",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "There is no limitations or threats section; caveats appear only in passing (simulated-user reliability in related work, non-causal associations, token totals including repeated context). Partly is defensible, but a stricter reader could score No."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No limitations or threats-to-validity section; only scattered caveats (simulated-user reliability p. 5, non-causal associations p. 15, token totals p. 29). Partly is defensible, a stricter reader could score No."
+    }
+   ],
+   "warn": "O artigo não tem secção de limitações; só há ressalvas dispersas (pp. 5, 15, 29). Decide se isso chega para Partly ou se é No."
   },
   {
    "f": "Q11",

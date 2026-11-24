@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486469",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, T., Dai, D., Du, Y., Yang, Z. (2026). From Dead Code and Static Requirements to Working Engines: Software Revival with Coding Agents. arXiv:2609.36161v1 [cs.SE], 28 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.36161v1 [cs.SE], marked 'Preprint.'; no published venue stated (LLM-use statement refers to ICLR's policy, but no acceptance is stated)",
+   "p": "1, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Tsinghua University; UCLA (academic)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — ReviveBench benchmark with two task families (10 software-revival tasks with contamination controls, 13 clean-room engine-reconstruction tasks) graded by hidden verifiers; 8 models from 3 vendors compared under the Claude Code harness; audit of 28 verifier defects and three proposed verifier-validation checks",
+   "p": "1-3, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Harness: Claude Code run headlessly (version not stated), with a local protocol adapter for non-Anthropic models. Models: Fable 5.1, Opus 5, Sonnet 5, Haiku 4.5 (Anthropic endpoint or Amazon Bedrock); GPT-5.6 sol, luna, terra; GLM-5.3 flash. Baseline: no-agent run per task. Ablation: Opus 5 reasoning-effort levels (low, medium, high, xhigh, max). Additional demonstrations with Fable 5.1: plcforge multi-module toolchain built in three phases, and reconstructed engines used as tools",
+   "p": "4, 6, 13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Reconstruction input: a specification (public standards plus task-specific requirements) and three worked examples; existing implementations forbidden. Revival input: the broken repository (for deleted-module tasks also the paper, README and remaining code). plcforge demonstration: architecture with machine-checkable interface contracts. Output: working code in the agent's workspace",
+   "p": "3-4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent run: headless agent in an isolated sandbox with its own virtual environment, fixed turn budget per task and wall-clock limit; hidden verifier scores the result (anti-cheat checks on forbidden packages, downgraded dependencies, modified tests). plcforge: (1) architecture with interface contracts (12 turns, $6.02), (2) implementation (81 turns, $20.56), (3) repair from CI-style symptoms only (80 turns, $12.50). Verifier audit loop: defect detected, fixed, re-score or re-run",
+   "p": "4, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs (headless). Humans (authors) audit the verifiers after runs: achievability probe, candidate consensus, recomputation of self-reported diagnostics",
+   "p": "4, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents restore or build full software from a broken repository or a specification",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach evaluated). Authors' wording: 'clean-room reconstruction, which implements a specified engine without access to its source'; 'specification-to-implementation'",
+   "p": "1, 2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (revival: restore software that no longer runs, rebuild deleted modules) and new project (clean-room reconstruction of engines from specifications)",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "23 tasks: 10 revival (e.g. PyMOL 2.3 C++ build, QuPath 0.2.3 Java platform, Caduceus GPU model; 3 post-cutoff repositories) and 13 reconstruction engines with 4 to 43 verifier checks each. plcforge: six modules, 7,520 lines of Python. Reconstruction solver sizes 134 to 1,560 lines (CFD task). 215 runs (excluding GLM-5.3 flash), 155 valid; GLM adds 33 runs, 13 reported",
+   "p": "3-4, 6-7, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Scientific software (single-cell biology, molecular visualisation, pathology imaging, DNA foundation model) for revival; industrial engines (statistics, SPICE circuit simulation, PLC runtime, finite elements, 2D CAD, logic synthesis, 3D solid modelling, ERP, place and route, CFD/CAE, SCADA/DCS, MES, PLM/BOM) for reconstruction",
+   "p": "3, 5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Cost (USD) per model and per phase (withheld for adapter-driven models as an artifact), total real spend ($610.70), turns, wall time, tokens (output tokens in the ablation)",
+   "p": "4, 6, 8, 13-14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Revival: successful runs / all runs per task and tasks restored; reconstruction: hidden-verifier score of the best protocol run per engine (checks passed) and engines passed against task-level pass thresholds; numerical tolerances (relative RMS, displacement error, log relative error), SAT equivalence, exact traces, transactional invariants",
+   "p": "4-5, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None as outcome metrics; solver lines of code (excluding tests) reported for the CFD case study",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Contamination controls: normalized line-level similarity of rebuilt module to deleted original (0.51-0.96 original, 0.03-0.44 obfuscated); pass rate per cohort (pre-cutoff, obfuscated, post-cutoff). Verifier defects: 28 (24 false negatives, 2 false positives)",
+   "p": "1, 5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden verifiers calibrated against native environments, engineering tools (NIST StRD, ngspice, CalculiX, Yosys, OpenCASCADE, ezdxf+shapely) or reference implementations; full trajectory, code diff, tokens, turns and wall time recorded per run; cost from the harness. Verifier defects found by manual audit",
+   "p": "3-4, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per task: hidden-verifier pass thresholds chosen by the authors; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Revival (tasks restored in at least one run): (1) Claude Code + Fable 5.1: 10/10. (2) Claude Code + Sonnet 5: 8/10 (fails PyMOL after 120-turn budget). (3) Claude Code + Haiku 4.5: 4/10. Reconstruction (engines passed; valid runs; mean turns; cost USD): (4) Fable 5.1: 13/13; 13; 20.8; $95. (5) Opus 5: 13/13; 9; 74.1; $76. (6) Sonnet 5: 10/13; 13; 60.1; $35. (7) Haiku 4.5: 2/13; 15; 80.3; $15. (8) GPT-5.6 sol: 9/13; 13; 30.2; cost withheld. (9) GPT-5.6 luna: 6/13; 13; 35.3; withheld. (10) GPT-5.6 terra: 5/13; 13; 31.0; withheld. (11) GLM-5.3 flash: 7/13; 13; 83.1; withheld. (12) No-agent baseline: fails every task. (13) Ablation, Opus 5 reasoning effort low to max on ERP and 2D CAD: scores unchanged (5/5, 31/31); ERP cost $1.00 to $4.79, CAD $6.95 to $15.93. (14) Fable 5.1 plcforge toolchain: passes all nine acceptance checks incl. 298/300 fuzzed programs, $6.02 + $20.56 + $12.50 over three phases (total $39.08 summed by the extractor, not stated in the text). (15) Fable 5.1 driving the reconstructed 2D CAD kernel: three parts pass all checks in 4-9 turns, under $1.02 each",
+   "p": "4-6, 13-14",
+   "verdict": "uncertain",
+   "why": "Values re-checked against Tables 1-4 and Section 7; the plcforge total ($39.08) is not in the text, so the per-phase costs are now given and the sum marked as computed. Still open: the authors give task-level pass thresholds but no criterion for judging a model as a whole, so whether verdicts can be given is a judgement.",
+   "doubt": "Os autores definem limiares de aprovação por tarefa, mas não um critério para o modelo no todo. Decide se esses limiares contam como critério de sucesso (permitindo veredictos) ou manténs 'no criterion stated'."
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 10 revival and 13 reconstruction tasks. Configurations: Claude Code harness with 3 models (revival) or 8 models from 3 vendors (reconstruction); non-Anthropic models through a local protocol adapter. Baseline: no-agent run per task. Held constant: harness, fixed turn budget per task identical across models, hidden verifiers, isolated environments; wall-clock limits not uniform across batch scripts; adapter strips a protocol flag for GPT-5.6 (changes tool set). Acceptance tests: hidden verifiers with task-level pass thresholds. Repetitions: most cells one or two seeds, best eligible run reported; unequal numbers of attempts. Human intervention: none during runs",
+   "p": "4, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Revival: Fable 5.1 restores 10/10, Sonnet 5 8/10, Haiku 4.5 4/10; obfuscation lowers similarity without lowering any model's pass rate; post-cutoff Fable 5.1 8/9 runs. Reconstruction: Fable 5.1 and Opus 5 13/13, Sonnet 5 10/13, GPT-5.6 sol 9, GLM-5.3 flash 7, luna 6, terra 5, Haiku 4.5 2. Fable 5.1 averages 20.8 turns per engine vs 74.1 for Opus 5; cost does not track capability (Sonnet 5 $35 for 10 engines vs Opus 5 $76 for 13). MES and PLM passed by all models (non-discriminating); CFD task does not establish solver capability. No significance tests",
+   "p": "5-6, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: it separated models on most engines, but two tasks (MES, PLM) do not discriminate and the CFD verifier awarded full marks to a 134-line program with no numerics (false positive). Repeatability not established: authors state results do not establish stable model rankings, pass probabilities or robustness to thresholds. Limitations stated: 28 verifier defects (24 false negatives, 2 false positives), one or two seeds per cell with best-run selection, author-chosen thresholds, cost not comparable across vendors, harness corrections for GLM-5.3 flash, turn budgets can decide outcomes",
+   "p": "6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: small samples and best-run selection; thresholds chosen by the authors; cost not comparable across vendors (adapter pricing artifact); GLM harness corrections and missing output cap in early runs; non-uniform wall-clock limits; unreliable turn counts for failed runs; non-discriminating tasks; CFD verifier graded a self-reported quantity. Gaps: executable verification itself introduces substantial measurement error; reliable evaluation needs validation of grading logic and execution conditions (achievability probes, independent self-tests, recomputed diagnostics, confirmation that settings are enforced); new revival benchmarks should use post-cutoff repositories and obfuscated controls",
+   "p": "5, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: run counts do not add up (215 runs = 155 valid + 37 gateway/quota errors leaves 23 unexplained; the 6 budget-exhausted runs are not placed). Table 3 gives Opus 5 9 valid runs while it passes 13 engines, each needing at least one valid run. Revival claim 'our conclusion provides meaningful suggestions for software design' is not supported by the results. Harness version and turn budget values (other than 120 turns for Sonnet 5 on revival) not stated. Values from Table 1 (revival), Tables 2-3 (reconstruction, rebuilt from jumbled extraction and cross-checked with Figure 2a and Section 6 text) and Table 4 (ablation). Data: reproducibility statement says task definitions, verifiers, trajectories and scripts are archived and released with the benchmark, and 'Codes can be found in this repo', but no link is given. No pre-registration. Programming languages: Python (most tasks, plcforge), C++ (PyMOL), Java (QuPath)",
+   "p": "4-5, 9, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): opening research questions on revival and reconstruction and a contributions list are stated",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): setup, verifiers and protocol conditions described, but harness version, turn budgets per task and prompts are not given and the replication package has no link",
+   "p": "3-4, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and endpoints named; Claude Code harness named without version; adapter not identified",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): all 23 tasks described in tables; release claimed but no link to the benchmark is given",
+   "p": "3-5, 9, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden verifiers calibrated against native environments, engineering tools or reference implementations, independent of the agents",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass criteria and scores defined; cost, turns, tokens and wall time reported (cost withheld for adapter-driven models)",
+   "p": "4, 6, 13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): eight models under the same harness and turn budgets, plus a no-agent baseline for every task",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): one to six runs per cell, but best-run selection and no statistical analysis; authors acknowledge it",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions are qualified by the verifier audit, retract an earlier claim, and report non-discriminating tasks; one unsupported sentence on 'meaningful suggestions for software design'",
+   "p": "5, 7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): dedicated threats-to-validity section (sample size, thresholds, cost comparability, harness corrections, turn counts, non-discriminating tasks)",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors evaluating models of Anthropic, OpenAI and Zhipu; the benchmark they built is an evaluation method, not an evaluated approach",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

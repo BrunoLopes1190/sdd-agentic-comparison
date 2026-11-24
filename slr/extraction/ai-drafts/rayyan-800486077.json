@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486077",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -161,7 +161,7 @@
      "why": "The release-note-only setting gave only one example (gpt-5); every configuration needs its own entry, so all 20 values of Table 4 were added"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -228,9 +228,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Tasks are described in detail and a GitHub URL is given on p. 1, but Appendix K describes the release in the future tense ('We will release'); whether the data is actually available decides Partly vs Yes"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Tasks and statistics are described in detail and a GitHub URL is given on p. 1, but Appendix K (p. 22) and the Limitations (p. 11) describe the release in the future tense ('We will release'); whether the data is actually available decides Partly vs Yes"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Tasks, statistics, dataset fields and two example problem statements are described in detail and a GitHub URL is on p. 1, but Appendix K (p. 22) and the Limitations (p. 11) put the release of metadata, scripts and harness in the future tense ('We will release', 'We plan to release'); whether the data is actually available decides Partly vs Yes"
     }
    ],
-   "warn": "O artigo dá o URL github.com/SWE-EVO/SWE-EVO mas o Apêndice K diz que os dados 'serão' publicados. Verifica se o repositório tem os dados e escolhe Yes ou Partly."
+   "warn": "O artigo dá o URL do GitHub mas diz que os dados e scripts 'serão' publicados (Apêndice K, Limitações). Confirma se o repositório já tem os dados e escolhe Partly ou Yes."
   },
   {
    "f": "Q5",

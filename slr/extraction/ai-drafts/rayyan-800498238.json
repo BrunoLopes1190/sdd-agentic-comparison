@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498238",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -75,9 +75,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No SDD approach is run; the constraint lists are task instructions of a benchmark. 'Specification format only' is one reading; another reader could record N/A (no SDD workflow, only constrained natural-language developer instructions)."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No SDD approach is run; the constraint lists are task instructions of a benchmark (natural developer instruction plus structured constraint object). 'Specification format only' is one reading; another reader could record N/A (no SDD workflow, only constrained natural-language developer instructions)."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No SDD approach is run; the constraint lists are benchmark task instructions (natural developer instruction plus structured constraint object). 'Specification format only' is one reading; N/A (no SDD approach exercised) is another defensible one."
     }
    ],
-   "warn": "Não há abordagem SDD; as restrições são apenas instruções de tarefa do benchmark. Decide se 'specification format only' se aplica ou se o campo deve ser N/A, de forma coerente com outros benchmarks."
+   "warn": "Não há abordagem SDD; as restrições são só instruções de tarefa do benchmark. Decide se fica 'specification format only' ou N/A, de forma coerente com os outros benchmarks."
   },
   {
    "f": "SDD level",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486795",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -217,8 +217,19 @@
    "f": "Q4",
    "v": "Partly (0.5): tasks described with an example specification and workflows, generated apps and trajectories released; the benchmark splits are private/held out, so the tasks themselves are not available",
    "p": "1, 3, 11, 20",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Tasks are well described (example spec and workflows in App. H-I, Tables 3, 11-13), but availability is unclear: the abstract calls the validation split private and the test split held out, Table 3 labels validation 'public', and App. A only links trajectories and generated apps, without saying whether the specifications are in that repository. Partly kept as best value."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Tasks are well described (example spec and workflows in App. H-I; Tables 3, 11-13), but availability is unclear: abstract and §3.1 call the validation split private and the test split held out, Table 3 labels validation 'public', and App. A links only the scaffold, trajectories and generated apps, without saying whether the specifications are released. Partly kept as best value."
+    }
+   ],
+   "warn": "Não é claro se as especificações estão disponíveis: o resumo diz 'private validation' e 'held-out test', a Tabela 3 diz 'Validation (public)'. Verifica o repositório vibe-code-bench-paper-artifacts e decide entre Partly e Yes."
   },
   {
    "f": "Q5",

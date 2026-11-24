@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486313",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -173,9 +173,15 @@
   },
   {
    "f": "Comparison: did the method work",
-   "v": "Separated Agent-Rigor from the other three, which it did not distinguish from one another; Abstention Quality (0.56-0.57) and Recovery Efficiency compressed by the scoring design. Repeatability not assessed (essentially one run per task). Limitations stated: construct bias and circularity (authors built Agent-Rigor; pillars measure what it enforces), single discipline framework, LLM-as-judge biases without human validation, within-harness non-significance, sample size, temporal validity, contamination",
+   "v": "Separated Agent-Rigor from the other three, which it did not distinguish from one another. Abstention Quality compressed (0.56-0.57) by the scoring design (80 non-KWF tasks get a default 0.50); Recovery Efficiency compressed (0.54-0.63) because recovery is mostly binary in the tasks (immediate recovery or loop until timeout). Repeatability not assessed (essentially one run per task). Limitations stated: construct bias and circularity (authors built Agent-Rigor; pillars measure what it enforces), single discipline framework, LLM-as-judge biases without human validation, within-harness non-significance, sample size, temporal validity, contamination",
    "p": "6-7",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The draft attributed the Recovery Efficiency compression to the scoring design; the text (p. 6) attributes it to the binary nature of recovery in many tasks, and only the Abstention Quality compression to the scoring (default 0.50 on 80 tasks)"
+    }
+   ],
    "warn": ""
   },
   {
@@ -285,9 +291,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement call: the paper presents Agent-Rigor as 'the authors' own harness' and contribution 4 is to 'demonstrate the value of structured discipline' with it, which a reader could treat as proposing and evaluating an approach (Q13 would then apply). If applied, the text gives the model (Gemini 3.5 Flash) and about 37,400 tokens per task but no tool or cost requirements of the harness, so Partly at most"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement call kept from round 1: Agent-Rigor is the authors' own harness, published earlier on GitHub [18] and evaluated, not introduced, here; but contribution 4 is to 'demonstrate the value of structured discipline' with it and the COI section frames it as 'a harness demonstrating the feasibility', which a reader could treat as proposing and evaluating an approach. If Q13 applies: only the model (Gemini 3.5 Flash) and about 37,400 tokens per task are given, so Partly at most"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement call: Agent-Rigor is the authors' own harness, published earlier on GitHub [18] and evaluated rather than introduced here; but contribution 4 is to 'demonstrate the value of structured discipline' with 'our harness', and the COI section frames it as 'a harness demonstrating the feasibility', which a reader could treat as proposing and evaluating an approach. If Q13 applies: only the model (Gemini 3.5 Flash) and about 37,400 tokens per task are given, so Partly at most"
     }
    ],
-   "warn": "O Agent-Rigor é dos autores mas vem de um repositório anterior; decide se o artigo também o propõe. Se sim, Q13 aplica-se (provavelmente Partly: só modelo e tokens são indicados). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O Agent-Rigor é dos autores mas vem de um repositório anterior; decide se o artigo também o propõe. Se sim, Q13 aplica-se (provavelmente Partly: só modelo e tokens são indicados)."
   },
   {
    "f": "DARE1",

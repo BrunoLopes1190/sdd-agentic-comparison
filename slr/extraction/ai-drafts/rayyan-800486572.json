@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486572",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -166,10 +166,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "R1: Fable 5 best under both harnesses (92.42 Claude Code, 88.98 OpenHands); Kimi-K3 lowest (78.93, 77.54). Code quality does not determine UX (e.g. OpenHands GLM-5.2 leads DeepSeek-V4-Pro in code quality but trails by 7.48 pp in UX). Rubric-guided revision raises Total by 10.05 pp on average over 19 configurations, max +19.28 (DeepSeek-V4-Pro, Claude Code), min +4.95 (Fable 5, Claude Code); unguided U2 also improves every configuration but less (R2-U2 from +2.95 to +13.50 pp). Harness matters: GLM-5.3 starts at 84.76 vs 84.90 but ends 6.88 pp higher under Claude Code. Some tasks regress (Table 2). Recovery: 82.6% workspace acceptance (38/46), mean replay score 0.9175, 90.2% of 132 cases >= 0.8. Judge: usability agreement 93.0% vs 92.9% for humans; weighted kappa Agent-GT 0.173 vs Human-GT 0.542",
+   "v": "R1: Fable 5 best under both harnesses (92.42 Claude Code, 88.98 OpenHands); lowest R1 Total is MiniMax-M3 under Claude Code (76.64) and Kimi-K3 under OpenHands (77.54) (from Table 1; the text names no lowest model). Code quality does not determine UX (e.g. OpenHands GLM-5.2 leads DeepSeek-V4-Pro in code quality but trails by 7.48 pp in UX). Rubric-guided revision raises Total by 10.05 pp on average over 19 configurations, max +19.28 (DeepSeek-V4-Pro, Claude Code), min +4.95 (Fable 5, Claude Code); unguided U2 also improves every configuration but less (R2-U2 from +2.95 to +13.50 pp). Harness matters: GLM-5.3 starts at 84.76 vs 84.90 but ends 6.88 pp higher under Claude Code. Some tasks regress (Table 2). Recovery: 82.6% workspace acceptance (38/46), mean replay score 0.9175, 90.2% of 132 cases >= 0.8. Judge: usability agreement 93.0% vs 92.9% for humans; weighted kappa Agent-GT 0.173 vs Human-GT 0.542",
    "p": "1, 6-8, 30, 32, 35",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Kimi-K3 was given as the lowest R1 Total under both harnesses (78.93, 77.54), but under Claude Code Table 1 gives MiniMax-M3 76.64, DeepSeek-V4-Pro 76.85 and GPT-5.5 78.10, all below Kimi-K3; Kimi-K3 is lowest only under OpenHands."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -196,7 +202,7 @@
      "why": "'Group buying' does not appear in the text; the taxonomy (Table 18, p. 39) lists Food & Drink – Takeout but no group-buying category."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -284,9 +290,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "LongCat-2.0 (Meituan) is one of the evaluated models; four co-authors (Zhu, Yang, Cao, Cai) are listed only as 'Independent Researcher', and the cited CATArena and Asuka-Bench papers share these co-authors, but no vendor affiliation is stated in the text. Yes vs Partly depends on whether the author treats this as a vendor link."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "LongCat-2.0 (Meituan) is one of the evaluated models; four co-authors (Zhu, Yang, Cao, Cai) are listed only as 'Independent Researcher', and the cited CATArena and Asuka-Bench papers share these co-authors, but no vendor affiliation is stated in the text. Yes vs Partly depends on whether the author treats this as a vendor link."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "LongCat-2.0 (Meituan model card) is one of the evaluated models; four co-authors (Zhu, Yang, Cao, Cai) are listed only as 'Independent Researcher', and the cited CATArena and Asuka-Bench papers share these co-authors, but no vendor affiliation is stated in the text. Yes vs Partly depends on whether the author treats this as a vendor link."
     }
    ],
-   "warn": "Um dos modelos avaliados é o LongCat-2.0 (Meituan) e quatro coautores aparecem só como 'Independent Researcher'. Verifica as afiliações reais (ex.: Xunliang Cai) e decide se Q12 fica Yes ou Partly."
+   "warn": "O LongCat-2.0 (Meituan) é avaliado e quatro coautores aparecem só como 'Independent Researcher'. Verifica se têm ligação ao fornecedor; se sim, Q12 passa a Parcial."
   },
   {
    "f": "Q13",

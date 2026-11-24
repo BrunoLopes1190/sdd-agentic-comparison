@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486505",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "The draft said the programming language is not stated explicitly; App. D.1 (p. 19) requires every feature to be a self-contained client-side React application. Also noted that the Table 2 runtime-error values were mapped from a detached column."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -256,10 +256,21 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): conclusions follow; the authors decline to rank within-noise gaps and report where rankings change",
+   "v": "Yes (1): main conclusions follow; the authors decline to rank within-noise gaps (Fable 5 vs Kimi K3, Opus 4.8 vs Sonnet 4.6) and report where rankings change; but some claims go beyond the evidence: 'Higher scores thus come from token and turn efficiency' (p. 7) is a causal reading of 14 models, and 'difficulty compounds along the DAG' rests on linear fits over requests 8-10 without confidence intervals",
    "p": "6-9, 21-23",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: the ranking claims are hedged, but the token-efficiency explanation (p. 7) and the DAG-difficulty claim (p. 8; App. F admits no CIs for the DAG analysis) are stated firmly on descriptive evidence; another reader could score Partly."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Judgement: the ranking claims are hedged, but the token-efficiency explanation (p. 7) and the DAG-difficulty claim (p. 8; App. F admits no CIs for the DAG analysis) are stated firmly on descriptive evidence; another reader could score Partly."
+    }
+   ],
+   "warn": "As conclusões principais seguem dos dados, mas a frase 'Higher scores thus come from token and turn efficiency' (p. 7) e a análise do DAG sem intervalos de confiança são afirmações fortes; decide entre Yes e Partly."
   },
   {
    "f": "Q10",

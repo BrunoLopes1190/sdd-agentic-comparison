@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498087",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -196,7 +196,7 @@
      "why": "Missed reporting inconsistency on the number of changes per turn (5 in Section 3.2 vs 6 in Appendix D)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",

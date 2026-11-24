@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486491",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -10,6 +10,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "The extracted title block lists six authors on one line and 'Zhimu Huang2' on a separate line, so the position of Huang in the author order cannot be settled from the text."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The extracted title block lists six authors on one line and 'Zhimu Huang2' on a separate line, so the position of Huang in the author order cannot be settled from the text."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "The extracted title block lists six authors on one line and 'Zhimu Huang2' on a separate line, so the position of Huang in the author order cannot be settled from the text."
     }
@@ -261,6 +271,16 @@
    "rev": [
     {
      "round": 1,
+     "verdict": "uncertain",
+     "why": "Judgement: the 'decoupled from task capability' claim rests on a non-significant positive correlation over 8 configurations (rho = 0.55, p = 0.17), which another reader may accept as consistent with 'does not ensure' (Yes) or see as overstated (Partly). Other conclusions follow and the non-significant transfer result is reported."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Judgement: the 'decoupled from task capability' claim rests on a non-significant positive correlation over 8 configurations (rho = 0.55, p = 0.17), which another reader may accept as consistent with 'does not ensure' (Yes) or see as overstated (Partly). Other conclusions follow and the non-significant transfer result is reported."
+    },
+    {
+     "round": 3,
      "verdict": "uncertain",
      "why": "Judgement: the 'decoupled from task capability' claim rests on a non-significant positive correlation over 8 configurations (rho = 0.55, p = 0.17), which another reader may accept as consistent with 'does not ensure' (Yes) or see as overstated (Partly). Other conclusions follow and the non-significant transfer result is reported."
     }

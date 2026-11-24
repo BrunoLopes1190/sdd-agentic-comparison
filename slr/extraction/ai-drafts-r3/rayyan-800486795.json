@@ -1,0 +1,316 @@
+{
+ "key": "rayyan-800486795",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Tran, H., Nashold, L., Krishnan, R., Bigeard, A., Gu, A. (2026). Vibe Code Bench: Evaluating AI Models on End-to-End Web Application Development. In: Proceedings of the ACM Conference on AI and Agentic Systems (CAIS '26), San Jose, CA, USA. ACM. https://doi.org/10.1145/3786335.3813180. Read from arXiv:2603.04601v3 [cs.SE], 13 May 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — CAIS '26 (ACM Conference on AI and Agentic Systems, San Jose), DOI 10.1145/3786335.3813180 (venue from the ACM export, slr/exports/acm-S2-2026-11-18.bib); full text read from arXiv:2603.04601v3 (access log: 'arXiv version of the DOI record')",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Vals AI, San Francisco, USA (Tran, Nashold, Krishnan, Bigeard); Massachusetts Institute of Technology, USA (Gu)",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — Vibe Code Bench (VCB), a benchmark of 100 natural-language web application specifications with 964 browser workflows (10,131 substeps) scored by an autonomous browser agent; 16 frontier models compared in one OpenHands-based harness; evaluator-alignment study (cross-model and three human annotators) and variance analysis",
+   "p": "1, 3-5, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations compared: a modified fork of OpenHands (VibeCodeBench-Openhands-Scaffold; no version stated) with 16 models: GPT-5.3-Codex, GPT-5.2, GPT-5.2-Codex, GPT-5 Mini, Claude Opus 4.6, Claude Opus 4.6 Thinking, Claude Sonnet 4.6, Claude Haiku 4.5 Thinking, Gemini 3.1 Pro, Gemini 3 Flash, Qwen3.5 Plus Thinking, Grok 4.1 Fast Reasoning, Kimi-K2.5 Thinking, MiniMax M2.5, GLM-5, DeepSeek V3.2 Thinking (model IDs in Table 15)",
+   "p": "4-5, 11, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task, a concise natural-language application specification written from a non-technical perspective (overview, user roles, authentication, core features, content and constraints, primary user flows; example in App. H), shown to the model. A fixed system prompt (App. G) prescribes the stack (React + Vite, Tailwind CSS, Supabase; Express only if needed), Docker Compose deployment, migrations in supabase/migrations/, an idempotent seed routine, screenshots of self-testing, and two READMEs (TECHNICAL_README.md, USER_README.md). Workflow test definitions (6-23 per task) are benchmark artefacts used by the evaluator",
+   "p": "3-4, 16-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark construction: idea generation; GPT-5 draft of specification and 6-23 UI workflows; two-pass human review by PM reviewers; audit (PM line review + LLM audit) and freeze. Generation: agent builds the app from the specification in an isolated container (scaffold, edit, database setup, app launch, browser self-test, submit) within up to 5 h. Evaluation: deployment verification; workflow execution by the Browser Use agent; workflow scoring (pass at >=90% substeps); application aggregation",
+   "p": "3-5, 7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Benchmark construction only: two PM reviewers edit and finalize each task (Accept/Modify/Reject per test), line review of each workflow before freeze. None during generation (the agent 'CANNOT interact with the user')",
+   "p": "3, 16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); the agent runs an autonomous end-to-end build from a natural-language specification",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of models building apps from natural-language specifications); authors do not use SDD terms, framing is 'vibe coding' / 'zero-to-one'",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "New project (greenfield, 'zero-to-one' web applications built from scratch)",
+   "p": "1, 3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "100 specifications (50 validation, 50 test; results reported on the 50-task test split); 964 workflows, 10,131 substeps (test: 473 workflows, 5,136 substeps); 6-23 workflows per task; 28/100 apps need Stripe and/or email; up to 5 h generation per app. Size of generated code Not stated",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Web applications: Individual (24), Solo Founder (45), Enterprise Tool (31); third-party services Stripe (payments) and MailHog email; Supabase backend",
+   "p": "3",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no developers; autonomous agent). Specifications reviewed by PMs; human alignment study with three expert annotators (profile not detailed)",
+   "p": "3, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total model API cost of generation per application (USD, native provider pricing, no discount, caching accounted); latency = end-to-end wall-clock generation time per application (min); evaluator cost per workflow quoted ($0.093 GPT-5.2, $1.48 Sonnet 4.6)",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Accuracy = percentage of workflows passing per application (a workflow passes when >=90% of its substeps succeed), mean +/- SE over the 50 test applications; share of apps scoring zero / 100%; apps failing to start; accuracy by difficulty, integration and domain",
+   "p": "5-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (code readability, design quality and security explicitly not measured)",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Tool-call distribution per model (Table 8); browser calls per app and Pearson correlation with accuracy (r=0.72; partial r=0.72 controlling for latency; edit calls r=0.09); trajectory action composition; six-category error taxonomy of failed workflows; generation vs evaluator variance decomposition; pairwise step-level agreement between evaluators (model-model, model-human, human-human)",
+   "p": "7-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Browser Use agent with Claude Sonnet 4.5 (vision, headless 1920x1200, max 100 steps per workflow) executes the pre-authored workflows on the deployed app and returns LLM-as-judge substep pass/fail; cost and latency from generation runs. Manual: human alignment study (18 apps, 1,401 substeps, two of three blind human evaluators per app). Method used to assign the error taxonomy Not stated",
+   "p": "4-5, 8-9, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: none stated by the authors for a configuration (a workflow passes at >=90% substeps; accuracy = % workflows passed). Values on the test split (Table 4): accuracy +/- SE; mean cost USD per app; mean latency. One generation per app; quality verdict and cost verdict for every entry: no criterion stated by the authors.\n- OpenHands fork + GPT-5.3-Codex: 61.77 +/- 4.71%; $11.91; 75.8 min\n- OpenHands fork + Claude Opus 4.6: 57.57 +/- 4.37%; $8.69; 21.3 min\n- OpenHands fork + GPT-5.2: 53.50 +/- 5.07%; $17.75; 82.9 min\n- OpenHands fork + Claude Opus 4.6 Thinking: 53.50 +/- 4.68%; $8.28; 23.1 min\n- OpenHands fork + Claude Sonnet 4.6: 51.48 +/- 4.64%; $5.91; 26.2 min\n- OpenHands fork + GPT-5.2-Codex: 37.91 +/- 4.58%; $4.15; 32.2 min\n- OpenHands fork + Gemini 3.1 Pro: 32.03 +/- 4.34%; $3.83; 20.2 min\n- OpenHands fork + GLM-5 (no vision): 23.36 +/- 4.03%; $40.27; 224.3 min\n- OpenHands fork + Gemini 3 Flash: 20.20 +/- 3.95%; $0.94; 13.4 min\n- OpenHands fork + Kimi-K2.5 Thinking: 17.54 +/- 3.26%; $0.88; 42.8 min\n- OpenHands fork + Qwen3.5 Plus Thinking: 15.74 +/- 3.18%; $3.80; 50.3 min\n- OpenHands fork + MiniMax M2.5 (no vision): 14.85 +/- 2.95%; $2.20; 51.1 min\n- OpenHands fork + GPT-5 Mini: 14.17 +/- 3.54%; $0.25; 11.6 min\n- OpenHands fork + Claude Haiku 4.5 Thinking: 11.39 +/- 3.13%; $1.31; 12.9 min\n- OpenHands fork + DeepSeek V3.2 Thinking (no vision): 5.11 +/- 2.13%; $2.47; 56.1 min\n- OpenHands fork + Grok 4.1 Fast Reasoning: 1.20 +/- 1.20%; $0.21; 8.8 min\n- Ablation (20-app subset, values only in Fig. 4): reasoning effort low/medium/max: GPT models and Gemini 3.1 Pro rise with effort, Opus 4.6 unaffected\n- Ablation (20-app subset, values only in Fig. 5): vision disabled lowers GPT-5.3-Codex and Gemini 3.1 Pro, little effect on Opus 4.6 Thinking\n- Variance panel (6 apps x 5 generations): generation accuracy Gemini 3.1 Pro 19.38 +/- 3.47%, GPT-5.2 51.63 +/- 3.95%, Claude Sonnet 4.6 47.65 +/- 5.00%",
+   "p": "5-8, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: VCB test split (50 specifications, 473 workflows). Configurations: 16 models from 9 providers in the same OpenHands-based harness. Baseline: none (models ranked against each other). Held constant: harness, system prompt, mandated tech stack, 22 tools, containerised environment with Supabase/MailHog/Stripe, wall-clock budget up to 5 h per app, retry policy, evaluator (Browser Use + Claude Sonnet 4.5, 100 steps, pass at >=90% substeps). Varied per model to elicit best performance: temperature, top-p, highest reasoning level; vision unavailable for GLM-5, MiniMax M2.5, DeepSeek V3.2. Acceptance tests: pre-authored browser workflows reviewed by PMs, judged by the LLM browser agent; checked against human annotators. Repetitions: one generation per app per model in the main results; variance panel of 6 apps x 3 models x 5 generations and 5 evaluator reruns. Human intervention: none",
+   "p": "3-5, 8, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5.3-Codex best (61.8%), then Claude Opus 4.6 (57.6%), GPT-5.2 and Opus 4.6 Thinking (53.5%), Sonnet 4.6 (51.5%); open-weight models 15-24% (GLM-5 23.4%); lowest Grok 4.1 Fast Reasoning (1.2%). Gap MiniMax M2.5 vs Opus 4.6: 2.8% on SWE-Bench vs 42.7% on VCB. Higher cost and latency associated with higher accuracy with diminishing returns; Opus 4.6 near-top accuracy at lower cost and latency than GPT-5.3-Codex. Browser calls per app correlate with accuracy (r=0.72). All-model average falls from 34.18% (no integration) to 13.49% (email + Stripe), and from 44.29% (easy) to 21.36% (medium) to 6.03% (hard). Top-5 models: 12.8% of apps score zero vs 73.2% for bottom-5; 14.0% of bottom-5 apps fail to start. Only SE reported, no significance tests; authors say near-tie differences require caution",
+   "p": "1, 6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models strongly (1.2-61.8%), more than SWE-Bench. Repeatability: generation SE 3.47-5.00 points vs evaluator-rerun SE 0.99-3.00 on the 6-app panel; 73.5-92.5% of variance from generation; authors conclude major rankings are robust, near-ties need caution. Evaluator choice matters: GPT-5.2 agrees 33.1-38.8% with other model evaluators and 36.1% with humans, Claude Sonnet 4.5 86.4% with humans; human-human 88.6-93.6%. Limitations of the method stated: single harness, single tech stack, web applications only, code/design quality not measured",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: design and code quality (readability, security, documentation, visual design) not measured; single OpenHands-based harness (other harnesses may score higher); single stack (React/Vite + Supabase); web applications only. Gaps: reliable end-to-end application development remains unsolved; improvement comes mainly from fewer complete failures; self-testing associated with success; evaluator choice should be a first-class reporting concern; 'zero-to-one' for CLI, desktop and mobile apps unexplored",
+   "p": "9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistency: the validation split is called 'private validation' in the abstract and text (p. 1, 3) but 'Validation (public)' in Table 3 (p. 4); the ACM abstract in the queue says '50 public validation'. Section headings out of order in the extracted text (5.2 before 5/5.1, p. 7). Validation-split results not reported. Vision disabled for three models, so conditions are not fully identical. Tech stack mandated in the system prompt after preliminary runs. Replication: modified OpenHands scaffold and all trajectories and generated apps on GitHub (vals-ai); system prompt, example spec and tests in App. G-I; test split held out. No pre-registration. Programming languages: JavaScript/TypeScript (React + Vite, Node/Express), SQL (Supabase/PostgreSQL)",
+   "p": "1, 3-4, 7, 11, 16-20",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal (zero-to-one app development benchmark) and five contributions stated; no formal RQs",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data construction, harness, system prompt, hyper-parameters (Tables 15-16), evaluator configuration and scoring described; scaffold released",
+   "p": "3-5, 11, 15-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model IDs given (Table 15) and evaluator Claude Sonnet 4.5 named, but the OpenHands base version and the Browser Use version are not stated",
+   "p": "4, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described with an example specification and workflows, generated apps and trajectories released; the benchmark splits are private/held out, so the tasks themselves are not available",
+   "p": "1, 3, 11, 20",
+   "verdict": "uncertain",
+   "why": "Tasks are well described (example spec and workflows in App. H-I; Tables 3, 11-13), but availability is unclear: abstract and §3.1 call the validation split private and the test split held out, Table 3 labels validation 'public', and App. A links only the scaffold, trajectories and generated apps, without saying whether the specifications are released. Partly kept as best value.",
+   "doubt": "Não é claro se as especificações estão disponíveis: o resumo diz 'private validation' e 'held-out test', a Tabela 3 diz 'Validation (public)'. Verifica o repositório vibe-code-bench-paper-artifacts e decide entre Partly e Yes."
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): pre-authored, PM-reviewed browser workflows act as acceptance tests; the LLM evaluator is validated against three human annotators (86.4% agreement for Sonnet 4.5)",
+   "p": "3-4, 8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): accuracy, cost and latency defined; cover quality and cost",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 16 models evaluated under the same harness, prompt, budget and evaluator (vision unavailable for three)",
+   "p": "4-5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): SE across apps and a variance panel (6 apps x 3 models x 5 runs), but one generation per app in the main results and no significance tests",
+   "p": "5, 8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results; caution on near-ties and evaluator dependence stated",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (four items) plus variance and evaluator-alignment analyses",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ACM CAIS '26 conference proceedings (from the ACM export); full text read from arXiv",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Vals AI and MIT; not vendors of the evaluated models or of OpenHands",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

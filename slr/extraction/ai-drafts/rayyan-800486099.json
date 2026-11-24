@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486099",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -26,9 +26,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The only venue evidence is the ACM template header (MSR '26, Rio de Janeiro), which still has the placeholder conference title and DOI; the record came only from the arXiv export, so publication at MSR 2026 is not confirmed"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The only venue evidence is the ACM template header (MSR '26, April 13-14, 2026, Rio de Janeiro) on pp. 1-5, which still carries the placeholder conference title ('Make sure to enter the correct conference title...') and DOI; the text read is the arXiv v1, so acceptance at MSR 2026 is not confirmed by the text"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The only venue evidence is the ACM template header and running head (MSR '26, April 13-14, 2026, Rio de Janeiro) on pp. 1-5, whose reference format still carries the placeholder conference title ('Make sure to enter the correct conference title...') and DOI XXXXXXX; the text read is arXiv v1, so acceptance at MSR 2026 is not confirmed by the text itself"
     }
    ],
-   "warn": "O cabeçalho ACM indica MSR '26, mas o título da conferência e o DOI são placeholders e o registo só veio do arXiv. Confirma se foi publicado no MSR 2026; se não, passa a Preprint."
+   "warn": "O cabeçalho ACM indica MSR '26, mas o título da conferência e o DOI ainda são marcadores de modelo. Confirma se o artigo foi publicado no MSR 2026; se não, passa a Preprint."
   },
   {
    "f": "Author affiliation",
@@ -277,9 +287,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Depends on the venue: Yes only if the MSR '26 acceptance shown in the ACM header is real; the header keeps placeholder text and DOI"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Depends on the venue: Yes only if the MSR '26 acceptance shown in the ACM header is real; the header keeps placeholder conference title and DOI, so a preprint reading (No) is also possible"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Depends on the venue: Yes only if the MSR '26 publication shown in the ACM header is real; the header keeps a placeholder conference title and DOI, so a preprint reading (No) is also possible"
     }
    ],
-   "warn": "Depende de o artigo ter sido mesmo aceite no MSR '26 (o cabeçalho tem placeholders). Se confirmares a publicação fica Yes; se não, No."
+   "warn": "Depende da publicação no MSR 2026, que o texto não confirma (título e DOI são marcadores). Se confirmares a publicação fica Yes; caso contrário No."
   },
   {
    "f": "Q12",

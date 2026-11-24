@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486347",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -187,10 +187,16 @@
   },
   {
    "f": "Notes",
-   "v": "Title page dated May 2026, arXiv v1 8 Jul 2026. pass@4 values for GPT-5.4 (77%) and Opus 4.7 (86%) assigned from the order in the extracted Figure 1 text; pass@4 for Haiku 4.5 and MiniMax-M2.7 not legible. Per-model cost medians (Fig. 8), legitimate-pass shares (Fig. 9) and test-writing shares (Fig. 10) only partly legible. Consistency checks: 668/120 lines ≈ 5.5×; languages TypeScript 35, Go 34, Python 34, Rust 5, JavaScript 5 = 113. Table 3 writes 'Qwen3-6 Plus'. Released: benchmark, verifiers, per-run scores, full trajectories (https://github.com/datacurve-ai/deep-swe; browser at https://deepswe.datacurve.ai/); judge prompt withheld. No pre-registration. Programming languages of tasks: TypeScript, Go, Python, JavaScript, Rust",
-   "p": "1-2, 6, 13-14, 20-21, 25",
-   "rev": [],
-   "warn": ""
+   "v": "Title page dated May 2026, arXiv v1 8 Jul 2026. pass@4 values for GPT-5.4 (77%) and Opus 4.7 (86%) assigned from the order in the extracted Figure 1 text; pass@4 for Haiku 4.5 and MiniMax-M2.7 not legible. Harness-pilot median output tokens (59k/48k, 16k/25k, 18k/15k) are not given in the prose; the mini-swe-agent vs native assignment was rebuilt from the order in the extracted Figure 6 text (the Gemini pass-rate bars appear there in reversed order, so the token assignment is not certain). Per-model cost medians (Fig. 8), legitimate-pass shares (Fig. 9) and test-writing shares (Fig. 10) only partly legible. Consistency checks: 668/120 lines ≈ 5.5×; languages TypeScript 35, Go 34, Python 34, Rust 5, JavaScript 5 = 113. Table 3 writes 'Qwen3-6 Plus'. Released: benchmark, verifiers, per-run scores, full trajectories (https://github.com/datacurve-ai/deep-swe; browser at https://deepswe.datacurve.ai/); judge prompt withheld. No pre-registration. Programming languages of tasks: TypeScript, Go, Python, JavaScript, Rust",
+   "p": "1-2, 6, 10-11, 13-14, 20-21, 25",
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Rebuilt values not flagged: the harness-pilot token medians in Evaluation come only from Figure 6, whose extracted order is unreliable (Gemini pass rates read 20% 40% while the text gives 40% mini vs 20% native); the rule asks that rebuilt values be noted."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",

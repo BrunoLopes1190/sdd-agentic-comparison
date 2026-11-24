@@ -1,0 +1,317 @@
+{
+ "key": "rayyan-800485997",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, V., Talwalkar, A., Brennan, R., Neubig, G. (2026). Code with Me or for Me? How Increasing AI Automation Transforms Developer Workflows. In: Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26), ACM. https://doi.org/10.1145/3772318.3790850. Read from arXiv:2507.08149v2 [cs.SE], 13 Sep 2025",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — CHI 2026 (ACM Conference on Human Factors in Computing Systems), DOI 10.1145/3772318.3790850 (venue from the ACM/WoS exports); full text read from arXiv:2507.08149v2",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Carnegie Mellon University (Chen, Talwalkar, Neubig); All Hands AI (Chen, Brennan, Neubig), the company behind OpenHands, the agent evaluated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares — controlled within-participant user study (20 developers) of a coding copilot (GitHub Copilot) vs a coding agent (OpenHands) on productivity, user experience and interaction patterns",
+   "p": "1-2, 5, 7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Tools compared: GitHub Copilot (copilot baseline; autocomplete plus chat with ask/edit/agent modes; version not stated) and OpenHands (coding agent, web app, versions 0.35-0.38)",
+   "p": "5-6, 21-22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach prescribing artefacts). Participants received a task description (instructions.txt) and starter repository per task; final code pushed to a GitHub repository",
+   "p": "7-8, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed. Observed workflow steps (Fig. 5): implement functionality, environment set-up, debug implementation; with the agent, set-up and debugging shift to the AI",
+   "p": "11-12",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "Not prescribed by an approach. Copilot: edit and agent mode proposals must be accepted by the user; OpenHands: acts autonomously, the user inspects outputs and sends new instructions between agent turns",
+   "p": "6, 12-13, 21",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full interactive use of each tool by participants (40 min per condition); no SDD approach exercised",
+   "p": "7-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Both: data analysis programs from scratch (GAIA, extended) and existing code bases (add feature to matplotlib; fix bugs in scikit-learn and astropy, from SWE-Bench)",
+   "p": "7, 22-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "6 tasks (2 per type: data analysis, add feature, fix bug); 20 participants; 40 min per condition, about 90 min total per participant. Repository sizes Not stated (real-world libraries matplotlib, scikit-learn, astropy)",
+   "p": "5, 7-8, 22-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Python scientific/data libraries (matplotlib, scikit-learn, astropy) and web data analysis (home sales, TV show statistics)",
+   "p": "7, 22-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "20 students recruited via university mailing lists, working individually; regular GitHub Copilot users (at least weekly), no prior coding-agent experience; 60% 3-5 years professional programming experience, 25% 0-2, 15% 6-10; 95% intermediate to advanced Python",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "No tokens or money. Time: agent condition total time including agent actions averaged 27.9 min (reported in text, not a planned metric)",
+   "p": "10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task correctness rate: whether the final code satisfies all task specifications",
+   "p": "8-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "User effort time for correctly solved tasks (copilot: total time start to end; agent: sum of time between the agent's last action before a user message and its first action after it, i.e. inspecting and writing instructions). Likert ratings incl. cognitive load",
+   "p": "8-10",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "User experience: 5-point Likert ratings on 6 comparison statements (cognitive load, new tasks, speed, flow, satisfaction, understanding of outputs) and 2 future-usage statements; qualitative survey answers; interaction trajectories (exploratory)",
+   "p": "8-13, 27-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: OpenHands event stream telemetry (time). Manual: copilot screen recordings coded manually; final code snapshots pushed to GitHub and judged for correctness (grader and procedure not described); post-study Google form (Likert, open-ended). Analysis: linear model with condition and problem as fixed effects (alpha 0.05); Wilcoxon signed-rank test of Likert medians against neutral 3",
+   "p": "8-9, 27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) Baseline: GitHub Copilot (version not stated) + participant-chosen LLM (GPT-4o, Claude Sonnet 3.7, Gemini 2.5 Pro or o3-mini) + human participant. Success criterion: per task, code satisfies all task specifications; no criterion stated by the authors for the configuration. Values: task correctness mean 25% (SE 10%); user effort 25.1 min (SE 6.22) on correct solutions. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors. (2) OpenHands 0.35-0.38 + Claude Sonnet 3.7 + human participant. Success criterion: same per-task criterion; no criterion stated for the configuration. Values: task correctness mean 60% (SE 11%); user effort 12.5 min (SE 2.8); total including agent action time about 27.9 min. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors",
+   "p": "6, 9-10, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 6 realistic tasks (2 GAIA data analysis, extended; 2 matplotlib feature additions written by the authors; 2 SWE-Bench bug fixes); the 4 GAIA and SWE-Bench tasks chosen as unsolved by OpenHands alone in a previous evaluation. Configurations: GitHub Copilot vs OpenHands. Baseline: GitHub Copilot. Held constant: participant (within-participant), task type (same type in both phases, type assigned between-subjects), time limit 40 min per condition, task instructions; order randomized. Not held constant: LLM (free choice in Copilot, fixed Claude Sonnet 3.7 in OpenHands); environment (own IDE vs hosted web app). Acceptance: correctness against task specifications (no tests described). Repetitions: one session per participant per condition (n = 20), asynchronous. Human intervention: inherent (interactive use); $35 compensation based on effort, not correctness",
+   "p": "6-8, 22-27",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Agent better on correctness: 60% vs 25% (+35 percentage points, p = 0.02); agent lower user effort on correct solutions: 12.5 vs 25.1 min (p = 0.01), but total time with agent actions (27.9 min) comparable. No significant difference between task types. Likert: agents preferred for accomplishing new tasks (p = 0.0013) and less cognitive load (p = 0.0006); no significant difference for speed (p = 0.09), flow (p = 0.39), satisfaction (p = 0.26); better understanding of copilot outputs (55%, p = 0.07). OpenHands rated more competent than a human programmer (p = 0.002), yet participants would continue to prefer GitHub Copilot (p = 0.04)",
+   "p": "9-13",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025",
+   "p": "9-10, 15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: one copilot and one agent; copilot LLM not controlled; student participants with no agent experience; few, short tasks not representative of multi-day work; time measure may not be representative; popular languages/packages only; planning not covered; point-in-time results. Gaps: agent transparency (explanations of actions), balanced proactivity (when to stop, resource control), better use of human effort (latency, steering, multitasking/mixed-initiative workflows); effect of different LLM backbones; power users",
+   "p": "13-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract and text say '35% increase in task correctness', which is percentage points (25% to 60%) (p. 2, 9); p. 9 lists '(µ = 25% ... compared to µ = 60% ... respectively)' after naming agents first, order inferred from 'increase'; text labels C1 = new tasks and C2 = cognitive load (p. 11) while Table 2 has C1 = cognitive load and C2 = new tasks (p. 10); the survey items in Appendix C.2 are worded in the opposite direction to the statements reported in Tables 2-3 for satisfaction ('less satisfied using OpenHands' vs C5 'more satisfied'), output understanding ('better understanding of Github Copilot outputs than OpenHands' vs C6 'of OpenHands outputs than Github Copilot outputs') and future use ('continue to use Github Copilot over OpenHands' vs F2 'continue to use OpenHands over Github Copilot') (p. 10, 13, 27-28); text says all participants used GitHub Copilot at least once a week (p. 5) while Figs. 8-9 have a category 'Used to use Github Copilot, not currently use anymore' (p. 28-29); Copilot's own agent mode was available to participants (p. 21) and its use is not reported. Effort measured differently for the two conditions (p. 8-9). Correctness values only in Fig. 4 and text. Analysis scripts at https://github.com/valeriechen/copilot-agent-comparison (p. 9); screen recordings not released (p. 27). No pre-registration. Programming language: Python",
+   "p": "2, 5, 8-13, 21, 27-29",
+   "verdict": "corrected",
+   "why": "Only the F2 reversal was listed; the survey items for C5 (satisfaction) and C6 (output understanding) are also worded opposite to Table 2 (Appendix C.2, p. 27-28), so the reported distributions may be inverted for these items too"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and RQ1-RQ3 (productivity, user experience, interaction patterns) stated",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): procedure, tasks, instructions and analysis described, scripts released; correctness grading procedure and task-type assignment not described in detail",
+   "p": "5-9, 22-28",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): OpenHands 0.35-0.38 with Claude Sonnet 3.7 identified; GitHub Copilot version not given and the LLM used per participant in the copilot condition not recorded",
+   "p": "6, 22",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): all six task statements given in Appendix B, drawn from public benchmarks (GAIA, SWE-Bench) or written out in full",
+   "p": "7, 22-26",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): correctness judged against task specifications on final code snapshots, but who graded and how (tests, rubric) is not described",
+   "p": "8-9",
+   "verdict": "uncertain",
+   "why": "Correctness is judged on final code snapshots against the task specifications (GAIA answers, SWE-Bench issues; matplotlib tasks 'easily verified by the participant and grader', p. 25), but who graded and how (tests, rubric) is not described; Partly or No",
+   "doubt": "O artigo não diz quem avaliou a correção nem se usou testes ou resposta de referência (pp. 8-9, 25). Decide se é Partly ou No."
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): task correctness and user effort time defined; no token or monetary cost measured",
+   "p": "8-9",
+   "verdict": "uncertain",
+   "why": "Correctness (quality) and user effort time are defined; §6 lists time as a cost metric, so user time could count as the cost side (Yes); no tokens or money measured (Partly)",
+   "doubt": "Mede correção e tempo do utilizador, mas não tokens nem dinheiro. Decide se o tempo do utilizador conta como custo (Yes) ou não (Partly)."
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): GitHub Copilot baseline, within-participant with randomized order and same task type; LLM not held constant",
+   "p": "6-8",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): linear model with fixed effects and significance tests (alpha 0.05), Wilcoxon signed-rank tests on Likert ratings; 20 participants",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results and report mixed findings (no gain in satisfaction, worse understanding, continued preference for Copilot)",
+   "p": "11-15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (tools, LLM control, participants, tasks, time measure, point in time)",
+   "p": "15",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published at CHI 2026 (ACM, DOI 10.1145/3772318.3790850); full text read from the arXiv version",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): three of four authors are affiliated with All Hands AI, vendor of OpenHands (evaluated); independent of GitHub Copilot",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

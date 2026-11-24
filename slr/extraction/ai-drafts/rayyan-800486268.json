@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486268",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -215,10 +215,21 @@
   },
   {
    "f": "Q4",
-   "v": "Yes (1): 18 applications, domains and annotations described; project page, code and dataset announced as available",
+   "v": "Yes (1): 18 applications, domains, inputs and annotations described; project page, code and dataset announced as available (links on p. 1, but 'Code is available at .' has no URL in the text)",
    "p": "1, 4-5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Tasks are well described, but availability rests on links on p. 1 that the extracted text does not show; the abstract sentence 'Code is available at .' is empty. Partly is defensible if no link works"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Tasks are well described (18 apps, domains, inputs, annotations), but availability rests on 'Project Page Code Dataset' links on p. 1 that the extracted text does not resolve; the abstract ends 'Code is available at .' with no URL. Partly if no link works"
+    }
+   ],
+   "warn": "As tarefas estão bem descritas, mas o texto extraído não mostra o URL do código/dados ('Code is available at .'). Confirma no PDF se os links Project Page/Code/Dataset funcionam; senão, Q4 Partly."
   },
   {
    "f": "Q5",

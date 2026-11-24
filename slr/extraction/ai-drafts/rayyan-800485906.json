@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800485906",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,9 +82,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "No named SDD approach; but the benchmark's own format (fixed specs, TASK.md and declared API written before code, then implemented by the agent) could be read as spec-first in Böckeler's sense."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "No named SDD approach; the benchmark's own format (fixed specs, TASK.md and declared API written before code, not evolved) could be read as spec-first in Böckeler's sense or left as not classifiable."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "No named SDD approach; the benchmark's fixed specs, TASK.md and declare-based API are written before code and do not evolve, which could be read as spec-first in Böckeler's sense or left as not classifiable."
     }
    ],
-   "warn": "Não há abordagem SDD nomeada, mas as specs e o TASK.md são escritos antes do código e não evoluem; decide se classificas como spec-first ou mantens 'não classificável'."
+   "warn": "Não há abordagem SDD nomeada; as specs, o TASK.md e a API declarada são fixados antes do código e não evoluem. Decide se classificas como spec-first ou manténs 'não classificável'."
   },
   {
    "f": "Task type",
@@ -167,7 +177,7 @@
      "why": "Table 3 also reports average wall-clock time for the six easy-tier-only configurations (e)-(j); the draft left out this cost metric for them."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: design",
@@ -199,16 +209,26 @@
   },
   {
    "f": "Notes",
-   "v": "Abstract says '1,000-10,000 lines' (text: 10^3-10^4). Claude Code costs show outliers not explained (lua opus-4.6 398.24 USD for 43.37M/155.4k tokens; zip opus-4.6 1016.53 USD for 58.10M/227.1k tokens, Table 5) vs about 25-50 USD for similar token counts. Tier pass rates are unweighted means of per-task rates, not totals (e.g. hard opus-4.6 81.1% vs 14625/15638 = 93.5%, Table 3). Several token/cost values N/A (Claude Code crash; gpt-5.2 ecma262 snapshot). Table 3 is jumbled in the extracted text: the easy-tier times and pass rates were matched to models by row order (checked against the per-task totals of Tables 4-5 for the four full-suite models). Benchmark built on MoonBit; repository under github.com/moonbitlang (SWE-AGI, SWE-AGI-Eval), scripts, outputs and logs 'will be released'. No pre-registration. Programming language: MoonBit",
+   "v": "Abstract says '1,000-10,000 lines' (text: 10^3-10^4). Claude Code costs show outliers not explained (lua opus-4.6 398.24 USD for 43.37M/155.4k tokens; zip opus-4.6 1016.53 USD for 58.10M/227.1k tokens; r6rs opus-4.6 190.32 USD for 21.28M/199.5k tokens, Table 5) vs about 25-50 USD for similar token counts. Codex approximate cost also inconsistent: yaml gpt-5.3-codex ~47.64 USD for 26.04M/148.3k tokens, while gpt-5.2-codex yaml is ~26.78 USD for 95.40M/571.6k and other gpt-5.3 tasks cost ~10-15 USD for 40-67M tokens (Table 4). Tier pass rates are unweighted means of per-task rates, not totals (e.g. hard opus-4.6 81.1% vs 14625/15638 = 93.5%, Table 3; checked against Table 5). Several token/cost values N/A (Claude Code crash; gpt-5.2 ecma262 snapshot). Table 3 is jumbled in the extracted text: the easy-tier times and pass rates were matched to models by row order (checked against the per-task totals of Tables 4-5 for the four full-suite models). Benchmark built on MoonBit; repository under github.com/moonbitlang (SWE-AGI, SWE-AGI-Eval), scripts, outputs and logs 'will be released'. No pre-registration. Programming language: MoonBit",
    "p": "1-2, 8-11",
    "rev": [
     {
      "round": 1,
      "verdict": "corrected",
      "why": "Added that Table 3 values were rebuilt from a jumbled extraction (required in Notes by the rules)."
+    },
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "Added a third unexplained cost outlier in Table 5 (r6rs opus-4.6: 190.32 USD for only 21.28M input tokens), a reporting inconsistency the draft missed."
+    },
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added a missed reporting inconsistency in Table 4: yaml gpt-5.3-codex costs ~47.64 USD for 26.04M input tokens, far above other tasks with more tokens."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O valor foi corrigido nas verificações 1 e 2 e 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -296,9 +316,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Value kept, but the draft's claim that moonbitlang is linked to the authors (IDEA) is not stated in the text; only the repository URL is. Whether a language-vendor link matters for Q12 is a judgement."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The evaluated tools (agents, models) are not the authors'; but the benchmark and its language MoonBit sit under the moonbitlang organisation, and the paper does not state the authors' link to MoonBit. Whether that matters for Q12 is a judgement."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The evaluated tools (agents, models) are not the authors'; the benchmark and its language MoonBit are under the moonbitlang organisation, and the paper does not state the authors' (IDEA) link to MoonBit. MoonBit is not an evaluated tool, so Yes is defensible, but it is a judgement."
     }
    ],
-   "warn": "Os autores (IDEA) parecem ligados ao MoonBit, mas o artigo não o diz; o MoonBit não é ferramenta avaliada. Confirma se aceitas Sim ou se baixas para Parcial. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os autores (IDEA) parecem ligados ao MoonBit, mas o artigo não o diz; o MoonBit não é ferramenta avaliada. Confirma se aceitas Sim ou se baixas para Parcial."
   },
   {
    "f": "Q13",

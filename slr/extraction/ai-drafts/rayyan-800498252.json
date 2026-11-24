@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498252",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,9 +82,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The authors do not use SDD terms, but their setting is 'PRD-driven development': a standardized PRD written before implementation is the agent's sole task input and is not maintained afterwards, which matches Böckeler's spec-first. 'Not classifiable' (the draft's value) is also defensible because no SDD tool or workflow is run."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The authors do not use SDD terms, but the setting is 'PRD-driven development': a standardized PRD (prd/prd.md) reconstructed before implementation is the agent's sole task input and is not maintained afterwards, which matches Böckeler's spec-first. 'Not classifiable' is also defensible because no SDD tool or workflow is run."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The authors do not use SDD terms; the setting is 'PRD-driven development' where a standardized PRD (prd/prd.md), reconstructed before implementation, is the agent's sole task input and is not maintained afterwards, which resembles Böckeler's spec-first. 'Not classifiable' is also defensible because no SDD tool or workflow is run."
     }
    ],
-   "warn": "O PRD normalizado é escrito antes do código e é o único input do agente, o que se aproxima de spec-first, mas os autores não falam de SDD. Decide entre spec-first e not classifiable."
+   "warn": "O PRD normalizado é escrito antes do código e é o único input do agente, o que se aproxima de spec-first, mas os autores não falam de SDD nem correm um fluxo SDD. Decide entre spec-first e not classifiable."
   },
   {
    "f": "Task type",

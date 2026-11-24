@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486235",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -159,9 +159,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The draft's cost verdict rested on ETF alone, a choice of the extractor: ETF is a G5 changeability/effort metric, the authors' cost metric is TCC (no values reported), and FGD (G7, target <=40 h) would give the opposite verdict for five platforms. Also unclear whether targets the authors call 'not pass/fail gates' count as a stated success criterion."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Values checked against Table 6 and Table 5 and §5.6 (all correct). Whether the per-metric targets count as an authors' success criterion is a judgement: they are called the 'minimum quality level ... necessary for production deployment' but 'not to define pass/fail gates', yet the authors report pass/fail counts against them. Cost: TCC has no values; ETF and FGD point in opposite directions."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Values checked against Table 6 and Table 5 and §5.6 (all correct). Whether the per-metric targets count as an authors' success criterion is a judgement: they are called the 'minimum quality level ... necessary for production deployment' but 'not to define pass/fail gates', yet the authors report pass/fail counts against them. Cost: TCC has no values; ETF and FGD point in opposite directions."
     }
    ],
-   "warn": "Os autores dão metas por métrica mas dizem que não são critérios de aprovação; decide se contam como critério. O custo (TCC) não tem valores; ETF e FGD dão veredictos opostos, por isso não dei veredicto de custo. O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "Os autores dão metas por métrica mas dizem que não são critérios de aprovação; decide se contam como critério. O custo (TCC) não tem valores; ETF e FGD dão veredictos opostos, por isso não dei veredicto de custo."
   },
   {
    "f": "Comparison: design",
@@ -193,9 +203,15 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: Figure 4 caption calls the CRR range (17.7-97.7%) a '3.5x variation in inference quality', while the text gives 5.5x for CRR and 3.5x for IQS; Figure 2 caption says canaries are 'embedded across 9 prompts' vs six prompts elsewhere; Table 12 shows no Engineering Score for Base44 on P1 ('-') while Table 5 gives 30.2; §5.6 says AMR scores are '1-14 pp' below ACR but CBS drops 24.3 pp; title page dated March 2026, arXiv v1 6 May 2026. Claims without analysis: PM elicitation 'accounts for approximately 10-15% of the observed quality gap'; 'strongly predicts downstream quality'. AMR results scored by QwikBuild-affiliated authors. Values from Tables 5, 6, 8, 12, 14, 15 (pp. 14, 17, 21, 24-25). Data: prompts, 80 canary specifications, 9 judge prompts, raw scores (CSV), rubrics and anonymisation scripts at github.com/snowmountainAi/webdevbench. Pre-registration: not stated. Programming languages: not stated (generated full-stack web apps; npm ecosystem mentioned)",
+   "v": "Inconsistencies: Figure 4 caption calls the CRR range (17.7-97.7%) a '3.5x variation in inference quality', while the text gives 5.5x for CRR and 3.5x for IQS; Figure 2 caption says canaries are 'embedded across 9 prompts' vs six prompts elsewhere; Table 12 shows no Engineering Score for Base44 on P1 ('-') while Table 5 gives 30.2; §5.6 says AMR scores are '1-14 pp' below ACR but CBS drops 24.3 pp; title page dated March 2026, arXiv v1 6 May 2026. Claims without analysis: PM elicitation 'accounts for approximately 10-15% of the observed quality gap'; 'strongly predicts downstream quality'. AMR results scored by QwikBuild-affiliated authors. Values from Tables 5, 6, 8, 12, 14, 15 (pp. 14, 17, 21, 24-25). Table 6 FGD and CDI rows rebuilt from jumbled text by position (targets <=40 and <=10, then six values each in platform order B0, E1, L0, Q1, R3, V0); consistent with the P1 values in Tables 12 and 16 and with the text (Base44 CDI 35%). Table 16 places ETF in G7, while Table 2 puts it in G5. Data: prompts, 80 canary specifications, 9 judge prompts, raw scores (CSV), rubrics and anonymisation scripts at github.com/snowmountainAi/webdevbench. Pre-registration: not stated. Programming languages: not stated (generated full-stack web apps; npm ecosystem mentioned)",
    "p": "1, 6, 14-16, 21, 23, 28, 31",
-   "rev": [],
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "corrected",
+     "why": "The FGD and CDI averages of Table 6 are interleaved in the extracted text and had to be rebuilt by position; the protocol requires saying so in Notes. Also added the ETF group mismatch between Table 2 (G5) and Table 16 (G7)."
+    }
+   ],
    "warn": ""
   },
   {

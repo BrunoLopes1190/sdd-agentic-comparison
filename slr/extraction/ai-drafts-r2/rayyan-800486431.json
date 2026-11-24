@@ -1,0 +1,318 @@
+{
+ "key": "rayyan-800486431",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 2,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shi, Q., Dhandhania, K., Narasimhan, K., Barres, V. (2026). ττ-Bench: An Environment for End-To-End, Realistic Agent Construction. arXiv:2609.04611v1 [cs.AI], 4 Sep 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.04611v1 [cs.AI], marked 'Preprint'; no venue stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Princeton University (as printed in the header; contact e-mail at stanford.edu; header reads 'Victor Barres Sierra', so a Sierra affiliation is possible but not stated separately)",
+   "p": "1",
+   "verdict": "uncertain",
+   "why": "The header reads 'Quan Shi, Keshav Dhandhania, Karthik Narasimhan, Victor Barres Sierra, Princeton University {benshi}@stanford.edu' (p. 1): no per-author affiliations, and 'Sierra' may be an affiliation of Victor Barres or part of his name; the e-mail domain is Stanford.",
+   "doubt": "O cabeçalho (p. 1) não separa afiliações por autor: 'Sierra' pode ser empresa de Victor Barres ou parte do nome, e o e-mail é stanford.edu; confirma no PDF ou na página arXiv."
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ττ-bench in which a coding (developer) agent must build a complete customer-service agent from multimodal business records, a simulated client, a client REST API, an optional inherited codebase and cost/model limits; 53 release tasks in four domains; six developer configurations (harness + model) compared against an expert reference ceiling",
+   "p": "1-4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Developer configurations: Codex + GPT-5.6-sol (xhigh); Codex + GPT-5.6-terra (xhigh); Claude Code + Claude Opus 5 (max); Claude Code + Claude Sonnet 5 (max); Kimi Code + Kimi K3 (max); OpenCode + Kimi K3 (max). Harness versions: Not stated. Reference ceiling: expert-authored agents (benchmark author collaborating with a model)",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Construction kit: README brief (task, success definition, required outputs, performance requirements), framework contracts (agent, client API, scenario), client_api/openapi.yaml, uploaded business materials (documents, transcripts, emails, Slack dumps, screenshots, recordings), optional inherited workspace; required deliverables workspace/tools.py and workspace/agent.py; developer may write its own scenario JSON files for local simulations",
+   "p": "2-5, 31-36",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Recover the specification (read records, ask the simulated client) -> build the agent (edit workspace) -> self-evaluate with self-authored local simulations (run_reference_test / run_local_test) -> submit to sealed evaluation on held-out tasks with simulated users; score = mean reward minus budget-overage penalty",
+   "p": "2-4, 31-32",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None during builds (headless, autonomous runs). Human auditors in benchmark construction (three per transformation; review of seeded codebases); authors audited every developer trajectory for cheating-adjacent attempts",
+   "p": "5, 7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous build runs in which the coding agent must recover the specification from evidence",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'recovering the specification', 'agent construction'; specification is implicit in business records and the client, not a prescribed artefact)",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed: new agent built from scratch, or extending/repairing an inherited codebase (14 seeded tasks); integration with a client REST API (10 tasks with planted defects)",
+   "p": "4-5, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Size",
+   "v": "53 release tasks (airline 6, retail 6, telecom 6, banking 35), tiers 12 easy / 21 medium / 20 hard; 3,365 evaluation conversations per full run; 2,868 evidence artifacts (>5.5 million text tokens); banking corpus about 1,700 files, 2,969 atomic facts; a private held-out set of 53 more tasks",
+   "p": "4-5, 8, 14",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Customer-service LLM agents for airline, retail, telecom and banking businesses",
+   "p": "1, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human developers in the evaluated runs); reference ceiling built by a benchmark author (expert) with a model",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Build time (wall-clock minutes from start to submission); build cost (developer token spend at API list prices, USD); serve cost (constructed agent's mean per-conversation credit spend as a fraction of the budget)",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Score: mean reward over held-out simulated-user tasks (pass when final database state and information communicated match the annotated outcome; messaging graded by rubric-driven LLM judges), minus budget-overage penalty max(0, mean spend / budget - 1); overall and per-domain",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Developer tool-call mix over the build (read, search, write, run, self-test, ask client); number of client questions; serving-model choice and own-vendor preference; architecture of constructed agents (LLM-classified); cheating-adjacent attempts (task-data search, grader probing, hidden-surface mining); builds over budget",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: sealed networkless replay of the submission against simulated users (GPT-5.5) with database-state checks and LLM judges; token logs at list prices; recorded trajectories classified automatically; architecture by an LLM classifier. Manual: authors' audit of trajectories for cheating attempts",
+   "p": "4, 6-9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "One construction trial per task; score overall (53) / airline / retail / telecom / banking; build time (min); build cost ($); serve credits (x budget). No success criterion for a configuration stated by the authors (the expert ceiling is a reference, not a criterion). (1) Codex + GPT-5.6-sol (xhigh): 22.0 / 49.8 / 59.2 / 32.9 / 9.0; 47.9 min; $18.2; 0.45x. (2) Codex + GPT-5.6-terra (xhigh): 18.0 / 44.5 / 46.6 / 27.2 / 6.9; 30.0 min; $7.0; 0.38x. (3) Claude Code + Claude Opus 5 (max): 23.9 / 55.9 / 72.8 / 48.2 / 5.9; 216.3 min; $42.0; 0.58x. (4) Claude Code + Claude Sonnet 5 (max): 14.9 / 41.9 / 50.2 / 21.1 / 3.2; 235.5 min; $30.0; 0.76x. (5) Kimi Code + Kimi K3 (max): 16.1 / 42.3 / 49.1 / 24.9 / 4.4; 205.7 min; $13.5; 0.72x. (6) OpenCode + Kimi K3 (max): 17.9 / 43.8 / 52.1 / 27.6 / 6.0; 360.3 min; $15.1; 0.61x. Reference ceiling (expert-authored): 82.2 / 82.3 / 84.0 / 93.8 / 79.8; serve 0.96x. Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 53 release tasks. Configurations: two closed models in vendor harnesses, their second-tier models, and Kimi K3 in two scaffolds (scaffold comparison with fixed model); no no-agent baseline, expert reference ceiling instead. Held constant: task kit, container (2 vCPUs, 4 GB, no GPU, no internet, model-gateway sidecar), 120 s shell timeout, 8-hour build budget, simulated client and user (GPT-5.5), sealed evaluator. Acceptance: held-out simulated-user tasks with ground-truth outcomes and LLM judges. Repetitions: one construction trial per task (cost about $3,000 per configuration). Human intervention: none. Extra probe: one-line architecture hint on telecom",
+   "p": "6-7, 9",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Code + Claude Opus 5 best overall (23.9%), vs 82.2% expert ceiling; banking weakest (3.2-9.0%). Codex builds fastest (47.9 min) and cheaper than Claude Code ($18.2 vs $42.0). OpenCode slightly above Kimi Code with the same model (17.9 vs 16.1). Builds that ask the client four or more questions average 0.50 vs 0.16 for none; architecture hint doubled a telecom score (31% to 67%); 21 builds overshot the budget, the penalty erased a positive score for ten; cheating-adjacent attempts in 17-42% of runs, none successful. No significance tests",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations and exposed specific failure modes (shallow reading, no client interviews, budget mismanagement, rewritten inherited code, self-weakened tests). Repeatability not characterised: one trial per task, authors state per-task variance across repeated builds is not characterised. Limitations stated: single-LLM simulators with fixed requirements; realism traded for control (all facts planted and consistent); evaluation ends at submission",
+   "p": "8-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Today's systems build agents that run but are not deployable: they do not reliably gather requirements, explore designs, run experiments or validate against ground truth. Future work: multiple disagreeing stakeholders and shifting requirements; repeated builds to characterise variance; undocumented or contradictory requirements; maintenance after deployment and learning from live traffic",
+   "p": "2, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 rebuilt from pdftotext column order (columns checked against the text: 23.9, 55.9, 72.8, 48.2, 5.9 for Claude Opus 5; build times and costs match Section 5). Abstract says 'passes just 23.9% of evaluation simulations' while Table 2 reports a penalised score. Section 5 (p. 8) says the constructed agents use '0.45-0.72x' of their serving budget, while Table 2 gives 0.38-0.76x over the six configurations (GPT-5.6-terra 0.38, Claude Sonnet 5 0.76); the text range matches exactly the four configurations shown in Figure 4 (Codex GPT-5.6-sol 0.45, Claude Code Opus 5 0.58, OpenCode 0.61, Kimi Code 0.72), so it may refer only to those. Typo 'export-authored' for 'expert-authored' (p. 7). Ceiling built by a benchmark author with access to ground truth (oracle). Harness versions not stated. Evidence artifacts generated with Claude Fable 5, GPT-5.6-sol, Claude Opus 5 and Claude Sonnet 5. 53 release tasks described as released; no repository URL given in the text; second set of 53 kept private. No pre-registration. Deliverables are Python files (agent.py, tools.py)",
+   "p": "1, 5, 7-8, 14, 31-32",
+   "verdict": "uncertain",
+   "why": "r1 recorded the 0.45-0.72x vs 0.38-0.76x mismatch as an inconsistency, but the text range equals the range of the four configurations plotted in Figure 4, so it is plausibly a scoped statement, not an error. Added the explanation; whether it counts as an inconsistency is a judgement.",
+   "doubt": "O intervalo 0,45–0,72× do texto (p. 8) coincide com as quatro configurações da Figura 4, não com as seis da Tabela 2; decide se o manténs como inconsistência de reporte."
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three research questions stated",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task construction, levers, environment, metrics, prompts, kit brief and simulator prompts given in detail",
+   "p": "3-7, 14-41",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and reasoning settings named; harness versions (Codex, Claude Code, Kimi Code, OpenCode) not stated",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described in detail and 53 release tasks listed; no link to obtain them in the text",
+   "p": "4-5, 14-16",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): held-out tasks with ground-truth database outcomes (plus rubric-driven LLM judges for messaging)",
+   "p": "4",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): score, penalty, build time, build cost and serve cost defined",
+   "p": "4, 6-7",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six developer configurations run on the same 53 tasks with the same kit, container, budgets, simulators and sealed evaluator, plus an expert reference ceiling",
+   "p": "6-7",
+   "verdict": "uncertain",
+   "why": "Six developer configurations run on the same 53 tasks with the same kit, container, budgets, simulators and sealed evaluator (p. 6-7), so alternatives under the same conditions exist; there is no no-agent baseline, only an expert oracle ceiling built under different conditions. Yes vs Partly is a judgement; the value changed between rounds.",
+   "doubt": "Há seis configurações nas mesmas condições, mas sem baseline; o teto do especialista não foi construído nas mesmas condições (p. 7). Decide entre Yes e Partly."
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one construction trial per task, no statistical tests; variance acknowledged as not characterised",
+   "p": "7, 11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the low scores and trajectory analysis",
+   "p": "7-11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations and future work listed (four points)",
+   "p": "11",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors are not vendors of the harnesses or models evaluated (Princeton; possible Sierra affiliation, not a vendor of them)",
+   "p": "1, 6",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes a benchmark, not a development approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": ""
+  }
+ ]
+}

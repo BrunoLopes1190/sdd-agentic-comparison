@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800498076",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -35,7 +35,7 @@
      "why": "Six authors list Abundant on p. 1, not seven"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Nature of the study",
@@ -97,7 +97,7 @@
      "why": "Value omitted that some tasks modify or extend an existing code base (wasm-simd skeleton, vliw-kernel-optimization) and that the authors classify the benchmark as 'Mixed' (Table 1)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Size",
@@ -269,9 +269,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Draft gave Yes; the headline failure claim leans on the near-saturated validation signal (99.6%) rather than the bucket distribution, so Partly is my best value, but a reader accepting the cross-cutting validation argument could keep Yes"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Rankings, lower-bound caveats and descriptive small-n slices follow the results, but abstract and conclusion lead with poor self-verification and premature termination while Table 4 gives them 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); the authors justify it by the near-saturated validation signal (524/526). Partly kept; Yes also arguable"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Rankings, lower-bound caveats and descriptive small-n slices follow the results, but abstract and conclusion lead with poor self-verification and premature termination while Table 4 gives them 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); the authors lean on the near-saturated validation-failure signal (524/526, which D.4 itself calls of limited discriminative power). Partly kept; Yes also arguable"
     }
    ],
-   "warn": "O resumo destaca autoverificação fraca e paragem prematura, mas a Tabela 4 dá-lhes só 4% e 7,6% das falhas (implementação 41,6%, timeout 31,4%). Decide se é exagero (Partly) ou aceitável (Yes). O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": "O resumo destaca autoverificação fraca e paragem prematura, mas a Tabela 4 dá-lhes só 4% e 7,6% das falhas; os autores apoiam-se no sinal de validação (99,6%). Decide se é exagero (Partly) ou aceitável (Yes)."
   },
   {
    "f": "Q10",
@@ -296,9 +306,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Judgement: Bercovich, Dillmann and J. Hu are among ~90 co-authors of Terminal-Bench, which introduced the evaluated Terminus 2 scaffold; whether that makes them its 'vendor' under §5 is arguable (Partly vs Yes)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Bercovich, Dillmann and J. Hu appear in the author list of Terminal-Bench [44] (p. 13), which introduced the evaluated Terminus 2 scaffold; the commercial CLIs are independent. Whether co-authorship of a large Terminal-Bench author list makes them its vendor under §5 is a judgement (Partly vs Yes)"
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Bercovich, Dillmann and J. Hu appear in the author list of Terminal-Bench [44] (p. 13), which introduced the evaluated Terminus 2 scaffold (shipped in the Harbor repository, Table 3); the commercial CLIs are independent. Whether co-authorship of a very large Terminal-Bench author list makes them its vendor under §5 is a judgement (Partly vs Yes)"
     }
    ],
-   "warn": "Três coautores (Bercovich, Dillmann, J. Hu) estão entre os cerca de 90 autores do Terminal-Bench, que criou o Terminus 2 avaliado. Decide se isso os torna fornecedor (Partly) ou não (Yes)."
+   "warn": "Três coautores (Bercovich, Dillmann, J. Hu) constam da longa lista de autores do Terminal-Bench, que criou o Terminus 2 avaliado. Decide se isso os torna fornecedor (Partly) ou não (Yes)."
   },
   {
    "f": "Q13",

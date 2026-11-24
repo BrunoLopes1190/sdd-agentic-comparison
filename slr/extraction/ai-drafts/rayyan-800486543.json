@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486543",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -82,16 +82,26 @@
   },
   {
    "f": "Task type",
-   "v": "New code in synthetic fixtures: study 1, five TypeScript task categories (quote, prorate, customer, split, parts); second suite, 15 synthetic TypeScript repositories (3 each of bug fixes, features, multi-file integrations, export-preserving refactors, test-driven repairs). Integration tests partly on a private existing code base",
+   "v": "Existing code base (small synthetic TypeScript fixtures): study 1, five task categories (quote, prorate, customer, split, parts) implemented against supplied file context and stubs; second suite, 15 synthetic TypeScript repositories (3 each of bug fixes, features, multi-file integrations, export-preserving refactors, test-driven repairs) whose stubs fail the sealed check. Integration tests and one observed session partly on a private existing code base",
    "p": "3, 13, 15, 23",
    "rev": [
     {
      "round": 1,
      "verdict": "uncertain",
      "why": "The tasks are bounded changes inside small synthetic TypeScript repositories with stubs (bug fixes, features, multi-file integrations, export-preserving refactors, test-driven repairs), so they could be read as existing code base rather than new code; the paper does not frame them either way."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Best value moved toward existing code base: bug fixes, refactors and test-driven repairs act on pre-built repositories with stubs (p 15), and the paper says 'not a trial on production repositories'. But the repositories are small synthetic fixtures and some tasks implement new functions, so 'new project' is also defensible; the paper does not frame it."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The second suite uses small synthetic TypeScript repositories with stubs for bug fixes, refactors, integrations and test-driven repairs (p. 15: 'not a trial on production repositories'); study 1 implements functions against supplied file context. The paper does not frame tasks as new project or existing code base; existing code base kept as best value."
     }
    ],
-   "warn": "As tarefas são alterações dentro de pequenos repositórios TypeScript sintéticos com stubs (correções, refactors, integrações). Confirma nas secções 9 e 9.3 e decide entre new project e existing code base."
+   "warn": "As tarefas usam repositórios TypeScript sintéticos pequenos com stubs (bug fixes, refactors, features; p. 15). Decide se conta como existing code base ou new project."
   },
   {
    "f": "Size",
@@ -291,9 +301,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "The evaluated delegation workflow, artifact contract and gateway are the author's own, so the study could be read as proposing an approach (Q13 applicable); the author frames the contribution as a retrospective experience report, not a proposed method."
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The delegation workflow, artifact contract and gateway are the author's own and are evaluated (and Q12 already counts the author as their vendor), so the study could be read as proposing an approach, making Q13 applicable; the author frames it as a retrospective experience report and draws no proposed method. N/A kept as best value."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The delegation workflow, artifact contract and gateway are the author's own (p. 13, 15, 27) and are evaluated, so the study could count as proposing an approach (Q13 applicable); the author frames it as a retrospective experience report. N/A kept as best value."
     }
    ],
-   "warn": "O fluxo de delegação e o contrato de artefactos são do próprio autor. Decide se o estudo também 'propõe uma abordagem' (então Q13 aplica-se e a natureza muda) ou se fica só como relato avaliativo (N/A)."
+   "warn": "O fluxo de delegação e o contrato de artefactos são do próprio autor. Decide se o estudo também 'propõe uma abordagem' (Q13 aplica-se) ou fica como relato de experiência (N/A)."
   },
   {
    "f": "DARE1",

@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800486808",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -166,10 +166,16 @@
   },
   {
    "f": "Comparison: result",
-   "v": "Exp. I: structural prompting gave no improvement: LM rose for Qwen3-Coder 480B (11 to 13) and Gemini-2.5-Pro (5 to 8); humans show Temporary Field (4) absent in LLM code, LLMs more Long Method (Qwen3-Coder 480B 11 vs human 1); no significance tests (raw counts). Exp. II: TLoC correlates with architectural smells rho = 0.94 (p < 0.001), structural 0.59 (p = 0.007), code 0.53 (p = 0.017); ToF with architectural 0.72 (p < 0.001); scenario affects architectural smells (H = 9.86, p = 0.043); stage (requirement specificity) has no effect (p > 0.8)",
+   "v": "Exp. I: structural prompting gave no improvement: LM rose for Qwen3-Coder 480B (11 to 13) and Gemini-2.5-Pro (5 to 8); humans show Temporary Field (4) absent in LLM code, LLMs more Long Method (Qwen3-Coder 480B 11 vs human 1); no significance tests (raw counts). Exp. II (Table 3): TLoC correlates with architectural smells rho = 0.94 (p < 0.001), structural 0.59 (p = 0.007), code 0.53 (p = 0.017); ToF with architectural 0.72 (p < 0.001), not with code (0.33, p = 0.153) or structural (0.06, p = 0.804); ALpF with structural 0.57 (p = 0.009), not with code (0.23, p = 0.329) or architectural (0.30, p = 0.201); scenario affects architectural smells (H = 9.86, p = 0.043), not code (H = 6.83, p = 0.145) or structural (H = 8.51, p = 0.075); stage (requirement specificity) has no effect (p = 0.840-0.955)",
    "p": "6-9",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Incomplete: Table 3 also reports a significant ALpF-structural correlation (rho = 0.57, p = 0.009) and the non-significant ToF and scenario values, which were missing; values for ToF/ALpF columns rebuilt from the jumbled Table 3 (see Notes)."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Comparison: did the method work",
@@ -187,10 +193,16 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: Exp. I sample is 'randomly sampled' (p. 4) but a 'stratified sample ... balanced across difficulty levels' in the threats (p. 9); model named 'Llama 3.3(70b)' in text but 'Llama3(70b)' in Tables 1-2; RQ mapping differs between the introduction (taxonomy = RQ2, complexity = RQ3) and the start of Section 4 (complexity = RQ2, taxonomy = RQ3); claim that 'running code is just as likely to be structurally flawed as failed code' and that 'statistical analysis confirms' prompting does not mitigate decay are not backed by reported functional data or Exp. I statistics; ALpF undefined; Agent Action Count logged but not reported. Tables 1-2 are garbled in the extracted text, only LM and TF values used (stated in text). Replication package on Zenodo (doi:10.5281/zenodo.19245562) with sample code, prompts and generated repositories. No pre-registration. Programming language: Python",
+   "v": "Inconsistencies: Exp. I sample is 'randomly sampled' (p. 4) but a 'stratified sample ... balanced across difficulty levels' in the threats (p. 9); model named 'Llama 3.3(70b)' in text but 'Llama3(70b)' in Tables 1-2; RQ mapping differs between the introduction (taxonomy = RQ2, complexity = RQ3) and the start of Section 4 (complexity = RQ2, taxonomy = RQ3); claim that 'running code is just as likely to be structurally flawed as failed code' and that 'statistical analysis confirms' prompting does not mitigate decay are not backed by reported functional data or Exp. I statistics; ALpF undefined; Agent Action Count logged but not reported. Tables 1-2 are garbled in the extracted text, only LM and TF values used (stated in text). Table 3 is also jumbled: the ToF and ALpF rows (code / structural / architectural) were rebuilt from the cell order; the TLoC, ToF-architectural, scenario and stage values are confirmed by the text (p. 8-9). Replication package on Zenodo (doi:10.5281/zenodo.19245562) with sample code, prompts and generated repositories. No pre-registration. Programming language: Python",
    "p": "1, 4, 6-10",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 3,
+     "verdict": "corrected",
+     "why": "Added that Table 3 was rebuilt from jumbled text (the ALpF and ToF values in Comparison: result come only from the table), as the rules require."
+    }
+   ],
+   "warn": "O valor foi corrigido na verificação 3; confirma-o no texto."
   },
   {
    "f": "Q1",
@@ -257,9 +269,19 @@
      "round": 1,
      "verdict": "uncertain",
      "why": "Partly is defensible, but the 'Volume-Quality Inverse Law' and the claims that functional correctness is decoupled from quality and that 'statistical analysis confirms' prompting does not help (no Exp. I statistics, no functional data reported) are overgeneralised; another reader could score No (0)"
+    },
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "Partly kept: the Exp. II correlations support a volume-smell association, but the 'Volume-Quality Inverse Law' is generalised from 20 repositories of one framework and one model, and the abstract/contribution claims that functional correctness does not mitigate decay and that 'statistical analysis confirms' structural prompting does not help are not backed by reported data (no pass rates, raw counts without tests in Exp. I). A stricter reader could score No."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "Partly kept: the Exp. II correlations support a volume-smell association, but the 'Volume-Quality Inverse Law' is generalised from 20 repositories of one framework and one model, and the claims that functional correctness does not mitigate decay and that 'statistical analysis confirms' structural prompting does not help are not backed by reported data (no pass rates; raw counts without tests in Exp. I). A stricter reader could score No."
     }
    ],
-   "warn": "As conclusões generalizam muito ('Volume-Quality Inverse Law', correção funcional sem dados, 'statistical analysis confirms' sem testes na Exp. I). Decide entre Partly e No; vê secções 1, 4.1.3 e 4.3."
+   "warn": "As conclusões vão além dos dados ('Volume-Quality Inverse Law' com 20 repositórios, correção funcional sem dados, 'statistical analysis confirms' sem testes na Exp. I). Decide entre Partly e No; vê secções 1, 4.1.3 e 4.3."
   },
   {
    "f": "Q10",

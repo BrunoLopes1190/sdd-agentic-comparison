@@ -1,0 +1,359 @@
+{
+ "key": "rayyan-800486137",
+ "model": "Claude Opus 5.5 (subagent)",
+ "round": 3,
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, X., Ben-Israel, N., Raz, Y., Ahmed, B., Serebro, D., Raux, A. (2026). RepoMod-Bench: A Benchmark for Code Repository Modernization via Implementation-Agnostic Testing. In: Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2, pp. 9371-9381, ACM. https://doi.org/10.1145/3770855.3817463. Read from arXiv:2602.22518v1 [cs.SE], 26 Feb 2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — KDD 2026 (32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2), DOI 10.1145/3770855.3817463 (venue from the ACM export acm-S2-2026-11-18.bib); full text read from arXiv:2602.22518v1",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Modelcode AI (all six authors: Sydney, Tel Aviv, Vancouver, Los Gatos) — industry",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — RepoMod-Bench benchmark for repository-level code translation with implementation-agnostic hidden interface tests, and evaluation of four agent configurations",
+   "p": "1-2, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Coding agents compared: Claude Code v2.0.76 + Claude Opus 4.5 (claude-opus-4-5-20251101); Codex CLI v0.77.0 + GPT-5.2 (gpt-5.2-2025-12-11); OpenCode v1.1.4 + Claude Opus 4.5; OpenCode v1.1.4 + GPT-5.2; all default configurations",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark inputs: complete source repository (functional ground truth), empty target workspace, standardized prompt.md generated from benchmark.yml (target language, build/install/run commands, interface description, anti-shortcut constraints)",
+   "p": "2, 4-5, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated for the agents (single autonomous session until self-completion or 4-hour timeout). Benchmark construction: repository selection -> test suite creation (implementation-agnostic filtering) -> configuration (benchmark.yml, prompt.md) -> validation (100% pass on source). Evaluation: build -> copy hidden tests -> run tests",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human review points",
+   "v": "None (agents run without human intervention)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent workflow (repository translation end to end), no specification approach",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent benchmark; authors do not use SDD terms; the source repository serves as the 'functional specification')",
+   "p": "1",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: repository-level code modernization by cross-language translation of a complete source repository into a new target-language implementation",
+   "p": "1-2",
+   "verdict": "uncertain",
+   "why": "The agent starts from an empty target workspace (/workspace/dst/, p. 2, 5) but must reproduce a complete existing source repository in another language (migration, 'reconstruction challenge', p. 1); both form values (new project / existing code base) fit partly.",
+   "doubt": "O agente parte de uma pasta de destino vazia, mas traduz um repositório existente completo. Decide se classificas como existing code base (migração) ou new project."
+  },
+  {
+   "f": "Size",
+   "v": "21 repositories, 1.6M LOC, 11,616 tests; 14 LOC to 211K LOC; tiers Small < 10K (3), Medium 10-50K (7), Large > 50K (11); 84 runs (4 agents x 21 benchmarks). Preliminary experiments on an earlier 10-benchmark suite",
+   "p": "1, 4-5, 7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source CLI tools and REST APIs (e.g. jq, taskwarrior, hugo, prettier, ledger, qalculate, gitleaks); 8 languages, mostly C/C++/Go to Rust/Go",
+   "p": "3-4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants)",
+   "p": "5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Time: average run time per benchmark in minutes; no tokens or money",
+   "p": "6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Build Success (binary, compiles and initializes with the given commands); Pass Rate (% of hidden implementation-agnostic interface tests passed)",
+   "p": "3, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Shortcut behaviour (wrappers exec-ing the source binary, FFI, vendored libraries) counted in the preliminary experiment as legitimate translation attempts out of 10; lines of code generated (examples); failure modes (single critical bug, early exit, cross-language incompatibility, domain knowledge gap)",
+   "p": "7, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: build command and hidden test suite (e.g. pytest) run in per-repository Docker containers after the agent finishes; tests stored outside the workspace. Manual: failure analysis over the 84 runs and inspection of agent reasoning logs for shortcuts",
+   "p": "5-7, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Main benchmark (21 repositories, one run each, prompt v3). Criterion: hidden test suite per repository; no success criterion for a configuration stated by the authors. (a) Claude Code v2.0.76 + Opus 4.5: Build 100.0%, Pass 48.2%, 38.5 min. (b) Codex CLI v0.77.0 + GPT-5.2: Build 95.2%, Pass 30.4%, 20.3 min. (c) OpenCode v1.1.4 + Opus 4.5: Build 100.0%, Pass 42.0%, 21.6 min. (d) OpenCode v1.1.4 + GPT-5.2: Build 100.0%, Pass 43.0%, 16.4 min. For each: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. Preliminary experiment (earlier 10-benchmark suite, no anti-shortcut constraints; models not stated for this run): (e) Codex CLI: 99.5% pass rate but genuine translation in only 3/10 benchmarks (5 exec wrappers, 2 external libraries/vendoring); (f) Claude Code: genuine translation on 9/10 (1 external library); verdicts for (e) and (f): no criterion stated by the authors (authors call the 99.5% pass rate misleading). Iterative refinement (ablation-like, earlier 10-benchmark suite, different configuration): (g) Claude Code, 5 fresh sessions on the same workspace: average pass 66.6% (N=1) -> 77.6% (N=5), +11.0 pp (tokei +88.8, charcoal-cli -1.0); verdicts: no criterion stated by the authors",
+   "p": "6, 9-11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 21 RepoMod-Bench repositories. Configurations: 4 agent-model pairs (2x2: agent Claude Code/Codex vs OpenCode; model Opus 4.5 vs GPT-5.2). Baseline: none beyond the alternatives. Held constant: prompt template v3, per-repository Docker image, fresh workspace, hidden tests, 4-hour timeout, default agent settings; network enabled for packages. Acceptance tests: hidden interface tests validated at 100% on the source. Repetitions: one run per agent and benchmark. Human intervention: none",
+   "p": "4-6, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Code best (Pass 48.2%), then OpenCode-OpenAI 43.0%, OpenCode-Claude 42.0%, Codex CLI 30.4%; builds >= 95% for all. Same agent family, different model: Claude Code vs Codex +17.8 pp but OpenCode models within 1 pp. Same model, different agent: Claude Code +6.2 pp over OpenCode-Claude; OpenCode-OpenAI +12.6 pp over Codex CLI. Across agents, pass rate 91.3% (< 10K LOC), 66.9% (10-50K), 15.3% (> 50K); uncrustify 0% for all. No significance tests",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished agents and size tiers; hidden interface tests plus anti-shortcut prompt eliminated shortcut behaviour (stated by the authors). Repeatability not assessed (single run). Authors note pass rate can understate capability (single critical bug) and, without constraints, overstate it (wrappers)",
+   "p": "6-7, 10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats-to-validity section. Gaps stated: autonomous modernization at scale remains an open challenge; agents lack planning to assess total scope (early exit); cross-language semantic incompatibilities and domain knowledge gaps; iterative refinement cannot close scope gaps",
+   "p": "6-8, 11",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 3 (p. 6); Table 4 per-benchmark values are scrambled in the text layout, only those quoted in the text are reliable. Tier counts inconsistent: Section 2.4 gives Medium 7 / Large 11 (ledger, 50.0K LOC, counted as Medium), while Table 4 lists ledger under Large (6 Medium, 12 Large); the tier averages 91.3% / 66.9% / 15.3% do not say which split they use. Repository URL differs: arXiv text github.com/Modelcode-ai/mcode-benchmark, ACM abstract github.com/Modelcode-ai-research/mcode-benchmark. Section 3.1 'Prompt Design' lists constraints, while Figure 5 shows v1 without them; v3 (Figure 6) was used for all reported results. Tier averages are across all four agents, not per agent. Preliminary and iterative-refinement experiments use an earlier 10-benchmark suite and are not comparable to the main results (stated). Authors are all employees of Modelcode AI (industry). No pre-registration. Languages: C, C++, Go, Java, Python, Rust, TypeScript, JavaScript",
+   "p": "1, 4-6, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (rigorous, implementation-agnostic evaluation of repository-level modernization) and contributions clear",
+   "p": "1-2",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, benchmark.yml, prompt templates, Docker environment, agent versions and timeout described; code released",
+   "p": "3-6, 9-10",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): agent versions (Claude Code v2.0.76, Codex CLI v0.77.0, OpenCode v1.1.4) and dated model IDs given",
+   "p": "5, 9",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 21 repositories listed with languages, LOC and tests (Table 1); benchmark public on GitHub",
+   "p": "1, 4",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden test suites derived from the source repositories, validated at 100% on the source implementation",
+   "p": "3-5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): build success and pass rate defined; cost only as run time, no tokens or money",
+   "p": "3, 6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): four configurations under the same prompt, environment and timeout, crossing agent and model",
+   "p": "5-6",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration and benchmark; no statistical analysis of differences",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): scaling collapse well supported; claims that agent architecture 'matters as much as, or more than' the model rest on single runs of 2x2 configurations without variance",
+   "p": "6-7",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity discussion (only ethical considerations)",
+   "p": "8",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in KDD 2026 proceedings (ACM), per the ACM export",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): evaluated agents and models (Claude Code, Codex CLI, OpenCode) are not the authors'; note all authors work at Modelcode AI, an industry company",
+   "p": "1, 5",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "verdict": "confirmed",
+   "why": "",
+   "doubt": ""
+  }
+ ]
+}

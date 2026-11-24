@@ -1,7 +1,7 @@
 {
  "key": "rayyan-800497987",
  "model": "Claude Opus 5.5 (subagent)",
- "rounds": 1,
+ "rounds": 3,
  "fields": [
   {
    "f": "Reference",
@@ -35,8 +35,19 @@
    "f": "Nature of the study",
    "v": "Compares — ablation study of a Waterfall-style multi-agent LLM workflow (Requirement, Design, Implementation, Testing; full and without Requirement, Design or Testing) against direct prompting (RawPrompt) with three LLMs on 100 ClassEval tasks: Pass@1, SonarQube quality, runtime error types and a manual root-cause taxonomy",
    "p": "1-2, 4-5",
-   "rev": [],
-   "warn": ""
+   "rev": [
+    {
+     "round": 2,
+     "verdict": "uncertain",
+     "why": "The Waterfall multi-agent workflow is the authors' class-level adaptation of SOEN-101 (which seems to come from the same lab), and Q12 already treats them as its vendor (Partly). The paper frames itself as an evaluation ('first systematic study'), so 'Compares' holds, but a reader could file it as 'Proposes an approach; secondary: Compares', which would make Q13 applicable."
+    },
+    {
+     "round": 3,
+     "verdict": "uncertain",
+     "why": "The Waterfall multi-agent workflow is the authors' class-level adaptation of the SOEN-101 prompt structure (§3.1), and Q12 already treats them as its vendor (Partly). The paper frames itself as an evaluation ('first systematic study', 'empirical comparison of Waterfall-activity ablations'), so 'Compares' holds, but a reader could file it as 'Proposes an approach; secondary: Compares', which would make Q13 applicable."
+    }
+   ],
+   "warn": "O workflow Waterfall é uma adaptação dos próprios autores (do SOEN-101), mas o artigo apresenta-se como estudo de avaliação. Decide se fica Compares ou Proposes an approach; neste caso a Q13 passa a aplicar-se."
   },
   {
    "f": "Approach(es): name and version",
@@ -175,7 +186,7 @@
      "why": "'w/o-Testing gives the most errors' is not true for gpt-4o-mini: Table 3 gives Full 122 vs w/o-Test 118. w/o-Testing is highest only for deepseek-chat (124) and claude-3.5-haiku (111)."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Comparison: did the method work",
@@ -202,7 +213,7 @@
      "why": "A reporting inconsistency on runtime errors was missing: the text says both that w/o-Test 'consistently' gives the highest failures and that Full gives the most errors, and Table 3 contradicts the first for gpt-4o-mini."
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q1",
@@ -292,7 +303,7 @@
      "why": "Per §5 and the rule of 2026-11-23, when the authors' own approach (their Waterfall workflow) is compared with an external baseline or another approach (RawPrompt), Q12 is Partly, not No. (Note: SOEN-101, which they adapt, appears to come from the same lab; the cited authors are 'Feng Lin, Dong Jae Kim, et al.'.)"
     }
    ],
-   "warn": "O valor foi corrigido na verificação 1; confirma-o no texto."
+   "warn": ""
   },
   {
    "f": "Q13",
