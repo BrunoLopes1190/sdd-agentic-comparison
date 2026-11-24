@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800485904",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lulla, J. L., Mohsenimofidi, S., Galster, M., Zhang, J. M., Baltes, S., Treude, C. (2026). On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents. In Proceedings of the Journal Ahead Workshop (JAWs) 2026, ICSE JAWs 2026, Rio de Janeiro, Brazil. ACM. arXiv:2601.20404v2 [cs.SE], 30 Mar 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Lulla, J. L., Mohsenimofidi, S., Galster, M., Zhang, J. M., Baltes, S., Treude, C. (2026). On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents. In Proceedings of the Journal Ahead Workshop (JAWs) 2026, ICSE JAWs 2026, Rio de Janeiro, Brazil. ACM. arXiv:2601.20404v2 [cs.SE], 30 Mar 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Workshop — ICSE JAWs 2026 (Journal Ahead Workshop, Rio de Janeiro, ACM), 5 pages; read from arXiv:2601.20404v2",
+   "p": "1",
+   "ok": true,
+   "ai": "Workshop — ICSE JAWs 2026 (Journal Ahead Workshop, Rio de Janeiro, ACM), 5 pages; read from arXiv:2601.20404v2",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Singapore Management University, Singapore (Lulla, Treude); Heidelberg University, Germany (Mohsenimofidi, Baltes); University of Bamberg, Germany (Galster); King's College London, UK (Zhang)",
+   "p": "1",
+   "ok": true,
+   "ai": "Singapore Management University, Singapore (Lulla, Treude); Heidelberg University, Germany (Mohsenimofidi, Baltes); University of Bamberg, Germany (Galster); King's College London, UK (Zhang)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — paired experimepnt: Codex agent with vs without the repository's AGENTS.md on 124 PR tasks, efficiency only (tokens, time); also outlines a research roadmap",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Compares — paired experiment: Codex agent with vs without the repository's AGENTS.md on 124 PR tasks, efficiency only (tokens, time); also outlines a research roadmap",
+   "changed": true
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "AGENTS.md (repository-level agent context file, open format first used with Codex), no version",
+   "p": "1-2",
+   "ok": true,
+   "ai": "AGENTS.md (repository-level agent context file, open format first used with Codex), no version",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single root AGENTS.md file (as it existed at the pre-merge commit); retained only files containing conventions/best practices, architecture/project structure and project description (taxonomy of [15])",
+   "p": "2-3",
+   "ok": true,
+   "ai": "A single root AGENTS.md file (as it existed at the pre-merge commit); retained only files containing conventions/best practices, architecture/project structure and project description (taxonomy of [15])",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (file present in the repository when the agent runs; task input is an LLM-generated issue)",
+   "p": "3",
+   "ok": true,
+   "ai": "Not stated (file present in the repository when the agent runs; task input is an LLM-generated issue)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None (agent runs autonomously; manual sanity check of 50 outputs after the runs)",
+   "p": "3",
+   "ok": true,
+   "ai": "None (agent runs autonomously; manual sanity check of 50 outputs after the runs)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file AGENTS.md)",
+   "p": "3",
+   "ok": true,
+   "ai": "Single artefact (context file AGENTS.md)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context file, no specification); authors do not use SDD terms",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (context file, no specification); authors do not use SDD terms",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: re-creating merged GitHub PRs (bug fixes, feature additions, refactors) from the pre-merge snapshot",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Existing code bases: re-creating merged GitHub PRs (bug fixes, feature additions, refactors) from the pre-merge snapshot",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "124 PR tasks from 10 repositories (up to 15 per repo); each PR <= 100 LoC added+deleted, <= 5 files, code files only; repositories sampled from 26 qualifying (89 with a single root AGENTS.md, of 132)",
+   "p": "1-3",
+   "ok": true,
+   "ai": "124 PR tasks from 10 repositories (up to 15 per repo); each PR <= 100 LoC added+deleted, <= 5 files, code files only; repositories sampled from 26 qualifying (89 with a single root AGENTS.md, of 132)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (open-source GitHub repositories taken from the corpus of [15]; repositories not named in the paper)",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Not stated (open-source GitHub repositories taken from the corpus of [15]; repositories not named in the paper)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total tokens (input, cached input, output); wall-clock time-to-completion (s)",
+   "p": "3",
+   "ok": true,
+   "ai": "Total tokens (input, cached input, output); wall-clock time-to-completion (s)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (correctness out of scope; manual sanity check only)",
+   "p": "3",
+   "ok": true,
+   "ai": "None (correctness out of scope; manual sanity check only)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Python wrapper around Codex CLI in isolated Docker containers logs tokens and wall-clock time. Manual: sanity check of 50 random task outputs against the merged PRs (non-empty, non-trivial). Wilcoxon signed-rank test",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Automatic: Python wrapper around Codex CLI in isolated Docker containers logs tokens and wall-clock time. Manual: sanity check of 50 random task outputs against the merged PRs (non-empty, non-trivial). Wilcoxon signed-rank test",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: efficiency (tokens, time); no correctness criterion (manual sanity check of 50 outputs that they are non-trivial). Values: Table 1 (mean / median)\n- No AGENTS.md + Codex CLI + gpt-5.2-codex (baseline): time 162.94 s / 98.57 s; output tokens 5,744.81 / 2,925.00; input tokens 353,010.01 / 116,609.00; cached input 328,877.31 / 103,424.00; total tokens 687,632.13 / 223,707.00. Quality: not measured (sanity check only)\n- AGENTS.md + Codex CLI + gpt-5.2-codex: time 129.91 s / 70.34 s; output tokens 4,591.46 / 2,440.00; input 318,651.51 / 120,587.00; cached input 296,078.73 / 104,448.00; total 619,321.70 / 226,582.00. Quality: not measured (sanity check only)\nVerdicts: quality and cost: no criterion stated by the authors (both configurations)",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Criterion: efficiency (tokens, time); no correctness criterion (manual sanity check of 50 outputs that they are non-trivial). Values: Table 1 (mean / median)\n- No AGENTS.md + Codex CLI + gpt-5.2-codex (baseline): time 162.94 s / 98.57 s; output tokens 5,744.81 / 2,925.00; input tokens 353,010.01 / 116,609.00; cached input 328,877.31 / 103,424.00; total tokens 687,632.13 / 223,707.00. Quality: not measured (sanity check only)\n- AGENTS.md + Codex CLI + gpt-5.2-codex: time 129.91 s / 70.34 s; output tokens 4,591.46 / 2,440.00; input 318,651.51 / 120,587.00; cached input 296,078.73 / 104,448.00; total 619,321.70 / 226,582.00. Quality: not measured (sanity check only)\nVerdicts: quality and cost: no criterion stated by the authors (both configurations)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 124 merged PRs from 10 repos, rebuilt as issue-style task statements generated by gpt-oss-120b from the PR diff and file tree. Configurations: with vs without root AGENTS.md (file removed, all else unchanged). Baseline: without AGENTS.md. Held constant: agent (Codex CLI), model (gpt-5.2-codex), task input, repository snapshot, fresh Docker container per repo, reset between tasks. Acceptance tests: none (no correctness evaluation). Repetitions: Not stated (apparently one run per condition per task). Human intervention: none during runs",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Tasks: 124 merged PRs from 10 repos, rebuilt as issue-style task statements generated by gpt-oss-120b from the PR diff and file tree. Configurations: with vs without root AGENTS.md (file removed, all else unchanged). Baseline: without AGENTS.md. Held constant: agent (Codex CLI), model (gpt-5.2-codex), task input, repository snapshot, fresh Docker container per repo, reset between tasks. Acceptance tests: none (no correctness evaluation). Repetitions: Not stated (apparently one run per condition per task). Human intervention: none during runs",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "AGENTS.md better on efficiency: median wall-clock time -28.64% (98.57 -> 70.34 s), mean -20.27%; median output tokens -16.58% (2,925 -> 2,440), mean -20.08%. Input, cached input and total tokens: means -9.7 to -9.97%, medians -0.99 to -3.41% (slightly higher with AGENTS.md). Significant (Wilcoxon signed-rank, p<0.05) only for wall-clock time and output tokens. Task completion described as 'comparable' (not measured)",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "AGENTS.md better on efficiency: median wall-clock time -28.64% (98.57 -> 70.34 s), mean -20.27%; median output tokens -16.58% (2,925 -> 2,440), mean -20.08%. Input, cached input and total tokens: means -9.7 to -9.97%, medians -0.99 to -3.41% (slightly higher with AGENTS.md). Significant (Wilcoxon signed-rank, p<0.05) only for wall-clock time and output tokens. Task completion described as 'comparable' (not measured)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on time and output tokens, not on total tokens. Repeatability: code, Dockerfiles and generated tasks released; number of runs per condition not stated (apparently one), agent stochasticity acknowledged. Limitations stated: sampled subset of repositories, PRs and agent configurations; one agent framework and model; small-scope PRs; no correctness evaluation; effects may depend on agent stochasticity",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Distinguished conditions on time and output tokens, not on total tokens. Repeatability: code, Dockerfiles and generated tasks released; number of runs per condition not stated (apparently one), agent stochasticity acknowledged. Limitations stated: sampled subset of repositories, PRs and agent configurations; one agent framework and model; small-scope PRs; no correctness evaluation; effects may depend on agent stochasticity",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Sampled subset of repositories, PRs and agent configurations; one agent/model; small-scope PRs only; output quality (correctness, maintainability, alignment) not evaluated; future: more agents and models, larger PRs, correctness against merged PRs, properties of AGENTS.md (specificity, structure, workflow guidance), execution-trace analysis of why efficiency improves",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Sampled subset of repositories, PRs and agent configurations; one agent/model; small-scope PRs only; output quality (correctness, maintainability, alignment) not evaluated; future: more agents and models, larger PRs, correctness against merged PRs, properties of AGENTS.md (specificity, structure, workflow guidance), execution-trace analysis of why efficiency improves",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Short workshop paper. Online appendix (Zenodo doi:10.5281/zenodo.18348507) with wrapper, Dockerfiles and generated task descriptions. Table 1 jumbled by pdftotext; values rebuilt from the text (Section 4) and table rows. Abstract claims 'comparable task completion behavior', which rests only on a sanity check of 50 outputs (not a correctness measure). Time distributions also in Fig. 1. Filtering of AGENTS.md by LLM (gpt-oss-120b via Ollama) with manual verification. No pre-registration. Programming language: Not stated",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "Short workshop paper. Online appendix (Zenodo doi:10.5281/zenodo.18348507) with wrapper, Dockerfiles and generated task descriptions. Table 1 jumbled by pdftotext; values rebuilt from the text (Section 4) and table rows. Abstract claims 'comparable task completion behavior', which rests only on a sanity check of 50 outputs (not a correctness measure). Time distributions also in Fig. 1. Filtering of AGENTS.md by LLM (gpt-oss-120b via Ollama) with manual verification. No pre-registration. Programming language: Not stated",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): one explicit RQ on resources (tokens, time)",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): one explicit RQ on resources (tokens, time)",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): sampling, PR criteria, task generation, conditions, environment and metrics described; code and tasks released",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): sampling, PR criteria, task generation, conditions, environment and metrics described; code and tasks released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model gpt-5.2-codex and Codex CLI named; CLI version not stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Partly (0.5): model gpt-5.2-codex and Codex CLI named; CLI version not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): selection criteria described; generated task descriptions, wrapper and Dockerfiles in the online appendix (Zenodo); repositories not named in the paper",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): selection criteria described; generated task descriptions, wrapper and Dockerfiles in the online appendix (Zenodo); repositories not named in the paper",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): no independent correctness criterion; efficiency only; manual sanity check by the authors",
+   "p": "3",
+   "ok": true,
+   "ai": "No (0): no independent correctness criterion; efficiency only; manual sanity check by the authors",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): cost metrics defined (tokens, time); no quality metric",
+   "p": "3",
+   "ok": true,
+   "ai": "Partly (0.5): cost metrics defined (tokens, time); no quality metric",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): without-AGENTS.md baseline under the same conditions (paired)",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): without-AGENTS.md baseline under the same conditions (paired)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Wilcoxon signed-rank test; no repetitions per task stated",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Partly (0.5): Wilcoxon signed-rank test; no repetitions per task stated",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): efficiency claims follow from Table 1, but abstract states comparable task completion without a correctness measure, and total tokens did not decrease significantly",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "Partly (0.5): efficiency claims follow from Table 1, but abstract states comparable task completion without a correctness measure, and total tokens did not decrease significantly",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations discussed briefly in the roadmap (stochasticity, sample, one agent, no correctness); no threats section",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): limitations discussed briefly in the roadmap (stochasticity, sample, one agent, no correctness); no threats section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ICSE JAWs 2026 workshop (ACM), as stated in the paper;",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): ICSE JAWs 2026 workshop (ACM), as stated in the paper; read from arXiv v2",
+   "changed": true
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; not vendors of Codex or AGENTS.md",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors; not vendors of Codex or AGENTS.md",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T15:55:05"
+}

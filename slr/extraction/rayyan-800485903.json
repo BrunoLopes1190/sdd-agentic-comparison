@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800485903",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chatlatanagulchai, W., Li, H., Kashiwa, Y., Reid, B., Thonglek, K., Leelaprute, P., Rungsawang, A., Manaskasemsak, B., Adams, B., Hassan, A. E., Iida, H. (2026). Agent READMEs: An Empirical Study of Context Files for Agentic Coding. ACM Transactions on Software Engineering and Methodology 35(11), November 2026, 38 pp. https://doi.org/10.1145/3840295. Read from arXiv:2511.12884v2 [cs.SE], 9 Aug 2026",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Chatlatanagulchai, W., Li, H., Kashiwa, Y., Reid, B., Thonglek, K., Leelaprute, P., Rungsawang, A., Manaskasemsak, B., Adams, B., Hassan, A. E., Iida, H. (2026). Agent READMEs: An Empirical Study of Context Files for Agentic Coding. ACM Transactions on Software Engineering and Methodology 35(11), November 2026, 38 pp. https://doi.org/10.1145/3840295. Read from arXiv:2511.12884v2 [cs.SE], 9 Aug 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 9 Aug 2026; v1 2025; ACM template dated August 2025)",
+   "p": "1",
+   "ok": true,
+   "ai": "2026 (v2, 9 Aug 2026; v1 2025; ACM template dated August 2025)",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — ACM Transactions on Software Engineering and Methodology (TOSEM) 35(11), Nov 2026, DOI 10.1145/3840295; full text read from arXiv:2511.12884v2",
+   "p": "1",
+   "ok": true,
+   "ai": "Journal — ACM Transactions on Software Engineering and Methodology (TOSEM) 35(11), Nov 2026, DOI 10.1145/3840295; full text read from arXiv:2511.12884v2",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Faculty of Engineering, Kasetsart University, Thailand (Chatlatanagulchai, also NAIST; Thonglek, Leelaprute, Rungsawang, Manaskasemsak); Nara Institute of Science and Technology, Japan (Kashiwa, Reid, Iida); Queen's University, Canada (Li, Adams, Hassan)",
+   "p": "1",
+   "ok": true,
+   "ai": "Faculty of Engineering, Kasetsart University, Thailand (Chatlatanagulchai, also NAIST; Thonglek, Leelaprute, Rungsawang, Manaskasemsak); Nara Institute of Science and Technology, Japan (Kashiwa, Reid, Iida); Queen's University, Canada (Li, Adams, Hassan)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — repository mining: large-scale empirical study of 2,303 agent context files (RQ1 size/readability/structure, RQ2 maintenance, RQ3 instruction content, RQ4 automatic classification with GPT-5); extends the authors' prior study of 253 Claude.md files (PROFES 2025). Effect of the files on agents not measured experimentally (two observational before/after indentation case studies only)",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Evaluates — repository mining: large-scale empirical study of 2,303 agent context files (RQ1 size/readability/structure, RQ2 maintenance, RQ3 instruction content, RQ4 automatic classification with GPT-5); extends the authors' prior study of 253 Claude.md files (PROFES 2025). Effect of the files on agents not measured experimentally (two observational before/after indentation case studies only)",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent context files, no version: CLAUDE.md (Claude Code), AGENTS.md (OpenAI Codex), copilot-instructions.md (GitHub Copilot)",
+   "p": "1, 4-5",
+   "ok": true,
+   "ai": "Agent context files, no version: CLAUDE.md (Claude Code), AGENTS.md (OpenAI Codex), copilot-instructions.md (GitHub Copilot)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single persistent Markdown context file in the repository root, loaded at session start: project-level instructions (system overview, architecture, build/test commands, coding conventions, rules for tools). Observed categories (Table 3, 332 files): Testing 75.9%, Implementation Details 70.8%, Architecture 68.1%, Development Process 65.1%, Build and Run 63.0%, System Overview 59.0%, Maintenance 44.6%, Conf.&Env. 38.9%, Documentation and References 26.8%, Debugging 25.3%, AI Integration 24.1%, DevOps 18.4%, Security 14.8%, Performance 14.5%, UI/UX 8.7%, Project Management 5.4%",
+   "p": "2, 4, 14-15",
+   "ok": true,
+   "ai": "A single persistent Markdown context file in the repository root, loaded at session start: project-level instructions (system overview, architecture, build/test commands, coding conventions, rules for tools). Observed categories (Table 3, 332 files): Testing 75.9%, Implementation Details 70.8%, Architecture 68.1%, Development Process 65.1%, Build and Run 63.0%, System Overview 59.0%, Maintenance 44.6%, Conf.&Env. 38.9%, Documentation and References 26.8%, Debugging 25.3%, AI Integration 24.1%, DevOps 18.4%, Security 14.8%, Performance 14.5%, UI/UX 8.7%, Project Management 5.4%",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no flow; file loaded as persistent context; maintained over time through commits)",
+   "p": "2, 4",
+   "ok": true,
+   "ai": "Not stated (no flow; file loaded as persistent context; maintained over time through commits)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated as part of the artefact. Authors recommend reviewing context-file changes in code review and CODEOWNERS approval for high-impact sections (implication, not observed)",
+   "p": "26-27",
+   "ok": true,
+   "ai": "Not stated as part of the artefact. Authors recommend reviewing context-file changes in code review and CODEOWNERS approval for high-impact sections (implication, not observed)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file), observed in repositories, not run by the authors",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Single artefact (context file), observed in repositories, not run by the authors",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context files, no specification); authors do not use SDD terms",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (context files, no specification); authors do not use SDD terms",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (open-source repositories from the AIDev dataset using agentic coding tools)",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Existing code bases (open-source repositories from the AIDev dataset using agentic coding tools)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "2,303 files (922 CLAUDE.md, 694 AGENTS.md, 687 copilot-instructions.md) from 1,925 repositories with at least 5 stars (from 8,370 AIDev repos); median stars 51-96, forks 10.5-31 (Table 1); 10,659 context-file commits (5,655 / 2,767 / 2,237); RQ3/RQ4 sample of 332 files; RQ2 qualitative sample of 100 commits. Median file size: Copilot 535, Claude 485, Codex 335.5 words",
+   "p": "4-5, 7-8, 10, 14",
+   "ok": true,
+   "ai": "2,303 files (922 CLAUDE.md, 694 AGENTS.md, 687 copilot-instructions.md) from 1,925 repositories with at least 5 stars (from 8,370 AIDev repos); median stars 51-96, forks 10.5-31 (Table 1); 10,659 context-file commits (5,655 / 2,767 / 2,237); RQ3/RQ4 sample of 332 files; RQ2 qualitative sample of 100 commits. Median file size: Copilot 535, Claude 485, Codex 335.5 words",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (open-source repositories of any domain; examples: bioinformatics, browser extensions, React blogs, Rust)",
+   "p": "3-5, 15-21",
+   "ok": true,
+   "ai": "Not stated (open-source repositories of any domain; examples: bioinformatics, browser extensions, React blogs, Rust)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants). Inspectors: 4-17 years programming experience",
+   "p": "14",
+   "ok": true,
+   "ai": "N/A (no participants). Inspectors: 4-17 years programming experience",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (agent-generated code only characterised by cyclomatic complexity and nloc as a proxy of task difficulty, Fig. 4)",
+   "p": "7-8",
+   "ok": true,
+   "ai": "None (agent-generated code only characterised by cyclomatic complexity and nloc as a proxy of task difficulty, Fig. 4)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (cyclomatic complexity and nloc used as task-difficulty proxy, not as outcome)",
+   "p": "7-8",
+   "ok": true,
+   "ai": "None (cyclomatic complexity and nloc used as task-difficulty proxy, not as outcome)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "File size (words); readability (Flesch Reading Ease); header counts H1-H5; commits per file, inter-commit interval, words added/deleted; manual commit labels (add/fix/del/maintenance); share of files per instruction category; GPT-5 classifier precision/recall/F1 per category; indentation-rule violation rate in AI-authored lines before/after the rule (2 case studies)",
+   "p": "6-7, 10, 14, 23-25",
+   "ok": true,
+   "ai": "File size (words); readability (Flesch Reading Ease); header counts H1-H5; commits per file, inter-commit interval, words added/deleted; manual commit labels (add/fix/del/maintenance); share of files per instruction category; GPT-5 classifier precision/recall/F1 per category; indentation-rule violation rate in AI-authored lines before/after the rule (2 case studies)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: GitHub API, Textstat (FRE, cross-checked with py-readability-metrics), regex header counts, Lizard, Pydriller, Mann-Whitney U and Cliff's delta. Manual: one inspector labelled readability of 100 files (Spearman 0.19 with FRE); two inspectors labelled 100 commits (34 disagreements, third inspector resolved); grounded-theory coding with LLM-suggested candidate labels (Claude Opus 4.1, Gemini 2.5 Pro, GPT-5), two inspectors labelled 332 files (2,227 assignments, 80.3% agreement, third inspector resolved, 2,069 final). GPT-5 (temperature 1) classifier compared to human labels",
+   "p": "6-7, 10-11, 13-14, 24-25",
+   "ok": true,
+   "ai": "Automatic: GitHub API, Textstat (FRE, cross-checked with py-readability-metrics), regex header counts, Lizard, Pydriller, Mann-Whitney U and Cliff's delta. Manual: one inspector labelled readability of 100 files (Spearman 0.19 with FRE); two inspectors labelled 100 commits (34 disagreements, third inspector resolved); grounded-theory coding with LLM-suggested candidate labels (Claude Opus 4.1, Gemini 2.5 Pro, GPT-5), two inspectors labelled 332 files (2,227 assignments, 80.3% agreement, third inspector resolved, 2,069 final). GPT-5 (temperature 1) classifier compared to human labels",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational mining study; no configuration run by the authors). Observational before/after case studies (rule '4-space indentation' added to context file): (a) context file + Claude Code + model Not stated, one repository (rsyslog): violation rate 60.82% (208/342 lines) before -> 11.03% (939/8,516) after; (b) context file + GitHub Copilot + model Not stated, one repository (lotgd): 20.17% (6,673/33,080) -> 7.57% (5,306/70,060). Authors: two cases cannot establish causality. RQ4: GPT-5 classifier micro-F1 0.79 (P 0.73, R 0.86)",
+   "p": "23-25",
+   "ok": true,
+   "ai": "N/A (observational mining study; no configuration run by the authors). Observational before/after case studies (rule '4-space indentation' added to context file): (a) context file + Claude Code + model Not stated, one repository (rsyslog): violation rate 60.82% (208/342 lines) before -> 11.03% (939/8,516) after; (b) context file + GitHub Copilot + model Not stated, one repository (lotgd): 20.17% (6,673/33,080) -> 7.57% (5,306/70,060). Authors: two cases cannot establish causality. RQ4: GPT-5 classifier micro-F1 0.79 (P 0.73, R 0.86)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no SDD configurations compared). Comparisons across the three agents' context files with Mann-Whitney U and Cliff's delta; no tasks, acceptance tests or repetitions",
+   "p": "7-13",
+   "ok": true,
+   "ai": "N/A (no SDD configurations compared). Comparisons across the three agents' context files with Mann-Whitney U and Cliff's delta; no tasks, acceptance tests or repetitions",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Across agents (not SDD configurations): Claude and Copilot files longer than Codex (small effect, delta 0.21/0.22); Codex files easiest to read (FRE median 51.41 vs Claude 42.39, Copilot 44.39); more H3/H4 for Claude and Copilot; 67.0% of Claude files modified in multiple commits vs 59.8% Copilot, 59.4% Codex; median update interval 23.8 h Claude, 22.3 h Codex, 68.0 h Copilot; Claude places more emphasis on Build and Run (medium effect). Category distributions largely similar across agents",
+   "p": "7-13, 21-22",
+   "ok": true,
+   "ai": "Across agents (not SDD configurations): Claude and Copilot files longer than Codex (small effect, delta 0.21/0.22); Codex files easiest to read (FRE median 51.41 vs Claude 42.39, Copilot 44.39); more H3/H4 for Claude and Copilot; 67.0% of Claude files modified in multiple commits vs 59.8% Copilot, 59.4% Codex; median update interval 23.8 h Claude, 22.3 h Codex, 68.0 h Copilot; Claude places more emphasis on Build and Run (medium effect). Category distributions largely similar across agents",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Internal: manual classification bias (two inspectors, 80.3% agreement). Construct: binary presence labels ignore depth; FRE designed for prose, low correlation with human judgment; Markdown header syntax only. External: limited dataset, three agents. Gaps/future work: 'context debt' and context-file smells; ablation of structural elements on agent performance; co-evolution with code and CI linters; NFR blind spot (security, performance) and benchmarks testing NFR adherence; applying the classifier to commit histories",
+   "p": "25-27, 30-32",
+   "ok": true,
+   "ai": "Internal: manual classification bias (two inspectors, 80.3% agreement). Construct: binary presence labels ignore depth; FRE designed for prose, low correlation with human judgment; Markdown header syntax only. External: limited dataset, three agents. Gaps/future work: 'context debt' and context-file smells; ablation of structural elements on agent performance; co-evolution with code and CI linters; NFR blind spot (security, performance) and benchmarks testing NFR adherence; applying the classifier to commit histories",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Journal version (TOSEM) of an extension of the authors' PROFES 2025 short paper on 253 Claude.md files (cited as [14]; record rayyan-800485902). Replication package: https://github.com/woraamy/Agent-Context-File-Analysis (data, prompt). Values from text and tables (Table 3, Table 5); Table 3/5 layout jumbled by pdftotext, values rebuilt from text (Table 5 supports sum to 2,069 and match Table 3 percentages over 332 files). Reporting inconsistencies: text says 'half of the files contain system overview' (p. 14) while Table 3 gives 59.0%; 'Maintenance' is called a new category (p. 14) although the earlier study already had it (19.8%); Development Process 65.1% here vs 37.2% in the earlier study. Medians for H2-H5 partly in Fig. 5 only. Indentation case studies are observational, one repository per agent. No pre-registration. Programming language: Not stated (mixed; examples Python, TypeScript, Rust)",
+   "p": "3, 14-15, 23-24",
+   "ok": true,
+   "ai": "Journal version (TOSEM) of an extension of the authors' PROFES 2025 short paper on 253 Claude.md files (cited as [14]; record rayyan-800485902). Replication package: https://github.com/woraamy/Agent-Context-File-Analysis (data, prompt). Values from text and tables (Table 3, Table 5); Table 3/5 layout jumbled by pdftotext, values rebuilt from text (Table 5 supports sum to 2,069 and match Table 3 percentages over 332 files). Reporting inconsistencies: text says 'half of the files contain system overview' (p. 14) while Table 3 gives 59.0%; 'Maintenance' is called a new category (p. 14) although the earlier study already had it (19.8%); Development Process 65.1% here vs 37.2% in the earlier study. Medians for H2-H5 partly in Fig. 5 only. Indentation case studies are observational, one repository per agent. No pre-registration. Programming language: Not stated (mixed; examples Python, TypeScript, Rust)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 stated with motivation",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): RQ1-RQ4 stated with motivation",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data collection, measures, coding procedure and classifier described; prompt and data in the replication package",
+   "p": "4-7, 10, 13-14, 24",
+   "ok": true,
+   "ai": "Yes (1): data collection, measures, coding procedure and classifier described; prompt and data in the replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): labelling and classification LLMs named (Claude Opus 4.1, Gemini 2.5 Pro, GPT-5); coding agents named without versions; models behind the mined commits not identified",
+   "p": "5, 13, 24",
+   "ok": true,
+   "ai": "Partly (0.5): labelling and classification LLMs named (Claude Opus 4.1, Gemini 2.5 Pro, GPT-5); coding agents named without versions; models behind the mined commits not identified",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): dataset construction described and data released in the replication package",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Yes (1): dataset construction described and data released in the replication package",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): content labels by two independent inspectors with third-inspector resolution (80.3% agreement) used as ground truth for the classifier; FRE checked against one inspector; no measure of the files' effect beyond two case studies",
+   "p": "8, 14, 24-25",
+   "ok": true,
+   "ai": "Partly (0.5): content labels by two independent inspectors with third-inspector resolution (80.3% agreement) used as ground truth for the classifier; FRE checked against one inspector; no measure of the files' effect beyond two case studies",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): structural, maintenance and content metrics defined; no cost or code-quality outcomes (out of scope)",
+   "p": "6-7, 10, 14",
+   "ok": true,
+   "ai": "Partly (0.5): structural, maintenance and content metrics defined; no cost or code-quality outcomes (out of scope)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): observational; no baseline or alternative under the same conditions (before/after case studies without control)",
+   "p": "23",
+   "ok": true,
+   "ai": "No (0): observational; no baseline or alternative under the same conditions (before/after case studies without control)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Mann-Whitney U and Cliff's delta for differences across agents; no correction for multiple tests; no repetitions (not applicable to mining)",
+   "p": "7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): Mann-Whitney U and Cliff's delta for differences across agents; no correction for multiple tests; no repetitions (not applicable to mining)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes: most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
+   "p": "8-9, 23, 31",
+   "ok": true,
+   "ai": "Partly (0.5): most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
+   "changed": true
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 7 threats to validity (internal, construct, external)",
+   "p": "30-32",
+   "ok": true,
+   "ai": "Yes (1): Section 7 threats to validity (internal, construct, external)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in ACM TOSEM 35(11), 2026 (DOI 10.1145/3840295); full text read from the arXiv version",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): published in ACM TOSEM 35(11), 2026 (DOI 10.1145/3840295); full text read from the arXiv version",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; no tool by the authors evaluated",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors; no tool by the authors evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T15:51:19"
+}

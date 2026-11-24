@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800485921",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Khatri, P. (2026). Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories. arXiv:2607.27250v1 [cs.SE], 28 Jul 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Khatri, P. (2026). Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories. arXiv:2607.27250v1 [cs.SE], 28 Jul 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (no venue stated)",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv (no venue stated)",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher (personal gmail address)",
+   "p": "1",
+   "ok": true,
+   "ai": "Independent researcher (personal gmail address)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares — controlled ablation of three context-injection strategies (NONE / ALWAYS ON / SELECTIVE) across two coding agents on 17 real tasks",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Compares — controlled ablation of three context-injection strategies (NONE / ALWAYS ON / SELECTIVE) across two coding agents on 17 real tasks",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Repository context file AGENTS.md (developer-written, unmodified) delivered by three strategies: NONE (file removed), ALWAYS ON (full AGENTS.md injected every turn), SELECTIVE (topic-organised wiki files read on demand, author's construction; auto-generated wiki for pdm and firebase). No version; no SDD framework",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Repository context file AGENTS.md (developer-written, unmodified) delivered by three strategies: NONE (file removed), ALWAYS ON (full AGENTS.md injected every turn), SELECTIVE (topic-organised wiki files read on demand, author's construction; auto-generated wiki for pdm and firebase). No version; no SDD framework",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One root AGENTS.md per repository (pdm 477 words, firebase-admin-python 1,236 words, opshin 248 words; build/test/style conventions, architecture, error handling); SELECTIVE: wiki/*.md files (opshin one overview.md equal to the AGENTS.md; pdm and firebase ~10x and ~18x larger auto-generated wikis) plus a system-prompt retrieval hint",
+   "p": "3",
+   "ok": true,
+   "ai": "One root AGENTS.md per repository (pdm 477 words, firebase-admin-python 1,236 words, opshin 248 words; build/test/style conventions, architecture, error handling); SELECTIVE: wiki/*.md files (opshin one overview.md equal to the AGENTS.md; pdm and firebase ~10x and ~18x larger auto-generated wikis) plus a system-prompt retrieval hint",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a flow (context delivered by the strategy; agent implements the PR description; gold tests applied afterwards)",
+   "p": "3",
+   "ok": true,
+   "ai": "Not stated as a flow (context delivered by the strategy; agent implements the PR description; gold tests applied afterwards)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None (autonomous runs)",
+   "p": "3",
+   "ok": true,
+   "ai": "None (autonomous runs)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context file), run with agents",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Single artefact (context file), run with agents",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context file without a specification)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (context file without a specification)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: tasks mined from merged PRs (PR description as prompt, base commit as start, PR tests as gold); non-trivial (multiple files or >50 LOC)",
+   "p": "3",
+   "ok": true,
+   "ai": "Existing code bases: tasks mined from merged PRs (PR description as prompt, base commit as start, PR tests as gold); non-trivial (multiple files or >50 LOC)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "17 tasks for Codex, 15 for Claude, from 3 repositories (12 initial tasks + 4 borderline from a Codex screening of 84 candidates; 2 Codex-only); 288 evaluated runs (+ 36-cell probe)",
+   "p": "2-3, 7",
+   "ok": true,
+   "ai": "17 tasks for Codex, 15 for Claude, from 3 repositories (12 initial tasks + 4 borderline from a Codex screening of 84 candidates; 2 Codex-only); 288 evaluated runs (+ 36-cell probe)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python: pdm (package manager), firebase-admin-python (cloud SDK), opshin (domain-specific compiler)",
+   "p": "3",
+   "ok": true,
+   "ai": "Open-source Python: pdm (package manager), firebase-admin-python (cloud SDK), opshin (domain-specific compiler)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (autonomous agents)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Wall-clock duration, output tokens, cache-read and cache-creation tokens (Claude only); tool calls. No money reported (Claude capped at $6/run)",
+   "p": "4",
+   "ok": true,
+   "ai": "Wall-clock duration, output tokens, cache-read and cache-creation tokens (Claude only); tool calls. No money reported (Claude capped at $6/run)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Binary correctness: task passes iff all hidden gold PR tests pass (SWE-bench style); pass rate per strategy over 3 repeats",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Binary correctness: task passes iff all hidden gold PR tests pass (SWE-bench style); pass rate per strategy over 3 repeats",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Blind full-suite test runs per cell (opshin, post-hoc); failure-mode triage of near-misses; agent-specific difficulty (Spearman correlation of per-task pass rates); power / minimum detectable effect",
+   "p": "5-7",
+   "ok": true,
+   "ai": "Blind full-suite test runs per cell (opshin, post-hoc); failure-mode triage of near-misses; agent-specific difficulty (Spearman correlation of per-task pass rates); power / minimum detectable effect",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: gold tests via pytest in an egress-locked pod; agent JSON logs for efficiency. Manual: failure-mode triage of near-miss failures (by the author); AGENTS.md quality rated with the author's own rubric",
+   "p": "3-4, 7, 10",
+   "ok": true,
+   "ai": "Automatic: gold tests via pytest in an egress-locked pod; agent JSON logs for efficiency. Manual: failure-mode triage of near-miss failures (by the author); AGENTS.md quality rated with the author's own rubric",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion (per task): all hidden gold PR tests pass; no pass-rate criterion stated for a configuration. Values: pass rate over 3 repeats per task; Codex borderline subset (4 tasks) in brackets. No absolute cost totals are reported for any configuration (efficiency only as paired within-task tests; Claude capped at $6/run), so cost is 'not reported' except the exploratory opshin values.\n- NONE + Claude Code (CLI, --bare) + claude-sonnet-4-6 (baseline): 53.3% (24/45); opshin (exploratory): duration 2,689 s, 3.67 blind full-suite runs per cell. Quality: no criterion stated by the authors; cost: not reported\n- ALWAYS ON + Claude Code + claude-sonnet-4-6: 55.6% (25/45); opshin: 2,066 s, 2.44 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Claude Code + claude-sonnet-4-6: 55.6% (25/45); cache-creation tokens lower than NONE on 11/11 tasks (p_Holm=0.012); opshin: 2,032 s, 1.67 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- NONE + Codex CLI + gpt-5.5 (baseline): 58.8% (30/51) [58%]. Quality: no criterion stated by the authors; cost: not reported (tool calls 32/32/32 across strategies, output tokens and duration within ±3.8%)\n- ALWAYS ON + Codex CLI + gpt-5.5: 56.9% (29/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Codex CLI + gpt-5.5: 52.9% (27/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- Probe (2 near-miss tasks, 36 cells): Codex 0/3 for all strategies on both tasks; Claude task 907 2/3 (NONE), 1/3 (ALWAYS ON), 0/3 (SELECTIVE), task 554 0/3 all",
+   "p": "4-7",
+   "ok": true,
+   "ai": "Criterion (per task): all hidden gold PR tests pass; no pass-rate criterion stated for a configuration. Values: pass rate over 3 repeats per task; Codex borderline subset (4 tasks) in brackets. No absolute cost totals are reported for any configuration (efficiency only as paired within-task tests; Claude capped at $6/run), so cost is 'not reported' except the exploratory opshin values.\n- NONE + Claude Code (CLI, --bare) + claude-sonnet-4-6 (baseline): 53.3% (24/45); opshin (exploratory): duration 2,689 s, 3.67 blind full-suite runs per cell. Quality: no criterion stated by the authors; cost: not reported\n- ALWAYS ON + Claude Code + claude-sonnet-4-6: 55.6% (25/45); opshin: 2,066 s, 2.44 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Claude Code + claude-sonnet-4-6: 55.6% (25/45); cache-creation tokens lower than NONE on 11/11 tasks (p_Holm=0.012); opshin: 2,032 s, 1.67 full-suite runs. Quality: no criterion stated by the authors; cost: not reported\n- NONE + Codex CLI + gpt-5.5 (baseline): 58.8% (30/51) [58%]. Quality: no criterion stated by the authors; cost: not reported (tool calls 32/32/32 across strategies, output tokens and duration within ±3.8%)\n- ALWAYS ON + Codex CLI + gpt-5.5: 56.9% (29/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- SELECTIVE + Codex CLI + gpt-5.5: 52.9% (27/51) [42%]. Quality: no criterion stated by the authors; cost: not reported\n- Probe (2 near-miss tasks, 36 cells): Codex 0/3 for all strategies on both tasks; Claude task 907 2/3 (NONE), 1/3 (ALWAYS ON), 0/3 (SELECTIVE), task 554 0/3 all",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 15 shared + 2 Codex-only real PR tasks, 3 repositories. Configurations: 3 strategies x 2 agents. Baseline: NONE. Held constant: workspace, task prompt, evaluation pipeline, sandbox; AGENTS.md removed from workspace in all conditions; injection channel differs between agents (system prompt vs user-turn prepend). Acceptance: hidden gold PR tests. Repetitions: 3 per cell (task is the unit, repeats averaged). Human intervention: none. Statistics: within-task permutation omnibus test, Wilcoxon with Holm (12 efficiency tests), TOST with task-clustered bootstrap, Monte Carlo power",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Tasks: 15 shared + 2 Codex-only real PR tasks, 3 repositories. Configurations: 3 strategies x 2 agents. Baseline: NONE. Held constant: workspace, task prompt, evaluation pipeline, sandbox; AGENTS.md removed from workspace in all conditions; injection channel differs between agents (system prompt vs user-turn prepend). Acceptance: hidden gold PR tests. Repetitions: 3 per cell (task is the unit, repeats averaged). Human intervention: none. Statistics: within-task permutation omnibus test, Wilcoxon with Holm (12 efficiency tests), TOST with task-clustered bootstrap, Monte Carlo power",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Correctness: no strategy effect for either agent (omnibus p=1.00 Claude, p=0.66 Codex; Claude pairwise differences <=2.3 pp, Codex largest 5.9 pp NONE vs SELECTIVE); TOST bounds <10 pp (Claude), <15 pp (Codex), descriptive, not powered. On 4 Codex-borderline tasks NONE 58% vs 42% / 42%. Efficiency: only SELECTIVE < NONE on Claude cache-creation tokens (p_Holm=0.012); Codex flat; exploratory opshin effect for Claude (~24% faster with context, full-suite runs 3.67 / 2.44 / 1.67, p=0.125 and p=0.25). Difficulty is agent-specific (Spearman rho=0.75, p=0.001; ~40% of tasks differ in informative band)",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Correctness: no strategy effect for either agent (omnibus p=1.00 Claude, p=0.66 Codex; Claude pairwise differences <=2.3 pp, Codex largest 5.9 pp NONE vs SELECTIVE); TOST bounds <10 pp (Claude), <15 pp (Codex), descriptive, not powered. On 4 Codex-borderline tasks NONE 58% vs 42% / 42%. Efficiency: only SELECTIVE < NONE on Claude cache-creation tokens (p_Holm=0.012); Codex flat; exploratory opshin effect for Claude (~24% faster with context, full-suite runs 3.67 / 2.44 / 1.67, p=0.125 and p=0.25). Difficulty is agent-specific (Spearman rho=0.75, p=0.001; ~40% of tasks differ in informative band)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Did not distinguish strategies on correctness (bounded null); low power: MDE >30 pp (a 30 pp effect detected only 57% of the time), ~120-200 tasks needed for 10 pp; more repeats help little. Repeatable: 3 repeats; Claude repeat-0 on a different machine (sensitivity analysis keeps null). Limitations stated: sample size, three Python repositories, injection-channel asymmetry, ALWAYS ON stronger than natural workflow, SELECTIVE not content-matched, naturalistic files, model snapshot, mixed provenance; turn-based classifier misclassified Codex tasks",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Did not distinguish strategies on correctness (bounded null); low power: MDE >30 pp (a 30 pp effect detected only 57% of the time), ~120-200 tasks needed for 10 pp; more repeats help little. Repeatable: 3 repeats; Claude repeat-0 on a different machine (sensitivity analysis keeps null). Limitations stated: sample size, three Python repositories, injection-channel asymmetry, ALWAYS ON stronger than natural workflow, SELECTIVE not content-matched, naturalistic files, model snapshot, mixed provenance; turn-based classifier misclassified Codex tasks",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations 1-8 (sample size, repository diversity, injection-channel asymmetry, ecological validity, SELECTIVE construction and corpus, inert-manipulation concern, model-version snapshot, mixed provenance). Open: purpose-built task-specific context; a 'natural' file-in-workspace condition; content-matched SELECTIVE; scaling to ~120 tasks; ablations must screen tasks per agent",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Limitations 1-8 (sample size, repository diversity, injection-channel asymmetry, ecological validity, SELECTIVE construction and corpus, inert-manipulation concern, model-version snapshot, mixed provenance). Open: purpose-built task-specific context; a 'natural' file-in-workspace condition; content-matched SELECTIVE; scaling to ~120 tasks; ablations must screen tasks per agent",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: (1) design gives 15x9 + 17x9 = 288 cells and Table 1 counts all 135 Claude runs, yet text reports 291 completed runs with 3 Claude runs excluded leaving 288; (2) task set: 12 initial + 4 borderline = 16, but final set is 17 tasks for Codex (Figure 2 lists 17), the extra task not explained. Claude efficiency tests on 11 tasks (not 15), not explained. opshin AGENTS.md given as 248 words (p. 3) and 256 words (p. 3 caveat). Probe and efficiency family called 'pre-registered' but no registration link. Section 5.1 cites itself. Values from Tables 1-4 and text. Harness, task specs, 291-run database and analysis code released (github.com/codeprakhar25/context-files-coding-agents); transcripts on request. AI assistant used for drafting and code scaffolding. Programming language: Python",
+   "p": "2-7, 9-10",
+   "ok": true,
+   "ai": "Inconsistencies: (1) design gives 15x9 + 17x9 = 288 cells and Table 1 counts all 135 Claude runs, yet text reports 291 completed runs with 3 Claude runs excluded leaving 288; (2) task set: 12 initial + 4 borderline = 16, but final set is 17 tasks for Codex (Figure 2 lists 17), the extra task not explained. Claude efficiency tests on 11 tasks (not 15), not explained. opshin AGENTS.md given as 248 words (p. 3) and 256 words (p. 3 caveat). Probe and efficiency family called 'pre-registered' but no registration link. Section 5.1 cites itself. Values from Tables 1-4 and text. Harness, task specs, 291-run database and analysis code released (github.com/codeprakhar25/context-files-coding-agents); transcripts on request. AI assistant used for drafting and code scaffolding. Programming language: Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question and contributions clearly stated",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): question and contributions clearly stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task selection, strategies, agent invocations, evaluation, statistics described; harness and data released",
+   "p": "3-4, 10",
+   "ok": true,
+   "ai": "Yes (1): task selection, strategies, agent invocations, evaluation, statistics described; harness and data released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (claude-sonnet-4-6, gpt-5.5) and CLI invocations given; agent CLI versions not stated",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): models named (claude-sonnet-4-6, gpt-5.5) and CLI invocations given; agent CLI versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks from named public PRs; task specifications released",
+   "p": "3, 5, 10",
+   "ok": true,
+   "ai": "Yes (1): tasks from named public PRs; task specifications released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden gold tests from the merged PRs",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): hidden gold tests from the merged PRs",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): correctness plus tool calls, duration, tokens, cache tokens defined",
+   "p": "2, 4",
+   "ok": true,
+   "ai": "Yes (1): correctness plus tool calls, duration, tokens, cache tokens defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): NONE baseline under the same conditions",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): NONE baseline under the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 3 repeats, permutation tests, Holm correction, TOST, power analysis",
+   "p": "4, 6-7",
+   "ok": true,
+   "ai": "Yes (1): 3 repeats, permutation tests, Holm correction, TOST, power analysis",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null results reported with power caveats; reconciliation offered as hypothesis; minor overreach ('explains prior contradictions' in conclusion)",
+   "p": "5-8",
+   "ok": true,
+   "ai": "Yes (1): null results reported with power caveats; reconciliation offered as hypothesis; minor overreach ('explains prior contradictions' in conclusion)",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): eight limitations discussed",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Yes (1): eight limitations discussed",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): independent researcher; no vendor tool of the author evaluated (SELECTIVE is the author's experimental condition)",
+   "p": "1, 9",
+   "ok": true,
+   "ai": "Yes (1): independent researcher; no vendor tool of the author evaluated (SELECTIVE is the author's experimental condition)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:11:20"
+}
