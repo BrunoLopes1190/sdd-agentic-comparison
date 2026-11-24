@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800485932",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Gao, H., Banyongrakkul, P., Cheong, M., Treude, C., Baltes, S., Zahedi, M. (2026). Ethics by Configuration: AI Ethics Principles in Coding Agent Instructions. arXiv:2610.34847v1 [cs.SE], 26 Oct 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Gao, H., Banyongrakkul, P., Cheong, M., Treude, C., Baltes, S., Zahedi, M. (2026). Ethics by Configuration: AI Ethics Principles in Coding Agent Instructions. arXiv:2610.34847v1 [cs.SE], 26 Oct 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.34847v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2610.34847v1 [cs.SE]; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The University of Melbourne (Gao, Banyongrakkul, Cheong, Zahedi); Singapore Management University (Treude); Heidelberg University (Baltes)",
+   "p": "1",
+   "ok": true,
+   "ai": "The University of Melbourne (Gao, Banyongrakkul, Cheong, Zahedi); Singapore Management University (Treude); Heidelberg University (Baltes)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — repository mining: study of AI ethics principles (Australia's 8 principles) in 40,079 agent configuration files from 8,893 GitHub repositories: two-LLM section classification validated against human annotation, plus qualitative thematic analysis of 702 samples across 679 files. No agent run",
+   "p": "1-4",
+   "ok": true,
+   "ai": "Evaluates — repository mining: study of AI ethics principles (Australia's 8 principles) in 40,079 agent configuration files from 8,893 GitHub repositories: two-LLM section classification validated against human annotation, plus qualitative thematic analysis of 702 samples across 679 files. No agent run",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent configuration mechanisms in the Galster et al. dataset (8 mechanisms across 5 coding tools): context files (e.g. AGENTS.md), rules, skills, commands, subagents, settings, hooks, MCP, other; no versions",
+   "p": "1, 3, 5",
+   "ok": true,
+   "ai": "No SDD approach. Agent configuration mechanisms in the Galster et al. dataset (8 mechanisms across 5 coding tools): context files (e.g. AGENTS.md), rules, skills, commands, subagents, settings, hooks, MCP, other; no versions",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (observed artefacts: configuration files of the 8 mechanisms; ethics statements found mostly in prose files)",
+   "p": "5, 10",
+   "ok": true,
+   "ai": "N/A (observed artefacts: configuration files of the 8 mechanisms; ethics statements found mostly in prose files)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A as prescription. Finding: accountability rules mostly require human approval before acting (57 of 95 files) and few require reviewing output (15 files); categories Human as gatekeeper / decision-maker / reviewer / contribution owner",
+   "p": "6-7, 10",
+   "ok": true,
+   "ai": "N/A as prescription. Finding: accountability rules mostly require human approval before acting (57 of 95 files) and few require reviewing output (15 files); categories Human as gatekeeper / decision-maker / reviewer / contribution owner",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based: configuration files mined, not executed)",
+   "p": "3, 10",
+   "ok": true,
+   "ai": "Not run (document-based: configuration files mined, not executed)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (configuration files, no specification)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (configuration files, no specification)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no task run); corpus of existing open-source repositories",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no task run); corpus of existing open-source repositories",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "41,050 files across 8,945 repositories collected (Aug 2026); 40,079 English files in 8,893 repositories; 229,816 sections; median 2 config files per repository",
+   "p": "3, 5",
+   "ok": true,
+   "ai": "41,050 files across 8,945 repositories collected (Aug 2026); 40,079 English files in 8,893 repositories; 229,816 sections; median 2 config files per repository",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Public open-source GitHub repositories (mixed domains; SEART search; non-fork, licensed, at least two contributors, recent commits)",
+   "p": "3",
+   "ok": true,
+   "ai": "Public open-source GitHub repositories (mixed domains; SEART search; non-fork, licensed, at least two contributors, recent commits)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; OSS repositories with at least two contributors)",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no participants; OSS repositories with at least two contributors)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Not measured (agent behaviour not tested)",
+   "p": "10",
+   "ok": true,
+   "ai": "Not measured (agent behaviour not tested)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Prevalence of ethics-related statements per file and repository, by principle (Australia's AI Ethics Principles, 8) and mechanism; repository principle coverage; 30 categories / 125 codes of ethical considerations; parties mentioned. Classifier validity: precision, recall, F1, Cohen's kappa",
+   "p": "3-9",
+   "ok": true,
+   "ai": "Prevalence of ethics-related statements per file and repository, by principle (Australia's AI Ethics Principles, 8) and mechanism; repository principle coverage; 30 categories / 125 codes of ethical considerations; parties mentioned. Classifier validity: precision, recall, F1, Cohen's kappa",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic LLM classification at section level by Qwen3.8-27B and Gemma-4-31B-it (temperature 0, OR rule), prompt refined in two stages against human annotation (1,055 files; 726 section-principle pairs; kappa 0.81 and 0.72 on shared subsets); manual qualitative coding (deductive + inductive), first 15 files per principle by two authors, rest by first author",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Automatic LLM classification at section level by Qwen3.8-27B and Gemma-4-31B-it (temperature 0, OR rule), prompt refined in two stages against human annotation (1,055 files; 726 section-principle pairs; kappa 0.81 and 0.72 on shared subsets); manual qualitative coding (deductive + inductive), first 15 files per principle by two authors, rest by first author",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational mining study; no configuration run)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (observational mining study; no configuration run)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no controlled comparison). Descriptive comparison across configuration mechanisms and principles",
+   "p": "5",
+   "ok": true,
+   "ai": "N/A (no controlled comparison). Descriptive comparison across configuration mechanisms and principles",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A as experiment. Descriptive: ethics statements in 39.4% of files and 61.5% of repositories; subagents 64.2%, commands 57.1%, skills 55.8% vs context files 37.1%, rules 33.0%; hooks 22.2%, settings 12.7%, MCP 1.2%. Accountability 20.6%, transparency 16.0%, privacy 15.1%, reliability 14.4%, fairness 5.6%, contestability 1.2%, HCV 1.2%, wellbeing 0.6%. Classifier (Stage 2, OR, weighted corpus) P 0.85 R 0.89 F1 0.87; principle-level F1 0.84 -> 0.89",
+   "p": "4-5",
+   "ok": true,
+   "ai": "N/A as experiment. Descriptive: ethics statements in 39.4% of files and 61.5% of repositories; subagents 64.2%, commands 57.1%, skills 55.8% vs context files 37.1%, rules 33.0%; hooks 22.2%, settings 12.7%, MCP 1.2%. Accountability 20.6%, transparency 16.0%, privacy 15.1%, reliability 14.4%, fairness 5.6%, contestability 1.2%, HCV 1.2%, wellbeing 0.6%. Classifier (Stage 2, OR, weighted corpus) P 0.85 R 0.89 F1 0.87; principle-level F1 0.84 -> 0.89",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Construct: content alignment with principles may capture SE practice; overlapping principles. Internal: LLM classification may miss statements (recall estimated from Stage 1 predictions); single coder after calibration; hooks/settings may express ethics in code (underestimated); only explicit parties. External: public GitHub only, five tools as of Aug 2026. Gap: whether agents follow such instructions is untested; propose benchmarks of ethical behaviour, mining of disclosure, longitudinal studies of instruction maintenance (as for SDD specs)",
+   "p": "1, 10",
+   "ok": true,
+   "ai": "Construct: content alignment with principles may capture SE practice; overlapping principles. Internal: LLM classification may miss statements (recall estimated from Stage 1 predictions); single coder after calibration; hooks/settings may express ethics in code (underestimated); only explicit parties. External: public GitHub only, five tools as of Aug 2026. Gap: whether agents follow such instructions is untested; propose benchmarks of ethical behaviour, mining of disclosure, longitudinal studies of instruction maintenance (as for SDD specs)",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Table III and Fig. 2-4 partly jumbled by pdftotext; values quoted from the text where possible. Dataset extends Galster et al. (15,591 artefacts, 4,738 repos, Mar 2026) by re-running their pipeline. Replication package: zenodo.org/records/23595425. No pre-registration. Programming language: not applicable (mixed repositories). Relevance to SDD: context-file mechanisms only; no agent outcome",
+   "p": "3, 5, 9, 11",
+   "ok": true,
+   "ai": "Table III and Fig. 2-4 partly jumbled by pdftotext; values quoted from the text where possible. Dataset extends Galster et al. (15,591 artefacts, 4,738 repos, Mar 2026) by re-running their pipeline. Replication package: zenodo.org/records/23595425. No pre-registration. Programming language: not applicable (mixed repositories). Relevance to SDD: context-file mechanisms only; no agent outcome",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1a, RQ1b, RQ2 stated",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): RQ1a, RQ1b, RQ2 stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data collection, classification prompts stages, sampling and coding procedure described; replication package",
+   "p": "3-4, 11",
+   "ok": true,
+   "ai": "Yes (1): data collection, classification prompts stages, sampling and coding procedure described; replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): classification LLMs named with size and temperature; no coding agent evaluated; tools in corpus not versioned",
+   "p": "3",
+   "ok": true,
+   "ai": "Partly (0.5): classification LLMs named with size and temperature; no coding agent evaluated; tools in corpus not versioned",
+   "changed": true
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): corpus construction described and released (Zenodo)",
+   "p": "3, 11",
+   "ok": true,
+   "ai": "Yes (1): corpus construction described and released (Zenodo)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM labels validated against human annotations (held-out set, kappa); no effectiveness of agents measured",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Partly (0.5): LLM labels validated against human annotations (held-out set, kappa); no effectiveness of agents measured",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): prevalence and classifier metrics defined; no cost or quality outcomes (out of scope)",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Partly (0.5): prevalence and classifier metrics defined; no cost or quality outcomes (out of scope)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): descriptive study; no baseline or alternative under the same conditions (OR vs AND classifier rules only)",
+   "p": "3",
+   "ok": true,
+   "ai": "No (0): descriptive study; no baseline or alternative under the same conditions (OR vs AND classifier rules only)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): descriptive statistics only; sample sizes by confidence level, no statistical analysis of differences",
+   "p": "3-5",
+   "ok": true,
+   "ai": "No (0): descriptive statistics only; sample sizes by confidence level, no statistical analysis of differences",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the prevalence and coding results; explicitly no claim about agent behaviour",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow the prevalence and coding results; explicitly no claim about agent behaviour",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VII Threats to validity (construct, internal, external)",
+   "p": "10",
+   "ok": true,
+   "ai": "Yes (1): Section VII Threats to validity (construct, internal, external)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; no tool evaluated",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors; no tool evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:15:52"
+}

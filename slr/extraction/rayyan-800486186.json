@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486186",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Gao, Y., Li, Z., Yuan, Y., Ji, Z., Ma, P., Wang, S. (2026). SkillReducer: Optimizing LLM Agent Skills for Token Efficiency. arXiv:2603.29919v2 [cs.SE], 24 Jun 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Gao, Y., Li, Z., Yuan, Y., Ji, Z., Ma, P., Wang, S. (2026). SkillReducer: Optimizing LLM Agent Skills for Token Efficiency. arXiv:2603.29919v2 [cs.SE], 24 Jun 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 24 Jun 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "2026 (v2, 24 Jun 2026)",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2603.29919v2 [cs.SE]; no published venue stated (tool 'to be released upon acceptance'; access log: arXiv record)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Preprint — arXiv:2603.29919v2 [cs.SE]; no published venue stated (tool 'to be released upon acceptance'; access log: arXiv record)",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: The Hong Kong University of Science and Technology, Tsinghua University, Zhejiang University of Technology",
+   "p": "1",
+   "ok": true,
+   "ai": "Academia: The Hong Kong University of Science and Technology, Tsinghua University, Zhejiang University of Technology",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — SkillReducer, two-stage skill debloating (delta-debugging description compression and taxonomy-driven progressive disclosure), evaluated on 600 skills and SkillsBench against original skills and four compression baselines; preceded by an empirical study of 55,315 skills",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Evaluates — SkillReducer, two-stage skill debloating (delta-debugging description compression and taxonomy-driven progressive disclosure), evaluated on 600 skills and SkillsBench against original skills and four compression baselines; preceded by an empirical study of 55,315 skills",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SkillReducer (proposed; no version). Compared: original skill (A), no skill (D), LLMLingua, direct LLM compression, truncation, random sentence removal; ablation variants C1-C4",
+   "p": "7-9",
+   "ok": true,
+   "ai": "SkillReducer (proposed; no version). Compared: original skill (A), no skill (D), LLMLingua, direct LLM compression, truncation, random sentence removal; ablation variants C1-C4",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent skills (Anthropic skill protocol: SKILL.md with routing description and Markdown body, optional reference files, scripts out of scope). Output: compressed routing description; compressed core body (always loaded); on-demand reference modules (examples.md, templates.md, background.md, deduplicated references) annotated with 'when' clause and 3-5 topic keywords",
+   "p": "2, 5-6",
+   "ok": true,
+   "ai": "Agent skills (Anthropic skill protocol: SKILL.md with routing description and Markdown body, optional reference files, scripts out of scope). Output: compressed routing description; compressed core body (always loaded); on-demand reference modules (examples.md, templates.md, background.md, deduplicated references) annotated with 'when' clause and 3-5 topic keywords",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Stage 1 (routing layer): segment description into semantic clauses -> DDMIN with simulated routing oracle (TF-IDF distractors + LLM adversarial skill) -> paraphrase/polish -> real trigger validation via Claude Code CLI with selective restore or fallback; generate missing descriptions. Stage 2 (body): classify paragraphs (core rule, background, example, template, redundant) -> type-specific compression -> cross-file deduplication -> annotate references -> Gate 1 faithfulness check -> Gate 2 task evaluation with feedback loop (promote items to core, max 2 iterations)",
+   "p": "4-7",
+   "ok": true,
+   "ai": "Stage 1 (routing layer): segment description into semantic clauses -> DDMIN with simulated routing oracle (TF-IDF distractors + LLM adversarial skill) -> paraphrase/polish -> real trigger validation via Claude Code CLI with selective restore or fallback; generate missing descriptions. Stage 2 (body): classify paragraphs (core rule, background, example, template, redundant) -> type-specific compression -> cross-file deduplication -> annotate references -> Gate 1 faithfulness check -> Gate 2 task evaluation with feedback loop (promote items to core, max 2 iterations)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated build-time pass)",
+   "p": "2, 4-7",
+   "ok": true,
+   "ai": "None (fully automated build-time pass)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact type (agent skill files), optimized and used by agents on generated tasks and SkillsBench",
+   "p": "7-10",
+   "ok": true,
+   "ai": "Single artefact type (agent skill files), optimized and used by agents on generated tasks and SkillsBench",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skill files, not specifications). Authors describe core rules as 'specification' within skills and name the failure mode 'example-as-specification'",
+   "p": "3, 9",
+   "ok": true,
+   "ai": "Not classifiable (skill files, not specifications). Authors describe core rules as 'specification' within skills and name the failure mode 'example-as-specification'",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Skill-specific generated tasks (code execution tasks in Python and rubric tasks) and SkillsBench tasks; not tied to a code base",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Skill-specific generated tasks (code execution tasks in Python and rubric tasks) and SkillsBench tasks; not tied to a code base",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Empirical study: 55,315 Wild + 100 SkillHub + 620 Community skills; taxonomy on 90 skills (15,107 items). Evaluation: 600 skills (87 Official, 464 Community, 49 Wild), 5 generated tasks per skill (3,000 tasks) x 3 conditions; SkillsBench 87 tasks / 229 skills; baselines 50 skills; ablation 50 skills; cross-model 30 skills x 5 models; OpenCode 30 skills x 3 tasks; Wild scalability 198 skills",
+   "p": "2-3, 7-10",
+   "ok": true,
+   "ai": "Empirical study: 55,315 Wild + 100 SkillHub + 620 Community skills; taxonomy on 90 skills (15,107 items). Evaluation: 600 skills (87 Official, 464 Community, 49 Wild), 5 generated tasks per skill (3,000 tasks) x 3 conditions; SkillsBench 87 tasks / 229 skills; baselines 50 skills; ablation 50 skills; cross-model 30 skills x 5 models; OpenCode 30 skills x 3 tasks; Wild scalability 198 skills",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "General-purpose agent skills from public GitHub, SkillHub marketplace and forums (e.g. marketing strategy example); not domain-specific",
+   "p": "2, 7, 12",
+   "ok": true,
+   "ai": "General-purpose agent skills from public GitHub, SkillHub marketplace and forums (e.g. marketing strategy example); not domain-specific",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Token counts (cl100k_base) of descriptions, bodies, references; compression ratio; end-to-end input token savings; agent output tokens; compression cost (~20-40 LLM calls/skill, ~14-18 USD for 600 skills)",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Token counts (cl100k_base) of descriptions, bodies, references; compression ratio; end-to-end input token savings; agent output tokens; compression cost (~20-40 LLM calls/skill, ~14-18 USD for 600 skills)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Gate 2 task score (code tasks: assertion-based tests; rubric tasks: LLM judge); pass rate = share of skills with scoreC >= scoreA; improvement rate; retention = min(scoreC/scoreA, 1); SkillsBench pytest pass; routing preservation (real trigger)",
+   "p": "7-9",
+   "ok": true,
+   "ai": "Gate 2 task score (code tasks: assertion-based tests; rubric tasks: LLM judge); pass rate = share of skills with scoreC >= scoreA; improvement rate; retention = min(scoreC/scoreA, 1); SkillsBench pytest pass; routing preservation (real trigger)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Routing preservation (direct pass / after restore / fallback / obsolescence); faithfulness pass rate (Gate 1); content-type distribution of skill bodies; skill obsolescence rate; feedback-loop recovery",
+   "p": "3, 8-10",
+   "ok": true,
+   "ai": "Routing preservation (direct pass / after restore / fallback / obsolescence); faithfulness pass rate (Gate 1); content-type distribution of skill bodies; skill obsolescence rate; feedback-loop recovery",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: tokenizer counts, assertion tests (52.3% of Gate 2 evaluations), LLM judge Qwen3.5 (47.7%; validated vs deterministic verifier, kappa=0.939 on 1,646 tasks), Claude Code CLI stream events for routing; tasks and rubrics LLM-generated",
+   "p": "4, 7-8, 11",
+   "ok": true,
+   "ai": "Automatic: tokenizer counts, assertion tests (52.3% of Gate 2 evaluations), LLM judge Qwen3.5 (47.7%; validated vs deterministic verifier, kappa=0.939 on 1,646 tasks), Claude Code CLI stream events for routing; tasks and rubrics LLM-generated",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Authors' stated success criterion (p. 4, 7-8): an optimized skill must keep routing equivalence (selected for the same queries) and functional retention (same task performance as the original: a skill passes Gate 2 when scoreC >= scoreA, retention = 1.0, on every task), with Cost(s') much lower than Cost(s). The criterion applies to compressed configurations; No skill (D, lower bound) and Original skill (A, reference) get 'no criterion stated by the authors'. Verdicts below apply the authors' criterion only (no extractor threshold). Main study (600 skills, 5 tasks each, authors' harness with read_file tool + Qwen3.5; Table III): (1) No skill (D): 0.684; quality and cost: no criterion stated by the authors. (2) Original skill (A): 0.722; quality and cost: no criterion stated by the authors. (3) SkillReducer (C): 0.742; 86.0% of skills meet scoreC >= scoreA (CI 83.1-88.7), C>A 25.3%, C<A 14.0%, p=0.002, d=0.107; body -39.0%, description -48.0%, end-to-end input -26.8%; one-time compression about 14-18 USD for 600 skills; quality: partly (criterion met by 86.0% of skills, not all); cost: works (cost well below the original). Non-ceiling subset (481): D 0.606, A 0.653, C 0.678, pass 82.5%. SkillsBench (87 tasks; harness and model not stated): D 86/87 and A 87/87 (no criterion stated by the authors; A body 359K tokens); C 87/87, zero regression, body 84K tokens, 84 of 87 compressed (quality: works; cost: works). Baselines (50 skills, same token budget as C, authors' harness + Qwen3.5; Table IV), score / mean retention: A 0.921 (no criterion stated by the authors); C 0.909 / 0.949; LLMLingua 0.767 / 0.820; LLM direct compression 0.866 / 0.918; truncation 0.791 / 0.845; random sentence removal 0.694 / 0.750; each compressed method: quality: partly (mean retention below 1.0, so the criterion is not met on every task); cost: works (same reduced budget as C). Ablation (50 skills x 5 tasks; Table VI; per-variant tokens not reported), score / retention: D 0.559 / 0.596 and A 0.939 / 1.000 (no criterion stated by the authors); full C 0.926 / 0.987 (partly); C1 description only 0.925 / 0.985 (partly); C2 body compression without classification 0.882 / 0.940 (partly); C3 reference deduplication only 0.944 / 1.000 (works); C4 compress all without classification 0.863 / 0.919 (partly); cost: not reported for the variants. Cross-model (30 skills x 5 tasks, compressor DeepSeek-V3, authors' harness + model; Table VIII), scoreA / scoreC / retention: GLM-5 0.926 / 0.962 / 0.986; DeepSeek-V3 0.936 / 0.963 / 0.978; Qwen3-max 0.931 / 0.930 / 0.955; GPT-OSS-120B (flat injection, no tool calling) 0.951 / 0.958 / 0.982; Qwen2.5-7B 0.920 / 0.893 / 0.939; C quality: partly for every model (retention below 1.0); cost: not reported per model. Cross-compressor (same 30 skills, evaluator fixed but not named; only retention reported): compressor DeepSeek-V3 0.896, Qwen3-max 0.897, Qwen2.5-7B 0.874 (quality: partly; cost: not reported). Cross-framework (OpenCode v1.2.27 + DeepSeek-V3, 30 skills x 3 tasks): A 0.751 (no criterion stated by the authors); C 0.764, retention 0.944 (quality: partly; cost: not reported). Routing (Claude Code CLI, model not stated; Table V): compressed descriptions preserve routing for 536/536 non-obsolete skills (42.0% direct, 40.8% after selective restore, 6.5% fallback to original), 65% mean description compression among passed (quality: works; cost: works)",
+   "p": "7-10",
+   "ok": true,
+   "ai": "Authors' stated success criterion (p. 4, 7-8): an optimized skill must keep routing equivalence (selected for the same queries) and functional retention (same task performance as the original: a skill passes Gate 2 when scoreC >= scoreA, retention = 1.0, on every task), with Cost(s') much lower than Cost(s). The criterion applies to compressed configurations; No skill (D, lower bound) and Original skill (A, reference) get 'no criterion stated by the authors'. Verdicts below apply the authors' criterion only (no extractor threshold). Main study (600 skills, 5 tasks each, authors' harness with read_file tool + Qwen3.5; Table III): (1) No skill (D): 0.684; quality and cost: no criterion stated by the authors. (2) Original skill (A): 0.722; quality and cost: no criterion stated by the authors. (3) SkillReducer (C): 0.742; 86.0% of skills meet scoreC >= scoreA (CI 83.1-88.7), C>A 25.3%, C<A 14.0%, p=0.002, d=0.107; body -39.0%, description -48.0%, end-to-end input -26.8%; one-time compression about 14-18 USD for 600 skills; quality: partly (criterion met by 86.0% of skills, not all); cost: works (cost well below the original). Non-ceiling subset (481): D 0.606, A 0.653, C 0.678, pass 82.5%. SkillsBench (87 tasks; harness and model not stated): D 86/87 and A 87/87 (no criterion stated by the authors; A body 359K tokens); C 87/87, zero regression, body 84K tokens, 84 of 87 compressed (quality: works; cost: works). Baselines (50 skills, same token budget as C, authors' harness + Qwen3.5; Table IV), score / mean retention: A 0.921 (no criterion stated by the authors); C 0.909 / 0.949; LLMLingua 0.767 / 0.820; LLM direct compression 0.866 / 0.918; truncation 0.791 / 0.845; random sentence removal 0.694 / 0.750; each compressed method: quality: partly (mean retention below 1.0, so the criterion is not met on every task); cost: works (same reduced budget as C). Ablation (50 skills x 5 tasks; Table VI; per-variant tokens not reported), score / retention: D 0.559 / 0.596 and A 0.939 / 1.000 (no criterion stated by the authors); full C 0.926 / 0.987 (partly); C1 description only 0.925 / 0.985 (partly); C2 body compression without classification 0.882 / 0.940 (partly); C3 reference deduplication only 0.944 / 1.000 (works); C4 compress all without classification 0.863 / 0.919 (partly); cost: not reported for the variants. Cross-model (30 skills x 5 tasks, compressor DeepSeek-V3, authors' harness + model; Table VIII), scoreA / scoreC / retention: GLM-5 0.926 / 0.962 / 0.986; DeepSeek-V3 0.936 / 0.963 / 0.978; Qwen3-max 0.931 / 0.930 / 0.955; GPT-OSS-120B (flat injection, no tool calling) 0.951 / 0.958 / 0.982; Qwen2.5-7B 0.920 / 0.893 / 0.939; C quality: partly for every model (retention below 1.0); cost: not reported per model. Cross-compressor (same 30 skills, evaluator fixed but not named; only retention reported): compressor DeepSeek-V3 0.896, Qwen3-max 0.897, Qwen2.5-7B 0.874 (quality: partly; cost: not reported). Cross-framework (OpenCode v1.2.27 + DeepSeek-V3, 30 skills x 3 tasks): A 0.751 (no criterion stated by the authors); C 0.764, retention 0.944 (quality: partly; cost: not reported). Routing (Claude Code CLI, model not stated; Table V): compressed descriptions preserve routing for 536/536 non-obsolete skills (42.0% direct, 40.8% after selective restore, 6.5% fallback to original), 65% mean description compression among passed (quality: works; cost: works)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Paired design per skill: conditions D (no skill), A (original), C (compressed, references via read_file, max 6 tool calls). Baselines at equal token budget. Held constant: tasks, evaluator model (Qwen3.5, separate API key from compressor DeepSeek-V3), temperature 0 for classification. Acceptance tests: assertion-based scripts for code tasks, LLM-judge rubrics, SkillsBench pytest verifiers. Repetitions: one run per task (not stated otherwise); bootstrap CIs. Human intervention: none",
+   "p": "6-8",
+   "ok": true,
+   "ai": "Paired design per skill: conditions D (no skill), A (original), C (compressed, references via read_file, max 6 tool calls). Baselines at equal token budget. Held constant: tasks, evaluator model (Qwen3.5, separate API key from compressor DeepSeek-V3), temperature 0 for classification. Acceptance tests: assertion-based scripts for code tasks, LLM-judge rubrics, SkillsBench pytest verifiers. Repetitions: one run per task (not stated otherwise); bootstrap CIs. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "C > A on average (0.742 vs 0.722, Wilcoxon p=0.002, d=0.107, small); holds without ceiling cases (p=0.010); text says gain larger for long official skills (+11.8 pp vs +1.1 pp community), but Table III gives Official 0.743 -> 0.831 (+8.8 pp). SkillReducer beats all four compression baselines (one-sided sign tests, p<=0.003). Taxonomy classification key (C4 retention 0.919, -6.8 pp). Transfers to 5 models (mean retention 0.965) and OpenCode (0.944). Of 84 regressions, ~33% true compression failures (4.7% of skills). End-to-end input savings 26.8% (best case)",
+   "p": "8-10",
+   "ok": true,
+   "ai": "C > A on average (0.742 vs 0.722, Wilcoxon p=0.002, d=0.107, small); holds without ceiling cases (p=0.010); text says gain larger for long official skills (+11.8 pp vs +1.1 pp community), but Table III gives Official 0.743 -> 0.831 (+8.8 pp). SkillReducer beats all four compression baselines (one-sided sign tests, p<=0.003). Taxonomy classification key (C4 retention 0.919, -6.8 pp). Transfers to 5 models (mean retention 0.965) and OpenCode (0.944). Of 84 regressions, ~33% true compression failures (4.7% of skills). End-to-end input savings 26.8% (best case)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished SkillReducer from baselines and ablations; SkillsBench did not distinguish (ceiling: D 86/87). Repeatable: single runs, bootstrap CIs and paired tests. Limitations stated: Gate 2 is both optimization signal and evaluation criterion (optimization-to-criterion); LLM randomness; only Anthropic skill protocol; five models from four families; Wild study without Gate 2",
+   "p": "9-11",
+   "ok": true,
+   "ai": "Distinguished SkillReducer from baselines and ablations; SkillsBench did not distinguish (ceiling: D 86/87). Repeatable: single runs, bootstrap CIs and paired tests. Limitations stated: Gate 2 is both optimization signal and evaluation criterion (optimization-to-criterion); LLM randomness; only Anthropic skill protocol; five models from four families; Wild study without Gate 2",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested; Wild sample lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
+   "p": "9-11, 13",
+   "ok": true,
+   "ai": "Generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested; Wild sample lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: feedback loop recovery reported as 31/38 = 81.6% (p. 9) but 27/38 = 71.1% in Appendix E (p. 13); official-skill gain +11.8 pp in text vs +8.8 pp from Table III (0.743 -> 0.831); end-to-end savings given as 26.8% (best case), 43.2% and 57.4% (theoretical) in different places, and Appendix E calls 26.8%-43.2% 'our empirical measurement' although 43.2% is derived; cross-compressor retention for DeepSeek-V3 is 0.896 while Table VIII (same compressor, 30 skills) gives 0.965 mean and no evaluator below 0.939, with the fixed evaluator not named; SkillsBench body reduction given as 75.0% mean per task in the text, -74.1% in Figure 4, while 359K -> 84K is 76.6% in aggregate (may be different aggregations). Figure 4 label reads 'SkillsBench (17 tasks)' vs 84/87 in text (pdftotext; check figure). Tables III, IV, VI, VIII rebuilt from pdftotext column order; Table VII (sensitivity) jumbled, values not used. Agent harness for main evaluation is the authors' own pipeline with Qwen3.5; Claude Code CLI only for routing validation. Tool to be released upon acceptance (no link). No pre-registration. Languages: skills in Markdown; code tasks in Python",
+   "p": "7-10, 13",
+   "ok": true,
+   "ai": "Inconsistencies: feedback loop recovery reported as 31/38 = 81.6% (p. 9) but 27/38 = 71.1% in Appendix E (p. 13); official-skill gain +11.8 pp in text vs +8.8 pp from Table III (0.743 -> 0.831); end-to-end savings given as 26.8% (best case), 43.2% and 57.4% (theoretical) in different places, and Appendix E calls 26.8%-43.2% 'our empirical measurement' although 43.2% is derived; cross-compressor retention for DeepSeek-V3 is 0.896 while Table VIII (same compressor, 30 skills) gives 0.965 mean and no evaluator below 0.939, with the fixed evaluator not named; SkillsBench body reduction given as 75.0% mean per task in the text, -74.1% in Figure 4, while 359K -> 84K is 76.6% in aggregate (may be different aggregations). Figure 4 label reads 'SkillsBench (17 tasks)' vs 84/87 in text (pdftotext; check figure). Tables III, IV, VI, VIII rebuilt from pdftotext column order; Table VII (sensitivity) jumbled, values not used. Agent harness for main evaluation is the authors' own pipeline with Qwen3.5; Claude Code CLI only for routing validation. Tool to be released upon acceptance (no link). No pre-registration. Languages: skills in Markdown; code tasks in Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four RQs and contributions stated",
+   "p": "2, 8-10",
+   "ok": true,
+   "ai": "Yes (1): four RQs and contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pipeline, models and algorithms detailed; prompts, generated tasks and tool not available",
+   "p": "4-8",
+   "ok": true,
+   "ai": "Partly (0.5): pipeline, models and algorithms detailed; prompts, generated tasks and tool not available",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (DeepSeek-V3/R1, Qwen3.5, etc.) and OpenCode v1.2.27; Claude Code CLI version and model versions not stated",
+   "p": "7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): models named (DeepSeek-V3/R1, Qwen3.5, etc.) and OpenCode v1.2.27; Claude Code CLI version and model versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): datasets described (sources, counts); evaluation tasks LLM-generated and not released; SkillsBench public",
+   "p": "2, 7-8, 12",
+   "ok": true,
+   "ai": "Partly (0.5): datasets described (sources, counts); evaluation tasks LLM-generated and not released; SkillsBench public",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): assertion tests for 52.3% and SkillsBench pytest; remainder LLM-judge rubrics on LLM-generated tasks (judge validated, kappa=0.939)",
+   "p": "7, 9",
+   "ok": true,
+   "ai": "Partly (0.5): assertion tests for 52.3% and SkillsBench pytest; remainder LLM-judge rubrics on LLM-generated tasks (judge validated, kappa=0.939)",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): compression ratio, pass rate, improvement rate, retention defined; tokens and money cost",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Yes (1): compression ratio, pass rate, improvement rate, retention defined; tokens and money cost",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): original skill, no skill and four compression baselines at equal budget",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Yes (1): original skill, no skill and four compression baselines at equal budget",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): bootstrap CIs, Wilcoxon and sign tests; single run per task, no repetitions",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Partly (0.5): bootstrap CIs, Wilcoxon and sign tests; single run per task, no repetitions",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mostly supported, but 'less-is-more' rests on a small effect (d=0.107) and 86% pass rate is optimization-to-criterion (acknowledged); recovery figures inconsistent",
+   "p": "9, 11, 13",
+   "ok": true,
+   "ai": "Partly (0.5): mostly supported, but 'less-is-more' rests on a small effect (d=0.107) and 86% pass rate is optimization-to-criterion (acknowledged); recovery figures inconsistent",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (internal, external)",
+   "p": "11",
+   "ok": true,
+   "ai": "Yes (1): threats to validity section (internal, external)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created SkillReducer; baselines (LLMLingua etc.) and original skills not theirs",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Partly (0.5): authors created SkillReducer; baselines (LLMLingua etc.) and original skills not theirs",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): ~20-40 low-cost LLM calls per skill, ~14-18 USD for 600 skills, build-time step; tool to be released",
+   "p": "2, 8",
+   "ok": true,
+   "ai": "Yes (1): ~20-40 low-cost LLM calls per skill, ~14-18 USD for 600 skills, build-time step; tool to be released",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:24:12"
+}

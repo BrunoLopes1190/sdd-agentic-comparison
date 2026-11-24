@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486079",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jiang, S., Nam, D. (2026). Beyond the Prompt: An Empirical Study of Cursor Rules. In 23rd International Conference on Mining Software Repositories (MSR '26), Rio de Janeiro, Brazil, 13 pages. https://doi.org/10.1145/3793302.3793367 (arXiv:2512.18925v3, 4 Mar 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "Jiang, S., Nam, D. (2026). Beyond the Prompt: An Empirical Study of Cursor Rules. In 23rd International Conference on Mining Software Repositories (MSR '26), Rio de Janeiro, Brazil, 13 pages. https://doi.org/10.1145/3793302.3793367 (arXiv:2512.18925v3, 4 Mar 2026)",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 23rd International Conference on Mining Software Repositories (MSR '26), April 13-14, 2026, Rio de Janeiro, ACM, DOI 10.1145/3793302.3793367; full text read from arXiv:2512.18925v3",
+   "p": "1",
+   "ok": true,
+   "ai": "Conference — 23rd International Conference on Mining Software Repositories (MSR '26), April 13-14, 2026, Rio de Janeiro, ACM, DOI 10.1145/3793302.3793367; full text read from arXiv:2512.18925v3",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of California, Irvine (both authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "University of California, Irvine (both authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — empirical repository-mining and qualitative study of cursor rules in 401 GitHub repositories (taxonomy of developer-provided context; variation by language, domain, duplication, co-occurrence, timing); no agent run and no approach evaluated",
+   "p": "1, 3, 7",
+   "ok": true,
+   "ai": "Evaluates — empirical repository-mining and qualitative study of cursor rules in 401 GitHub repositories (taxonomy of developer-provided context; variation by language, domain, duplication, co-occurrence, timing); no agent run and no approach evaluated",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Cursor rules (.mdc files, Cursor IDE), no version",
+   "p": "2-3",
+   "ok": true,
+   "ai": "No SDD approach. Cursor rules (.mdc files, Cursor IDE), no version",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (observed artefacts: .mdc cursor rule files; taxonomy of 5 themes / 20 codes: Project (Env., Func., Change), Convention (Code style, Language/Framework, Structure), Guideline (QA, General, Comm., Perf., Consistency, UI, Security, Dependency), LLM Directive (Behavior, Workflow, Persona, Formatting, Granularity), Example)",
+   "p": "5",
+   "ok": true,
+   "ai": "N/A (observed artefacts: .mdc cursor rule files; taxonomy of 5 themes / 20 codes: Project (Env., Func., Change), Convention (Code style, Language/Framework, Structure), Guideline (QA, General, Comm., Perf., Consistency, UI, Security, Dependency), LLM Directive (Behavior, Workflow, Persona, Formatting, Granularity), Example)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (some rules prescribe multi-step LLM workflows, e.g. request analysis then solution planning; LLM Workflow code in 30% of repos)",
+   "p": "5-6",
+   "ok": true,
+   "ai": "N/A (some rules prescribe multi-step LLM workflows, e.g. request analysis then solution planning; LLM Workflow code in 30% of repos)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based: rule files analysed, not executed)",
+   "p": "3",
+   "ok": true,
+   "ai": "Not run (document-based: rule files analysed, not executed)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (rule files, no specification)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (rule files, no specification)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (no task); corpus of existing open-source repositories",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no task); corpus of existing open-source repositories",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "487 repositories fetched, 401 analysed; 1,876 .mdc files (mean 4.68 per repo, max 56); mean file length 462.67 lines; 30 repositories open-coded manually",
+   "p": "3",
+   "ok": true,
+   "ai": "487 repositories fetched, 401 analysed; 1,876 .mdc files (mean 4.68 per repo, max 56); mean file length 462.67 lines; 30 repositories open-coded manually",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Public GitHub repositories (>= 1 star, Sourcegraph); TypeScript 51.4%, Python 15.0%, Go 6.0%; topic clusters: web dev, LLM agents, system infrastructure, data analysis, frontend, MCP tools",
+   "p": "3, 8-9",
+   "ok": true,
+   "ai": "Public GitHub repositories (>= 1 star, Sourcegraph); TypeScript 51.4%, Python 15.0%, Go 6.0%; topic clusters: web dev, LLM agents, system infrastructure, data analysis, frontend, MCP tools",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants); 72.6% of repos under organisation accounts; mean 1.72 authors per .cursor directory",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no participants); 72.6% of repos under organisation accounts; mean 1.72 authors per .cursor directory",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Not measured (effect of rules on LLM performance stated as open question)",
+   "p": "11",
+   "ok": true,
+   "ai": "Not measured (effect of rules on LLM performance stated as open question)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured (each researcher spent about 40 hours on initial coding)",
+   "p": "3",
+   "ok": true,
+   "ai": "Not measured (each researcher spent about 40 hours on initial coding)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Share of repositories and of rule lines per context code; average codes per type by language, domain and timing; proportion of duplicated lines; context-type co-occurrence; unique codes per repository",
+   "p": "5, 8-10",
+   "ok": true,
+   "ai": "Share of repositories and of rule lines per context code; average codes per type by language, domain and timing; proportion of duplicated lines; context-type co-occurrence; unique codes per repository",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual thematic analysis (line-level open and axial coding, two authors, kappa 0.71 on 30 repos); LLM-assisted coding of the full set with gemini-2.5-flash-preview-09-2025 (temperature 0, 3 runs, majority vote; kappa 0.64/0.65 vs humans); BERTopic clustering of GitHub topics; exact-line duplicate detection",
+   "p": "3-4, 8-9",
+   "ok": true,
+   "ai": "Manual thematic analysis (line-level open and axial coding, two authors, kappa 0.71 on 30 repos); LLM-assisted coding of the full set with gemini-2.5-flash-preview-09-2025 (temperature 0, 3 runs, majority vote; kappa 0.64/0.65 vs humans); BERTopic clustering of GitHub topics; exact-line duplicate detection",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (observational mining study; no configuration run)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (observational mining study; no configuration run)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no controlled comparison); descriptive comparisons across programming languages (top 10), six application-domain clusters and four timing buckets",
+   "p": "8-10",
+   "ok": true,
+   "ai": "N/A (no controlled comparison); descriptive comparisons across programming languages (top 10), six application-domain clusters and four timing buckets",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A as experiment. Descriptive: Guideline in 89% of repos, Project 85%, Convention 84%, LLM Directive 50%, Example 50%; 28.70% of lines duplicated (higher for LLM directives); 37.16% of repos include all four core categories, 24.69% all five; dynamic languages (JavaScript, PHP) carry more context than statically typed ones; newer repos have more LLM directives. Several per-language values in Fig. 3-5 only",
+   "p": "5-10",
+   "ok": true,
+   "ai": "N/A as experiment. Descriptive: Guideline in 89% of repos, Project 85%, Convention 84%, LLM Directive 50%, Example 50%; 28.70% of lines duplicated (higher for LLM directives); 37.16% of repos include all four core categories, 24.69% all five; dynamic languages (JavaScript, PHP) carry more context than statically typed ones; newer repos have more LLM directives. Several per-language values in Fig. 3-5 only",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Qualitative study, limited generalisation; cursor rules only; early adopters; LLM coding bias; Sourcegraph popular repos only; single primary language per repo; skewed to TypeScript/JavaScript; topic clustering may misclassify, domain-language confound; only .cursor/ folder for timing. Gaps: efficacy of rule types on LLM task performance unknown; need longitudinal studies, context transparency, context-aware rule generation",
+   "p": "4, 8-9, 11",
+   "ok": true,
+   "ai": "Qualitative study, limited generalisation; cursor rules only; early adopters; LLM coding bias; Sourcegraph popular repos only; single primary language per repo; skewed to TypeScript/JavaScript; topic clustering may misclassify, domain-language confound; only .cursor/ folder for timing. Gaps: efficacy of rule types on LLM task performance unknown; need longitudinal studies, context transparency, context-aware rule generation",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 percentage columns and Fig. 3-8 jumbled by pdftotext; % Repo values taken from Table 1 rows as printed, % Code column not mapped reliably. Reporting inconsistencies: RQ5 says timing could be obtained for only 281 repositories, but the four buckets add up to 374 (91 + 82 + 100 + 101; 374 is the number of repositories with a .cursor directory, p. 3); C# is said to carry more LLM-related context (p. 8) but later more project-specific context (p. 11); newly created repositories are said to give more LLM-specific instructions (p. 10) but 'less context' (p. 11). Data and prompts: doi.org/10.5281/zenodo.18313203. No pre-registration. Languages of corpus: mixed (mostly TypeScript)",
+   "p": "1, 3, 5, 8, 10-11",
+   "ok": true,
+   "ai": "Table 1 percentage columns and Fig. 3-8 jumbled by pdftotext; % Repo values taken from Table 1 rows as printed, % Code column not mapped reliably. Reporting inconsistencies: RQ5 says timing could be obtained for only 281 repositories, but the four buckets add up to 374 (91 + 82 + 100 + 101; 374 is the number of repositories with a .cursor directory, p. 3); C# is said to carry more LLM-related context (p. 8) but later more project-specific context (p. 11); newly created repositories are said to give more LLM-specific instructions (p. 10) but 'less context' (p. 11). Data and prompts: doi.org/10.5281/zenodo.18313203. No pre-registration. Languages of corpus: mixed (mostly TypeScript)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim stated and RQ1-RQ5 defined",
+   "p": "1, 7-8",
+   "ok": true,
+   "ai": "Yes (1): aim stated and RQ1-RQ5 defined",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): data collection, cleaning, coding, LLM settings, clustering parameters described; data and prompts released",
+   "p": "2-4, 8-9, 11",
+   "ok": true,
+   "ai": "Yes (1): data collection, cleaning, coding, LLM settings, clustering parameters described; data and prompts released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): coding LLM identified with version and settings; no coding agent evaluated; Cursor version not stated",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): coding LLM identified with version and settings; no coding agent evaluated; Cursor version not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): corpus construction described; dataset on Zenodo",
+   "p": "2-3, 11",
+   "ok": true,
+   "ai": "Yes (1): corpus construction described; dataset on Zenodo",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM labels validated against two human coders (kappa 0.64/0.65); no effectiveness measured",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): LLM labels validated against two human coders (kappa 0.64/0.65); no effectiveness measured",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): prevalence and duplication measures defined; no cost or quality outcomes (out of scope)",
+   "p": "5, 9",
+   "ok": true,
+   "ai": "Partly (0.5): prevalence and duplication measures defined; no cost or quality outcomes (out of scope)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): descriptive study, no baseline or alternative",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): descriptive study, no baseline or alternative",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): descriptive means only, no statistical tests of the differences claimed by language, domain or timing; LLM labelling repeated three times with majority vote (p. 4), which addresses label reliability rather than variability of the results",
+   "p": "4, 8-10",
+   "ok": true,
+   "ai": "No (0): descriptive means only, no statistical tests of the differences claimed by language, domain or timing; LLM labelling repeated three times with majority vote (p. 4), which addresses label reliability rather than variability of the results",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): several interpretations (e.g. static typing reduces context need, TypeScript called statically typed but grouped against JavaScript) go beyond the descriptive data",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Partly (0.5): several interpretations (e.g. static typing reduces context need, TypeScript called statically typed but grouped against JavaScript) go beyond the descriptive data",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 3.4 Threats to Validity plus limitations per RQ",
+   "p": "4, 8-10",
+   "ok": true,
+   "ai": "Yes (1): Section 3.4 Threats to Validity plus limitations per RQ",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): MSR 2026 conference paper (ACM, DOI 10.1145/3793302.3793367), confirmed by the ACM reference format on p. 1 of the arXiv v3",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): MSR 2026 conference paper (ACM, DOI 10.1145/3793302.3793367), confirmed by the ACM reference format on p. 1 of the arXiv v3",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors, not affiliated with Cursor",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors, not affiliated with Cursor",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:21:31"
+}

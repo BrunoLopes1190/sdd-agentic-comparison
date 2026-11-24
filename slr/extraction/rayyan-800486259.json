@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486259",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, H., Yang, H., Jiang, T., Tang, B., Xiong, F., Luo, Y., Li, Z. (2026). SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution. arXiv:2605.18401v2 [cs.CL], 14 Jun 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Liu, H., Yang, H., Jiang, T., Tang, B., Xiong, F., Luo, Y., Li, Z. (2026). SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution. arXiv:2605.18401v2 [cs.CL], 14 Jun 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: MemTensor (Shanghai) Technology (co-corresponding author); academia: Harbin Institute of Technology, Soochow University, HKUST (Guangzhou)",
+   "p": "1",
+   "ok": true,
+   "ai": "Industry: MemTensor (Shanghai) Technology (co-corresponding author); academia: Harbin Institute of Technology, Soochow University, HKUST (Guangzhou)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — SkillsVote, lifecycle governance of agent skills (corpus collection/profiling, pre-task recommendation, subtask-level attribution, evidence-gated evolution); compared with no skills, ReasoningBank, skill-creator and SkillRouter on Terminal-Bench 2.0, SWE-Bench Pro and the SkillRouter routing set",
+   "p": "1, 3, 6",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Compares — SkillsVote, lifecycle governance of agent skills (corpus collection/profiling, pre-task recommendation, subtask-level attribution, evidence-gated evolution); compared with no skills, ReasoningBank, skill-creator and SkillRouter on Terminal-Bench 2.0, SWE-Bench Pro and the SkillRouter routing set",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SkillsVote (proposed; no version; skills.vote, GitHub MemTensor/skills-vote) in online and offline (TB-Pro library, Curated 10K library) settings; baselines: w/o skills, ReasoningBank (no MaTTS), skill-creator (OpenAI version), SkillRouter 0.6B+0.6B (routing only)",
+   "p": "1, 6-8, 22-24",
+   "ok": true,
+   "ai": "SkillsVote (proposed; no version; skills.vote, GitHub MemTensor/skills-vote) in online and offline (TB-Pro library, Curated 10K library) settings; baselines: w/o skills, ReasoningBank (no MaTTS), skill-creator (OpenAI version), SkillRouter 0.6B+0.6B (routing only)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent Skills as directories (SKILL.md plus scripts/, references/, assets/); runtime, quality and verifiability profiles per skill; recommendation output (skill_names + optimized_context usage guide appended to the task instruction); attributed subtask records (goal, judge, attribution, exploration, skill_refs with line spans); evolution log with created/edited skills",
+   "p": "2, 4-6, 24-27",
+   "ok": true,
+   "ai": "Agent Skills as directories (SKILL.md plus scripts/, references/, assets/); runtime, quality and verifiability profiles per skill; recommendation output (skill_names + optimized_context usage guide appended to the task instruction); attributed subtask records (goal, judge, attribution, exploration, skill_refs with line spans); evolution log with created/edited skills",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Preprocessing: collect 1.68M GitHub skills -> validate -> deduplicate -> agentic profiling (Claude Code) -> task synthesis for verifiable skills. Per task: (1) pre-task recommendation (agent searches skill library with Grep/Glob/Read, selects skills, writes usage guide); (2) solver agent executes; (3) post-task attribution (resume solver session, split trajectory into subtasks, assign outcome evidence and responsibility, extract reusable delta); (4) controlled evolution (admit only successful reusable exploration, aggregate, route to edit/create/skip)",
+   "p": "4-6, 24-25, 30-33",
+   "ok": true,
+   "ai": "Preprocessing: collect 1.68M GitHub skills -> validate -> deduplicate -> agentic profiling (Claude Code) -> task synthesis for verifiable skills. Per task: (1) pre-task recommendation (agent searches skill library with Grep/Glob/Read, selects skills, writes usage guide); (2) solver agent executes; (3) post-task attribution (resume solver session, split trajectory into subtasks, assign outcome evidence and responsibility, extract reusable delta); (4) controlled evolution (admit only successful reusable exploration, aggregate, route to edit/create/skip)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None stated (fully automated); human feedback possible as a subtask evaluation signal",
+   "p": "5",
+   "ok": true,
+   "ai": "None stated (fully automated); human feedback possible as a subtask evaluation signal",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full skill lifecycle loop (recommendation, attribution, evolution) around unmodified solver agent; skills as single artefact type",
+   "p": "6-10, 30-33",
+   "ok": true,
+   "ai": "Full skill lifecycle loop (recommendation, attribution, evolution) around unmodified solver agent; skills as single artefact type",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skill libraries as reusable experience, not specifications)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (skill libraries as reusable experience, not specifications)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (SWE-Bench Pro: long-horizon tasks in 11 repositories) and terminal tasks in containers (Terminal-Bench 2.0: software engineering, debugging, security, ML, etc.)",
+   "p": "6, 22-24",
+   "ok": true,
+   "ai": "Existing code bases (SWE-Bench Pro: long-horizon tasks in 11 repositories) and terminal tasks in containers (Terminal-Bench 2.0: software engineering, debugging, security, ML, etc.)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Terminal-Bench 2.0: 89 tasks (4 Easy, 55 Medium, 30 Hard; 85 for GPT-5.5); SWE-Bench Pro public: 731 tasks, 11 repositories; TB-Pro offline source: 48 tasks; routing: 75 queries, pools 1k-79,141 skills; corpus 1,681,615 collected, 794,617 deduplicated, 291,092 high quality",
+   "p": "8, 19, 22-24",
+   "ok": true,
+   "ai": "Terminal-Bench 2.0: 89 tasks (4 Easy, 55 Medium, 30 Hard; 85 for GPT-5.5); SWE-Bench Pro public: 731 tasks, 11 repositories; TB-Pro offline source: 48 tasks; routing: 75 queries, pools 1k-79,141 skills; corpus 1,681,615 collected, 794,617 deduplicated, 291,092 high quality",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Terminal workflows (16 categories) and open-source GPL repositories (business applications, B2B services, developer tools) in Go, Python, JavaScript, TypeScript",
+   "p": "22-24",
+   "ok": true,
+   "ai": "Terminal workflows (16 categories) and open-source GPL repositories (business applications, B2B services, developer tools) in Go, Python, JavaScript, TypeScript",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Routing study only: API cost per query (USD, LiteLLM pricing). No cost/tokens/time reported for the benchmark runs",
+   "p": "8-9, 22",
+   "ok": true,
+   "ai": "Routing study only: API cost per query (USD, LiteLLM pricing). No cost/tokens/time reported for the benchmark runs",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Terminal-Bench 2.0 avg@5 Accuracy (verification tests); SWE-Bench Pro avg@1 Resolve Rate (verifier); routing Hit@1, Recall@10, FC@10",
+   "p": "6, 8, 22-24",
+   "ok": true,
+   "ai": "Terminal-Bench 2.0 avg@5 Accuracy (verification tests); SWE-Bench Pro avg@1 Resolve Rate (verifier); routing Hit@1, Recall@10, FC@10",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Task-level gain/loss contribution (negative transfer) with/without recommendation; skill library growth (created/edited); corpus profiling statistics (quality, verifiability, runtime requirements, categories)",
+   "p": "9-10, 18-20",
+   "ok": true,
+   "ai": "Task-level gain/loss contribution (negative transfer) with/without recommendation; skill library growth (created/edited); corpus profiling statistics (quality, verifiability, runtime requirements, categories)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic (benchmark verifiers in Harbor; ranking metrics vs expert labels; API cost); corpus profiling by Claude Code agent with rubrics",
+   "p": "6, 22-25, 30",
+   "ok": true,
+   "ai": "Automatic (benchmark verifiers in Harbor; ranking metrics vs expert labels; API cost); corpus profiling by Claude Code agent with rubrics",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All via Codex CLI 0.125.0 in Harbor. Terminal-Bench 2.0, overall avg@5 (criterion: verifier tests): GPT-5.2 medium: w/o skills 51.1 (baseline); SkillsVote online 53.7; ReasoningBank 52.1; skill-creator 53.7; SkillsVote offline TB-Pro 58.9; Curated 54.8. GPT-5.4 mini medium: 51.7; 52.8; 50.6; 47.6; 57.5; 55.7. GPT-5.5 xhigh (85 tasks): 79.8; 80.7; 77.7; 78.8; 81.2; 78.1. SWE-Bench Pro public, avg@1 resolve: GPT-5.2: w/o 47.6; SkillsVote 50.3; ReasoningBank 47.7; skill-creator 48.6; Curated 44.2. GPT-5.4 mini: 46.9; 49.5; 49.0; 49.2; 48.4. GPT-5.5: 58.4; 59.6; 55.9; 55.8; 56.1. Cost not measured for benchmark runs. Routing (Hard pool 79,141, Hit@1 / R@10 / FC@10 / USD per query): SkillRouter 65.3 / 67.2 / 46.7 / - (cost not reported); SkillsVote + GPT-5.5 xhigh 70.7 / 74.2 / 62.7 / 0.158; + GPT-5.4 xhigh 65.3 / 66.1 / 54.7 / 0.090; + GPT-5.4 mini xhigh 52.0 / 48.0 / 34.7 / 0.076. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "p": "7-8, 22-23",
+   "ok": true,
+   "ai": "All via Codex CLI 0.125.0 in Harbor. Terminal-Bench 2.0, overall avg@5 (criterion: verifier tests): GPT-5.2 medium: w/o skills 51.1 (baseline); SkillsVote online 53.7; ReasoningBank 52.1; skill-creator 53.7; SkillsVote offline TB-Pro 58.9; Curated 54.8. GPT-5.4 mini medium: 51.7; 52.8; 50.6; 47.6; 57.5; 55.7. GPT-5.5 xhigh (85 tasks): 79.8; 80.7; 77.7; 78.8; 81.2; 78.1. SWE-Bench Pro public, avg@1 resolve: GPT-5.2: w/o 47.6; SkillsVote 50.3; ReasoningBank 47.7; skill-creator 48.6; Curated 44.2. GPT-5.4 mini: 46.9; 49.5; 49.0; 49.2; 48.4. GPT-5.5: 58.4; 59.6; 55.9; 55.8; 56.1. Cost not measured for benchmark runs. Routing (Hard pool 79,141, Hit@1 / R@10 / FC@10 / USD per query): SkillRouter 65.3 / 67.2 / 46.7 / - (cost not reported); SkillsVote + GPT-5.5 xhigh 70.7 / 74.2 / 62.7 / 0.158; + GPT-5.4 xhigh 65.3 / 66.1 / 54.7 / 0.090; + GPT-5.4 mini xhigh 52.0 / 48.0 / 34.7 / 0.076. Verdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Benchmarks: Terminal-Bench 2.0 (89 tasks, default order as stream) and SWE-Bench Pro public (731 tasks, one stream per repository). Configurations: 3 model-effort pairs x {w/o skills, online SkillsVote/ReasoningBank/skill-creator, offline TB-Pro/Curated}. Baseline: w/o skills. Held constant: harness (Harbor + Codex CLI 0.125.0), solver configuration, timeout (4x default), retry policy (up to 3 for environment failures), verifier settings; built-in skills/plugins disabled. Acceptance tests: benchmark verifiers. Repetitions: TB 5 independent runs/jobs (avg@5); SWE 1 run. Human intervention: none",
+   "p": "6, 22-24",
+   "ok": true,
+   "ai": "Benchmarks: Terminal-Bench 2.0 (89 tasks, default order as stream) and SWE-Bench Pro public (731 tasks, one stream per repository). Configurations: 3 model-effort pairs x {w/o skills, online SkillsVote/ReasoningBank/skill-creator, offline TB-Pro/Curated}. Baseline: w/o skills. Held constant: harness (Harbor + Codex CLI 0.125.0), solver configuration, timeout (4x default), retry policy (up to 3 for environment failures), verifier settings; built-in skills/plugins disabled. Acceptance tests: benchmark verifiers. Repetitions: TB 5 independent runs/jobs (avg@5); SWE 1 run. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "SkillsVote online beats no-skills baseline in all six benchmark-model pairs (TB +2.6/+1.1/+0.9; SWE +2.7/+2.6/+1.2 pp) and is best or tied-best online method (tied with skill-creator for GPT-5.2 on TB). Offline TB-Pro gives largest TB gains (+7.8/+5.8/+1.4). Curated mixed (TB +3.7/+4.0/-1.7; SWE helps only GPT-5.4 mini). Baselines regress on GPT-5.5. Hard-split results mixed (e.g. SkillsVote online -6.7 on TB Hard for GPT-5.2). On TB 2.0 Hard, recommendation changes mean task-level gain/loss from +3.3/-6.7 to +6.0/-6.0 (online library) and from +11.3/-3.3 to +15.3/-2.0 (offline library). Routing: GPT-5.5 recommender above SkillRouter in FC@10 at all pool sizes. No significance tests",
+   "p": "7-9, 21",
+   "ok": true,
+   "ai": "SkillsVote online beats no-skills baseline in all six benchmark-model pairs (TB +2.6/+1.1/+0.9; SWE +2.7/+2.6/+1.2 pp) and is best or tied-best online method (tied with skill-creator for GPT-5.2 on TB). Offline TB-Pro gives largest TB gains (+7.8/+5.8/+1.4). Curated mixed (TB +3.7/+4.0/-1.7; SWE helps only GPT-5.4 mini). Baselines regress on GPT-5.5. Hard-split results mixed (e.g. SkillsVote online -6.7 on TB Hard for GPT-5.2). On TB 2.0 Hard, recommendation changes mean task-level gain/loss from +3.3/-6.7 to +6.0/-6.0 (online library) and from +11.3/-3.3 to +15.3/-2.0 (offline library). Routing: GPT-5.5 recommender above SkillRouter in FC@10 at all pool sizes. No significance tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations but differences small and variable across models and difficulty splits; no variance or statistical tests reported; 5 runs on TB, single run on SWE. Four TB tasks excluded for GPT-5.5 (blocked by cyber-risk review). Limitations of the comparison not discussed by the authors",
+   "p": "7-9, 23",
+   "ok": true,
+   "ai": "Distinguished configurations but differences small and variable across models and difficulty splits; no variance or statistical tests reported; 5 runs on TB, single run on SWE. Four TB tasks excluded for GPT-5.5 (blocked by cyber-risk review). Limitations of the comparison not discussed by the authors",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Stated observations: gains depend on recommender model capability (GPT-5.4 mini drops at large pools); skill effects heavy-tailed (help when matched, harm when indiscriminate); curated library gains vary across benchmarks and backbones",
+   "p": "8-10",
+   "ok": true,
+   "ai": "No limitations section. Stated observations: gains depend on recommender model capability (GPT-5.4 mini drops at large pools); skill effects heavy-tailed (help when matched, harm when indiscriminate); curated library gains vary across benchmarks and backbones",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 1 and 2 jumbled by pdftotext; overall columns rebuilt and checked against text deltas (TB +2.6/+1.1/+0.9, offline +7.8/+5.8/+1.4, curated +3.7/+4.0/-1.7; SWE +2.7/+2.6/+1.2); per-difficulty and per-repository cells not reliably mapped. SWE-Bench Pro tutanota column shows 0.0 for every configuration (20 tasks), unexplained. GPT-5.5 TB results over 85 tasks. Offline attribution may use ground truth (oracle prompt), not exposed to solver. No cost of the SkillsVote loop reported. Code: github.com/MemTensor/skills-vote; website skills.vote. No pre-registration. Languages: Go, Python, JavaScript, TypeScript (SWE-Bench Pro)",
+   "p": "1, 7-8, 23-24",
+   "ok": true,
+   "ai": "Tables 1 and 2 jumbled by pdftotext; overall columns rebuilt and checked against text deltas (TB +2.6/+1.1/+0.9, offline +7.8/+5.8/+1.4, curated +3.7/+4.0/-1.7; SWE +2.7/+2.6/+1.2); per-difficulty and per-repository cells not reliably mapped. SWE-Bench Pro tutanota column shows 0.0 for every configuration (20 tasks), unexplained. GPT-5.5 TB results over 85 tasks. Offline attribution may use ground truth (oracle prompt), not exposed to solver. No cost of the SkillsVote loop reported. Code: github.com/MemTensor/skills-vote; website skills.vote. No pre-registration. Languages: Go, Python, JavaScript, TypeScript (SWE-Bench Pro)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three lifecycle questions and contributions stated",
+   "p": "3, 6",
+   "ok": true,
+   "ai": "Yes (1): three lifecycle questions and contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): detailed configuration, implementation and prompts in appendices; code repository",
+   "p": "22-33, 44+",
+   "ok": true,
+   "ai": "Yes (1): detailed configuration, implementation and prompts in appendices; code repository",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Codex CLI 0.125.0, models and reasoning effort stated",
+   "p": "6, 22, 31",
+   "ok": true,
+   "ai": "Yes (1): Codex CLI 0.125.0, models and reasoning effort stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks (Terminal-Bench 2.0, SWE-Bench Pro, SkillRouter set) described; code released",
+   "p": "1, 22-24",
+   "ok": true,
+   "ai": "Yes (1): public benchmarks (Terminal-Bench 2.0, SWE-Bench Pro, SkillRouter set) described; code released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark verifiers / executable tests",
+   "p": "6, 22-24",
+   "ok": true,
+   "ai": "Yes (1): benchmark verifiers / executable tests",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): accuracy/resolve metrics defined; cost only for routing study, not for agent runs",
+   "p": "6, 8, 22",
+   "ok": true,
+   "ai": "Partly (0.5): accuracy/resolve metrics defined; cost only for routing study, not for agent runs",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-skills baseline and two online baselines under the same harness",
+   "p": "6, 22-24",
+   "ok": true,
+   "ai": "Yes (1): no-skills baseline and two online baselines under the same harness",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): avg@5 on Terminal-Bench, single run on SWE-Bench Pro; no variance or statistical tests",
+   "p": "22-24",
+   "ok": true,
+   "ai": "Partly (0.5): avg@5 on Terminal-Bench, single run on SWE-Bench Pro; no variance or statistical tests",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "No (0): mixed results acknowledged for offline libraries, but small online gains reported as consistent improvement without significance testing; Hard-split regressions not discussed",
+   "p": "7-10",
+   "ok": true,
+   "ai": "Partly (0.5): mixed results acknowledged for offline libraries, but small online gains reported as consistent improvement without significance testing; Hard-split regressions not discussed",
+   "changed": true
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats to validity discussed",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): no limitations or threats to validity discussed",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors (incl. MemTensor) created SkillsVote; baselines ReasoningBank, skill-creator, SkillRouter not theirs",
+   "p": "1, 6",
+   "ok": true,
+   "ai": "Partly (0.5): authors (incl. MemTensor) created SkillsVote; baselines ReasoningBank, skill-creator, SkillRouter not theirs",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): open-source code and standard tools (Codex CLI, Harbor); routing cost 0.08-0.16 USD/query, but cost of recommendation/attribution/evolution calls and frontier-model requirements not stated",
+   "p": "1, 8, 22, 30-32",
+   "ok": true,
+   "ai": "Partly (0.5): open-source code and standard tools (Codex CLI, Harbor); routing cost 0.08-0.16 USD/query, but cost of recommendation/attribution/evolution calls and frontier-model requirements not stated",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:28:55"
+}

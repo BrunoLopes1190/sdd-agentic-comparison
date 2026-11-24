@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800485934",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shanto, M. H., Islam, M. A., Asaduzzaman, M., Ngom, A. (2026). Toward an Evidence-Based Template for Agent Instruction Files: An Empirical Study of Adoption, Consistency, and Maintenance. arXiv:2611.02383v2 [cs.SE], 7 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Shanto, M. H., Islam, M. A., Asaduzzaman, M., Ngom, A. (2026). Toward an Evidence-Based Template for Agent Instruction Files: An Empirical Study of Adoption, Consistency, and Maintenance. arXiv:2611.02383v2 [cs.SE], 7 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.02383v2 [cs.SE]; journal-style manuscript ('Noname manuscript No. (will be inserted by the editor)'), no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2611.02383v2 [cs.SE]; journal-style manuscript ('Noname manuscript No. (will be inserted by the editor)'), no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "School of Computer Science, University of Windsor, Canada (Shanto, Asaduzzaman, Ngom); Independent Researcher (Islam)",
+   "p": "1",
+   "ok": true,
+   "ai": "School of Computer Science, University of Windsor, Canada (Shanto, Asaduzzaman, Ngom); Independent Researcher (Islam)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol, derived from a repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance); AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
+   "p": "1, 4, 17, 21",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Proposes an evaluation method — evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol, derived from a repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance); AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
+   "changed": true
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Instruction-file formats AGENTS.md, CLAUDE.md, GitHub Copilot instructions, Cursor rules (.cursorrules); proposed evidence-based template (16 categories: 10 Required, 4 Gap, 2 Recommended) + maintenance protocol; generation configurations GPT-4o-mini zero-shot / RAG, CodeLlama-13B Base / QLoRA",
+   "p": "6-7, 18-23",
+   "ok": true,
+   "ai": "No SDD approach. Instruction-file formats AGENTS.md, CLAUDE.md, GitHub Copilot instructions, Cursor rules (.cursorrules); proposed evidence-based template (16 categories: 10 Required, 4 Gap, 2 Recommended) + maintenance protocol; generation configurations GPT-4o-mini zero-shot / RAG, CodeLlama-13B Base / QLoRA",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Template for one instruction file: Required: Do/Don't rules, Build/run/install, Repository structure, Tooling/agent config, Examples, Domain models, Test/CI commands, API/interface contracts, Architecture, Code style; Gap: Security/secrets, Maintenance/when to update, Ownership/contacts, Git/PR conventions; Recommended: Project overview, Performance requirements (Table 4)",
+   "p": "18-19",
+   "ok": true,
+   "ai": "Template for one instruction file: Required: Do/Don't rules, Build/run/install, Repository structure, Tooling/agent config, Examples, Domain models, Test/CI commands, API/interface contracts, Architecture, Code style; Gap: Security/secrets, Maintenance/when to update, Ownership/contacts, Git/PR conventions; Recommended: Project overview, Performance requirements (Table 4)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "No development flow. Maintenance protocol with three review triggers: agent-related errors, repository changes (build, tests, structure, dependencies, interfaces), periodic accuracy checks; recorded under Maintenance/when to update",
+   "p": "20",
+   "ok": true,
+   "ai": "No development flow. Maintenance protocol with three review triggers: agent-related errors, repository changes (build, tests, structure, dependencies, interfaces), periodic accuracy checks; recorded under Maintenance/when to update",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Maintainers review instruction categories after agent errors/code review and after repository changes; check consistency across formats; generated files to be treated as drafts requiring verification",
+   "p": "20, 28",
+   "ok": true,
+   "ai": "Maintainers review instruction categories after agent errors/code review and after repository changes; check consistency across formats; generated files to be treated as drafts requiring verification",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (instruction file): mined, not executed by agents; generation of instruction files by LLMs evaluated against developer-written references; no coding task run",
+   "p": "21-26",
+   "ok": true,
+   "ai": "Single artefact (instruction file): mined, not executed by agents; generation of instruction files by LLMs evaluated against developer-written references; no coding task run",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (instruction / context files, no specification)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (instruction / context files, no specification)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "N/A for coding (no coding task); corpus of existing open-source repositories; generation task: write an instruction file from a short repository summary",
+   "p": "6, 22",
+   "ok": true,
+   "ai": "N/A for coding (no coding task); corpus of existing open-source repositories; generation task: write an instruction file from a short repository summary",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "1,000 repositories (500 top + 500 bottom by stars) from AIDev (932,791 PRs, 116,211 repos); 3,387 files (1,677 AGENTS.md, 1,107 CLAUDE.md, 538 Copilot, 65 cursorrules); 386 section pairs; maintenance: 5,396 heading edit events, 448 files, 283 repos, 943 PRs; AGIT-Instruct 1,815 files / 522 repos (1,432 train, 321 val, 62 eval; 556 reference category instances)",
+   "p": "6, 10, 13, 22",
+   "ok": true,
+   "ai": "1,000 repositories (500 top + 500 bottom by stars) from AIDev (932,791 PRs, 116,211 repos); 3,387 files (1,677 AGENTS.md, 1,107 CLAUDE.md, 538 Copilot, 65 cursorrules); 386 section pairs; maintenance: 5,396 heading edit events, 448 files, 283 repos, 943 PRs; AGIT-Instruct 1,815 files / 522 repos (1,432 train, 321 val, 62 eval; 556 reference category instances)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source GitHub repositories, mixed languages (C# noted separately)",
+   "p": "6, 9",
+   "ok": true,
+   "ai": "Open-source GitHub repositories, mixed languages (C# noted separately)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Not measured for coding agents. Generation: structural category coverage; content alignment ROUGE-1 F1 and cosine similarity (all-MiniLM-L6-v2) on generic intents; manual intent preservation (Match / Partial / Wrong / Missing)",
+   "p": "23-24",
+   "ok": true,
+   "ai": "Not measured for coding agents. Generation: structural category coverage; content alignment ROUGE-1 F1 and cosine similarity (all-MiniLM-L6-v2) on generic intents; manual intent preservation (Match / Partial / Wrong / Missing)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—",
+   "ok": true,
+   "ai": "Not measured",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Adoption rates (overall, per format, multi-format, co-occurrence, by language; logistic regression odds ratios); category- and heading-level Jaccard; instruction-level consistency (equivalent / complementary / divergent / contradictory); maintenance: touch count, ownership concentration, churn ratio, lifecycle pattern, update trigger; category addition ratio (CAR)",
+   "p": "8, 10-11, 13-14",
+   "ok": true,
+   "ai": "Adoption rates (overall, per format, multi-format, co-occurrence, by language; logistic regression odds ratios); category- and heading-level Jaccard; instruction-level consistency (equivalent / complementary / divergent / contradictory); maintenance: touch count, ownership concentration, churn ratio, lifecycle pattern, update trigger; category addition ratio (CAR)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic file detection by filename on cloned repos; manual category coding (two authors on 400 files, kappa 0.80, then one author); manual labelling of 386 section pairs by two annotators (kappa 0.85); maintenance metrics computed from AIDev PR patches; generic intents produced by GPT-4o-mini; automatic ROUGE/cosine; manual assessment of 278 RAG instances. Mann-Whitney U, Kruskal-Wallis, Cliff's delta",
+   "p": "7, 10-11, 13-14, 21, 23, 26",
+   "ok": true,
+   "ai": "Automatic file detection by filename on cloned repos; manual category coding (two authors on 400 files, kappa 0.80, then one author); manual labelling of 386 section pairs by two annotators (kappa 0.85); maintenance metrics computed from AIDev PR patches; generic intents produced by GPT-4o-mini; automatic ROUGE/cosine; manual assessment of 278 RAG instances. Mann-Whitney U, Kruskal-Wallis, Cliff's delta",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Instruction-file generation on AGIT-Instruct eval set (62 files), no coding agent; criterion: coverage of template categories and alignment with developer-written references. - GPT-4o-mini without template (exploratory): coverage 0.187 (Required 0.168, Gap 0.080, Recommended 0.500). - GPT-4o-mini zero-shot with template: coverage 0.828; full-file ROUGE-1 0.423, cos 0.681; overlap-only 0.386 / 0.710. - GPT-4o-mini RAG with template: coverage 0.786; ROUGE-1 0.459, cos 0.683; overlap 0.433 / 0.708; manual 278 instances: 19.4% match, 61.2% partial, 19.4% missing, 0 wrong. - CodeLlama-13B Base with template: coverage 0.645; ROUGE-1 0.304, cos 0.373; overlap 0.309 / 0.434. - CodeLlama-13B QLoRA with template: coverage 0.166 (Gap 0.044); ROUGE-1 0.273, cos 0.608; overlap 0.347 / 0.647. Quality verdict for all: no criterion stated by the authors. Cost verdict for all: not reported",
+   "p": "24-26",
+   "ok": true,
+   "ai": "Instruction-file generation on AGIT-Instruct eval set (62 files), no coding agent; criterion: coverage of template categories and alignment with developer-written references. - GPT-4o-mini without template (exploratory): coverage 0.187 (Required 0.168, Gap 0.080, Recommended 0.500). - GPT-4o-mini zero-shot with template: coverage 0.828; full-file ROUGE-1 0.423, cos 0.681; overlap-only 0.386 / 0.710. - GPT-4o-mini RAG with template: coverage 0.786; ROUGE-1 0.459, cos 0.683; overlap 0.433 / 0.708; manual 278 instances: 19.4% match, 61.2% partial, 19.4% missing, 0 wrong. - CodeLlama-13B Base with template: coverage 0.645; ROUGE-1 0.304, cos 0.373; overlap 0.309 / 0.434. - CodeLlama-13B QLoRA with template: coverage 0.166 (Gap 0.044); ROUGE-1 0.273, cos 0.608; overlap 0.347 / 0.647. Quality verdict for all: no criterion stated by the authors. Cost verdict for all: not reported",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Template vs no template: GPT-4o-mini, same base prompt and repository inputs, only template guidance varied, on the same 62-file eval set (exploratory). Four template-guided configurations on the same repository-disjoint eval set; inputs: target format, language, popularity, short repository summary; greedy decoding for CodeLlama; RAG with 3 retrieved training examples. Repetitions: 1 (not stated otherwise). No coding agent, no acceptance tests (references are developer-written files)",
+   "p": "22-24",
+   "ok": true,
+   "ai": "Template vs no template: GPT-4o-mini, same base prompt and repository inputs, only template guidance varied, on the same 62-file eval set (exploratory). Four template-guided configurations on the same repository-disjoint eval set; inputs: target format, language, popularity, short repository summary; greedy decoding for CodeLlama; RAG with 3 retrieved training examples. Repetitions: 1 (not stated otherwise). No coding agent, no acceptance tests (references are developer-written files)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Template raises coverage from 18.7% to 82.8% (3.00 to 13.25 categories per file), Gap tier 8.0% to 97.7%. Zero-shot highest coverage (0.828) > RAG 0.786 > CL Base 0.645 > CL QLoRA 0.166; RAG highest full-file ROUGE-1 (0.459 vs 0.423); QLoRA raises cosine 0.373 -> 0.608 but lowers coverage. No significance tests for generation results. Mining: adoption 66.2% top vs 50.2% bottom (OR 1.171 per log stars); multi-format 42.2% vs 21.6%; 16.1% of 386 pairs divergent, none contradictory; 40.4% single-touch files; churn differs by format (H = 31.02, p < 0.001)",
+   "p": "8-9, 11, 14-16, 24-26",
+   "ok": true,
+   "ai": "Template raises coverage from 18.7% to 82.8% (3.00 to 13.25 categories per file), Gap tier 8.0% to 97.7%. Zero-shot highest coverage (0.828) > RAG 0.786 > CL Base 0.645 > CL QLoRA 0.166; RAG highest full-file ROUGE-1 (0.459 vs 0.423); QLoRA raises cosine 0.373 -> 0.608 but lowers coverage. No significance tests for generation results. Mining: adoption 66.2% top vs 50.2% bottom (OR 1.171 per log stars); multi-format 42.2% vs 21.6%; 16.1% of 386 pairs divergent, none contradictory; 40.4% single-touch files; churn differs by format (H = 31.02, p < 0.001)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: benchmark separates structural coverage from content alignment and shows they diverge (QLoRA); authors call template comparison exploratory; LLM output variation not controlled; generic-intent transformation may remove operational details; downstream coding-agent effect not measured",
+   "p": "24, 26, 28, 32-33",
+   "ok": true,
+   "ai": "Partly: benchmark separates structural coverage from content alignment and shows they diverge (QLoRA); authors call template comparison exploratory; LLM output variation not controlled; generic-intent transformation may remove operational details; downstream coding-agent effect not measured",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Category coding subjective; divergence may reflect scope; generic intents abstract away commands; LLM variability; repository characteristics confound format differences; public GitHub only, four formats; category-based eval selection not representative; pairs not independent; maintenance history cannot reveal intent; impact of instruction files on coding-agent performance not measured (future work); tiers are heuristic, not proof of importance",
+   "p": "19-20, 28, 32-33",
+   "ok": true,
+   "ai": "Category coding subjective; divergence may reflect scope; generic intents abstract away commands; LLM variability; repository characteristics confound format differences; public GitHub only, four formats; category-based eval selection not representative; pairs not independent; maintenance history cannot reveal intent; impact of instruction files on coding-agent performance not measured (future work); tiers are heuristic, not proof of importance",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 2, 3 and Fig. 2-4 partly jumbled by pdftotext; Table 3 rows rebuilt from text (e.g. Build/run/install 959 additions, 239 deletions, CAR 0.801; Ownership 7/0, 1.000). Some lifecycle/trigger values in Fig. 4 only (text gives 52.5% proactive AGENTS.md, 65.2% co-change CLAUDE.md, 48.2% reactive Copilot). AGIT-Instruct: initial filtering gives 2,853 files from 552 repos (p. 21), the final benchmark 1,815 files from 522 repos after generic-intent filtering and repository-disjoint partitioning (p. 22); the drop of 1,038 files is not explained. Replication package: github.com/mehedisresearch/AGIT-Template (prompts and fine-tuning settings). No pre-registration. Languages: mixed",
+   "p": "2, 12, 15-16, 21-22, 34",
+   "ok": true,
+   "ai": "Tables 2, 3 and Fig. 2-4 partly jumbled by pdftotext; Table 3 rows rebuilt from text (e.g. Build/run/install 959 additions, 239 deletions, CAR 0.801; Ownership 7/0, 1.000). Some lifecycle/trigger values in Fig. 4 only (text gives 52.5% proactive AGENTS.md, 65.2% co-change CLAUDE.md, 48.2% reactive Copilot). AGIT-Instruct: initial filtering gives 2,853 files from 552 repos (p. 21), the final benchmark 1,815 files from 522 repos after generic-intent filtering and repository-disjoint partitioning (p. 22); the drop of 1,038 files is not explained. Replication package: github.com/mehedisresearch/AGIT-Template (prompts and fine-tuning settings). No pre-registration. Languages: mixed",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated with motivation",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Yes (1): RQ1-RQ3 stated with motivation",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): sampling, coding, metrics, tier policy, benchmark construction and fine-tuning settings described; prompts in replication package",
+   "p": "6-7, 13-14, 17-18, 21-23",
+   "ok": true,
+   "ai": "Yes (1): sampling, coding, metrics, tier policy, benchmark construction and fine-tuning settings described; prompts in replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): generation models named (GPT-4o-mini, CodeLlama-13B, QLoRA settings, all-MiniLM-L6-v2) without API version or dates; no coding agent",
+   "p": "22-23",
+   "ok": true,
+   "ai": "Partly (0.5): generation models named (GPT-4o-mini, CodeLlama-13B, QLoRA settings, all-MiniLM-L6-v2) without API version or dates; no coding agent",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): corpus and benchmark described and released",
+   "p": "6, 21-22, 34",
+   "ok": true,
+   "ai": "Yes (1): corpus and benchmark described and released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): generation compared with developer-written references and manual assessment by the authors; mining labels with inter-rater kappa; no effect on agents measured",
+   "p": "11, 23-26",
+   "ok": true,
+   "ai": "Partly (0.5): generation compared with developer-written references and manual assessment by the authors; mining labels with inter-rater kappa; no effect on agents measured",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): coverage, alignment and maintenance metrics defined; no cost metrics",
+   "p": "13-14, 23",
+   "ok": true,
+   "ai": "Partly (0.5): coverage, alignment and maintenance metrics defined; no cost metrics",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): without-template baseline under the same model, prompt and inputs; four configurations on the same eval set",
+   "p": "24",
+   "ok": true,
+   "ai": "Yes (1): without-template baseline under the same model, prompt and inputs; four configurations on the same eval set",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): statistical tests for mining (Mann-Whitney, Kruskal-Wallis, Cliff's delta, logistic regression); generation single run, no tests",
+   "p": "7, 14-15, 24-25",
+   "ok": true,
+   "ai": "Partly (0.5): statistical tests for mining (Mann-Whitney, Kruskal-Wallis, Cliff's delta, logistic regression); generation single run, no tests",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): cautious; states template comparison exploratory and that structural coverage does not imply quality",
+   "p": "24, 26, 28",
+   "ok": true,
+   "ai": "Yes (1): cautious; states template comparison exploratory and that structural coverage does not imply quality",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 9 Threats to Validity (construct, internal, external, conclusion)",
+   "p": "32-33",
+   "ok": true,
+   "ai": "Yes (1): Section 9 Threats to Validity (construct, internal, external, conclusion)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): academic authors independent of tool vendors, but they propose and evaluate their own template and benchmark",
+   "p": "1, 17, 21",
+   "ok": true,
+   "ai": "Partly (0.5): academic authors independent of tool vendors, but they propose and evaluate their own template and benchmark",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): the template is a 16-category Markdown authoring structure with stated information to record per category and a maintenance protocol (Table 4, Section 5.3); no tools or compute needed to apply it; optional generation uses GPT-4o-mini or CodeLlama-13B (QLoRA, 4-bit); materials public",
+   "p": "18-20, 22-23, 34",
+   "ok": true,
+   "ai": "Yes (1): the template is a 16-category Markdown authoring structure with stated information to record per category and a maintenance protocol (Table 4, Section 5.3); no tools or compute needed to apply it; optional generation uses GPT-4o-mini or CodeLlama-13B (QLoRA, 4-bit); materials public",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:17:35"
+}

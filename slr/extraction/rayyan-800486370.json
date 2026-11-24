@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486370",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, S. (2026). Agent Team Work Zone: An Automated, Persistent Workspace for Long-Lived Claude Code Agent Teams. arXiv:2607.22917v2 [cs.AI], 30 Jul 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Wang, S. (2026). Agent Team Work Zone: An Automated, Persistent Workspace for Long-Lived Claude Code Agent Teams. arXiv:2607.22917v2 [cs.AI], 30 Jul 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 30 Jul 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "2026 (v2, 30 Jul 2026)",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.22917v2 [cs.AI], 30 Jul 2026; no published venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2607.22917v2 [cs.AI], 30 Jul 2026; no published venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Case Western Reserve University (single author)",
+   "p": "1",
+   "ok": true,
+   "ai": "Case Western Reserve University (single author)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Conceptual — ATWZ, a file-based persistence and management layer over Claude Code Agent Teams, presented as a developer-oriented design manual (no benchmarks or user studies; illustrated by scenarios and dogfooding)",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Conceptual — ATWZ, a file-based persistence and management layer over Claude Code Agent Teams, presented as a developer-oriented design manual (no benchmarks or user studies; illustrated by scenarios and dogfooding)",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent Team Work Zone (ATWZ), open source; releases v0.1.0 (frozen, Claude Code <= 2.1.177) and v0.2.0+ for Claude Code >= 2.1.178; v0.3.2 current as of July 2026. Built on Claude Code Agent Teams (experimental feature)",
+   "p": "1, 3, 9, 18",
+   "ok": true,
+   "ai": "Agent Team Work Zone (ATWZ), open source; releases v0.1.0 (frozen, Claude Code <= 2.1.177) and v0.2.0+ for Claude Code >= 2.1.178; v0.3.2 current as of July 2026. Built on Claude Code Agent Teams (experimental feature)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per-agent 'workstation' directories under _agent_team_work_zone/: README.md (role + work rules), notes.md, TODO.md, ACTIVE_JOBS.md, COMPLETED_JOBS.md; team workstations add TEAMMATE_INFO.json (registry), roundtable/ (team messages), team_recipes/, teammates/<name>/ (README, working-context.md, completed.md, TODO.md, commitments.md); checkpoint file (current-state snapshot + append-only journal); meeting_room/ markdown messages with frontmatter status OPEN -> IN_PROGRESS -> RESOLVED; handoff packages; skills, hooks and scripts",
+   "p": "9, 12, 14-15",
+   "ok": true,
+   "ai": "Per-agent 'workstation' directories under _agent_team_work_zone/: README.md (role + work rules), notes.md, TODO.md, ACTIVE_JOBS.md, COMPLETED_JOBS.md; team workstations add TEAMMATE_INFO.json (registry), roundtable/ (team messages), team_recipes/, teammates/<name>/ (README, working-context.md, completed.md, TODO.md, commitments.md); checkpoint file (current-state snapshot + append-only journal); meeting_room/ markdown messages with frontmatter status OPEN -> IN_PROGRESS -> RESOLVED; handoff packages; skills, hooks and scripts",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Team lifecycle rather than a development flow: /onboard -> (/promote-to-team) -> /spawn-team (collect task, decompose, propose lineup, user confirms, spawn) -> active loop with automatic checkpoints (TeammateIdle hook, 15-minute threshold) -> bench/offboard -> /reactivate-team after session end; messaging via /check-inbox and /handoff; read-only plan gate before larger teammate changes",
+   "p": "12-17",
+   "ok": true,
+   "ai": "Team lifecycle rather than a development flow: /onboard -> (/promote-to-team) -> /spawn-team (collect task, decompose, propose lineup, user confirms, spawn) -> active loop with automatic checkpoints (TeammateIdle hook, 15-minute threshold) -> bench/offboard -> /reactivate-team after session end; messaging via /check-inbox and /handoff; read-only plan gate before larger teammate changes",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "User confirms the proposed team lineup; user confirms inbox items before they run; lead approves teammates' read-only plans before larger changes; 'human in the loop throughout'",
+   "p": "3, 14, 16",
+   "ok": true,
+   "ai": "User confirms the proposed team lineup; user confirms inbox items before they run; lead approves teammates' read-only plans before larger changes; 'human in the loop throughout'",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run as a study (design described; used to develop itself, no measurement)",
+   "p": "1, 3, 22-23",
+   "ok": true,
+   "ai": "Not run as a study (design described; used to develop itself, no measurement)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (persistence/coordination layer, no specification artefact; authors' wording: 'files over context')",
+   "p": "6-8",
+   "ok": true,
+   "ai": "Not classifiable (persistence/coordination layer, no specification artefact; authors' wording: 'files over context')",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated (long-lived projects generally; dogfooded on the layer's own development)",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "Not stated (long-lived projects generally; dogfooded on the layer's own development)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Not stated (recommended team size 3-5 teammates)",
+   "p": "16",
+   "ok": true,
+   "ai": "Not stated (recommended team size 3-5 teammates)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (general software development with Claude Code)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not stated (general software development with Claude Code)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated (developers using Claude Code Agent Teams; single developer in dogfooding)",
+   "p": "1",
+   "ok": true,
+   "ai": "Not stated (developers using Claude Code Agent Teams; single developer in dogfooding)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (notes that token cost grows with team size)",
+   "p": "8",
+   "ok": true,
+   "ai": "None (notes that token cost grows with team size)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (claims reduced prompt-writing workload, not measured)",
+   "p": "1",
+   "ok": true,
+   "ai": "None (claims reduced prompt-writing workload, not measured)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None (qualitative failure-mode catalog)",
+   "p": "19-20",
+   "ok": true,
+   "ai": "None (qualitative failure-mode catalog)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (no configuration evaluated; 'We make no benchmarking or user-study claims; empirical evaluation is left to future work')",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "N/A (no configuration evaluated; 'We make no benchmarking or user-study claims; empirical evaluation is left to future work')",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no comparison)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (no comparison; related-work contrast with LangGraph and AutoGen persistence is descriptive)",
+   "p": "20-21",
+   "ok": true,
+   "ai": "N/A (no comparison; related-work contrast with LangGraph and AutoGen persistence is descriptive)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Design, not an evaluation: no measurement of benefit, no comparison with alternatives, no user study. Known gaps: checkpoint gate fails open for brand-new teammates; checkpoint writer/reader contract is a documentation convention, not checked; some detections rely on text patterns. Future: empirical evaluation of recovery reliability under real interruptions, overhead and usability; tighter lead/teammate protocol; less prompt-writing; more autonomous mode",
+   "p": "22-23",
+   "ok": true,
+   "ai": "Design, not an evaluation: no measurement of benefit, no comparison with alternatives, no user study. Known gaps: checkpoint gate fails open for brand-new teammates; checkpoint writer/reader contract is a documentation convention, not checked; some detections rely on text patterns. Future: empirical evaluation of recovery reliability under real interruptions, overhead and usability; tighter lead/teammate protocol; less prompt-writing; more autonomous mode",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Code public: github.com/SR-A-W/agent-team-work-zone. No data, no pre-registration. Language: not applicable (Markdown/JSON files, shell hooks). Tied to Claude Code version specifics (API change at 2.1.178). Failure modes listed come from dogfooding (Section 10). Large related-work and appendix sections cite several of the author's own unrelated papers",
+   "p": "1, 18-20, 26-27",
+   "ok": true,
+   "ai": "Code public: github.com/SR-A-W/agent-team-work-zone. No data, no pre-registration. Language: not applicable (Markdown/JSON files, shell hooks). Tied to Claude Code version specifics (API change at 2.1.178). Failure modes listed come from dogfooding (Section 10). Large related-work and appendix sections cite several of the author's own unrelated papers",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four problems stated and design goal clear",
+   "p": "1, 5-6",
+   "ok": true,
+   "ai": "Yes (1): four problems stated and design goal clear",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): directory layout, hooks, thresholds, commands and procedures described in detail; open source",
+   "p": "9-19",
+   "ok": true,
+   "ai": "Yes (1): directory layout, hooks, thresholds, commands and procedures described in detail; open source",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (no empirical evaluation)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no empirical evaluation)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): claims limited to design; explicitly states no evaluation and that the failure catalog is not exhaustive (abstract claims 'greatly mitigate' are unsupported but flagged as untested)",
+   "p": "1, 20, 23",
+   "ok": true,
+   "ai": "Yes (1): claims limited to design; explicitly states no evaluation and that the failure catalog is not exhaustive (abstract claims 'greatly mitigate' are unsupported but flagged as untested)",
+   "changed": true
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations and Future Work section; failure-modes section",
+   "p": "19-23",
+   "ok": true,
+   "ai": "Yes (1): Limitations and Future Work section; failure-modes section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): author created ATWZ",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): author created ATWZ",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): open source, file-based; needs only Claude Code with the experimental Agent Teams feature (enabled by an environment flag), version split at 2.1.178; installer and upgrade scripts provided; token cost grows with team size (noted, not quantified)",
+   "p": "1, 8, 18",
+   "ok": true,
+   "ai": "Yes (1): open source, file-based; needs only Claude Code with the experimental Agent Teams feature (enabled by an environment flag), version split at 2.1.178; installer and upgrade scripts provided; token cost grows with team size (noted, not quantified)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-24T16:33:29"
+}
