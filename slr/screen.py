@@ -228,7 +228,7 @@ function show(){const x=Q[i];const prev=done[x.key];first=prev?prev.first:null;f
   $("pos").textContent=`#${i+1} de ${Q.length}`+(prev?" (já decidido, podes mudar)":"");
   $("title").textContent=x.title;
   const link=x.url||("https://scholar.google.com/scholar?q="+encodeURIComponent(x.title));
-  $("meta").innerHTML=`${x.flag?'<b style="color:#c00">⚠ DISCORDÂNCIA no passo 2: aplica primeiro o fluxo do passo 2, depois o EC6.</b><br>':""}${x.p2?"Passo 2: "+esc(x.p2)+" · ":""}${esc(x.year)} · ${esc(x.sources)} · <a href="${esc(link)}" target="_blank">abrir</a>`+(x.keywords?`<br>Palavras-chave: ${esc(x.keywords)}`:"");
+  $("meta").innerHTML=`${x.flag&&PASS!=="ft"?'<b style="color:#c00">⚠ DISCORDÂNCIA no passo 2: aplica primeiro o fluxo do passo 2, depois o EC6.</b><br>':""}${x.p2?"Passo 2: "+esc(x.p2)+" · ":""}${esc(x.year)} · ${esc(x.sources)} · <a href="${esc(link)}" target="_blank">abrir</a>`+(x.keywords?`<br>Palavras-chave: ${esc(x.keywords)}`:"");
   $("abs").innerHTML=x.abstract?esc(x.abstract):'<span class="noabs">SEM RESUMO.</span> Decide pelo título; se não chegar, carrega em "abrir" ou escolhe Maybe.';
   $("ai").className="";$("ai").innerHTML="";counts();render();if(prev)reveal();$("xp").style.display="none";
   if(PASS==="ft"){ftview(x);if(prev&&prev.final==="Include")xpanel(x);}}

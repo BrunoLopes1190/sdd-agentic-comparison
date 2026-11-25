@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486773",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Bondarenko, A., Zamorskaia, N., Djakons, D., Djakona, A., Djakons, R. (2026). Control-Plane Placement and Memory Substrates in Modern Agentic AI: A Comparative Method for Prompt-Native Systems, Agent Shells, and Durable Runtimes. Latvian Journal of Physics and Technical Sciences, 2026(5), 46-64. DOI: 10.2478/lpts-2026-0036",
+   "p": "1",
+   "ok": true,
+   "ai": "Bondarenko, A., Zamorskaia, N., Djakons, D., Djakona, A., Djakons, R. (2026). Control-Plane Placement and Memory Substrates in Modern Agentic AI: A Comparative Method for Prompt-Native Systems, Agent Shells, and Durable Runtimes. Latvian Journal of Physics and Technical Sciences, 2026(5), 46-64. DOI: 10.2478/lpts-2026-0036",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — Latvian Journal of Physics and Technical Sciences, 2026, N 5",
+   "p": "1",
+   "ok": true,
+   "ai": "Journal — Latvian Journal of Physics and Technical Sciences, 2026, N 5",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Riga Nordic University, Latvia (all authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "Riga Nordic University, Latvia (all authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Proposes an approach — document-based qualitative comparison of five agentic system families / 12 coding agents; proposes a control-plane placement comparative method (L/M/H coding matrix, rubric), a benchmark-interpretation formula and a disclosure checklist",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Conceptual; secondary: Proposes an evaluation method — document-based qualitative comparison of five agentic system families / 12 coding agents; proposes a control-plane placement comparative method (L/M/H coding matrix, rubric), a benchmark-interpretation formula and a disclosure checklist",
+   "changed": true
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No single SDD approach. Five control-plane families: prompt-native packs (Superpowers, SKILL.md bundles, prompt collections); prompt-modular shells (Cline v3, KiloCode); runtime-governed shells (Claude Code, OpenCode, Qwen Code, Gemini CLI, Warp); host-mediated/coordinator forms (GitHub Copilot, Cursor, Windsurf, Kiro); durable workflow runtimes (LangGraph, Vertex AI ADK, OpenAI Codex). Kiro noted for 'specs as source-of-truth control artefacts'. Versions not stated (evidence as of early/mid 2026)",
+   "p": "5-10",
+   "ok": true,
+   "ai": "No single SDD approach. Five control-plane families: prompt-native packs (Superpowers, SKILL.md bundles, prompt collections); prompt-modular shells (Cline v3, KiloCode); runtime-governed shells (Claude Code, OpenCode, Qwen Code, Gemini CLI, Warp); host-mediated/coordinator forms (GitHub Copilot, Cursor, Windsurf, Kiro); durable workflow runtimes (LangGraph, Vertex AI ADK, OpenAI Codex). Kiro noted for 'specs as source-of-truth control artefacts'. Versions not stated (evidence as of early/mid 2026)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by the authors; artefacts discussed: skills/markdown procedures, CLAUDE.md/AGENTS.md/GEMINI.md instruction files, cline rules, PLAN.md/TODO.md, Kiro spec artefacts, memory stores, checkpoint state, codebase knowledge graphs",
+   "p": "5-6, 8-11",
+   "ok": true,
+   "ai": "None prescribed by the authors; artefacts discussed: skills/markdown procedures, CLAUDE.md/AGENTS.md/GEMINI.md instruction files, cline rules, PLAN.md/TODO.md, Kiro spec artefacts, memory stores, checkpoint state, codebase knowledge graphs",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated (no flow prescribed; examples: OpenAI Codex clone -> code -> test -> PR; Cline Plan/Act modes)",
+   "p": "6-7, 10",
+   "ok": true,
+   "ai": "Not stated (no flow prescribed; examples: OpenAI Codex clone -> code -> test -> PR; Cline Plan/Act modes)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Discussed as governance features (approval modes, approval checkpoints, PR review gates); none prescribed",
+   "p": "6-7, 13",
+   "ok": true,
+   "ai": "Discussed as governance features (approval modes, approval checkpoints, PR review gates); none prescribed",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (conceptual, document-based)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not run (conceptual, document-based)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classified; SDD terms not used. Kiro's specs described as source-of-truth control documents (closest to spec-anchored; reviewer's reading, not the authors')",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Not classified; SDD terms not used. Kiro's specs described as source-of-truth control documents (closest to spec-anchored; reviewer's reading, not the authors')",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Not applicable; selection guide maps task types (short exploratory coding, artefact-driven workflows, PR workflows, long-running processes, multi-agent cost-sensitive tasks) to families",
+   "p": "14",
+   "ok": true,
+   "ai": "Not applicable; selection guide maps task types (short exploratory coding, artefact-driven workflows, PR workflows, long-running processes, multi-agent cost-sensitive tasks) to families",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Not stated (12 coding agents classified)",
+   "p": "5, 10",
+   "ok": true,
+   "ai": "Not stated (12 coding agents classified)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Coding agents / agentic AI architectures in general",
+   "p": "1",
+   "ok": true,
+   "ai": "Coding agents / agentic AI architectures in general",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated",
+   "p": "—",
+   "ok": true,
+   "ai": "Not stated",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured. Cited: hierarchical supervisor-worker architectures reach ~97.8% of reflexive-architecture accuracy at 60.9% of the cost [64]",
+   "p": "14",
+   "ok": true,
+   "ai": "None measured. Cited: hierarchical supervisor-worker architectures reach ~97.8% of reflexive-architecture accuracy at 60.9% of the cost [64]",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "ok": true,
+   "ai": "None measured",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "ok": true,
+   "ai": "None measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—",
+   "ok": true,
+   "ai": "None measured",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Qualitative L/M/H salience ratings on six dimensions (prompt, runtime, host/graph locus, durable state, governance visibility, optimisation leverage); memory comparison (artefact memory, procedural memory, trade-offs)",
+   "p": "8, 11",
+   "ok": true,
+   "ai": "Qualitative L/M/H salience ratings on six dimensions (prompt, runtime, host/graph locus, durable state, governance visibility, optimisation leverage); memory comparison (artefact memory, procedural memory, trade-offs)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual qualitative coding by the authors from Level 1 (official documentation, specifications, benchmark papers) and Level 2 (open-source repositories, prompt packs) evidence; no inter-rater validation",
+   "p": "4, 9",
+   "ok": true,
+   "ai": "Manual qualitative coding by the authors from Level 1 (official documentation, specifications, benchmark papers) and Level 2 (open-source repositories, prompt packs) evidence; no inter-rater validation",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based; no configuration run)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (document-based; no configuration run)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no experiment). Document-based comparison of five families / 12 coding agents on five analytic variables (memory substrate, context policy, workflow topology, enforcement mode, control-plane placement)",
+   "p": "4, 8-10",
+   "ok": true,
+   "ai": "N/A (no experiment). Document-based comparison of five families / 12 coding agents on five analytic variables (memory substrate, context policy, workflow topology, enforcement mode, control-plane placement)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Qualitative (Table 3, order: prompt / runtime / host-graph locus / durable state / governance visibility / optimisation leverage): prompt-native packs H L L M M M; prompt-modular shells H M L M M H; runtime-governed shells M H L M H H; host-mediated/coordinator M M H H H H; durable workflow runtimes L H H H H M. Findings: placement and memory substrate correlated but separable; flexibility-governance trade-off; benchmark scores conflate model x reasoning policy x harness x memory x environment; orchestrator placement drives quality",
+   "p": "8, 14-15",
+   "ok": true,
+   "ai": "Qualitative (Table 3, order: prompt / runtime / host-graph locus / durable state / governance visibility / optimisation leverage): prompt-native packs H L L M M M; prompt-modular shells H M L M M H; runtime-governed shells M H L M H H; host-mediated/coordinator M M H H H H; durable workflow runtimes L H H H H M. Findings: placement and memory substrate correlated but separable; flexibility-governance trade-off; benchmark scores conflate model x reasoning policy x harness x memory x environment; orchestrator placement drives quality",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Authors claim the five families accommodate all current tools without residual; coding unvalidated (single analyst team judgement, M/H boundary ambiguous)",
+   "p": "6, 9",
+   "ok": true,
+   "ai": "Authors claim the five families accommodate all current tools without residual; coding unvalidated (single analyst team judgement, M/H boundary ambiguous)",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Qualitative and interpretive; documentation gap (official sources may not reflect deployment); system evolution (matrix as of early 2026); unvalidated coding (others could code differently); scope limited to coding agents. Future: longitudinal replication, domains beyond coding, formalising the five-variable formula as a benchmark reporting standard, inter-rater validation",
+   "p": "9, 15",
+   "ok": true,
+   "ai": "Qualitative and interpretive; documentation gap (official sources may not reflect deployment); system evolution (matrix as of early 2026); unvalidated coding (others could code differently); scope limited to coding agents. Future: longitudinal replication, domains beyond coding, formalising the five-variable formula as a benchmark reporting standard, inter-rater validation",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Page numbers are PDF pages (printed journal pages 46-64). Extends the authors' earlier overview [23]. Mentions a 'companion repository' with a worked example but gives no URL in text. Reporting inconsistencies: the coding matrix is called 'Table 2' in the text (p 8) but is Table 3 (Table 2 is the rubric); the conclusion places the benchmark interpretation problem in 'Section 4' but it is Section 5 (p 15); the matrix is dated 'early 2026' (p 9) but Table 4 'mid-2026' (p 10); the abstract says the memory comparison covers write-policy visibility and traceability, but Table 5 has only artefact- and procedural-memory columns (p 1, 11). Claims partly supported by cited vendor reports and preprints; no empirical data",
+   "p": "1, 3, 8-11, 15",
+   "ok": true,
+   "ai": "Page numbers are PDF pages (printed journal pages 46-64). Extends the authors' earlier overview [23]. Mentions a 'companion repository' with a worked example but gives no URL in text. Table 3 coding matrix columns partly jumbled by pdftotext; ratings rebuilt from row order (to check against PDF). Reporting inconsistencies: the coding matrix is called 'Table 2' in the text (p 8) but is Table 3 (Table 2 is the rubric); the conclusion places the benchmark interpretation problem in 'Section 4' but it is Section 5 (p 15); the matrix is dated 'early 2026' (p 9) but Table 4 'mid-2026' (p 10); the abstract says the memory comparison covers write-policy visibility and traceability, but Table 5 has only artefact- and procedural-memory columns (p 1, 11). Claims partly supported by cited vendor reports and preprints; no empirical data",
+   "changed": true
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): comparative question and three contributions stated",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): comparative question and three contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): evidence levels, variables and rubric described; coding procedure and source list per system not detailed enough to replicate",
+   "p": "4, 7-8",
+   "ok": true,
+   "ai": "Partly (0.5): evidence levels, variables and rubric described; coding procedure and source list per system not detailed enough to replicate",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): findings framed as consequences of a principle and some stated firmly ('reliably', 'always') from unvalidated qualitative coding and cited evidence",
+   "p": "8, 14-15",
+   "ok": true,
+   "ai": "Partly (0.5): findings framed as consequences of a principle and some stated firmly ('reliably', 'always') from unvalidated qualitative coding and cited evidence",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 4.7 limitations and threats to validity",
+   "p": "9",
+   "ok": true,
+   "ai": "Yes (1): Section 4.7 limitations and threats to validity",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): journal article (LPTS)",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): journal article (LPTS)",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors, no tool of their own compared",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors, no tool of their own compared",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): selection guide and disclosure checklist need no special tools, but requirements and cost of applying the method are not stated",
+   "p": "12, 14",
+   "ok": true,
+   "ai": "Partly (0.5): selection guide and disclosure checklist need no special tools, but requirements and cost of applying the method are not stated",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-25T14:29:47"
+}
