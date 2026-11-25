@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800497949",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Mehtiyev, T., Tadesse, B., Arkoh, L., Assunção, W. (2026). When Instruction Files Go Stale: Documentation Debt and Hidden Cost in Coding Agents. arXiv:2611.09802v1 [cs.SE], 6 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Mehtiyev, T., Tadesse, B., Arkoh, L., Assunção, W. (2026). When Instruction Files Go Stale: Documentation Debt and Hidden Cost in Coding Agents. arXiv:2611.09802v1 [cs.SE], 6 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.09802v1 [cs.SE], 6 Nov 2026; page footer \"Preprint.\"; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2611.09802v1 [cs.SE], 6 Nov 2026; page footer \"Preprint.\"; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "North Carolina State University, USA (all four authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "North Carolina State University, USA (all four authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares — three versions of real-world stale instruction-file lines (stale, corrected, removed) on 22 maintenance tasks, two models in Claude Code, 732 trajectories analysed per tool call",
+   "p": "1-2, 5",
+   "ok": true,
+   "ai": "Compares — three versions of real-world stale instruction-file lines (stale, corrected, removed) on 22 maintenance tasks, two models in Claude Code, 732 trajectories analysed per tool call",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Repository instruction files AGENTS.md / CLAUDE.md (context files) with one stale line each: test command (pyflow), code location (cog), procedure for adding a component (aghub); no version",
+   "p": "1, 4-5",
+   "ok": true,
+   "ai": "Repository instruction files AGENTS.md / CLAUDE.md (context files) with one stale line each: test command (pyflow), code location (cog), procedure for adding a component (aghub); no version",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Root-level AGENTS.md or CLAUDE.md giving build/test commands, code locations and procedures; second instruction file in aghub already gave the new location",
+   "p": "1, 4-5",
+   "ok": true,
+   "ai": "Root-level AGENTS.md or CLAUDE.md giving build/test commands, code locations and procedures; second instruction file in aghub already gave the new location",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not stated as a flow; agent receives bug report only, loads instruction files natively, locates, fixes and verifies the bug (locate -> fix -> verify in Fig. 1)",
+   "p": "2, 6",
+   "ok": true,
+   "ai": "Not stated as a flow; agent receives bug report only, loads instruction files natively, locates, fixes and verifies the bug (locate -> fix -> verify in Fig. 1)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the experiment (agent runs commands without permission prompts)",
+   "p": "6",
+   "ok": true,
+   "ai": "None in the experiment (agent runs commands without permission prompts)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (instruction/context file, one line varied) run end-to-end with Claude Code; no specification",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Single artefact (instruction/context file, one line varied) run end-to-end with Claude Code; no specification",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context-file maintenance; no specification); authors frame it as documentation debt, no SDD terms",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (context-file maintenance; no specification); authors frame it as documentation debt, no SDD terms",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: bug fixing (22 tasks: historical bug fixes or seeded bugs) in three open-source repositories",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Existing code bases: bug fixing (22 tasks: historical bug fixes or seeded bugs) in three open-source repositories",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "3 repositories (pyflow, cog: Python; aghub: Rust); 22 tasks (8, 6, 8); 732 runs (240, 252, 240); repository sizes Not stated",
+   "p": "5-6",
+   "ok": true,
+   "ai": "3 repositories (pyflow, cog: Python; aghub: Rust); 22 tasks (8, 6, 8); 732 runs (240, 252, 240); repository sizes Not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Static-analysis framework (pyflow), ML model packaging tool (cog), Rust agent-management project (aghub)",
+   "p": "5",
+   "ok": true,
+   "ai": "Static-analysis framework (pyflow), ML model packaging tool (cog), Rust agent-management project (aghub)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tool calls and tokens (input, output, cached) per run, per-task medians",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Tool calls and tokens (input, output, cached) per run, per-task medians",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Bug fixed: target tests and suite pass offline on final workspace with original test files restored",
+   "p": "6",
+   "ok": true,
+   "ai": "Bug fixed: target tests and suite pass offline on final workspace with original test files restored",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Operations on the stale path (ran, read or wrote; primary measure); first test after fix running no tests; recovery (reached target, via search, calls to recover); final disclosure of the mismatch; suggested repair; edited instruction file",
+   "p": "5-9",
+   "ok": true,
+   "ai": "Operations on the stale path (ran, read or wrote; primary measure); first test after fix running no tests; recovery (reached target, via search, calls to recover); final disclosure of the mismatch; suggested repair; edited instruction file",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: transcripts (stale-path detector, tool calls, tokens), offline test runs in isolated containers. Manual/rule-based coding of every run that used the stale path (exploratory coding for suggested repair); stale lines found via script and confirmed by two coding-agent reviews (Claude, Codex)",
+   "p": "4, 6-8",
+   "ok": true,
+   "ai": "Automatic: transcripts (stale-path detector, tool calls, tokens), offline test runs in isolated containers. Manual/rule-based coding of every run that used the stale path (exploratory coding for suggested repair); stale lines found via script and confirmed by two coding-agent reviews (Claude, Codex)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent: Claude Code 2.1.316, medium effort. Quality criterion stated by the authors: bug fixed (target tests + suite pass offline on the final workspace with original test files restored). No cost criterion stated by the authors, so every cost verdict is 'no criterion stated by the authors'; stale-path use is a measured outcome without a pass threshold. Values per case Command / Location / Procedure (Table II). (1) Stale + Claude Code + Claude Haiku 5.5: stale path 38/40, 0/42, 24/40; fixed 39/40, 42/42, 39/40; calls 16.0, 7.5, 12.4; tokens 536k, 222k, 542k; 16 of 38 Command runs hid the error with 2>/dev/null. Quality: works. Cost: no criterion stated by the authors (extra effort not resolvable, high within-task variance). (2) Corrected + Claude Code + Haiku 5.5: stale path 0/40, 0/42, 0/40; fixed 39/40, 42/42, 38/40; calls 18.2, 7.3, 11.2; tokens 648k, 220k, 493k. Quality: works. Cost: no criterion stated by the authors. (3) Removed + Claude Code + Haiku 5.5: stale path 0/40, 0/42, 13/40; fixed 39/40, 42/42, 39/40; calls 14.0, 7.7, 10.5; tokens 454k, 224k, 402k. Quality: works. Cost: no criterion stated by the authors. (4) Stale + Claude Code + Claude Sonnet 5.5: stale path 40/40, 0/42, 31/40; fixed 40/40, 42/42, 40/40; calls 7.8, 5.3, 7.9; tokens 195k, 157k, 294k; 19/40 Command runs first checked the fix with a test run that ran no tests. Quality: works (final outcome), with silent no-test checks. Cost: no criterion stated by the authors. (5) Corrected + Claude Code + Sonnet 5.5: stale path 0/40, 0/42, 0/40; fixed 40/40, 42/42, 39/40; calls 5.8, 5.5, 6.8; tokens 152k, 162k, 249k. Quality: works. Cost: no criterion stated by the authors. (6) Removed + Claude Code + Sonnet 5.5: stale path 1/40, 0/42, 7/40; fixed 40/40, 42/42, 40/40; calls 7.8, 5.3, 7.8; tokens 222k, 157k, 283k. Quality: works. Cost: no criterion stated by the authors",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Agent: Claude Code 2.1.316, medium effort. Quality criterion stated by the authors: bug fixed (target tests + suite pass offline on the final workspace with original test files restored). No cost criterion stated by the authors, so every cost verdict is 'no criterion stated by the authors'; stale-path use is a measured outcome without a pass threshold. Values per case Command / Location / Procedure (Table II). (1) Stale + Claude Code + Claude Haiku 5.5: stale path 38/40, 0/42, 24/40; fixed 39/40, 42/42, 39/40; calls 16.0, 7.5, 12.4; tokens 536k, 222k, 542k; 16 of 38 Command runs hid the error with 2>/dev/null. Quality: works. Cost: no criterion stated by the authors (extra effort not resolvable, high within-task variance). (2) Corrected + Claude Code + Haiku 5.5: stale path 0/40, 0/42, 0/40; fixed 39/40, 42/42, 38/40; calls 18.2, 7.3, 11.2; tokens 648k, 220k, 493k. Quality: works. Cost: no criterion stated by the authors. (3) Removed + Claude Code + Haiku 5.5: stale path 0/40, 0/42, 13/40; fixed 39/40, 42/42, 39/40; calls 14.0, 7.7, 10.5; tokens 454k, 224k, 402k. Quality: works. Cost: no criterion stated by the authors. (4) Stale + Claude Code + Claude Sonnet 5.5: stale path 40/40, 0/42, 31/40; fixed 40/40, 42/42, 40/40; calls 7.8, 5.3, 7.9; tokens 195k, 157k, 294k; 19/40 Command runs first checked the fix with a test run that ran no tests. Quality: works (final outcome), with silent no-test checks. Cost: no criterion stated by the authors. (5) Corrected + Claude Code + Sonnet 5.5: stale path 0/40, 0/42, 0/40; fixed 40/40, 42/42, 39/40; calls 5.8, 5.5, 6.8; tokens 152k, 162k, 249k. Quality: works. Cost: no criterion stated by the authors. (6) Removed + Claude Code + Sonnet 5.5: stale path 1/40, 0/42, 7/40; fixed 40/40, 42/42, 40/40; calls 7.8, 5.3, 7.8; tokens 222k, 157k, 283k. Quality: works. Cost: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 22 bug-fix tasks in 3 repositories, one real stale line each (command, location, procedure). Configurations: stale / corrected / removed line x Claude Haiku 5.5 / Claude Sonnet 5.5 in Claude Code. Baseline: corrected (and removed). Held constant: code, task, bug report (names no test path), harness, effort, 30-min limit, budget cap, fresh isolated container, no host settings or memory; only the stale line differs; conditions run together in shuffled blocks. Acceptance tests: original tests restored, target tests + suite offline. Repetitions: 5-7 per task-condition-model (732 runs). Human intervention: none; failed runs repeated from scratch",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Tasks: 22 bug-fix tasks in 3 repositories, one real stale line each (command, location, procedure). Configurations: stale / corrected / removed line x Claude Haiku 5.5 / Claude Sonnet 5.5 in Claude Code. Baseline: corrected (and removed). Held constant: code, task, bug report (names no test path), harness, effort, 30-min limit, budget cap, fresh isolated container, no host settings or memory; only the stale line differs; conditions run together in shuffled blocks. Acceptance tests: original tests restored, target tests + suite offline. Repetitions: 5-7 per task-condition-model (732 runs). Human intervention: none; failed runs repeated from scratch",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Stale path used in 78/80 Command, 55/80 Procedure, 0/84 Location runs; corrected 0 (stale vs corrected significant: Haiku p=2e-28, Sonnet p=2e-33, Holm). Task success unchanged (p=1.0 both models). Only resolved cost difference: Sonnet on Command, 7.8 vs 5.8 calls (95% CI excludes zero but not after multiplicity correction; exploratory); tokens 195k vs 152k n.s. Removed line: stale path still 1/80 Command, 20/80 Procedure. Recovery 130/133 encounters (98 via search, median 2 calls); final disclosure 21/133; no run suggested or made a repair of the instruction file",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Stale path used in 78/80 Command, 55/80 Procedure, 0/84 Location runs; corrected 0 (stale vs corrected significant: Haiku p=2e-28, Sonnet p=2e-33, Holm). Task success unchanged (p=1.0 both models). Only resolved cost difference: Sonnet on Command, 7.8 vs 5.8 calls (95% CI excludes zero but not after multiplicity correction; exploratory); tokens 195k vs 152k n.s. Removed line: stale path still 1/80 Command, 20/80 Procedure. Recovery 130/133 encounters (98 via search, median 2 calls); final disclosure 21/133; no run suggested or made a repair of the instruction file",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions on stale-path use and behaviour, not on task success; cost differences mostly unresolved (Haiku variance high). Repeatable: 5-7 repeats, exact stratified tests, Holm, bootstrap CIs; detector bug found and corrected (19 runs changed, both versions published). Limitations: three cases confound instruction type, repository and tasks; small seeded tasks; runs repeat three cases rather than independent instances",
+   "p": "7, 10",
+   "ok": true,
+   "ai": "Distinguished conditions on stale-path use and behaviour, not on task success; cost differences mostly unresolved (Haiku variance high). Repeatable: 5-7 repeats, exact stratified tests, Holm, bootstrap CIs; detector bug found and corrected (19 runs changed, both versions published). Limitations: three cases confound instruction type, repository and tasks; small seeded tasks; runs repeat three cases rather than independent instances",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Three cases only (type, repo, tasks confounded); small seeded defects; per-task estimates imprecise; one vendor's models, one harness; repair effort not measured; safeguards proposed (flag missing paths, pipefail, treat 'no tests ran' as failure, agent proposes the fix) not evaluated. Future: more stale instructions, repositories, languages, models, harnesses; frequency of agents reaching stale lines",
+   "p": "10",
+   "ok": true,
+   "ai": "Three cases only (type, repo, tasks confounded); small seeded defects; per-task estimates imprecise; one vendor's models, one harness; repair effort not measured; safeguards proposed (flag missing paths, pipefail, treat 'no tests ran' as failure, agent proposes the fix) not evaluated. Future: more stale instructions, repositories, languages, models, harnesses; frequency of agents reaching stale lines",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Table II jumbled by pdftotext; values rebuilt by column order (Haiku block, Sonnet block, both-model block per case) and checked against text (7.8 vs 5.8, 195k vs 152k, 78/80, 55/80). Fig. 5 per-run values in figure only. Replication package available (ref. [2]; transcripts, coding rules, per-run codes, results before and after detector fix). Protocol fixed before analysis, later analyses labelled exploratory; formal pre-registration not claimed. Languages: Python and Rust",
+   "p": "6-8, 10",
+   "ok": true,
+   "ai": "Table II jumbled by pdftotext; values rebuilt by column order (Haiku block, Sonnet block, both-model block per case) and checked against text (7.8 vs 5.8, 195k vs 152k, 78/80, 55/80). Fig. 5 per-run values in figure only. Replication package available (ref. [2]; transcripts, coding rules, per-run codes, results before and after detector fix). Protocol fixed before analysis, later analyses labelled exploratory; formal pre-registration not claimed. Languages: Python and Rust",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): RQ1-RQ3 stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): case selection criteria, workspace construction, conditions, agent settings, measures and tests described; replication package",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Yes (1): case selection criteria, workspace construction, conditions, agent settings, measures and tests described; replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.316 at medium effort; Claude Haiku 5.5 and Claude Sonnet 5.5",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Yes (1): Claude Code 2.1.316 at medium effort; Claude Haiku 5.5 and Claude Sonnet 5.5",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): repositories named with commits, tasks listed in replication package",
+   "p": "5, 10",
+   "ok": true,
+   "ai": "Yes (1): repositories named with commits, tasks listed in replication package",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): original repository tests restored and run offline",
+   "p": "6",
+   "ok": true,
+   "ai": "Yes (1): original repository tests restored and run offline",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): tool calls and tokens (cost) plus fix rate and stale-path operations (quality/behaviour) defined",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Yes (1): tool calls and tokens (cost) plus fix rate and stale-path operations (quality/behaviour) defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): corrected and removed versions under identical conditions",
+   "p": "5",
+   "ok": true,
+   "ai": "Yes (1): corrected and removed versions under identical conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 5-7 repeats, exact tests stratified by task, Holm correction, bootstrap CIs",
+   "p": "6",
+   "ok": true,
+   "ai": "Yes (1): 5-7 repeats, exact tests stratified by task, Holm correction, bootstrap CIs",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): unresolved differences reported as such; cost claims labelled exploratory",
+   "p": "7, 9-10",
+   "ok": true,
+   "ai": "Yes (1): unresolved differences reported as such; cost claims labelled exploratory",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VI threats to validity",
+   "p": "10",
+   "ok": true,
+   "ai": "Yes (1): Section VI threats to validity",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; Claude Code and instruction files not theirs",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): academic authors; Claude Code and instruction files not theirs",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-25T14:50:36"
+}

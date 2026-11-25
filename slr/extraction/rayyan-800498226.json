@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800498226",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yan, C., Xu, Z., Li, Y., Xu, S., Liu, Y., Deng, G., Ma, S. (2026). One Skill Too Many: How Co-Installed Skills Conflict in Coding Agents. arXiv:2610.11647v2 [cs.SE], 13 Oct 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Yan, C., Xu, Z., Li, Y., Xu, S., Liu, Y., Deng, G., Ma, S. (2026). One Skill Too Many: How Co-Installed Skills Conflict in Coding Agents. arXiv:2610.11647v2 [cs.SE], 13 Oct 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v2, 13 Oct 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "2026 (v2, 13 Oct 2026)",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.11647v2 [cs.SE], 13 Oct 2026; ACM journal-style template, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2610.11647v2 [cs.SE], 13 Oct 2026; ACM journal-style template, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of New South Wales (Yan, Xu Z., Li, Xu S.); Griffith University (Liu); Nanyang Technological University (Deng); The University of Wollongong (Ma)",
+   "p": "1",
+   "ok": true,
+   "ai": "University of New South Wales (Yan, Xu Z., Li, Xu S.); Griffith University (Liu); Nanyang Technological University (Deng); The University of Wollongong (Ma)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an evaluation method — empirical study: repository mining of 20,947 repositories for co-installed similar skills plus a controlled experiment (6,368 Claude Code runs on 312 skill pairs); proposes a requirement-level core-function fidelity measure; also tests the authors' own pre-tool hook guard as a mitigation",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "Evaluates; secondary: Proposes an evaluation method — empirical study: repository mining of 20,947 repositories for co-installed similar skills plus a controlled experiment (6,368 Claude Code runs on 312 skill pairs); proposes a requirement-level core-function fidelity measure; also tests the authors' own pre-tool hook guard as a mitigation",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent Skills (SKILL.md directories, Anthropic open standard) in Claude Code 2.1.283; installed skill A vs similar skill B vs unrelated skill C at project, personal and plugin scopes; guard = pre-tool hook denying first read of B (authors' own). Cross-check on Codex",
+   "p": "4, 10-12",
+   "ok": true,
+   "ai": "Agent Skills (SKILL.md directories, Anthropic open standard) in Claude Code 2.1.283; installed skill A vs similar skill B vs unrelated skill C at project, personal and plugin scopes; guard = pre-tool hook denying first read of B (authors' own). Cross-check on Codex",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "SKILL.md file with YAML frontmatter (name, description, when_to_use) and Markdown body of instructions, optional scripts; listing of names and descriptions in context (description truncated at 1,536 characters; listing capped at 1% of context, raised to 20,000 characters in the study). Study artefacts: core functions (quoted, unique, checkable requirements) and checks per case",
+   "p": "4, 8-11",
+   "ok": true,
+   "ai": "SKILL.md file with YAML frontmatter (name, description, when_to_use) and Markdown body of instructions, optional scripts; listing of names and descriptions in context (description truncated at 1,536 characters; listing capped at 1% of context, raised to 20,000 characters in the study). Study artefacts: core functions (quoted, unique, checkable requirements) and checks per case",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Skill flow: listing of skill names/descriptions placed in context -> model selects and invokes a skill (or reads its files) -> body loaded and followed. Study flow: installation reconstruction -> pair mining (embedding retrieval, LLM pair judge) -> case building (core functions, request, repository, checks) -> controlled runs (Fig. 2)",
+   "p": "4, 6",
+   "ok": true,
+   "ai": "Skill flow: listing of skill names/descriptions placed in context -> model selects and invokes a skill (or reads its files) -> body loaded and followed. Study flow: installation reconstruction -> pair mining (embedding retrieval, LLM pair judge) -> case building (core functions, request, repository, checks) -> controlled runs (Fig. 2)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the skill flow (the model chooses out of sight; disclosure to the user measured). Study: two human raters validate every LLM-assisted step on random samples",
+   "p": "3, 12",
+   "ok": true,
+   "ai": "None in the skill flow (the model chooses out of sight; disclosure to the user measured). Study: two human raters validate every LLM-assisted step on random samples",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (skill files) in full agent runs",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Single artefact (skill files) in full agent runs",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (agent skills / instruction files; no specification; authors do not use SDD terms)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (agent skills / instruction files; no specification; authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (small, LLM-drafted synthetic starting repository of at most 15 files, one per case) with an LLM-drafted request for the job of the installed skill; skills mined from real projects",
+   "p": "9",
+   "ok": true,
+   "ai": "Existing code base (small, LLM-drafted synthetic starting repository of at most 15 files, one per case) with an LLM-drafted request for the job of the installed skill; skills mined from real projects",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Mining: 55,698 skills in 20,947 repos, 5,106 installation lists, 822,109 candidate pairs, 3,754 judged, 1,639 confirmed. Experiment: 312 pairs, 5,166 main runs (5,162 analysed) + 670 guard runs + 536 repeats = 6,368 runs, 169,294 tool calls, 542.4 h agent time; repositories <=15 files",
+   "p": "1, 6-10",
+   "ok": true,
+   "ai": "Mining: 55,698 skills in 20,947 repos, 5,106 installation lists, 822,109 candidate pairs, 3,754 judged, 1,639 confirmed. Experiment: 312 pairs, 5,166 main runs (5,162 analysed) + 670 guard runs + 536 repeats = 6,368 runs, 169,294 tool calls, 542.4 h agent time; repositories <=15 files",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "General software development skills (normative, capability and script-bearing; e.g., pull-request formats, release checklists, safety rules, document handling); programming languages Not stated",
+   "p": "2, 6, 9",
+   "ok": true,
+   "ai": "General software development skills (normative, capability and script-bearing; e.g., pull-request formats, release checklists, safety rules, document handling); programming languages Not stated",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; two human raters are authors)",
+   "p": "17",
+   "ok": true,
+   "ai": "N/A (no participants; two human raters are authors)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Not used as outcome. Reported descriptively per configuration (Table 3): tool calls and hours of agent time, e.g. only A 24,617 calls / 81.3 h, only B 24,400 / 78.7 h, A+B 24,555 / 81.6 h, swapped 24,633 / 81.9 h, personal 6,891 / 22.3 h, plugin 6,749 / 22.8 h, A+C 25,234 / 68.8 h, guard experiment 18,192 / 54.0 h. Study totals: 6.3 billion input and 110 million output tokens, about $5,550 at API prices, 542.4 h agent time, 169,294 tool calls",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Not used as outcome. Reported descriptively per configuration (Table 3): tool calls and hours of agent time, e.g. only A 24,617 calls / 81.3 h, only B 24,400 / 78.7 h, A+B 24,555 / 81.6 h, swapped 24,633 / 81.9 h, personal 6,891 / 22.3 h, plugin 6,749 / 22.8 h, A+C 25,234 / 68.8 h, guard experiment 18,192 / 54.0 h. Study totals: 6.3 billion input and 110 million output tokens, about $5,550 at API prices, 542.4 h agent time, 169,294 tool calls",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task completion (judged on substance by scripts or output judge)",
+   "p": "11",
+   "ok": true,
+   "ai": "Task completion (judged on substance by scripts or output judge)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Fidelity: share of the first three applicable core functions of the installed skill fulfilled (also on exclusive vs shared core functions); skill use (invocation or file reads); substitution vs interference; disclosure in the final reply; prevalence of conflicting pairs",
+   "p": "3, 8, 11",
+   "ok": true,
+   "ai": "Fidelity: share of the first three applicable core functions of the installed skill fulfilled (also on exclusive vs shared core functions); skill use (invocation or file reads); substitution vs interference; disclosure in the final reply; prevalence of conflicting pairs",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: scripts decide 327 of 921 primary core functions; output judge GPT-6 Astra (blinded to configuration and to which skill is A) decides the other 594, undecidable script checks and all but 11 task-completion checks; tool-call logs for skill use. Human validation of every LLM-assisted step on random samples: Krippendorff's alpha 0.74-0.88 between the two raters and 0.71-0.84 between their consensus and the LLM (output judge: 0.78 core functions, 0.75 task completion, 0.84 disclosure). Paired risk differences with 95% CIs over pairs, Holm correction",
+   "p": "11-12",
+   "ok": true,
+   "ai": "Automatic: scripts decide 327 of 921 primary core functions; output judge GPT-6 Astra (blinded to configuration and to which skill is A) decides the other 594, undecidable script checks and all but 11 task-completion checks; tool-call logs for skill use. Human validation of every LLM-assisted step on random samples: Krippendorff's alpha 0.74-0.88 between the two raters and 0.71-0.84 between their consensus and the LLM (output judge: 0.78 core functions, 0.75 task completion, 0.84 disclosure). Paired risk differences with 95% CIs over pairs, Holm correction",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent Claude Code 2.1.283; models Sonnet 4.6, Haiku 4.5 (20251001), Opus 5; pooled values (per-model values mostly in Fig. 4-6 only); one run per pair x configuration x model. Metrics: fidelity, task completion, use of A. No success criterion stated by the authors for any configuration, so no verdicts; cost per configuration only as agent hours and tool calls (Table 3).\n- Only A (baseline): fidelity 57.3%, task completion 57.2%; 30.3% of runs do not use A; 81.3 h. Quality and cost: no criterion stated by the authors\n- Only B: fidelity 46.3%, completion 58.1%; 78.7 h. Quality and cost: no criterion stated by the authors\n- A+B: use of A -19.9 pp, completion +1.9 pp (n.s.), fidelity -2.6 pp, exclusive core functions -5.6 pp vs only A; 12.1% of runs use only B, 38.0% neither; 81.6 h. Quality and cost: no criterion stated by the authors\n- A+C (unrelated skill): use of A -5.9 pp, fidelity -0.2 pp; 68.8 h. Quality and cost: no criterion stated by the authors\n- Swapped order: listing order changes use of A by +0.6 pp (renaming +4.4 pp); 81.9 h. Quality and cost: no criterion stated by the authors\n- B personal scope (81 same-name pairs): use of A -35.0 pp, fidelity -3.9 pp; 22.3 h. Quality and cost: no criterion stated by the authors\n- B plugin scope (81 pairs): B used in 2.9%, use of A -6.2 pp; 22.8 h. Quality and cost: no criterion stated by the authors\n- A+B with guard hook (187 pair-model combinations, vs without): switch to A after 96% of denials; exclusive fidelity +9.1 pp overall, +17.8 pp where both runs reached for B first; completion +4.1 pp (n.s.); 54.0 h for both arms. Quality and cost: no criterion stated by the authors\n- Per model in A+B: Opus 5 uses both skills in 36.8% of runs, neither in 15.5%; Haiku 4.5 neither in 56.4%\n- Codex check (gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, 193 pairs): use of A -18.2 pp, exclusive fidelity -3.4 pp, task completion not lowered. No criterion stated by the authors",
+   "p": "8, 10-16",
+   "ok": true,
+   "ai": "Agent Claude Code 2.1.283; models Sonnet 4.6, Haiku 4.5 (20251001), Opus 5; pooled values (per-model values mostly in Fig. 4-6 only); one run per pair x configuration x model. Metrics: fidelity, task completion, use of A. No success criterion stated by the authors for any configuration, so no verdicts; cost per configuration only as agent hours and tool calls (Table 3).\n- Only A (baseline): fidelity 57.3%, task completion 57.2%; 30.3% of runs do not use A; 81.3 h. Quality and cost: no criterion stated by the authors\n- Only B: fidelity 46.3%, completion 58.1%; 78.7 h. Quality and cost: no criterion stated by the authors\n- A+B: use of A -19.9 pp, completion +1.9 pp (n.s.), fidelity -2.6 pp, exclusive core functions -5.6 pp vs only A; 12.1% of runs use only B, 38.0% neither; 81.6 h. Quality and cost: no criterion stated by the authors\n- A+C (unrelated skill): use of A -5.9 pp, fidelity -0.2 pp; 68.8 h. Quality and cost: no criterion stated by the authors\n- Swapped order: listing order changes use of A by +0.6 pp (renaming +4.4 pp); 81.9 h. Quality and cost: no criterion stated by the authors\n- B personal scope (81 same-name pairs): use of A -35.0 pp, fidelity -3.9 pp; 22.3 h. Quality and cost: no criterion stated by the authors\n- B plugin scope (81 pairs): B used in 2.9%, use of A -6.2 pp; 22.8 h. Quality and cost: no criterion stated by the authors\n- A+B with guard hook (187 pair-model combinations, vs without): switch to A after 96% of denials; exclusive fidelity +9.1 pp overall, +17.8 pp where both runs reached for B first; completion +4.1 pp (n.s.); 54.0 h for both arms. Quality and cost: no criterion stated by the authors\n- Per model in A+B: Opus 5 uses both skills in 36.8% of runs, neither in 15.5%; Haiku 4.5 neither in 56.4%\n- Codex check (gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, 193 pairs): use of A -18.2 pp, exclusive fidelity -3.4 pp, task completion not lowered. No criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 312 cases (request + starting repository + checks), one per pair. Configurations: only A, only B, A+B, swapped, personal scope, plugin scope, A+C, A+B with/without guard; three models. Baseline: only A. Held constant: request, repository, container image, Claude Code version, 80 turns / 25 min limit, listing cap; one factor changed at a time. Acceptance: core functions and checks fixed before any run; scripts + blinded LLM judge. Repetitions: one run per pair x configuration x model; 512 combinations repeated 2-3 times (ICC 0.78 / 0.84). Human intervention: none (non-interactive)",
+   "p": "8-12",
+   "ok": true,
+   "ai": "Tasks: 312 cases (request + starting repository + checks), one per pair. Configurations: only A, only B, A+B, swapped, personal scope, plugin scope, A+C, A+B with/without guard; three models. Baseline: only A. Held constant: request, repository, container image, Claude Code version, 80 turns / 25 min limit, listing cap; one factor changed at a time. Acceptance: core functions and checks fixed before any run; scripts + blinded LLM judge. Repetitions: one run per pair x configuration x model; 512 combinations repeated 2-3 times (ICC 0.78 / 0.84). Human intervention: none (non-interactive)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Co-installing a similar skill lowers use of A by 19.9 pp [-23.1, -16.7] and fidelity by 2.6 pp [-4.4, -0.8] (exclusive 5.6 pp [-7.3, -3.8]) without lowering task completion (+1.9 [-1.0, +4.9]); unrelated skill only -5.9 pp use. Substituted runs carry 36% of fidelity loss, neither-skill runs 45%. Scope decides: personal same-name skill overrides A (-35.0 pp). Substitution disclosed in 0.9% of runs. Opening B first: -9.4 pp exclusive fidelity (Holm p=0.004). Guard recovers the 16.5 pp loss; significant for every model",
+   "p": "13-17",
+   "ok": true,
+   "ai": "Co-installing a similar skill lowers use of A by 19.9 pp [-23.1, -16.7] and fidelity by 2.6 pp [-4.4, -0.8] (exclusive 5.6 pp [-7.3, -3.8]) without lowering task completion (+1.9 [-1.0, +4.9]); unrelated skill only -5.9 pp use. Substituted runs carry 36% of fidelity loss, neither-skill runs 45%. Scope decides: personal same-name skill overrides A (-35.0 pp). Substitution disclosed in 0.9% of runs. Opening B first: -9.4 pp exclusive fidelity (Holm p=0.004). Guard recovers the 16.5 pp loss; significant for every model",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes: fidelity separated configurations where task completion did not (only A vs only B: 11.0 pp fidelity gap at equal completion). Repeatable: repeated runs agree (88.9%, ICC 0.78-0.84); effects replicated on Codex. Limitations stated: single runs per combination; first read observed rather than assigned (guard randomized); cross-project pairs constructed; full design on Claude Code only",
+   "p": "13, 17-18",
+   "ok": true,
+   "ai": "Yes: fidelity separated configurations where task completion did not (only A vs only B: 11.0 pp fidelity gap at equal completion). Repeatable: repeated runs agree (88.9%, ICC 0.78-0.84); effects replicated on Codex. Limitations stated: single runs per combination; first read observed rather than assigned (guard randomized); cross-project pairs constructed; full design on Claude Code only",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Nondeterministic single runs; full design only on Claude Code (Codex check on 193 pairs); cross-project pairs constructed; prevalence conservative (personal skills and plugins not visible in public repos). Implications: benchmarks should score exclusive core functions; platforms should guard the first read, show which skill ran, let projects declare which skill wins; authors should use distinctive names and descriptions",
+   "p": "2, 16-18",
+   "ok": true,
+   "ai": "Nondeterministic single runs; full design only on Claude Code (Codex check on 193 pairs); cross-project pairs constructed; prevalence conservative (personal skills and plugins not visible in public repos). Implications: benchmarks should score exclusive core functions; platforms should guard the first read, show which skill ran, let projects declare which skill wins; authors should use distinctive names and descriptions",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Fig. 4-6 hold most per-model and per-type values (values in figures only). LLM-heavy pipeline: GPT-6 Astra for repository typing, pair judging, skill typing, core-function extraction, case drafting and output judging; Qwen3-Embedding-0.6B for retrieval. Replication package at https://github.com/ltroin/conflict (harness, cases, all 6,368 run logs, scripts). Core functions fixed before runs, no formal pre-registration. pdftotext file contains non-UTF-8 symbols for the A/B/C markers. Programming language: Not stated",
+   "p": "6-9, 12, 14-16, 19",
+   "ok": true,
+   "ai": "Fig. 4-6 hold most per-model and per-type values (values in figures only). LLM-heavy pipeline: GPT-6 Astra for repository typing, pair judging, skill typing, core-function extraction, case drafting and output judging; Qwen3-Embedding-0.6B for retrieval. Replication package at https://github.com/ltroin/conflict (harness, cases, all 6,368 run logs, scripts). Core functions fixed before runs, no formal pre-registration. pdftotext file contains non-UTF-8 symbols for the A/B/C markers. Programming language: Not stated",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 explicit",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): RQ1-RQ3 explicit",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): detailed design (sampling, filtering, configurations, measures) and full replication package",
+   "p": "6-12, 19",
+   "ok": true,
+   "ai": "Yes (1): detailed design (sampling, filtering, configurations, measures) and full replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.283 and model identifiers (claude-sonnet-4-6, claude-haiku-4-5-20251001, claude-opus-5)",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Yes (1): Claude Code 2.1.283 and model identifiers (claude-sonnet-4-6, claude-haiku-4-5-20251001, claude-opus-5)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): cases, repositories and checks released",
+   "p": "9, 19",
+   "ok": true,
+   "ai": "Yes (1): cases, repositories and checks released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): checks fixed before runs and decided by scripts (327 of 921 core functions) or a blinded LLM judge validated by two human raters (consensus-LLM alpha 0.78 on core functions, 0.75 on task completion); most core functions judged by LLM rather than tests",
+   "p": "11-12",
+   "ok": true,
+   "ai": "Partly (0.5): checks fixed before runs and decided by scripts (327 of 921 core functions) or a blinded LLM judge validated by two human raters (consensus-LLM alpha 0.78 on core functions, 0.75 on task completion); most core functions judged by LLM rather than tests",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): fidelity, completion and skill use defined; cost not an outcome",
+   "p": "11",
+   "ok": true,
+   "ai": "Partly (0.5): fidelity, completion and skill use defined; cost not an outcome",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): only-A baseline and unrelated-skill control under the same conditions",
+   "p": "9",
+   "ok": true,
+   "ai": "Yes (1): only-A baseline and unrelated-skill control under the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): paired CIs over pairs, Holm correction, repeated-run reliability check",
+   "p": "11-12",
+   "ok": true,
+   "ai": "Yes (1): paired CIs over pairs, Holm correction, repeated-run reliability check",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions match results, including null effect on task completion and non-significant model differences",
+   "p": "13-17",
+   "ok": true,
+   "ai": "Yes (1): conclusions match results, including null effect on task completion and non-significant model differences",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): Threats to Validity section covers internal and external validity only, briefly",
+   "p": "17-18",
+   "ok": true,
+   "ai": "Partly (0.5): Threats to Validity section covers internal and external validity only, briefly",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (evaluates, does not propose an approach; the guard is a mitigation tested within the study)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (evaluates, does not propose an approach; the guard is a mitigation tested within the study)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-25T15:49:45"
+}

@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800498160",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zheng, Y., Chen, J. (2026). SKILLBLOAT: Token Amplification Attacks via Skill Injection in LLM Coding Agents. arXiv:2608.21929v2 [cs.CR], 28 Sep 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Zheng, Y., Chen, J. (2026). SKILLBLOAT: Token Amplification Attacks via Skill Injection in LLM Coding Agents. arXiv:2608.21929v2 [cs.CR], 28 Sep 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.21929v2 [cs.CR], 28 Sep 2026; conference-style template with AI-use, ethics and reproducibility statements, venue not stated; no published venue in the access log",
+   "p": "1, 10",
+   "ok": true,
+   "ai": "Preprint — arXiv:2608.21929v2 [cs.CR], 28 Sep 2026; conference-style template with AI-use, ethics and reproducibility statements, venue not stated; no published venue in the access log",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The Chinese University of Hong Kong, Shenzhen; SLAI (both authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "The Chinese University of Hong Kong, Shenzhen; SLAI (both authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — SKILLBLOAT, a two-phase framework that rewrites SKILL.md files to amplify agent token use while preserving task completion (an attack, usable as a stress test), evaluated on four agent-model configurations with ablation, an output-cap defense and an input-transfer test",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Evaluates — SKILLBLOAT, a two-phase framework that rewrites SKILL.md files to amplify agent token use while preserving task completion (an attack, usable as a stress test), evaluated on four agent-model configurations with ablation, an output-cap defense and an input-transfer test",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "SKILLBLOAT (version Not stated) with K = 15 attack-type conditions and a GPT-5.5 Attack Agent. Targets: Claude Code CLI (backends GLM-4.7-Flash, GLM-5) and OpenAI Codex CLI (GPT-5.4 Mini, GPT-5.5); CLI versions Not stated. Benign original skills as baseline",
+   "p": "3-5",
+   "ok": true,
+   "ai": "SKILLBLOAT (version Not stated) with K = 15 attack-type conditions and a GPT-5.5 Attack Agent. Targets: Claude Code CLI (backends GLM-4.7-Flash, GLM-5) and OpenAI Codex CLI (GPT-5.4 Mini, GPT-5.5); CLI versions Not stated. Benign original skills as baseline",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent skill package: SKILL.md (YAML front matter + instructions) with bundled auxiliary tool scripts; adversarial full SKILL.md rewrite integrating extra QA, retry, decomposition or context-inflation steps",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "Agent skill package: SKILL.md (YAML front matter + instructions) with bundled auxiliary tool scripts; adversarial full SKILL.md rewrite integrating extra QA, retry, decomposition or context-inflation steps",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Attack pipeline: benign baseline (3 runs) -> Phase 1 screen all 15 attack types once, pick highest amplification -> Phase 2 five feedback-guided rewrites (refine, execute, diagnose with failure analyzer) -> select best by total-token amplification",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Attack pipeline: benign baseline (3 runs) -> Phase 1 screen all 15 attack types once, pick highest amplification -> Phase 2 five feedback-guided rewrites (refine, execute, diagnose with failure analyzer) -> select best by total-token amplification",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automated pipeline; agents run without human approval)",
+   "p": "4-5",
+   "ok": true,
+   "ai": "None (automated pipeline; agents run without human approval)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (skill file, as agent instructions) inside agent runs",
+   "p": "5",
+   "ok": true,
+   "ai": "Single artefact (skill file, as agent instructions) inside agent runs",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (skills are task instructions, not software specifications)",
+   "p": "1",
+   "ok": true,
+   "ai": "Not classifiable (skills are task instructions, not software specifications)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Mixed coding-agent tasks using skills (software engineering, scientific computing, biomedical analysis, documentation, data processing); mostly analysis/report tasks on given input files",
+   "p": "5, 7",
+   "ok": true,
+   "ai": "Mixed coding-agent tasks using skills (software engineering, scientific computing, biomedical analysis, documentation, data processing); mostly analysis/report tasks on given input files",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "50 real-world skills, one task each (SkillJect benchmark); transfer: 10 skills x 3 input variants",
+   "p": "5, 8",
+   "ok": true,
+   "ai": "50 real-world skills, one task each (SkillJect benchmark); transfer: 10 skills x 3 input variants",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Agent security / economic resource abuse; skill domains as above",
+   "p": "1, 5",
+   "ok": true,
+   "ai": "Agent security / economic resource abuse; skill domains as above",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total tokens (input + output) and amplification ratio vs benign baseline; dollar cost in case study and dataset total for Codex GPT-5.5; commands executed and file edits (case study)",
+   "p": "5, 7",
+   "ok": true,
+   "ai": "Total tokens (input + output) and amplification ratio vs benign baseline; dollar cost in case study and dataset total for Codex GPT-5.5; commands executed and file edits (case study)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Binary task completion judged by GLM-5 with programmatic checks",
+   "p": "5, 17",
+   "ok": true,
+   "ai": "Binary task completion judged by GLM-5 with programmatic checks",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Amplification retention on new inputs; Phase 1 winning attack types (e.g. fake error retry, multi-point injection, self debate, task decomposition)",
+   "p": "8-9, 18",
+   "ok": true,
+   "ai": "Amplification retention on new inputs; Phase 1 winning attack types (e.g. fake error retry, multi-point injection, self debate, task decomposition)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: token accounting per run (input + output); task completion routed through programmatic checks, with a GLM-5 LLM judge as semantic fallback (binary label); output cap enforced by a proxy (2x benign output tokens); dollar cost estimated from tokens at list prices (case study)",
+   "p": "5, 7-8, 17",
+   "ok": true,
+   "ai": "Automatic: token accounting per run (input + output); task completion routed through programmatic checks, with a GLM-5 LLM judge as semantic fallback (binary label); output cap enforced by a proxy (2x benign output tokens); dollar cost estimated from tokens at list prices (case study)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Values: average best amplification / max / median; completion (Table 1). The authors state no success criterion (no target amplification or completion rate), so each configuration's quality and cost verdict is 'no criterion stated by the authors'.\n- Benign original skill (baseline) + Claude Code + GLM-4.7-Flash: amplification 1.00x by definition; completion 76%. Quality and cost: no criterion stated by the authors\n- Benign baseline + Claude Code + GLM-5: 1.00x; completion 90%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.4 Mini: 1.00x; completion 86%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.5: 1.00x; completion 94%; dataset cost $133.34. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-4.7-Flash: 9.31x / 71.59x / 4.89x; completion 80%. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-5: 5.42x / 21.49x / 4.02x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.4 Mini: 10.15x / 75.86x / 6.10x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.5: 6.01x / 26.39x / 4.36x; completion 88%; dataset cost $464.31. No criterion stated by the authors\n- Ablation Phase 1 only: 7.51x / 4.02x / 7.51x / 4.06x; ablation no-feedback resampling: 8.97x / 5.15x / 8.84x / 5.79x (same order of configurations)\n- Output-cap defense (2x benign output): amplification 1.36x / 1.24x / 1.39x / 1.34x; completion 62% / 48% / 68% / 64%. No criterion stated by the authors\n- Case (consciousness-principles, Codex GPT-5.5): 38,410 -> 1,013,561 tokens, $0.21 -> $5.41; commands 3 -> 28, file edits 0 -> 10\n- Transfer (Claude Code + GLM-5, 10 skills x 3 input variants): mean retention 0.92",
+   "p": "5-8",
+   "ok": true,
+   "ai": "Values: average best amplification / max / median; completion (Table 1). The authors state no success criterion (no target amplification or completion rate), so each configuration's quality and cost verdict is 'no criterion stated by the authors'.\n- Benign original skill (baseline) + Claude Code + GLM-4.7-Flash: amplification 1.00x by definition; completion 76%. Quality and cost: no criterion stated by the authors\n- Benign baseline + Claude Code + GLM-5: 1.00x; completion 90%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.4 Mini: 1.00x; completion 86%. No criterion stated by the authors\n- Benign baseline + Codex CLI + GPT-5.5: 1.00x; completion 94%; dataset cost $133.34. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-4.7-Flash: 9.31x / 71.59x / 4.89x; completion 80%. No criterion stated by the authors\n- SKILLBLOAT + Claude Code + GLM-5: 5.42x / 21.49x / 4.02x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.4 Mini: 10.15x / 75.86x / 6.10x; completion 92%. No criterion stated by the authors\n- SKILLBLOAT + Codex CLI + GPT-5.5: 6.01x / 26.39x / 4.36x; completion 88%; dataset cost $464.31. No criterion stated by the authors\n- Ablation Phase 1 only: 7.51x / 4.02x / 7.51x / 4.06x; ablation no-feedback resampling: 8.97x / 5.15x / 8.84x / 5.79x (same order of configurations)\n- Output-cap defense (2x benign output): amplification 1.36x / 1.24x / 1.39x / 1.34x; completion 62% / 48% / 68% / 64%. No criterion stated by the authors\n- Case (consciousness-principles, Codex GPT-5.5): 38,410 -> 1,013,561 tokens, $0.21 -> $5.41; commands 3 -> 28, file edits 0 -> 10\n- Transfer (Claude Code + GLM-5, 10 skills x 3 input variants): mean retention 0.92",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "50 skill-task pairs; 4 agent-model configurations; baseline: original benign skill (3 runs averaged); attack: 15 screening runs + 5 refinement runs, best selected. Ablation: no-feedback resampling with same number of evaluations. Held constant: task prompt and inputs per pair. Acceptance: binary task completion via programmatic checks, with a GLM-5 judge as semantic fallback (no human validation). Repetitions: attack candidates single run each. Human intervention: none",
+   "p": "4-6",
+   "ok": true,
+   "ai": "50 skill-task pairs; 4 agent-model configurations; baseline: original benign skill (3 runs averaged); attack: 15 screening runs + 5 refinement runs, best selected. Ablation: no-feedback resampling with same number of evaluations. Held constant: task prompt and inputs per pair. Acceptance: binary task completion via programmatic checks, with a GLM-5 judge as semantic fallback (no human validation). Repetitions: attack candidates single run each. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "All configurations amplified (5.42x-10.15x average best); stronger backends less amplified (GLM-5 < GLM-4.7-Flash; GPT-5.5 < GPT-5.4 Mini). Feedback refinement raises mean from 5.78x to 7.72x (+33.7%) and beats no-feedback resampling in every configuration (largest +1.30x on GPT-5.4 Mini). Output cap reduces amplification to 1.24x-1.39x but completion drops to 48-68%. No significance tests",
+   "p": "5-6, 8",
+   "ok": true,
+   "ai": "All configurations amplified (5.42x-10.15x average best); stronger backends less amplified (GLM-5 < GLM-4.7-Flash; GPT-5.5 < GPT-5.4 Mini). Feedback refinement raises mean from 5.78x to 7.72x (+33.7%) and beats no-feedback resampling in every configuration (largest +1.30x on GPT-5.4 Mini). Output cap reduces amplification to 1.24x-1.39x but completion drops to 48-68%. No significance tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over ~21 attack runs against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over ~21 attack runs against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations or threats section. Gaps stated: need for resource-aware defenses in skill ecosystems that distinguish malicious overhead from legitimate work",
+   "p": "8-10",
+   "ok": true,
+   "ai": "No limitations or threats section. Gaps stated: need for resource-aware defenses in skill ecosystems that distinguish malicious overhead from legitimate work",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Framework code as supplementary material; optimized adversarial SKILL.md files deliberately not released. Prompts verbatim in Appendix B. No pre-registration. Language not stated (tasks mixed). Values from Tables 1-4 (pp. 5-8), layout rebuilt from pdftotext. Claude Code run with non-Anthropic backends (GLM models). Nature judged as 'proposes an approach' (attack); reviewer may prefer 'proposes an evaluation method'",
+   "p": "5-8, 10, 14-17",
+   "ok": true,
+   "ai": "Framework code as supplementary material; optimized adversarial SKILL.md files deliberately not released. Prompts verbatim in Appendix B. No pre-registration. Language not stated (tasks mixed). Values from Tables 1-4 (pp. 5-8), layout rebuilt from pdftotext. Claude Code run with non-Anthropic backends (GLM models). Nature judged as 'proposes an approach' (attack); reviewer may prefer 'proposes an evaluation method'",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal and three contributions stated; no explicit RQs",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): goal and three contributions stated; no explicit RQs",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, protocol and all prompts given; code as supplementary material",
+   "p": "3-5, 10, 14-17",
+   "ok": true,
+   "ai": "Yes (1): pipeline, protocol and all prompts given; code as supplementary material",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): backend models named; Claude Code and Codex CLI versions not stated",
+   "p": "5",
+   "ok": true,
+   "ai": "Partly (0.5): backend models named; Claude Code and Codex CLI versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): public SkillJect benchmark used; adversarial skills not released",
+   "p": "5, 10",
+   "ok": true,
+   "ai": "Partly (0.5): public SkillJect benchmark used; adversarial skills not released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): token counts objective; completion by programmatic checks with a GLM-5 judge as fallback, not validated against humans",
+   "p": "5, 17",
+   "ok": true,
+   "ai": "Partly (0.5): token counts objective; completion by programmatic checks with a GLM-5 judge as fallback, not validated against humans",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): tokens, amplification, dollar cost and completion defined",
+   "p": "5, 7",
+   "ok": true,
+   "ai": "Yes (1): tokens, amplification, dollar cost and completion defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): benign-skill baseline and no-feedback ablation under the same conditions",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Yes (1): benign-skill baseline and no-feedback ablation under the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): baseline averaged over 3 runs; attack runs single; no statistics",
+   "p": "5",
+   "ok": true,
+   "ai": "Partly (0.5): baseline averaged over 3 runs; attack runs single; no statistics",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): best-of-many selection may inflate amplification; completion claims rest on an LLM judge",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Partly (0.5): best-of-many selection may inflate amplification; completion claims rest on an LLM judge",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats-to-validity section",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): no limitations or threats-to-validity section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created SKILLBLOAT",
+   "p": "1",
+   "ok": true,
+   "ai": "Partly (0.5): authors created SKILLBLOAT; independent of the target agents (Claude Code, Codex CLI) and backend models",
+   "changed": true
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): pipeline needs only CLI agents and LLM API access (GPT-5.5 as Attack Agent), framework code as supplementary material; but it is an attack, not a development practice",
+   "p": "5, 10",
+   "ok": true,
+   "ai": "Partly (0.5): pipeline needs only CLI agents and LLM API access (GPT-5.5 as Attack Agent), framework code as supplementary material; but it is an attack, not a development practice",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-25T15:38:22"
+}
