@@ -1,0 +1,8 @@
+{"key": "rayyan-800486415", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q3", "verdict": "uncertain", "sev": "high",
+  "v": "No (0): coding agents per repository and their models are not identified nor versioned (model capability unobserved); the 12 tools listed are only patterns for detecting configuration files, and only the embedding model of the classifier is named",
+  "p": "3-4, 11",
+  "quote": "AI usage intensity and model capability are unobserved and cannot be adjusted, and (5) in particular is an alternative explanation of the same pattern.",
+  "where": "§7.2 Internal Validity, p. 11",
+  "why": "No agent, model or version of the evaluated treatment is reported; the listed tools are detection patterns, not identified agents, so Partly may be generous.",
+  "doubt": "O estudo não diz que agente nem que modelo cada repositório usou, nem versões; a lista de 12 ferramentas serve só para detetar ficheiros. Lê a pág. 11 (§7.2) e decide se Q3 fica Parcial ou Não (0)."}]}

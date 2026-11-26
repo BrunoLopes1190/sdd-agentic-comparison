@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486442",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q13",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): the authors' SKILL-generation pipeline (reverse-PR mining at a frozen base + paired objective driving GEPA/SkillOpt) states its requirements: Claude Code + Sonnet 4.6, per-repo Docker image, about $0.84 per rollout, $182-485 and 4.7-25.2 h per optimization run, at least 100 graded tasks; two of five repositories (tracy, http4k) could not supply them",
+   "p": "2-3, 6, 9",
+   "quote": "Concretely, we treat SKILL generation as an optimization of a single .md document against a metric mined from the target repository itself.",
+   "where": "§1 Introduction, p. 2",
+   "why": "The paper presents its own pipeline for generating SKILLs (verifier plus proposer), which can be read as proposing an approach, making Q13 applicable instead of N/A.",
+   "doubt": "Os autores apresentam um pipeline próprio para gerar SKILLs (mineração de PRs + objetivo emparelhado), não só um método de avaliação. Se o leres como 'propõe uma abordagem', a Q13 aplica-se (custos e requisitos na pág. 3, 6 e 9). Decide se manténs N/A ou dás Parcial."
+  }
+ ]
+}

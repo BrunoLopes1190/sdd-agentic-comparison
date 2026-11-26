@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486416",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Spec-first (a specification on the GitHub Spec Kit template is written before the code and given to the agent as its task; it is used for that task only and not kept or maintained afterwards). Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template'",
+   "p": "3-4",
+   "quote": "Each spec variation is constructed from the task’s original SWE-bench problem statement, with structure derived from the GitHub Spec Kit template [9].",
+   "where": "§3.1 Tasks and prompts, p. 3",
+   "why": "A Spec Kit-structured specification written before implementation and handed to the agent as its task fits Böckeler's spec-first level, even though the authors do not name an SDD level.",
+   "doubt": "A especificação (modelo Spec Kit) é escrita antes do código e entregue ao agente como tarefa, o que corresponde a 'spec-first' de Böckeler, embora o autor não use esse termo. Lê §3.1 (pág. 3) e decide entre 'spec-first' e 'Not classifiable'."
+  }
+ ]
+}

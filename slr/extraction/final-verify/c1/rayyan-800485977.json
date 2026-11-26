@@ -1,0 +1,9 @@
+{"key": "rayyan-800485977", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q8",
+   "verdict": "corrected", "sev": "low",
+   "v": "No (0): repetitions Not stated, no error bars or statistical analysis (NeurIPS checklist answers No on error bars)",
+   "p": "7-9, 40",
+   "quote": "Justification: Error bars are not reported because it would be too computationally expensive.",
+   "where": "NeurIPS Paper Checklist, item 7 Experiment statistical significance, p. 40",
+   "why": "The checklist answer on error bars is on p. 40, not p. 37 (p. 37 is the start of the checklist).",
+   "doubt": "A resposta 'No' sobre barras de erro na checklist NeurIPS está na pág. 40, não na 37. A pontuação está certa; só corrige a página."}]}

@@ -1,0 +1,8 @@
+{"key": "rayyan-800485917", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q12", "verdict": "uncertain", "sev": "high",
+  "v": "No (0): the authors created both evaluated guidance approaches (probe-and-refine and the static_kb knowledge base); no_context is the bare agent baseline, not an external approach, so no third-party approach is evaluated",
+  "p": "2, 4",
+  "quote": "no_context measures the agent alone, static_kb adds generic guidance, and probe_refined adds iterative refinement on top.",
+  "where": "§3.2 Context Conditions, p. 4",
+  "why": "Partly applies when the authors' approach is compared with external ones; here both guidance approaches are the authors' own and no_context is only the bare baseline, so the rule points to No.",
+  "doubt": "As duas abordagens avaliadas (static_kb e probe_refined) são dos autores; no_context é só o agente sem orientação, não uma abordagem externa. Pela regra, Parcial só quando há abordagens externas. Vê a pág. 4 (§3.2) e decide entre Não (0) e Parcial (0,5)."}]}

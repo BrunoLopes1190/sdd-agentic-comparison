@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485935",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "No success criterion stated by the authors (fairness acceptance thresholds were defined by the agents themselves, not by the authors); metrics: FSE coverage in artefacts (traceability) and fairness/performance of the model on the hold-out. FCS% in code.py by prompt level minimal/implicit/explicit/operationalized (spec.md under operationalized in brackets). Per-agent RQ2 values not reported (overall only: no significant change). Cost verdict: not measured for all.\n- Spec Kit + Claude Code + Claude 5 Sonnet (low effort): code 0.00 / 25.00 / 47.22 / 97.22 (spec 100.00); spec->code delta under operationalized -2.78; only agent keeping Fairness Intent in all 4 runs; 2 workspaces exclude protected attributes; COMPAS operationalized model F1 = 0. Quality verdict: no criterion stated by the authors\n- Spec Kit + Antigravity CLI + Gemini 3.6 Flash (low effort): code 5.56 / 11.11 / 61.11 / 69.45 (spec 97.22); delta -27.78; omits FSE3 and FSE4 in all datasets; 1 operational failure (Bank Marketing, operationalized: trained on self-generated synthetic data); 2 runs training not executed by agent; Adult operationalized F1 = 0; undefined rates default to 0.0. Quality verdict: no criterion stated by the authors\n- Spec Kit + OpenAI Codex + GPT-5.6-Terra (low effort): code 0.00 / 5.56 / 69.45 / 80.56 (spec 94.44); delta -13.89; excludes all protected attributes in its 8 explicit/operationalized workspaces; 14 runs training not executed by agent (authors ran the script); 2 workspaces compute AAOD as signed average; only pipeline that fails on a fairness check (Bank, operationalized) still saves the model; COMPAS operationalized F1 = 0. Quality verdict: no criterion stated by the authors\n- Baseline (minimal prompt, all agents): code FCS 1.85; accuracy 0.857, F1 0.302. Quality verdict: no criterion stated by the authors",
+   "p": "20, 25",
+   "quote": "Notably, the prompt asks agents to specify the thresholds themselves: they are not values imposed on the agents, but acceptance criteria that the agents define in their own specifications.",
+   "where": "§5.3 RQ3 – Design Decisions and Rationales, p. 25",
+   "why": "The authors state no success criterion for coverage or model fairness (only a hypothesis), so the works/partly/does-not-work quality verdicts per agent rest on cut-offs chosen by the extractor, which the 2026-11-23 rule removes.",
+   "doubt": "Os autores não definem um critério de sucesso para a cobertura (FCS) nem para a justiça dos modelos; os limiares de fairness são definidos pelos próprios agentes (pág. 25). As classificações 'works'/'partly' por agente (97,22 vs 80,56 vs 69,45) parecem limiares teus. Pela regra de 23-11, troca por 'no criterion stated by the authors', mantendo os valores."
+  }
+ ]
+}

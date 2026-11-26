@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486060",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): authors from The Memory Company, which builds Spark (vendor of the approach); Spark is the only approach evaluated, and the NO-SPARK conditions are the same external models run without any approach, not alternative approaches by other vendors",
+   "p": "1, 7",
+   "quote": "• NO-SPARK: [baseline] A codegen model generates code without any Spark recommendations, representing raw codegen model use.",
+   "where": "§4.1 Experimental Set-up, p. 7",
+   "why": "The only approach evaluated is the authors' own Spark; the NO-SPARK baselines are bare models rather than external approaches, so Partly (authors' approach compared with external ones) may not apply.",
+   "doubt": "O Spark é dos autores (The Memory Company). O NO-SPARK é o mesmo modelo sem nenhuma abordagem, não uma abordagem externa. Vê a pág. 7 e decide: Parcial (os modelos externos contam como ferramentas avaliadas) ou Não (só o Spark é avaliado como abordagem)."
+  }
+ ]
+}

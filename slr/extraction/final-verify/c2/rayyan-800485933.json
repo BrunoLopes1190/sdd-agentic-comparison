@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485933",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "N/A: the study proposes an approach and evaluates none (case studies and scorecard declared illustrative; readability experiment not run), so no tool is evaluated (rule of 2026-11-23)",
+   "p": "12-13, 15",
+   "quote": "This paper is a proposal. To allow readers to weigh each architectural pillar by its current empirical grounding, the table below separates built and measured systems from proposed components.",
+   "where": "§7.4 Separation of Existing Baselines and Proposed Components, p. 15",
+   "why": "Under the protocol rule of 2026-11-23, Q12 is N/A when a study proposes an approach and evaluates none, which matches the author's own Nature and Evaluation values for this paper.",
+   "doubt": "O artigo é uma proposta e não avalia nenhuma configuração (os casos de estudo são ilustrativos, pág. 12-13 e 15). Pela regra de 23/11, Q12 fica N/A quando o estudo propõe e não avalia nada. Confirma e muda Q12 de Não (0) para N/A, o que altera a pontuação."
+  }
+ ]
+}

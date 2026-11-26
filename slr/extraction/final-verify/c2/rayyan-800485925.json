@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800485925",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "Metrics: F1 / EM% / SQL valid% / AST exact% / AST sim / runnable%; models not stated for Stage 2. Success criterion: none stated by the authors (metrics are similarity to reference PostgreSQL scripts and runnability, with no threshold). Stage 1: authors' pipeline + custom agent loop + GPT-oss-120b and GPT-o4-mini (not separated): 623/1,006 regenerated (61.9%), 380/623 executed (61.0%); tables ~85%; ~2,000 tokens per iteration, ~3 iterations per object. Quality: no criterion stated by the authors (they call the pipeline 'feasible'); cost: no criterion stated by the authors. Stage 2 native baseline (Table I = Table III diagonal): (1) Kiro spec + Kiro + n.s.: 0.365/0.33/33.74/0.33/0.207/0.72. (2) Spec Kit + Copilot + n.s.: 0.75/13.15/43.51/12.76/0.257/0. (3) Antigravity + Gemini + n.s.: 0.73/13.32/45.54/12.98/0.69/2.22. Tuned single-agent (Table II, tuning not explained): (4) Kiro 0.56/12.04/57.8/12.98/0.40/14.76; (5) Spec Kit + Copilot 0.73/12.76/73.03/12.65/0.55/17.48; (6) Claude Code + n.s. 0.73/12.87/56.21/12.49/0.41/4.11; (7) Antigravity + Gemini 0.70/11.99/60.16/18.68/0.67/28.75; (8) Cursor + n.s. 0.69/12.10/65.98/16.11/0.44/7.49. Cross-agent direct (Table III): (9) Gemini spec -> Kiro: 0.71/13.15/43.51/20.03/0.31/2.22. (10) Kiro spec -> Gemini: 0.68/0.56/0/0/0.08/0.17; replicated run (Table IV) 0.035/0.39/2.33/0.39/0.015/1.22. (11) Kiro spec -> Copilot: 0.69/12.4/43.4/17.39/0.55/2.38. (12) Gemini spec -> Copilot: 0.665/12.8/63/19.9/0.514/runnable not implemented. Copilot spec -> Kiro/Gemini: not evaluated. Adaptation (Kiro spec): (13) Rewrite -> Gemini: 0.68/13.15/43.62/13.10/0.22/0. (14) Rewrite -> Copilot: 0.60/0/14.09/0/0.034/0. (15) Compression -> Copilot: 0.72/12.71/43.90/19.48/0.24/0.22. (16) RAG -> Gemini: 0.57/13.40/13.82/20.20/0.32/1.80. (17) RAG -> Copilot: 0.69/12.76/43.51/12.99/0.285/0.28. For every Stage 2 configuration: quality: no criterion stated by the authors; cost: not measured",
+   "p": "6-9",
+   "quote": "These measures intentionally distinguish lexical, syntactic, structural, and operational quality.",
+   "where": "§VI Evaluation Metrics, p. 7",
+   "why": "The authors state no success criterion or threshold for any metric, so the works/partly/does-not-work verdicts (and the Stage 1 cost verdict) are extractor thresholds and should be \"no criterion stated by the authors\".",
+   "doubt": "Os veredictos \"Partly\", \"Does not work\" e \"cost works\" não vêm do artigo: os autores só listam métricas (pág. 7) sem limiar de sucesso. Pela regra de 23-11, troca por \"no criterion stated by the authors\" e mantém os valores. Confirma na secção VI e decide."
+  },
+  {
+   "f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Spec-first. Authors' wording: 'specification-first migration pipeline'; specification as 'an intermediate representation between software intent and implementation'; Stage 2 native workflows (Kiro, Spec Kit, Antigravity) generate the spec, then code from it",
+   "p": "1, 6",
+   "quote": "First, a specification-first migration pipeline was evaluated on 1,006 PL/SQL files, of which 623 were successfully regenerated and 380 generated scripts executed successfully in PostgreSQL 16.",
+   "where": "Abstract, p. 1",
+   "why": "\"Not stated\" is not one of the allowed SDD levels, and the authors themselves call the approach specification-first, so the level can be classified (spec-first) with their wording.",
+   "doubt": "\"Not stated\" não é um nível válido (spec-first, spec-anchored, spec-as-source ou not classifiable). Os autores chamam ao pipeline \"specification-first\" (resumo, pág. 1) e a spec só serve para gerar o código. Vê a pág. 1 e a Fig. 3 (pág. 6-7) e decide: proponho Spec-first."
+  }
+ ]
+}

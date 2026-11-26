@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800485966",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Conference — Findings of the Association for Computational Linguistics: ACL 2025 (read from arXiv:2503.07010v2 [cs.SE], 31 May 2025; ACL format with Limitation section); venue to be confirmed in the ACL Anthology",
+   "p": "1",
+   "quote": "arXiv:2503.07010v2 [cs.SE] 31 May 2025",
+   "where": "Title block, p. 1",
+   "why": "The text names no venue, but the paper (ACL-style, v2 of 31 May 2025) appears to have been published in Findings of ACL 2025; if so, per the rule a published paper read from arXiv keeps the venue type.",
+   "doubt": "O texto não indica a venue, mas este artigo parece ter sido publicado nas Findings of ACL 2025 (formato ACL, v2 de maio de 2025). Procura o título na ACL Anthology; se estiver lá, muda para Conference e o Q11 para Sim."
+  },
+  {
+   "f": "Q11",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): published in Findings of ACL 2025 (peer-reviewed), read from arXiv v2; to be confirmed in the ACL Anthology",
+   "p": "1",
+   "quote": "arXiv:2503.07010v2 [cs.SE] 31 May 2025",
+   "where": "Title block, p. 1",
+   "why": "Q11 follows the publication type; if the Findings of ACL 2025 publication is confirmed, the paper was peer-reviewed.",
+   "doubt": "Depende da decisão sobre o tipo de publicação: se confirmares que saiu nas Findings of ACL 2025, o Q11 passa a Sim (1); se não, fica Não (0)."
+  }
+ ]
+}

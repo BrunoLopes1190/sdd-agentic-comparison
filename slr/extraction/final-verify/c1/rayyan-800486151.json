@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800486151",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "TDAD + Claude Code (version n.s.) + Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) for all roles; Built Agent run with Claude Agent SDK. Criterion stated by the authors per run: compilation success (all visible tests pass within 6 outer / 8 inner iterations); HPR, MS and SURS reported without a target. Values (Tables 4-5, successful runs): v1 compile 11/12 (92%), HPR 97.3±2.6%, MS 95.9±7.1%, cost $2.32±0.96, 3.1±0.8 iterations; v2 compile 7/12 (58%), HPR 77.7±13.9% (lowest 51.1%), MS 100%, SURS 97.2±3.5%, cost $2.81±1.71, 2.9±1.1 iterations; total $45.15 for 18 successful runs. Quality: no configuration-level criterion stated by the authors (per-run compilation criterion met in 11/12 v1 and 7/12 v2 runs). Cost: no criterion stated by the authors ($2-3 per spec version, called 'potentially prohibitive for rapid prototyping')",
+   "p": "6-7",
+   "quote": "A single spec version takes 30– 60 minutes wall-clock and $2–3 in API costs, comparable to CI/CD pipeline times but potentially prohibitive for rapid prototyping.",
+   "where": "§8 Limitations, p. 7",
+   "why": "The verdicts 'works (v1), partly (v2)' and cost 'works' rest on thresholds chosen by the extractor; the authors state only a per-run compilation criterion and no cost criterion (rule of 2026-11-23).",
+   "doubt": "Os autores não dão critério de sucesso para o custo nem para a configuração no todo; só o critério por execução (compilar = passar todos os testes visíveis). Pela regra de 23-11, o veredicto deve ser 'no criterion stated by the authors' (como fizeste no CodeCompass). Vê pág. 6-7 e decide."
+  },
+  {
+   "f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Spec-as-source (not stated in Böckeler terms). Authors: 'The specification is the single source of truth. Tests implement the specification; they don't define it'; the prompt is a 'compiled artifact' produced from the spec by PromptSmith and never edited by hand; v2 is compiled from the v1 artefact against the v2 tests",
+   "p": "1, 3, 5",
+   "quote": "The specification is the single source of truth.",
+   "where": "§3.1 Specification Format, p. 3",
+   "why": "The author's value is still marked '(draft, to check)', so the SDD level is not settled; the text supports spec-as-source but v2 builds on the v1 artefact, which a reader could call spec-anchored.",
+   "doubt": "O valor ainda diz '(draft, to check)'. O artigo trata a spec como única fonte e o prompt como artefacto compilado (pág. 1 e 3), o que aponta para spec-as-source; mas a v2 parte do prompt da v1 (pág. 5). Decide o nível e tira a nota de rascunho."
+  }
+ ]
+}

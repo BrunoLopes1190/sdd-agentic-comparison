@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800485927",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Proposes an approach; secondary: Review — proposes SDD as a team-level discipline with a 'methodological harness' of eight mechanisms (H1-H8) and five human-agent interaction patterns, illustrated with fictitious worked examples, nothing evaluated; built on a multivocal literature review (four databases with one search string, purposive grey literature, IC/EC stated)",
+   "p": "4, 8-10, 15",
+   "quote": "we go into depth on one of them and propose the discipline, the artifacts, and the team-level mechanisms through which that form can be operated",
+   "where": "§2.6 Related work, p. 8",
+   "why": "The authors say they propose the discipline, artefacts and mechanisms (methodological harness), which fits 'Proposes an approach' better than 'Conceptual', and the nature decides Q12; the described search (sources, IC/EC) could also make it a secondary study for DARE.",
+   "doubt": "Os autores dizem que propõem a disciplina, os artefactos e os mecanismos (o 'methodological harness' H1-H8), o que parece 'Proposes an approach' e não só 'Conceptual'. Isto muda a Q12 (N/A). Vê também a §3.2-3.4 (pág. 9-10): descrevem fontes e IC/EC; decide se fica como revisão com DARE ou mantém Q1-Q13."
+  },
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "N/A: the study proposes an approach (methodological harness for SDD) and evaluates none; no tool is evaluated",
+   "p": "8, 14",
+   "quote": "we go into depth on one of them and propose the discipline, the artifacts, and the team-level mechanisms through which that form can be operated",
+   "where": "§2.6 Related work, p. 8",
+   "why": "Under the 2026-11-23 rule a study that proposes an approach and evaluates none is N/A on Q12; Yes (1) holds only if the nature stays Conceptual.",
+   "doubt": "Se aceitares 'Proposes an approach' na natureza, a regra de 23/11 manda Q12 = N/A (propõem o harness e não avaliam nada). Se mantiveres 'Conceptual', o Sim (1) pode ficar. Decide em conjunto com a natureza."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800486381", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Comparison: result",
+             "verdict": "corrected",
+             "sev": "low",
+             "v": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Coding Style (up to 1.4 pp), Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements (Table 4 S-M positive for all configurations with outputs in both subsets); Documentation increases for several; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)",
+             "p": "7-10",
+             "quote": "multi-file tasks consistently reduce improvements in coding style (up to 1.4), error handling (up to 1.7), and logic patterns (up to 1.1).",
+             "where": "§5 RQ2 Summary and Table 4, p. 8",
+             "why": "The RQ2 summary and Table 4 (S-M for Coding Style +0.1 to +1.4, all positive, i.e. lower on multi-file) also show a Coding Style decrease, which the result omits.",
+             "doubt": "Na Tabela 4, S−M positivo quer dizer melhoria maior em ficheiro único; para Coding Style é positivo em todas as configurações (+0,1 a +1,4), como diz o resumo do RQ2. O resultado só refere Error Handling e Logic Patterns. Vê a pág. 8 e decide se juntas Coding Style (até 1,4) e reavalias a nota de inconsistência."}]}

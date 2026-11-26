@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486350",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "SDD level",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Spec-first (extractor's classification in Böckeler terms; the authors do not use SDD terms). Authors' wording: a 'visible task contract' (spec.md and openapi.yaml) that is 'the single source of truth for construction and evaluation'; the 'contract-realization problem'",
+   "p": "1, 4",
+   "quote": "Each BACKENDFORGE task exposes a visible contract that is the single source of truth for construction and evaluation.",
+   "where": "§3.2 Visible Task Contract, p. 4",
+   "why": "The value attributes 'spec-first approach in Böckeler terms' to the authors' wording, but the paper never uses SDD or spec-first terms; the classification is the extractor's.",
+   "doubt": "O valor dá a entender que os autores usam o termo \"spec-first\", mas o artigo nunca usa termos de SDD; a classificação é tua. Separa a tua classificação das palavras dos autores (pág. 4, §3.2). O nível spec-first em si parece razoável."
+  }
+ ]
+}

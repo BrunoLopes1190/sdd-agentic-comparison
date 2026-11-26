@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486543",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q13",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): the frontier-to-local delegation workflow and artifact contract are the author's own and are evaluated; its requirements are stated (Claude Code + Opus 5.5 subscription, 4-bit 30B-class worker on a 32 GB Apple M1 Pro laptop via MLX or llama.cpp) and within reach of a typical team, although the study finds higher frontier cost per verified success",
+   "p": "3-4, 13, 15, 20-21",
+   "quote": "Working code is not yet a verified outcome: in my delegation workflow, a worker’s artifact also had to satisfy an interface contract and be accepted and applied by the parent before its hidden checks counted.",
+   "where": "§1 Introduction, p. 3",
+   "why": "Q12 treats the delegation workflow as the author's own evaluated approach, but Q13 is N/A; if the study proposes and evaluates that approach, Q13 applies (and the nature might take 'Proposes an approach' as secondary).",
+   "doubt": "Na Q12 consideras que o autor criou o fluxo de delegação avaliado, mas a Q13 está N/A. Se o artigo propõe esse fluxo (contrato de artefacto, gateway), a Q13 aplica-se. O próprio autor diz que a contribuição é um relato de engenharia. Vê as págs. 3, 13 e 15 e decide se a Q13 fica N/A ou passa a Sim, mantendo coerência com a Q12."
+  }
+ ]
+}

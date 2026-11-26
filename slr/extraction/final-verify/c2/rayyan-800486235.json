@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486235",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Criterion: authors' per-metric 'aspirational' targets (Engineering Score 60%, FCS 85, CRR 80, SS 90, CLS 70, ETF <=16 h, FGD <=40 h, CDI <=10), described as the minimum for production deployment but 'not to define pass/fail gates'; the authors nevertheless report pass/fail against them ('fails 17 of 22 metrics'). ACR averages over P1-P3 (Engineering Score; FCS; CRR; SS; CBS; ETF h; FGD h; CDI %): (a) Base44: 30.6; 46.7; 24.3; 31.3; 15.0; 65.7; 29.3; 35.7. (b) Emergent E1-OPUS: 46.9; 65.0; 57.0; 50.7; 20.3; 26.0; 19.0; 17.7. (c) Lovable Plan Mode: 42.5; 32.7; 21.7; 51.7; 2.0; 50.7; 36.3; 37.3. (d) QwikBuild: 54.5; 84.0; 97.7; 63.7; 49.3; 14.7; 9.3; 4.0. (e) Replit Agent3: 47.8; 53.0; 54.0; 40.0; 29.7; 37.3; 25.7; 14.0. (f) v0-Max: 25.1; 23.3; 17.7; 34.3; 0.0; 54.7; 41.7; 33.7. Quality verdict against the authors' targets: does not work for all six (no Engineering Score >= 60; no platform passes more than 5 of 22 metrics). Cost: TCC defined but no values reported, so no cost verdict; effort targets give mixed results (ETF <= 16 h met only by QwikBuild, 14.7 h; FGD <= 40 h met by all except v0-Max, 41.7 h). (g) QwikBuild AMR (P4-P6, scored by affiliated authors): Engineering Score 62/56/58 (avg 59, +4.5 vs ACR 54.5); zero regressions; ACS 84% (P4) to 90% (P6) vs 85% target; new features working 12/15, 7/9, 8/9; most metrics 1-24 pp below ACR (CBS -24.3, CRR -14.0)",
+   "p": "25",
+   "quote": "Eng. Score\n\n54.5\n\n62",
+   "where": "Table 14, p. 25",
+   "why": "The AMR entry omits the Engineering Score (62/56/58, avg 59, +4.5 over ACR), the headline metric reported for every other entry, and its only positive delta.",
+   "doubt": "Na entrada (g) AMR do QwikBuild falta o Engineering Score, a métrica principal das outras entradas: Tabela 14 (pág. 25) dá 62, 56 e 58 (média 59, +4,5 face ao ACR 54,5). Confirma e decide se acrescentas."
+  }
+ ]
+}

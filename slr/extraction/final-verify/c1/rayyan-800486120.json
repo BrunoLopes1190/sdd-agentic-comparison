@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486120",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q9",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): negative and mixed results reported (free retrieval brings limited gains or hurts; summary reuse does not reduce cost on Lite), but abstract claims 'significantly' improve accuracy and reduce token cost without statistical tests",
+   "p": "1, 8-10",
+   "quote": "Thus, in this setup, summary-based reuse does not reduce cost relative to the baseline, and autonomous retrieval tends to increase repository access and overall token consumption.",
+   "where": "§3.3.2 Efficiency Analysis, p. 8",
+   "why": "The paper reports its negative and mixed results in the body and conclusion, so No (0) may be too strict; the overclaims in the abstract fit Partly better (as scored for similar papers).",
+   "doubt": "O artigo reporta resultados negativos (recuperação livre piora, resumos não baixam o custo no Lite, pág. 8 e 10); o problema é só o 'significantly' do resumo sem testes. Isso parece Parcial (0,5), não Não (0). Decide Q9."
+  }
+ ]
+}

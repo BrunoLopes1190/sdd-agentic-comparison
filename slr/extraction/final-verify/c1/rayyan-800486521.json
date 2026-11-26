@@ -1,0 +1,10 @@
+{"key": "rayyan-800486521", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Nature of the study",
+  "verdict": "uncertain",
+  "sev": "high",
+  "v": "Proposes an approach; secondary: Proposes an evaluation method — the authors' own Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop) formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations reported descriptively",
+  "p": "1-2, 12, 15, 18",
+  "quote": "We study Cortex, a supervisory layer for pre-execution governance, requirement tracking, and iterative validation and repair. We formalize requirement closure on a finite lattice.",
+  "where": "Abstract, p. 1",
+  "why": "Cortex is the authors' own tool (Alpha Omega Labs) and the paper formalises it and reports raw-vs-Cortex pilot comparisons with Q3-Q8 scored as empirical, which fits 'Proposes an approach' better than 'Conceptual'.",
+  "doubt": "O Cortex é da empresa dos autores e o artigo formaliza-o e compara-o (pilotos raw vs Cortex, pp. 15-17); também pontuaste Q3-Q8 como empírico. 'Proposes an approach' parece mais coerente que 'Conceptual'. Decide a natureza; Q13 aplica-se nos dois casos."}]}

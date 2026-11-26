@@ -1,0 +1,10 @@
+{"key": "rayyan-800485921", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Partly (0.5): independent researcher with no tie to Anthropic or OpenAI; but the SELECTIVE strategy (wiki split and retrieval hint) is the author's own construction and is one of the evaluated conditions, while NONE and ALWAYS ON deliver the developers' unmodified AGENTS.md",
+             "p": "1, 9",
+             "quote": "Selective is our construction, and its corpus is not content-matched. The wiki-split design and retrieval hint are specific choices; alternative selective strategies (e.g., semantic retrieval) might yield different results.",
+             "where": "Limitations, item 5, p. 9",
+             "why": "Under §5 an author who created an evaluated approach counts as its vendor (Partly when only some approaches); the author built SELECTIVE, so Yes may be too high, depending on whether an experimental delivery condition counts as an approach.",
+             "doubt": "O autor criou a estratégia SELECTIVE (wiki e dica de leitura), que é uma das três condições avaliadas. Se a contas como abordagem dele, Q12 fica Partly, como fizeste noutros estudos com condições dos próprios autores. Lê o ponto 5 das Limitações (pág. 9) e decide entre Yes e Partly."}]}

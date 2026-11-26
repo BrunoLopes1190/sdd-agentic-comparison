@@ -1,0 +1,10 @@
+{"key": "rayyan-800486292", "model": "claude-opus-5-5", "check": 1, "checked": 45,
+ "fields": [{"f": "Q13",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Partly (0.5): needs only an embedding model and an LLM, but upfront authoring of capsules (42 here) and registry maintenance cost are not quantified; the authors flag registry maintenance burden",
+   "p": "3, 6-7",
+   "quote": "PyCapsule places a programmer agent and an executor agent together inside a Docker container, enabling correction cycles that are informed by live execution traces",
+   "where": "§II.E Self-Debugging, Self-Refinement, and Execution Feedback, p. 3",
+   "why": "Docker appears only in the related work (PyCapsule); the paper does not state that MicroSkill needs a Docker sandbox, so that requirement is not supported (score unchanged).",
+   "doubt": "A justificação do Q13 diz que a abordagem precisa de 'Docker sandbox', mas o Docker só aparece no trabalho relacionado (PyCapsule, pág. 3), não na MicroSkill. Retira essa parte; a pontuação Partly mantém-se."}]}

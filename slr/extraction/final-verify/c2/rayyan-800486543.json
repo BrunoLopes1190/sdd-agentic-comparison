@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486543",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q13",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): the author's own delegation workflow (Claude Code + Claude Opus 5.5 parent, local 4-bit 30B-class worker via llama.cpp or MLX, fixed artifact contract) has its requirements stated: one 32 GB Apple M1 Pro laptop and a Claude subscription, within reach of a typical team; frontier cost per verified success measured (higher than direct coding)",
+   "p": "4, 15, 20-21",
+   "quote": "The fixed artifact contract was derived from my practical delegation setup; this was not a trial on production repositories.",
+   "where": "§9.3 A Second Task Suite Under a Fixed Artifact Contract, p. 15",
+   "why": "Q12 treats the delegation workflow and gateway as the author's own evaluated approach, but Q13 is N/A because the nature omits 'Proposes an approach'; if the workflow counts as the author's approach, Q13 applies.",
+   "doubt": "Na Q12 consideras que o autor criou o fluxo de delegação avaliado, mas a Q13 está N/A porque a natureza não inclui 'Propõe uma abordagem'. Vê a pág. 15 e a pág. 25 (o autor diz que o contributo é o relato de engenharia) e decide se a Q13 se aplica; se sim, os requisitos (portátil 32 GB, subscrição Claude) estão na pág. 4."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800485928", "model": "claude-opus-5-5", "check": 1, "checked": 45,
+ "fields": [
+  {"f": "Evaluation (each configuration)", "verdict": "corrected", "sev": "high",
+   "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: none stated by the authors (descriptive, exploratory survey of student perceptions). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors",
+   "p": "4-7",
+   "quote": "Since the study covers one cohort at one point in time and has no control group, it is descriptive and exploratory and is not designed to establish causal effects.",
+   "where": "§3 Evaluation Method, p. 4",
+   "why": "The authors state no success criterion, so under the 2026-11-23 rule the quality and cost verdicts must be 'no criterion stated by the authors', not 'partly'.",
+   "doubt": "Os autores não definem nenhum critério de sucesso; o estudo é descritivo e exploratório (pág. 4). Pela regra de 23-11, sem critério dos autores o veredicto de qualidade e de custo é \"no criterion stated by the authors\", não \"partly\". Mantém os valores e troca os dois veredictos."}
+ ]}

@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486202",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q11",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Yes (1): ASE '26 (accepted 2026-07-02; ACM DOI 10.1145/3832783.3834550)",
+   "p": "1, 5",
+   "quote": "Received 2026-05-13; accepted 2026-07-02",
+   "where": "End of References, p. 5",
+   "why": "The value still carries a leftover '[Check: ...]' draft note; the score is right and the acceptance date settles it.",
+   "doubt": "A nota Sim está certa, mas o valor ainda tem o comentário '[Check: ...]' do rascunho. A pág. 5 dá a data de aceitação (2026-07-02). Aceita para limpar o valor."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800486293", "model": "claude-opus-5-5", "check": 1, "checked": 45,
+ "fields": [{"f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Inconsistencies: text says 8 LLMs and 13 configurations, but Table 1 has 15 rows including LongCat-Preview and LongCat-2.0-Preview (Claude Code), not introduced in the settings and absent from Tables 2-5; abstract says Task Pass Rate varies by 38 pp, introduction 'more than 30 pp'; Claude-4.6-Sonnet R1/R2 in the 8-round run (54.4/77.6, Fig. 4) differ from Table 1 (55.7/82.4); Table 3 caption says DAG saves 23-27% of evaluation tokens, text 23-26%; Flat numbers come from a previous version of the work. Table 1 R2/R3 cells for Claude Code are garbled in the extracted text (values cross-checked with Figure 6 and Table 3). No data or code availability statement found; no pre-registration. Programming language: web front-end (HTML/CSS/JavaScript frameworks; examples use React components such as ComposedChart); not stated explicitly. No statement on the authors' own use of LLMs found",
+   "p": "1-2, 6-8, 11",
+   "quote": "Asuka-Bench has three main limitations that we wish to flag.",
+   "where": "Limitations, p. 9 (the paper has no statement on LLM use in writing anywhere in its 22 pages)",
+   "why": "The claim 'LLM use limited to grammar per the authors' is not supported: no such statement appears in the full text.",
+   "doubt": "As Notas dizem que os autores limitaram o uso de LLM à gramática, mas não encontrei essa declaração em nenhuma página do texto. Confirma (procura 'grammar' ou secção de ética) e, se não existir, retira essa frase."}]}

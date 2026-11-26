@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485922",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Conceptual — self-described survey with no described search (no sources or query; selection only by a four-criterion 'operational boundary' (update target, update source, update reuse, capability improvement) over a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23: sources not described)",
+   "p": "1, 5, 8, 10-11",
+   "quote": "The operational boundary. We identify self-evolving coding agents using four criteria that examine how code-related experience changes the agent itself and whether reusing those changes improves subsequent coding performance:",
+   "where": "§2 (definition), 'The operational boundary', p. 8",
+   "why": "The value says no inclusion/exclusion criteria are described, but p. 8 states four inclusion criteria; the conceptual classification still holds because no sources or search are described.",
+   "doubt": "O valor diz que não há critérios de inclusão, mas a pág. 8 dá quatro critérios ('operational boundary'). Continua conceptual porque não há fontes nem pesquisa. Corrige a frase aqui e a mesma frase nas Notes."
+  }
+ ]
+}

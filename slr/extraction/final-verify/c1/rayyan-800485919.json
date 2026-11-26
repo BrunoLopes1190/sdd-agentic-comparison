@@ -1,0 +1,10 @@
+{"key": "rayyan-800485919", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "corrected",
+             "sev": "high",
+             "v": "N/A: the study proposes the Spec Growth Engine and evaluates no approach (only a worked example traced on paper and a qualitative positioning against Kiro, Spec Kit and Tessl); the author is its creator",
+             "p": "10-13",
+             "quote": "The implementation, and how agents grow the spec on top of it, is described in a companion paper [14].",
+             "where": "§10 Conclusion (Availability), p. 13",
+             "why": "The protocol rule of 2026-11-23 sets Q12 to N/A when a study proposes an approach and evaluates none; this paper has no evaluation (the field 'Parts exercised' already says not run, document-based), so scoring No (0) lowers the score wrongly.",
+             "doubt": "O artigo só propõe o Spec Growth Engine e não avalia nada (exemplo trabalhado em papel; a implementação está noutro artigo). A regra de 23-11 diz Q12 = N/A quando o estudo propõe uma abordagem e não avalia nenhuma. Confirma nas págs. 10-13 e muda Q12 de No para N/A (o score passa a ter menos uma pergunta)."}]}

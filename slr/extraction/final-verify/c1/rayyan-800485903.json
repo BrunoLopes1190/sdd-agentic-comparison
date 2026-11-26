@@ -1,0 +1,9 @@
+{"key": "rayyan-800485903", "model": "claude-opus-5-5", "check": 1, "checked": 42,
+ "fields": [{"f": "Q9",
+  "verdict": "uncertain", "sev": "high",
+  "v": "Partly (0.5): most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
+  "p": "8, 22, 32",
+  "quote": "Critically, the readability of these files is poor; the documents are complex, with many categorized as the “difficult” category comparable to high school-level material.",
+  "where": "§8 Conclusion, p. 32",
+  "why": "The score is 'Yes' (with no points given) while the justification lists two conclusions that go beyond the evidence, which reads as Partly under §5.",
+  "doubt": "A Q9 está como 'Sim', mas a tua própria justificação aponta duas conclusões que vão além dos dados (legibilidade 'pobre' com FRE que pouco se correlaciona com a avaliação humana, rho 0,19 na pág. 8; 'instructions directly govern' na pág. 22 com exemplos ilustrativos). Decide entre Sim (1) e Parcial (0,5) e acrescenta a pontuação."}]}

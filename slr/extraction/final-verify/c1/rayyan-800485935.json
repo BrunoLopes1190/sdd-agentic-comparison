@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485935",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Criterion: FSE coverage in artefacts (traceability) and fairness/performance of the model on the hold-out. FCS% in code.py by prompt level minimal/implicit/explicit/operationalized (spec.md under operationalized in brackets). Per-agent RQ2 values not reported (overall only: no significant change). Cost verdict: not measured for all.\n- Spec Kit + Claude Code + Claude 5 Sonnet (low effort): code 0.00 / 25.00 / 47.22 / 97.22 (spec 100.00); spec->code delta under operationalized -2.78; only agent keeping Fairness Intent in all 4 runs; 2 workspaces exclude protected attributes; COMPAS operationalized model F1 = 0. Quality: traceability rises with operationalisation as the authors hypothesised (no threshold stated by the authors); fairer models: does not work (hypothesis not confirmed)\n- Spec Kit + Antigravity CLI + Gemini 3.6 Flash (low effort): code 5.56 / 11.11 / 61.11 / 69.45 (spec 97.22); delta -27.78; omits FSE3 and FSE4 in all datasets; 1 operational failure (Bank Marketing, operationalized: trained on self-generated synthetic data); 2 runs training not executed by agent; Adult operationalized F1 = 0; undefined rates default to 0.0. Quality: traceability rises with operationalisation as the authors hypothesised (no threshold stated by the authors); fairer models: does not work (hypothesis not confirmed)\n- Spec Kit + OpenAI Codex + GPT-5.6-Terra (low effort): code 0.00 / 5.56 / 69.45 / 80.56 (spec 94.44); delta -13.89; excludes all protected attributes in its 8 explicit/operationalized workspaces; 14 runs training not executed by agent (authors ran the script); 2 workspaces compute AAOD as signed average; only pipeline that fails on a fairness check (Bank, operationalized) still saves the model; COMPAS operationalized F1 = 0. Quality: traceability rises with operationalisation as the authors hypothesised (no threshold stated by the authors); fairer models: does not work (hypothesis not confirmed)\n- Baseline (minimal prompt, all agents): code FCS 1.85; accuracy 0.857, F1 0.302",
+   "p": "2, 20-22, 27",
+   "quote": "Our results confirm the central hypothesis of this study with respect to the development process: the more fairness is operationalized, the more fairness requirements are captured in the specification and preserved down to the code.",
+   "where": "§6 Discussion, Lessons Learned, and Implications, p. 27",
+   "why": "The authors state only a directional hypothesis, no coverage threshold, so the split 'works' for Claude Code (97.22%) versus 'partly' for Codex (80.56%) and Antigravity (69.45%) rests on a cut-off chosen by the extractor, which the protocol excludes.",
+   "doubt": "Os autores só formulam uma hipótese direcional (mais operacionalização, mais rastreabilidade), sem limiar. Dar 'works' ao Claude Code e 'partly' aos outros dois parece assentar num corte escolhido por ti. Vê pág. 2 e 27 e decide se mantens a distinção ou usas o mesmo veredicto para os três."
+  }
+ ]
+}

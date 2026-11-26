@@ -1,0 +1,52 @@
+{
+ "key": "rayyan-800485916",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Preprint — arXiv:2606.15828v5 [cs.SE], 30 Jul 2026; no venue stated in the full text (keep Conference — IEEE SCAM 2026 only if the DOI 10.1109/SCAM71261.2026.00028 is confirmed from an external source)",
+   "p": "1",
+   "quote": "arXiv:2606.15828v5 [cs.SE] 30 Jul 2026",
+   "where": "Title page, p. 1",
+   "why": "The full text read names no venue, DOI, page range or IEEE copyright notice, so SCAM 2026, pp. 215-226 and the DOI are not supported by the text itself.",
+   "doubt": "O texto (arXiv v5) não refere a SCAM, nem DOI, nem páginas 215-226. Se confirmaste o DOI fora do PDF (Rayyan, IEEE Xplore), mantém Conference e Q11 Sim; se não, passa a Preprint e Q11 Não."
+  },
+  {
+   "f": "Q11",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): arXiv preprint; no peer-reviewed venue stated in the full text (Yes (1) only if publication at IEEE SCAM 2026 is confirmed externally)",
+   "p": "1",
+   "quote": "arXiv:2606.15828v5 [cs.SE] 30 Jul 2026",
+   "where": "Title page, p. 1",
+   "why": "Q11 follows the publication type, and the full text gives no evidence of the SCAM 2026 publication.",
+   "doubt": "Q11 depende do tipo de publicação. O PDF não mostra a SCAM; confirma o DOI fora do texto. Sem confirmação, Q11 fica Não (0)."
+  },
+  {
+   "f": "Q12",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "No (0): the authors propose the smell catalog and detection heuristics and evaluate them themselves (precision of the LLM-based heuristics, Table II); academic authors, no commercial tie",
+   "p": "5-6",
+   "quote": "In Table II, we also show the number of false positives and the precision, for the smells whose identification relies on LLM-based heuristics.",
+   "where": "§VI Configuration Smells in the Wild, p. 5",
+   "why": "The protocol counts an author who created an approach the study evaluates as its vendor; here the authors evaluate their own heuristics, so Q12 is No, not Yes.",
+   "doubt": "Os autores propõem o catálogo e as heurísticas e medem eles próprios a sua precisão (Tabela II, pág. 6). Pela regra de Q12, quem cria a abordagem avaliada conta como fornecedor: Não (0). Foi assim que pontuaste o Treude/DOCER no 800485915."
+  },
+  {
+   "f": "Q13",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Yes (1): detection needs only line counts (>=200 lines), commit counts and one prompt per smell to a low-cost LLM (gemini-3.1-flash-lite, temperature 0); prompt template and replication package available",
+   "p": "5, 10",
+   "quote": "For the heuristics based on LLMs, we used gemini-3.1-flashlite, with a temperature of 0.",
+   "where": "§V Detection Heuristics and §VI, p. 5",
+   "why": "The score stands but the page is missing ('—') and the justification is truncated.",
+   "doubt": "A nota Sim está bem, mas falta a página (está '—') e o texto está cortado. A evidência está na pág. 5 (heurísticas e modelo usado). Corrige a página e o texto."
+  }
+ ]
+}

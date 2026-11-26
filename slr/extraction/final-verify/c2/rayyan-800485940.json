@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485940",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: assignment rules and SDD conventions; no per-agent breakdown. Results: 17/18 public URL, 17/18 SPEC/ folder; spec first 53-90% (15 projects); specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: partly (authors: rules followed 'only in part'; specs did not keep students in control). Cost verdict: not measured",
+   "p": "5-6",
+   "quote": "Writing the specification before the code was followed only in part: among the 15 projects in which we could compute it, between 53% and 90% of the specifications named in Spec: trailers had been added in an earlier commit",
+   "where": "§IV-A RQ1: Do students follow the rules of the assignment?, p. 5",
+   "why": "Against the authors' own criterion (the assignment rules), adherence is reported as partial (most rules followed by most teams, spec-first 53-90%), which fits 'partly' better than 'does not work'.",
+   "doubt": "Os autores dizem que as regras foram seguidas 'only in part' (17/18 com URL e pasta SPEC/, spec antes do código em 53-90%). O veredicto 'does not work' parece forte; lê a secção IV-A (pág. 5) e a IV-C (pág. 6) e decide entre 'partly' e 'does not work'."
+  }
+ ]
+}

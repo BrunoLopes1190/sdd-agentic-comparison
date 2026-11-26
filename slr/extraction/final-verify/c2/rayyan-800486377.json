@@ -1,0 +1,21 @@
+{"key": "rayyan-800486377", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "low",
+   "v": "Preprint — arXiv:2607.26777v1 [cs.SE], 29 Jul 2026; formatted with the AAAI template (copyright notice 'Copyright © 2027, AAAI'), but no acceptance or published venue stated",
+   "p": "1",
+   "quote": "Copyright © 2027, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.",
+   "where": "Footnote, p. 1",
+   "why": "The paper carries an AAAI 2027 copyright notice, which may indicate a submission to or acceptance at AAAI-27; the text does not state acceptance, and the recorded value is truncated (no arXiv id or date).",
+   "doubt": "A pág. 1 tem a nota 'Copyright © 2027, AAAI', típica do modelo AAAI. O texto não diz que foi aceite, por isso Preprint parece certo, mas confirma se existe versão publicada na AAAI-27 (se sim, passa a Conference e Q11 muda). Completa também o valor com o id arXiv."},
+  {"f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast. The ablation 'w/o All Specification' (Table 3: 62.6±6.0, 7, $0.09) is identical to Mini-SWE-Agent on Lite (Table 1), suggesting CodeSpec runs on Mini-SWE-Agent, which the paper does not state. Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python",
+   "p": "5-6",
+   "quote": "Removing all specifications decreases %Passed from 70.7% to 62.6% and reduces the number of resolved tasks from 9 to 7",
+   "where": "RQ2: Ablation Study, Table 3, p. 6 (vs Table 1, p. 5)",
+   "why": "The 'w/o All Specification' ablation reproduces the Mini-SWE-Agent Lite row exactly (62.6, 7, $0.09), an unreported link that bears on what CodeSpec's gain is measured against.",
+   "doubt": "A linha 'w/o All Specification' da Tabela 3 (62.6, 7, 0.09 $) é igual à do Mini-SWE-Agent no Lite (Tabela 1). Parece que o CodeSpec corre sobre o Mini-SWE-Agent, o que o artigo não diz. Vê as págs. 5-6 e decide se o acrescentas às Notas."}
+ ]}

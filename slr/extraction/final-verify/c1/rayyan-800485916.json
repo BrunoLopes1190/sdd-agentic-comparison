@@ -1,0 +1,41 @@
+{
+ "key": "rayyan-800485916",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 215-226, DOI 10.1109/SCAM71261.2026.00028; full text read from arXiv:2606.15828v5 (venue not stated in the full text; confirmed from an external record)",
+   "p": "1",
+   "quote": "arXiv:2606.15828v5 [cs.SE] 30 Jul 2026",
+   "where": "Title page, p. 1",
+   "why": "The full text (arXiv v5) names no venue, DOI or page range, so the SCAM 2026 publication behind Conference and Q11 = Yes is not supported by the text read and must come from an external source.",
+   "doubt": "O texto do arXiv (pág. 1) não indica a conferência, o DOI nem as páginas; só aparece o identificador arXiv. Confirma numa fonte externa (DOI, IEEE Xplore, Zotero) que foi publicado no SCAM 2026. Se sim, mantém Conference e Q11 Sim; se não, passa a Preprint e Q11 Não."
+  },
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): the authors propose the smell catalog and the detection heuristics and are the only ones evaluating them (precision per smell, Table II); academic authors, no commercial vendor",
+   "p": "5-6",
+   "quote": "We also propose a set of heuristics to detect the smells described in the previous section.",
+   "where": "§V Detection Heuristics, p. 5",
+   "why": "The study evaluates detection heuristics the authors themselves propose, so under the protocol rule the authors count as vendor of the evaluated approach, unlike the value Yes (no vendor tool evaluated).",
+   "doubt": "Os autores propõem o catálogo e as heurísticas de deteção e medem a precisão delas (Tabela II, pág. 6). Pela regra, quem cria a abordagem avaliada conta como fornecedor. Decide: Não, se as heurísticas contam como abordagem avaliada; Sim, se só contam os ficheiros AGENTS.md observados. Mantém coerência com o registo do DOCER (Treude)."
+  },
+  {
+   "f": "Q13",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Yes (1): heuristics need only line counts (>=200 lines), commit counts and one prompt per smell to a small LLM (gemini-3.1-flash-lite, temperature 0); monetary cost not stated",
+   "p": "5",
+   "quote": "For the heuristics based on LLMs, we used gemini-3.1-flashlite, with a temperature of 0.",
+   "where": "§VI Configuration Smells in the Wild, p. 5",
+   "why": "The value has no page and is truncated; the evidence for the requirements is on p. 5.",
+   "doubt": "O valor de Q13 não tem página e está cortado a meio. A evidência (limiares de linhas e commits, modelo gemini-3.1-flash-lite) está na pág. 5. Confirma e completa o texto; a pontuação Sim mantém-se."
+  }
+ ]
+}

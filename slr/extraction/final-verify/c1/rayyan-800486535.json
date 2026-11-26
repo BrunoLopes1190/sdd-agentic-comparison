@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486535",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): eight authors at universities, not vendors of the agents or models evaluated; affiliation of two authors (Li R., Mao) printed as 'Somewhere on the Earth', so their independence cannot be established (missing information)",
+   "p": "1",
+   "quote": "4Peking University, 5Somewhere on the Earth",
+   "where": "Author list and affiliations, p. 1",
+   "why": "The justification says all authors are at universities, but two authors have no real affiliation, so independence from the evaluated vendors is not fully established and the missing-information rule may apply.",
+   "doubt": "Dois autores (Rongqing Li e Kelong Mao) têm como afiliação 'Somewhere on the Earth', ou seja, não se sabe onde trabalham. A justificação diz que todos são de universidades. Vê a pág. 1 e decide se a Q12 fica Sim ou passa a Parcial por falta de informação."
+  }
+ ]
+}

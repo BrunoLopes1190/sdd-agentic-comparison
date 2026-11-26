@@ -1,0 +1,12 @@
+{"key": "rayyan-800486370", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Q12",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "N/A (proposes an approach and evaluates none; no tool is evaluated)",
+   "p": "1, 3, 23",
+   "quote": "We present this as a developer-oriented design manual, not an empirical study: we describe the design and its rationale, illustrate it with scenarios, and report what we learned from using the layer to build itself. We make no benchmarking or user-study claims; empirical evaluation is left to future work.",
+   "where": "§1 Introduction, p. 3",
+   "why": "Protocol rule of 2026-11-23: a study that proposes an approach and evaluates none is N/A on Q12, but the record scores No (0).",
+   "doubt": "O estudo propõe o ATWZ e não avalia nada (pág. 3: 'not an empirical study'). Pela regra de 23-11, Q12 é N/A quando o estudo propõe uma abordagem e não avalia nenhuma. Muda Q12 de Não (0) para N/A e recalcula a pontuação."}
+ ]}

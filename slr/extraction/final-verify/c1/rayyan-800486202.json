@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486202",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q11",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Yes (1): ASE '26 (41st IEEE/ACM Int. Conf. on Automated Software Engineering), accepted 2026-07-02, DOI 10.1145/3832783.3834550; read from arXiv v3",
+   "p": "1, 5",
+   "quote": "In Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE ’26), October 12–16, 2026, Munich, Germany. ACM, New York, NY, USA, 5 pages.",
+   "where": "ACM Reference Format, p. 1; Received/accepted line, p. 5",
+   "why": "The score (Yes) is right, but the value still contains a leftover bracketed tool note (\"[Check: ... likely Yes (1).]\") that should not stay in the final record.",
+   "doubt": "A pontuação Sim está certa (ASE '26, aceite a 2026-07-02, pág. 1 e 5). Mas o valor ainda tem a nota \"[Check: ...]\" deixada pela ferramenta. Remove essa nota e mantém só a justificação."
+  }
+ ]
+}

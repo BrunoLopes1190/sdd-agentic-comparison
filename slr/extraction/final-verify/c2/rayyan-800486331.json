@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486331",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Spec-first (judgement): research findings (.agents/) and phased plans with measurable success criteria are written before implementation and validated against at the end, with no sign they are maintained afterwards; authors' wording: the research phase 'enables a spec-driven development workflow where specifications become executable, directly generating working implementations'",
+   "p": "5",
+   "quote": "This enables a spec-driven development [26] workflow where specifications become executable, directly generating working implementations.",
+   "where": "§4.3.1 Research Workflow Orchestrator Agent, p. 5",
+   "why": "The author's value says 'Not classifiable' but then classifies it as spec-first, so the SDD level is internally inconsistent and must be settled one way.",
+   "doubt": "O valor diz 'Not classifiable' mas acaba por indicar 'spec-first'. Decide um só nível: o fluxo de 6 fases (research, plan, implement, validate) escreve planos antes do código, o que aponta para spec-first; vê §4.3.1 na pág. 5. Se preferires 'Not classifiable', retira a menção a spec-first."
+  }
+ ]
+}

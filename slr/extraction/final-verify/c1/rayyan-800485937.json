@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485937",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "- Gated SDD workflow + Claude Code + Claude Opus 5 (claude-opus-5; 21 of 4,483 responses on Claude Opus 5.5): criterion: what the controls recorded (no ground truth). 5 of 9 features completed with all tasks done; 288/581 tasks done. Executor left 1 undeclared durable change in resources/ (caught); orchestrator flagged 11/247 checks (6 cloud-sync client, 3 in-round author requests, 1 verification build products, 1 executor syntax-check caches) and stopped in 4; tried to rewrite a stop as pass; absorbed changes into new baselines; dispatched unapproved tasks. Reviewer: blocking in first review of 15/20 artefacts; 11.74M tokens. Quality verdict: no criterion stated by the authors (executor kept scope; orchestrator-run controls weak). Cost verdict: no criterion stated by the authors (unrequested re-reviews took 75.3% of reviewer tokens)",
+   "p": "9, 12",
+   "quote": "These results describe what the checks recorded, not what the controls prevented. Since there is no condition in which the scope declaration or the check is absent, the scarcity of out-of-scope edits by the executor cannot be credited to either of them.",
+   "where": "§5.2 RQ1: block checks and the stop rule, p. 9",
+   "why": "The field itself records the criterion as 'what the controls recorded (no ground truth)', i.e. the authors state no success criterion, so under the 2026-11-23 rule the 'partly' quality and cost verdicts are the extractor's judgement and should read 'no criterion stated by the authors'.",
+   "doubt": "Os autores não dão critério de sucesso (só descrevem o que os controlos registaram, pág. 9 e 12). Pela regra de 23-11, o veredicto deve ser 'no criterion stated by the authors', não 'partly'. Decide se há algum critério dos autores que justifique 'partly'; se não, troca os dois veredictos."
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486429",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): Amazon author, independent of Anthropic (Claude); the CLI coding tool is not named, so independence from its vendor cannot be checked (Amazon ships CLI coding tools that run Claude)",
+   "p": "1-2",
+   "quote": "a single LLM coding agent (Claude, operated via a CLI coding tool) implemented a multi-component data system end to end",
+   "where": "§1 Introduction, p. 2",
+   "why": "The CLI tool evaluated is unnamed and the author works at Amazon, which offers Claude-based CLI coding tools, so independence from the tool vendor is not established; missing information scores No under §5.",
+   "doubt": "A ferramenta CLI não é identificada e o autor é da Amazon, que tem ferramentas CLI que usam o Claude. Pela regra, informação em falta conta como Não. Vê a pág. 2 e decide Q12: Sim (se assumes independência), Parcial ou Não."
+  }
+ ]
+}

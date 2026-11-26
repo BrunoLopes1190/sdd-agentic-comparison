@@ -1,0 +1,21 @@
+{"key": "rayyan-800486151", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "TDAD + Claude Code (version n.s.) + Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) for all roles; Built Agent run with Claude Agent SDK. Criterion stated by the authors per run: compilation success (visible tests all pass within 6 outer / 8 inner iterations); HPR, MS, SURS reported without thresholds. Values (Table 4-5, successful runs): v1 compile 11/12 (92%), HPR 97.3±2.6%, MS 95.9±7.1%, cost $2.32±0.96, 3.1±0.8 iterations; v2 compile 7/12 (58%), HPR 77.7±13.9% (lowest 51.1%), MS 100%, SURS 97.2±3.5%, cost $2.81±1.71, 2.9±1.1 iterations; total $45.15 for 18 successful runs. Quality: per-run criterion met in 11/12 v1 and 7/12 v2 runs; no configuration-level criterion stated by the authors. Cost: no criterion stated by the authors ($2-3 per spec version, called 'comparable to CI/CD pipeline times but potentially prohibitive for rapid prototyping')",
+   "p": "6-7",
+   "quote": "A single spec version takes 30– 60 minutes wall-clock and $2–3 in API costs, comparable to CI/CD pipeline times but potentially prohibitive for rapid prototyping.",
+   "where": "§8 Limitations, p. 7",
+   "why": "The authors give no cost threshold, so 'Cost: works' rests on the extractor's judgement, and 'works/partly' for quality is an extractor cut-off on compile rates (rule of 2026-11-23).",
+   "doubt": "Os autores não dão nenhum limite de custo (só dizem que $2-3 pode ser proibitivo para protótipos rápidos), e 'funciona/parcial' na qualidade é um corte teu sobre 92%/58%. Pela regra, o veredicto deve ser 'sem critério dos autores'. Vê pág. 6-7 e decide."},
+  {"f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Spec-as-source (not stated in Böckeler terms). Authors: 'The specification is the single source of truth. Tests implement the specification; they don't define it'; prompt treated as a compiled artifact. Note: v2 is compiled starting from the v1 prompt artifact, not regenerated from scratch",
+   "p": "3, 5",
+   "quote": "Critically, v2 compilation starts from the v1 prompt artifact and runs against only the v2 test suite; v1 invariant tests are held out entirely and never shown to PromptSmith during v2 compilation.",
+   "where": "§4.3 Spec Evolution and Regression, p. 5",
+   "why": "The value is still marked 'draft, to check'; spec-as-source fits the 'compiled artifact' framing, but v2 evolving the v1 artifact could be read as spec-anchored.",
+   "doubt": "O teu valor ainda diz 'rascunho, a verificar'. O prompt é tratado como artefacto compilado da spec (spec-as-source), mas a v2 parte do prompt da v1 em vez de o regenerar (pág. 5). Decide entre spec-as-source e spec-anchored e retira a nota."}
+ ]}

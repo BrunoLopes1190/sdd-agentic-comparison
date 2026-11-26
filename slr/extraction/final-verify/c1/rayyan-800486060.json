@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486060",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): authors from The Memory Company, which builds Spark, the only approach evaluated; the NO-SPARK conditions are the same models without any memory, not an external approach",
+   "p": "1-2",
+   "quote": "The NO SPARK baseline condition measures the raw performance of LLMs without access to any external memory.",
+   "where": "§1.2 Paper Summary, p. 2",
+   "why": "Spark is the only approach evaluated and its vendor wrote the paper; the NO-SPARK baseline is the bare model, not an external approach, so the 'Partly when only some approaches' rule may not apply.",
+   "doubt": "O único método avaliado é o Spark, da empresa dos autores; o NO-SPARK é só o modelo sem memória (pág. 2), não uma abordagem externa. Decide se Q12 fica Parcialmente ou passa a Não (0)."
+  }
+ ]
+}

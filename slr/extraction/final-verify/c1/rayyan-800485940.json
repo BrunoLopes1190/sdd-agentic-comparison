@@ -1,0 +1,21 @@
+{"key": "rayyan-800485940", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: the assignment's requirements (public URL, >= 100,000 lines, dated spec written before the code, every prompt recorded) and conventions; no success criterion for SDD itself stated by the authors; no per-agent breakdown. Results: URL 17/18; spec first 53-90% (15 projects); 3 projects recorded no session, sessions cover 48% of agent commits; trailers median 69%; specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: partly against the assignment requirements (met unevenly); no criterion stated by the authors for whether SDD kept students in control. Cost verdict: not measured",
+   "p": "4-6, 8",
+   "quote": "It had four requirements: the application had to open at a public URL; it had to have at least 100,000 lines of code, counted with cloc excluding dependencies, lock files, build artifacts, documentation, and data; each part of the system needed a dated specification in a SPEC/ folder, written before the code it describes",
+   "where": "§II.A Course and Assignment, p. 2",
+   "why": "The verdict 'does not work' rests on the extractor's reading ('specs did not keep students in control'); the only criteria the authors state are the assignment requirements, which were met partly (e.g. URL 17/18, spec first 53-90%), so the verdict should follow those or be 'no criterion stated by the authors'.",
+   "doubt": "O veredicto 'não funciona' parece ser juízo teu: os autores só dão como critério os requisitos do trabalho (URL, 100k linhas, spec antes do código, sessões gravadas), cumpridos em parte. Lê a pág. 2 (§II.A) e a pág. 5 (RQ1) e decide entre 'parcialmente' face a esses requisitos ou 'sem critério declarado pelos autores'."},
+  {"f": "Human effort metrics",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Self-reported: hours dedicated (median 8), share of generated code read before committing (median 30%); share of ideas (median 50%) and code (median 20%) attributed to self; recorded prompts (741 prompts, median 15 words per prompt; 13% at most three words)",
+   "p": "5, 7",
+   "quote": "In the sessions we could parse, students wrote 741 prompts, with a median of 15 words; 13% have at most three words, such as “continue”.",
+   "where": "§IV.A RQ1: Do students follow the rules of the assignment?, p. 5",
+   "why": "The 15-word median is the length of each prompt, not a count of prompts per session as the field says.",
+   "doubt": "O campo diz 'prompts por sessão', mas o artigo dá 741 prompts com mediana de 15 palavras por prompt (comprimento, não número por sessão). Confirma na pág. 5 e corrige a descrição da métrica."}
+ ]}

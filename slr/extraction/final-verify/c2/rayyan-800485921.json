@@ -1,0 +1,8 @@
+{"key": "rayyan-800485921", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q12", "verdict": "uncertain", "sev": "high",
+  "v": "Partly (0.5): independent researcher, no commercial tie; but the SELECTIVE strategy (wiki split and retrieval hint) is the author's own construction, while NONE and ALWAYS ON deliver the developers' unmodified AGENTS.md",
+  "p": "1, 3, 9",
+  "quote": "5. Selective is our construction, and its corpus is not content-matched.",
+  "where": "Limitations, item 5, p. 9",
+  "why": "§5 counts an author who created an evaluated approach as its vendor and gives Partly when this applies to only some approaches; SELECTIVE is the author's construction, so Yes depends on treating it as a mere experimental condition.",
+  "doubt": "O autor diz que a estratégia SELECTIVE é construção sua (pág. 9). Pela regra de Q12, se a contares como abordagem avaliada criada pelo autor, fica Parcial (0,5); se for só uma condição experimental, fica Sim. Noutros estudos (ex.: static_kb) contaste condições dos autores; decide de forma coerente."}]}

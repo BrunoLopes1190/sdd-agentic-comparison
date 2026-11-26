@@ -1,0 +1,10 @@
+{"key": "rayyan-800486456", "model": "claude-opus-5-5", "check": 1, "checked": 41,
+ "fields": [{"f": "Nature of the study",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Proposes an evaluation method; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests (contribution 1); benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)",
+             "p": "1",
+             "quote": "We make three contributions. (1) A roundtrip benchmark that scores a describer, the system producing a naturallanguage description, by whether code regenerated from its description alone passes the original tests, together with a compression measure and controls for memorization.",
+             "where": "§1 Introduction, p. 1",
+             "why": "The benchmark is the first stated contribution and in the title, so 'Proposes an evaluation method' is a plausible main nature that the current value omits entirely.",
+             "doubt": "O benchmark roundtrip é a 1.ª contribuição e está no título, mas a natureza não refere 'Proposes an evaluation method'. Lê o fim da introdução (pág. 1) e decide se a natureza principal deve ser essa (mantendo 'Proposes an approach' como secundária, para o Q13 continuar a aplicar-se)."}]}

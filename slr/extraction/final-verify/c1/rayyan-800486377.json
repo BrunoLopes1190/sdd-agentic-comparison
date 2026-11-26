@@ -1,0 +1,10 @@
+{"key": "rayyan-800486377", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Publication type",
+             "verdict": "uncertain",
+             "sev": "low",
+             "v": "Preprint — arXiv:2607.26777v1 [cs.SE], 29 Jul 2026; formatted with the AAAI template (copyright 2027 AAAI line), acceptance at a venue not stated",
+             "p": "1",
+             "quote": "Copyright © 2027, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.",
+             "where": "Title page footnote, p. 1",
+             "why": "The PDF carries an AAAI 2027 copyright line, which may indicate a submission or an accepted AAAI-27 paper; the value given is also incomplete (no arXiv ID).",
+             "doubt": "A pág. 1 tem a nota de copyright da AAAI 2027 (modelo da conferência). Pode ser só uma submissão ou um artigo aceite na AAAI-27. Procura no Google Scholar/AAAI se foi publicado: se sim, passa a Conference e Q11 a Sim; se não, mantém Preprint e completa o ID arXiv."}]}

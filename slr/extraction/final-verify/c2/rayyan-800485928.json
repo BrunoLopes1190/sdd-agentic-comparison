@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485928",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student semester projects, survey n=13). Criterion: none stated by the authors (descriptive survey of student perceptions). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13 (9 strongly); would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code among lowest-rated positive items; about half checked quality via PRs (7 agreed); phase usefulness means 3.77-4.42 of 5; NPS answers 7-10, median 8. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors",
+   "p": "5-7",
+   "quote": "Given the ordinal scales and the small sample, we report frequency distributions and absolute counts and use no inferential statistics.",
+   "where": "§3.2 Analysis, p. 5",
+   "why": "The authors report only descriptive frequencies and state no success criterion, so under the 2026-11-23 rule the 'partly' quality and cost verdicts are the extractor's own and should be 'no criterion stated by the authors'.",
+   "doubt": "Os autores só dão frequências descritivas e não definem nenhum critério de sucesso. Pela regra de 23/11, os veredictos 'partly' (qualidade e custo) são juízo teu; devem passar a 'no criterion stated by the authors', mantendo os valores. Confirma na §3.2 (pág. 5)."
+  }
+ ]
+}

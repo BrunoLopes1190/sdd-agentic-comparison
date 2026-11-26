@@ -1,0 +1,10 @@
+{"key": "rayyan-800486186", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Conclusions: limitations and gaps",
+             "verdict": "corrected",
+             "sev": "low",
+             "v": "Gate 2 is both the optimization signal and the evaluation criterion, so the 86.0% pass rate reflects optimization-to-criterion (SkillsBench only partly mitigates it); LLM-based classification introduces randomness; generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested, cross-model study only five models from four families on 30 skills; Wild sample (198 skills) lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
+             "p": "9-11, 13",
+             "quote": "Gate 2 serves dual roles (feedback signal and evaluation criterion), so the 86.0% pass rate reflects optimization-to-criterion; the independent SkillsBench (87/87) partially mitigates this.",
+             "where": "§VII Threats to Validity (Internal Validity), p. 11",
+             "why": "The field omits the authors' main internal-validity threat (Gate 2 used both to optimize and to evaluate) and LLM randomness, which are stated limitations.",
+             "doubt": "Nas limitações falta a ameaça principal que os autores declaram: o Gate 2 serve para otimizar e para avaliar, por isso os 86% de aprovação estão a medir aquilo que foi otimizado. Também falta a aleatoriedade do LLM. Está só no campo 'did the method work'. Vê §VII na pág. 11 e decide se acrescentas."}]}

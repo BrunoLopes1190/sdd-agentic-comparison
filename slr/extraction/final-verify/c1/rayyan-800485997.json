@@ -1,0 +1,9 @@
+{"key": "rayyan-800485997", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Comparison: did the method work",
+   "verdict": "corrected", "sev": "low",
+   "v": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Order effect: similar correctness effect whichever tool came first, but user effort differed by order, possibly because the agent-first phase showed users how to approach the problem in the later copilot phase (carry-over, Appendix D). Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025",
+   "p": "9-10, 15, 29-30",
+   "quote": "This may be because even if the agent did not fully solve the problem in the agent-first condition, it showed users how to approach the problem in the subsequent copilot condition.",
+   "where": "Appendix D.2 User Effort Breakdown, p. 30",
+   "why": "The authors report an order (carry-over) effect on user effort in the within-participant design, a weakness of the comparison method that the field does not mention.",
+   "doubt": "No Apêndice D.2 (pág. 29-30) os autores dizem que o esforço difere conforme a ordem (agente primeiro ou Copilot primeiro), talvez porque o agente ensinou o caminho antes da fase Copilot. É uma fraqueza do desenho within-participant. Decide se acrescentas ao campo."}]}

@@ -1,0 +1,21 @@
+{"key": "rayyan-800486456", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Not classifiable; descriptions are generated from existing code (code -> description) and, downstream, added as context while code stays the source of truth; the authors say the benchmark 'treats a description as durable software source' (closest to spec-as-source only for the roundtrip benchmark, reviewer's reading)",
+   "p": "9",
+   "quote": "The roundtrip benchmark treats a description as durable software source, measured by whether code regenerated from it passes the original tests",
+   "where": "§8 Discussion, Conclusion, p. 9",
+   "why": "The descriptions are derived from code and used as context in the issue-resolution experiments, so spec-as-source holds only for the regeneration benchmark and 'not classifiable' is a defensible alternative.",
+   "doubt": "As descrições são geradas a partir do código e, na resolução de issues, o código continua a ser a fonte. Só o benchmark de regeneração trata a descrição como fonte. Relê a conclusão na pág. 9 e decide entre 'spec-as-source' e 'não classificável'."},
+  {"f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Reporting inconsistency: Table 5 gives 'our description' fidelity 0.85 on unitsystem and 1.00 on contains, while Table 3 (base prompt, same Flash pipeline) gives unitsystem 0.63 +/- 0.19; saferepr (Table 5) is not among the eleven Table 3 fixtures although the text says the comparison ran on 'the benchmark's original SWE-bench fixture set'; which describe prompt produced the Table 5 descriptions is not stated (values used from Table 5). Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute",
+   "p": "1, 4-6, 9, 11-12",
+   "quote": "The comparisons in this subsection were run on the benchmark’s original SWE-bench fixture set.",
+   "where": "§5.1 Comparison to an External Documentation Tool, p. 5 (Table 5); Table 3, p. 4",
+   "why": "Table 5 own-description fidelity (unitsystem 0.85, fixture saferepr) does not match Table 3 (unitsystem 0.63, no saferepr), and this reporting inconsistency is not recorded in Notes.",
+   "doubt": "Na Tabela 5 (pág. 5) a 'nossa descrição' dá 0.85 no unitsystem, mas na Tabela 3 (pág. 4) dá 0.63, e o saferepr nem aparece entre os 11 fixtures. Não se diz que prompt gerou essas descrições. Confirma e regista a inconsistência nas Notas."}
+ ]}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800486370", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "corrected",
+             "sev": "high",
+             "v": "N/A (proposes an approach, ATWZ, and evaluates none; the author created ATWZ)",
+             "p": "3",
+             "quote": "We make no benchmarking or user-study claims; empirical evaluation is left to future work.",
+             "where": "§1 Introduction, p. 3",
+             "why": "Under the 2026-11-23 rule, Q12 is N/A when the study proposes an approach and evaluates none, which is the case here.",
+             "doubt": "O artigo propõe o ATWZ e diz que não faz qualquer avaliação (pág. 3). Pela regra de 23-11, o Q12 é N/A quando o estudo propõe uma abordagem e não avalia nenhuma. Confirma e muda Q12 de Não (0) para N/A."}]}

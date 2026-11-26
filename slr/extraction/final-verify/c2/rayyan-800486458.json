@@ -1,0 +1,12 @@
+{"key": "rayyan-800486458", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): OpenHands harness and the ten models are not by the authors, but the five execution protocols compared (SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER, and the benchmark itself) are designed and specified by the authors",
+   "p": "5, 17-18",
+   "quote": "This section provides the full specification of the five execution protocols summarized in Table 3. Across all protocols, we hold fixed the initial repository state, task instruction, model configuration, final evaluator, and Dependency Checkers.",
+   "where": "Appendix B (execution protocols), p. 17",
+   "why": "The multi-agent protocols whose results are compared are the authors' own designs, so under the Q12 rule (author who created an evaluated approach counts as vendor) Partly is defensible, unless the protocols are read as mere experimental conditions of the benchmark.",
+   "doubt": "Os cinco protocolos multi-agente comparados foram desenhados pelos próprios autores (Apêndice B, pág. 17). Se os vês como abordagens avaliadas, a Q12 passa a Parcial; se os vês só como condições experimentais do benchmark, fica Sim. Decide."}
+ ]}

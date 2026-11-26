@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486091",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q7",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition",
+   "p": "6, 12",
+   "quote": "We evaluate 8 models (MiniMax-M2.1, MiniMax-M2, Kimi-K2Thinking, ChatGLM-4.6, Claude-Sonnet-4.5, Claude-Opus-4.5, Doubao-Seed-1.8, Gemini-3Pro) across 3 scaffold environments. Each instance is run 3 times per model.",
+   "where": "Appendix B Experimental details, p. 12",
+   "why": "Q7 asks for a baseline or an alternative under the same conditions; eight models under identical conditions may already satisfy it, so Partly for lacking a no-instruction baseline is debatable.",
+   "doubt": "A Q7 pede 'baseline ou alternativa' nas mesmas condições. Aqui há oito modelos e três scaffolds avaliados nas mesmas 217 instâncias. Decide se isso basta para Sim (1) ou se manténs Parcial por não haver condição sem instruções."
+  }
+ ]
+}

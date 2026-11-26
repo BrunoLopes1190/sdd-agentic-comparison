@@ -1,0 +1,10 @@
+{"key": "rayyan-800485934", "model": "claude-opus-5-5", "check": 1, "checked": 45,
+ "fields": [{"f": "Nature of the study",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Evaluates; secondary: Proposes an approach — repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance), from which an evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol is derived; also introduces the AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
+   "p": "1, 17, 21",
+   "quote": "Building on these observations, we derive an evidence-based template that organizes repository guidance into a consistent structure while accommodating project-specific requirements.",
+   "where": "§5 An Evidence-Based Template for Agent Instruction Files, p. 17",
+   "why": "Q13 is scored Yes, which only applies to conceptual studies or studies that propose an approach, but the nature lists no 'Proposes an approach'; either the template is an approach (nature secondary should be 'Proposes an approach') or Q13 should be N/A.",
+   "doubt": "A Q13 está pontuada (Sim), mas a natureza não inclui 'Proposes an approach', que é o que faz a Q13 aplicar-se. Decide se o template (§5, pág. 17-20) é uma abordagem: se sim, muda a natureza secundária (perdes 'Proposes an evaluation method' do benchmark); se não, a Q13 passa a N/A."}]}

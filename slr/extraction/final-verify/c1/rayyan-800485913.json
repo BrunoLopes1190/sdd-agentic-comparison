@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800485913",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "N/A: the study proposes SDAD and evaluates no approach or tool; the Agile vs SDAD comparison (Tables 3 and 6) is illustrative, 'author's own observational estimates', not an evaluation (rule of 2026-11-23). If the illustrative comparison is counted as an evaluation: No (0), authors assess their own framework",
+   "p": "24",
+   "quote": "Figures are explanatory, not audited. Numeric entries reflect the author’s own observational estimates and are not taken from cited sources.",
+   "where": "§11.4 Comparative scenario: enterprise ledger-scale module, Table 6, p. 24",
+   "why": "The protocol rule makes Q12 N/A when a study proposes an approach and evaluates none, and the only comparison here is an explicitly illustrative, non-audited estimate rather than an evaluation.",
+   "doubt": "O artigo propõe o SDAD e não avalia nenhuma ferramenta; a Tabela 6 (pág. 24) diz que os números são estimativas ilustrativas do autor, não auditadas. Pela regra de 23-11, Q12 seria N/A. Decide se esta comparação ilustrativa conta como avaliação (Não) ou não (N/A)."
+  }
+ ]
+}

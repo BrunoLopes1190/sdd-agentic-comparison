@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486099",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q11",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): MSR '26 conference paper per the ACM header (to confirm)",
+   "p": "1",
+   "quote": "In Proceedings of Make sure to enter the correct conference title from your rights confirmation email (MSR ’26). ACM, New York, NY, USA, 5 pages. https://doi.org/XXXXXXX.XXXXXXX",
+   "where": "ACM Reference Format, p. 1",
+   "why": "Peer review rests only on an unfinished ACM template header (placeholder title and DOI); the author's own value is still marked 'to confirm', so Q11 and the publication type stay open.",
+   "doubt": "O cabeçalho ACM ainda tem o título e o DOI por preencher, e o teu valor diz 'a confirmar'. Confirma (DBLP, programa do MSR 2026 ou export WoS/Scopus) se o artigo saiu no MSR '26. Se sim, mantém Sim e Conference; se não, Preprint e Q11 Não (0)."
+  }
+ ]
+}

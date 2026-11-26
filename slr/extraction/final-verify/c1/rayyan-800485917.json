@@ -1,0 +1,10 @@
+{"key": "rayyan-800485917", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "No (0): both guided conditions evaluated (probe_refined and the static_kb it starts from) were created by the authors; the only other condition is the bare no_context prompt, which is not an external approach",
+             "p": "4",
+             "quote": "no_context measures the agent alone, static_kb adds generic guidance, and probe_refined adds iterative refinement on top.",
+             "where": "§3.2 Context Conditions, p. 4",
+             "why": "The rule gives Partly when the authors' approach is compared with external ones; here no external approach is evaluated, only the authors' two artefacts and an empty-guidance baseline.",
+             "doubt": "Os dois tipos de orientação avaliados (static_kb e probe_refined) são dos autores; o no_context é só o prompt sem orientação, não uma abordagem externa. Pela regra, Partly só quando há abordagens externas. Lê a §3.2 (pág. 4) e decide entre Partly e No."}]}

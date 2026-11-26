@@ -1,0 +1,12 @@
+{"key": "rayyan-800486471", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Comparison: design",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Tasks: 100 LoLBench tasks. Configurations: 28 model–scaffold agents; paired comparison of EP vs reference-derived specification for three agents. Baseline: none for the 28-agent comparison; for the specification variant the authors use the EP-only results of the same three agents in Table 2 as the baseline. Held constant: tasks, offline Harbor sandbox, six-hour limit, second-highest reasoning effort, OpenRouter access, verifier. Acceptance tests: system-level F2P tests (original plus augmented) and P2P regression tests. Repetitions: one attempt per task and agent, retries only after provider or infrastructure failures. Human intervention: none",
+   "p": "9",
+   "quote": "Parenthesized values report signed absolute changes computed by subtracting the baseline values in Table 2 from the values here.",
+   "where": "Table 4 caption, §4.5 Perception Capability Analysis, p. 9",
+   "why": "The authors explicitly call the EP-only Table 2 results the baseline of the specification comparison, while the field says no baseline is designated.",
+   "doubt": "A legenda da Tabela 4 (pág. 9) chama 'baseline' aos valores da Tabela 2 (só EP). O campo diz 'nenhuma baseline designada'. Decide se registas o EP-only como baseline da comparação com especificação."}
+ ]}

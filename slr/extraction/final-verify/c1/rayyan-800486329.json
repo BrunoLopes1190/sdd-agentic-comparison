@@ -1,0 +1,10 @@
+{"key": "rayyan-800486329", "model": "claude-opus-5-5", "check": 1, "checked": 40,
+ "fields": [{"f": "Q5",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "No (0): no independent criterion of effectiveness is reported; product quality only stated as passing or substantially improving accessibility checks, without figures; the second author's re-coding of 10 incidents checks the qualitative analysis, not the effectiveness of the approach",
+             "p": "5",
+             "quote": "Currently, the system can process Office and PDF files to pass or substantially improve performance on accessibility checks.",
+             "where": "§IV-B-4 System State, p. 5",
+             "why": "The only effectiveness evidence is an unquantified claim about accessibility checks, and the re-coding check validates the coding, not the outcome; under the missing-information rule this may be No rather than Partly.",
+             "doubt": "O único critério de eficácia é a frase sobre passar nos verificadores de acessibilidade, sem números. A recodificação de 10 incidentes valida a análise, não o resultado. Pela regra 'informação em falta = Não', Q5 pode ser Não (0). Lê a pág. 5 (§IV-B-4) e a pág. 3 (§III-C3) e decide entre Parcial e Não."}]}

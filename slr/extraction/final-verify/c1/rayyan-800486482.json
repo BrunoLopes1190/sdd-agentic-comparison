@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486482",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q3",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): agent products and model families named and container toolchain versions given, but no agent CLI versions and no model versions; Codex model not even named ('the latest Codex model') and Gemini only as 'Gemini with the highest reasoning configuration'",
+   "p": "6",
+   "quote": "Codex (OpenAI, the latest Codex model via GitHub Copilot).",
+   "where": "§4.1 Protocol Instantiation and Execution, p. 6",
+   "why": "Neither agent nor model versions are identified for any configuration (Codex model unnamed), so under the missing-information rule Q3 may be No rather than Partly; the toolchain versions are of the evaluation containers, not of the agents.",
+   "doubt": "O artigo não dá versões dos agentes nem dos modelos (para o Codex diz só 'the latest Codex model'; Gemini sem versão). As versões indicadas são das imagens Docker, não dos agentes. Vê a pág. 6 e decide se Q3 fica Parcial ou Não (0)."
+  }
+ ]
+}

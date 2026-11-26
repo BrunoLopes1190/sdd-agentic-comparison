@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486259",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q9",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): online gains over the no-skills baseline are positive in all six pairs as claimed, and mixed offline results, baseline regressions on GPT-5.5 and harmful skill exposure (heavy-tailed effects) are acknowledged; but small gains are presented as consistent without variance or significance testing, and SkillsVote online regressions on the Hard split (e.g. -6.7 pp for GPT-5.2) are not discussed",
+   "p": "7-9",
+   "quote": "Offline reuse helps in several settings, but the gains vary across frozen libraries, benchmarks, and backbones.",
+   "where": "§4.2 Main Results, p. 8; §4.3.2 Recommendation Controls Negative Transfer, p. 9",
+   "why": "The paper does report mixed and negative results (offline variability, baseline regressions, negative transfer), so No (0) may be too strict; Partly is a defensible reading.",
+   "doubt": "Os autores reconhecem resultados mistos (ganhos offline variáveis, regressões dos baselines no GPT-5.5, efeito negativo de skills mal escolhidas, pág. 7-9), mas não discutem as perdas no subconjunto Hard. Decide se Q9 fica Não (0) ou Parcial (0,5)."
+  }
+ ]
+}

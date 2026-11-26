@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486521",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Nature of the study",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop), the authors' own product, formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations (June 2026) reported descriptively",
+   "p": "1, 12, 15",
+   "quote": "We study Cortex, a supervisory layer for pre-execution governance, requirement tracking, and iterative validation and repair.",
+   "where": "Abstract, p. 1",
+   "why": "The authors present and formalise their own tool (Cortex) and report raw-vs-Cortex pilot results, which fits 'Proposes an approach' better than 'Conceptual'; the record also scores Q3-Q8 (empirical only) and Q13, which is inconsistent with a purely conceptual nature.",
+   "doubt": "Os autores (Alpha Omega Labs) apresentam a sua própria ferramenta Cortex e reportam resultados de pilotos (secção 7, pág. 15-17). Isto parece 'Proposes an approach' e não 'Conceptual'. Além disso, deste Q3-Q8, que só se aplicam a estudos empíricos. Decide a natureza; se ficar 'Conceptual', Q3-Q8 deviam ser N/A."
+  }
+ ]
+}

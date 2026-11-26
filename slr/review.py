@@ -6,7 +6,8 @@
 
 Checks:     slr/extraction/final-verify/c1/<key>.json, c2/<key>.json (independent; only flagged fields are listed)
 Decisions:  slr/extraction/final-verify/decisions.csv (append-only; last row per key+field wins)
-            keep = author's value stays; accept1/accept2 = a check's proposal; edit = author's own text.
+            keep = author's value stays; accept1/accept2 = a check's proposal; edit = author's own text;
+            note = free text for Claude to analyse and apply later (the extraction is not changed).
             accept/edit also rewrite the field in slr/extraction/<key>.json (previous value kept in "fv").
 """
 import csv, datetime, glob, json, os, re, sys, webbrowser
@@ -93,10 +94,12 @@ def status():
 
 def decide(d):
     key, field, action = os.path.basename(d["key"]), d["field"], d["action"]
-    assert action in ("keep", "accept1", "accept2", "edit")
+    assert action in ("keep", "accept1", "accept2", "edit", "note")
     path = os.path.join(XDIR, key + ".json")
     rec = load(path)
     f = next(x for x in rec["fields"] if x["f"] == field)
+    if action == "note":
+        return log(key, field, action, d["value"], f["v"])
     prev = f.get("fv", {}).get("prev", f["v"])  # the author's value before this review
     if action == "keep":
         value = prev
@@ -111,6 +114,10 @@ def decide(d):
     tmp = path + ".tmp"
     json.dump(rec, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     os.replace(tmp, path)
+    log(key, field, action, value, prev)
+
+
+def log(key, field, action, value, prev):
     new = not os.path.exists(DEC)
     with open(DEC, "a", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS)
@@ -199,7 +206,7 @@ __QH__
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const RK=["as 2 verificações: errado","as 2 verificações assinalam","1 verificação, importante","1 verificação, menor"];
-const ACT={keep:"mantive o meu",accept1:"aceitei a proposta 1",accept2:"aceitei a proposta 2",edit:"editei"};
+const ACT={keep:"mantive o meu",accept1:"aceitei a proposta 1",accept2:"aceitei a proposta 2",edit:"editei",note:"nota para o Claude"};
 let Q=[],i=0,R=null;
 const pdf=(k,p)=>"/pdf?key="+encodeURIComponent(k)+((String(p||"").match(/\d+/)||[])[0]?"#page="+String(p).match(/\d+/)[0]:"");
 async function load(){Q=await (await fetch("/queue")).json();i=Math.max(0,Q.findIndex(x=>x.open));show();}
@@ -212,19 +219,22 @@ async function show(){counts();if(!Q.length){$("title").textContent="Sem campos 
   $("cards").innerHTML=R.flags.map((fl,j)=>{const mine=R.fields[fl.f]||{},d=R.dec[fl.f];
     const qh=QH[fl.f]?`<details class="hp"><summary>${esc(QH[fl.f][0])} ?</summary><div><b>Sim (1):</b> ${QH[fl.f][1]}<br><b>Parcial (0.5):</b> ${QH[fl.f][2]}<br><b>Não (0):</b> ${QH[fl.f][3]}<br><b>Onde ver:</b> ${QH[fl.f][4]}</div></details>`:"";
     return `<div class="card r${fl.rank} ${d?"done":""}"><h2>${esc(fl.f)} <span class="tag">${RK[fl.rank]}</span>${d?`<span class="tag">✓ ${ACT[d.action]}</span>`:""}</h2>${qh}
-     <div class="meta">O teu valor (pág. ${esc(mine.p)}):</div><div class="mine">${esc(d?d.prev:mine.v)}</div>
+     <div class="meta">O teu valor (pág. ${esc(mine.p)}):</div><div class="mine">${esc(d&&d.action!=="note"?d.prev:mine.v)}</div>
      ${[1,2].filter(n=>fl.checks[n]).map(n=>{const c=fl.checks[n];return `<div class="chk"><span class="tag">verificação ${n}: ${c.verdict==="corrected"?"errado":"incerto"}${c.sev==="high"?", importante":""}</span>
        <div class="doubt">${esc(c.doubt)}</div>
        <q>${esc(c.quote)}</q>${c.q_ok?"":'<span class="bad">⚠ citação não encontrada no texto: confirma no PDF</span> '}<span class="meta">${esc(c.where)} · <a href="${pdf(x.key,c.p)}" target="_blank">abrir pág. ${esc(c.p)}</a></span>
        <div class="meta">Proposta ${n}:</div><div class="prop">${esc(c.v)}</div>
        <button data-a="accept${n}" data-j="${j}">Aceito a proposta ${n}</button></div>`;}).join("")}
-     <button data-a="keep" data-j="${j}">Mantenho o meu</button><button data-a="editopen" data-j="${j}">Edito…</button>
-     <div id="ed${j}" style="display:none"><textarea rows="4">${esc(mine.v)}</textarea>página(s) <input value="${esc(mine.p)}" size="8"> <button data-a="edit" data-j="${j}">Gravar edição</button></div></div>`;}).join("");
+     <button data-a="keep" data-j="${j}">Mantenho o meu</button><button data-a="editopen" data-j="${j}">Edito…</button><button data-a="noteopen" data-j="${j}">Nota para o Claude…</button>
+     <div id="ed${j}" style="display:none"><textarea rows="4">${esc(mine.v)}</textarea>página(s) <input value="${esc(mine.p)}" size="8"> <button data-a="edit" data-j="${j}">Gravar edição</button></div>
+     <div id="nt${j}" style="display:${d&&d.action==="note"?"block":"none"}"><div class="meta">Escreve em texto corrido o que achas (ex.: \"a 1 tem razão no valor mas a página é a 7\"). O Claude analisa e aplica depois; a extração não muda já.</div><textarea rows="3">${esc(d&&d.action==="note"?d.value:"")}</textarea><button data-a="note" data-j="${j}">Gravar nota</button></div></div>`;}).join("");
   document.querySelectorAll("#cards button").forEach(b=>b.onclick=()=>act(b.dataset.a,+b.dataset.j));}
 async function act(a,j){const fl=R.flags[j];
   if(a==="editopen"){$("ed"+j).style.display="block";return;}
+  if(a==="noteopen"){$("nt"+j).style.display="block";return;}
   const body={key:Q[i].key,field:fl.f,action:a};
   if(a==="edit"){body.value=$("ed"+j).querySelector("textarea").value;body.p=$("ed"+j).querySelector("input").value;}
+  if(a==="note"){body.value=$("nt"+j).querySelector("textarea").value.trim();if(!body.value)return;}
   if(a.startsWith("accept"))body.p=fl.checks[+a.slice(-1)].p;
   const r=await fetch("/decide",{method:"POST",body:JSON.stringify(body)});
   if(!r.ok){alert("ERRO ao gravar: "+((await r.json()).error||"")+". Não avances.");return;}

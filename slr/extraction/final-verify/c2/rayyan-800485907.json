@@ -1,0 +1,10 @@
+{"key": "rayyan-800485907", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Comparison: design",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed; Claude Code kept the Task tool enabled, so Sonnet-4.5 also invoked Haiku-4.5 sub-agents. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
+   "p": "3-5, 13, 17-18",
+   "quote": "For CLAUDE CODE, we keep the Task tool enabled: it allows SONNET-4.5 to invoke sub-agents, using HAIKU-4.5, to solve sub-tasks.",
+   "where": "§A.1 Additional Experimental Details, p. 13",
+   "why": "The Claude Code configuration also used Haiku-4.5 sub-agents, so the model is not only Sonnet-4.5; the design field does not record this.",
+   "doubt": "Na pág. 13 os autores dizem que o Claude Code usou sub-agentes com Haiku-4.5, além do Sonnet-4.5. Como o modelo é uma variável, vê se queres registar isto no desenho da comparação (ou nas Notas)."}]}
