@@ -44,7 +44,7 @@ Module schedule. [F] Labelled "Calendarização Provisória" (intro slide 6). [I
 | 8 | 2–6 Nov | Project planning: approaches, WBS | `week-08/` |
 | 9 | 9–13 Nov | Project planning; [F] materials are self-organisation: competency action plan | `week-09/` (added 2026-11-23); [S] no class was held |
 | 10 | 16–20 Nov | Self-organisation; [F] materials are project planning: schedule construction, WBS example, MS Project | `week-10/` (published 2026-11-11) |
-| 11 | 23–27 Nov | Project planning | pending |
+| 11 | 23–27 Nov | Project planning | none; [S] no class was held |
 | 12 | 30 Nov–4 Dec | Project planning; [F] materials: risks in projects and a risk register template (Alberto Borges Pereira) | `week-12/` (added 2026-11-26) |
 | 13 | 7–11 Dec | (none) | pending |
 
