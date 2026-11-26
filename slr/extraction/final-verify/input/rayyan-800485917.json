@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485917",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shepard, A., Albrecht, J. (2026). Probe-and-Refine Tuning of Repository Guidance for Coding Agents. arXiv:2606.20512v2 [cs.SE], 19 Jun 2026 (preprint dated 23 Jun 2026)",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.20512v2 [cs.SE] ('A PREPRINT', dated June 23, 2026); no published venue found",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Williams College (both authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — probe-and-refine tuning of an AGENTS.md-style guidance file, compared with a static knowledge base and no guidance on SWE-bench Verified (4 trials at 200 steps); also step-budget and cross-model (Nemotron) experiments",
+   "p": "1-2, 4"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "(1) probe_refined: probe-and-refine tuning (authors' own; code github.com/asashepard/probe-and-refine-tuning), no version. (2) static_kb: authors' two-layer static knowledge base (tree-sitter structural summary + one-shot LLM generic advice), also the starting point of (1). (3) no_context baseline. Guidance described as an AGENTS.md file; no SDD framework",
+   "p": "2, 4-5"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One natural-language repository guidance file per repository (AGENTS.md), capped at 3,000 characters (~750 tokens): structural layer (hubs, entry points, import relationships), procedural rules, and after refinement repo-specific rules (test paths, subsystem tracing) and quality gates. Mean length static_kb 1,687 chars, probe_refined 2,754 chars. Added lines: procedural 47%, structural 30%, quality gate 23% (104 lines)",
+   "p": "4-6"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Tuning (per repository, 3-5 iterations of ~22 single-shot LLM calls, no agent loop or tools): 1 generate 10 synthetic bug-fix probes (temperature 0.9, deduplicated); 2 attempt a fix per probe; 3 judge each attempt and propose edits; 4 aggregate, merge, cap at 5 edits, apply mechanically and trim to 3,000 chars; stop after two iterations without change. Use: guidance given to a fixed ReAct-style coding agent that resolves the issue; single-shot fallback if no patch within the step budget; patches sanitised and evaluated by the SWE-bench harness",
+   "p": "5-7"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automatic tuning; guidance not reviewed by humans)",
+   "p": "5-6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (context/guidance file), generated and run with an agent",
+   "p": "4-7"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (repository guidance file without a specification; authors use no SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution (bug fixes and small feature requests) from GitHub issues",
+   "p": "3, 12"
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified, 500 instances, 12 repositories (Django 231 = 46%; seaborn 2, flask 1); guidance from one pinned commit per repository. Unique probe-refined solves: median patch 5 added lines, 13% multi-file",
+   "p": "8, 12"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories (django, sympy, sphinx, matplotlib, scikit-learn, astropy, xarray, pytest, pylint, requests, seaborn, flask)",
+   "p": "5, 8"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent, no participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Relative prompt tokens only: probe_refined ~56% more prompt tokens than no_context at 200 steps; tokens at 200 vs 25 steps 2.3x (no_context) and 2.8x (probe_refined). Tuning cost: 3-5 iterations x ~22 calls, ~8k input and ~2k output tokens per call. Steps per instance (Nemotron transfer). No time or money",
+   "p": "6, 9, 14-17"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolve rate (% instances whose patch passes SWE-bench held-out tests); coverage (% instances with an evaluable patch); precision (resolved / evaluated); unique consistent solves (>=3 of 4 trials)",
+   "p": "8-11"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Fallback rate; patch timing (share after step 100); guidance length and content categories; tuning loop output (iterations, probes, edits); agent behaviour under transfer (no-command prose events, stalls, max-step hits, patch-apply errors); localization analysis of unique solves (observed/expected per repository)",
+   "p": "5-7, 11-13, 16-17"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: official SWE-bench Verified harness; agent logs. Manual/qualitative: categorisation of 104 added guidance lines; reading of 31 unique-solve problem statements; analysis of 43 no_context regressions (who coded not stated)",
+   "p": "4, 6, 12, 15"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Metric: SWE-bench Verified hidden tests (resolve rate, 500 instances); coverage and precision; cost only as relative prompt tokens. The authors state no success threshold (they stress the relative comparison, absolute rates being low by design, p. 4), so no verdict is given. Agent = authors' ReAct-style bash scaffold (unnamed, released code), 16k effective context, temperature 0. Values: resolve / coverage / precision, mean +- SD of 4 trials at 200 steps unless noted.\nMain experiment (Qwen3.5-35B-A3B, 200 steps, 4 trials; Tables 4, 8):\n- no_context (baseline) + own scaffold + Qwen3.5-35B-A3B: 25.5 +- 2.2% / 41.7 +- 2.9% / 61.0 +- 2.6%; fallback 25.6%; tokens 2.3x at 200 vs 25 steps. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- static_kb + own scaffold + Qwen3.5-35B-A3B: 28.3 +- 1.4% / 50.6 +- 2.3% / 56.0 +- 2.5%; fallback 30.8%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors (one-off generation per repository, not quantified)\n- probe_refined + own scaffold + Qwen3.5-35B-A3B: 33.0 +- 1.8% / 56.2 +- 1.8% / 58.6 +- 1.6%; fallback 14.8%; ~56% more prompt tokens than no_context; tokens 2.8x at 200 vs 25 steps; tuning 3-5 iterations x ~22 calls of ~8k/2k tokens per repository (one-off). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\nStep-budget runs (Qwen, single trial; Table 9), resolve at 25 / 50 / 100 steps:\n- no_context: 24.4 / 27.6 / 23.6%\n- static_kb: 21.8 / 29.8 / 29.6%\n- probe_refined: 24.2 / 23.4 / 30.8% (below static_kb at 50 steps, p=0.022)\n- Quality and cost for all: no criterion stated by the authors\nCross-model (NVIDIA-Nemotron-3-Nano-30B-A3B, 200 steps, single trial; Tables 11-12):\n- no_context + own scaffold + Nemotron: 28.4% (142 resolved). Quality and cost: no criterion stated by the authors\n- static_kb + own scaffold + Nemotron: 24.6%. Quality and cost: no criterion stated by the authors\n- probe_refined (Nemotron-tuned) + own scaffold + Nemotron: 27.0% (135); tuning loop degraded (3.8 of 5 iterations); 351 agent-loop patches, 3 fallback, 39.2 steps per instance, 11 hit max steps; agent-loop precision 38.5%. Quality and cost: no criterion stated by the authors\n- probe_refined (Qwen-tuned, transferred) + own scaffold + Nemotron: 13.2% (66); 174 agent-loop patches, 324 fallback patches (none resolved); 81.0 steps per instance, 83 hit max steps; agent-loop precision 37.9%. Quality and cost: no criterion stated by the authors (the authors call it a 'collapse', p. 16)",
+   "p": "4, 7, 9, 14, 16-17"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Verified 500 instances. Configurations: 3 guidance conditions x Qwen3.5-35B-A3B (4 trials at 200 steps; single trials at 25/50/100 steps) and x Nemotron (single trial, plus Qwen-to-Nemotron transfer). Baseline: no_context. Held constant: scaffold, model within experiment, harness, 16k context, 2,048 output tokens per turn, output truncation ~3,000 chars, temperature 0 (0.9 for probes), same hardware; guidance tuned with the consuming model. Acceptance: SWE-bench held-out tests. Repetitions: 4 (main), 1 (others). Human intervention: none. Statistics: mixed-effects logistic regression (instance and trial random effects, n=6,000), per-trial McNemar, Wilson CIs",
+   "p": "4, 8-9, 14-15"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Qwen, 200 steps: probe_refined 33.0% > static_kb 28.3% > no_context 25.5% in 4/4 trials; mixed-effects OR 2.11 (vs no_context, p<0.001), 1.58 (vs static_kb, p<0.001), static_kb vs no_context OR 1.34 (p=0.004). Gain of 7.5 pp = 2.8 static_kb + 4.7 refinement. Coverage +14.5 pp; precision not significantly different (p=0.119). Unique consistent solves 31 vs 8 (no_context) vs 4 (static_kb); easy core 65, hard core 342. Effect present for Django (27.7/31.2/35.3%) and non-Django (23.5/25.8/30.9%). Budget: all equal at 25 steps; no_context flat; probe_refined only one rising beyond 100 steps. Nemotron: ordering reversed (28.4 > 27.0 > 24.6%); Qwen-tuned guidance collapses Nemotron to 13.2%",
+   "p": "9-11, 14-17"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions at 200 steps with 4 trials (consistent ordering, significant); budget and cross-model results single-trial, descriptive. Limitations stated: guidance length confound (refined 63% longer; padding/truncation ablations not run); localization hypothesis not causally tested (file-structure ablation not run); one model able to run the procedure; loop prompts tuned to Qwen; no probe/seed sensitivity analysis; single benchmark with Django concentration; contamination cannot be ruled out; constrained pipeline (16k context) gives low absolute rates",
+   "p": "4-5, 13, 15-19"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Variance only characterised by 4 trials; lower budgets single trial; length confound open; procedure shown on one model; Nemotron-adapted prompts untested; other scaffolds (summarisation, tree search) may differ; probe sensitivity untested; SWE-bench Verified only, Django 46%; 42% of instances unreachable by guidance. Future: file-structure ablation (highest priority), larger dense model, multi-model tuning, balanced benchmarks",
+   "p": "15, 17-19"
+  },
+  {
+   "f": "Notes",
+   "v": "Tables 4, 6, 9-12 jumbled by pdftotext; values rebuilt from column order and text. Fig. 7 labels 32.9% where text and tables give 33.0%. Nemotron single trial justified by 'trial-level variance is negligible at n=500', while Qwen SDs are 1.4-2.9 pp and T2 differs from other trials. Introduction reports Gloaguen et al.'s drop as ~3%. Code released (GitHub); no data package or pre-registration stated. Programming language: Python",
+   "p": "1, 2, 9, 14-16"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and per-experiment motivations stated (Sections 4.1, 5.1, 6.1, 7.1)",
+   "p": "2, 7, 12, 14-15"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): procedure, conditions, parameters, temperatures, statistics described; code released (prompts not in paper)",
+   "p": "4-8"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): models named with Hugging Face references; scaffold is the authors' released code; serving stack and hardware not stated",
+   "p": "4, 15, 19-20"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public SWE-bench Verified, pinned commits per repository",
+   "p": "8"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SWE-bench held-out tests via the official harness",
+   "p": "3-4"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; cost only as relative token ratios in the text, no absolute tokens, time or money",
+   "p": "9-11, 14-15"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no_context and static_kb under the same scaffold, model and harness",
+   "p": "4"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 4 trials at 200 steps, mixed-effects regression, McNemar, CIs; budget and Nemotron experiments single trial",
+   "p": "8-9, 14-15"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main results support the claims and negative results reported; but generalisations ('instructions matter at least as much as reasoning', guidance encodes model-specific calibration) rest on one capable model and single-trial cross-model runs",
+   "p": "15-18"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 9 limitations, plus contamination and length confound",
+   "p": "4-5, 18-19"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created probe-and-refine and the static_kb condition; only the bare no_context baseline is not theirs",
+   "p": "2, 4"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): requirements stated (open-weight 35B MoE model, 3-5 iterations of ~22 single-shot calls with ~8k/2k tokens per repository, code released); within reach of a typical team; needs a model capable of running the loop; hardware not stated",
+   "p": "4, 6, 15-16"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

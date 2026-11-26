@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498268",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Gao, J., Peng, Y., Zhou, C., Zhu, Y., Zeng, X., Zhang, S., Zhou, Y., Qin, L., Qiao, Q., Ma, X., Chen, B., Shang, W., Jiang, Z. M. J., Liao, L., Ren, X. (2026). Hierarchical Skill Evolution for Coding Agents. arXiv:2610.35616v1 [cs.CL], 26 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.35616v1 [cs.CL], 26 Oct 2026; ICLR-style template, no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Not stated (no affiliations in the extracted text; code at github.com/jungao1106/SKILL EVO)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — Hierarchical Skill Evolution (HSE): skills distilled from coding trajectories via task -> repository -> cross-repository aggregation with a writer-evaluator loop; compared with No Skills, SWESkillsBench, GEPA and ReasoningBank on SWE-bench Verified and DeepSWE, with ablations, target-benchmark adaptation and cross-harness/model transfer",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "HSE (no version), 10 skills (8 procedural, 2 recovery) evolved on SWE-Gym. Baselines: No Skills; SWESkillsBench (49 domain skills); GEPA (prompt evolution); ReasoningBank",
+   "p": "1, 7, 13, 36"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Skill library of SKILL.md documents (frontmatter with support counts, quality score, use policy; sections Applicability, Evidence Gate, Actions, Do Not, Support Summary); candidate representation (trigger, evidence gate, actions, validation, stop condition); external writer rules and evaluator weights; L1 task evidence records tagged reproduce/locate/edit/validate/recover. No specification of the software",
+   "p": "4-6, 13-14, 34-35"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Training: frozen agent produces trajectories -> L1 task evidence with outcome-transition labels -> L2 repository-conditioned candidates (writer proposes, evaluator accepts/revises/rejects) -> L3 cross-repository procedural and recovery skills -> held-out validation (promote or retain previous state) -> writer/evaluator rule updates -> next round. Inference: frozen skill library injected into agent. Optional target-benchmark adaptation (8 rounds, no verifier feedback)",
+   "p": "3-6, 36"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automated writer-evaluator and held-out validation)",
+   "p": "4-6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (skill evolution on SWE-Gym, static inference on target benchmarks, adaptation), plus ablations",
+   "p": "6-9"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (procedural skill library / context mechanism, no specification)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution (SWE-bench Verified, DeepSWE; training on SWE-Gym)",
+   "p": "3, 7"
+  },
+  {
+   "f": "Size",
+   "v": "SWE-bench Verified 500 tasks; DeepSWE 113 tasks; training 474 SWE-Gym tasks from 10 repositories, validation 26 bokeh tasks",
+   "p": "7, 35-36"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source repositories: SWE-bench Verified (Python, e.g. django) and SWE-Gym training repositories (Python: MONAI, moto, pandas, pydantic, mypy, ...); DeepSWE languages not stated in this paper",
+   "p": "2, 7, 34-35"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Context cost in words (generation, prefilling, total) and steps per task, one trace per task (Appendix A); injected skill context 0.5K words (HSE) vs 1.5K (SWESkillsBench)",
+   "p": "13"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved rate (% of tasks whose patch passes the benchmark verifier), Mean@3 with SD",
+   "p": "7, 36"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None beyond case-study traces",
+   "p": "—"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: benchmark verifiers; word counts from traces",
+   "p": "7, 13, 36"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Model GLM-5.2 (served with SGLang on two B300 nodes); harnesses Pi and Claude Code (versions not stated). Metric: verifier resolved rate, Mean@3 +/- SD (Table 1). Values Verified Pi / Verified CC / DeepSWE Pi / DeepSWE CC. No success criterion stated by the authors for any configuration, so no verdicts.\n- No Skills (baseline): 73.5 / 76.1 / 43.1 / 44.8; cost Verified Pi 314.7K total words, 52.4 steps (Table 7). Quality and cost: no criterion stated by the authors\n- SWESkillsBench (49 skills, 1.5K words injected): 74.7 / 79.7 / 34.5 / 38.6; Verified Pi 582.2K words, 79.2 steps. Quality and cost: no criterion stated by the authors\n- GEPA: 74.6 / 78.9 / 46.6 / 49.0; cost not reported. Quality: no criterion stated by the authors\n- ReasoningBank: 72.8 / 76.6 / 44.0 / 46.0; cost not reported. Quality: no criterion stated by the authors\n- HSE (10 skills, 0.5K words): 75.4 / 80.6 / 48.7 / 52.5 (SD 0.20-0.88); Verified Pi 385.1K words, 58.4 steps. Quality and cost: no criterion stated by the authors\n- HSE after 8 adaptation rounds (evaluated on the same target tasks): 90.1 / 93.9 / 71.7 / 75.8. No criterion stated by the authors\n- Ablations (single values): w/o procedural 74.2 / 77.0 / 45.1 / 47.8; w/o recovery 74.6 / 79.0 / 43.4 / 46.9; w/o hierarchical aggregation 74.2 / 78.6 / 46.9 / 48.7; w/o controller updates 74.8 / 79.2 / 46.9 / 50.4. No criterion stated by the authors\n- Cross-model (Pi, Verified / DeepSWE): GPT-5.5 No Skills 82.6 / 67.2, HSE 85.4 / 73.5; Opus 4.8 No Skills 88.6 / 59.3, HSE 90.2 / 61.1. No criterion stated by the authors\n- Cross-harness transfer of fixed HSE packs: +3.1 to +7.3 over the transfer harness's No Skills (Table 5). No criterion stated by the authors",
+   "p": "7-9, 13, 36"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: SWE-bench Verified (500) and DeepSWE (113), complete sets; skills evolved on disjoint SWE-Gym repositories. Configurations: 5 methods x 2 harnesses x 2 benchmarks with GLM-5.2; ablations; cross-harness and cross-model (GPT-5.5, Opus 4.8 with Pi). Baseline: No Skills. Held constant: model and harness within comparison, benchmark verifier. Acceptance tests: benchmark verifier. Repetitions: 3 runs (Mean@3, sample SD); per-run counts in Tables 13-14; ablation and cross-model tables single values. Human intervention: none",
+   "p": "7-9, 35-36"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "HSE best mean in all four settings: +1.9 to +4.5 points over No Skills on Verified, +5.6 to +7.7 on DeepSWE; +0.7 to +0.9 over SWESkillsBench on Verified, +2.1 to +3.5 over GEPA on DeepSWE. SWESkillsBench degrades DeepSWE. HSE uses 34%/39% fewer words than SWESkillsBench with Pi, 6%/3% with CC, but more than No Skills. No significance tests",
+   "p": "7, 13"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished methods on means with small SDs on Verified; differences on Verified are under 1 point vs the best baseline and untested statistically. Adaptation is evaluated on the same tasks whose trajectories update the library (no verifier feedback, but same task set). Limitations stated: cross-model only under Pi; controller ablation evaluates update mechanism as a whole",
+   "p": "7-9, 36"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Two benchmarks, two harnesses, three models; cross-model evaluation only under Pi; controller ablation evaluates the writer-evaluator update mechanism as a whole. Gap not stated further",
+   "p": "9"
+  },
+  {
+   "f": "Notes",
+   "v": "Table 1 columns jumbled by pdftotext; values rebuilt by method in row order and checked against per-run counts in Table 13 (e.g. No Skills Verified Pi 362/367/373 -> 73.5). Table 3 DeepSWE row partly jumbled; rebuilt from text (w/o procedural -3.6/-4.7, w/o recovery -5.3/-5.6). In Tables 13 and 14 the per-run counts never decrease from run 1 to run 3 in any method and setting (strictly increasing in almost all rows; pattern worth checking). Cost measured in words on one trace per task; skill-evolution cost not reported. Affiliations missing. Code: github.com/jungao1106/SKILL EVO (as printed). AI use statement: generative AI assisted drafting. No pre-registration. Language: Python for SWE-bench Verified and SWE-Gym; DeepSWE languages not stated in the paper",
+   "p": "1, 7-9, 13, 36-37"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): challenge and contributions clearly stated",
+   "p": "1-3"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): algorithm, thresholds, weights, update rules, splits and evaluation protocol given; code released",
+   "p": "3-6, 13-14, 35-36"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (GLM-5.2, GPT-5.5, Opus 4.8); Pi and Claude Code harness versions Not stated",
+   "p": "7"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public benchmarks and SWE-Gym split described",
+   "p": "7, 35-36"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): benchmark verifiers",
+   "p": "7, 36"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): resolved rate and word-count/step cost defined (cost on one trace per task)",
+   "p": "7, 13"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): No Skills and three skill/prompt baselines under same model and harness",
+   "p": "7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three runs with SD for main tables; no statistical tests; ablations and cross-model single values",
+   "p": "7-9, 36"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main claims follow means, but adaptation gains measured on the same target tasks used to evolve skills, and sub-point differences called consistent improvements",
+   "p": "7-9, 36"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): two-sentence limitations only; no threats to validity",
+   "p": "9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created HSE; baselines (SWESkillsBench, GEPA, ReasoningBank) are by others; affiliations not stated",
+   "p": "1, 7"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): deployable output is 10 short Markdown skills (0.5K words) and code is released, but evolution requires many agent rollouts with a self-served model on two B300 nodes; evolution cost not stated",
+   "p": "1, 7, 13"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486401",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Jiang, J., Zheng, S., Vidra, N., Setty, S. (2026). Beyond Pass@k: Measuring Reliability and Security of Agentic Code Generation. arXiv:2608.14711v1 [cs.AI], 11 Aug 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.14711v1 [cs.AI]; mentions 'the conference's policy' on generative AI but names no venue",
+   "p": "1, 13"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: Cornell University (Jiang, Zheng), Stevens Institute of Technology (Setty); industry: Anote.Ai (Vidra)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — argues that test-case-based pass@k misapplies the Chen et al. estimator and proposes reliability@k (n = independent rollouts) and security-adjusted reliability@k within the CodeBench framework; tested on a synthetic rollout benchmark, a live-API run with three agent profiles and a 5-task SWE-bench Verified pilot with Claude Code",
+   "p": "1-2, 5-6, 8, 10"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent profiles: synthetic profiles 'agent-x', 'claude-code', 'codex' (H1-H3, not real systems); live-API wrappers (H4): agent-x and claude-code = claude-sonnet-4-6 with different system-prompt identities, codex = gpt-4o; SWE-bench pilot: Claude Code CLI v2.1.185 (headless, acceptEdits mode, model not stated)",
+   "p": "4, 8, 10"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts; tasks have a natural-language description, reference solution and test file)",
+   "p": "4"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed)",
+   "p": "—"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automated runs)",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no approach exercised; metrics evaluated)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New code for small algorithmic/data-structure problems (synthetic benchmark and live-API run, incl. 5 security-sensitive tasks); existing code base for the SWE-bench Verified pilot (astropy issues)",
+   "p": "4, 8, 10"
+  },
+  {
+   "f": "Size",
+   "v": "Synthetic: 10 tasks (3 easy, 3 medium, 4 hard) x 3 profiles x 8 rollouts = 240 synthetic results; live API: 10 tasks x 3 agents x 8 rollouts = 240 generations; pilot: 5 SWE-bench Verified instances from astropy/astropy (4 medium, 1 hard), one attempt each",
+   "p": "4-5, 8, 10"
+  },
+  {
+   "f": "Domain",
+   "v": "General algorithmic programming (Python) and one scientific Python library (astropy) in the pilot",
+   "p": "4, 10"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Defined but no values reported: cost-adjusted score = pass_rate / log(1 + cost_usd); tool efficiency = max(0, 1 - tool_calls/20)",
+   "p": "5"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate (tests passed / total), regression rate, test-case-based pass@k (criticised), reliability@k (Chen et al. estimator with n = independent rollouts, c = fully passing rollouts, pass_rate >= 0.95 in the synthetic setting), single-rollout proxy = pass_rate x (1 - regression_rate) x tool_efficiency; pilot: strict resolve rate (reliability@1), FAIL_TO_PASS / PASS_TO_PASS counts",
+   "p": "5-7, 10-11"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Security score: heuristic scanner for seven high-severity patterns (eval, exec, os.system, subprocess shell=True, pickle.load, yaml.load without Loader, __import__), each -1/7; security-adjusted reliability@k counts rollouts passing all tests with security score >= 0.80",
+   "p": "5, 8"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Score inflation (pass@5 minus reliability@5); Spearman correlation of proxy vs reliability@5; Kendall tau between rankings with and without the security adjustment",
+   "p": "6-9"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: synthetic generator make_rollout_benchmark (seed 42, latent skill ~ U[0.30, 1.0], truncated Gaussian per rollout); task-specific unit tests and the heuristic scanner for live-API generations; official SWE-bench harness in Docker for the pilot; leakage checks on agent inputs",
+   "p": "4-5, 8, 10"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per rollout: passes all unit tests (synthetic: pass_rate >= 0.95); secure if scanner score >= 0.80; per task in the pilot: resolved by the official harness. No criterion stated by the authors for judging a configuration. (1) Synthetic profiles (not real systems; H2): agent-x pass@5 0.975 vs reliability@5 0.125; 'claude-code' 0.965 vs 0.000; 'codex' 0.959 vs 0.000. Verdicts: N/A (synthetic). (2) Live API, 'agent-x' wrapper + claude-sonnet-4-6 (H4): reliability@5 0.988, security-adjusted 0.988. Quality verdict: no criterion stated by the authors; cost not measured. (3) Live API, 'claude-code' wrapper + claude-sonnet-4-6: 0.793 / 0.793. Quality verdict: no criterion stated by the authors; cost not measured. (4) Live API, 'codex' wrapper + gpt-4o: 1.000 / 1.000. Quality verdict: no criterion stated by the authors; cost not measured. (5) Claude Code CLI v2.1.185 (acceptEdits, model not stated) on 5 SWE-bench Verified astropy tasks, one attempt: 1/5 resolved (reliability@1 0.20), macro hidden-test pass rate 0.8049, macro regression rate 0.1539; two near-misses, two regressive attempts (5 and 7 broken tests). Quality verdict: no criterion stated by the authors; cost not measured",
+   "p": "6, 8, 10-11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Metric comparison (test-case-based pass@5 vs reliability@5) on synthetic data with 8 rollouts per (task, agent); proxy vs reliability@5 over 30 pairs with a pre-specified surrogate threshold rho >= 0.70; H4: three live-API agent profiles on a fixed 10-task set (5 algorithmic, 5 security-sensitive), 8 independent generations each, rank change threshold tau < 0.60; pilot: single agent, one attempt per task, no baseline. Held constant: task set and seed; agent-x and claude-code differ only by system-prompt identity. Acceptance: unit tests; official SWE-bench harness. Human intervention: none",
+   "p": "5-6, 8, 10"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "H1 confirmed: identical 0.40 pass rates give pass@5 0.9762 vs 1.0000 by test-suite size. H2 confirmed: mean inflation 0.924 (0.85-0.97); ranking preserved (agent-x > claude-code > codex). H3 confirmed: proxy vs reliability@5 Spearman rho = 0.417 (p = 0.0218) < 0.70. H4 not confirmed: security adjustment changed no score or ranking (codex 1.000 > agent-x 0.988 > claude-code 0.793; Kendall tau = 1.000, p = 0.333); same model differs by 0.195 by system-prompt identity alone. Pilot: strict resolution 0.20 vs macro hidden-test pass 0.80",
+   "p": "6-11"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "reliability@k distinguished synthetic profiles in absolute level but did not change rankings; security adjustment did not distinguish agents (under-powered: n = 3 agents, lenient threshold, half the tasks security-sensitive). Repeatable by seed (synthetic). Limitations stated: synthetic data, small agent pool, single unswept security threshold, scanner coverage, pilot of 5 tasks with one attempt and no self-testing",
+   "p": "7-9, 12"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Synthetic, controlled data, not a production benchmark; H4 with three agents has minimal power; security threshold (>= 0.80) lenient and not swept; vulnerability-injection procedure may not cover real vulnerability classes (supply chain, business logic); SWE-bench pilot 5 tasks, one repository, one agent, one attempt, acceptEdits prevented running tests; proxy may misestimate reliability. Future work: validate against real vulnerability corpora, larger agent pool, threshold sweep, multi-attempt multi-repository SWE-bench runs for reliability@k with k > 1",
+   "p": "12-13"
+  },
+  {
+   "f": "Notes",
+   "v": "No data or replication package link (functions such as make_rollout_benchmark named, code not released in the text). Hypothesis thresholds (inflation > 0.50, rho >= 0.70, tau < 0.60) called pre-specified, no registration. Programming language: Python. Inconsistencies: abstract gives reported scores 0.96-0.98 while the text says 0.96-0.97 (Table 1: 0.959-0.975); the claim that 'current implementations' and 'the field' misapply pass@k is supported only by the authors' own CodeBench implementation (p. 12); limitations mention a 'synthetic vulnerability-injection procedure' for security-labelled test cases that the setup does not describe; synthetic profiles are labelled 'claude-code' and 'codex' although they are not those systems, and the H4 'codex' profile is gpt-4o via API, not the Codex agent. Generative AI used to draft text and scripts (disclosed). Cost-adjusted score defined but not reported",
+   "p": "1, 4-8, 12-13"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two failures identified and hypotheses H1-H4 stated",
+   "p": "1-2, 5"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): synthetic generator, seed, metrics and protocol described; prompts, wrapper system prompts and test files not given, code not released",
+   "p": "4-5, 8"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): claude-sonnet-4-6, gpt-4o and Claude Code CLI v2.1.185 named; gpt-4o snapshot, pilot model and wrapper details not stated; H1-H3 agents are synthetic",
+   "p": "4, 8, 10"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): 10 tasks listed and pilot instances named, but the task set and tests are not made available",
+   "p": "4, 8, 11"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): task-specific unit tests for live-API rollouts and the official SWE-bench harness for the pilot",
+   "p": "8, 10"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and security metrics defined; cost-adjusted score defined but no cost values reported",
+   "p": "5"
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): three agent profiles on the same tasks in H4, but the pilot has a single agent and no baseline; H1-H3 compare metrics on synthetic data",
+   "p": "6, 8, 10"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 8 rollouts per pair, Spearman and Kendall tests; pilot one attempt; H4 test has minimal power",
+   "p": "7-9, 10"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): H4 non-confirmation and pilot scope reported honestly, but the claim that current benchmarks misapply pass@k rests only on the authors' own implementation and synthetic data",
+   "p": "1, 9, 12"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section",
+   "p": "12"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Cornell, Stevens, Anote.Ai) independent of Anthropic and OpenAI",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: proposes evaluation metrics, not an approach",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

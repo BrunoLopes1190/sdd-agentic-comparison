@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486399",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Huang, S., Du, K., Lan, A. (2026). Do Personalized Skills Help Coding Agents? An Empirical Study of Developer Interaction Traces. arXiv:2608.10319v3 [cs.SE], 28 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v3, 28 Oct 2026)",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.10319v3 [cs.SE], 28 Oct 2026; no published venue stated (ACL-style Limitations and Ethics sections)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "UMass Amherst (Huang, Lan); OpenRefinery.ai (Du)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Compares — no skill vs personalized skill vs other-developer skill vs generic skill, across skill generators and coding-agent executors; the compared skills come from the authors' own framework (rule-based bootstrap + LLM-refined personalized skill generation), evaluated with their interactive session replay and LLM developer simulator",
+   "p": "1-2, 5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Personalized skill (SKILL.md distilled per developer from evolution-set sessions; authors' framework, no version); (A) no skill baseline; (C) random other developer's skill; (D) generic skill pooled across all developers; ablations (E) rule-based bootstrap skill only, (F) leave-one-out generic skill",
+   "p": "2-5, 8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "SKILL.md with YAML front-matter and sections for scope, communication, work style, follow-up handling, validation, commits and short sanitized interaction examples; task-independent; rules kept only if supported by >= 2 developer turns from different sessions. For replay: task summary (Overall Objective + Success Criteria) given only to the simulator",
+   "p": "4, 15-16"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Skill generation: bootstrap (rule-based pattern matching on developer turns) -> evidence-grounded LLM refinement (retain/revise/remove/add rules). Evaluation: skill injected in prompt before the original first-turn request -> agent works in isolated worktree -> LLM developer simulator issues follow-ups or 'No further requests' (max 6 turns) -> LLM judge scores",
+   "p": "3-5"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the flow (human developer replaced by an LLM simulator); human evaluation only to validate skill claims",
+   "p": "4, 7"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (a personalized or generic skill file injected into the agent prompt)",
+   "p": "5"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (preference skill, no specification)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: replayed real developer sessions on public GitHub repositories (code review and targeted fixes 28.6%, feature implementation 20.9%, testing/build/DevOps 15.0%, UI/UX 13.1%, docs 8.7%, bug fixing 7.3%, refactoring 3.4%)",
+   "p": "5"
+  },
+  {
+   "f": "Size",
+   "v": "206 replayable sessions from 13 developers (filtered from SWE-chat's 8,866); 164 evolution and 42 held-out test sessions per split; 5 random splits = 210 replay instances per condition; repository sizes Not stated",
+   "p": "5-6"
+  },
+  {
+   "f": "Domain",
+   "v": "Public open-source GitHub repositories (SWE-chat, Entire.io CLI sessions, Jan-Jun 2026); domains and languages Not stated",
+   "p": "5"
+  },
+  {
+   "f": "Team profile",
+   "v": "Individual real developers (13) whose recorded behaviour is simulated by an LLM; no live participants; two CS PhD students as annotators",
+   "p": "5, 7, 12"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Agent tokens, execution time (s), agent turns, command/tool calls (Table 6, appendix)",
+   "p": "12"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task-completion score 0-100 by LLM judge (Claude Opus 5.5 Max) using the SWE-chat rubric; win/tie/loss vs no skill; runs reporting successful validation",
+   "p": "5-6, 12, 18"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None separately (code quality is one criterion inside the judge score); files changed and patch churn reported",
+   "p": "12, 18"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Follow-up rate (share of replays where the simulated developer issues at least one follow-up) as proxy for developer pushback; unresolved-requirement follow-ups",
+   "p": "6, 12"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Skill faithfulness (human claim-level evaluation); simulator authenticity (semantic match with real follow-ups); skill content statistics (rules, words, TF-IDF similarity); effect by number of relevant evolution sessions",
+   "p": "7-8, 12-13"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Codex CLI replay logs; LLM judge for task completion and for simulator-vs-real follow-up matching; two-sided paired t-tests over five seed means. Manual: two annotators for skill claims (Pearson r = 0.565)",
+   "p": "5-8"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent = Codex CLI for all; 42 test sessions x 5 seeds = 210 replays; <= 6 turns. Criterion per replay: LLM-judge score 0-100 (SWE-chat rubric); also follow-up rate and win/tie/loss vs A (Tables 1, 2, 5). The authors state no success threshold for a configuration (the rubric's bands, e.g. 60-69 'partial success', p. 18, grade single replays), so quality verdict for every entry: no criterion stated by the authors. Cost measured only for the four Sol-low/Sol-low conditions (Table 6, agent tokens and execution time per replay); cost verdict: no criterion stated by the authors where measured, 'not measured' otherwise.\nGenerator GPT-5.6 Sol-low:\n- (A) No skill + Codex CLI + GPT-5.6 Sol-low: 65.27 +/- 1.94; follow-up 24.76%; 442,096 tokens, 91.76 s\n- (B) Personalized + Codex CLI + GPT-5.6 Sol-low: 67.64 +/- 2.71 (p = .084); 30.95%; W/T/L 51.90/7.62/40.48%; 597,120 tokens, 106.16 s\n- (C) Random developer skill + Codex CLI + Sol-low: 67.75 +/- 3.68; 27.62%; W/T/L 50.95/10.48/38.57%; 521,219 tokens, 99.62 s\n- (D) Generic skill + Codex CLI + Sol-low: 68.38 +/- 1.72 (p = .003); 30.00%; W/T/L 55.71/7.62/36.67%; 643,578 tokens, 104.57 s\n- (E, ablation) Rule-based bootstrap only + Sol-low: 67.49 +/- 3.00; cost not measured\n- (F, ablation) Leave-one-out generic + Sol-low: 68.37 +/- 1.88; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-high: 68.59 +/- 4.39; 27.62%; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-high: 66.71 +/- 7.34; 25.71%; W/T/L 47.62/7.62/44.76%; cost not measured\n- (A) + Codex CLI + GPT-5.6 Sol-max: 70.22 +/- 1.33; 26.19%; cost not measured\n- (B) + Codex CLI + GPT-5.6 Sol-max: 72.04 +/- 2.18 (p = .031); 29.05%; W/T/L 53.33/11.43/35.24%; cost not measured\n- (A) + Codex CLI + GPT-6 Astra-medium: 65.40 +/- 3.35; 32.38%; cost not measured\n- (B) + Codex CLI + GPT-6 Astra-medium: 65.59 +/- 4.34; 37.14%; W/T/L 47.62/12.86/39.52%; cost not measured\nGenerator GPT-6 Astra-medium (A rows are separate runs; cost not measured):\n- (A) / (B) + Sol-low: 63.26 +/- 1.15 / 63.07 +/- 0.62; follow-up 13.81% / 12.38%; B W/T/L 48.10/9.52/42.38%\n- (A) / (B) + Sol-high: 63.14 +/- 4.08 / 66.41 +/- 5.90; 10.95% / 11.43%; B W/T/L 55.24/10.95/33.81%\n- (A) / (B) + Sol-max: 71.43 +/- 2.82 / 72.33 +/- 3.62; 30.48% / 25.71%; B W/T/L 47.14/7.14/45.71%\n- (A) / (B) + Astra-medium: 64.95 +/- 2.94 / 65.91 +/- 3.47; 35.71% / 28.10%; B W/T/L 52.38/11.90/35.71%",
+   "p": "5-8, 12"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 42 held-out real developer sessions per split (13 developers), random 80/20 split, 5 seeds. Configurations: 2 skill generators x 4 executors x {A, B}; plus A-D on Sol-low/Sol-low and ablations E, F. Baseline: no skill. Held constant: repository commit (isolated worktree), first-turn request, task summary, simulator, scorer, prompts, replay settings, turn limit 6. Acceptance tests: none executable; LLM judge with 100-point SWE-chat rubric. Repetitions: 5 seeds of the data split. Human intervention: none (LLM simulator)",
+   "p": "5"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Personalized skill beats no skill in 6 of 8 generator-executor pairs, but only one significant (Sol-max with Sol-low skills, +1.82, p = .031); differences range -1.88 to +3.27. On Sol-low/Sol-low: generic skill best (68.38, +3.11, p = .003); personalized +2.37 (n.s., p = .084); random-developer skill 67.75 similar to personalized (B vs C p = .838; D vs B p = .392). Skills raise follow-up rate (24.76% -> 30.95% personalized, 30.00% generic), tokens (+35% personalized, +46% generic) and time. Personalized skill helps when >= 6 relevant evolution sessions (B-A +10.17, B-C +8.92, B-D +5.67), not otherwise. Refinement adds little over bootstrap (67.64 vs 67.49, p = .886)",
+   "p": "6-8, 12"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished generic skill from no skill; did not reliably distinguish personalized vs other conditions (most differences n.s., large SD). Repeatability: 5 seeds with paired t-tests over seed means. Simulator validated: 89.47% of follow-ups at least partially match real developer messages. Limitations stated: small filtered sample, simulator may not reproduce humans, LLM-based scoring biases, no executable tests, reconstructed repos may lack dependencies",
+   "p": "5-9"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Small, highly filtered SWE-chat subset (206 sessions, 13 developers) may bias towards particular developers, repos and task types; limited per-developer history; LLM simulator approximates collaboration, follow-up rate is not real efficiency; task summarization, skill generation and LLM scoring may add model-dependent biases; LLM evaluation cannot replace tests or humans; random (not chronological) split assumes static preferences; only prompt-injected natural-language skills. Future: longer traces, other skill-integration methods, retrieval of task-relevant guidance combined with developer preferences",
+   "p": "3, 5, 8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "No data/code link stated in the paper; prompts given in Appendix F. No pre-registration. Programming languages not stated. Inconsistencies: Appendix C says personalized skills raise the score from 65.02 to 65.99, while Table 2 gives 65.27 -> 67.64; the first paragraph of Section 3.3 is duplicated; 'Appendix 4.2' cited for annotation details (should be Appendix B). The no-skill baseline differs between generator blocks in Table 1 (e.g., Sol-low 65.27 vs 63.26), not explained. Model names (GPT-5.6 Sol, GPT-6 Astra) as given. Tables 1, 2 and 6 extracted with columns split; values rebuilt by order. LaTeX residue in Fig. 2 text. Abstract states that 'task-specific skills are the most effective', whereas the results (Table 2, Section 5) find the generic skill pooled across developers best; no task-specific skill condition was run",
+   "p": "1, 3, 5-7, 12, 15-18"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): core research question stated",
+   "p": "2"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): skill generation, replay, filtering, splits and all prompts described",
+   "p": "3-5, 15-18"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (GPT-5.6 Sol-low/high/max, GPT-6 Astra-medium, Claude Opus 5.5 Max judge) but Codex CLI version not given",
+   "p": "5"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): SWE-chat is public and filtering described, but the 206-session subset is not released or listed",
+   "p": "5"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): LLM judge with a published rubric; no executable tests or human scoring of outcomes",
+   "p": "5, 9"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): score, follow-up rate, win/tie/loss defined; tokens and time reported (appendix)",
+   "p": "6, 12"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-skill baseline and alternative skills under identical replay conditions",
+   "p": "5"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 5 seeds, SD reported, paired t-tests",
+   "p": "5-7"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): null and mixed results reported honestly in the body and conclusion, but the abstract misstates the main finding ('task-specific skills are the most effective') and the claim that personalized skills help with >= 6 relevant sessions rests on one seed, 12 tasks and no significance test",
+   "p": "1, 6-8"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section",
+   "p": "9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of the agent and model vendors (Codex CLI, GPT, Claude judge); every skill condition (personalized, other-developer, generic, ablations) comes from the authors' own skill-generation framework and is compared with the no-skill baseline, which is not theirs",
+   "p": "1-2"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): skill generation needs only past session logs and one LLM refinement call; runs with Codex CLI; no training. Cost of more tokens at execution noted (Table 6)",
+   "p": "3-4, 12"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

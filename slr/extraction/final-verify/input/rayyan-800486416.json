@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486416",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Smékal, J. (2026). Can your AI agent be cheaper? Investigating the effects of task specifications on token spend in agentic coding tasks. arXiv:2608.25399v1 [cs.AI], 26 Aug 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.25399v1 [cs.AI], no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Stanford University (single author)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — Ablation of specification sections (10 Spec Kit-template variants + raw and oracle anchors x 3 thinking efforts x 15 repeats, 2,700 runs) on token spend, turns and solve rate; plus a probe-based predictor of an unseen task's cost distribution, offered as 'a method that can be used to systematically evaluate the cost of AI coding workflows'",
+   "p": "1-4"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Task specifications structured on the GitHub Spec Kit specification template (version Not stated): full spec (8 sections) and 9 reduced variants (7 single-section removals; 'contract' = header + functional requirements + success criteria; 'minimal' = header + user story). Anchors: raw (failing test output) and oracle (the solution diff; sanity check, excluded from analyses)",
+   "p": "3-4, 12-13"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "One feature specification (Spec Kit template): header (branch, date, status), user story, acceptance scenarios (Given/When/Then), edge cases, functional requirements (FR-xxx MUST), key entities, success criteria (SC-xxx), assumptions. Specs drafted with an LLM (Fable 5) from the SWE-bench problem statement and hand-edited; 109-938 tokens across the 10 variants (full spec 563-938)",
+   "p": "3-4, 13-15"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Spec only: the specification is the agent's task prompt; no plan or tasks phases. Agent (mini-swe-agent) resolves the issue in the SWE-bench Docker image",
+   "p": "3-4, 12"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (autonomous, single task description); specs hand-edited by the author before runs",
+   "p": "1, 4"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (Spec Kit spec template sections; no plan/tasks/implement commands)",
+   "p": "3, 12"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable, the paper does not position itself on an SDD level or runs an SDD workflow;  Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template' used not followed.",
+   "p": "3"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: bug fixes from SWE-bench Verified",
+   "p": "3"
+  },
+  {
+   "f": "Size",
+   "v": "5 tasks (scikit-learn-14053, astropy-13579, xarray-7393, django-15503, astropy-14365); specification lengths 109-938 tokens (anchors: raw 483-983, oracle 173-865) plus a ~1,100-token shared scaffold and system-prompt floor",
+   "p": "3, 12-13"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries/frameworks (scikit-learn, astropy, xarray, django)",
+   "p": "12"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Cost in USD at list prices per run; input, cached and output tokens; agent turns (turns to success); geometric SD of cost across repeats (run-to-run spread)",
+   "p": "4, 7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Solve rate: patch resolves the task under the SWE-bench harness",
+   "p": "4"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Cost prediction error for an unseen task (median % error, share of settings within +/-50%, budget multiplier for 90%, correlation r) for the probe-based predictor; token/dollar composition (output 2.7% of tokens, 51.1% of dollars, 96.3% cache hit)",
+   "p": "7-9"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: endpoint token counts, list prices, SWE-bench harness tests; Bayesian hierarchical model per section and outcome (posterior median, 90% credible intervals); leave-one-task-out prediction with 400 probe draws",
+   "p": "4, 7, 15-16"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All: spec variant + mini-swe-agent + Kimi K3 (Modal endpoint, temperature 1.0, efforts low/high/max, 15 repeats per cell, 120-turn and 4.00 USD cap). Effects pooled over 5 tasks and 3 efforts vs full spec (Table D1, 90% CrI); per-effort cell values only in figures. Success criterion per run: SWE-bench tests (run solved or not); no criterion stated for a configuration's solve rate or cost. Metrics: solve rate, cost, turns.\n- Full spec (8 sections): reference. Solve rate per task 86.3-99.8% pooled over specs; geometric mean cost 0.117 USD (low) to 0.561 USD (max) over all specs. Quality: no criterion stated by the authors; cost: no criterion stated by the authors (cost reference)\n- minimal, header + user story (ablation): cost +29.7% [+5.1, +58.7], turns +16.4% [+4.9, +30.7], solve -1.9 pts (n.s.); per task +13% to +115%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- contract, header + FR + SC (ablation): cost +26.4% [-2.8, +62.6], turns +16.0% (n.s.), solve -1.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no acceptance scenarios (ablation): cost +11.6% (n.s.), turns +7.0% [+1.6, +14.1], solve -0.2; turns +20.1% at low, 4.5% high, 2.1% max effort. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no user scenarios block (ablation): cost +10.3%, turns +7.3% (n.s.), solve +0.5. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no functional requirements (ablation): cost -2.4%, turns -0.6%, solve -0.1 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no edge cases (ablation): -2.6%, -1.4%, +0.5 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no assumptions (ablation): -3.1%, -0.4%, +1.0 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no key entities (ablation): -3.3%, -1.6%, 0.0 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- no success criteria (ablation): -5.4%, -1.6%, -0.6 (n.s.). Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- raw anchor (failing test output): 0.73x-1.10x full-spec cost pooled over efforts; cheapest of 11 at low effort on 4/5 tasks; astropy-14365 at low effort solves 47%. Quality: no criterion stated by the authors; cost: no criterion stated by the authors\n- oracle anchor (solution given; excluded): 0.05x-0.19x full-spec cost. Sanity check only; no verdict\nThinking effort: max/min spec cost ratio x2.13 (low), x1.67 (high), x1.61 (max). Run-to-run spread x1.34 (geometric SD), x1.29-x1.40 per spec, unaffected by spec",
+   "p": "4-7, 12-13, 16-17, 19"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 5 SWE-bench Verified tasks. Configurations: 12 specifications (10 Spec Kit-template variants + raw + oracle) x 3 thinking efforts (low, high, max) x 15 repeats = 2,700 runs; analyses on 11 specs (oracle excluded). Baseline: full specification. Held constant: model (Kimi K3), scaffold (mini-swe-agent), temperature 1.0, Docker image, no network, turn and cost caps; spec content differs only by removed sections (not length-controlled). Acceptance tests: SWE-bench harness. Repetitions: 15 per cell. Human intervention: none; 112 runs capped at 60 turns re-run at 120",
+   "p": "3-4, 12, 15"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Bare user story vs full spec: cost +29.7%, turns +16.4% (credible at 90%, positive on all 5 tasks; 13%-115% by task); acceptance scenarios only single section with credible effect (+7.0% turns); other single sections -5.4% to -2.4% cost (n.s.). No variant credibly changes solve rate (all within 7.5 pts). Variance unaffected (x1.34). Spec matters more at low effort (ratio x2.13) than max (x1.61). Predictor: no probe 161% median error; 1 probe (0.11 USD) 36%; 10 probes 25%; r = 0.72 vs 0.08 without probe. Significance: at 95% two of three established effects include zero (posterior P>0 = 0.97-0.98)",
+   "p": "1-2, 5-9, 16-17"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished large cuts from full spec on cost/turns, not single sections, and not on solve rate (ceiling effect: 4 of 5 tasks >= 98%). Repeatable: 15 repeats per cell, prior sensitivity analysis; specs cannot be ranked (split-half Spearman 0.41, projected 0.58 at 15 repeats). Limitations stated: single model, five tasks, variants not length-controlled, predictor ignores task-specific prompt sensitivity, percentages depend on price schedule",
+   "p": "6-7, 9-10, 15-16"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single model (Kimi K3) is a core limitation; sparse set of tasks; predictor omits task-specific prompt sensitivity; token/dollar split specific to price schedule and cache rate; specs constructed (LLM-drafted), not collected from engineers. Future: more tasks and models, real workflows with engineer-written specs",
+   "p": "7, 9-10"
+  },
+  {
+   "f": "Notes",
+   "v": "Replication package / data availability: Not stated. No pre-registration. Language: Python repos. Spec texts shown only for xarray-7393 (Fig. 1, B1). Table B2 (spec lengths) is jumbled in the extracted text: values rebuilt by column order and checked against the xarray-7393 counts in Fig. 1 and B1 (minimal 129, contract 166, raw 483, oracle 185). Inconsistencies: one-probe error 'within 36%' (abstract, Table 1) vs 'typically 38% off' (Fig. 6B) and '37%' in Fig. 6C; one-probe share within +/-50% 67% (Table 1) vs 66% (Fig. 6B); ten-probe error 25% (Table 1, text) vs 26% (Fig. 6C); p. 2 describes the largest cut as 'a plain prose description of the problem' while Table B1 defines it as header + user story; raw anchor longer than full spec on 3 of 5 tasks. Values taken from Table D1 (p. 16) and text; figure axis labels garbled in extraction",
+   "p": "2, 3, 8, 13-16"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two practitioner questions stated (controllability, predictability)",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): grid, parameters, statistical model and predictor detailed; specs for 4 of 5 tasks and code not provided",
+   "p": "3-4, 12-16"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Kimi K3 via Modal endpoint and mini-swe-agent named; no versions/snapshots",
+   "p": "4, 12"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks named from public SWE-bench Verified; specification set not released",
+   "p": "3, 12-13"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): SWE-bench harness tests",
+   "p": "4"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost USD, tokens, turns and solve rate defined",
+   "p": "4"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): full specification as reference under identical conditions; anchors",
+   "p": "3-4"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 15 repeats, Bayesian hierarchical model with 90% CrI, prior sensitivity, split-half ranking stability",
+   "p": "4, 15-16"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): hedged; reports 95% threshold sensitivity, null effects on solve rate, inability to rank",
+   "p": "6, 9, 16"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations in discussion (single model, few tasks, predictor); no threats section",
+   "p": "9-10"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Stanford; not vendor of Spec Kit, Kimi K3 or mini-swe-agent",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation/prediction method, not an SDD approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

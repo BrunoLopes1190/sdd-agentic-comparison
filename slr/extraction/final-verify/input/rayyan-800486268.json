@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486268",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Guo, J., Yao, Y., Li, C., Pan, Z., Zhou, J. (Joe), Chen, J. (2026). VISTA: An End-to-End Benchmark for Visual Spec-to-App Coding Agents. arXiv:2605.26144v4 [cs.SE], 29 Sep 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.26144v4 [cs.SE]; no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "University of Arizona (Guo, Chen); Zoom (Yao); George Washington University (Li); Google (Pan); Stony Brook University (Zhou)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — VISTA benchmark (multi-page Figma design handoffs to runnable full-stack Web and Android apps, component-level executable evaluator); 14 deployed model–harness coding-agent systems evaluated, plus a condition study of input tiers and stack prescription (two models) and trajectory analysis",
+   "p": "1-2, 4, 6-8"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations are model + harness (Table 3, harness versions pinned): Codex 0.144.6 with GPT-6-astra, GPT-5.6-sol, GPT-5.5, GPT-5.6-terra, GPT-5.6-luna; Claude Code 2.1.187 with Fable-5, Opus 4.8, Sonnet 4.6; Cursor 2026.09.10 with Grok 4.6, Grok 4.5, Composer 2.5; DeepSeek CLI 0.1.5 with DeepSeek-V4-Flash; Muse Code 1.3.0 with Muse-Spark-1.2-contributor; Copilot 1.0.86 with MAI-Code-1.1-Flash. Specification input conditions C0-C5 (text only / + screenshots / + structure JSON, each with free or prescribed stack)",
+   "p": "4, 7, 13"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent-visible specification per task: per page a rendered Figma PNG, a structure JSON (component hierarchy and bbox) and a textual description with inline testid/anchor markers; Android adds sitemap, interactions JSON and design-system unit images. The system prompt requires deliverables: application code, single docker-compose.yml, seeded account, README with fixed sections (Quick Start, Pre-created Account, Ports, API Endpoints, Pages/Screens table, etc.); Android adds build.sh producing an APK and deep links",
+   "p": "4, 16-21"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Prescribed by the system prompt: inspect mockup and description; pick stack and scaffold non-interactively; build pages/components/API routes; self-audit each page against PNG, structure JSON and description; run an 8-item verification checklist (cold start, login, demo mode, visual audit, testid contract, reachability, README pages) before declaring done. Observed trajectories move READ/SEARCH -> WRITE/EDIT -> VERIFY",
+   "p": "8, 16-18"
+  },
+  {
+   "f": "Human review points",
+   "v": "None: unattended runs without per-call human approval; the prompt states no user is available and questions to the user count as a failed run",
+   "p": "4, 16"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each agent from a design specification to a launched application (not an SDD approach); the specification format is varied in the condition study (C0-C5)",
+   "p": "4, 8"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'Visual Spec-To-App', 'design handoffs', 'agent-visible specification', 'design requirements'",
+   "p": "1, 4"
+  },
+  {
+   "f": "Task type",
+   "v": "New project: agents build full-stack applications (frontend, backend, database) from designs, starting in an empty project workspace",
+   "p": "4, 20"
+  },
+  {
+   "f": "Size",
+   "v": "18 applications: 10 Web (126 pages, 3,253 annotated components, 12.6 pages/app) and 8 Android (576 screens, 5,234 components, 72.0 screens/app); 8,487 components in total; mean non-cached tokens per task 75K-444K (Web) and 92K-1,020K (Mobile)",
+   "p": "5, 7"
+  },
+  {
+   "f": "Domain",
+   "v": "Web apps: publishing/newsletter, real estate, recruitment/job board, forum, travel booking, chat, cloud storage, e-commerce, project management, music streaming. Android apps: medical appointments, fitness, home-decor shopping, food delivery, recipes, personal finance, AI chat, fashion e-commerce",
+   "p": "5"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no human operator). Human validation by three annotators (profile Not stated)",
+   "p": "4, 15"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens: mean non-cached (input + output) tokens per task (T, thousands); breakdown into input, cache-read and output tokens (cache reads 87-99% of all tokens except Muse-Spark-1.2 Mobile 41%). Tool calls per run in the condition study. Time and money not reported",
+   "p": "7-8, 14, 25"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Localization L (component correspondence and spatial alignment, [0,1]); Behavior B (evidence from executing the annotated interaction, [0,1]); joint score S = mean over judgeable components of L x B; Overall = mean of Web and Mobile S. Share of deliveries with at least one unresponsive control (90.1% of audited Web deliveries), share with S < 0.2 (13.6%); deployment failures on Mobile (e.g. 2.9% empty init.sql)",
+   "p": "5-7"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (unattended runs)",
+   "p": "4"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Trajectory audit signals: no screenshot viewed (44.5%), no structure JSON read (20.9%), no per-page self-audit (73.0%), incomplete checklist (27.2%), no 'down -v' reset (24.9%), fewer than 3 page curls (15.9%), failed check claimed passed (8.3%), claim without execution, contradiction with own reasoning, reading other run's workspace / evaluator source / ground truth. Stack compliance (88.3% in fixed-stack conditions). Workflow action shares and transition probabilities over 7 action categories; behavioural profiles BU (build share), RH (gap CV), RE (rework rate) and three clusters",
+   "p": "7-9, 22-24"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Web evaluated through the DOM with Playwright, Android through the UI hierarchy with ADB and Appium; evaluator matches annotated components to runtime elements and executes probes; tokens from harness usage. Manual: 8,487 components annotated by hand; blind human validation (three annotators, 5-point Likert, 40 Web apps/118 pages: Spearman rho 0.66 with L, Krippendorff alpha 0.70; probe verdicts agree with human inspection in 88%, Cohen kappa 0.68). How the trajectory audit labels actions is not detailed in the text",
+   "p": "4-6, 15"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Main results, condition C4 (full input, free stack), 3 runs per task, means. No success criterion stated by the authors for any configuration; quality verdict and cost verdict: no criterion stated by the authors (all entries). (1) Codex + GPT-6-astra: Web L 0.756, B 0.505, S 0.460, T 180K; Mobile L 0.473, B 0.398, S 0.378, T 387K; Overall 0.419. (2) Claude Code + Fable-5: Web 0.749/0.609/0.533, T 366K; Mobile 0.367/0.402/0.270, T 1,020K; Overall 0.402. (3) Cursor + Grok 4.6: Web 0.732/0.664/0.553, T 444K; Mobile 0.336/0.379/0.234, T 387K; Overall 0.393. (4) Claude Code + Opus 4.8: Web 0.686/0.572/0.487, T 291K; Mobile 0.395/0.424/0.282, T 565K; Overall 0.385. (5) Cursor + Grok 4.5: Web 0.670/0.590/0.491, T 154K; Mobile 0.418/0.353/0.245, T 411K; Overall 0.368. (6) Codex + GPT-5.6-sol: Web 0.738/0.593/0.507, T 351K; Mobile 0.377/0.272/0.228, T 99K; Overall 0.367. (7) DeepSeek CLI + DeepSeek-V4-Flash: Web 0.714/0.581/0.484, T 360K; Mobile 0.401/0.275/0.219, T 373K; Overall 0.351. (8) Cursor + Composer 2.5: Web 0.599/0.569/0.448, T 116K; Mobile 0.413/0.300/0.192, T 122K; Overall 0.320. (9) Codex + GPT-5.5: Web 0.656/0.478/0.410, T 253K; Mobile 0.310/0.287/0.125, T 199K; Overall 0.268. (10) Claude Code + Sonnet 4.6: Web 0.586/0.517/0.412, T 150K; Mobile 0.265/0.205/0.115, T 301K; Overall 0.264. (11) Muse Code + Muse-Spark-1.2: Web 0.546/0.542/0.409, T 180K; Mobile 0.287/0.294/0.110, T 369K; Overall 0.259. (12) Codex + GPT-5.6-terra: Web 0.570/0.488/0.384, T 75K; Mobile 0.246/0.198/0.072, T 92K; Overall 0.228. (13) Codex + GPT-5.6-luna: Web 0.581/0.482/0.387, T 84K; Mobile 0.113/0.121/0.028, T 101K; Overall 0.207. (14) Copilot + MAI-Code-1.1-Flash: Web 0.409/0.418/0.293, T 153K; Mobile 0.220/0.137/0.055, T 234K; Overall 0.174. (Ablation, condition study, Web) Codex + GPT-5.5 and Claude Code + Sonnet 4.6 under C0-C5: tool calls 53.5 (C0), 69.3 (C2), 71.5 (C4); tokens 134.7K, 224.1K, 149.3K; joint-score contrasts within +/-0.023 (see Comparison: result). (Ablation, harness version) Claude Code + Sonnet 4.6 on Web C4 across harness 2.1.58, 2.1.126, 2.1.152, 2.1.187: mean S increases, reaching 0.412 (other values only in Figure 9)",
+   "p": "6-8, 25-26"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 18 VISTA applications (10 Web, 8 Android). Configurations: 14 model-harness systems. Baseline: none (no non-agent or reference configuration); condition study contrasts input tiers (text, + screenshots, + structure JSON) and free vs prescribed stack with model and harness fixed (GPT-5.5/Codex, Sonnet 4.6/Claude Code). Held constant: system prompt per track, full input C4 with free stack, pinned harness version per harness, self-contained environment. Model and harness vary jointly (not isolated). Acceptance tests: executable component-level evaluator on human annotations (Playwright / ADB + Appium). Repetitions: 3 runs per task per system. Human intervention: none (unattended, no per-call approval)",
+   "p": "4-6, 13, 25"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best Overall: Codex + GPT-6-astra 0.419 (best on Mobile S 0.378, 7th on Web S); best Web S: Cursor + Grok 4.6 0.553 (5th on Mobile); worst Overall Copilot + MAI-Code-1.1-Flash 0.174. On Web 13 of 14 systems score lower on B than L (mean B 0.543 vs L 0.642). No significance tests for the system ranking. Condition study (bootstrap 95% CIs, paired sign-flip tests): adding screenshots dS = +0.0071 [-0.0920, +0.1073]; adding structure JSON dS = -0.0228 [-0.1053, +0.0614]; free vs fixed stack dS = +0.0006 [-0.0737, +0.0751] (screenshot tier) and +0.0200 [-0.0404, +0.0877] (structure tier); dL = -0.0888 [-0.2203, +0.0282], dB = -0.0122 [-0.1004, +0.0734]; all CIs span zero (no significant difference). Codex: 71.1% of trajectories never open a screenshot vs 21.8% for Claude Code and Cursor",
+   "p": "6-8, 25"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (Overall 0.174-0.419; platform rankings diverge). Repeated 3 times per task, but run-to-run variance per system not reported. Evaluator validated against blind human judgement (rho 0.66; kappa 0.68); CLIP similarity did not track human ratings (rho 0.04). Limitations stated: model and harness effects not isolated; input and stack contrasts cover two models; C5 collected in a different batch and harness build, excluded from contrasts; system-level human-automatic ranking agreement coarse (Kendall tau 0.33, four close systems); scores change with harness version (App. G)",
+   "p": "6, 10, 15, 25-26"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: results characterise model-harness configurations jointly; input/stack contrasts cover two models; tasks use self-contained backends (authentication, permissions and external APIs left as extensions). Gaps: agents render designs better than they implement behaviour; agents bypass design evidence and prescribed self-audit and report success beyond their checks; bottleneck is using design evidence, not accessing it; future agents should tie completion reports to component-level execution evidence",
+   "p": "10"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: failure audit covers 12 systems (p. 7) while 14 are evaluated (Table 2); Section 5.3 says richer inputs increase activity but token workload is lower at C4 (149.3K) than C2 (224.1K) (tool calls do rise); Overall column values taken from Table 2 (row order), consistent with mean of Web and Mobile S. Run-to-run dispersion not reported. Project page, code and dataset announced (p. 1) but the URL is missing in the text ('Code is available at .'). No pre-registration. Programming language: free stack chosen by the agent (Web e.g. Astro, Next.js, SvelteKit, Django; Android Compose/Views, React Native or Flutter; backend any). Authors disclose generative AI use for code and text",
+   "p": "1, 7-8, 10, 16, 19"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (component-level evaluation of design-to-full-stack-app agents) and contributions stated",
+   "p": "1-3"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): full system prompts, scoring formula, harness versions and condition definitions given; partial-credit rules, probe details and the trajectory audit procedure are not described in enough detail",
+   "p": "4-6, 13, 16-21"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): every model with official source and every harness with a pinned version (Table 3)",
+   "p": "13"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 18 applications, domains, inputs and annotations described; project page, code and dataset announced as available (links on p. 1, but 'Code is available at .' has no URL in the text)",
+   "p": "1, 4-5"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable evaluator against human-annotated component ground truth, validated against blind human judgements",
+   "p": "4-6, 15"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): L, B and S defined formally; cost as tokens per task with type breakdown; both cost and quality covered (no time or money)",
+   "p": "5-7, 14"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 14 configurations under the same prompt, inputs and environment; condition study varies inputs with model and harness fixed",
+   "p": "6-7, 25"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 runs per task and bootstrap CIs with sign-flip tests for the condition contrasts; no dispersion or significance tests for the main system comparison",
+   "p": "6, 25"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the scores and traces, including the null effect of richer inputs",
+   "p": "8, 10"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): a short limitations paragraph (joint model-harness effects, two models in the contrasts, self-contained backends); no threats-to-validity discussion",
+   "p": "10"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors and authors from Zoom and Google; no evaluated harness or model is from these organisations",
+   "p": "1, 13"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

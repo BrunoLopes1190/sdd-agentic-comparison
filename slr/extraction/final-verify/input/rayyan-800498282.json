@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498282",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Heddad, R. (2026). Beyond Prompts: Runtime Contracts for Coding Agents. arXiv:2611.19549v1 [cs.SE], 14 Nov 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.19549v1 [cs.SE], 14 Nov 2026; IEEE conference format, no venue stated (record only in the arXiv export)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Independent researcher (single author, gmail address); no external funding",
+   "p": "1, 8"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — delivery of identical engineering rules (none, prompt, unrelated rules, retrieved guidance, checks after generation, enforcement during execution) over three studies; the author's machine-readable engineering contracts enforced at runtime",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Engineering contracts / executable contracts enforced during execution (C4), author's framework, no name or version; rule library of 11 YAML contracts. Conditions: C0 no rules; C1 rules in prompt; C1r unrelated rules in prompt (Study 1); C2 retrieved guidance (Study 1); C3 executable checks after generation with feedback; C4 enforcement during execution",
+   "p": "2-3"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Machine-readable contract per rule (YAML): scope, trigger, severity, check stages (before action, after edit, after execution, before acceptance), check, failure policy, evidence hash; check outcome not applicable/pass/fail/unknown; per-run evidence log (commands executed, edits applied, blocks, feedback). Seven behavioural rules (ARCH-LAYER-001, SEC-EVAL-001, PERM-PATH-001, PERM-CMD-001, SEC-SQL-001, SEC-SECRET-001, SEC-SHELL-001) plus lint, test-suite and input-validation rules",
+   "p": "2-4"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Task -> agent proposes command/edit -> C4: pre-action gate blocks disallowed actions, post-edit and post-execution checks give feedback within a fixed budget -> submit; C3: submit -> checks -> feedback, then revise. Evidence log scored afterwards by independent oracle and hidden tests",
+   "p": "2-4"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent flow (automated gate); human review only for oracle validation (30 blinded run packets, two humans + model reviewer)",
+   "p": "3-5"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of rule enforcement in an agent harness (mini-SWE-agent) over three studies",
+   "p": "3"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (executable rules/contracts on agent actions, no specification of the software); authors' terms: 'executable contracts', 'engineering contracts'",
+   "p": "1, 3"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: new request handlers added to a small Python fixture application (handlers, services, SQLite store)",
+   "p": "3"
+  },
+  {
+   "f": "Size",
+   "v": "One small fixture repository; Study 1: 8 tasks; Study 2: 14 tasks; Study 3: 18 targeted tasks; 460 runs in total (240, 112, 108)",
+   "p": "1-3"
+  },
+  {
+   "f": "Domain",
+   "v": "Python web/request handlers with SQLite; rules on architecture layering, security (SQL injection, eval, secrets, shell), protected tests, forbidden commands",
+   "p": "3-4"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs; tasks written by one person; two anonymous human reviewers for oracle validation)",
+   "p": "4, 8"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean model cost per run (USD) and mean model calls per run; total model fees (about 1.24 USD Study 2, 0.96 USD Study 3)",
+   "p": "5-7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Functional pass rate: share of runs passing all hidden tests (non-inferiority margin -0.10)",
+   "p": "3, 5"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None of the listed kind (rule violations cover architecture layering and security, see other outcomes)",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Share of runs with at least one oracle-detected rule violation (main outcome); violations by rule and situation; enforcement activity (runs with a block, mean blocks per run); oracle-reviewer agreement (Cohen's kappa)",
+   "p": "3-6"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: independent oracle (import graph, AST scans, SHA-256 of protected files, tokenised executed commands), hidden tests, API cost logs. Manual validation: 30 runs reviewed blind by two humans and a model reviewer (rule-level kappa 0.90-0.96)",
+   "p": "3-6"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Metrics: share of runs with an oracle violation (lower better), functional pass (hidden tests), cost USD/run and calls. The authors' hypotheses H1-H3 are comparative (C4 vs C0, C4 vs C1, non-inferiority of C4 pass vs C0, margin -0.10), not a criterion for a configuration on its own: no criterion stated by the authors for any entry. Agent: mini-SWE-agent 2.4.6, temperature 1.0, 60 steps. Study 1 (8 tasks x 5 runs, Gemini 3.1 Flash-Lite): (a) C0 no rules (baseline): violation 0.55, pass 0.75, 0.024 USD, 19.1 calls. (b) C1 prompt: 0.50, 0.88, 0.019 USD, 22.8 calls. (c) C1r unrelated rules: 0.53, 0.83; cost not reported. (d) C2 retrieved guidance: 0.48, 0.78; cost not reported. (e) C3 checks after: 0.15, 0.80, 0.019 USD, 21.8 calls. (f) C4 enforced: 0.00, 0.80, 0.015 USD, 19.1 calls. Study 2 (14 tasks x 2 runs, DeepSeek v4.1 Flash via OpenRouter): (g) C0 (baseline): 0.21, 0.93, 0.008 USD, 16.1 calls. (h) C1: 0.14, 0.93, 0.010, 17.4. (i) C3: 0.14, 1.00, 0.014, 20.6. (j) C4: 0.00, 0.96, 0.011, 19.0. Study 3 (18 targeted tasks x 2 runs, DeepSeek v4.1 Flash): (k) C0 (baseline): 0.31 (SQL 0.17, protected test 0.58, recursive delete 0.17), pass 1.00, 0.007 USD, 16.6 calls. (l) C1: 0.17 (0.08, 0.00, 0.42), pass 1.00, 0.009, 18.3. (m) C4: 0.00, pass 1.00, 0.011, 18.5 (+0.003-0.004 USD/run vs C0 in Studies 2-3). All entries: no criterion stated by the authors (quality and cost)",
+   "p": "2-3, 5-7"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: fresh tasks on one Python fixture with hidden tests, reference solutions and per-task violation hypotheses written before runs. Configurations: Study 1 C0/C1/C1r/C2/C3/C4; Study 2 C0/C1/C3/C4; Study 3 C0/C1/C4. Baseline: C0 (no rules). Held constant: agent, tools, sandbox (Docker, no network, read-only repo), rule content, model within study, feedback budget for C3/C4. Acceptance: hidden tests + independent oracle. Repetitions: 5 runs (Study 1), 2 runs (Studies 2-3). Human intervention: none in runs. Protocol, tasks and analysis script hashed before first run in confirmatory studies (not externally registered). Stats: task-level sign-flip permutation test, Holm, task-clustered bootstrap CIs, non-inferiority",
+   "p": "2-4"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "C4 lowest violation share in all six C4 contrasts. Study 1: no contrast significant after Holm over nine (smallest adj. p = 0.14). Study 2: H1 C4 vs C0 -0.21 (95% CI [-0.43, 0.00], Holm p = 0.50), H2 vs C1 -0.14 (Holm p = 0.50), not significant; H3 non-inferiority met. Study 3: H1 -0.31 (CI [-0.53, -0.11], permutation p = 0.007, Holm p = 0.014) significant; H2 -0.17 (Holm p = 0.12) not significant; H3 met trivially (all pass). C3 fixed reversible edits (protected files 12 -> 1 in Study 1) but not executed commands (5 -> 5). Cost: Study 3 C4 vs C0 +0.004 USD/run significant (Holm p = 0.027), C1 +0.002 (p = 0.033); Study 2 no cost contrast significant; Study 1 C4 cheapest",
+   "p": "1, 5-7"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: separated C4 from C0 significantly only in Study 3; Study 2 limited by resolution (3 informative tasks cap p at 0.25). Repeatable: frozen hashed protocol, full artefact release, two model families. Limitations stated: oracle and gate share a blind spot (missed SQL concatenation; sensitivity analysis unchanged conclusions); enriched validation sample; tasks by one person; Study 3 base rates inflated; few runs; model and task effects confounded across studies; non-inferiority trivial at ceiling",
+   "p": "5-8"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Two low-cost models, one small Python fixture, eleven simple rules, no real repositories; stronger models may violate less; 'zero violations' depends on literal rule definitions; false-block rate not measured against human judgement; prompt-permission conflict (scratch deletes under /tmp). Future: stronger models and larger repositories, false-block rate, wider rule set, pre-registered replication",
+   "p": "7-8"
+  },
+  {
+   "f": "Notes",
+   "v": "Tables II-IV and V (p. 5) jumbled by pdftotext; rebuilt from text and Fig. 3/4: Table II = Study 1, Table III = Study 2 (C0/C1/C3/C4 violation 0.21/0.14/0.14/0.00, pass 0.93/0.93/1.00/0.96), Table IV = Study 3. Table V rebuilt: S1 protected files 12/15/1/0, forbidden commands 5/7/5/0; S2 protected 2/2/2/0, commands 2/2/3/0, SQL 2/0/0/0; S3 protected 8/0/-/0, commands 2/5/-/0, SQL 2/1/-/0. Conclusion says prompt rules left '14 to 50%' violating; abstract says '21 to 55%' without rules (both consistent with tables). Table VIII has no C1r/C2 cost. Study 1 used an unpaid tier with rotated API keys (disclosed). Replication package: github.com/RH2004/Beyond-Prompts-Runtime-Contracts-for-Coding-Agents (PolyForm Noncommercial; CC BY-NC). Frozen hashed protocol, not externally registered. Language: Python",
+   "p": "3-8"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 and hypotheses H1-H3 stated",
+   "p": "1, 3"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): conditions, harness settings, tasks, oracle, statistics described; all materials released",
+   "p": "3-4, 8"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): mini-SWE-agent 2.4.6, Gemini 3.1 Flash-Lite, DeepSeek v4.1 Flash via OpenRouter, temperature 1.0, step limit 60",
+   "p": "3, 5"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks and fixture described; tasks, hidden tests and reference solutions released",
+   "p": "3, 8"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests and an independent oracle validated against two blind human reviewers",
+   "p": "3-5"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): violation share, functional pass, USD cost and calls defined",
+   "p": "3, 5-7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): C0 no-rules baseline and prompt condition under identical harness and rule content",
+   "p": "3"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): repeated runs, task-clustered permutation tests with Holm, bootstrap CIs, non-inferiority, sensitivity analysis (few runs acknowledged)",
+   "p": "3, 5-6"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null results reported; 'by construction' caveat; claims limited to tested rules and tasks",
+   "p": "6-8"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VII threats (construct, internal, external, conclusion)",
+   "p": "8"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): author built the contract framework (C3/C4 conditions); prompt and retrieval conditions and mini-SWE-agent are not the author's",
+   "p": "1, 3"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): requirements stated (mini-SWE-agent, Docker, YAML rules, low-cost models; full confirmatory design repeatable for about 2.2 USD, +0.003-0.004 USD per run for enforcement); note noncommercial licence of the released code",
+   "p": "3, 5, 7-8"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

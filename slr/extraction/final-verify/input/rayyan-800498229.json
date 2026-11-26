@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498229",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Chen, M., Zhong, Z., Wang, M., Liang, L., Chen, R., He, P. (2026). Don't Guess, Just Ask: Evaluating Interactive Requirement Clarification for Repository-Level Software Development. arXiv:2610.13022v1 [cs.SE], 9 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.13022v1 [cs.SE], 9 Oct 2026; ACM journal template with placeholder DOI (10.1145/nnnnnnn.nnnnnnn) and no venue",
+   "p": "1-2"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "The Chinese University of Hong Kong, Shenzhen, China (all six authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — ReqClarifyBench benchmark (341 tasks, LLM user simulator with 3 personas, 3 new metrics); compares 6 LLMs, base model vs coding-agent harness (Claude Code, Codex), and intent vs direct vs clarified requirement document as input to code generation",
+   "p": "1, 3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Interactive requirement clarification before implementation ('requirement-driven development paradigm'): LLM asks questions from a vague intent, writes a requirement document, which is then implemented. Compared inputs to code generation: initial intent / directly generated requirement document / interactively clarified requirement document. Harnesses: Claude Code and Codex (versions Not stated)",
+   "p": "2-3, 7, 15, 17"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Requirement document (structured, atomic requirements; ground truth with requirement-artifact traceability, validated against ISO/IEC/IEEE 29148 criteria); clarification Q&A history. Generated documents format: Not stated beyond 'requirement document'",
+   "p": "6-8"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Vague intent -> multi-turn clarification (LLM decides what to ask and when to stop, max 20 rounds) -> requirement document -> code generation (RQ5, Codex + GPT-5.6-Sol). Authors suggest decoupling: base model for requirements, coding-agent harness for implementation",
+   "p": "7-8, 10, 17-18"
+  },
+  {
+   "f": "Human review points",
+   "v": "The (simulated) user answers clarification questions; no human review of documents or code during runs. Humans (two authors) validated the benchmark ground truth and the persona simulator",
+   "p": "7-8"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Requirements/specification phase (clarification + requirement document) for all; full flow to code only in RQ5 (one configuration)",
+   "p": "7, 17"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (closest to spec-first: requirement document written before coding and not maintained); authors' wording: 'requirement-driven development paradigm', requirement document as 'intermediate representation between user intent and code implementation'",
+   "p": "2, 18"
+  },
+  {
+   "f": "Task type",
+   "v": "New projects (repository-level generation from scratch: games, mini-apps, websites)",
+   "p": "4, 6"
+  },
+  {
+   "f": "Size",
+   "v": "341 tasks (MiniAppBench 100, GameCraft-Bench 140, WebGen-Bench 101); ground-truth docs avg 193 atomic requirements, 2,380 tokens; intents avg 13 tokens",
+   "p": "7-8"
+  },
+  {
+   "f": "Domain",
+   "v": "Game development, mini-apps (interactive HTML), web development",
+   "p": "6, 8"
+  },
+  {
+   "f": "Team profile",
+   "v": "Simulated users (GPT-5.6-Sol, temperature 0.7) with three personas from SWE-chat: Expert Nitpicker, Vague Requester, Mind Changer; persona fidelity checked by 2 annotators on 180 cases (accuracy 95.8%, kappa 0.892)",
+   "p": "8, 10"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (tokens/time motivate the study but are not reported); number of clarification rounds (stopping behavior) reported",
+   "p": "2, 13"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Code-generation score under each source benchmark's behavioral protocol (GameCraft multimodal rubric judge on gameplay video; MiniAppBench static + Playwright LLM-judge; WebGen UI agent test-case accuracy and appearance)",
+   "p": "6-7, 17"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None for code. Requirement document quality: BERTScore F1 vs ground truth; ReqAlign (atomic requirement covered 1 / omitted 0 / violated -1, LLM judge)",
+   "p": "9-10"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Clarification effectiveness: Effective Question Rate (EQR, share of questions clarifying >= 1 atomic requirement), AvgClarified (atomic requirements per question); stopping round; round-wise clarification dynamics",
+   "p": "9, 13-14"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: interaction logs; BERTScore; LLM-as-judge (DeepSeek-V4.1-Flash, temperature 0; 91.5% accuracy on 200 manually annotated cases) for ReqAlign and clarified requirements; source benchmarks' automated protocols for code. Benchmark ground truth reconstructed by LLM and validated by two authors",
+   "p": "6-7, 9-11, 17"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: ReqAlign and BERTScore vs human-validated ground truth (averaged over 3 personas); code score per source benchmark. Single run per configuration, evaluated LLMs at temperature 0. Cost: not measured.\n- Clarification + no agent + GPT-5.6-Sol: EQR 0.196, AvgClarified 0.650, BERTScore 0.774, ReqAlign 0.727 (EN 0.842, VR 0.681, MC 0.659)\n- Clarification + no agent + Claude Opus 5: 0.277, 1.007, 0.718, 0.577\n- Clarification + no agent + Gemini-3.1-Pro: 0.334, 1.702, 0.703, 0.357\n- Clarification + no agent + DeepSeek-V4-Pro: 0.270, 1.052, 0.719, 0.498\n- Clarification + no agent + Qwen3-235B-A22B: 0.323, 1.639, 0.637, 0.282\n- Clarification + no agent + GLM-5.3: 0.266, 1.039, 0.717, 0.521\n- Direct doc without clarification (ablation) + no agent, six models: mean BERTScore 0.664, ReqAlign 0.212 (per model only in Fig. 7)\n- Clarification + Claude Code + Claude Opus 5: higher EQR/AvgClarified than base model, lower ReqAlign (EN -15.2%); values only in Fig. 8\n- Clarification + Codex + GPT-5.6-Sol: higher EQR/AvgClarified, lower ReqAlign (EN -24.0%); values only in Fig. 8\n- Code from initial intent + Codex + GPT-5.6-Sol: GameCraft 0.012, MiniApp 0.451, WebGen 0.271\n- Code from direct requirement doc + Codex + GPT-5.6-Sol: 0.273, 0.543, 0.384\n- Code from clarified requirement doc + Codex + GPT-5.6-Sol: 0.418, 0.943, 0.659\nVerdicts: quality and cost: no criterion stated by the authors (all configurations)",
+   "p": "11-12, 15-17"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: ReqClarifyBench (341). Configurations: 6 LLMs x 3 personas (clarification); with vs without clarification (RQ3); base model vs coding-agent harness for 2 models (RQ4); 3 inputs to Codex + GPT-5.6-Sol for code (RQ5, scores averaged over personas). Baselines: direct document without clarification; initial intent for code. Held constant: user simulator (GPT-5.6-Sol, temp 0.7), task inputs, persona settings, interaction protocol, prompt templates, judge, max 20 rounds; evaluated LLMs temp 0. Acceptance tests: source benchmarks' behavioral protocols for code. Repetitions: Not stated (single run implied). Human intervention: none",
+   "p": "8, 10-11, 15, 17"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5.6-Sol best document quality (ReqAlign 0.727, +26.0% over Claude Opus 5) but lowest clarification effectiveness; Gemini-3.1-Pro best EQR (0.334) but ReqAlign 0.357. Personas: mean ReqAlign 0.609 (EN) vs 0.433 (VR), 0.439 (MC). Clarification improves BERTScore 0.664 -> 0.712 (+7.2%) and ReqAlign 0.212 -> 0.494 (+133.1%; 83.8% GLM to 241.3% Qwen). Harnesses raise EQR/AvgClarified but lower document quality (ReqAlign EN -15.2% Claude, -24.0% GPT). Code: intent < direct doc < clarified doc on all 3 benchmarks (e.g., MiniApp 0.451 -> 0.543 -> 0.943). Significance: not tested",
+   "p": "11-12, 15-17"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models, personas and settings on document quality and clarification metrics. Repeatable: code, data and prompts released (Zenodo); single runs at temperature 0, no variance reported. Validation: persona simulator (95.8%, kappa 0.892), judge (91.5% on 200 cases). Limitations stated: simulated users may not capture real diversity; possible protocol/prompt errors; ground-truth document quality",
+   "p": "8, 10-11, 18"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Threats: reliability of LLM user simulation (external); errors in protocol, prompts, configuration (internal); quality of reconstructed ground-truth documents (construct). Implications: LLMs should proactively clarify before implementation; writing a requirement document helps even without feedback; decouple requirements (base model) from implementation (coding-agent harness)",
+   "p": "17-18"
+  },
+  {
+   "f": "Notes",
+   "v": "Code and data: zenodo.org/records/23031774. No pre-registration. Programming language not stated (HTML/JS web, game engine implied). RQ4 per-persona values only in Fig. 8 and RQ3 per model only in Fig. 7 (figure text garbled in extraction). Table 4 row values extracted run together; mapped 4 metrics x 4 columns per model and checked against text (0.727 vs 0.577 = +26.0%; averages 0.494 and 0.712 recomputed consistent). Code-gen RQ5 uses only Codex + GPT-5.6-Sol",
+   "p": "3, 11, 15-16, 19"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ5 stated",
+   "p": "11"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, metrics, models, temperatures, round limit described; code, data and prompts released",
+   "p": "5-11, 18-19"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and release dates given; Claude Code and Codex versions not stated",
+   "p": "10, 15"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark described and released",
+   "p": "5-8, 19"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): human-validated ground-truth documents; judge validated against 200 manual annotations; source benchmarks' protocols for code",
+   "p": "7, 10-11, 17"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined; no cost metrics (tokens, time)",
+   "p": "9-10"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): no-clarification and intent-only baselines; base model vs harness under same conditions",
+   "p": "11, 15, 17"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single runs, no repetitions or statistical tests",
+   "p": "10-11"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): descriptive findings follow, but harness trade-off rests on 2 models and code gains on one configuration without significance testing",
+   "p": "15-17"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (external, internal, construct)",
+   "p": "18"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic; not vendors of the models or harnesses evaluated",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes a benchmark, not an SDD approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486456",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Arman, M. S., Molybog, I. (2026). Compact Documentation for Coding Agents: A Benchmark, an Optimizer, and Why It Does Not Transfer. arXiv:2609.31587v1 [cs.SE], 25 Sep 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv; marked 'Preprint' on p. 1, no venue in the arXiv metadata (comment '13 pages. Code and data: https://github.com/haw-ai-i/roundtrip')",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Daffodil International University, Dhaka, Bangladesh (Arman); HawAII, University of Hawai'i at Manoa, USA (Molybog)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests; benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)",
+   "p": "1"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "(A) Optimized describe prompt: natural-language 'specification' of a source file written by an LLM, prompt discovered by a hill-climbing loop scored on the roundtrip benchmark (no product name or version); variants: full-length optimized description and ~80-word compact description. (B) Baseline hand-written describe prompt. (C) OpenWiki (LangChain 2026), external documentation tool for coding agents, version not stated. (D) SWE-ContextBench retrieved past-task context",
+   "p": "1, 5-8, 11-12"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per-file natural-language description/specification: module preamble (all imports, constants with exact literal values), each class/function incl. private members with exact signature, defaults, attributes, logic, return paths and exception conditions (discovered prompt, App. D/E); contract file naming public symbols for regeneration",
+   "p": "4, 6, 12"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark: describe (source -> description, tests excluded) -> regenerate (separate model, description + empty scaffold + contract file only) -> evaluate (original tests). Optimizer: proposer rewrites describe prompt -> benchmark score -> keep if objective J (mean fidelity - 0.1 x words/300) improves. Downstream: description of pre-fix file added to issue prompt",
+   "p": "4, 6"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the flow (automatic loop); hand-written descriptions only for the three constructed boundary codebases",
+   "p": "2, 6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (one file-level description supplied to the agent; full describe-regenerate-evaluate pipeline run for the benchmark)",
+   "p": "4, 6-8"
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-as-source; they treat 'a description as durable software source' from which code is regenerated (closest to spec-as-source, reviewer's reading); downstream use is documentation added to context",
+   "p": "9"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: SWE-bench Verified single-file fixtures (regeneration, issue resolution with source withheld or present), SWE-ContextBench Lite issues; plus three hand-built small codebases (add a method honouring a contract)",
+   "p": "2-3, 6-7"
+  },
+  {
+   "f": "Size",
+   "v": "11 roundtrip fixtures (48-2,470 lines, mean 946 +/- 760) from 429 of 2,294 Verified instances passing the filter; 3 hand-built codebases; Kind-B multi-file set 50 fixtures (43 paired); django Kind-B 15; SWE-ContextBench Lite 99 tasks, 12 repos (58 paired in head-to-head)",
+   "p": "3-4, 7-8, 11"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python: sympy (roundtrip fixtures), django, matplotlib, scikit-learn, requests, astropy, seaborn, xarray, sphinx, flask (SWE-ContextBench); access-control policy engine and configuration examples (hand-built)",
+   "p": "3-4, 12"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "-"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Description density (description tokens / code tokens); description length in words (penalty in objective); prompt tokens qualitatively in Sec. 7.3 (description costs more prompt tokens than it saves). No money or time",
+   "p": "4, 6, 8"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Roundtrip fidelity (fraction of original tests passed by regenerated code); fraction of tests passed (source withheld); tasks resolved (all fail-to-pass and pass-to-pass tests pass); pass counts on boundary tasks",
+   "p": "2-4, 7-8"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "-"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Not measured",
+   "p": "-"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure modes of regeneration (lost output literal, lost imports, lost constraint, recitation blocked); verbatim recitation monitoring (contamination); edit attrition (no scorable edit)",
+   "p": "4, 7-8"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: unit tests / official SWE-bench and SWE-ContextBench Docker harnesses; token counts with one subword tokenizer; failure modes by hand analysis",
+   "p": "4, 7, 11"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Agent harness not named for any configuration (models only; local Qwen agent unnamed). Metrics: original / official tests (fidelity = fraction of tests passed by regenerated code; resolved = all FAIL_TO_PASS and PASS_TO_PASS pass; boundary tasks = attempts or facts passed). No run cost (tokens, money, time) reported except qualitatively in Sec. 7.3; density = description tokens / code tokens. No success criterion for a configuration is stated by the authors.\n- Boundary tasks, Flash-lite, no description (Table 2): contract only in description 0/3; contract visible in code 3/3; 1/3/5 of 5 facts 0/5. Quality: no criterion stated by the authors; cost: not measured\n- Boundary tasks, Flash-lite + description (hand-written for the 3 codebases; Pro-written otherwise): contract only in description 3/3 on each codebase; contract visible 3/3; facts 1/5, 3/5, 5/5 by completeness; compact 38w and verbose 664w both 5/5. Quality: no criterion stated by the authors; cost: not measured\n- Five-fact task, Flash-lite / Gemma 4 31B / Gemma 3 4B (Table 9): no description 0/8 each; compact 8/8; verbose 8/8. Harder 28-key task, Flash-lite / Gemini 2.5 Flash / Gemma 3 4B (Table 10): compact and fair (buried) verbose 8/8, 4/4, 8/8; verbose without exact keys 0/8, 0/4, 0/8. Quality: no criterion stated by the authors; cost: not measured\n- Roundtrip benchmark, base describe prompt, gemini3.5-flash describe + regenerate (3 runs, Table 3): mean fidelity 0.32 +/- 0.35, density 0.69 +/- 0.48; 4 of 11 fixtures 0.00. Quality: no criterion stated by the authors; cost: not measured (density only)\n- OpenWiki documentation + same Gemini family regenerate (Table 5): fidelity saferepr 0.00, contains 0.67, unitsystem 0.00; deny-override task, Flash-lite, 0/4 (Table 6). Quality: no criterion stated by the authors; cost: not measured\n- Own description, same 3 fixtures: 0.73, 1.00, 0.85; deny-override 4/4. No documentation on deny-override: 0/4. Quality: no criterion stated by the authors; cost: not measured\n- Optimized describe prompt (proposer gemini-2.5-pro, T 0.4; 3 training / 2 held-out fixtures; 3 independent runs): training fidelity 1.0 then shorter descriptions; held-out fidelity 0.5 (base prompt) -> 1.0 with fewer words (Fig. 3 only). Quality: no criterion stated by the authors; cost: not measured (word count only)\n- Source withheld, Flash, mean test-pass fraction over 3 attempts (Table 7): issue only 0.08; + baseline description 0.21; + optimized description 0.71, best on 10 of 11, rings 0.09 and lambdify 0.10. Quality: no criterion stated by the authors (each condition); cost: not measured\n- Source present (Table 8, resolved / paired): Kind-B multi-file, local Qwen 3.6 agent: issue only 14/43, + full description 11/43. Kind-B django, Gemini 3.1 Pro: issue 9/15, + compact 8/15, + full 4/15. SCB django control, Gemini 3.1 Pro: issue 14/29, + retrieved context 15/29. SCB django, Gemini 3.1 Pro: issue 15/32, + compact 16/32. SCB Lite, Gemini 3.8 Flash: issue 33/58, + compact 29/58, + context 30/58 (McNemar p = 0.22 and 0.25 vs issue); full issue-only run 37/68 scored (Table 11). Quality: no criterion stated by the authors (each condition); cost: not measured\n- Editing without loading the file (single files, targeted-symbol protocol): with optimized description 17 of 33 runs, without 14 of 33; mean pass fraction 0.94 in both; the description costs more prompt tokens than it saves except on lambdify (resolves all three at fewer tokens than loading the file); no token numbers given. Quality: no criterion stated by the authors; cost: no criterion stated by the authors",
+   "p": "2-8, 10-11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Several experiments: (1) boundary tasks on 3 hand-built codebases and a fact-lookup task; (2) roundtrip benchmark on 11 Verified fixtures; (3) OpenWiki vs own descriptions on 3 fixtures; (4) optimizer with 3 training / 2 held-out fixtures; (5) issue resolution source withheld (11 fixtures) and source present (5 settings, 3 models); (6) editing without loading the file (single files, 33 runs). Baselines: no description / issue only; base describe prompt; OpenWiki. Held constant: model within each comparison, temperature 0 for generation, same regenerate/evaluate stages, descriptions from pre-fix file, official Docker harness; paired tasks only (tasks with scorable edit under every condition). Acceptance: original/oracle unit tests, fail-to-pass and pass-to-pass. Repetitions: 3 runs per fixture (benchmark, source withheld), 3-8 attempts on boundary tasks; not stated for the source-present runs (Kind-B, SWE-ContextBench). Human intervention: none",
+   "p": "2-8, 11"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Completeness, not length, drives fidelity (Pearson density-fidelity 0.88). Own descriptions beat OpenWiki on all 3 fixtures (0.73/1.00/0.85 vs 0.00/0.67/0.00). Optimizer raises held-out fidelity 0.5 -> 1.0. Source withheld: optimized 0.71 vs baseline 0.21 vs issue 0.08. Source present: no documentation condition improves on issue-only by more than one task; full description worst wherever run (django 4/15 vs 9/15); SCB Lite issue 33 vs compact 29 (p = 0.22) vs context 30 (p = 0.25), not significant; sign test on Kind-B dominated by ties",
+   "p": "4-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Benchmark separated descriptions (fixtures from 0 to 1 fidelity; not saturated). Positive control on SCB django (retrieved context 15 vs 14) presented as showing the harness can detect an effect, though a one-task difference. Limitations stated: small fixture set (11 + 3) from one language and project family; largest downstream run one economical model and one summary length (~80 words); stronger-model replications only on django; attrition not perfectly random (documentation conditions no-edit more often); benchmark needs a capable regenerator (two open-weight models scored zero); optimizer proof of concept (few fixtures, iterations, one proposer); contamination controls incomplete",
+   "p": "7-8"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Documentation of this kind pays only when the source cannot be loaded (compression format for code that does not fit context); redundant, occasionally harmful (invites rewriting), when source is present. Next step: establish the boundary at repository scale where whole codebases do not fit. Limitations as in 'did the method work'",
+   "p": "8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute",
+   "p": "1, 6, 9, 11-12"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): hypothesis and four steps/three contributions stated",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): pipeline, fixture filter, objective, prompts and SCB protocol described; code and data released",
+   "p": "4, 6, 11-12"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names given; agent harness and tool versions not identified (local Qwen agent unnamed; OpenWiki version not stated)",
+   "p": "4, 6-8"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): fixtures from SWE-bench Verified with scripted filter, SWE-ContextBench Lite; hand-built codebases released; GitHub repository",
+   "p": "1, 3, 11"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): original unit tests and official benchmark harnesses as oracle",
+   "p": "4, 7, 11"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): fidelity, density, resolution defined; cost only as description density/length and qualitative token remarks, no token or money cost of runs",
+   "p": "4, 6, 8"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): issue-only / no description baselines, base prompt, OpenWiki under the same pipeline",
+   "p": "5, 7-8"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 runs with mean and SD on benchmark; McNemar on SCB Lite and sign test on Kind-B; other settings single runs with small paired sets (15-32 tasks)",
+   "p": "4, 7"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): negative downstream result reported and bounded",
+   "p": "8-9"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations paragraph covering fixtures, models, attrition, regenerator sensitivity, contamination",
+   "p": "8"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors created the benchmark and optimized describe prompt they evaluate; independent of OpenWiki, SWE-ContextBench and the Gemini/Qwen models",
+   "p": "1, 5"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): optimizer needs hosted Gemini models, Docker and benchmark fixtures, within reach, but compute and cost not stated; and the descriptions gave no benefit when source is present",
+   "p": "4, 6-8"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "-"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "-"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "-"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "-"
+  }
+ ]
+}

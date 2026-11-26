@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486643",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Watanabe, K., Ogawa, H., Ito, S., Nakazawa, T., Tsuru, K. (2026). A Knowledge Engineering Framework for AI-Driven Software Development: Harness, Guardrail, and AI-Native Knowledge DevOps. In 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA), IEEE. doi:10.1109/IISA71656.2026.11705457",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA), IEEE; 4-page short paper",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Digital Innovation R&D, Hitachi, Ltd., Japan (all five authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — knowledge engineering framework (Effective Agent = Foundation Model + (Harness || Guardrail), plus the AI-Native Knowledge DevOps meta-process), illustrated descriptively in a 142-day single-developer experience report (N=1)",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Harness / Guardrail / AI-Native Knowledge DevOps framework (authors' own); no version. Builds on ADRs, GitOps, AGENTS.md/harness-engineering corpora 'as foundations rather than novelty'",
+   "p": "1-2, 4"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Harness: Knowledge artifacts (CLAUDE.md rules, DESIGN_NOTES.md design notes in ADR form: context, alternatives, rationale, consequences), Skills (SKILL.md parameterised procedures: commit, deployment, review, issue lifecycle), Stakeholder persona sub-agent prompts (business, end-user, UX, architect, implementer, tester, QA, operations, adversarial critic), Runtime/loader. Guardrail: lint, unit/E2E/visual regression tests, adversarial review-gate on a different model family, post-push review Skill. All versioned in one Git repository with CI/CD definitions (GitOps)",
+   "p": "2-3"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Operational: Harness (pre-action course-setting) -> agent action -> Guardrail (pre-merge gates: deterministic checks + cross-family review-gate; post-merge post-push review). Meta-process AI-Native Knowledge DevOps across sessions: Capture findings -> Refine artifacts -> Create artifacts (when novel) -> Apply artifacts back into Harness and Guardrail (Fig. 1). CI/CD: push -> lint -> test+VRT -> build -> staging (automatic) -> production (manual) (Fig. 2)",
+   "p": "2-3"
+  },
+  {
+   "f": "Human review points",
+   "v": "Refine/Create/Apply proposals traverse the same pull-request/CI gates as code ('human-governed, agent-assisted'); manual approval for production deployment; review-gate critiques must be rebutted or addressed before merge (by whom not fully stated)",
+   "p": "2-4"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (framework applied over the whole 142-day project); cross-family review-gate effect explicitly 'untested'; full agent execution of Knowledge DevOps 'not demonstrated'",
+   "p": "1-3"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (knowledge/context-artifact framework; no specification as the main artefact); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New project (production-grade market-sizing web application built over 142 days)",
+   "p": "2-3"
+  },
+  {
+   "f": "Size",
+   "v": "Single project: 9,441 application SLOC / 8,773 test SLOC; 297 commits over 142 days; 441 tests (278 unit / 156 E2E / 7 VRT); 14 knowledge documents (7,349 lines); 42 CLAUDE.md rules, 56 design notes; 92 issues (78 via the agent's issue-lifecycle Skill)",
+   "p": "1, 3"
+  },
+  {
+   "f": "Domain",
+   "v": "Business planning: TAM/SAM/SOM market-sizing web wizard using a cloud-hosted reasoning LLM with web search; three deployment tiers including closed-network production for confidential business plans. Programming language Not stated",
+   "p": "2-3"
+  },
+  {
+   "f": "Team profile",
+   "v": "Single developer, overlapping with the framework authors",
+   "p": "1, 4"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (no tokens, time or money); development period 142 days and commits/month (6 -> 136) reported only descriptively",
+   "p": "3-4"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Main-branch CI/CD failures (zero after initial setup); test counts; no pass rates against independent criteria",
+   "p": "3"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured directly; structural density (rules, design notes, code-anchored references, issue cross-references); (code+tests)/knowledge SLOC ratio 2.48:1",
+   "p": "3"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Knowledge maintenance: commits touching knowledge docs 35% (103/297); commits on CLAUDE.md / DESIGN_NOTES.md 17 / 36 (43 unique); deletion/addition ratio 0.33 / 0.11; maintenance-class commits 27/43 (63%), purely additive 6/43 (14%), mixed 10/43 (23%); recurrence of URL hallucination after rule codified (not flagged again); decision reuse (ADR for Issue #87 consulted in three later discussions)",
+   "p": "3-4"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: commit history, cloc 1.96 (excluding generated/vendor files). Manual / self-report: maintenance-class via single-rater regex (manual coding and second-rater audit pending); issue-closing commits self-reported; review-gate observations anecdotal; 'All values are unaudited single-rater self-report'",
+   "p": "3"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors (descriptive experience report; 'we make no causal claim'; observations presented as design hypotheses). - Framework + Claude Code (implementation agent) + OpenAI Codex CLI review-gate (openai-codex plugin); models and versions Not stated: 297 commits over 142 days, 9,441 application SLOC / 8,773 test SLOC, 441 tests (278 unit / 156 E2E / 7 VRT), zero main CI/CD failures after initial setup, 63% (27/43) maintenance-class commits on agent-loaded artifacts, URL hallucination not flagged again after the rule was codified. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors (no cost metrics reported)",
+   "p": "1-4"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No comparison: single case, no baseline ('We did not record per-critique counts or a same-family baseline'). Repetitions: 1. Human intervention: PR/CI gates, manual production approval",
+   "p": "3-4"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (no configurations compared; observations presented as design hypotheses, not established effects)",
+   "p": "4"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A. Authors state the disconfirmation test (agent participation <50% on >=3 event types or no recurrence prevention) is 'trivially passed here, meaningful only under multi-project, baseline-controlled replication'",
+   "p": "4"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "N=1, single developer (overlapping with authors), single platform (Claude Code), single domain; individual-skill, post-hoc, survivorship, Hawthorne risks; maintenance-class single-rater regex; line counts descriptive proxies; commit increase not isolatable from ramp-up/scope/deadline; living documentation not separable from author skill. Open: multi-team scaling, cross-platform replication (Cursor, Copilot, Devin); cross-family review-gate untested; full agent execution of Knowledge DevOps not demonstrated",
+   "p": "1, 3-4"
+  },
+  {
+   "f": "Notes",
+   "v": "No printed page numbers in the extracted text; PDF pages 1-4. Table I came out jumbled; rebuilt from table caption and text (values consistent with text on p. 3). Reporting: abstract says 441 tests = 278+156+7 (consistent). Models behind Claude Code and Codex CLI not named. Artifact (CLAUDE.md template, SKILL.md personas, review-gate config, scripts) 'in preparation but not available at this camera-ready'; proprietary logic not released. No pre-registration. Programming language Not stated",
+   "p": "1, 3-4"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (propose framework; illustrate it via experience report, no causal claim) clear, no explicit RQs",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): framework components described; case setup and metric definitions given, but artefacts not released and many details (prompts, models) missing",
+   "p": "2-4"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Claude Code and OpenAI Codex CLI named, cloc 1.96 versioned; no agent or model versions",
+   "p": "2-3"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): project described; proprietary, not available",
+   "p": "2-4"
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): single-rater self-report, no independent criterion",
+   "p": "3"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): descriptive maintenance metrics defined in Table I; no cost metrics and no quality outcome metrics",
+   "p": "3"
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline (explicitly none)",
+   "p": "3"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): N=1, no statistical analysis",
+   "p": "4"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions carefully hedged as design hypotheses, not effects; limitations of each observation stated",
+   "p": "1, 4"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short 'Threats, scalability, generalizability' paragraph",
+   "p": "4"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): IISA 2026 IEEE conference proceedings",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created the framework evaluated; developer overlaps with authors",
+   "p": "1, 4"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): built on available tools (Claude Code, Codex CLI, Git, CI/CD), but requirements (cost, compute, skills) not stated and artefacts not released",
+   "p": "2-4"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

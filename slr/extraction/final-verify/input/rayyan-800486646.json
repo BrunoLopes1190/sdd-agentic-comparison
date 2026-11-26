@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486646",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Suri, S., Das, S. N., Singi, K., Dey, K., Sharma, V. S., Kaulgud, V. (2023). Software Engineering Using Autonomous Agents: Are We There Yet? In 2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE), IEEE, pp. 1855-1857. doi:10.1109/ASE56229.2023.00174",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2023",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ASE 2023 (IEEE/ACM), 3-page short paper, track not stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Accenture Tech Labs, Bangalore, India (all six authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — exploratory trial of Auto-GPT v0.3.0 on an SDLC task (calculator web app), with an informal comparison of high-level prompts vs prompts with context; also conceptual sections (autonomous orchestration in SDLC, challenges)",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Prompts with context (detailed prompt specifying file names, target paths, methods, variable names) vs high-level prompts (without context), given to Auto-GPT v0.3.0; no named SDD approach",
+   "p": "1-2"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "A single detailed natural-language prompt (no separate spec files): file names (index.html, style.css, GetSetCalc.java, Calculate.java, Controller.java, CalcTest.java), target paths, methods (add, subtract, multiply, divide), variable names (num1, num2, operator), test file with edge cases, Git steps",
+   "p": "2"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Auto-GPT internal loop: Task Agent creates tasks -> Prioritization Agent -> Execution Agent with memory -> result. Experiment task flow: requirements -> framework selection -> code generation (front-end, back-end) -> test generation and execution -> fix and re-run -> push to GitHub",
+   "p": "1-2"
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (autonomous run)",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (one prompt, with or without context), run end-to-end by the agent",
+   "p": "2"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (detailed prompt, no specification artefact); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New project (small web application from scratch)",
+   "p": "2"
+  },
+  {
+   "f": "Size",
+   "v": "One toy task: calculator web application (HTML/CSS front end, Spring Boot Java back end, tests); size in LOC Not stated",
+   "p": "2"
+  },
+  {
+   "f": "Domain",
+   "v": "Web application (calculator); Spring Boot / Java, HTML, CSS; Django and Flask mentioned without results",
+   "p": "2-3"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no participants; authors ran the agent)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Qualitative: whether files saved in correct paths, names consistent, application compiles and runs successfully",
+   "p": "2"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Qualitative: consistency of variable and method names across front end and back end",
+   "p": "2"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Qualitative observations of failure modes: task/goal skipping, hallucinations (unrequired classes/methods, wrong paths), limits on complex tasks, repetitive/circular loops, no task-completion validation; context length limit",
+   "p": "2-3"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual observation by the authors; not described further",
+   "p": "2"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: application compiles and executes successfully (authors' observation). - High-level prompt + Auto-GPT v0.3.0 + GPT-3.5/GPT-4 (which model per run not stated): files in wrong paths, inconsistent names, failed to compile. Quality: does not work. Cost: not measured. - Prompt with context + Auto-GPT v0.3.0 + GPT-3.5/GPT-4: files in designated paths, consistent names, application executed successfully. Quality: works. Cost: not measured",
+   "p": "1-2"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "One task (calculator web app); two prompt conditions; baseline: high-level prompt; held constant: agent (Auto-GPT v0.3.0), task; model not clearly fixed (GPT-3.5 and GPT-4 mentioned); acceptance tests: agent-generated tests only, no independent tests; repetitions: Not stated; human intervention: Not stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Prompt with context better on functional correctness (compiles and runs vs fails to compile). Qualitative, single example, no significance testing",
+   "p": "2"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the two prompt types on one example; repeatability not addressed; no limitations of the comparison method stated",
+   "p": "2"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section for the study. Agent challenges: task skipping, hallucinations, complex tasks, circular responses, absence of task-completion assessment, context length. Future: better context for complex code and tests; multi-agent parallelism (e.g., MetaGPT); risk management (data leaks, security)",
+   "p": "2-3"
+  },
+  {
+   "f": "Notes",
+   "v": "Printed page numbers 1855-1857 = PDF pages 1-3. Very short paper; no data, prompts beyond the two examples, or replication package; no pre-registration. Abstract mentions Spring Boot, Django, Flask but only a Spring Boot example is reported. Programming language: Java (Spring Boot), HTML, CSS",
+   "p": "1-3"
+  },
+  {
+   "f": "Q1",
+   "v": "Partly (0.5): broad aim (state of autonomous agents in SE; effect of context-rich prompts), no explicit research questions",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): only two example prompts; no procedure, runs or setup described",
+   "p": "2"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Auto-GPT v0.3.0 named; models only as GPT-3.5 and GPT-4, which used per run not stated",
+   "p": "1"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): task described by the example prompts; nothing made available",
+   "p": "2"
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): authors' own observation of compile/run outcome",
+   "p": "2"
+  },
+  {
+   "f": "Q6",
+   "v": "No (0): no metrics defined; no cost",
+   "p": "2"
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): high-level prompt vs context prompt on the same task, but conditions not documented",
+   "p": "2"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistics reported",
+   "p": "—"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): general claims ('context-rich prompts' beneficial for complex frameworks such as Spring Boot, Django, Flask) rest on a single example",
+   "p": "1-3"
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity; only agent challenges listed",
+   "p": "3"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ASE 2023 IEEE/ACM conference proceedings",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Accenture authors, not vendors of Auto-GPT or GPT models",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

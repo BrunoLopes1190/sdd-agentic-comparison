@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486274",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ouyang, Y., Huang, X., Liu, B., Zheng, Z., Gu, Y., Zhang, X. (2026). Benchmarks are Not Enough: Ramp for Runtime Assessing of Agentic Models in Production Systems. arXiv:2605.27492v1 [cs.SE], 26 May 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2605.27492v1 [cs.SE]; no venue stated (timeline footnote: draft completed 14 May 2026)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "School of Computer Science and Engineering, Sun Yat-sen University, Guangzhou, China (all authors); authors' lab runs the YatCC platform and the AI Hub gateway",
+   "p": "1, 5, 13-14"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — RAMP, a production-grounded assessment infrastructure on the YatCC platform with six serially dependent compiler-construction tasks (T0-T5), a resurrection protocol (golden-artifact injection after failure), outcome/process metrics and a composite Agent Efficiency Index (AEI); 15 models compared on one OpenHands-SDK backend",
+   "p": "1-2, 4-7"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent: unified backend built on the OpenHands SDK (version not stated), models accessed through the authors' AI Hub OpenAI-compatible gateway. Models (Table 3): claude-opus-4-7, gpt-5.5, deepseek-v4-pro, qwen3.6-max-preview, glm-5.1, kimi-k2.6, deepseek-v4-flash, deepseek-reasoner, qwen3.5-plus, glm-4.7, kimi-k2.5, glm-4.6, deepseek-chat, qwen3-coder-flash, minimax-m2.5. Baseline: unmodified scaffold code without agent",
+   "p": "4-5, 7-8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no development approach). Task artefacts: partially implemented YatCC scaffold repository per task; intermediate artifacts passed between stages (token stream, AST/ASG JSON, LLVM IR, optimized IR, RV64 assembly); golden artifacts from a reference implementation; config.cmake switches (TASK_k_REVIVE=ON) for resurrection",
+   "p": "2, 5-6"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Evaluation flow: fresh container and workspace (LLVM 14, ANTLR, pybind11, CMake) -> agent executes T0 env setup, T1 lexer, T2 parser, T3 IR generation, T4 IR optimization, T5 RV64 assembly sequentially in one persistent repository -> per-task deterministic test suites (0-100) -> Mode 1: resurrection (golden artifact injected when score < threshold, e.g. 60%, agent not informed) or Mode 2: no resurrection (cascading failures); max 500 dialogue turns across the pipeline",
+   "p": "3, 5-7"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent loop (autonomous runs; resurrection handled by the orchestrator)",
+   "p": "6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach run)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: each task provides partially implemented scaffold code; agents complete missing functionality of a compiler (not from scratch)",
+   "p": "5, 14"
+  },
+  {
+   "f": "Size",
+   "v": "1 workload of 6 serially dependent tasks (T0-T5) on the YatCC LLVM-based compiler course project; 15 model runs; code size Not stated",
+   "p": "2-3, 7"
+  },
+  {
+   "f": "Domain",
+   "v": "Compiler construction (C source code to LLVM IR and RV64 assembly), from university compiler coursework (YatCC)",
+   "p": "2-3"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "LLM API cost in USD (provider-specific input/output pricing), total token usage, wall-clock time, interaction turns, command executions, retry counts; AEI combines normalized stage, reward, time, cost and tokens with equal weights",
+   "p": "6-7, 9, 11"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Per-task test-suite score (0-100); task completion rate per stage; furthest pipeline stage reached; Mean Reward MR (weighted average of task scores, weights [0.05, 0.20, 0.20, 0.15, 0.30, 0.10], resurrection factor 1.2 for tasks completed without resurrection, 1.0 otherwise)",
+   "p": "3, 6, 8"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure taxonomy (reasoning, planning, context, tooling and integration, infrastructure failure; primary root cause only); AEI composite utility; OLS fit of MR on log cost (R2 about 0.52) and log time (R2 about 0.40)",
+   "p": "6, 9-11"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: deterministic scoring scripts and test suites; orchestrator logs scores, trajectories, tokens, latency and commands; cost computed from provider pricing. Failure categories assigned from execution logs and traces by explicit observable criteria (who labels not stated)",
+   "p": "5, 7, 9-10"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark RAMP/YatCC, Mode 2 (no resurrection), OpenHands-SDK-based backend for all, one run per model (Table 4). Values: T0/T1/T2/T3/T4/T5, MR, cost USD. (1) + Opus-4.7: 100/100/100/100/68.4/100, MR 93.39, $126.24, AEI 40.00, 11,913.79 s, 218.86M tokens. (2) + DS-v4-Pro: 100/100/100/83.6/38.6/100, 85.34, $8.68, AEI 65.21, 136.76M tokens. (3) + DS-v4-Flash: 100/100/31.6/37.0/39.0/100, 66.48, $3.43, AEI 56.40, 157.85M tokens. (4) + GPT-5.5: 100/100/100/100/48.2/0.0, 65.91, $8.77, AEI 81.57, 22.18M tokens. (5) + Qwen-3.6-Max: 100/100/100/65.8/35.0/0.0, 56.72, $67.28, AEI 66.75. (6) + Kimi-2.5: 100/100/14.2/24.7/39.7/9.4, 40.24, $1.75. (7) + Kimi-2.6: 100/95.9/31.4/1.4/37.5/0.0, 33.94, $3.99. (8) + GLM-4.6: 100/67.4/38.5/1.4/39.6/0.0, 30.88, cost not reported. (9) + DS-Chat: 100/72.9/30.9/0.0/35.7/0.0, 29.74, $0.07, AEI 60.36. (10) + Qwen-3.5-Plus: 100/100/0.0/0.0/38.0/0.0, 29.63, $14.37. (11) + GLM-4.7: 100/94.8/0.0/1.4/36.2/0.0, 29.50, $0.80. (12) + GLM-5.1: 100/0.0/97.7/0.0/36.6/0.0, 27.26, $2.03. (13) + Qwen3-Coder: 100/56.0/20.6/1.4/35.1/0.0, 25.97, $0.05, AEI 64.22, 608.36 s, 3.48M tokens. (14) + MiniMax-2.5: 100/64.2/0.0/2.7/36.4/0.0, 25.09, $0.17. (15) + DS-Reasoner: 100/0/0/0/0/0, 7.69, $0.23. (16) Baseline (unmodified scaffold, no agent): 100/17.6/20.6/1.4/35.1/0.0, MR 23.38, no cost. Quality verdict against the authors' end-to-end criterion (a tier is reached only if every task up to it is correctly and completely accomplished; completion = score 100): does not work for all 15 agent configurations (none completes T0-T5) and does not work for the baseline. Note: the authors also name a per-task passing threshold of 60 (bold in Table 4, resurrection trigger); under that threshold Opus-4.7 passes all six tasks. Cost verdict: no criterion stated by the authors (all configurations; N/A for the baseline)",
+   "p": "1, 7-9, 11-13"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: YatCC T0-T5 serial pipeline. Configurations: 15 models on the same OpenHands-SDK backend, AI Hub gateway, environment, toolchain, prompts and orchestration policies; non-agent baseline (unmodified scaffold). Held constant: agent backend, prompts, hardware (AMD EPYC 7742, 256 GB, Debian 11), 500-turn cap. Acceptance: dedicated deterministic test suites per task. Repetitions: one run per model (authors: 15 model tests, not sufficient for statistical conclusions). Human intervention: none. Model settings (temperature, reasoning effort) not stated",
+   "p": "5, 7-8, 14"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Opus-4.7 highest MR (93.39) but highest cost ($126.24, 14.5x DS-v4-Pro for a 9.4% MR gain); DS-v4-Pro second (85.34, $8.68); GPT-5.5 highest AEI (81.57, MR 65.91). Cost range $0.05-$126.24 (2,525x). Stage completion rates 100% (T0), 46.7% (T1), 26.7% (T2), 13.3% (T3), 0% (T4), 20% (T5); average MR 42.7, reported as 17.6 points above the non-agent baseline. Context failure most frequent hard-stop cause (9 of 15), planning failure 2, reasoning failure 1; planning failure observed in 8 of 15. OLS: cost explains about 52% and time about 40% of MR variance. No significance tests",
+   "p": "8-11, 13"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Per the authors, yes: serial pipeline exposes capability decline, failure propagation and cost differences invisible to isolated benchmarks; AEI re-ranks models relative to MR. Repeatability not assessed (single run per model). Resurrection mode (Mode 1) claimed to improve diagnostic observability, but no Mode 1 results are reported. Limitations stated: one domain, 15 runs, single agent backend, possible contamination (YatCC public), subjective equal AEI weights",
+   "p": "1-2, 6, 8, 14"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Compiler construction only, may not represent other production domains; 15 model tests insufficient for fine-grained statistical conclusions across model families, scaffolds or repeated runs; all runs on OpenHands backend; YatCC public, contamination risk; AEI equal weighting subjective. Future work: more models and agent frameworks, repeated runs under controlled settings to separate model, scaffold and orchestration effects; improved AEI (scenario weights, Pareto analysis, recovery metrics); harder variants with reduced or removed scaffolding",
+   "p": "14"
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 4 (p. 8) and text p. 9-13. Inconsistencies: text says 8 models score 100 on T1, Table 4 shows 7 (consistent with the 46.7% completion rate); average MR stated as 42.7, Table 4 values average about 43.2, and 42.7 minus baseline 23.38 is 19.3, not the stated 17.6; text says only 'proprietary models like DS-v4-Pro and Qwen-3.6-Max reach T3 with none progressing further', but Table 4 also gives Opus-4.7 and GPT-5.5 100 on T3 and Opus-4.7 100 on T5; Mode 1 (resurrection) is called the default producing the primary leaderboard, but all reported runs use Mode 2, while MR is defined with a resurrection factor; Figure 6 caption repeats the radar-chart caption of Figure 7. GLM-4.6 cost not reported. Repository and leaderboard said to be open-sourced (ramp.yatcc-ai.com; YatCC on GitHub, arcsysu/YatCC). Footnote: results of extra backends to be added. No pre-registration. Programming language: implementation language not stated (toolchain LLVM 14, ANTLR, pybind11, CMake); the compiler input is C source code",
+   "p": "1, 5-10, 15"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and three contributions clearly stated",
+   "p": "2"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): framework, tasks, metrics, hardware and turn cap described; prompts, model settings, backend version and failure-labelling procedure not given; execution mode description contradicts the reported runs",
+   "p": "4-7"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model API identifiers given (Table 3); OpenHands SDK version and model settings not stated",
+   "p": "7"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): six tasks described with inputs and outputs; YatCC repository and RAMP leaderboard public",
+   "p": "2-3, 5, 15"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): dedicated deterministic test suites per task, independent of the authors' judgement",
+   "p": "3, 5"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): MR, AEI and its normalizations defined; cost (USD, tokens, time) and quality both covered",
+   "p": "6-7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 15 models under the same backend, environment, prompts and policies; non-agent baseline row",
+   "p": "7-8"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per model; no repetitions or statistical tests of differences (only an OLS fit across models)",
+   "p": "9, 14"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main findings follow from Table 4, but several text numbers contradict the table and the claimed benefit of resurrection is not backed by reported Mode 1 results",
+   "p": "1, 8-9"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): dedicated limitations section (domain, sample, single backend, contamination, AEI weighting)",
+   "p": "14"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): evaluated models and the OpenHands SDK are third-party; the authors' own artefacts (YatCC, AI Hub, RAMP) are the evaluation infrastructure, not an evaluated approach",
+   "p": "1, 5, 7"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

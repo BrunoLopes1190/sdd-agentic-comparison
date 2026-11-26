@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485925",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Grynets, O., Ilchuk, O., Zatulna, D., Lyashkevych, V. (2026). Specification Portability Across LLM Development Agents: Cross-Agent Compatibility in Specification-Driven Software Migration. arXiv:2608.21208 (identifier from slr/fulltext-access.csv; not printed in the text, which uses an IEEE conference template with a placeholder copyright line)",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026 (arXiv identifier 2608 = August 2026; the text itself gives no date, but cites 2026 works incl. the authors' own arXiv 2605/2606 preprints)",
+   "p": "1, 11"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.21208; IEEE conference template with placeholder 'XXX-X-XXXX-XXXX-X/XX/$XX.00 ©20XX IEEE', no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "EPAM Systems (McLean, Virginia, USA; Lviv, Ukraine), all four authors",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Evaluates — compares native vs foreign specifications across agents and rewrite, compression and RAG ingestion strategies; also evaluates Stage 1 feasibility of a specification-first Oracle-to-PostgreSQL migration pipeline",
+   "p": "1-3, 6-7"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Stage 1: authors' specification-first (Code-Text-Code) migration pipeline with an agent loop and MCP tools, no version. Stage 2: SDD environments, no versions: Amazon Kiro; GitHub Spec Kit + GitHub Copilot; Google Antigravity + Gemini; Claude Code and Cursor (initial single-agent stage only). Ingestion strategies: direct, rewrite, compression/summarisation, retrieval-augmented (RAG)",
+   "p": "6-9"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Stage 1: per-database-object intermediate specification (behaviour, identifiers, flow, conditions, dependencies, side effects, intent) from which PostgreSQL code is derived. Stage 2: each environment's native specification (Kiro ~1,597 lines; Gemini ~193 lines); artefact structure per tool not described",
+   "p": "1, 3, 6, 8"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Stage 1: preprocess and decompose source SQL into objects -> agent generates specification -> derives PostgreSQL code (iterative tool loop until finish/iteration limit). Stage 2 native workflow: specification generation -> human review -> code generation -> testing, iterated within one environment (Fig. 3); cross-agent: spec from agent A consumed by agent B (direct, rewritten, compressed or via RAG)",
+   "p": "6-9"
+  },
+  {
+   "f": "Human review points",
+   "v": "Native single-agent workflow includes human review of the specification (Fig. 3); not described further; whether humans reviewed in cross-agent runs Not stated",
+   "p": "6-7"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow in the native single-agent runs; specification artefact only in the cross-agent transfer (spec reused, implementation agent changed)",
+   "p": "6-8"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated (spec as intermediate representation for transformation; closest to spec-first)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Stage 1: code migration (existing PL/SQL to PostgreSQL). Stage 2: new project, agents build a deterministic Oracle-to-PostgreSQL migration utility (CLI, AST parsing, tests) from the same functional request, evaluated on a script dataset",
+   "p": "6-7"
+  },
+  {
+   "f": "Size",
+   "v": "Stage 1: 1,006 PL/SQL files. Stage 2: dataset of 1,802 Oracle scripts with PostgreSQL references; utility requirements list (datatypes, functions, sequences, procedures, triggers, packages, cursors, exceptions, reports, CLI, testing). Generated code size Not stated",
+   "p": "6-7"
+  },
+  {
+   "f": "Domain",
+   "v": "Database migration, Oracle PL/SQL to PostgreSQL 16",
+   "p": "1, 7"
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated (human review in native workflow; reviewer profile not given)",
+   "p": "6"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Stage 1 only: ~2,000 tokens per iteration, ~3 iterations per object (900-3,000 tokens). Stage 2: none (pricing constraints limited the agents studied)",
+   "p": "6-7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Exact match %; SQL syntax validity % (sqlglot); immediate runnability % (execution against empty live DB with stubs, lower bound); Stage 1: regeneration success and execution success in PostgreSQL 16",
+   "p": "7"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None of the listed kind (structural similarity metrics below)",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Token F1 (lexical); AST exact match %; AST mean similarity; cross-agent compatibility ratio C_m(A->B) defined (Eq. 5) but not reported numerically; Pareto frontiers on SQL validity x AST similarity",
+   "p": "5-7, 9"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: comparison with reference PostgreSQL scripts (token F1, exact/AST match), sqlglot parsing, execution in PostgreSQL 16 / empty live DB with generated stubs",
+   "p": "7"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Metrics: F1 / EM% / SQL valid% / AST exact% / AST sim / runnable%; models not stated for Stage 2. Criterion: match to reference scripts and runnability. Stage 1: authors' pipeline + custom agent loop + GPT-oss-120b and GPT-o4-mini (not separated): 623/1,006 regenerated (61.9%), 380/623 executed (61.0%); tables ~85%. Quality partly; cost works (~6k tokens/object). Stage 2 native baseline (Table I = Table III diagonal): (1) Kiro spec + Kiro + n.s.: 0.365/0.33/33.74/0.33/0.207/0.72. Does not work. (2) Spec Kit + Copilot + n.s.: 0.75/13.15/43.51/12.76/0.257/0. Does not work (0% runnable). (3) Antigravity + Gemini + n.s.: 0.73/13.32/45.54/12.98/0.69/2.22. Partly. Tuned single-agent (Table II, tuning not explained): (4) Kiro 0.56/12.04/57.8/12.98/0.40/14.76; (5) Spec Kit + Copilot 0.73/12.76/73.03/12.65/0.55/17.48; (6) Claude Code + n.s. 0.73/12.87/56.21/12.49/0.41/4.11; (7) Antigravity + Gemini 0.70/11.99/60.16/18.68/0.67/28.75; (8) Cursor + n.s. 0.69/12.10/65.98/16.11/0.44/7.49. Partly (all). Cross-agent direct (Table III): (9) Gemini spec -> Kiro: 0.71/13.15/43.51/20.03/0.31/2.22. Partly. (10) Kiro spec -> Gemini: 0.68/0.56/0/0/0.08/0.17; replicated run (Table IV) 0.035/0.39/2.33/0.39/0.015/1.22. Does not work. (11) Kiro spec -> Copilot: 0.69/12.4/43.4/17.39/0.55/2.38. Partly. (12) Gemini spec -> Copilot: 0.665/12.8/63/19.9/0.514/runnable not implemented. Partly. Copilot spec -> Kiro/Gemini: not evaluated. Adaptation (Kiro spec): (13) Rewrite -> Gemini: 0.68/13.15/43.62/13.10/0.22/0. Partly. (14) Rewrite -> Copilot: 0.60/0/14.09/0/0.034/0. Does not work. (15) Compression -> Copilot: 0.72/12.71/43.90/19.48/0.24/0.22. Partly. (16) RAG -> Gemini: 0.57/13.40/13.82/20.20/0.32/1.80. Partly. (17) RAG -> Copilot: 0.69/12.76/43.51/12.99/0.285/0.28. Partly. Cost verdict: not reported for all Stage 2 configurations",
+   "p": "6-9"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Task: same functional request (deterministic Oracle-to-PostgreSQL migration utility) to each environment; evaluation on 1,802 Oracle scripts with reference PostgreSQL. Configurations: native spec per agent (Kiro, Copilot/Spec Kit, Gemini/Antigravity; Claude Code and Cursor only in initial single-agent), 3 x 3 origin x implementer matrix with 7 of 9 cells evaluated (3 native + 4 of 6 foreign transfers; Copilot-origin spec -> Kiro and -> Gemini not evaluated), and rewrite/compression/RAG for Kiro-origin specs (compression only for Copilot). Baseline: native-specification condition, rerun before cross-agent stage. Held constant: functional request, dataset, metrics; models, prompts, versions, operator Not stated. Acceptance tests: reference scripts and runnability (lower bound). Repetitions: single runs, except Gemini<-Kiro repeated once. Human intervention: human review in native workflow; not described for transfers. Stage 1 separate (1,006 files, two models)",
+   "p": "6-9"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Spec size does not predict quality (Kiro largest ~1,597 lines, not best). Transfer is asymmetric and agent-dependent: Gemini degrades strongly with Kiro spec (replicated: F1 0.035, SQL validity 2.33%, AST sim 0.015, vs native 0.73/45.54%/0.69); Copilot stable or improved with foreign specs (Gemini spec: SQL validity 63% vs native 43.51%). Rewrite improved Gemini (SQL 43.62%) but hurt Copilot (14.09%); compression no universal benefit; RAG not best on every metric but the only strategy on both per-agent Pareto frontiers (SQL validity x AST similarity). No significance testing",
+   "p": "1, 8-9"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished agents and strategies on several metrics, but runnability near 0-2% for most configurations limits discrimination on operational quality. Repeatability: only one configuration replicated; authors note nondeterminism and interpret single runs cautiously. Limitations stated: conclusions restricted to observed agents, specs, strategies, dataset and metrics; runnability is a lower bound (empty DB with stubs); native baseline not originally designed as a controlled baseline; pricing limited agents",
+   "p": "2-3, 5, 7"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Results do not support that foreign specs are inherently worse; current experiments insufficient to claim RAG universally optimal; procedural/dependency-sensitive objects remain difficult. Future work: specification portability, structured (block-based) specification representations, agent-specific adaptation views, dependency-aware retrieval for multi-agent SDD",
+   "p": "7, 9-11"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: Table III first-run Gemini<-Kiro F1 0.68 (SQL validity 0) vs replicated F1 0.035, described as 'the same qualitative failure pattern'; the values 13.15 (EM) and 43.51 (SQL validity) recur across unrelated configurations: Copilot native (13.15/43.51), Kiro<-Gemini (13.15/43.51), Gemini rewrite of Kiro spec (EM 13.15, Table V) and Copilot RAG of Kiro spec (SQL 43.51, Table VII), which suggests copy errors; Table II 'tuned' single-agent values differ widely from Table I native baselines (e.g. Copilot runnable 17.48% vs 0%), tuning not explained; runnable 'Not implemented' for Copilot<-Gemini. Tables extracted with jumbled columns, mapping done from row order (check Tables I-VII). Figures 4-5 (Pareto) not in text. Models used by Kiro/Copilot/Gemini/Claude Code/Cursor not stated. No data/code availability stated. No pre-registration. Languages: PL/SQL, PostgreSQL SQL; utility language Not stated. Authors' prior work (Code-Text-Code, token optimisation) underlies Stage 1",
+   "p": "6-9"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 and hypotheses H1-H4 stated",
+   "p": "3, 5"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): functional request, dataset size and metrics described; no prompts, specs, models, tuning procedure, RAG settings or human-review rules",
+   "p": "6-9"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agents/environments named and Stage 1 models named (GPT-oss-120b, GPT-o4-mini); Stage 2 models and all versions not stated",
+   "p": "6-7"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): functional request listed; datasets (1,006 files; 1,802 scripts) described only by size; source and availability not stated",
+   "p": "6-7"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): outputs compared with reference PostgreSQL scripts and executed in a database",
+   "p": "7"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined (6); no cost metrics in Stage 2 (only rough token figures in Stage 1)",
+   "p": "6-7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): native-specification baseline rerun under the same task and dataset",
+   "p": "7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): only the anomalous Gemini<-Kiro configuration repeated once; otherwise single runs; no statistical analysis",
+   "p": "8"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions are cautious and restricted, but the 'replicated' degradation conflicts with the first-run F1, and the RAG robustness claim rests on two metrics only (RAG gives 13.82% SQL validity for Gemini)",
+   "p": "8-11"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): scope restrictions, nondeterminism and runnability lower bound noted; no threats-to-validity section",
+   "p": "2, 5, 7, 9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint; venue not stated (template placeholder), peer review cannot be confirmed",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): EPAM is not vendor of Kiro, Copilot, Spec Kit, Gemini; the Stage 1 pipeline is the authors' own (builds on their Code-Text-Code work)",
+   "p": "1, 6"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: the study compares and evaluates; it does not propose an approach (its contribution is stated as 'empirical', p. 3). The Stage 1 pipeline comes from the authors' prior work [5], and the 'specification portability model' (Section VII.E) is a conceptual model, not an approach to implement",
+   "p": "3, 6, 9"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

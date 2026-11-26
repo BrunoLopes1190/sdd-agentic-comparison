@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486091",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ding, D., Liu, S., Yang, E., Lin, J., Chen, Z., Dou, S., Guo, H., Cheng, W., Zhao, P., Xiao, C., Zeng, Q., Zhang, Q., Huang, X., Xu, Q., Gui, T. (2026). OctoBench: Benchmarking Scaffold-Aware Instruction Following in Repository-Grounded Agentic Coding. In: Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026), Vol. 1: Long Papers, pp. 5958-5978. ACL. Read from arXiv:2601.10343v2 [cs.CL], 16 Jan 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ACL 2026, 64th Annual Meeting of the Association for Computational Linguistics, Vol. 1: Long Papers, pp. 5958-5978 (from the WoS export); full text read from arXiv:2601.10343v2",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Fudan University, Peking University (academia); MiniMax (industry; co-corresponding author); repository under github.com/MiniMax-AI",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark OctoBench (+ OctoBench-Conflict) and an observation-and-scoring toolkit for instruction following in coding scaffolds; 8 models compared under 3 scaffolds",
+   "p": "1-2"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Instruction sources evaluated: system prompt, system reminders, user queries, repository policy files (CLAUDE.md, AGENTS.md), Skill.md, memory files, tool schemas. Scaffolds: Claude Code 2.0.69, Kilo 0.10.2, Droid 0.42.2",
+   "p": "1-2, 12, 14"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per instance: Docker environment with repository, policy files (CLAUDE.md / AGENTS.md), skill documentation (SKILL.md), optional pre-seeded memory files (e.g. Kilo memory bank), system prompt, multi-turn user queries; binary checklist (avg 32.7 items per instance)",
+   "p": "1, 3-4, 12-14"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Benchmark: annotators build environment and task specification (seed 72 instances, model-expanded to 217) -> reference agent (GPT-5.1, 16 rollouts) -> LLM checklist generation and consolidation -> joint human-LLM review -> evaluated agent runs with proxy logging -> trajectory normalization -> LLM-judge scoring per check (3 judges) -> ISR/CSR",
+   "p": "3-5"
+  },
+  {
+   "f": "Human review points",
+   "v": "Benchmark construction only: annotators curate tasks, validate model-expanded instances, joint human-LLM checklist review, 20% spot-check, double-annotator audit",
+   "p": "4, 14-15"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefacts as instruction sources (context files CLAUDE.md/AGENTS.md, skills, memory, prompts) within full agent runs; compliance measured, not spec workflow",
+   "p": "3-6"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (instruction-following benchmark; policy/context files as persistent constraints)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing repositories: repository-grounded coding tasks (implementation, modification, configuration, understanding, testing, compliance), multi-turn",
+   "p": "1-4, 13-15"
+  },
+  {
+   "f": "Size",
+   "v": "34 environments, 217 instances, 7,098 checklist items (avg 32.7, median 34 per instance); OctoBench-Conflict 32 instances; repository sizes not stated",
+   "p": "1, 5, 14"
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (environments assembled from publicly available artefacts; 'derived from industrial applications')",
+   "p": "2, 21"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; annotators are the research team)",
+   "p": "21"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None of the test-pass kind (task completion is checked only as checklist items, e.g. implementation/modification checks)",
+   "p": "5, 15"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Instruction-following compliance: Instance Success Rate (ISR, all checks pass) and Check item Success Rate (CSR, mean share of checks passed); per category and per scaffold; conflict resolution rates (which source followed); gains after feedback; ISR by interaction turns; judge rank stability",
+   "p": "5-8"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: proxy-logged trajectories scored per checklist item by an LLM-judge panel (GPT-5.1, Claude Sonnet 4.5, Gemini 3 Pro), mean of three; checklists LLM-generated (GPT-5.1) and human-audited (>95% valid)",
+   "p": "4-6, 9, 14-15"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Metrics: ISR / CSR (avg of 3 judges); 3 runs per instance per model. Per scaffold (Table 3), ISR / CSR: Claude Code 2.0.69 + Claude Opus 4.5: 28.39 / 84.39; + MiniMax-M2.1: 18.60 / 82.75; + Gemini 3 Pro: 14.82 / 80.88; + Claude Sonnet 4.5: 16.71 / 80.85; + ChatGLM-4.6: 13.89 / 80.07; + Kimi-K2-Thinking: 14.42 / 79.61; + Doubao-Seed-1.8: 10.83 / 79.19; + MiniMax-M2: 11.04 / 79.88. Kilo 0.10.2 + Opus 4.5: 20.00 / 89.26; MiniMax-M2.1: 16.45 / 87.03; Gemini 3 Pro: 15.16 / 84.56; Sonnet 4.5: 4.44 / 80.91; GLM-4.6: 7.01 / 80.23; Kimi: 5.02 / 79.93; Doubao: 3.70 / 80.83; MiniMax-M2: 4.52 / 81.45. Droid 0.42.2 + Opus 4.5: 40.17 / 94.60; MiniMax-M2.1: 15.38 / 92.42; Gemini 3 Pro: 11.97 / 89.70; Sonnet 4.5: 7.78 / 84.74; GLM-4.6: 7.69 / 84.71; Kimi: 8.68 / 86.96; Doubao: 5.24 / 85.39; MiniMax-M2: 3.42 / 84.22. Overall avg ISR / CSR: Opus 4.5 28.11 / 85.64; MiniMax-M2.1 18.15 / 83.86; Gemini 3 Pro 14.68 / 80.94; Sonnet 4.5 14.65 / 81.10; GLM-4.6 12.73 / 80.38; Kimi 12.95 / 80.10; Doubao 9.66 / 79.75; MiniMax-M2 9.81 / 80.34. Verdicts: quality: no criterion stated by the authors (no ISR/CSR level is set as success for a configuration); cost: N/A (not measured)",
+   "p": "6, 12"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "217 instances under 3 scaffolds; 8 models; no baseline (benchmark comparison). Held constant: instance environment, checklist, scaffold defaults, temperature 1.0, Docker with network, timeout ~30 min. Acceptance criterion: binary checklist items judged by LLM panel. Repetitions: 3 runs per instance per model. Extra experiments: conflict set (32 instances), feedback-correction on Claude Code partial failures, ISR by turns, judge consistency. Human intervention: none during runs",
+   "p": "4-8, 12"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Large ISR-CSR gap (CSR 79.75-85.64% vs ISR 9.66-28.11%); Claude Opus 4.5 best overall and most robust across scaffolds and turns; Skill.md constraints weakest category, Memory strongest (e.g. Skill ISR Opus 58.45% vs MiniMax-M2.1 12.33% on Claude Code); system prompt beats project docs and user query beats project docs in conflicts, user vs system varies by model; feedback raises ISR by +7.2 to +16.8 points. No significance tests",
+   "p": "6-8, 20"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models and scaffolds; judge rankings stable (max one rank difference); no self-preference found. Repeatability: 3 runs, Std across judges reported; dataset and toolkit to be released. Limitations stated: checklist-verifiable compliance only (not open-ended quality); reliance on LLMs for checklists and judging (<5% problematic items, mostly Tool schema and Skill.md); 34 environments and 3 scaffolds; raw traces not released by default",
+   "p": "8-9, 15"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Need for training and evaluation targeting heterogeneous, persistent instruction following; broader scaffold coverage, stronger deterministic checks, robustness against strategic avoidance of conditional requirements; subjective helpfulness under-represented",
+   "p": "1, 8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 (by judge) and Table 3 (by scaffold) rebuilt from pdftotext column order; overall averages from the 'Overall Average' columns. Std in tables is across judges, not runs. Table 6 counts instances by primary instruction category (sums to 217), Table 7 counts instances in which each source is present (e.g. Skill.md 48 vs 46 primary; Agents.md/Claude.md 117 vs 60 primary), so the counts differ by design. Feedback experiment ISR baselines (21-38%) differ from Table 3 because they use partial-failure subsets. MiniMax co-authors evaluate their own models (MiniMax-M2, M2.1). Benchmark repository github.com/MiniMax-AI/mini-vela (release promised; full raw traces not in the public JSONL by default). No pre-registration. Programming languages: not stated",
+   "p": "1, 6-7, 14, 21"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): five RQs and contributions stated",
+   "p": "2, 6-8"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction pipeline, checklist prompt, metrics, hyperparameters and scaffold versions given",
+   "p": "3-5, 12-15"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): scaffold versions (Claude Code 2.0.69, Kilo 0.10.2, Droid 0.42.2) and model names given",
+   "p": "6, 12"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark well described with statistics; release promised (repository URL), not confirmed as available",
+   "p": "1, 14, 21"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): human-audited checklists, but scoring is by LLM judges (ensemble), no execution-based tests",
+   "p": "4-5, 9, 14-15"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): ISR and CSR defined; no cost metrics",
+   "p": "5"
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition",
+   "p": "6"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 runs per instance and 3 judges, Std across judges; no statistical tests of differences",
+   "p": "6, 12"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main findings follow, but 'proves' judge reliability from rank stability alone and causal readings ('context fatigue') are not tested",
+   "p": "8"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section",
+   "p": "8-9"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in the ACL 2026 proceedings (Long Papers), per the WoS export",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): MiniMax co-authors evaluate MiniMax-M2 and M2.1 among the eight models; other models and scaffolds independent",
+   "p": "1, 6"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

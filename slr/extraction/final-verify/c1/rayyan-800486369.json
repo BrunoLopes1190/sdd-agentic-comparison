@@ -1,0 +1,10 @@
+{"key": "rayyan-800486369", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q8",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Partly (0.5): mixed-effects models with 95% CIs and p-values per contrast and equal-weight per-problem robustness analyses, but a single run per problem-language-model (temperature 1.0), so run-to-run variability is not measured",
+             "p": "3, 5, 13-15, 17",
+             "quote": "To conserve tokens and budget, we instead randomly sample 100 tasks (yielding 2,000 sessions), and we refer to this subset as MiniLCB.",
+             "where": "§3.3 The MiniLCB Benchmark, p. 3",
+             "why": "Q8 asks for repetitions and statistical analysis; the statistics are strong but each configuration is run once (100 x 4 x 5 = 2,000), which the author's own value notes, so Yes vs Partly is a judgement call.",
+             "doubt": "Há análise estatística (modelos mistos, IC 95%), mas cada combinação problema-linguagem-modelo corre só uma vez (2.000 sessões = 100x4x5), com temperatura 1.0. Vê a pág. 3 e decide se Q8 fica Sim ou Parcial, de forma coerente com outros estudos sem repetições."}]}

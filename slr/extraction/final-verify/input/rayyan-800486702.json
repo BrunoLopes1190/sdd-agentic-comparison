@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486702",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lekarakos, A. I., Koutsomitropoulos, D. A., Tsolis, D. K. (2026). Towards an Evaluation Methodology for AI Code Assistants. In: 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA), pp. 1-8. IEEE. https://doi.org/10.1109/IISA71656.2026.11705481",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 2026 17th International Conference on Information, Intelligence, Systems & Applications (IISA), IEEE, pp. 1-8, DOI 10.1109/IISA71656.2026.11705481",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Computer Engineering and Informatics Department, University of Patras, Greece (all authors; academic)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — AI-DevEval framework (four axes: Efficiency & Flow, Feature Richness, Context Engineering, User Experience; weighted AI-Dev Index with quality zones) applied in an exploratory controlled study with 6 developers comparing a web chatbot, an IDE plugin and an AI-native IDE, plus a model-volatility comparison",
+   "p": "1-4, 6"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Tools compared: Claude Web (chatbot baseline, Chrome), GitHub Copilot (VS Code plugin), Google Antigravity (AI-native IDE); model fixed to Claude Sonnet 4.6 in the primary phase; secondary phase Antigravity with Gemini 3 Flash vs Claude Sonnet 4.6; tool versions not stated",
+   "p": "4-5"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts; Context Engineering axis scores configuration-as-code rule files such as .cursorrules/.windsurfrules, .aiignore, global rules and memory features)",
+   "p": "4"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (interactive use of assistants by developers; no prescribed flow)",
+   "p": "—"
+  },
+  {
+   "f": "Human review points",
+   "v": "Developer reviews and corrects AI suggestions throughout (measured as review ratio Rrev); no prescribed review points",
+   "p": "2-3"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach; full interactive use of each assistant on three tasks)",
+   "p": "4-5"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD; authors' wording 'context engineering', 'orchestration layer')",
+   "p": "2, 6"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: MVP-stage 'Delivery on Demand' food delivery application; three scenarios: greenfield Admin dashboard feature, multi-file i18n refactoring of Courier views, full-stack admin customer endpoint with an intentional password-leak vulnerability",
+   "p": "4-5"
+  },
+  {
+   "f": "Size",
+   "v": "One application (React/Next.js frontend, Node.js backend, PostgreSQL with Prisma); 3 scenarios; size of the code base Not stated; 6 participants, each solving the 3 scenarios with a different tool (Latin square)",
+   "p": "4"
+  },
+  {
+   "f": "Domain",
+   "v": "Web development (food delivery application with Admin and Courier roles)",
+   "p": "4-5"
+  },
+  {
+   "f": "Team profile",
+   "v": "6 individual participants: 2 senior undergraduate CS students, 2 mid-level engineers (2-5 years), 2 senior engineers (> 5 years); demographic profile (experience, usage context, AI familiarity) collected",
+   "p": "3-4"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Completion time Tc (minutes, prompt submission to successful execution); number of prompts Np (values not reported); no token or money cost",
+   "p": "3, 8"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None (no tests; 'successful execution' ends Tc but its criterion is not defined); detection of the intentional data leak used qualitatively in scenario 3",
+   "p": "3, 5"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Interaction friction If (copy-paste + window switches + file adds); review ratio Rrev (review/correction time over generation time, target < 1); number of prompts; 10-item DX-Q questionnaire on 5-point Likert (learning, flow, trust; includes cognitive load); overall subjective score 0-10",
+   "p": "2-4"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Feature Richness score (7 features, 0-3 each, max 21); Context Engineering Score (4 dimensions, 0-3 each, max 12); AI-Dev Index Itotal = 0.35 Ictx + 0.30 Ieff + 0.20 Idx + 0.15 Ifeat with min-max normalisation (0-100) and quality zones (< 40, 40-65, 65-85, >= 85); model volatility",
+   "p": "2-4"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: post-session analysis of screen and audio recordings (Tc, Np, If, Rrev); think-aloud and observational notes; questionnaire after each scenario; feature and context scores by rubric (scorer not stated). Min-max normalisation across the tools evaluated",
+   "p": "2-5"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Exploratory study, 6 participants (Table V, VII). Authors' criterion: AI-Dev Index quality zones (Zone 1 Insufficient < 40 ... Zone 4 Autonomous Agent >= 85); Rrev target < 1. Claude Web + Claude Sonnet 4.6 (baseline): A1 0.01, A2 23.8, A3 25.0, A4 60.0, Itotal 24.32 (Zone 1); Tc 42.8 min, If 80.1, Rrev 0.87 — quality verdict: does not work (Zone 1); cost verdict: no criterion stated by the authors. GitHub Copilot (VS Code) + Claude Sonnet 4.6: A1 70.87, A2 71.4, A3 75.0, A4 72.0, Itotal 72.62 (Zone 3); Tc 22.3 min, If 7.2, Rrev 0.42 — quality verdict: partly (Zone 3, requires supervision); cost verdict: no criterion stated by the authors. Google Antigravity + Claude Sonnet 4.6: A1 100.0, A2 95.2, A3 100.0, A4 96.0, Itotal 98.48 (Zone 4); Tc 10.6 min, If 4.5, Rrev 0.15; overall subjective 9.8/10 — quality verdict: works (Zone 4); cost verdict: no criterion stated by the authors. Secondary phase (Table VIII): Antigravity + Gemini 3 Flash: A1 87.84, Itotal 94.83 (Zone 4), Tc 8.5 min, more prompts and higher Rrev — quality verdict: works (Zone 4); Antigravity + Claude Sonnet 4.6: A1 98.47, Itotal 98.02, Tc 10.6 min — works (Zone 4); cost verdicts: no criterion stated by the authors",
+   "p": "3, 6-8"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "One project, 3 scenarios of escalating complexity; 3 tools with the model fixed to Claude Sonnet 4.6 (to isolate the tool's contribution); baseline Claude Web; 6 participants of three seniority levels in a counterbalanced Latin-square design (each participant uses each tool once, on a different scenario); secondary phase swaps the model (Gemini 3 Flash vs Claude Sonnet 4.6) in Antigravity, participants not stated. No acceptance tests. One session per participant-scenario. Human intervention: humans operate the tools interactively; sessions recorded",
+   "p": "4-5"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Antigravity > Copilot > Claude Web on every axis (Itotal 98.48 / 72.62 / 24.32); Tc 10.6 / 22.3 / 42.8 min (SD ±1.5 / ±3.2 / ±6.4), If 4.5 / 7.2 / 80.1, Rrev 0.15 / 0.42 / 0.87; ordering preserved for every participant and under four weighting schemes (Table VI). Model swap changed only A1 (Gemini faster but more prompts and higher Rrev; index 94.83 vs 98.02, both Zone 4). Index aligned with subjective satisfaction (> 90%, Fig. 3). No statistical significance tests",
+   "p": "6-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the three tools consistently (per participant and across weightings); repeatability not assessed beyond per-participant ordering. Limitations: N = 6 exploratory; seniority effects only qualitative; single full-stack web project; task-complexity bias (simpler tasks may narrow gaps). Not stated by the authors: min-max normalisation makes the index relative to the tools compared, and the 'validation' uses the same participants' overall score",
+   "p": "4, 6-8"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: small sample (N = 6) in an exploratory mixed-methods design; single web project; task-complexity bias; seniority not stratified quantitatively. Future work: projects of greater architectural depth; automated metric extraction through IDE telemetry; measuring degree of autonomy of multi-agent systems; Code Retained metric; longitudinal studies; seniority gap and 'AI-Auditing' pedagogy",
+   "p": "6-8"
+  },
+  {
+   "f": "Notes",
+   "v": "No replication package or materials; no pre-registration. Languages: JavaScript/TypeScript (React/Next.js, Node.js) with Prisma/PostgreSQL. Inconsistencies: Antigravity + Claude Sonnet 4.6 scores A1 100.0 / Itotal 98.48 in Table V but A1 98.47 / Itotal 98.02 in Table VIII; Table V gives Claude A1 = 0.01 while its footnote says 0.0; Np defined but never reported; abstract says tools 'significantly reduce' friction without any statistical test; how 'successful execution' was judged is not stated; '> 90% alignment' (Fig. 3) not defined; per-tool averages mix different scenarios because of the Latin square. Tool versions not stated",
+   "p": "1, 3, 7-8"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): two contributions (methodology, comparative evaluation) stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): axes, formulas, weights, zones and tasks described; but completion criterion, rubric scoring procedure, secondary-phase participants and tool versions missing; no materials released",
+   "p": "2-5"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models named (Claude Sonnet 4.6, Gemini 3 Flash) and tools named (Claude Web, GitHub Copilot in VS Code, Google Antigravity) without versions",
+   "p": "4-5"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): application and three scenarios described in detail; testbed not available",
+   "p": "4-5"
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): no tests or independent ground truth; effectiveness from authors' rubric scores and participants' perceptions",
+   "p": "3-5, 7"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): metrics defined; cost only as time and prompts (no tokens or money); correctness or quality of the produced code not measured",
+   "p": "2-3"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): three tools with the model held constant, chatbot baseline, counterbalanced assignment",
+   "p": "4-5"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Latin-square counterbalancing, standard deviations, per-participant ordering and weight sensitivity; no statistical tests, N = 6",
+   "p": "4, 6-7"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): ranking follows from the data, but 'significantly reduce' and the claimed validation of the framework rest on N = 6 without tests; model-volatility claim from a single swap",
+   "p": "1, 6-7"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): no threats section; sample size, single project and task-complexity bias noted briefly in the conclusions",
+   "p": "4, 7-8"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): peer-reviewed IEEE conference paper (IISA 2026)",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university authors independent of Anthropic, GitHub/Microsoft and Google",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (evaluation method proposed, not an approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

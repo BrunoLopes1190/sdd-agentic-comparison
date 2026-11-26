@@ -1,0 +1,10 @@
+{"key": "rayyan-800498077", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Nature of the study",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Compares; secondary: Proposes an evaluation method — controlled comparison of three open-source coding-agent harnesses (Goose, OpenCode, OpenHands-SDK) with two models on a 50-task subset of Terminal-Bench Pro (300 trials); harness as a hidden variable in coding-agent evaluation; proposes no-action turns as an oversight-burden proxy and recommends harness-model pairs as the unit of evaluation with tokens per solved task, no-action turns and failure-category vector as first-class metrics",
+             "p": "1, 5",
+             "quote": "3. We provide a mechanistic proxy linking no-action turns (turns in which the agent neither edits a file nor issues a new command) to the cost gap, and frame these as a per-task oversight tax that a human-in-the-loop user must absorb.",
+             "where": "§1 Introduction, Contributions, p. 1",
+             "why": "The paper lists a new metric (no-action turns as oversight proxy) and a reporting recommendation among its contributions, which could justify a secondary nature 'Proposes an evaluation method'.",
+             "doubt": "O artigo apresenta como contributo uma métrica nova (turnos sem ação como medida do esforço de supervisão) e recomenda novas métricas para os rankings (§5.3, pág. 5). Decide se juntas 'secondary: Proposes an evaluation method' à natureza ou se mantens só 'Compares'."}]}

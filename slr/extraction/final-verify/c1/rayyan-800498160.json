@@ -1,0 +1,10 @@
+{"key": "rayyan-800498160", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Comparison: did the method work",
+             "verdict": "corrected",
+             "sev": "low",
+             "v": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over 20 attack runs (15 screening + 5 refinement, each run once) against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
+             "p": "4-6",
+             "quote": "Phase 1 evaluates these K attack types once and selects the one with the highest total-token amplification. Phase 2 retains this Phase 1 winner as an initial candidate and performs five newly generated feedback-guided refinement iterations.",
+             "where": "§3.1 Experimental Setup (Protocol), p. 5",
+             "why": "The selection pool is 15 screening runs plus 5 new refinement runs (the Phase 2 initial candidate is the reused Phase 1 winner), i.e. 20 runs, not ~21; the record's own Comparison: design also gives 15 + 5.",
+             "doubt": "O valor diz 'cerca de 21 execuções', mas o protocolo dá 15 de triagem mais 5 de refinamento (o candidato inicial da Fase 2 é o vencedor da Fase 1, já contado), ou seja 20. Vê a pág. 5 (Protocol) e a eq. 5 na pág. 4 e corrige o número."}]}

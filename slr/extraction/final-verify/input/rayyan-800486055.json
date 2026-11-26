@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486055",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zeng, Z., Li, Y., Xie, R., Ye, W., Zhang, S. (2025). Benchmarking and Studying the LLM-based Agent System in End-to-End Software Development. arXiv:2511.04064v1 [cs.SE], 6 Nov 2025. https://doi.org/10.48550/arXiv.2511.04064",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2025",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2511.04064v1; no published venue found (pages carry the ACM template placeholder 'Conference'17, Washington, DC' and running head 'Trovato et al.')",
+   "p": "1-2"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Peking University, Beijing, China (all five authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — E2EDevBench (50 recent PyPI projects, requirements-only input) with a hybrid evaluation (test migration plus LLM requirement verification), and a controlled comparison of three agent workflows (single, developer-tester, designer-developer-tester) built on one SWE-agent foundation with two Gemini models",
+   "p": "1-2, 4-5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach named. Authors' workflow configurations on SWE-agent (version not stated): SDAgent-Single (one agent: read requirements, implement, write and run tests, debug); SDAgent-DT (Developer agent then Tester agent); SDAgent-DDT (Designer agent writes a design document, then Developer, then Tester; 'design-implement-verify' waterfall)",
+   "p": "4-5"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Input: a requirements document per project (LLM-drafted from source code and README with a predefined template, then manually reviewed). SDAgent-DDT: a detailed project design document produced by the Designer agent; agents in all workflows write their own tests",
+   "p": "3-5"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Single: read requirements, implement, write tests, run, debug until tests pass. DT: develop (no tests), then test and debug. DDT: design, develop (from design document plus requirements), test and verify. Sequential hand-off between agents",
+   "p": "5"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs (autonomous, max 200 steps). Humans only in benchmark construction (manual review of requirements documents) and in validating the judge",
+   "p": "4-6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each authors' configuration, autonomously, from a requirements document; no SDD approach run",
+   "p": "5-6"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: SDAgent-DDT simulates 'a more classical design-implement-verify waterfall workflow'; its design document resembles a spec-first plan but the authors do not use SDD terms)",
+   "p": "5"
+  },
+  {
+   "f": "Task type",
+   "v": "New project: implement a whole repository from a requirements document only (no tests or skeleton given)",
+   "p": "2-4"
+  },
+  {
+   "f": "Size",
+   "v": "50 projects (10 per quarter, Q1 2024 to Q1 2025); reference repositories average 19.2 files, 2,011.5 LOC, 119.7 tests. Generated code 209-533 lines and 3.5-13.7 files on average per configuration",
+   "p": "3-5, 7"
+  },
+  {
+   "f": "Domain",
+   "v": "Python packages from PyPI (more than five source files, pytest test suite, no external API calls or hard-to-get dependencies); application domains Not stated",
+   "p": "3-4"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents). Judge validation by three computer science graduate students",
+   "p": "6"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Tokens sent (M), tokens generated (K), cost (USD), agent steps per project (Table 3)",
+   "p": "7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Implementation Rate (ImplRate): requirements unanimously judged implemented in three LLM assessments over all requirements (including inconclusive); Pass-Rate of tests (agent's own tests plus tests migrated from the original project)",
+   "p": "4, 6-7"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Code lines and files generated; line and branch coverage of test suites (Table 2); judge agreement with humans (Pearson, pairwise agreement); run-to-run overlap of implemented requirements (Venn, 3 runs); step of first test writing; taxonomies of unimplemented requirements and failure root causes (Tables 4-5); performance by release quarter (leakage check)",
+   "p": "6-10"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: a Test Migration Agent (single-agent setup, Gemini-2.5-Pro) adapts the original project's tests to the generated code without modifying it; tests run in a sandbox; Gemini-2.5-Pro judges each requirement implemented/not implemented three times (unanimity required); tokens, cost, steps logged. Manual: judge validated against three graduate students on 10 projects (546 requirements); 1,000 unimplemented requirements classified by LLM pre-annotation then human refinement",
+   "p": "4-6, 9"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors for a configuration, so quality and cost verdicts for every entry: no criterion stated by the authors. Values (Table 3): Impl-Req / Unimpl-Req / ImplRate; tests passed / failed / pass rate; tokens sent / generated; cost; steps. (1) SDAgent-Single + SWE-agent + Gemini-2.5-Flash: 27.14 / 23.32 / 48.46%; 42.35 / 12.96 / 76.57%; 20.90M / 161.24K; $6.67; 152.74 steps. (2) SDAgent-Single + SWE-agent + Gemini-2.5-Pro: 25.14 / 21.86 / 42.97%; 28.58 / 8.92 / 76.21%; 4.96M / 28.45K; $6.48; 80.12. (3) SDAgent-DT + Flash: 26.60 / 19.30 / 45.47%; 28.04 / 9.16 / 75.38%; 19.14M / 192.37K; $6.22; 90.60. (4) SDAgent-DT + Pro: 31.30 / 16.14 / 53.50%; 31.34 / 7.86 / 79.95%; 5.24M / 49.65K; $7.05; 77.36. (5) SDAgent-DDT + Flash: 12.82 / 31.88 / 22.63%; 25.57 / 12.49 / 67.18%; 18.27M / 151.64K; $5.86; 108.06. (6) SDAgent-DDT + Pro: 19.18 / 27.56 / 32.79%; 26.74 / 15.52 / 63.27%; 3.60M / 34.62K; $4.85; 86.16",
+   "p": "7"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 50 E2EDevBench projects. Configurations: 3 workflows x 2 models (Gemini-2.5-Pro, Gemini-2.5-Flash). Baseline: SDAgent-Single (single agent). Held constant: SWE-agent foundation and toolset, temperature 0.2, max 200 steps, requirements document, sandbox, evaluator (Gemini-2.5-Pro). Acceptance: migrated original tests plus LLM requirement verification (3 assessments, unanimity). Repetitions: three independent runs for the Pro configurations (run overlap); whether Table 3 values are means over runs Not stated. Human intervention: none",
+   "p": "4-8"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Workflow matters: SDAgent-DT best mean ImplRate 49.48% (Pro 53.50%), Single 45.72%, DDT lowest 27.71%; authors attribute DDT's drop to errors in the design document propagating downstream, and Single's to interleaved code-test loops (first test at step 11.56 vs 27.96 for DT). Flash matched or beat Pro on ImplRate (Single: 48.46% vs 42.97%) at about four times the tokens sent. Cost per project $4.85-$7.05. Across three runs DT jointly fulfilled 796 requirements, 526 by one run only. No leakage drop on 2025-Q1 projects (42% vs 40%). Failures: missing features 32.4%, incorrect implementation 34.1%; root causes task planning 55.8%, execution 38.6%, verification 5.7%. No significance tests",
+   "p": "6-10"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished workflows (27.71% to 49.48% mean ImplRate); judge agreement with humans comparable to inter-human agreement (pairwise 76.7-84.4% vs 78.4-88.1%; Pearson 0.62-0.67); three runs showed a large common core but many run-specific successes. Limitations stated: possible implementation errors in the unified framework; only two Gemini models; reliance on LLM judge (validated on 10 projects)",
+   "p": "6-8, 10"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: possible implementation errors in the authors' framework; only Gemini-2.5-Pro and Flash; benchmark quality depends on human-revised requirements; LLM-judge reliability. Gaps: agents fulfil only about half of requirements; main bottleneck is planning and requirement comprehension (omission, misinterpretation) and weak self-verification; premature self-submission by stronger models; cost-effective best-of-N aggregation; better agent orchestration and task decomposition",
+   "p": "8-11"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: text says 'SDAgent-Single achieves the highest requirement implementation rate (49.48%), outperforming SDAgent-Single (45.72%)', but 49.48% is SDAgent-DT (p. 7); Fig. 4 legend 'SDAgent-D (Avg: 11.56)' for SDAgent-Single (p. 7); text says DDT's Dev and Test agents are 'configured identically to those of the SDAgent-Single', which by the workflow descriptions should be SDAgent-DT (p. 5, 8); 'partially implemented (21.7%)' in text vs 18.1% in Table 4 (p. 9); core-capability failures '5.6%' in text vs 3.2% for Technical Capability Bottleneck in Table 5 (5.6% is Architectural Design Flaw) (p. 9-10); Table 2 calls the agent's own tests 'Original Tests' and the migrated original-project tests 'Extended Tests' (p. 6); broken figure reference 'Figure ??' (p. 6); abstract says 'approximately 50%' while best mean is 49.48% and best single configuration 53.50%. Table 3 read from garbled text extraction, check against the PDF. Data: setup at https://anonymous.4open.science/r/E2EDevStudy-6C70 (p. 10-11). No pre-registration. Programming language: Python",
+   "p": "5-11"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three RQs (judge effectiveness, agent capability, failure causes) stated",
+   "p": "2, 5-6"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction stages, workflows and evaluation described and setup released, but LLM filtering and judge prompts, requirement template and some filter thresholds not given",
+   "p": "3-5, 10"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): Gemini-2.5-Pro and Flash with temperature and step limit given; no model version dates; SWE-agent version not stated",
+   "p": "4-5"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): benchmark construction and statistics described; setup and data released at an anonymous repository",
+   "p": "3-5, 10"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): original project tests migrated to the generated code, plus requirement verification validated against three human experts",
+   "p": "4, 6"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): ImplRate and pass rate defined; tokens, cost and steps reported",
+   "p": "4, 7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): three workflows compared on the same foundation, tasks, models and evaluator; single-agent configuration as reference",
+   "p": "4-5, 7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three independent runs for the Pro configurations with overlap analysis; no statistical tests of differences",
+   "p": "8"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): mixed results reported, but explanations (design-document propagation, premature termination) are untested hypotheses and some claims overreach ('excluding the possibility of data leakage'); winner mislabelled in text",
+   "p": "7-10"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (internal, external, construct)",
+   "p": "10"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): all evaluated configurations (SDAgent-Single, -DT, -DDT) were built by the authors",
+   "p": "4-5"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (the SDAgent configurations are experimental set-ups for the comparison and a baseline for future studies, not proposed as a development approach)",
+   "p": "2, 4"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

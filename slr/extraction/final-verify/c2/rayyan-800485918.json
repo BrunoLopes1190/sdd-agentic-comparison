@@ -1,0 +1,12 @@
+{"key": "rayyan-800485918", "model": "claude-opus-5-5", "check": 2, "checked": 41,
+ "fields": [
+  {"f": "Q8",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): non-parametric tests, effect sizes and multiple-comparison corrections planned and described, but not executed (protocol, no results)",
+   "p": "5-6",
+   "quote": "To evaluate code quality across maintenance categories, we will employ the non-parametric Kruskal-Wallis test, followed by post-hoc pairwise Wilcoxon rank-sum tests with HolmBonferroni correction [28]. Effect sizes will be quantified via Cliff’s Delta.",
+   "where": "§III-D Data Analysis, p. 6",
+   "why": "Q8 gets full credit for analysis that is only planned, while Q5 for the same protocol is scored Partly because 'nothing measured yet'; the two are treated inconsistently.",
+   "doubt": "O Q8 tem Sim por testes estatísticos que ainda não foram feitos (é só protocolo), mas o Q5 tem Parcial pela mesma razão ('nada medido ainda'). Vê a pág. 5-6 e decide um critério igual para os dois: Parcial em ambos ou Sim em ambos."}
+ ]}

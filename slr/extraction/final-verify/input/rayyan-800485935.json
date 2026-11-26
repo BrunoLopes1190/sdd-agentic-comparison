@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485935",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Cannavale, A., Parziale, A., Pontillo, V., Pelliccione, P., De Lucia, A., Palomba, F. (2026). Specification-Driven Governance for Fairness-by-Design in Agentic Software Engineering: How Far Can We Go? arXiv:2611.03231v1 [cs.SE], 2 Nov 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.03231v1 [cs.SE], 2 Nov 2026; no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Software Engineering Lab, University of Salerno, Italy (Cannavale, De Lucia, Palomba); Gran Sasso Science Institute, Italy (Parziale, Pontillo, Pelliccione)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — controlled full-factorial experiment of the Spec Kit workflow with 3 coding agents x 4 datasets x 4 prompt levels of fairness operationalisation (48 runs), comparing prompt levels and agents; the nine Fairness Specification Elements (FSEs) it derives serve as treatment and measurement instrument",
+   "p": "1-3, 6-7, 14"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "GitHub Spec Kit (SpecKit) workflow, version Not stated (accessed 2026-07-23), with four prompt variants: minimal (0 FSEs, baseline), implicit (FSE1, FSE8), explicit (+FSE2, FSE3), operationalized (all 9 FSEs: decision subjects, protected attributes, domain constraints and exceptions, fairness intent, acceptance thresholds, fairness metrics, disaggregation analysis, decision scope, protected attribute assessment)",
+   "p": "2, 9-12, 34"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Spec Kit: spec.md (requirements, acceptance criteria, technology-agnostic), planning package plan.md + data-model.md + research.md (also quickstart.md, interface contracts), tasks.md, source code (code.py); generated checklists. Prompts also require model.joblib",
+   "p": "4, 12-13, 18"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "/speckit.specify (agent may inspect the dataset CSV) -> /speckit.plan -> /speckit.tasks -> /speckit.implement",
+   "p": "12-13"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (autonomous execution of the four stages; no human review between stages stated). Authors recommend reviewing tasks.md against fairness requirements before implementation, and release gates on thresholds",
+   "p": "12-14, 31-32"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow (specify, plan, tasks, implement); constitution and clarify steps not mentioned",
+   "p": "12-14"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not stated in Boeckeler's terms; authors: specifications as 'first-class software artifacts' progressively refined into code before implementation begins (spec-first)",
+   "p": "4"
+  },
+  {
+   "f": "Task type",
+   "v": "New project: write a Python binary-classification script from a request (greenfield)",
+   "p": "9-11"
+  },
+  {
+   "f": "Size",
+   "v": "Small single-script ML pipelines (code.py); 48 runs; size in lines Not stated",
+   "p": "13-14"
+  },
+  {
+   "f": "Domain",
+   "v": "Machine learning on tabular fairness datasets: Adult Income (economics), COMPAS (criminal justice), Diabetes 130-US hospitals (healthcare), Bank Marketing (marketing); Python, scikit-learn",
+   "p": "13"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (low-effort mode justified by token quotas and budgets, but tokens, time and money not reported)",
+   "p": "13"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Model predictive performance on a 20% hold-out: accuracy, precision, recall, F1; operational failure (no valid model or not trained on provided data)",
+   "p": "16"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None of the listed kind; correctness of hand-written fairness metrics checked qualitatively (e.g. signed AAOD, undefined rates defaulting to 0.0)",
+   "p": "25"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Fairness Coverage Score (FCS, % of 9 FSEs present per artefact: spec, plan, tasks, code); step-wise propagation delta; per-FSE survival rate spec -> code; group fairness of models (AAOD, FDRD, Disparate Impact) for race, sex, age; RQ3 codebook frequencies (feature-space handling, lifecycle timing, custom engineering, rationales)",
+   "p": "15-16, 19"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "RQ1: LLM-as-annotator Qwen3.8-27B (OpenRouter, temperature 0) with verbatim-evidence rule checked by script (5 of 1,728 checks flagged); validated on 12 of 48 pipelines by two authors (human-human kappa 0.598; LLM vs human consensus kappa 0.867, 94.07%). RQ2: automatic harness on isolated hold-out; Shapiro-Wilk, Friedman, Wilcoxon + Holm, Cliff's delta. RQ3: AST-based static analyser + joint manual coding of 48 workspaces by two authors (197 quote-anchored evidence items)",
+   "p": "14-19"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: FSE coverage in artefacts (traceability) and fairness/performance of the model on the hold-out. FCS% in code.py by prompt level minimal/implicit/explicit/operationalized (spec.md under operationalized in brackets). Per-agent RQ2 values not reported (overall only: no significant change). Cost verdict: not measured for all.\n- Spec Kit + Claude Code + Claude 5 Sonnet (low effort): code 0.00 / 25.00 / 47.22 / 97.22 (spec 100.00); spec->code delta under operationalized -2.78; only agent keeping Fairness Intent in all 4 runs; 2 workspaces exclude protected attributes; COMPAS operationalized model F1 = 0. Quality: works (traceability), does not work (fairer models)\n- Spec Kit + Antigravity CLI + Gemini 3.6 Flash (low effort): code 5.56 / 11.11 / 61.11 / 69.45 (spec 97.22); delta -27.78; omits FSE3 and FSE4 in all datasets; 1 operational failure (Bank Marketing, operationalized: trained on self-generated synthetic data); 2 runs training not executed by agent; Adult operationalized F1 = 0; undefined rates default to 0.0. Quality: partly (traceability), does not work (fairer models)\n- Spec Kit + OpenAI Codex + GPT-5.6-Terra (low effort): code 0.00 / 5.56 / 69.45 / 80.56 (spec 94.44); delta -13.89; excludes all protected attributes in its 8 explicit/operationalized workspaces; 14 runs training not executed by agent (authors ran the script); 2 workspaces compute AAOD as signed average; only pipeline that fails on a fairness check (Bank, operationalized) still saves the model; COMPAS operationalized F1 = 0. Quality: partly (traceability), does not work (fairer models)\n- Baseline (minimal prompt, all agents): code FCS 1.85; accuracy 0.857, F1 0.302",
+   "p": "13-14, 16, 20-26"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 4 dataset tasks (binary classification). Configurations: 4 prompt levels x 3 agents (each with one model) on the same Spec Kit workflow; full factorial, 48 runs. Baseline: minimal prompt. Held constant: workflow, technical constraints (scikit-learn, save model.joblib), dataset split (stratified 80/20, hold-out isolated), low-effort reasoning mode; operator not involved. Acceptance tests: none; hold-out evaluation harness and LLM annotator. Repetitions: 1 per cell (matched blocks agent x dataset, n = 11 after excluding 1 failed block; 9 for sex, 6 for race). Human intervention: authors executed unmodified training scripts in 16 runs where the agent did not run them",
+   "p": "9-14, 16-17, 23, 32-33"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Traceability: overall spec FCS 9.26 -> 20.37 -> 70.37 -> 97.22%; code FCS 1.85 -> 13.89 -> 59.26 -> 82.41%; losses in planning (-11.11) and tasks (-12.04), partial recovery in code (+8.33); quantitative FSEs survive (FSE5, FSE6 100%) vs narrative (FSE4 33.3%, FSE1 52.3%, FSE3 60.0%). Agents differ: Claude Code best under operationalized (97.22 vs 80.56 Codex, 69.45 Antigravity) but conservative under explicit. No domain differences (code 37.96-43.52%). Outcomes: accuracy 0.857/0.824/0.837/0.838 (Friedman p = 0.572); F1, precision, recall n.s.; 8 of 9 fairness measures n.s.; DI race omnibus p = 0.020 but no pairwise significant after Holm (lowest unadjusted p = 0.063, delta = 0.556); none of 27 pairwise comparisons significant. No workspace uses a fairness toolkit or mitigation; all operationalized pipelines save the model regardless of the check",
+   "p": "20-27"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished prompt levels and agents on traceability; did not distinguish model fairness or performance (low power). Repeatable: single run per cell, matched-block design; replication package. Limitations stated: binary equal-weight FCS, LLM annotator, one run per cell (non-determinism), small samples (11/9/6 blocks), prompt wording ('state', unconditional save) may drive behaviour, single framework (Spec Kit), specific agent versions, tabular binary tasks only",
+   "p": "32-33"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Specs make fairness traceable but not enforceable; agents treat fairness as post-hoc audit, deliver models regardless of thresholds and silently delegate decisions to humans. Gaps: specs need action-oriented elements (mitigation, enforcement, ownership); delegation/escalation mechanisms; auditing at artefact, implementation, release and decision levels; future: other responsible-AI principles and other SDD frameworks. Threats as in validity section",
+   "p": "27-33"
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Tables 3-6 (pp. 20-24) and text; Table 5/6 columns jumbled in text extraction, mapped via text. Annotation counts: 731 present + 992 absent + 5 flagged = 1,728. Model names as reported: Claude 5 Sonnet, Gemini 3.6 Flash, GPT-5.6-Terra; agent CLI versions Not stated. Replication package on figshare (https://figshare.com/s/fb38b6e7df54135ad025) with prompts, artefacts, annotations, scripts. Pre-registration: Not stated. Language: Python",
+   "p": "3, 13, 15, 33, 34"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal, hypothesis and RQ1-RQ3 explicit",
+   "p": "2, 6"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): prompt templates, workflow, setup, annotator protocol, stats and codebook described; replication package",
+   "p": "9-19, 33"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agents and models named; agent CLI versions and Spec Kit version not given",
+   "p": "13"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): public datasets and prompt templates given; artefacts in replication package",
+   "p": "9-13, 33"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): isolated hold-out evaluation harness; LLM annotator validated against human raters",
+   "p": "15-16"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and traceability metrics defined; no cost metrics",
+   "p": "15-16"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): minimal-prompt baseline under the same conditions",
+   "p": "9, 14"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): one run per cell; non-parametric tests, Holm correction and effect sizes",
+   "p": "16-17, 32"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): negative outcome results reported and drive the conclusions",
+   "p": "22-27, 33"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 7 Threats to Validity",
+   "p": "32-33"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors, independent of Spec Kit and of the agent vendors",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (evaluates an existing approach; FSEs are a measurement instrument)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

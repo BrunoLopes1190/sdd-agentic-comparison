@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485966",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, K., Pan, Y., Xiang, Y., He, D., Li, J., Du, Y., Gao, T. (2025). ProjectEval: A Benchmark for Programming Agents Automated Evaluation on Project-Level Code Generation. arXiv:2503.07010v2 [cs.SE], 31 May 2025",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2025",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2503.07010v2 (cs.SE); no venue stated in the text (ACL-style format with a Limitation section; check whether published)",
+   "p": "1, 9"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Harbin Institute of Technology, Shenzhen (Liu, He, Li, Du); Pengcheng Laboratory, Shenzhen (Liu, Pan, Xiang, Du); Harbin Institute of Technology, Harbin (Gao), China",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ProjectEval (20 project-level missions, 284 user-interaction-simulation test cases, three input levels) and comparison of 16 LLMs plus OpenHands + GPT-4o under cascade vs direct generation",
+   "p": "1-2, 6"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Input levels as specification forms: Level 1 NL prompt, Level 2 NL checklist (functions per page), Level 3 code skeleton with docstrings. Generation modes: cascade (agent generates checklist -> skeleton -> code -> parameter values step by step) vs direct (code from the given level). Production agent: OpenHands with GPT-4o (version Not stated); other entries are plain LLMs prompted once",
+   "p": "3-6, 8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per mission: Level 1 NL prompt; Level 2 NL checklist (JSON: pages -> functions -> descriptions, LLM-generated and human-reviewed); Level 3 skeleton (canonical code masked); test suite (Selenium or console/file testcodes + parameter descriptions); canonical solution (canonical code + canonical parameter values). Output required as JSON list of files",
+   "p": "3-5, 12"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Cascade mode: NL prompt -> NL checklist -> skeleton -> code -> parameter values (answering the parameter description from own code). Direct mode: given level -> code -> parameter values. Then the evaluator builds the project in a sandbox and runs testcodes with substituted parameter values",
+   "p": "5-6, 8"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during generation. Human reviewers (third-party company, 8-page guideline) review checklists, canonical code, tests and parameter descriptions during benchmark construction",
+   "p": "4-5, 12-13"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Specification format only (three input levels: NL prompt, NL checklist, code skeleton) and a staged cascade (checklist -> skeleton -> code), run with LLMs and one agent (OpenHands)",
+   "p": "3, 6-8"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (input formats and a cascade generation mode; authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New project (whole project generated from scratch from the input)",
+   "p": "1, 3"
+  },
+  {
+   "f": "Size",
+   "v": "20 missions (7 from SoftwareDev/ProjectDev, 13 original), 284 test cases (avg 14.2 per mission); canonical answers avg 402.2 LOC and 2,972 tokens",
+   "p": "1-2, 4, 6"
+  },
+  {
+   "f": "Domain",
+   "v": "Website projects (mainly Django) and batch/console programs (e.g. Todo app, password generator, Excel-file generation); all canonical code in Python",
+   "p": "1, 4-5, 9"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in the evaluation; construction reviewers from a hired third-party company)",
+   "p": "5"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Money only for one configuration: the Pass@5 evaluation run with GPT-4o cost USD 28.02 (USD 5.60 per round); no tokens or time per configuration. Benchmark construction costs: GPT-4o USD 2.95, human review USD 420",
+   "p": "5-6"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass@K (K = 1, 5): percentage of the 284 test cases passed (some test cases chained), by user-interaction simulation (Selenium for websites, subprocess for console, file comparison e.g. Openpyxl)",
+   "p": "4, 6, 15"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (maintainability, efficiency and coding practices explicitly not captured)",
+   "p": "9"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Objective similarity indicators per step: checklist (Sentence Transformer + Jonker-Volgenant), skeleton and code (CodeBLEU + Jonker-Volgenant), parameter values (Levenshtein / string cosine similarity) against canonical artefacts",
+   "p": "5-7"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: ProjectEval evaluation machine builds the project in a sandbox and runs testcodes; similarity indicators computed automatically. Manual: log examination of failure cases; GPT-4o case study by asking the model for its chain of thought",
+   "p": "5-8, 16"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: share of test cases passed (no success threshold). Pass@5, all-levels average (cascade L1/L2, direct L1/L2/L3): (a) GPT-4o: 12.49 (best single: direct L1 16.06); Pass@5 run cost USD 28.02 (5.60 per round); (b) Gemini 1.5 pro: 6.65; (c) Gemini 2.0-flash: 4.31; (d) GPT-3.5-turbo: 2.90; (e) Phi-4-14B: 1.13; (f) Gemma-2-9B: 1.06; (g) Mistral-7B-v0.3: 1.00; (h) Gemma-7B: 0.75; (i) Llama-3.1: 0.28; (j) Llama-3.2-3B: 0.10; (k) Llama-2-7B: 0.08; (l) Phi-3-14B: 0.00. Code LLMs, Level 3 direct only: (m) StarCoder-2-7B 0.00; (n) CodeGemma 1.20; (o) CodeLlama 0.77. Pass@1 only: (p) Gemini 2.0-pro: 0.00-7.39 by level; (q) OpenHands + GPT-4o (direct L1): 7.39 (GPT-4o alone 19.72), 8 of 20 tasks not finished (6 AgentStuckInLoopError, 2 not complete); code CodeBLEU 22.96, PV 35.51. All models temperature 0. For every configuration: quality: no criterion stated by the authors; cost: no criterion stated by the authors for (a) (the only configuration with a cost value); N/A for the others (not measured)",
+   "p": "6-8, 12, 15"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Project/tasks: 20 ProjectEval missions. Configurations: 16 LLMs (open-source, closed-source, code LLMs) x input level (L1, L2, L3) x mode (cascade, direct); OpenHands + GPT-4o. Baseline: none (cascade vs direct compared within model). Held constant: missions, prompt template (JSON output), temperature 0, default settings, evaluation machine. Acceptance tests: user-interaction-simulation testcodes validated against the canonical solution (100% pass). Repetitions: Pass@1 and Pass@5 (5 samples); Gemini 2.0-pro and OpenHands Pass@1 only. Human intervention: none (OpenHands runs without user interaction)",
+   "p": "4-8, 12, 15"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-4o best (Pass@5 avg 12.49; only model above 15% at some level); closed-source > open-source; code LLMs near zero; OpenHands + GPT-4o lower than GPT-4o alone (7.39 vs 19.72 Pass@1 direct L1); authors say it beats Gemini 1.5 pro, but on Pass@1 direct L1 both score 7.39 (Table 7), OpenHands is higher only on similarity indicators (Code CodeBLEU 22.96 vs 15.97, PV 35.51 vs 9.99, Table 5). Cascade vs direct: similarity indicators about 2.06% higher for cascade at Level 1, Gemmas, Mistral and Gemini 1.5 pro better with cascade, but GPT-4o better with direct generation on Pass@5; Pass@5 averages: cascade 2.37 vs direct 2.69. Failure causes: invalid JSON output, missing essential files, omitted content. No significance tests",
+   "p": "6-9, 15"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished closed vs open-source models; pass rates of most models too low to analyse (authors). Pass@K and CodeBLEU disagree on cascade vs direct, which authors read as execution being more informative than similarity. Repeatability: Pass@5 sampling, no variance or statistics; data, code and evaluation machine released. Limitations stated: Django-centred tasks, Python only, JSON output format may disadvantage some models, canonical parameter values not the only valid answer (Levenshtein penalises valid PV)",
+   "p": "6-9"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: Django-centred tasks; canonical answers Python only; JSON output format not compatible with all LLMs; canonical parameter values may not be the only answer; running generated code may be harmful; maintainability, efficiency and best practices not captured. Findings: systematic project code generation, overall project understanding and comprehensive analysis are key; formatted output ability matters",
+   "p": "8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Model naming inconsistent: tables say Llama-3.1-7B, Appendix B says Llama3.1-8B; Gemini 2.0 vs Gemini-2.0-pro. Conclusion 'cascade generation is better than direct generation' (p. 8) rests on similarity indicators and conflicts with Pass@5 averages (cascade 2.37 vs direct 2.69, Table 4) and GPT-4o results. Claim that OpenHands + GPT-4o 'still beat the Gemini1.5-pro' (p. 7) not supported by Pass@1: both 7.39 at direct L1 (Table 7); holds only for similarity indicators (Table 5). Benchmark built with GPT-4o, which is also the best model (authors argue Gemini 1.5 pro is close). Difficulty tiers defined but not reported ('no distinction'). Values from Tables 4, 5 and 7. Replication package: https://github.com/RyanLoil/ProjectEval/ (dataset, code, evaluation machine). No pre-registration. Programming language: Python (Django)",
+   "p": "1, 4, 6-8, 12, 15"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal and RQ1-RQ4 stated",
+   "p": "1-2, 6"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction and evaluation process described, reasoning prompt given; cascade-step prompts and OpenHands configuration not detailed (code released)",
+   "p": "3-6, 12"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names and temperature 0 given; model versions partly vague (Gemini 2.0, Llama 7B/8B), OpenHands version Not stated",
+   "p": "7-8, 12"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): missions, structure and statistics described; dataset on GitHub",
+   "p": "1-5"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): executable user-interaction-simulation tests, validated against human-reviewed canonical solutions",
+   "p": "4-6"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): Pass@K and similarity indicators defined; no cost metric per configuration",
+   "p": "5-6"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all models on the same missions, prompt and settings; cascade and direct modes compared",
+   "p": "6, 12"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): Pass@5 over 5 samples; no variance or statistical tests",
+   "p": "6, 15"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main ranking follows the tables, but the 'cascade is better' conclusion conflicts with Pass@5 results reported in the same paper",
+   "p": "8"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): Limitation section lists benchmark limitations; threats to the comparison (benchmark built with GPT-4o, single prompt format) only partly discussed",
+   "p": "8-9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint (no venue stated)",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors do not develop the models or OpenHands",
+   "p": "1, 12"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

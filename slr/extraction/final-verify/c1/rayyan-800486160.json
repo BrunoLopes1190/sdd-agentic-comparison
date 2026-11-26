@@ -1,0 +1,21 @@
+{"key": "rayyan-800486160", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Criterion: component-faithfulness rubric (0-4) vs frozen checklist; IF50 primary endpoint; no success threshold stated by the authors. Agent models and versions not stated for any configuration. (1) Single-shot + Claude Code + model n.s.: MCF 3.031, DIR 0.303, IF50 0.530. Quality: no criterion stated by the authors; cost not measured. (2) Emergent + Claude Code + n.s.: MCF 2.718, DIR 0.149, IF50 0.414; 118/371 fully faithful, 72 severe failures. Quality: no criterion stated by the authors; cost not measured. (3) Single-shot + Codex + n.s.: MCF 3.245, DIR 0.289, IF50 0.550. Quality: no criterion stated by the authors; cost not measured. (4) Emergent + Codex + n.s.: MCF 3.242, DIR 0.148, IF50 0.479. Quality: no criterion stated by the authors; cost not measured. (5) Emergent + ProjectGuard + Claude Code + n.s.: MCF 3.000; 181/371 fully faithful; 49 severe failures; IF50 recovery positive on 15/20 (median +34%); DIR median +12%; memory 390 KB mean; compaction median -1. Quality: no criterion stated by the authors; cost not measured (overhead small). (6) Emergent + ProjectGuard + Codex + n.s.: MCF +0.05 (W/L 9/9); DIR improved on 15/19 (mean +76%, median +55%); memory 286 KB; compaction +23 mean (restarts). Quality: no criterion stated by the authors; cost not measured",
+   "p": "5-8, 18",
+   "quote": "IF50 ranges from 0 to 1 and serves as our primary endpoint metric for SLUMP.",
+   "where": "§4.1 Setup, p. 6",
+   "why": "The authors define metrics but no success threshold for a configuration, so the works/partly verdicts rest on the extractor's judgement, which the 2026-11-23 rule removes.",
+   "doubt": "O artigo define MCF, DIR e IF50 mas não diz a partir de que valor uma configuração 'funciona'. Os veredictos 'partly'/'works' parecem ser teus. Pela regra de 23-11, deve ficar 'no criterion stated by the authors'. Decide se a rubrica por componente conta como critério de sucesso da configuração."},
+  {"f": "Q3",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): agents named (Claude Code, Codex) without versions; the models used by the agents are not stated; judge model not stated; only the benchmark-construction model snapshot is given",
+   "p": "3, 5",
+   "quote": "We use two commercial long-horizon coding systems, Claude Code and Codex.",
+   "where": "§4.1 Setup, p. 5",
+   "why": "Q3 asks for agent, model and tool versions of the evaluated configurations; none is given (the only snapshot is the construction model), so Partly may be generous.",
+   "doubt": "Só os nomes Claude Code e Codex aparecem, sem versão nem modelo; o único modelo identificado é o que gerou o benchmark, não o agente avaliado. Vê a pág. 5 e decide se é Partly (nomes dados) ou No (nada de versões/modelos)."}
+ ]}

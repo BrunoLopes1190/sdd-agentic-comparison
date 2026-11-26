@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498129",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Pang, Y., Chen, M., Yang, Y., Fu, W. (2026). Loop Engineering: Version-Bound, Evidence-Gated Coordination for Production Coding Agents. arXiv:2611.18571v1 [cs.SE], 24 Jul 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.18571v1 [cs.SE] (dated 24 Jul 2026); self-described 'design-and-experience report'; no published venue in the paper or access log",
+   "p": "1-2"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "MewDesign (commercial AI design product; all four authors; competing interest declared)",
+   "p": "1, 15"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — Loop Engineering (six-part loop contract, versioned Skills, Harness, version-bound human gates), with an artifact audit of one production deployment (feasibility RQ1–RQ4)",
+   "p": "1-2, 8-9"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Loop Engineering (version Not stated) with five loops: Issue Planner, Approved Builder, Preview Guardian, Test Release Controller, Master Reconciler. Coding agent and model Not stated ('command-line coding agents', 'multiple coding-agent generations')",
+   "p": "1, 6-7, 14"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Versioned scoped plan (plan record per issue); loop contract per loop (trigger, context projection, authority, verifier, stop, write-back); version-controlled Skills as procedural contracts (when applies, sources to read, tools, allowed changes, evidence, stop conditions); durable GitHub marker records (plan, phase/lease, review ledger, test lock, test evidence); consumable approval receipts bound to exact version; evidence records bound to head revision",
+   "p": "3-4, 7, 9-10"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Eligible issue -> Planner publishes versioned plan -> human plan approval -> Builder implements exact approved plan in isolated worktree, opens paired Preview/Master PRs -> Guardian reviews live PR head -> Test Controller locks exact SHA -> human exact-SHA test approval -> merge to test, deploy, runtime verification -> human-controlled production merge/release -> Reconciler. Any drift, ambiguity or missing evidence -> STOP / return to human",
+   "p": "6-9"
+  },
+  {
+   "f": "Human review points",
+   "v": "Plan gate (one exact plan version), test gate (one exact commit for test environment), production gate (master merge and production release human-only); humans also clarify intent and resolve ambiguous evidence",
+   "p": "8, 11"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow in production (plan to test release); production path human-controlled",
+   "p": "9-11"
+  },
+  {
+   "f": "SDD level",
+   "v": "Spec-first (a versioned plan approved before implementation; Builder implements 'the exact approved plan'); authors' wording: 'versioned plan', 'procedural contracts'. Plan not maintained as source of truth after release (not stated)",
+   "p": "3, 7"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (production commercial product repository)",
+   "p": "1, 9-11"
+  },
+  {
+   "f": "Size",
+   "v": "Audit: 50 durable marker records across 26 issues/PRs over ~3 days; 5 PRs reached test lock; 3 verified releases with 18, 42 and 4 changed files",
+   "p": "9-11"
+  },
+  {
+   "f": "Domain",
+   "v": "Commercial AI design product (web; data-correctness workflow, public page/SEO change, administrative state semantics)",
+   "p": "1, 11"
+  },
+  {
+   "f": "Team profile",
+   "v": "Industrial; one primary system designer; small team (four authors); exact team size Not stated",
+   "p": "14-15"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Elapsed time plan -> test evidence for one case (8 h 59 min, including human waiting); active human labour not measured; no tokens or money",
+   "p": "10"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Terminal runtime evidence per release (matching build, runtime identity, health, smoke/E2E checks); no success rate reported",
+   "p": "9-11"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Qualitative list of decisions remaining with humans; active human time and cognitive load not quantified",
+   "p": "11"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Counts of durable coordination artifacts by type; one fail-closed head-drift trace (stale approval and CI rejected); presence of recovery mechanisms; proposed future metrics (unauthorized transition rate, stale-evidence rejection, recovery correctness, duplicate-effect rate, human gate load, time to verified outcome)",
+   "p": "9-13"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual audit of an internal snapshot (23 Jul 2026): enumerate comments with canonical marker prefix, classify by type, deduplicate by comment id; inspection of revisions, checks, merges, deployment and runtime records for the five test-lock PRs; performed by the primary system designer",
+   "p": "9, 14"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "- Loop Engineering + agent n.s. + model n.s. (production deployment, MewDesign): 50 marker records across 26 work items; 5 PRs reached exact-version test lock; 3 released to test with source-independent runtime evidence (matching build, runtime identity, health, smoke); 2 stopped before merge; one head-drift episode stopped correctly (stale approval and CI not reused); Case C plan-to-test-evidence 8 h 59 min including human waiting. Quality: no criterion stated by the authors (they explicitly do not report a success rate). Cost: no criterion stated by the authors (only one elapsed time; active human labour, tokens and money not measured)",
+   "p": "9-11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "None: no baseline (authors state no randomization and no comparison of chat-based, single-agent and Loop Engineering conditions); cross-sectional audit of heterogeneous production tasks; no repetitions",
+   "p": "9, 14"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A (no comparison). Qualitative positioning vs Agentic Agile-V, CAID, SEMAP, AgentForge (Table 7)",
+   "p": "12"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A (no comparison); authors propose controlled comparisons and fault injection as future work",
+   "p": "13"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single setting (one product, one designer, GitHub, short window); no causal baseline; non-representative tasks; enforcement not formally verified (non-atomic comments, non-linearizable leases); human vs automation authorship indistinguishable; confidential data limits replication; model/prompt/Skill changes confounded; observer bias (designer did the analysis). Recovery correctness untested",
+   "p": "11, 14"
+  },
+  {
+   "f": "Notes",
+   "v": "Source package (LaTeX, aggregate evidence, sanitized event trace) mentioned; no link given; raw records proprietary. No pre-registration (listed as future work). Programming language Not stated. Table 5 counts rebuilt from jumbled pdftotext: plan 14/12, phase/lease 17/17, review ledger 7/7, test lock 5/5, test evidence 7/7 instances/unique items (ordering inferred; 14+17+7+5+7 = 50 checks). Skills here are procedural contracts similar to agent skill files",
+   "p": "9-10, 15"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four feasibility RQs stated",
+   "p": "9"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): audit procedure described; contracts and harness only sanitized, no implementation",
+   "p": "7-9"
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): coding agents and models not identified",
+   "p": "1, 14"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): three cases described at task-class level; raw records not available",
+   "p": "9, 11, 14"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): runtime evidence from CI, build and health systems; audit done by the system designer",
+   "p": "9-11, 14"
+  },
+  {
+   "f": "Q6",
+   "v": "No (0): descriptive counts and one elapsed time; no defined cost or quality metrics",
+   "p": "9-10"
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline",
+   "p": "14"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single snapshot, no repetitions or statistics",
+   "p": "9"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims limited to feasibility; evidence strength per RQ separated (Table 4)",
+   "p": "10"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section 8 limitations and threats to validity",
+   "p": "14"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created the approach and work for the product studied",
+   "p": "15"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): uses GitHub, CI and runtime probes a typical team has, but harness and Skills not released and agent cost not stated",
+   "p": "8, 15"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

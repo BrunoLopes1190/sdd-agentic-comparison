@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486390",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Li, Q., Hu, S., Liu, H., Feng, X., Liu, S., Wan, G. (2026). MT-Web2Code: Benchmarking Coding Agents on Multi-Turn Regional Reconstruction and Localized Modification. arXiv:2608.03474v1 [cs.CV], 4 Aug 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.03474v1 [cs.CV]; no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Harbin Institute of Technology (Li, Liu, Feng); Meituan, Longcat Team (Li, Hu, Liu S., Wan); Peng Cheng Laboratory (Feng)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — MT-Web2Code benchmark of 102 multi-turn web UI tasks (16 domains) with Macro-Level Regional Reconstruction and Micro-Level Localized Modification, built by a Reverse-Corruption Trajectory Engine, scored by a dual-axis protocol (in-box fidelity, out-of-box preservation); 13 coding agents (LVLMs) compared",
+   "p": "1-2, 5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. 'Coding agents' are 13 LVLMs under one multi-turn interaction protocol, agent scaffold not described: Gemini-3.5-Flash, Kimi-K2.6, Claude-4.7-Opus, Qwen3.5-Plus, Gemini-3.1-Flash-Lite, Doubao-Seed-2.0-Pro, GPT-5.4, GLM-5V-Turbo, Gemini-3.1-Pro-Preview, Doubao-Seed-2.0-Lite, Qwen3-VL-Plus, GLM-4.6V, Qwen3-VL-Flash. Kimi-K2.6 also used as corrupt agent and judge",
+   "p": "5-6"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no development approach). Per turn: current HTML, full-page screenshot with red bounding box(es), repair instruction ('Do not modify any other content on the page'), resource asset dictionary; macro level also a cropped golden reference image of the missing region",
+   "p": "3-5"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Construction: collect and render pages from 16 domains -> similarity filtering -> 102 golden pages -> element fingerprint injection -> corrupt agent removes semantic regions (macro) or injects 3 defects per turn from 9 operators (micro) -> reverse into repair trajectory. Evaluation: agent repairs from the fully corrupted state over 5 turns, each turn conditioned on its own previous output (chain), rendered and scored per turn",
+   "p": "2-5"
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent loop. Author-side: manual check of generated micro-level instructions during task curation",
+   "p": "6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach run)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: iterative edits of an existing single web page (HTML/CSS) to reconstruct removed regions or repair localized defects",
+   "p": "1, 3-5"
+  },
+  {
+   "f": "Size",
+   "v": "102 tasks: 53 macro-level pages x 5 turns (one region per turn) and 49 micro-level tasks x 5 turns with 3 modifications per turn; 16 vertical domains (6-8 pages each)",
+   "p": "1, 3, 5"
+  },
+  {
+   "f": "Domain",
+   "v": "Front-end web UI (HTML/CSS) in 16 verticals: retail, multimedia, community, AI platform, CRM, ERP, public utility, government, HCM, TMS, publishing, news, vertical markets, procurement, knowledge, services",
+   "p": "3"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Macro: VLM-judge rubric scores (Layout, Elements, Text, Color, Spacing, Overall; five-band 1.0/0.75/0.5/0.25/0), S_inbox = mean of the six, S_outbox by block-wise VLM comparison with SSIM fallback. Micro: S_inbox = SSIM inside the repair footprint, S_outbox = SSIM outside plus colour pixel-difference penalty. Score = 0.8 S_inbox + 0.2 S_outbox; per-turn scores",
+   "p": "4-5"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Error snowballing: per-turn score gap between chain-based and independent (golden previous state) editing; caption ablation; judge cross-validation (mean difference, full-mark rate, correlation)",
+   "p": "7"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: macro by VLM judge (Kimi-K2.6) against golden crops; micro by deterministic pixel/SSIM alignment against golden renders; results averaged over three independent runs",
+   "p": "5-6"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark MT-Web2Code, same multi-turn protocol for all, averaged over three runs (Table 3). Values: macro Score; micro Score (micro S_outbox). (1) Gemini-3.5-Flash: macro 65.5; micro 80.5 (96.7). (2) Kimi-K2.6: 63.7; 75.3 (95.5), also judge and corrupt agent. (3) Claude-4.7-Opus: 63.0; 77.3 (99.2). (4) Qwen3.5-Plus: 62.8; 83.3 (98.9). (5) Gemini-3.1-Flash-Lite: 58.8; 78.9 (98.9). (6) Doubao-Seed-2.0-Pro: 58.2; 83.5 (99.2). (7) GPT-5.4: 57.3; 82.1 (99.1). (8) GLM-5V-Turbo: 54.6; 80.6 (98.7). (9) Gemini-3.1-Pro-Preview: 50.3; 82.1 (99.1). (10) Doubao-Seed-2.0-Lite: 45.8; 58.1 (98.0). (11) Qwen3-VL-Plus: 37.3; 75.8 (98.4). (12) GLM-4.6V: 35.9; 45.6 (94.2). (13) Qwen3-VL-Flash: macro 10.0; micro 35.6 (88.1). Ablation (caption of reference, macro Score w/o -> w/): Gemini-3.5-Flash 65.5 -> 71.8 (+6.3), Kimi-K2.6 63.7 -> 59.2 (-4.5), Claude-4.7-Opus 63.0 -> 58.6 (-4.4). Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "6-7"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 53 macro and 49 micro tasks, 5 turns each. Configurations: 13 LVLMs under the same multi-turn interaction protocol 'without additional task-specific optimization'; agent scaffold, model versions and settings not stated. Acceptance: golden pages as ground truth; macro judged by Kimi-K2.6 VLM rubric, micro by pixel alignment. Repetitions: three independent runs averaged. Ablations: caption vs no caption (3 models); chain vs independent editing (Kimi-K2.6). Human intervention: none",
+   "p": "5-7"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Macro: Gemini-3.5-Flash best (65.5), Kimi-K2.6 second (63.7); larger models such as Claude-4.7-Opus and Gemini-3.1-Pro-Preview introduce unnecessary global layout changes. Micro: Doubao-Seed-2.0-Pro best (83.5); most advanced models keep out-of-box preservation above 0.95 while in-box accuracy varies. Macro and micro rankings differ. Captions help Gemini-3.5-Flash (+6.3) but hurt Kimi-K2.6 (-4.5) and Claude-4.7-Opus (-4.4). Chain-based editing degrades with turns versus independent editing (Kimi-K2.6; accumulated gaps between +3.6 and +23.8 points across rounds, Figure 4, order not readable in the text layer). Judges: Gemini-3.5-Flash scores +12.1 higher than Kimi-K2.6 on average (corr. 0.91), Gemini-3.1-Pro-Preview +6.7 (corr. 0.86). No significance tests",
+   "p": "6-7"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Per the authors, yes: the dual-track design separates structural reconstruction from fine-grained editing, and the chain vs independent setting isolates error propagation. Variance across the three runs not reported. Judge choice affects scores (cross-validation). Authors state no limitations of the comparison method",
+   "p": "6-7"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: agents struggle to reconstruct target regions while preserving surrounding content, lack fine-grained visual-code alignment, and suffer error snowballing over turns; strong static UI generation does not imply reliable iterative coding; deterministic metrics proposed as verifiable reward signals for training iterative UI coding agents",
+   "p": "2, 5-7"
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 3 (p. 6), Tables 4-5 and Figure 4 (p. 7); Table 3 is partly garbled in the text layer (per-dimension cells of the top three macro rows hard to align; Scores confirmed by the text and Table 4). Inconsistencies: text says lightweight Gemini models outperform larger models such as Claude-4.7-Opus and Gemini-3.1-Pro-Preview; this holds only pairwise (Gemini-3.5-Flash 65.5 > Claude-4.7-Opus 63.0; Gemini-3.1-Flash-Lite 58.8 > Gemini-3.1-Pro-Preview 50.3), while Gemini-3.1-Flash-Lite is below Claude-4.7-Opus on macro; Kimi-K2.6 is said to 'better align with human perception' but no human study is reported; Kimi-K2.6 is corrupt agent, difficulty filter, judge and evaluated model (marked * in micro). Thresholds (tau) and judge prompts not given. Code and data 'will soon be released' (not available). No pre-registration. Programming language: HTML/CSS",
+   "p": "1, 5-7"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and three contributions clearly stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): task formulation, corruption engine and scoring formulas described; thresholds, judge prompts, agent scaffold and model settings not given",
+   "p": "2-5"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names given (e.g. Claude-4.7-Opus, GPT-5.4) without snapshot identifiers or settings; agent harness not identified",
+   "p": "5-6"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks and domains described; benchmark data and code only promised for release",
+   "p": "1, 3, 5"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): golden pages give ground truth and micro scoring is deterministic, but macro scoring relies on a VLM judge (Kimi-K2.6) not validated against human ratings",
+   "p": "5-7"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined by equations; no cost metrics",
+   "p": "5"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 13 models under the same protocol; chain vs independent and caption ablations as controlled contrasts",
+   "p": "5-7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three independent runs averaged; no variance or statistical tests reported",
+   "p": "6"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main findings follow from Table 3, but the claim that the Kimi-K2.6 judge 'better aligns with human perception' is not backed by any reported human study, and the lightweight-model claim holds only pairwise",
+   "p": "6-7"
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed",
+   "p": "—"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors from HIT, Meituan Longcat Team and Peng Cheng Laboratory; no Meituan/LongCat model among the 13 evaluated",
+   "p": "1, 5-6"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

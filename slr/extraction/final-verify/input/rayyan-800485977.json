@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485977",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Lu, Z., Yang, Y., Ren, H., Xiao, H., Wang, K., Shi, W., Zhou, A., Zhan, M., Li, H. (2025). WebGen-Bench: Evaluating LLMs on Generating Interactive and Functional Websites from Scratch. arXiv:2505.03733v2 [cs.CL], 11 Aug 2025",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2025",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2505.03733v2 (cs.CL), marked 'Preprint. Under review.'",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Multimedia Laboratory (MMLab), The Chinese University of Hong Kong (all authors as listed; per-author affiliations not detailed)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark WebGen-Bench (101 website-generation instructions, 647 test cases executed by a UI agent, GPT-4o appearance score), comparison of 3 agent frameworks with several LLMs; also a training set (WebGen-Instruct) and fine-tuned models (WebGen-LM)",
+   "p": "1-3, 7"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent frameworks: Bolt.diy (open-source Bolt.new), OpenHands with CodeActAgent, Aider (versions Not stated). Models: Claude-3.5-Sonnet, DeepSeek-R1, DeepSeek-V3, GPT-4o, o3-mini, Qwen2.5-Coder-32B, Qwen2.5-72B-Instruct; authors' WebGen-LM-7B/14B/32B (Qwen2.5-Coder-Instruct fine-tuned on 600 Bolt.diy trajectories)",
+   "p": "3, 7"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Input: one natural-language website-generation instruction per task (functionality and appearance requirements, e.g. colours; technical details deliberately omitted). Framework prompts: OpenHands (TypeScript/HTML/CSS, npm install / npm run dev) and Aider system constraints (Vite, Node.js, package.json); Bolt.diy decides frameworks and imports a template. No specification artefacts produced",
+   "p": "3, 5, 7, 21-22"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed. Bolt.diy: choose frontend/backend frameworks -> import template -> build on it. Evaluation: start website -> UI agent (WebVoyager, Qwen2.5-VL-32B engine, max 15 interactions) runs each test case -> YES/PARTIAL/NO; GPT-4o grades appearance 1-5 from screenshots",
+   "p": "6-7, 20"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during generation. Humans review test cases (two CS PhD students) during construction and manually re-test three configurations to check the UI agent",
+   "p": "5-6, 8"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs from a natural-language instruction",
+   "p": "7"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (natural-language instructions from non-expert users; no specification artefacts)",
+   "p": "5"
+  },
+  {
+   "f": "Task type",
+   "v": "New project (multi-file website codebase from scratch)",
+   "p": "1-2"
+  },
+  {
+   "f": "Size",
+   "v": "101 instructions (Content Presentation 28, User Interaction 49, Data Management 24), 647 test cases (4-11 per instruction); generated codebases avg 8.1 files and 315.3 LOC (DeepSeek-V3 runs). Training set WebGen-Instruct 6,667 instructions",
+   "p": "2, 5-6"
+  },
+  {
+   "f": "Domain",
+   "v": "Web applications (20 categories, e.g. e-commerce, dashboards, CRM, learning platforms, games, blogs); TypeScript, JavaScript, HTML, CSS",
+   "p": "5-6, 14, 16"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in generation); instruction ideas from 40 CS PhD students; test cases reviewed by 2 CS PhD students; manual testing by 3+1 human testers",
+   "p": "2, 5-6, 8"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None for the configurations. Only the estimated cost of manual testing (about 10.8 h and USD 377.8 for 647 test cases) to motivate automation",
+   "p": "6"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Yes / Partial / No rates and 'Start Failed' rate of test cases; Accuracy = (N_Yes + 0.5 N_Partial) / N_Total x 100%; accuracy by instruction category and test-case category (functional, data display, design validation)",
+   "p": "7-9"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Appearance score 1-5 graded by GPT-4o (rendering, content relevance, layout harmony, modernness); alignment rate between UI-agent and human test verdicts (validation of the evaluator)",
+   "p": "6, 8-9, 18-19"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: UI agent WebVoyager (Qwen2.5-VL-32B-Instruct) executes test cases and answers YES/NO/PARTIAL; GPT-4o grades screenshots. Manual: validation on three Bolt.diy configurations by three human testers plus a fourth for disagreements (alignment 86.1-94.4%); appearance cross-checked with o3, Claude-3.5-Sonnet and human grading (Appendix L)",
+   "p": "6, 8-9, 22-23"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: test case passed (YES, PARTIAL counts 0.5); no configuration-level threshold. Runs per configuration Not stated (appear single). Accuracy % / appearance (1-5) / start failed %: Bolt.diy + Claude-3.5-Sonnet: 26.4 / 3.0 / 5.7; Bolt.diy + DeepSeek-R1: 27.8 / 2.5 / 4.8; Bolt.diy + DeepSeek-V3: 20.8 / 2.0 / 3.1; Bolt.diy + GPT-4o: 12.8 / 1.5 / 20.4; Bolt.diy + o3-mini: 19.6 / 1.6 / 38.6; Bolt.diy + Qwen2.5-Coder-32B: 9.5 / 1.1 / 7.4; Bolt.diy + Qwen2.5-72B-Instruct: 13.8 / 1.4 / 3.7; Bolt.diy + WebGen-LM-7B: 28.4 / 2.5 / 0.0; + WebGen-LM-14B: 29.4 / 2.5 / 0.0; + WebGen-LM-32B: 38.2 / 2.8 / 0.0 (ablation on training size: 150 / 300 / 600 samples -> 25.1 / 31.9 / 38.2); OpenHands (CodeActAgent) + Claude-3.5-Sonnet: 22.3 / 2.6 / 15.0; + DeepSeek-R1: 10.2 / 1.4 / 27.7; + DeepSeek-V3: 9.0 / 1.5 / 15.5; Aider + Claude-3.5-Sonnet: 22.9 / 1.9 / 32.1; + DeepSeek-R1: 27.7 / 2.7 / 23.5; + DeepSeek-V3: 14.1 / 1.2 / 30.1. For every configuration: quality: no criterion stated by the authors; cost: N/A (not measured)",
+   "p": "8-10"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Project/tasks: 101 WebGen-Bench instructions. Configurations: 3 frameworks x DeepSeek-V3, Claude-3.5-Sonnet, DeepSeek-R1; then more models on Bolt.diy (best framework); WebGen-LM fine-tuned models on Bolt.diy. Baseline: none (base Qwen2.5-Coder-32B vs fine-tuned). Held constant: instructions, test cases, UI-agent evaluator, appearance grader; framework-specific prompts differ. Acceptance tests: 647 human-reviewed test cases run by the UI agent. Repetitions: Not stated. Human intervention: none during generation",
+   "p": "5-8"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Bolt.diy best framework on DeepSeek-V3; best general model Bolt.diy + DeepSeek-R1 (27.8%), close to Claude-3.5-Sonnet (26.4%, best appearance 3.0). Authors' WebGen-LM-32B reaches 38.2% (base Qwen2.5-Coder-32B 9.5%). Smaller open-source models lag. Design validation tests easiest in most configurations, functional tests hardest; Content Presentation instructions easiest for all configurations except WebGen-LM-7B and WebGen-LM-14B, where Data Management is highest (38.1 and 31.6, Table 4). No significance tests",
+   "p": "8-9"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished frameworks and models; UI-agent verdicts agree with human testers on 86.1-94.4% of test cases for three configurations, and the appearance ranking is stable across graders and human scores. Repeatability: single runs (not stated otherwise), no variance; code, data and model weights released. Limitations of the comparison not discussed beyond evaluator validation",
+   "p": "8-9, 22-23"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: only TypeScript, JavaScript, CSS and HTML (Python, Java, Go not integrated); only supervised fine-tuning (no RL or DPO). Gap: current agents far from saturating from-scratch website generation (best 27.8% general model)",
+   "p": "10, 14"
+  },
+  {
+   "f": "Notes",
+   "v": "Calls DeepSeek-R1 'the best proprietary model' (pp. 1, 8) although it is an open-weight model. Paragraph 'Web Development Project Descriptions Collection' duplicated (p. 5). Table 8 (test-case categories) gives Total 667, but its main categories sum to 647 (339 + 186 + 122), matching the 647 test cases stated elsewhere. Text says Content Presentation 'consistently demonstrates the highest accuracies' (p. 8), but Table 4 shows Data Management highest for WebGen-LM-7B (38.1 vs 27.9) and WebGen-LM-14B (31.6 vs 30.2). NeurIPS paper checklist included (pp. 37ff.), suggesting a NeurIPS submission; check whether published. Appendix L says 'We will add this discussion to the revised paper'. Table 1 file and LOC averages only from DeepSeek-V3 runs. Values from Tables 3-6. Replication package: https://github.com/mnluzimu/WebGen-Bench (data-generation, training and testing code, datasets, model weights; MIT licence). No pre-registration. Programming language: TypeScript/JavaScript, HTML, CSS",
+   "p": "1-2, 5, 8, 14, 23, 37"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (benchmark for from-scratch website generation) and contributions stated",
+   "p": "2-3"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): curation, test construction and evaluation pipeline described with all prompts (Appendices C-J); code released",
+   "p": "4-7, 15-22"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): frameworks and model names given; framework versions, model snapshots and sampling settings Not stated",
+   "p": "7"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): instructions and test cases described and released",
+   "p": "4-6"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): human-reviewed test cases, but executed and judged by a VLM UI agent (validated against humans, 86-94% alignment); appearance graded by GPT-4o",
+   "p": "5-9"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): accuracy and appearance defined; no cost metrics",
+   "p": "6-7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all configurations on the same instructions, tests and evaluator",
+   "p": "7-8"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): repetitions Not stated, no error bars or statistical analysis (NeurIPS checklist answers No on error bars)",
+   "p": "7-9, 37"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow the tables (low accuracy, benchmark far from saturated)",
+   "p": "8, 10"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short Limitations appendix (languages, SFT only); validity of the evaluator checked but threats to the comparison not discussed",
+   "p": "8-9, 14"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, 'under review'",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors evaluate their own WebGen-LM models among the configurations; frameworks and other models independent",
+   "p": "3, 7-8"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method; WebGen-LM is a training contribution, not an SDD approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

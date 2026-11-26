@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486313",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Madiraju, M. B., Madiraju, M. S. P. (2026). RigorBench: Benchmarking Engineering Process Discipline in Autonomous AI Coding Agents. arXiv:2606.22678v2 [cs.SE], 29 Jun 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.22678v2 [cs.SE]; no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Georgia Institute of Technology (gatech.edu e-mail addresses only; no affiliation line). Both authors co-developed the evaluated Agent-Rigor harness (Conflict of Interest statement)",
+   "p": "1, 8"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — RigorBench, an exploratory benchmark scoring process discipline from agent trajectories (seven pillars, composite RigorScore, 100 tasks), used to compare three harnesses (including the authors' Agent-Rigor) and a ReAct baseline on the same model",
+   "p": "1-2, 4"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agent-Rigor (authors' own; 'markdown-based operating system enforcing a 6-phase discipline lifecycle', github.com/MeherBhaskar/agent-rigor); Agent-Skills (Osmani; specialised tools and skills); Superpowers (Obra; extended context and prompt management); Baseline ReAct (zero-shot ReAct loop with read/write tools). No versions stated; all on Gemini 3.5 Flash (gemini-3.5-flash, thinking_level medium)",
+   "p": "2, 4, 8-9"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent-Rigor: explicit plan document (plan.md) before modifying code, early test stubs, atomic transitions/commits; other artefacts of the markdown-based framework not described. Agent-Skills and Superpowers: Not stated beyond tools/skills and context management. Benchmark rewards a plan artefact (at least 50 non-whitespace characters with task-relevant terms), tests and atomic descriptive commits",
+   "p": "2, 4-6"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent-Rigor: 6-phase discipline lifecycle with mandatory planning and verification phases and atomic transitions (phases not named). Others: Not stated. Expected task process in the appendix examples: plan, implement sub-tasks keeping build health, create tests",
+   "p": "2, 4-5, 10-11"
+  },
+  {
+   "f": "Human review points",
+   "v": "Not stated (autonomous runs; Clarification Behavior Score rewards agents asking for clarification on ambiguous tasks)",
+   "p": "3, 5"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each harness on benchmark tasks",
+   "p": "4"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording for Agent-Rigor: 'upfront planning-enforced harness', 'enforcing strict lifecycle protocols (e.g., mandatory planning and atomic transitions)'",
+   "p": "1-2, 5"
+  },
+  {
+   "f": "Task type",
+   "v": "Mostly existing code bases (starter repositories: bug fixes, refactors, multi-file features) plus impossible/ambiguous tasks; some start from a skeleton (e.g. empty Node.js project with Express server)",
+   "p": "4, 10-11"
+  },
+  {
+   "f": "Size",
+   "v": "100 tasks in 5 categories of 20 (Plan-Then-Build, Verify-Or-Die, Doom Loop Gauntlet, Know When to Fold, Don't Break the Build); about 410 task executions; examples: Django app with 8 models, 15 views, 47 tests; 200K-token context budget, 60-minute timeout",
+   "p": "4, 11"
+  },
+  {
+   "f": "Domain",
+   "v": "General software engineering tasks (API gateway in Node.js, hash verification in Rust, date library in Python, Django ORM refactor, impossible algorithm specifications)",
+   "p": "10-11"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents). Pillar weights from a pilot survey of ten staff-level software engineers",
+   "p": "3"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean total tokens per task (about 42,500 baseline vs 37,400 under the planning-enforced condition); Token Waste Ratio (tokens in failed recovery / total) inside Recovery Efficiency. Time and money not reported",
+   "p": "3, 7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Outcome Score from task-specific correctness criteria (test pass rate, feature completeness, absence of regressions), [0,1]; Build Health and Test Suite Stability between steps; Regression Resilience (PASS -> FAIL transitions)",
+   "p": "3, 5"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Test Assertion Density (meaningful assertions per test function, capped at 5); Dead Code Avoidance; Diff Minimality; Commit Hygiene",
+   "p": "3-5"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "RigorScore = 0.15 PF + 0.15 VC + 0.20 RE + 0.10 AQ + 0.10 ATI + 0.20 TAD + 0.10 EE; pillars Planning Fidelity (plan artefact, decomposition quality, plan-execution Kendall tau), Verification Coverage (test creation rate, coverage delta, requirements traceability), Recovery Efficiency, Abstention Quality, Atomic Transition Integrity, Test Assertion Density, Exploration Efficiency; additional Contextual Grounding Rate, Specification Coverage, Clarification Behavior Score; process-outcome correlation",
+   "p": "3-6"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: instrumented Docker environment logs text, diffs, commands and outputs, tokens per action, timestamps; parser and signal extractors compute pillar scores; build and tests run after each file modification. LLM judge Gemini 3.1 Pro (gemini-3.1-pro-preview, thinking high) for qualitative sub-metrics (e.g. Decomposition Quality, Commit Hygiene), not validated against humans. Outcome by task-specific correctness criteria (procedure not detailed)",
+   "p": "4-5, 7"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "All on Gemini 3.5 Flash (medium), 100 tasks, about 410 runs; values mean +/- SD (Table III), pillars PF/VC/RE/AQ/ATI/TAD/EE (Table V), extra metrics (Table VI). For all entries: no success criterion stated by the authors; quality verdict and cost verdict: no criterion stated by the authors. (1) Agent-Rigor + Gemini 3.5 Flash: RigorScore 0.53 +/- 0.08 (0.527 in Table VI); Outcome 0.83 +/- 0.05; pillars 0.82/0.13/0.63/0.57/0.42/0.37/0.85; RR 0.981, EE 0.449, TAD 0.311, DCA 0.996, DM 0.473, CGR 0.996, SC 0.611, CBS 0.200; about 37,400 tokens per task. (2) Superpowers + Gemini 3.5 Flash: RigorScore 0.41 +/- 0.09 (0.410); Outcome 0.70 +/- 0.06; pillars 0.29/0.06/0.56/0.56/0.44/0.39/0.68; RR 0.929, EE 0.314, TAD 0.349, DCA 0.991, DM 0.455, CGR 0.997, SC 0.276, CBS 0.200. (3) Agent-Skills + Gemini 3.5 Flash: RigorScore 0.39 +/- 0.09 (0.387); Outcome 0.72 +/- 0.06; pillars 0.23/0.03/0.54/0.57/0.43/0.38/0.64; RR 0.974, EE 0.275, TAD 0.338, DCA 0.989, DM 0.452, CGR 0.993, SC 0.273, CBS 0.400. (4) Baseline ReAct + Gemini 3.5 Flash: RigorScore 0.40 +/- 0.09 (0.39 in Table V, 0.395 in Table VI); Outcome 0.64 +/- 0.05; pillars 0.22/0.05/0.56/0.56/0.43/0.40/0.65; RR 0.988, EE 0.269, TAD 0.349, DCA 0.991, DM 0.450, CGR 0.994, SC 0.243, CBS 0.200; about 42,500 tokens per task. Tokens for Superpowers and Agent-Skills not reported",
+   "p": "5-7"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 RigorBench tasks. Configurations: Agent-Rigor, Agent-Skills, Superpowers, Baseline ReAct. Baseline: zero-shot ReAct loop. Held constant: model (Gemini 3.5 Flash, thinking medium, overriding harness defaults), isolated Docker container with fresh repository clone, 60-minute timeout, 200K-token context budget. Acceptance: task-specific correctness criteria (tests, hidden edge-case tests). Repetitions: about one run per task per harness (~410 executions; 'some tasks produced multiple runs'). Human intervention: Not stated. Tasks and evaluation rules finalised before Agent-Rigor was run",
+   "p": "4-5, 8"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Agent-Rigor best on process (RigorScore 0.53 vs 0.40 baseline, +33%, 'partly by construction') and outcome (0.83 vs 0.64, about +30%); Superpowers (0.41) and Agent-Skills (0.39) do not improve on baseline process; outcome 0.70 and 0.72. Largest pillar gains Planning Fidelity (+0.57) and Exploration Efficiency (+0.19). Agent-Rigor lowest Test Assertion Density (0.311 vs 0.349). Process-outcome linear fit across harnesses Outcome = 0.26 + 1.07 x RigorScore; within-harness correlation non-significant (r = 0.12 Agent-Rigor, 0.05 Baseline). No significance tests between harnesses. Agent-Rigor uses about 12% fewer tokens than baseline. Rank order invariant under +/-50% weight changes. Single-task anecdotes: Superpowers beats Agent-Rigor on the Halting Problem task (0.66 vs 0.37), Baseline beats it on Flask Authentication (0.82 vs 0.53)",
+   "p": "1, 3, 5-7"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Separated Agent-Rigor from the other three, which it did not distinguish from one another. Abstention Quality compressed (0.56-0.57) by the scoring design (80 non-KWF tasks get a default 0.50); Recovery Efficiency compressed (0.54-0.63) because recovery is mostly binary in the tasks (immediate recovery or loop until timeout). Repeatability not assessed (essentially one run per task). Limitations stated: construct bias and circularity (authors built Agent-Rigor; pillars measure what it enforces), single discipline framework, LLM-as-judge biases without human validation, within-harness non-significance, sample size, temporal validity, contamination",
+   "p": "6-7"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: 100 tasks too few for statistical power; rigid planning can hurt (impossible or memorised tasks); only Agent-Rigor as discipline framework; construct bias and framework circularity, independent replication needed; LLM-judge circularity and no human validation; process-outcome link non-significant within harnesses; temporal validity; contamination. Gaps/future work: more tasks and domains, other discipline frameworks (e.g. AGENTS.md, Cursor Rules), process-aware reward models, leaderboard, transfer of discipline across tasks; outcome-only benchmarks miss the engineering process",
+   "p": "6-8"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: queue abstract (earlier version) says five pillars, 30 tasks and 41% gain; v2 text says seven pillars, 100 tasks, 33%. Baseline RigorScore 0.40 (Table III) vs 0.39 (Table V) vs 0.395 (Table VI); Agent-Rigor EE 0.85 (Table V) vs 0.449 (Table VI) and TAD 0.37 vs 0.311; Table IV 'averaged across all agents' has D values identical to the Agent-Rigor row and B values not matching the Baseline row (PF 0.25 vs 0.22). COI statement says competitors ran with 'default public configurations without modification' but setup overrides all harnesses to Gemini 3.5 Flash. Results said to reflect agents 'as of June 2025' while the paper is dated June 2026 and uses Gemini 3.5 Flash. Future work 'expand to 100+ tasks' although 100 exist. Broken cross-reference ('Section .'). No p-values for the 'non-significant' correlations. Benchmark, rubrics and analysis tools released at github.com/MeherBhaskar/RigorBench; no pre-registration. Programming languages of tasks: Python, JavaScript/Node.js, Rust (examples)",
+   "p": "1, 4-8, 10-11"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (measure process discipline) and contributions stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): pillar formulas, weights, infrastructure and anti-gaming rules given and benchmark released; Outcome Score procedure, LLM-judge prompts, harness configurations and the Agent-Rigor phases not described",
+   "p": "3-5"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model and judge versions given (gemini-3.5-flash medium; gemini-3.1-pro-preview high); harness versions not stated",
+   "p": "4"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 100 tasks in five categories with example specifications; tasks, starter repositories and rubrics released on GitHub",
+   "p": "1, 4, 10"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): outcome by task-specific correctness criteria (tests, hidden edge-case tests), but its procedure is not detailed; process scores partly by an LLM judge not validated against humans",
+   "p": "4-5, 7, 10"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): process metrics defined in detail and tokens reported; Outcome Score loosely defined and tokens reported only for two configurations",
+   "p": "3-5, 7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): ReAct baseline and two other harnesses on the same model and infrastructure",
+   "p": "4"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): means with SD, correlations and a weight-sensitivity analysis; no significance tests between harnesses and about one run per task",
+   "p": "3, 5-6"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): negative and mixed results reported (no gain for two harnesses, within-harness non-significance, 'partly by construction'), but claims of macro-level association rest on four points and tables disagree",
+   "p": "5-7"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): dedicated limitations section including construct bias, LLM-judge circularity and conflict of interest",
+   "p": "7-8"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): the authors co-developed Agent-Rigor (declared conflict of interest); independent of Agent-Skills, Superpowers and the ReAct baseline",
+   "p": "2, 8"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method; Agent-Rigor is the authors' prior harness, published separately on GitHub [18], evaluated but not proposed here)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

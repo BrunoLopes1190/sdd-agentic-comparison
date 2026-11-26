@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486347",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Huang, W., Lee, C., Tng, L., Ge, S. (2026). DeepSWE: Measuring Frontier Coding Agents on Original, Long-Horizon Engineering Tasks. arXiv:2607.07946v1 [cs.SE], 8 Jul 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.07946v1 [cs.SE]; no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Datacurve (all four authors; industry)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — DeepSWE benchmark of 113 original, never-merged long-horizon tasks across 91 repositories and five languages with hand-written functional verifiers; leaderboard of 16 model configurations under a fixed harness; LLM-judge audit of verifier disagreement vs SWE-Bench Pro",
+   "p": "1-2, 10"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harness: mini-swe-agent pinned at commit adfe2023 (single bash tool, shared system prompt). Models (reasoning effort): GPT-5.5 (xhigh), GPT-5.4 (xhigh), GPT-5.4 Mini (xhigh), Claude Opus 4.7 (max), Claude Opus 4.6 (max), Claude Sonnet 4.6 (high), Claude Haiku 4.5 (default), Gemini 3.5 Flash (medium), Gemini 3.1 Pro, Gemini 3 Flash, Kimi K2.6, MiMo v2.5 Pro, GLM-5.1, DeepSeek-V4 Pro, Qwen3.6 Plus, MiniMax-M2.7 (provider defaults). Pilot native harnesses: Claude Code, Codex CLI, Gemini CLI (versions not stated)",
+   "p": "10, 25"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an SDD approach. Each task ships a short free-form prompt (~2,000 characters, no interface block), an executable functional verifier and a reference solution (used only in review)",
+   "p": "5, 8, 19"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed; the shared mini-swe-agent prompt recommends find files, reproduce, edit, re-run, check edge cases. Rollout ends when the agent submits a patch, exhausts context, or hits the 9,000 s timeout",
+   "p": "10"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (autonomous agents). Human review is part of task construction (prompt, verifier, reference solution and diagnostic rollouts reviewed before acceptance)",
+   "p": "9-10"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); autonomous single-prompt runs",
+   "p": "10"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification artefact; authors contrast short natural prompts with SWE-Bench Pro's requirement lists and interface blocks)",
+   "p": "5, 19"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (feature-level changes in active open-source repositories; tasks written from scratch, never merged upstream; bug localization and small edits under-represented)",
+   "p": "3, 7"
+  },
+  {
+   "f": "Size",
+   "v": "113 tasks in 91 repositories (median 1 task per repo; ≥500 GitHub stars); mean reference solution 668 lines added and 7.4 files edited; mean prompt 2,158 characters. ~4 rollouts per task per configuration, 428-452 scored rollouts per configuration, 7,174 total",
+   "p": "5-6, 8, 12"
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source software (e.g. libraries, CLI tools, web frameworks, linters, a JavaScript engine: httpx, Textual, bandit, FastAPI, KaTeX, kcp-go, go-critic, Boa, Happy DOM)",
+   "p": "6, 27, 31"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs). Tasks authored and cross-reviewed by software engineers (number not stated)",
+   "p": "9, 21"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Median output tokens per trial, median wall-clock minutes per trial, median dollar cost per trial (Figure 8, per-model values not legible in the text); harness pilot median output tokens per trial",
+   "p": "11, 13-14"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "pass@1 (macro-average of per-task pass fraction) and pass@4 (share of tasks solved by at least one of four rollouts) with hand-written functional verifiers plus regression checks; 95% run-to-run CI on pass@1",
+   "p": "2, 8-9, 11-12"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (authors state verifiers do not score code quality, readability or maintainability)",
+   "p": "19"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Verifier false-positive and false-negative rates against an LLM-judge audit; failure-mode verdict tags (Table 4); share of trials in which the agent authored new tests (self-verification); cross-benchmark spread vs SWE-Bench Pro",
+   "p": "7-8, 14-17, 26"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: verifiers run in containers (PIE, a fork of Harbor); exclusions of provider, verifier and network errors (0-5.3% per configuration); context exhaustion and timeouts count as failures. LLM-as-judge: GPT-5.5 (xhigh) as a Codex CLI agent audits 30 tasks × 9 configurations × 3 rollouts per benchmark and tags failure modes and self-verification; judge prompt not released",
+   "p": "7, 13, 15-16, 20"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Per-rollout success criterion: the functional verifier passes; no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. All under mini-swe-agent, ~4 rollouts × 113 tasks; pass@1 (pass@4): (1) GPT-5.5 xhigh: 70.0% [67.2, 72.9] (88%). (2) GPT-5.4 xhigh: 55.5% [53.4, 57.7] (77%). (3) Claude Opus 4.7 max: 54.2% [49.5, 58.9] (86%). (4) Claude Sonnet 4.6 high: 31.6% (62%). (5) Gemini 3.5 Flash medium: 28.3% (57%). (6) Claude Opus 4.6 max: 27.1% (50%). (7) GPT-5.4 Mini xhigh: 24.3% (46%). (8) Kimi K2.6: 23.9% (49%). (9) MiMo v2.5 Pro: 19.5% (45%). (10) GLM-5.1: 17.5% (39%). (11) Gemini 3.1 Pro: 9.9% (25%). (12) DeepSeek-V4 Pro: 7.5% (19%). (13) Gemini 3 Flash: 5.2% (15%). (14) Qwen3.6 Plus: 2.7% (10%). (15) Claude Haiku 4.5: 0.2%. (16) MiniMax-M2.7: 0.2%. Harness pilot (10 SWE-Bench Pro tasks; pass rate, median output tokens): mini-swe-agent + Opus 4.7 50%, 59k vs Claude Code + Opus 4.7 40%, 48k; mini-swe-agent + GPT-5.5 40%, 16k vs Codex CLI + GPT-5.5 40%, 25k; mini-swe-agent + Gemini 3.1 Pro 40% vs Gemini CLI + Gemini 3.1 Pro 20% (tokens 18k / 15k)",
+   "p": "2, 10-12, 14"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 113 DeepSWE tasks (pinned commits, shallow clone at base commit). Configurations: 16 models with fixed reasoning effort (explicit for some families, provider default for others). Baseline: none designated; cross-benchmark comparison with publicly reported SWE-Bench Pro scores, and a matched audit on 30 SWE-Bench Pro tasks run through the same pipeline. Held constant: harness (mini-swe-agent commit adfe2023, single bash tool, shared prompt), 9,000 s timeout, no step or cost cap. Acceptance tests: hand-written functional verifiers plus regression checks, each verifier run three times during authoring to remove flakiness. Repetitions: ~4 rollouts per task (pass@1 and pass@4, run-to-run CI). Human intervention: none. Runs collected May 2026",
+   "p": "7-13"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5.5 clearly top (70.0%, CI apart from others); GPT-5.4 (55.5%) and Opus 4.7 (54.2%) overlap and are not statistically separated; Haiku 4.5 and MiniMax-M2.7 at 0.2%. DeepSWE spreads eight models over 69.8 points vs 29.7 on SWE-Bench Pro. Output tokens, wall-clock time and cost per trial vary by an order of magnitude but none correlates strongly with pass rate. Verifier disagreement with the LLM judge: 1.4% (10/735) for DeepSWE vs 32.4% (256/789) for SWE-Bench Pro (Clopper-Pearson CIs [0.7, 2.5] and [29.2, 35.8]). Claude configurations miss enumerated requirements most often; Opus configurations recover the gold fix from .git history on SWE-Bench Pro (~13% of trials; 18% of Opus 4.7 and 25% of Opus 4.6 passes judged improper); Opus 4.7 and GPT-5.4 write new tests in >80% of DeepSWE runs. Harness pilot differences not significant",
+   "p": "8, 12-17"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "It separated frontier models over a wider band than SWE-Bench Pro, though mid-table configurations overlap. Repeatability: ~4 runs per configuration; authors note the run-to-run CI ignores task-sampling variance and is unreliable with four runs (Wilson interval for GPT-5.5 wider: [65.6, 74.1]). Limitations stated: binary reward without partial credit; functional correctness only; prompts more specified than real requests; under-specified and interactive use not measured; single harness and mixed reasoning-effort settings; small audit with single-digit DeepSWE counts and a GPT-5.5 judge that may favour its own family; harness pilot only n = 10; wider spread is not itself a capability claim",
+   "p": "12-14, 19-21"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: binary pass/fail; no code-quality scoring; middle-band prompt specification; ambiguous requests, non-coding uses and interactive collaboration unmeasured; fixed harness bypasses native editing primitives; reasoning-effort mix; verifier audit small and judge fallible; pilot not a ranking of production harnesses; 'long-horizon' is a structural property, not human time; decontamination holds only at evaluation time. Future work: run models under multiple harnesses; broader repositories and more bug localization and refactoring tasks; add C++ and Java; black-box and hybrid LLM-judge/unit-test verifiers",
+   "p": "19-21"
+  },
+  {
+   "f": "Notes",
+   "v": "Title page dated May 2026, arXiv v1 8 Jul 2026. pass@4 values for GPT-5.4 (77%) and Opus 4.7 (86%) assigned from the order in the extracted Figure 1 text; pass@4 for Haiku 4.5 and MiniMax-M2.7 not legible. Harness-pilot median output tokens (59k/48k, 16k/25k, 18k/15k) are not given in the prose; the mini-swe-agent vs native assignment was rebuilt from the order in the extracted Figure 6 text (the Gemini pass-rate bars appear there in reversed order, so the token assignment is not certain). Per-model cost medians (Fig. 8), legitimate-pass shares (Fig. 9) and test-writing shares (Fig. 10) only partly legible. Consistency checks: 668/120 lines ≈ 5.5×; languages TypeScript 35, Go 34, Python 34, Rust 5, JavaScript 5 = 113. Table 3 writes 'Qwen3-6 Plus'. Released: benchmark, verifiers, per-run scores, full trajectories (https://github.com/datacurve-ai/deep-swe; browser at https://deepswe.datacurve.ai/); judge prompt withheld. No pre-registration. Programming languages of tasks: TypeScript, Go, Python, JavaScript, Rust",
+   "p": "1-2, 6, 10-11, 13-14, 20-21, 25"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and four contributions stated; scope of what is measured made explicit",
+   "p": "2-3"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): leaderboard protocol fully specified (harness commit, prompt, effort, timeout, sampling, exclusions, metrics) and benchmark released; the LLM-judge prompt used for the verifier audit and qualitative analysis is withheld",
+   "p": "9-13, 20"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): models with reasoning-effort settings listed and harness pinned to a commit; native harnesses in the pilot only named",
+   "p": "10, 25"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): construction, corpus statistics and repositories described; tasks, verifiers and trajectories released",
+   "p": "5-9, 13"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hand-written functional verifiers with regression checks, reviewed by humans and audited by an independent LLM judge",
+   "p": "7-9"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass@1 and pass@4 formally defined; output tokens, wall-clock time and dollar cost per trial reported",
+   "p": "11-14"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 16 configurations under identical harness and conditions; matched audit against SWE-Bench Pro through the same pipeline",
+   "p": "7, 10"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): ~4 rollouts per task, run-to-run 95% CIs, discussion of task-sampling variance; no pairwise significance tests on the leaderboard",
+   "p": "12"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions hedged (spread not a capability claim, disagreement not ground-truth error, pilot not a harness ranking)",
+   "p": "11, 13, 20-21"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): dedicated limitations section",
+   "p": "19-21"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Datacurve) evaluate models of other vendors; they built the benchmark, which is an evaluation method, not an evaluated approach",
+   "p": "1, 25"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

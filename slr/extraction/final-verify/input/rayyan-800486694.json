@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486694",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Esirik, B. E., Gökalp, E. (2026). Quality Assessment for AI Development Tools: A Comprehensive Framework for Evaluating AI Coding Assistants Beyond Vendor Claims. IEEE Software (Focus: Impact of AI on Productivity and Code), pp. 56-65. https://doi.org/10.1109/MS.2026.3678750. Date of publication 31 March 2026; current version 30 June 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Journal — IEEE Software (magazine), Focus section 'Impact of AI on Productivity and Code', DOI 10.1109/MS.2026.3678750",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Çankaya University, Software Engineering Department, Ankara, Türkiye (Esirik; also Ph.D. candidate at Hacettepe University); Hacettepe University, Computer Engineering Department, Ankara, Türkiye (Gökalp)",
+   "p": "1, 10"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — QAID (Quality Assessment for AI Development tools), a vendor-neutral multidimensional quality framework for AI coding assistants (6 dimensions, 17 subdimensions, 17 metrics, extending ISO/IEC 25010; expert weights by AHP and user weights by survey), built with design science research in five phases over 18 months; applied to compare four assistants (GPT-5.1, Gemini 3 Pro, Claude Sonnet 4.5, DeepSeek v3.2), largely from published benchmark and leaderboard scores",
+   "p": "2-5"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Assistants evaluated: ChatGPT (GPT-5.1), Google Gemini (3 Pro), Claude (Sonnet 4.5), DeepSeek (v3.2; 'DeepSeek Coder (v3.2)' on p. 4); most recent versions available Nov-Dec 2025. Interface, agent or scaffold not stated",
+   "p": "2, 4, 5"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (assistants/models evaluated; no specification or context artefacts)",
+   "p": "—"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Human review points",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach; tools scored mainly from published benchmark/leaderboard data plus expert and UX-expert ratings)",
+   "p": "5, 7"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated as such; aggregated benchmarks: code generation (LiveCodeBench), issue resolution in existing repositories (SWE-bench), agentic terminal tasks (Terminal-bench), plus general language/reasoning benchmarks",
+   "p": "5, 7"
+  },
+  {
+   "f": "Size",
+   "v": "4 assistants; 6 dimensions, 17 subdimensions, 17 metrics; benchmark task counts Not stated. Weighting inputs: survey of 103 participants, Delphi/AHP panel of 15 experts; 15 UX experts for interaction quality",
+   "p": "3-4, 7"
+  },
+  {
+   "f": "Domain",
+   "v": "Not stated (general-purpose coding assistants; benchmarks not domain-specific)",
+   "p": "—"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no development team). Survey: 103 participants (47 students, 31 professionals, 25 academics) from 15 countries; Delphi panel: 15 domain experts with >10 years experience (5 academic researchers, 4 senior industry practitioners, 3 tool vendors); 15 UX experts rate SUS/Nielsen heuristics; survey pilot with 12 HCI experts",
+   "p": "4, 7"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "SUS-Efficiency (cost and energy efficiency) = max(0, 100 × (1 − Pmodel / Pbaseline)), Pmodel = average cost per 1M tokens (input + output), Pbaseline = US$15 industry ceiling (AA-Efficiency benchmark). OQ-Speed = (time to first token)^0.33 × (tokens per second)^0.33 × (total response time)^0.33 (AA-Speed)",
+   "p": "6-7"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Generation ability: GA-Genscore = Pass@1 × 100 (LiveCodeBench); GA-IRscore (SWE-bench leaderboard); GA-ACscore (Terminal-bench). All normalised to 0-100",
+   "p": "5-7"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Linguistic capability: LC-IFscore (IFBench), LC-Understanding (HLE, GPQA, MMLU-Pro, AIME), LC-CRscore context retention = (B/A) × 100 (AA-LCR). Operational quality: OQ-IDEmaturity (BARS). Interaction quality: IQ-SUSscore (SUS, Nielsen heuristics), IQ-Availability (BARS, pricing policies). Trustworthiness: TRS-Robust (Omniscience), TRS-Truth = (1 − Htotal/Ctotal) × 100 hallucination (Fortress), TRS-Secure (MASK), TRS-Safe (AIR-bench). Sustainability: SUS-Transparency (AA-Openness), SUS-Accountability (Stanford FMTI). Dimension scores = weighted sum of subdimensions; overall expert-weighted, user-weighted and equal-weighted scores",
+   "p": "5-7"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Mostly secondary data: benchmark/leaderboard scores retrieved from Artificialanalysis.ai, SWE-bench leaderboard, Scale leaderboard and HELM (Nov-Dec 2025), min-max normalised. Manual: expert assessments with structured rubrics (BARS) averaged across evaluators (Cronbach's α > 0.8); SUS/Nielsen heuristics by 15 UX experts; vendor websites and reports (pricing, governance). Weights: AHP pairwise comparisons by 15 experts (consistency ratio mean 0.06) and Likert survey (103 participants, α = 0.87)",
+   "p": "4-5, 7"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) GPT-5.1 (ChatGPT; agent not stated): LC 73.13, GA 64.48, TRS 73.27, OQ 65.90, IQ 63.80, SUS 47.39; total expert 66.48, user 64.86, equal 64.66. Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. (2) Claude Sonnet 4.5 (agent not stated): LC 63.38, GA 62.73, TRS 80.58, OQ 73.10, IQ 67.60, SUS 33.69; total expert 66.77, user 62.94, equal 63.51. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (3) Gemini 3 Pro (agent not stated): LC 72.43, GA 67.62, TRS 57.60, OQ 55.80, IQ 66.08, SUS 41.06; total expert 61.91, user 61.98, equal 60.10. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. (4) DeepSeek v3.2 (agent not stated): LC 64.94, GA 54.35, TRS 41.29, OQ 36.40, IQ 66.93, SUS 86.46; total expert 54.52, user 59.82, equal 58.40. Quality: no criterion stated by the authors; cost: no criterion stated by the authors. No baseline",
+   "p": "8 (Table 4)"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Four assistants chosen for market prominence (>1M users), technical diversity and data availability; scored on the same 17 QAID metrics, mostly from public leaderboards (not run by the authors), Nov-Dec 2025, 'identical model versions' across platforms; three weighting schemes (expert, user, equal). No baseline. Agent/scaffold, operator and briefing not stated/N/A; acceptance tests only those inside the source benchmarks; repetitions not stated; no human-intervention rules. Robustness: Monte Carlo sensitivity (10,000 iterations, ±10% weights); cross-platform validation against Artificial Analysis intelligence index, LMArena web development and HELM safety (Spearman)",
+   "p": "5, 8-9"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No tool dominates. Expert weighting: Claude 66.77 narrowly ahead of GPT 66.48; user weighting: GPT 64.86 leads (Claude 62.94); equal weighting: GPT 64.66, Claude 63.51; Gemini third (61.91-61.98), DeepSeek fourth (54.52-59.82). 'Significant differences (p < 0.05) between top-tier tools (GPT, Claude, Gemini) and DeepSeek across all dimensions' (test not named; no significance reported among GPT, Claude and Gemini). Gaps: trustworthiness 39.29 points (Claude 80.58 best), sustainability 52.77 (DeepSeek 86.46 best, Claude 33.69), operational quality 36.70, linguistic 9.75, generation 13.27 (Gemini best 67.62), interaction 3.80. Claude 1st in 94.2% of expert-weighted Monte Carlo scenarios, GPT 1st in 93.8% of user-weighted",
+   "p": "6-10"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the tools and showed ranking shifts by stakeholder weights; rankings stable under ±10% weight variation; convergent validity with external platforms on 3 dimensions (Spearman ρ = 0.90-1.00, n = 4 tools). Repeatability over reruns not tested. Limitations stated: reliance on published benchmark data and vendor-disclosed information, panel/survey size, temporal validity given rapid version updates",
+   "p": "8-10"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: reliance on published benchmark data and vendor-disclosed information; expert panel (n = 15) and survey (n = 103) may not represent all stakeholders; temporal limitations due to rapid version updates. Gaps/future work: longitudinal validation in real-world deployments, expanded tool coverage as standardised metrics emerge, automated evaluation pipelines, collaboration with regulators on transparent benchmarking standards. Earlier gaps from the authors' reviews: 89% of 127 studies focus on code completion accuracy, 76% use proprietary data sets, 68% a single language, 54% vendor-funded",
+   "p": "2, 10"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: Delphi panel stated as 15 experts but composition sums to 12 (5 + 4 + 3) (p. 4); Figure 1 numbers the phases differently from the text (e.g. survey and AHP/expert panel phases in another order; figure text is jumbled in the extraction) (p. 3-4); Table 4 ranking row (GPT 1st, Claude 2nd, Gemini 3rd, DeepSeek 4th) does not say which weighting it uses: it matches user and equal weighting but not the expert weighting, where the text says Claude leads (p. 6, 8); text says Gemini 'consistently ranks third (61.91–61.98)' but its equal-weighted total is 60.10 (p. 6, 8); text says trustworthiness shows 'the largest variation' (39.29) while sustainability varies by 52.77 (p. 6), the conclusion names both as largest gaps (p. 10); validation Tables 5-7 (p. 9): the ranks shown give Spearman 0.80 for Table 5 (one swap, Gemini/GPT) and 1.00 for Table 6 (identical ranks), not the reported 0.90 and 0.90; with n = 4 the reported p < 0.01 and p < 0.001 cannot be reached (smallest exact p is about 0.04); Table 7 ranks GPT 2nd and Claude 1st although both have HELM 0.97; metric prefix GF- in Figure 2 vs GA- in Tables 2-3; 'DeepSeek Coder (v3.2)' (p. 4) vs 'DeepSeek v3.2' elsewhere. Values used: Table 4 (p. 8). Statistical test for p < 0.05 not named; validation partly circular (QAID scores built from leaderboards validated against other leaderboards). No data or replication package (text claims 'publicly documented measurement criteria' but gives no link); no pre-registration. Programming language: Not stated",
+   "p": "3-10"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (vendor-neutral quality framework) and RQ1-RQ3 stated",
+   "p": "2"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): phases, metric formulas and data sources given (Tables 2-3), but survey instrument, Delphi materials, AHP matrices, BARS rubrics, normalisation bounds and the statistical test are not provided",
+   "p": "3-7"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions named (GPT-5.1, Gemini 3 Pro, Claude Sonnet 4.5, DeepSeek v3.2), but the tool/interface or agent used and the benchmark harness versions are not identified",
+   "p": "2, 4, 5"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): source benchmarks and leaderboards named with links, but the tasks are not described and the 'standardized test scenarios' used for expert ratings are not described or available",
+   "p": "3, 5, 7"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): scores come from external benchmarks with their own ground truth (LiveCodeBench, SWE-bench, Terminal-bench) and from expert/UX-expert ratings with rubrics, not only the authors' judgement",
+   "p": "5, 7"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): metrics defined with formulas and sources; cover cost (price per token, speed) and quality (generation, trustworthiness)",
+   "p": "6-7"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): four alternatives scored on the same metrics and data sources in the same period; no non-assisted baseline",
+   "p": "5, 8"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): significance claimed (p < 0.05) without naming the test or reporting statistics; Monte Carlo sensitivity on weights; no repeated tool runs (secondary data)",
+   "p": "6, 9"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): rankings follow from Table 4, but 'largest variation' for trustworthiness ignores the larger sustainability gap (52.77), the significance claim gives no test or statistics, and 'validates technical rigor' rests on correlations over 4 tools that do not match the ranks shown and report p-values not reachable with n = 4; the unlabelled Table 4 ranking row does not match the expert-weighted totals",
+   "p": "6, 8-10"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): one short limitations paragraph (data reliance, panel size, temporal); no threats-to-validity analysis",
+   "p": "10"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published in IEEE Software, a peer-reviewed magazine",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors independent of OpenAI, Anthropic, Google and DeepSeek; QAID is their own evaluation method, not an evaluated tool (three tool vendors sat on the Delphi panel)",
+   "p": "1, 4"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498235",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Pan, R., Zhang, J., Wu, L., Zhang, Y., Zhang, H., Zhang, L. (2026). Do Modifications Made by Coding Agents Make Subsequent Software Maintenance Harder? arXiv:2610.14768v1 [cs.SE], 10 Oct 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.14768v1 [cs.SE], 10 Oct 2026; no published venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Peking University, China (Pan, Wu, L. Zhang); University of New South Wales, Australia (J. Zhang); Harbin Institute of Technology (Shenzhen), China (Y. Zhang); Chongqing University, China (H. Zhang)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — paired evaluation design (each later maintenance task run from the developers' history and from the agent's own history) and benchmark SWE-Maintain (100 three-event episodes, 50 Python repositories), used in an empirical study of five coding systems with two backbone models (1,996 paired later events)",
+   "p": "1-3"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Coding systems: Mini-SWE-Agent, Agentless, SE-Agent, OpenHands, Claude Code (versions not given in the paper; 'framework versions ... are reported in our repository'); backbone models GPT-5.6-Luna and DeepSeek-V4-Flash-0731. Settings compared: Developer-History vs Agent-History",
+   "p": "9-10"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Task input per event: a maintenance instruction reconstructed from the commit message and linked PR/issue (median 24 words); hidden tests never shown to the agent; developer reference patch used only for validation and the Developer-History state",
+   "p": "5, 7"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Not prescribed. Each event runs in a fresh session; agents use their own loops (Agentless: fixed pipeline of fault localization, patch generation, patch validation). Episode: E1 → E2 → E3, the repository carried forward under Agent-History",
+   "p": "8-9"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs (autonomous). In benchmark construction, two human reviewers who are not authors inspect every instruction against four criteria",
+   "p": "5, 8"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); coding agents run on natural-language maintenance instructions",
+   "p": "5, 9"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; authors' wording: 'maintenance instruction', 'hidden tests specify the required behavior of each event')",
+   "p": "5"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: sequential maintenance events (bug fixes 90, feature additions 81, behaviour changes 69, configuration/schema 17, API compatibility 14, error handling 12, dependency/build 10, other 7)",
+   "p": "4-7"
+  },
+  {
+   "f": "Size",
+   "v": "50 repositories, 100 episodes, 300 events (200 later events); 1,996 paired later events evaluated. Python LOC per repository median 1,744 [IQR 977-5,208], range 160-128,632; modules median 14; reference patch median 1 non-test file and 17 non-test lines",
+   "p": "7, 10"
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python repositories: developer tools 16, CLI tools 8, HTTP clients 7, libraries 7, data processing 5, infrastructure 4, frameworks 3",
+   "p": "7"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents, no participants). Two non-author human reviewers of instructions; profile Not stated",
+   "p": "5"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Maintenance effort: consumed tokens and model requests, compared only on events resolved (ER) under both settings as the per-event log ratio log((e_A+1)/(e_D+1)); median with clustered bootstrap interval",
+   "p": "9"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task Resolution Rate (TR: passes the current event's hidden tests; reported for E1, E2, E3, Later TR); Event Resolve Rate (ER: current hidden tests and all earlier events' tests pass; Later ER); Episode Resolve Rate (EpR: all three events resolved under ER, Agent-History only); Average Maintained Events (AME, 0-3)",
+   "p": "9"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None as outcome. RQ3 uses six properties of the earlier agent change relative to the developer change as predictors: excess changed LOC, developer file divergence, future-function alignment, change-local cognitive complexity, affected dependents, co-change alignment",
+   "p": "13"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Classification of inherited test failures (28% no valid change at the previous event, 38% assertion-only, 26% missing names/attributes/signatures, 9% unclassified); pre-solved later tasks (10 events, 1.5%); facilitation and hindrance outcomes (RQ3)",
+   "p": "12-13"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden F2P/P2P tests run in reproducible environments, same tests and timeout in both settings; token and request counts from runs; repository-clustered bootstrap (10,000 replicates), exact McNemar test, Bayesian mixed-effects models (4 chains × 4,000 iterations). Benchmark construction: two LLM reviewers and two non-author human reviewers check instructions; tests for 108 events written by the authors from the instruction; intent/relation labels by two LLM annotators with adjudication",
+   "p": "5-7, 9, 13"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion: none stated by the authors for a configuration; quality and cost verdicts for every entry: no criterion stated by the authors. Values on SWE-Maintain (Later TR Dev → Agent; Later ER Dev → Agent; EpR; AME, Agent-History): Mini-SWE-Agent + GPT-5.6-Luna TR 54.5 → 48.0, ER 42.0 → 21.5, EpR 18.0, AME 0.91; Agentless + GPT-5.6-Luna TR 31.0 → 26.0, ER 20.5 → 9.5, EpR 7.0, AME 0.48; SE-Agent + GPT-5.6-Luna TR 55.0 → 46.5, ER 41.5 → 20.5, EpR 17.0, AME 0.88; OpenHands + GPT-5.6-Luna TR 56.0 → 51.0, ER 44.5 → 29.0, EpR 24.0, AME 1.05; Claude Code + GPT-5.6-Luna TR 55.0 → 49.5, ER 41.0 → 24.0, EpR 20.0, AME 1.00; Mini-SWE-Agent + DeepSeek-V4-Flash-0731 TR 51.5 → 45.5, ER 37.5 → 24.0, EpR 17.0, AME 0.95; Agentless + DeepSeek-V4-Flash-0731 (98 paired episodes) TR 11.0 → 7.5, ER 4.1 → 1.0, EpR 0.0, AME 0.15; SE-Agent + DeepSeek-V4-Flash-0731 TR 43.0 → 42.5, ER 29.5 → 18.0, EpR 13.0, AME 0.73; OpenHands + DeepSeek-V4-Flash-0731 TR 48.0 → 42.0, ER 37.0 → 24.5, EpR 17.0, AME 0.92; Claude Code + DeepSeek-V4-Flash-0731 TR 51.0 → 41.5, ER 38.0 → 23.5, EpR 19.0, AME 0.89. Effort: median log token ratio +0.03 overall; OpenHands +0.18 (about 19% more tokens on its own history)",
+   "p": "11"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 200 later events of SWE-Maintain (1,996 paired events). Compared: Developer-History (start from developers' preceding patches, as in SWE-bench) vs Agent-History (start from the agent's own preceding changes), for 10 system × model combinations. Baseline: Developer-History. Held constant within a combination: instruction, backbone model and configuration, execution environment, stopping rule, execution limits, hidden tests; fresh session per event. Acceptance tests: hidden certified F2P/P2P tests (cumulative gold replay). Repetitions: one run per setting per event; E1 (identical start in both settings) used as reference for run-to-run variation. Human intervention: none",
+   "p": "8-10"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Agent-History lowers Later TR in all 10 combinations by 0.5-9.5 points: overall −5.6 [95% CI −7.2, −4.1] vs +1.8 [0.0, +3.7] at E1. Later ER lower in all 10 by 3.1-21.0: 33.6% → 19.6% (−14.0 [−16.1, −11.9]); 346 events resolved only under Developer-History vs 66 only under Agent-History. TR gap grows from 4.0 (E2) to 7.2 (E3). Effort on 325 events resolved in both: median log token ratio +0.03 [−0.03, +0.08]. RQ2: 1,349 events (68%) start from code failing earlier tests: ER 23.7 → 1.9 (−21.9), TR −7.6; on 647 events passing earlier tests ΔER +2.3 [−0.9, +5.5]; excluding pre-solved (619) +2.7 [−0.5, +6.1], McNemar p = 0.09. RQ3: future-function alignment associated with facilitation (0.77 [0.14, 1.83]) and 14% fewer tokens; no property associated with hindrance",
+   "p": "10-14"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes per the authors: the paired design separated the effect of the starting history from task difficulty, with the direction consistent across all 10 combinations and run-to-run variation bounded by the E1 difference (+1.8). Repeatability: one run per setting; aggregate inference only. Limitations stated: single run per event; Developer-History code may be in pretraining data; RQ2 cohorts differ in difficulty; tests are incomplete specifications; 137 instructions restated from short commit titles; RQ3 exploratory and observational (53 and 36 events)",
+   "p": "10, 16-17"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: one run per setting; possible pretraining exposure favouring Developer-History; hidden tests not complete specifications and some encode developer interfaces; 137 of 300 instructions from short commit titles; episodes skip intermediate commits; 108 events use author-written tests; only Python, 3-event chains, five systems, two models; no study of agents building on another agent's or mixed human-agent histories; RQ3 associations exploratory. Gaps / future work: measure failure propagation (how long unrepaired failures survive) with longer chains; evaluations should run agents from their own history and report accumulated outcomes; agents should run earlier tests before declaring done",
+   "p": "15-17"
+  },
+  {
+   "f": "Notes",
+   "v": "Benchmark, harness and all agent trajectories said to be released and exact model parameters, framework versions and limits 'reported in our repository', but no repository URL appears in the text. No pre-registration. Inconsistencies: text and Table 1 say 9 application domains, but Table 1 lists 7 domain categories that already sum to 50 repositories (p. 7); text says events cover 'nine maintenance intents', but Table 1 lists 8 categories that sum to 300 events (p. 7). Agentless with DeepSeek-V4-Flash-0731 has 98 of 100 episodes, giving 1,996 rather than 2,000 paired events (p. 10). Table 2 read from a garbled text extraction; per-row values checked against the stated ranges (TR −0.5 to −9.5; ER −3.1 to −21.0). Programming language: Python",
+   "p": "1, 3, 7, 10-11"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central question and RQ1-RQ3 stated",
+   "p": "2, 8"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark construction, certification, protocol and statistics described in detail; model parameters, framework versions and limits deferred to a repository whose location is not given",
+   "p": "4-10"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model versions given (GPT-5.6-Luna, DeepSeek-V4-Flash-0731); agent framework versions not given in the paper",
+   "p": "10"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): benchmark described in detail (Table 1) and said to be released, but no link given",
+   "p": "3-7"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden tests (developer tests or certified author-written tests), never shown to the agent, with cumulative gold replay",
+   "p": "5-6, 9"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): TR, ER, EpR, AME defined, plus effort as tokens and model requests",
+   "p": "9"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Developer-History baseline on the same events with the same agent, model, environment and tests",
+   "p": "8"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): one run per setting, but variation handled with the E1 reference, repository-clustered bootstrap CIs, exact McNemar tests and Bayesian mixed-effects models",
+   "p": "8-10, 13"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results, including null result once inherited failures are removed and exploratory status of RQ3",
+   "p": "12-14, 17"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity (internal, construct, external, conclusion)",
+   "p": "16-17"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; the evaluated systems and models are not theirs",
+   "p": "1, 9-10"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

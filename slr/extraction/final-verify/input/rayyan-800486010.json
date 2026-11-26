@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486010",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Eibl, P., Sabouri, S., Chattopadhyay, S. (2025). Exploring the Challenges and Opportunities of AI-assisted Codebase Generation. In: 2025 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC). https://doi.org/10.1109/VL-HCC65237.2025.00034. Read from arXiv:2508.07966v1 [cs.SE], 11 Aug 2025",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2025",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — IEEE VL/HCC 2025 (Symposium on Visual Languages and Human-Centric Computing), DOI 10.1109/VL-HCC65237.2025.00034 (venue from the IEEE/WoS exports); full text read from arXiv:2508.07966v1",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of Computer Science, University of Southern California, USA (all three authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — counterbalanced user study with think-aloud and interviews (n = 16 students and developers, 48 tasks) of codebase-level AI assistants (GitHub Copilot, GPT-Engineer): prompting, satisfaction, challenges, adoption barriers; plus a feature survey of 21 commercial CBAs with design opportunities",
+   "p": "1-3, 8"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Codebase AI assistants (CBAs) used: GitHub Copilot (version and model not stated) and GPT-Engineer (version not stated) with gpt-3.5-turbo, clarification feature disabled. 21 CBAs surveyed by advertised features (Table IV)",
+   "p": "3, 8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach prescribing artefacts). Each task: a task description from the authors and a single natural-language prompt written by the participant (first prompt only)",
+   "p": "3, 10"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Study task sequence: on-boarding, context review (edit tasks only), interaction (one prompt), evaluation (run and rate the code). Tool side: GPT-Engineer shares its plan before generating; other surveyed tools vary (Section VIII)",
+   "p": "3, 8-9"
+  },
+  {
+   "f": "Human review points",
+   "v": "Participant evaluates the generated codebase after each task (runs it, rates 1-5, justifies). Copilot returns code with natural-language placement instructions for the user to apply; GPT-Engineer edits the source directly",
+   "p": "3, 6"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single-prompt codebase generation/editing with each tool (first prompt only; GPT-Engineer clarification disabled); no SDD approach exercised",
+   "p": "3, 10"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Both: create a new codebase (short: 1-2 files; long: 3+ files) and edit an existing small or larger codebase written by the authors",
+   "p": "3"
+  },
+  {
+   "f": "Size",
+   "v": "Small to medium artificial codebases: 4 task categories (SC, SE, LC, LE), 2 tasks per category; 48 tasks in total (16 participants x 3); median session 65 min (48-85 min)",
+   "p": "2-3"
+  },
+  {
+   "f": "Domain",
+   "v": "Small applications (e.g. calculator, stopwatch, to-do list, chat log, inventory, web/Node.js apps); JavaScript and Python",
+   "p": "2-7"
+  },
+  {
+   "f": "Team profile",
+   "v": "16 individual participants (6F/10M, US residents): P1-P8 graduate student programmers, P9-P16 professional developers from seven companies; 0.5-6 years in current role; AI-assistant use from never to day-to-day; JavaScript proficiency 1-5 (median 2.5), Python 2-5 (median 4)",
+   "p": "2-3"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Participant satisfaction rating of the generated codebase (1-5) after running it; mentions of met/unmet functional requirements, executability, correctness, completeness (Table III)",
+   "p": "3, 5-6"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Participant-mentioned readability and maintainability (counts of mentions, Table III); no measured code metrics",
+   "p": "5-6"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Prompt-writing process: share of time writing (40%), editing (15%), pausing (45%); mean 24.5 actions per prompt; prompt time 2 m 30 s (long tasks) vs 1 m 36 s (short); session time; requirements omitted from prompts (20 of 48 tasks)",
+   "p": "3-5, 7"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Prompt content categories and their correlation with satisfaction (Table II); satisfaction factors (Table III); six challenges (RQ3) and five adoption barriers (RQ4); capability dimensions of 21 CBAs (R-CTX, PL-SHARE, S-VER, PROACT, PR, TEACH, ASK)",
+   "p": "4-10"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: Zoom audio and screen recordings; ratings 1-5 with justifications after each task; semi-structured interviews transcribed; open inductive coding of 48 prompts by two authors with negotiated agreement; time-coding of screen recordings by one author; rating justifications coded (20% of transcripts, 11 rounds, kappa 0.87); thematic analysis of challenges by two researchers; feature inventory of 21 tools by two researchers. Statistics: Pearson correlations, Welch's t-test, chi-square, two-way ANOVA",
+   "p": "3-8, 10"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) GitHub Copilot (version and LLM not stated) + participant; 8 participants x 3 tasks. Success criterion: none stated by the authors. Values: satisfaction distribution per tool only in Fig. 2 (no numeric per-tool values). Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors (cost not measured). (2) GPT-Engineer (version not stated) + gpt-3.5-turbo, clarification disabled + participant; 8 participants x 3 tasks. Success criterion: none stated. Values: per-tool satisfaction only in Fig. 2. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors. Pooled over both tools: mean satisfaction 2.8 (SD 1.28, median 3) on 1-5; about 50% of outputs met participants' expectations",
+   "p": "2-3, 5"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 8 author-written tasks in 4 categories (short/long x create/edit). Configurations: GitHub Copilot vs GPT-Engineer, between-subjects (each participant uses one tool). Baseline: none. Held constant: development environment (VS Code on an author's machine), task set; counterbalanced role, tool and task type; task order randomized. Not controlled: prior AI-tool usage; LLM differs (Copilot model not stated). Acceptance tests: none (participant judgement). Repetitions: one first prompt per task, three tasks per participant. Human intervention: think-aloud, minimal researcher intervention",
+   "p": "3, 10"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Satisfaction distribution independent of task setting and CBA (chi-square = 2.74, p = 0.43); short-edit tasks slightly higher satisfaction. Authors state they do not directly compare interactions across CBAs. Met functional requirements correlate positively with satisfaction; non-executable code negatively (r = -0.24); developers mention correctness more than students (p = 0.034)",
+   "p": "5-7, 10"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Did not distinguish the two tools (not designed to compare them). Not repeated. Limitations stated: small US-based sample; prior AI-tool usage not controlled; artificial controlled tasks, not naturalistic or collaborative; only first prompt studied; short-term lab use; exploratory small correlations; possible Hawthorne effect",
+   "p": "5, 10"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: observer bias (think-aloud), small US sample, uncontrolled prior AI use, artificial short tasks, first prompt only, short-term lab setting, exploratory correlations. Gaps / design opportunities: guided prompting with clarifying questions (double-sided clarification), transparent and collaborative planning, hierarchical generation, self-verification plus user verification aids, restraint of proactive unsolicited changes, diff/PR-style change proposals with explanations, onboarding/teaching; future field, longitudinal and multi-round prompting studies",
+   "p": "8-10"
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract gives problem description in 48% and code structure in 48% of prompts (p. 1), while Table II gives problem description 0.56 (27/48) and file/modular structure 0.12 (6/48) (p. 4); abstract percentages for dissatisfaction factors (77%, 42%, 25%) not traceable in Table III (p. 1, 5); text r = 0.45 (p = 0.0015) for met functional requirements vs 0.34* in Table III (p. 5); implementation guidance 'r = -0.3' in text vs -0.37* in Table II (p. 4); text says unmet functional requirements in '16 of the 48 tasks (33%)' while Table III gives 16 mentions in 13 tasks (p. 5); 'Nine participants' on executability vs 9 mentions by 7 participants in Table III (p. 5-6); 'Of all seven readability-related statements, five ... while four ... The other two' adds up to eleven (Table III: 7 mentions) (p. 6); 'Five participants (P1, P5, P6, P8, P9, P16)' lists six (p. 7); two-way ANOVA F(1, 11) = 3.46 with p = 0.0004 is implausible (p. 7); two prompt types both labelled 'Type II' (p. 4); ignored context is called the 'primary and sole contributor' of poor maintainability with eleven participants listed (P1, P2, P4, P8-P10, P12-P16), while Table III gives poor maintainability 6 mentions in 6 tasks by 6 participants (p. 5, 7). Per-tool results only in Fig. 2. Supplementary material (tasks, prompts, interview protocol) at https://figshare.com/s/a13d7a90f13f2fcc2105 (p. 3, 11). IRB approved; no pre-registration. Programming languages: JavaScript and Python",
+   "p": "1, 3-7, 11"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ4 stated (prompting, satisfaction, challenges, adoption barriers)",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): recruitment, counterbalanced design, task procedure and coding analyses described; tasks, prompts and interview protocol in supplementary material",
+   "p": "2-3"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): GPT-Engineer's model given (gpt-3.5-turbo), but GPT-Engineer and Copilot versions and Copilot's model not stated",
+   "p": "3"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): task categories described and full tasks available in the supplementary material (figshare)",
+   "p": "3"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): code judged only by participants' subjective ratings after running it; no acceptance tests or independent ground truth",
+   "p": "3, 5"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): satisfaction and prompt-process measures defined; no cost metric and no objective quality metric",
+   "p": "3-5"
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): two CBAs used under the same environment and tasks (between-subjects), but no baseline and the authors do not compare them directly",
+   "p": "3, 10"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): some significance tests (Welch's t, chi-square, ANOVA) and inter-rater kappa, but small sample, one prompt per task, exploratory correlations",
+   "p": "3-7, 10"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from qualitative and quantitative findings, low satisfaction and exploratory nature acknowledged",
+   "p": "5, 10"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (internal, external, construct, conclusion)",
+   "p": "10"
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): published at IEEE VL/HCC 2025 (DOI 10.1109/VL-HCC65237.2025.00034); full text read from arXiv",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (USC), independent of GitHub Copilot and GPT-Engineer",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

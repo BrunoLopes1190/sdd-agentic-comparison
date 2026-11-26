@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486160",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "high",
+   "v": "Criterion: component-faithfulness rubric vs frozen checklist; IF50 primary endpoint. No success criterion (threshold) stated by the authors for any configuration, so no verdicts. Agent models and versions not stated for any configuration. (1) Single-shot + Claude Code + model n.s.: MCF 3.031, DIR 0.303, IF50 0.530. Quality: no criterion stated by the authors; cost not measured. (2) Emergent + Claude Code + n.s.: MCF 2.718, DIR 0.149, IF50 0.414; 118/371 fully faithful, 72 severe failures. Quality: no criterion stated by the authors; cost not measured. (3) Single-shot + Codex + n.s.: MCF 3.245, DIR 0.289, IF50 0.550. Quality: no criterion stated by the authors; cost not measured. (4) Emergent + Codex + n.s.: MCF 3.242, DIR 0.148, IF50 0.479. Quality: no criterion stated by the authors; cost not measured. (5) Emergent + ProjectGuard + Claude Code + n.s.: MCF 3.000; 181/371 fully faithful; 49 severe failures; IF50 improved on 15/20 (median recovery +34%); DIR median +12%; memory 390 KB mean; compaction median -1. Quality: no criterion stated by the authors; cost not measured (overhead: memory and compaction only). (6) Emergent + ProjectGuard + Codex + n.s.: MCF +0.05 (W/L 9/9); DIR improved on 15/19 (mean +76%, median +55%); memory 286 KB; compaction +23 mean (restarts). Quality: no criterion stated by the authors; cost not measured",
+   "p": "6-8, 18",
+   "quote": "IF50 ranges from 0 to 1 and serves as our primary endpoint metric for SLUMP.",
+   "where": "§4.1 Setup, p. 6",
+   "why": "The verdicts (works/partly/does not work) rest on no success criterion stated by the authors (only a scoring rubric and relative gaps), which the protocol rule of 2026-11-23 forbids.",
+   "doubt": "Os autores não dão nenhum critério de sucesso (limiar) para MCF, DIR ou IF50; só comparam condições. Pela regra de 23-11, os veredictos 'partly'/'works' devem passar a 'no criterion stated by the authors'. Confirma na pág. 6 e substitui os veredictos, mantendo os valores."
+  }
+ ]
+}

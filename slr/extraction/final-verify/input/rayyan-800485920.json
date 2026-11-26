@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485920",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Aggarwal, A., Farhady Ghalaty, N. (2026). Self-Improving AI Coding Agents Through Accumulated Behavioral Rules: A Closed-Loop Framework. arXiv:2607.13091v1 [cs.SE], 13 Jul 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv (no venue stated)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Microsoft (both authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — closed-loop framework turning accepted review comments into persistent behavioural rules in a version-controlled instruction file, evaluated observationally in one industrial deployment (11 recorded sessions, ~4 weeks); qualitative comparison with related work (Table X)",
+   "p": "1-5, 7"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Accumulated behavioural rules / closed-loop framework (authors' own, unnamed, no version, not released). Instruction file following AGENTS.md / rules-file conventions. No SDD framework",
+   "p": "1-2, 8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Shared version-controlled Markdown instruction file (e.g. AGENTS.md) with five sections: behavioural rules, code standards, self-review checklist, anti-patterns, workflow rules; implicit rule schema (ID, category, trigger origin, scope, constraint, rationale, checklist map, date, traced-to review comment); personal rules file; session handoff file and task log; custom agent definitions, skills, knowledge documents with freshness dates; validation scripts",
+   "p": "2-3, 5, 8"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Loop: 1 agent generates/modifies code; 2 agent runs self-review checklist; 3 human reviewer gives feedback; 4 each accepted comment describing a generalisable mistake codified as a rule (or existing rule refined); 5 updated file loaded in all later sessions. Automated workspace validation at session start",
+   "p": "2-3"
+  },
+  {
+   "f": "Human review points",
+   "v": "Human code review of every change (source of rules); engineer decides whether a comment is a class of mistake; rule changes go through pull-request review; periodic review of the file for redundancy; conflicts resolved by the team",
+   "p": "2-3, 8"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single artefact (instruction/context file) with its feedback loop, used in a real deployment",
+   "p": "3-5"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (behavioural rules file, no specification of the software)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: code generation + PR (4 sessions), PR review (3), incident investigation (2), cross-service architecture (1), repository maintenance (1)",
+   "p": "3, 5"
+  },
+  {
+   "f": "Size",
+   "v": "Microservices platform, 35+ services, ~50,000+ lines of shared infrastructure code; 11 recorded sessions over ~4 weeks; 36 PR reviews in 6 repositories",
+   "p": "3-5"
+  },
+  {
+   "f": "Domain",
+   "v": "Industrial cloud microservices platform (container orchestration, service mesh); typed language with strong framework conventions (examples suggest .NET/C#, language not named)",
+   "p": "3, 8"
+  },
+  {
+   "f": "Team profile",
+   "v": "Single industrial team (size and experience Not stated); new team members mentioned",
+   "p": "4, 7-8"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured; instruction file size ~4,809 words (~6,250 tokens), <5% of a 128K context window",
+   "p": "4-5"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Error-class recurrence after rule addition (9 tracked classes, post-rule session exposures)",
+   "p": "4"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Not measured",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Review comment category distribution (36 PRs) as proxy for shift in review effort; reviewers' reports of less time on mechanical issues (not measured)",
+   "p": "4-5"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Rule set growth per week; knowledge source distribution; knowledge transfer types; rule specificity ratio; session activity distribution; rule conflicts",
+   "p": "3-5"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual/observational from a task log (11 entries), instruction-file history (2 committed revisions plus local growth), 4 memory files and 36 PR reviews; review comments categorised with criteria adapted from code review studies; who coded and how recurrences were detected Not stated",
+   "p": "4-5"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "- Accumulated-rules framework + two unnamed agent interfaces (IDE-integrated and terminal-based) + model not stated, production deployment: 0 recurrences in 74 post-rule session exposures across 9 error classes; review comments 66% architecture/API/performance vs 14% mechanical/style; 9/15 knowledge transfers crossed repository/tool boundaries. Criterion: authors' observation (no acceptance tests, no baseline). Quality: no criterion stated by the authors; cost: not measured (file ~6,250 tokens)",
+   "p": "4-5"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No empirical comparison: no baseline, no A/B or ablation (stated). Qualitative comparison with Reflexion, ExpeL, Voyager, CodeReviewer, SWE-agent, OpenClaw on 8 dimensions (Table X)",
+   "p": "6-7"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A empirically. Qualitative: only the framework combines human-sourced feedback, permanent cross-session persistence, no weight updates and recurrence prevention",
+   "p": "6-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A (no controlled comparison). Authors: results are initial observational evidence, not causal; small counts, no p-values",
+   "p": "7-8"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Context window limits with unbounded growth; manual conflict detection; governance for single team only; no controlled baseline or ablation; preconditions (review culture, engineer time, agents that load the file); no significance testing; one organisation; one typed language; dependence on reviewer quality; four weeks only. Future: A/B study with pre-registered metrics, cross-organisation replication, behavioural-consistency benchmark, automated rule proposal and conflict detection, multi-team governance",
+   "p": "7-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Section and table order jumbled in the PDF text (e.g. 'Section III-E' printed in Section IV; Section VII principles split); tables rebuilt from text, sums consistent (Table IX 11 sessions, 18 rules; Table VII ratios). Claimed 'shift' in review focus has no pre-framework comment distribution. Agents and models never named. Proprietary code base; no data or artefact released; no pre-registration. Programming language: typed language, not named",
+   "p": "3-5, 7"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): problem and contributions C1-C4 stated; no formal RQs",
+   "p": "1"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): framework described; measurement procedures (recurrence detection, comment coding) not described",
+   "p": "2-5"
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): agents, models and versions not identified",
+   "p": "3-4"
+  },
+  {
+   "f": "Q4",
+   "v": "No (0): proprietary platform; tasks described only by category; not available",
+   "p": "3-5"
+  },
+  {
+   "f": "Q5",
+   "v": "No (0): outcomes judged by the authors; no independent criterion",
+   "p": "4-5"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): recurrence and comment distribution reported; definitions loose; no cost metric",
+   "p": "4-5"
+  },
+  {
+   "f": "Q7",
+   "v": "No (0): no baseline (acknowledged)",
+   "p": "7"
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): no repetitions or statistics (acknowledged)",
+   "p": "8"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): limits stated, but abstract presents '0% recurrence' and a review-effort shift without baseline data",
+   "p": "1, 5, 8"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Section VIII limitations and threats to validity",
+   "p": "7-8"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): authors created and evaluate their own framework",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "Yes (1): only Git, Markdown, PR review and validation scripts; no fine-tuning; preconditions stated (review culture, time per rule, agents that load the file); effort not quantified",
+   "p": "6-8"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

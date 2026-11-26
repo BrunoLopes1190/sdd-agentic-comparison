@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486086",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Liu, C., Fu, Y., Yang, W., Zhang, Y., Xie, T. (2026). WebCoderBench: Benchmarking Web Application Generation with Comprehensive and Interpretable Evaluation Metrics. arXiv:2601.02430v3 [cs.SE], 31 Jul 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2601.02430v3 [cs.SE]; acknowledgements thank anonymous reviewers but no venue is stated",
+   "p": "1, 9"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia with an unnamed industrial partner: Key Lab of HCST (PKU), MOE, School of Computer Science / NERCSE, Peking University, China (Liu, Fu, Zhang, Xie); University of Texas at Dallas, USA (Yang); Beijing Tongming Lake Information Technology Application Innovation Center, China (Zhang, Xie). Data and survey from an unnamed industrial partner's online LLM service",
+   "p": "1-2, 9"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — WebCoderBench benchmark for web app generation (1,572 real user requirements, 24 metrics over 9 perspectives, rule-based plus LLM-as-a-judge, human-preference weights from a survey) and evaluation of 12 LLMs and 2 LLM-based agents",
+   "p": "1-2, 6"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Systems compared: 12 LLMs (DeepSeek-R1-0528, DeepSeek-V3.1, DeepSeek-V3.1-Terminus, DeepSeek-V3.1-Thinking, GLM-4.5, Qwen3-Coder-Plus, Qwen3-235B-A22B-Instruct, MiniMax-M2, Gemini-2.5-Pro, GPT-4o-2024-11-20, GPT-5-Codex-High, GPT-5-High) called via API; 2 chat-based LLM agents (Manus, MiniMax Agent) used through their web interfaces; no agent versions; Manus's underlying model not stated; MiniMax-M2 named by the authors as the base model of MiniMax Agent (p. 8)",
+   "p": "6-8"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark input (not an approach): one real user requirement per task (text, optionally images or URLs), merged to single turn; ground-truth checklists per requirement for functionality, visual design and content (LLM-inferred, human-merged and validated). Output: a single native HTML web app",
+   "p": "3-4, 6-7"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "No prescribed flow: each LLM generates one artifact per requirement from identical system prompts (agents: requirement and control prompt entered manually); artifacts then scored automatically on 24 metrics; z-scores weighted by survey-derived weights into an overall score. Benchmark construction: 5,000 sampled online requirements -> multi-turn merge (experts + Gemini-2.5-pro) -> three-expert filtering and MinHash/MiniLM deduplication -> checklist generation by 3 LLMs and human merge",
+   "p": "3, 5-6"
+  },
+  {
+   "f": "Human review points",
+   "v": "None during generation. Human experts in benchmark construction (requirement merging, triple-annotated filtering with majority vote, checklist validation, labelling); manual spot checks of 50 scoring instances per rule-based metric",
+   "p": "3-4, 9-10"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single-shot generation by LLMs; full agent runs (Manus, MiniMax Agent) through web interfaces; no SDD workflow",
+   "p": "6"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of LLM web app generation; no specification-driven approach; authors do not use SDD terms)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "New project: generate a front-end web app (native HTML) from a user requirement",
+   "p": "1, 6, 9"
+  },
+  {
+   "f": "Size",
+   "v": "1,572 requirements (agents: random subset of 165); requirement length 3-16,198 characters, mean 313.74 characters / 202.31 GPT-5 tokens; artifact complexity Highly Simple 179, Simple 433, Medium 658, Complex 259, Highly Complex 43",
+   "p": "3-4, 6"
+  },
+  {
+   "f": "Domain",
+   "v": "Web applications in 20 categories (e.g. Entertainment 435, Utility Websites 404, Online Education 131; also AI-powered, Fintech, Scientific Demo, E-commerce, etc.); input modality text only 1,413, with images 123, with URLs 36",
+   "p": "3-4"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in generation). Preference survey: 141 valid responses from the industrial partner (21 data scientists, 19 product managers, 22 legal, 23 developers, 2 designers, 39 operations, 15 QA); annotators with at least 3 years of development experience",
+   "p": "6, 10"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Functional Alignment (share of functional checklist points passed, LLM-judged); General Functionality Correctness (LLM scoring on ten code-quality criteria); Runtime Console Errors; Visual Alignment and Content Alignment (checklist pass rates); overall weighted z-score",
+   "p": "5, 14-16"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Maintainability: Code Redundancy Rate (Lighthouse unused JS/CSS), Comment Rate; code quality: Best Practices (Lighthouse), Error Handling coverage, Static Syntax Checking (htmlhint, eslint, stylelint); Performance (Lighthouse); Accessibility (Lighthouse core metrics, cross-browser via MDN BCD, mobile overflow); visual and content quality metrics (layout consistency/sparsity, colour harmony, icon/component consistency, copywriting, media, placeholder, resource validity)",
+   "p": "5, 14-16"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Effect of requirement type (clarity, complexity, modality, expression style) on scores; persona-specific metric weights (Borda count)",
+   "p": "8-9"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: rule-based tools (Lighthouse, linters, Selenium, Playwright, OpenCV-style image analysis) and LLM-as-a-judge (Gemini-2.5-pro for general quality, GPT-5-chat for alignment against checklists); each metric 0-100; z-scores across samples weighted by survey-derived weights. Unscorable cases (zero denominator, tool failures such as Lighthouse timeouts, judge failures, pages that never load; counts per model and metric in Table 11) are excluded from the averages rather than scored zero. Judge stability: 3 runs on 50 requirements, Mann-Whitney U test; rule-based metrics checked on 50 manual instances per metric. Agents: artifacts collected manually via web interfaces",
+   "p": "5-6, 10, 14-16, Appendix C"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark WebCoderBench; LLMs on 1,572 requirements, agents on 165-requirement subset; one artifact per requirement. Criterion: weighted z-score overall (standard deviations from the mean); no success criterion stated by the authors. Overall score (rank): (1) DeepSeek-R1-0528 2.41% (7); (2) DeepSeek-V3.1 -3.88% (13); (3) DeepSeek-V3.1-Terminus 6.26% (4); (4) DeepSeek-V3.1-Thinking -3.73% (12); (5) GLM-4.5 11.76% (2); (6) Qwen3-Coder-Plus -2.31% (11); (7) Qwen3-235B-A22B-Instruct -0.04% (10); (8) MiniMax-M2 7.89% (3); (9) Gemini-2.5-Pro 0.27% (8); (10) GPT-4o-2024-11-20 -38.65% (14); (11) GPT-5-Codex-High -0.03% (9); (12) GPT-5-High 13.81% (1); (13) Manus (agent, model not stated) 5.24% (5); (14) MiniMax Agent (base model MiniMax-M2 per the authors, p. 8) 4.43% (6). For each: quality verdict no criterion stated by the authors (relative scores only); cost not measured",
+   "p": "6-7"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 1,572 real user requirements (agents: random 165). Configurations: 12 LLMs via standard APIs with recommended parameters and identical system prompts; 2 agents via web interfaces with appended control prompts restricting output to native HTML. Baseline: none (z-scores relative to the mean over all models). Held constant: requirements, system prompt, single artifact per requirement, metrics; images described by Gemini-2.5-pro for uni-modal LLMs. Acceptance tests: none; checklists judged by LLM plus rule-based tools. Repetitions: single generation per requirement. Human intervention: manual entry for agents",
+   "p": "6-7"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-5-High best overall (13.81%), GLM-4.5 second (11.76%, only model above average on all nine perspectives), MiniMax-M2 third (7.89%); GPT-4o worst (-38.65%, below average on all perspectives). No model dominates all 24 metrics. Open-source gap to GPT-5-High under 6%. Agents above average but below expectations (MiniMax Agent below its base MiniMax-M2), strong on alignment, weaker on performance and visual quality. Generalist models beat coder variants (Qwen3-Instruct > Qwen3-Coder-Plus; GPT-5-High > GPT-5-Codex). Vague and highly complex requirements scored higher; image inputs lowered scores (-8.68%). No significance tests between models",
+   "p": "7-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished models and gave per-perspective profiles; authors argue small weighted z-score differences (most within 3%) can be meaningful but give no test. Judge stability checked (run variance significantly lower than between-model variance). Agents scored on a different subset than LLMs. Limitations stated: front-end/native HTML only; dataset and metric implementation not released; dataset distribution, annotation reliability, metric design and metric correctness/stability may affect results",
+   "p": "8-10"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Six limitations: only front-end native HTML (backend and frameworks future work); dataset and metric implementations cannot be released for legal reasons (another open batch planned); dataset distribution may influence results; manual annotation reliability; metric design choices; metric correctness and stability. Gaps: no model dominates all metrics; targeted model optimisation needed",
+   "p": "9-10"
+  },
+  {
+   "f": "Notes",
+   "v": "Agents evaluated on 165 requirements vs LLMs on 1,572, yet ranked together in Table 4 (z-scores over different samples). Abstract says 'no dominant model across all evaluation metrics' while GPT-5-High leads overall; the 'less than a 6% gap' compares weighted z-score sums (GLM-4.5 11.76% vs GPT-5-High 13.81%). Perspective weights in Figure 4 differ from the 'ALL' column of Table 6 (e.g. Functional Alignment 14.07% vs 13.8%, Content Alignment 12.75% vs 12.5%, Visual Alignment 9.46% vs 9.7%, Visual Quality 8.92% vs 9.0%). Values from Table 4. Data: results on Hugging Face (huggingface.co/spaces/CompileError/WebCoderBench); dataset and metric implementation not released. Prompts given in Appendix F. No pre-registration. Programming language: HTML/CSS/JavaScript (generated); evaluation tooling language not stated",
+   "p": "2, 6-7, 9, 13"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three challenges and RQ1-RQ3 (main results, question types, personas) stated",
+   "p": "1-2, 7-9"
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction pipeline, metric formulas and prompts described in detail, but dataset and metric implementation not released and agent interaction only loosely described",
+   "p": "3-6, 13-16"
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): several model snapshots identified (e.g. GPT-4o-2024-11-20, DeepSeek-R1-0528), others without versions; agents (Manus, MiniMax Agent) without version, Manus's underlying model not stated (MiniMax Agent's base model named as MiniMax-M2 only in passing)",
+   "p": "6-7"
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): requirements and statistics described with examples, but dataset not available (legal constraints)",
+   "p": "3-4, 9"
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): human-validated checklists and rule-based tools (Lighthouse, linters) give independent criteria, but alignment and several quality metrics are LLM-judged without validation against human judgement (only run-to-run stability checked)",
+   "p": "3, 5, 10"
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): 24 quality metrics defined with formulas; no cost metrics",
+   "p": "5, 14-16"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): LLMs compared under identical prompts and requirements, but agents on a 165 subset via manual web-interface entry",
+   "p": "6"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): judge stability over 3 runs with Mann-Whitney U test, but single generation per requirement and no statistical test of differences between models",
+   "p": "6, 10"
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): main conclusions follow the table, but claims that small z-score differences are meaningful and agent-vs-model comparisons (different samples) are not supported by tests",
+   "p": "7-8"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section with six limitations and mitigations",
+   "p": "9-10"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint, no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors are independent of the evaluated models and agents; industrial partner is unnamed and none of its systems is stated as evaluated",
+   "p": "1-2, 6"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation benchmark, not an approach)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

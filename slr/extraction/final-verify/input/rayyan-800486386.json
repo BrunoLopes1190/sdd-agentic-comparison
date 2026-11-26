@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800486386",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Weinberger, S., Hozez, A. (2026). Prompt-Induced Waste in Coding Agents: Reasoning, Effort, Harness Design, and End-to-End Cost. A Preregistered Benchmark with Harness Extensions. arXiv:2608.01347v6 [cs.CL], 10 Sep 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2608.01347v6 [cs.CL]; no venue stated",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: PointFive (both authors)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an approach — preregistered paired experiments comparing prompt-wording variants, inference-effort levels and agent harnesses (PI.DEV, Claude Code, DeepSeek Harness) on cost and success; proposes a trajectory cost model with cost per successful task as terminal metric, benchmark reporting requirements, and the training problem for an adaptive efficiency controller (design only, not evaluated)",
+   "p": "1-3, 6-10"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Factors compared: (a) 18 frozen prompt variants (9 primary semantically controlled, e.g. precise baseline, multiple approaches, deep thinking, max certainty, bounded efficiency; 7 stress variants; 2 harness-axis); (b) explicit effort levels (low/high/xhigh/max); (c) harnesses: PI.DEV 0.82.1, Claude Code 2.1.220 (via LiteLLM 1.93.0 gateway, and native), DeepSeek Harness (dsh) 0.1.0rc7. Efficiency controller arms in the dsh extension: policy (efficiency policy appended to system persona), rewrite (wrapper prompt correction), effort (adaptive reasoningEffort override), full (all three); no version",
+   "p": "2-3, 5-6, 13, 35"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts). Each task prompt states one objective, explicit acceptance criteria and the test command; the bounded-efficiency template adds scope, a smallest-sufficient-change criterion and a stopping rule",
+   "p": "3, 13"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed; the paper models the agent trajectory: model requests, reasoning, tool actions, edits, retries, stopping)",
+   "p": "6"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (automated runs; humans only for blind validation of trace labels)",
+   "p": "11, 14"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (prompt wording, effort setting and harness varied; no approach exercised)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification approach); authors do not use SDD terms",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code: small deterministic coding tasks on frozen fixtures that fail visible tests before the fix (bugs/features, <= 4 files); repository-scale issue resolution on a hard SWE-bench Verified slice",
+   "p": "2, 11, 13, 34"
+  },
+  {
+   "f": "Size",
+   "v": "Core benchmark: 24 tasks (8 low/8 medium/8 high; 9 Python, 9 JavaScript, 6 Go; 16 development + 8 holdout), 4,644 valid runs, 2,801 annotated traces. Extensions: Kimi-K3 96 runs; Sonnet 5 cross-provider 162 runs; robustness 2,105 runs; adaptive-compute 320 runs on 8 tasks; SWE-effort 25 instances (2-21 files, >= 40 lines, 8 repositories), 150 cells; dsh 75 runs on 5 tasks",
+   "p": "2-3, 13, 32-35"
+  },
+  {
+   "f": "Domain",
+   "v": "General small coding tasks and open-source repositories (SWE-bench Verified); not domain-specific",
+   "p": "13, 34"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Reasoning tokens, visible output tokens, uncached and cached input, cache reads/writes, actual billed cost at pinned catalog prices, estimated no-cache cost, cost per successful task (CPS), cost per resolved task; wall time; turns; tool calls; tool-induced model cost (bounded 4-12%); fixed prefix size",
+   "p": "4-6, 13-14, 26, 34"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success on visible plus hidden deterministic tests; SWE-bench resolved rate with the official Docker evaluator; hidden-test-only failures",
+   "p": "3, 13, 34"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Out-of-scope changes (git diff vs allowed paths); diff width; scope compliance",
+   "p": "3, 13, 27"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Primary outcome: paired reasoning ratio vs same-block baseline median; trace mechanisms (discarded branches, redundant re-verification, unsupported assumptions, functional units) from a condition-blind judge; tool calls by type, duplicate reads, repeated searches, repeated green test runs, time to first edit; within-cell cost coefficient of variation and success unanimity across repetitions",
+   "p": "3-5, 13-14, 33"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: provider-side usage objects captured by two logging reverse proxies around the gateway (gateway drops reasoning detail; Claude Code's own cost report measured at 3.5x true cost, so not used); deterministic tool taxonomy extractor (unit-tested, validated on blind hand labels); hidden deterministic evaluators; SWE-bench Docker evaluator. LLM judge (condition-blind, evidence quotes) for trace annotation, validated against researcher-blind labels (84.9% within +-1; kappa 0.28-0.68)",
+   "p": "13-14, 26"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors: per-task success on visible + hidden deterministic tests (official SWE-bench Docker evaluator for the hard slice); no success-rate threshold for a configuration. Cost criterion stated by the authors for prompt variants: 'wasteful' when median reasoning ratio > 1.5 with CI lower bound > 1.1, no material success gain, on multiple tasks (p. 13). (1) PI.DEV 0.82.1 + six Together-served open models (DeepSeek-V4-Pro, Kimi-K2.6, Kimi-K2.7-Code, Nemotron-3-Ultra, Inkling, GLM-5.2), holdout: multiple approaches 2.4-7.4x reasoning, confirmed wasteful on 6/6 (aggregate success 95.2% vs 96.5% baseline over 225 paired blocks); deep thinking 1.6-2.2x wasteful where selected; bounded efficiency neutral on 6/6 (GLM-5.2 0.48x). Quality verdict: no criterion stated by the authors; cost does not work for branching/deep-thinking/certainty variants (wasteful by the authors' rule), works for bounded efficiency (confirmed neutral). (2) Claude Code 2.1.220 via LiteLLM gateway + the same open models: ~100% pilot success, 5-30x cost per success vs PI.DEV, 10-41 turns vs 5-7. Verdicts: no criterion stated by the authors. (3) PI.DEV + Kimi-K3: 72/72 success; multiple approaches 16.6x, deep thinking 14.8x vs own (low) baseline; bounded efficiency 0.89x. Quality verdict: no criterion stated by the authors; cost as in (1). (4) PI.DEV + claude-sonnet-5 and native Claude Code + claude-sonnet-5 (162 runs, all valid): multiple approaches 2.70x / 2.52x output tokens; max certainty 4.13x output and 2.7x no-cache CPS under native Claude Code; native Claude Code baseline CPS ~15x PI.DEV. Quality verdict: no criterion stated by the authors; cost does not work for these variants. (5) Adaptive-compute campaign, Sonnet 5 and Opus 5, 8 tasks: all solved at low effort; static max effort 1.5-2.8x CPS with no success gain; bounded efficiency caused 3/5 hidden-test failures on the ambiguous task. Verdicts: no criterion stated by the authors. (6) Claude Code 2.1.220 + Claude Opus 5, SWE hard slice: resolved 17/18/16 of 25 at low/high/xhigh, CPS $0.75/$1.89/$3.62. (7) Claude Code 2.1.220 + Claude Sonnet 5: 12/19/17 of 25, CPS $1.76/$2.32/$3.00 (high vs low p=0.016; xhigh vs low n.s. after Holm). Verdicts (6)-(7): no criterion stated by the authors. (8) DeepSeek Harness 0.1.0rc7 + Sonnet 5, 5 tasks x 3 reps: baseline $0.2753/run, policy -23.2%, rewrite -23.4%, effort -74.7%, full -82.2%, all 15/15 success (Claude Code activation benchmark: effort -19%, full -27%). Verdicts: no criterion stated by the authors",
+   "p": "3, 5-6, 27-36"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Paired within task-model-harness blocks; prompt variants alter only the user instruction (objective, acceptance criteria and test command verbatim, validated automatically); frozen fixtures with hidden tests absent from the workspace; per-model top variants selected on development data and re-run on an 8-task frozen holdout (5 reps, n=40 per cell). Baseline: precise baseline prompt; own-harness baseline for controller arms; low effort for effort campaigns. Held constant: task, model, harness, nominal effort within a block; for dsh, model, tasks, prompts, evaluators and controller logic fixed while only the harness changes. Repetitions: up to 5 per cell; second repetitions on SWE discordant pairs. Statistics: task-clustered bootstrap CIs, sign-flip permutation, McNemar, Holm. Preregistered hypotheses H1-H8, H12-H17 frozen in the repository; extensions frozen before results. Human intervention: none",
+   "p": "2-3, 13-14, 27, 34-35"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Prompt content, not length, drives work: multiple approaches 2.4-7.4x reasoning (holdout-confirmed, no success benefit: 96.5% vs 95.2%, discordant 26:13 favouring baseline; easy cells 98.8% -> 96.4%, p~.003); deep thinking 1.6-2.2x; certainty 1.3-1.9x with redundant re-verification; verbatim repetition ~1x; bounded efficiency neutral-or-better. Redundant verification level 3+ costs 18x clean-run median. Harness gap larger: Claude Code 12-15x larger prefix, 2-7x more turns, 5-30x cost per success vs PI.DEV at comparable success; prompt effects do not transfer across harnesses. Effort: on hard SWE tasks Sonnet 5 benefits from high effort (7 rescues, 0 regressions), Opus 5 does not (low on the frontier); xhigh dominated. Harness x effort interaction: effort control saves ~75% under dsh vs ~19% under Claude Code. Caching cuts ~61% of the bill without changing behaviour",
+   "p": "3-6, 27-37"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished prompt variants, harnesses and effort levels on cost at high success; holdout and paraphrase/repetition analyses confirmed direction stability (one feature failed holdout; hard-cell branching signal failed cross-fitting). Limitations stated: high success ceilings limit detectable success effects to >= ~2.8 pp; adaptive-compute tasks produced no baseline failures; effort control did not reliably modulate computation on the Together-served open models; gateway can silently drop tool schemas or reasoning items; trace claims rely on visible reasoning and an imperfect judge; Claude Code arms smaller by design",
+   "p": "11, 14, 26, 33-34, 36-37"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Visible reasoning not faithful to latent computation; Sonnet 5 traces unrecoverable; per-turn cost attribution unavailable (tool-induced cost bounded 4-12%); no local resource telemetry; post-success based on visible-test proxy; tool counts zero-inflated, some effects only directional; tasks small (<= 4 files) with high ceilings, may not transfer to long-horizon production agents; catalog prices at collection time; branching on architecture-dependent tasks untested; dsh extension one model, five ceiling tasks, no DeepSeek models, no hook arm, dsh capabilities not varied. Future work: hard SWE-bench slice under dsh with Sonnet 5 and Opus 5 crossing harness and effort; ablations of context-crossing and orchestration; train and evaluate the adaptive controller with non-inferiority checks",
+   "p": "10-12, 36"
+  },
+  {
+   "f": "Notes",
+   "v": "Replication package: https://github.com/PointFiveLabs/prompt-efficiency-benchmark (fixtures, hidden evaluators, prompts, runners, telemetry, analysis code). Pre-registration claimed: hypotheses, metrics and thresholds frozen in the repository before results (repository commits, not an independent registry); some extensions are post-registration; SWE-effort budget cap amended from $250 to $300 before outcomes were evaluated. Programming languages: Python, JavaScript, Go (core tasks); SWE-bench Verified (Python). Same authors as 'Token Reduction Is Not Cost Reduction'. Text says 'six open-weight models' in the core design but 'seven models with provider-exposed reasoning text' / 'all seven open-weight models' (Kimi-K3 added post-registration). Claude Code test-call share given as 'approximately half' (Sec. 6), 53-56% (Fig. 2) and ~52% (App. D). The Claude Code activation benchmark with the same controller (effort -19%, full -27%) is cited but its design is not reported in this paper. Absolute per-run costs small; multiplicative effects not extrapolated",
+   "p": "2-3, 5-7, 12-14, 26, 34-36"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims (what determines trajectory cost) and preregistered hypotheses stated; three factors (prompt, effort, harness) defined",
+   "p": "1-3, 13"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): full design, exact prompt templates, tasks, gateway validation, metrics and statistics in appendices; materials in a public repository",
+   "p": "13-26, 35"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness versions (PI.DEV 0.82.1, Claude Code 2.1.220, LiteLLM 1.93.0, dsh 0.1.0rc7) and model names stated",
+   "p": "2-3, 13, 34-35"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks described (complexity, languages, fixtures, hidden tests; SWE-bench slice criteria) and released",
+   "p": "13, 34, 12"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden deterministic tests unavailable to the agent; official SWE-bench Docker evaluator",
+   "p": "2, 13, 34"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost (billed, no-cache, CPS, tokens) and quality (success, scope) metrics defined",
+   "p": "6-7, 13"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): paired baseline prompt, own-harness baseline and low-effort baseline under matched conditions",
+   "p": "2-3, 13, 34-35"
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): repetitions, task-clustered bootstrap, permutation, McNemar with Holm, holdout and repetition-stability analyses",
+   "p": "13-14, 33-34"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null and negative findings reported (no branching benefit, failed holdout feature, effort without benefit for Opus 5); controller stated as unevaluated",
+   "p": "3, 11, 34-37"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section including dsh scope limits",
+   "p": "10-11"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): authors (PointFive) independent of the harness and model vendors, but the efficiency controller arms (policy, rewrite, effort) appear to be the authors' own (not attributed to a third party)",
+   "p": "1, 5-6, 35"
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): proposed adaptive controller stated to need only logged telemetry and a small tabular/gradient-boosted model, no extra LLM; but it is not built, and data, compute and cost requirements are not quantified",
+   "p": "7-9, 11"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

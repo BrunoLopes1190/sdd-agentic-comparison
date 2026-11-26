@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800498087",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Sobal, V., Yang, S., Zhang, Y., Xia, W., Soatto, S. (2026). StaminaBench: Stress-Testing Coding Agents over 100 Interaction Turns. arXiv:2606.19613v1 [cs.SE], 17 Jun 2026",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv ('Preprint', no venue stated)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "AWS Agentic AI (Amazon; all five authors, industry)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — StaminaBench, a procedural multi-turn benchmark (REST API server modified over 100 change requests, programmatic black-box HTTP tests) and a general framework for long-horizon agent benchmarks;  — 6 harnesses x 7 open models (26 cells) with feedback, retry, language and sampling ablations",
+   "p": "1-2, 4-7"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harnesses (Table 9): OpenCode 1.4.3, Mini-SWE 2.0.0a1 (modified by the authors to add context compaction), OpenHands 1.12.1, Mistral Vibe 2.7.6, Kimi CLI 1.34.0, QwenCode 0.10.5. Models: Devstral 2, Devstral Small 2, GLM-5, Kimi K2.5, Nemotron Super, Qwen3-Coder-Next, Qwen3.5-122B. Inputs: README.md with the generated spec / change request, optional test feedback",
+   "p": "6, 31-32"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark provides an OpenAPI-like schema description (initial spec) and per-turn change requests via README.md containing all information needed to pass the tests; optional natural-language test feedback (detailed, medium or minimal)",
+   "p": "4-5, 7"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A for the agents. Benchmark loop (Algorithm 1): sample initial schema -> agent implements server -> HTTP test suite -> up to R retries with feedback -> for each of N = 100 turns: sample change (5 changes concatenated), apply to reference spec, agent edits server, run refreshed tests, retry up to R times; scenario ends at first unrecovered failure",
+   "p": "4-5"
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated; tests generated programmatically without LLM involvement)",
+   "p": "1, 5"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full harness runs over multi-turn scenarios",
+   "p": "6"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark; specifications are generated schema descriptions, not an SDD approach); authors' terms: 'spec', 'change request', 'vibe-coding'",
+   "p": "1, 5"
+  },
+  {
+   "f": "Task type",
+   "v": "New project then iterative evolution: implement a REST API server from a generated specification and modify it over 100 follow-up change requests",
+   "p": "1, 4-5"
+  },
+  {
+   "f": "Size",
+   "v": "K = 20 scenarios x N = 100 change turns (up to 2,020 interaction turns per configuration); codebases grow to up to 6,000 lines (2-3 entities initially, dozens later); 5 changes per turn; R = 2 retries default (ablations R = 0 and up to 10)",
+   "p": "1, 5-6"
+  },
+  {
+   "f": "Domain",
+   "v": "REST API servers (typed entities, relationships, cascade deletions, analytics endpoints, stateful business workflows)",
+   "p": "2, 5"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent runs, no participants)",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Estimated API cost in USD per experiment (20 scenarios, 101 turns) from per-token prices (Table 5, 6); input/output tokens (e.g. GLM-5 + OpenCode 4.5B input / 7.5M output); turns passed vs cost budget (Fig. 2c)",
+   "p": "7, 9, 17"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Average turns passed @R (consecutive turns passing the generated HTTP test suite before first unrecovered failure) ± SE; pass rate @R (share of scenarios completed end-to-end); average first failure",
+   "p": "5, 33"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure-type distribution (data validation, cascade deletion, rename, missing feature, server crash, type error, default value and infrastructure failures such as compaction errors, loop detection, pkill self-kill); codebase size per turn",
+   "p": "8-9, 33"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: programmatically generated black-box HTTP tests against the agent's server in Docker (no LLM in spec or test generation); costs computed from token counts and listed prices. Failure types: an agent is instructed to analyse each run's logs and classify it into predefined buckets",
+   "p": "1, 5, 8, 31"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark: 20 scenarios x 100 turns, Python, LLM sampler, detailed feedback, R = 2. Average turns passed ± SE (pass rate). No success criterion stated by the authors (all 'fail' within the first few turns without retry is a finding, not a criterion); quality and cost verdicts for every entry: no criterion stated by the authors. OpenCode: Devstral 2 4.8 ± 0.8 (0%), $342; Devstral Small 2 5.5 ± 2.0 (0%), $130; GLM-5 57.0 ± 8.6 (25%), $2,713; Kimi K2.5 26.8 ± 5.5 (0%), $1,739; Nemotron Super 2.9 ± 1.0 (0%), $92; Qwen3-Coder-Next 7.6 ± 1.8 (0%), $122; Qwen3.5-122B 39.4 ± 7.1 (10%), $862. Mini-SWE: 5.0 / 2.3 / 15.1 / 14.9 / 1.6 / 6.2 / 33.1 (15%) (same model order), costs $123 / $26 / $308 / $274 / $43 / $83 / $310. OpenHands: 2.8 / 0.9 / 8.7 / 4.9 / 0.8 / 3.2 / 7.3 (all 0%), costs $106 / $42 / $176 / $158 / $28 / $46 / $81. Provider harnesses: Mistral Vibe + Devstral 2 8.9 ± 2.3, + Devstral Small 2 9.2 ± 3.1; Kimi CLI + Kimi K2.5 33.7 ± 6.4; QwenCode + Qwen3-Coder-Next 3.0 ± 0.5, + Qwen3.5-122B 19.0 ± 4.8 (all 0%; costs not gathered for Kimi CLI and QwenCode). No feedback (R = 0): best GLM-5 6.2 turns (Mini-SWE column); all cells at most 6.2. Ablations (OpenCode, R = 2): JavaScript GLM-5 70.7, Kimi 43.6; Rust GLM-5 50.1, Qwen3.5 8.6; programmatic sampling GLM-5 74.1 (45%); minimal feedback GLM-5 10.7, Qwen3.5 2.8; R = 10 GLM-5 82.5 (65%), Qwen3.5 61.0 (35%)",
+   "p": "6-8, 17, 32-33"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: the same 20 procedurally generated scenarios (seeds) for all configurations, 100 turns each. Configurations: 7 models x 3 open harnesses (OpenCode, Mini-SWE, OpenHands) plus provider harnesses where available (26 cells). Baseline: none designated (R = 0 no-feedback as reference for the retry effect; Python/LLM sampling as reference for ablations). Held constant: scenarios, instructions (README.md), Python by default, Docker isolation, R = 2, detailed feedback; infrastructure retries up to 10 not counted. Acceptance tests: programmatic HTTP test suite per turn, hidden from the agent. Repetitions: one run per cell; OpenCode + Qwen3.5-122B repeated 5 times to estimate noise. Statistics: paired Wilcoxon signed-rank per scenario, Holm correction across cells. Human intervention: none",
+   "p": "5-7, 31, 33"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Without feedback all models fail within about 5-6 turns (best GLM-5 6.2). Retry loop (R = 2) improves all 26 cells significantly (Holm p < 0.05), up to 12x. Harness matters: OpenCode best or not significantly worse than best for all 7 models; OpenHands worst for 6/7; stronger models up to 6x gap between best and worst harness; provider harnesses do not reliably help (QwenCode significantly worse than OpenCode for Qwen3-Coder-Next p = 0.014 and Qwen3.5-122B p = 0.011). GLM-5 on OpenCode (57.0) significantly above all except Qwen3.5-122B (p = 0.07). Detailed vs minimal feedback 6-12x more turns, significant for 6/7. Rust lower (significant for 4 models); JavaScript not significantly different; programmatic vs LLM sampling not significant except Nemotron Super. Qwen3.5-122B most cost-efficient",
+   "p": "1, 6-8"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes, partly: distinguished harnesses and models with paired tests (several significant differences) and showed retry and feedback effects; run-to-run noise estimated from 5 runs of one configuration (mean 32.4 ± 6.3 SD turns @3; per-run 23.3-39.4), comparable to some between-cell differences; one run per cell otherwise. Limitations stated: high cost (billions of tokens; closed models out of reach, about $13.6K Claude Sonnet 4.6 and $22.7K GPT-5.5 per configuration), K = 20 gives limited statistical power, one task type (REST API)",
+   "p": "6-9, 33"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: multi-turn evaluation expensive, so no closed-source models evaluated; K = 20 scenarios may lack statistical power; single task type (REST API servers), findings may not hold in other domains. Gaps: multi-turn reliability of agents and harnesses (context compaction without losing instructions, recovery from infrastructure issues); agents need precise feedback that is often unavailable in practice; longer scenarios beyond 100 turns",
+   "p": "8-9"
+  },
+  {
+   "f": "Notes",
+   "v": "Changes per turn inconsistent: Section 3.2 says 5 individual changes are concatenated per turn, Appendix D says 'An action includes 6 changes (configurable)'. Table column order inferred: header text interleaved by extraction; columns read as OpenCode / Mini-SWE / OpenHands / provider harness, consistent with the text (OpenHands worst for 6/7; QwenCode below OpenCode; GLM-5 + OpenCode 4.5B tokens matching $2,713). Table 2 (R = 0) and Table 6 provider-cost column (Mistral Vibe) partly garbled. Abstract 'fail within 5-6 turns' refers to the no-feedback setting. Mini-SWE modified by the authors (context compaction). Model serving provider and model versions beyond names Not stated. Benchmark code, generated tasks and data released at github.com/amazon-science/StaminaBench. No pre-registration. Programming language: Python by default; JavaScript and Rust in ablation",
+   "p": "1, 5-7, 9, 17-19, 31-32"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (measure coding agents' stamina over many turns) and three contributions stated",
+   "p": "1-2"
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): framework, algorithm, generation, settings, harness details and prompts described; code and data released",
+   "p": "4-6, 31-32"
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): exact harness versions (Table 9) and models named; serving details of models not stated",
+   "p": "6, 32"
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): procedural scenarios described with examples; benchmark and generated tasks released",
+   "p": "1, 5"
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): programmatically generated HTTP tests independent of the agent and without LLM involvement",
+   "p": "1, 5"
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): turns passed and pass rate (quality) and estimated USD cost and tokens (cost) defined",
+   "p": "5, 7, 17"
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all harness-model cells on the same 20 scenarios; R = 0 and feedback-level conditions as references",
+   "p": "6-7"
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): paired Wilcoxon tests with Holm correction and SE across scenarios, but one run per configuration; run-to-run noise estimated only on one configuration (5 runs)",
+   "p": "6, 33"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): non-significant differences reported as such; negative findings (early failure, provider harnesses not helping) stated",
+   "p": "7-9"
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations paragraph (cost, K = 20, single domain)",
+   "p": "9"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (AWS) are independent of the evaluated harnesses and models; Mini-SWE only modified for compaction",
+   "p": "1, 6, 31"
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed; the study proposes a benchmark and benchmark framework)",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}

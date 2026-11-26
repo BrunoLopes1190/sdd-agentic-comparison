@@ -1,0 +1,225 @@
+{
+ "key": "rayyan-800485922",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhou, H., Hu, H., Luo, T., Shang, Y., Fang, C., Chen, Z., Xiao, L., Zhang, Q. (2026). Self-Evolving Coding Agents. arXiv:2608.03392v4 [cs.SE], 24 Sep 2026 (dated 20 Aug 2026; companion repository iSEngLab/Awesome-Self-Evolving-Coding-Agents)",
+   "p": "1"
+  },
+  {
+   "f": "Year",
+   "v": "2026 (v4, 24 Sep 2026)",
+   "p": "1"
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv, v4 (no venue stated; ISE Research technical report layout)",
+   "p": "1"
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Nanjing University of Science and Technology (Zhou, Hu, Xiao, Zhang); Nanjing University (Luo, Shang, Fang, Chen)",
+   "p": "1"
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual — self-described survey with no described search (no sources, query or inclusion/exclusion criteria; only a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23)",
+   "p": "1, 5, 10-11"
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Not one approach: 108 self-evolving methods (e.g. SWE-Exp, CODESKILL, Live-SWE-agent, DGM, AFlow, EvoMAC, SWE-RL, Agent-RLVR, Accumulated Behavioral Rules) and products (Claude Code, GitHub Copilot, Cursor, Windsurf, Augment, OpenClaw, Gemini CLI, Prime Agent, DeepSeek Harness, OpenBlock, Cline Memory Bank, Replit Agent, Letta Code, Hermes Agent). No SDD framework; no versions",
+   "p": "1, 10, 37-39"
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed. Taxonomy of persistent update targets: assets (memory, skills, tools, context incl. prompts and repository catalogues), architecture (harness, workflow, multi-agent organisation), model parameters; formal model A_r = (S_r, H_r, theta_r) with update and adoption rules",
+   "p": "7-11"
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Generic loop: execute task -> collect experience (trajectory, feedback) -> propose update -> admit/reject -> reuse in later tasks; five links (experience collection, component update, subsequent use, behavioural change, effect evaluation); adoption timing within-task / post-task / cross-task",
+   "p": "7-8, 33"
+  },
+  {
+   "f": "Human review points",
+   "v": "Discussed for products: Gemini CLI requires approval of extracted memory/skill candidates; Claude Code memory inspectable and editable; Copilot validates recalled facts; Prime Agent update history and rollback. Human judgments (review comments, acceptance) as one signal type",
+   "p": "30, 39"
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run, document-based (survey)",
+   "p": "—"
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven flow; self-evolving agents)",
+   "p": "—"
+  },
+  {
+   "f": "Task type",
+   "v": "N/A (survey; surveyed work mostly issue resolution on existing repositories and programming benchmarks)",
+   "p": "32-35"
+  },
+  {
+   "f": "Size",
+   "v": "108 methods in the taxonomy (2023: 2, 2024: 6, 2025: 25, 2026: 75; assets 51, architecture 43, model 14); plus benchmarks and products",
+   "p": "10-11"
+  },
+  {
+   "f": "Domain",
+   "v": "N/A (software engineering broadly: issue repair, program synthesis, terminal tasks, security repair, RTL generation, GPU kernels)",
+   "p": "34-35"
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured; recommends separating evolution cost from use cost (amortised over reuse) and reporting costs with gains",
+   "p": "5, 36"
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured; surveyed benchmarks use pass@1, resolve rate, success rate",
+   "p": "4, 33-35"
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured; notes maintainability, security, reviewability rarely evaluated",
+   "p": "42"
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured",
+   "p": "—"
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None measured; proposes conceptual measures (behavioural difference as total-variation distance, expected gain over a task distribution under a common budget, skill marginal contribution, longitudinal forward transfer/retention matrix)",
+   "p": "8, 14-15, 36"
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no data collected beyond counting catalogued papers by year, target and outlet)",
+   "p": "11"
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based, no configuration run)",
+   "p": "—"
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no empirical comparison); qualitative comparison of methods by asset target, operations and triggers (Table 3), signals, timing and benchmarks; comparison with related surveys (Table 1)",
+   "p": "5, 12-35"
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A. Qualitative findings: research and products favour inspectable assets and editable harnesses; no product documents persistent repository-derived model updates; evaluation centres on individual task outcomes; improvement claims need matched, held-out, longitudinal comparisons that separate update, selection and evaluation cases and report regressions and costs; a matched-budget study found evolved harnesses not consistently better than simple test-time search",
+   "p": "1, 5, 35-42"
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Open problems: reproducibility, contamination and benchmark overfitting; feedback reliability, safety, tool dependence (test-passing patches with vulnerabilities, self-assigned verification); reversibility, harness bloat, specialisation (removal as first-class operation, complexity budgets); long-term memory, skill quality and coordination (negative transfer, producer-consumer gap); evaluation beyond short benchmarks. Survey caveat: curated collection and incomplete Q3 preclude conclusions about field-wide growth",
+   "p": "11, 40-42"
+  },
+  {
+   "f": "Notes",
+   "v": "Relevance to SDD indirect: persistent instruction/context files appear only as asset updates (memory, context, behavioural rules); AGENTS.md/CLAUDE.md not named. No search sources, query or inclusion/exclusion criteria described (only 'curated collection' / companion repository catalogue), hence conceptual. Figure 4 values jumbled in text extraction; counts taken from the text (p. 11). Companion repository on GitHub. No pre-registration. Programming language: N/A",
+   "p": "1, 10-11, 13"
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): unit of analysis, questions and three contributions stated",
+   "p": "5"
+  },
+  {
+   "f": "Q2",
+   "v": "No (0): no description of how the 108 methods were found or selected",
+   "p": "10-11"
+  },
+  {
+   "f": "Q3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q4",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q5",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q6",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q7",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q8",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions are qualitative and hedged; counts described as research activity, not effectiveness; negative evidence reported",
+   "p": "11, 40-42"
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): open problems of the field discussed at length; limitations of the survey itself only briefly (curated collection, incomplete quarter)",
+   "p": "11, 40-42"
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1"
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors; no tool of theirs evaluated",
+   "p": "1"
+  },
+  {
+   "f": "Q13",
+   "v": "No (0): conceptual study; it proposes no implementable approach and states no requirements (tools, compute, cost) for one, only a taxonomy and evaluation guidance",
+   "p": "—"
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—"
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—"
+  }
+ ]
+}
