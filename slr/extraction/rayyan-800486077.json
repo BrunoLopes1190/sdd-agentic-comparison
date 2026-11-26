@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486077",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Le, T., Pham, M. V. T., Nguyen Manh, D., Phan, H. N., Bui, N. D. Q. (2025). SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios. arXiv:2512.18470v6 [cs.SE], 22 May 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Le, T., Pham, M. V. T., Nguyen Manh, D., Phan, H. N., Bui, N. D. Q. (2025). SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios. arXiv:2512.18470v6 [cs.SE], 22 May 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2025 (arXiv v1 2025; v6 dated 22 May 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "2025 (arXiv v1 2025; v6 dated 22 May 2026)",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2512.18470v6 [cs.SE]; no venue stated (appendix mentions anonymous review)",
+   "p": "1, 22",
+   "ok": true,
+   "ai": "Preprint — arXiv:2512.18470v6 [cs.SE]; no venue stated (appendix mentions anonymous review)",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry and academia: FPT Software AI Center, Ha Noi, Viet Nam (Le, Pham, Phan); School of Computing and Information Systems, University of Melbourne (Nguyen Manh); Center of AI Research, VinUniversity, Ha Noi (Bui, project lead)",
+   "p": "1",
+   "ok": true,
+   "ai": "Industry and academia: FPT Software AI Center, Ha Noi, Viet Nam (Le, Pham, Phan); School of Computing and Information Systems, University of Melbourne (Nguyen Manh); Center of AI Research, VinUniversity, Ha Noi (Bui, project lead)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SWE-EVO benchmark (48 release-sized software-evolution tasks from 7 Python projects, specified by release notes, validated by FAIL_TO_PASS and PASS_TO_PASS tests) and a new soft metric, Fix Rate; evaluation of 18 models with OpenHands and SWE-agent",
+   "p": "1-3, 6-8",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — SWE-EVO benchmark (48 release-sized software-evolution tasks from 7 Python projects, specified by release notes, validated by FAIL_TO_PASS and PASS_TO_PASS tests) and a new soft metric, Fix Rate; evaluation of 18 models with OpenHands and SWE-agent",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Coding-agent scaffolds compared: OpenHands (CodeActAgent, max 100 iterations) and SWE-agent (max 100 LLM calls); no versions. 18 models: gpt-5.4, gpt-5.2, gpt-5-08-07, gpt-5-mini-08-07, gpt-5-nano-08-07, o3-2025-04-16, gpt-4.1-2025-04-14, gpt-4o-2024-11-20, gpt-oss-120b, deepseek-v3p2, deepseek-v3p1, deepseek-r1-0528, glm-5, glm-4p7, glm-4p5, qwen3-coder-480b-a35b, kimi-k2p5, kimi-k2-instruct; medium reasoning effort for reasoning models. No SDD approach",
+   "p": "8, 18",
+   "ok": true,
+   "ai": "Coding-agent scaffolds compared: OpenHands (CodeActAgent, max 100 iterations) and SWE-agent (max 100 LLM calls); no versions. 18 models: gpt-5.4, gpt-5.2, gpt-5-08-07, gpt-5-mini-08-07, gpt-5-nano-08-07, o3-2025-04-16, gpt-4.1-2025-04-14, gpt-4o-2024-11-20, gpt-oss-120b, deepseek-v3p2, deepseek-v3p1, deepseek-r1-0528, glm-5, glm-4p7, glm-4p5, qwen3-coder-480b-a35b, kimi-k2p5, kimi-k2-instruct; medium reasoning effort for reasoning models. No SDD approach",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark input (not an approach): release-note-centred 'Software Requirement Specification' = official release-note delta between two tagged versions, by default augmented with the bodies of linked PRs/issues appended verbatim; plus the full codebase at the start version. Output: a multi-file model patch",
+   "p": "2, 5-6, 23-24",
+   "ok": true,
+   "ai": "Benchmark input (not an approach): release-note-centred 'Software Requirement Specification' = official release-note delta between two tagged versions, by default augmented with the bodies of linked PRs/issues appended verbatim; plus the full codebase at the start version. Output: a multi-file model patch",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "No prescribed flow: agent receives release note (+ PR/issue context) and start-version codebase, works within its scaffold (internet blocked) and produces a patch, evaluated on FAIL_TO_PASS and PASS_TO_PASS tests. Benchmark construction: (I) repository selection from SWE-bench and SWE-gym seed pool; (II) candidates whose base commit is a release tag, problem statement = release-note delta; (III) execution-based filtering (at least one FAIL_TO_PASS test, no install/runtime errors); manual verification down to 48 instances",
+   "p": "2, 4-6, 8",
+   "ok": true,
+   "ai": "No prescribed flow: agent receives release note (+ PR/issue context) and start-version codebase, works within its scaffold (internet blocked) and produces a patch, evaluated on FAIL_TO_PASS and PASS_TO_PASS tests. Benchmark construction: (I) repository selection from SWE-bench and SWE-gym seed pool; (II) candidates whose base commit is a release tag, problem statement = release-note delta; (III) execution-based filtering (at least one FAIL_TO_PASS test, no install/runtime errors); manual verification down to 48 instances",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs. Human verification only in benchmark construction (alignment of release note, PR/issue context, gold patch and tests)",
+   "p": "5",
+   "ok": true,
+   "ai": "None during agent runs. Human verification only in benchmark construction (alignment of release note, PR/issue context, gold patch and tests)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent run from release-note specification to patch (the specification is the benchmark input, not an SDD workflow)",
+   "p": "6, 8",
+   "ok": true,
+   "ai": "Full agent run from release-note specification to patch (the specification is the benchmark input, not an SDD workflow)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of coding agents; authors call release notes 'Software Requirement Specifications' but no SDD approach)",
+   "p": "2, 4",
+   "ok": true,
+   "ai": "Not classifiable (benchmark of coding agents; authors call release notes 'Software Requirement Specifications' but no SDD approach)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: evolve a mature open-source Python project from one release to the next",
+   "p": "2, 4-5",
+   "ok": true,
+   "ai": "Existing code base: evolve a mature open-source Python project from one release to the next",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "48 instances from 7 repositories (dvc 26, dask 8, requests 4, pydantic 3, modin 3, conan 2, scikit-learn 2). Per instance (mean/max): spec 2,390.5/22,344 words; codebase 363/1,046 non-test files and 78K/272K non-test lines; gold patch 610.5/4,113 lines, 20.9/105 files, 51.0/379 functions edited; 81.4/2,774 FAIL_TO_PASS and 874.0/8,552 total tests; median 6 linked PRs",
+   "p": "5, 21",
+   "ok": true,
+   "ai": "48 instances from 7 repositories (dvc 26, dask 8, requests 4, pydantic 3, modin 3, conan 2, scikit-learn 2). Per instance (mean/max): spec 2,390.5/22,344 words; codebase 363/1,046 non-test files and 78K/272K non-test lines; gold patch 610.5/4,113 lines, 20.9/105 files, 51.0/379 functions edited; 81.4/2,774 FAIL_TO_PASS and 874.0/8,552 total tests; median 6 linked PRs",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Popular PyPI Python libraries (data versioning, parallel computing, HTTP, data validation, dataframes, package management, machine learning)",
+   "p": "5, 21",
+   "ok": true,
+   "ai": "Popular PyPI Python libraries (data versioning, parallel computing, HTTP, data validation, dataframes, package management, machine learning)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (average number of turns per model by difficulty group shown in Fig. 6b only)",
+   "p": "10",
+   "ok": true,
+   "ai": "None (average number of turns per model by difficulty group shown in Fig. 6b only)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolved Rate (%) (instance resolved when all FAIL_TO_PASS and PASS_TO_PASS tests pass); Patch Apply Rate (%); Fix Rate (%) (new soft metric: fraction of FAIL_TO_PASS tests fixed, 0 if any PASS_TO_PASS test fails); diagnostic relaxed FAIL_TO_PASS and PASS_TO_PASS rates",
+   "p": "6-7, 21-23",
+   "ok": true,
+   "ai": "Resolved Rate (%) (instance resolved when all FAIL_TO_PASS and PASS_TO_PASS tests pass); Patch Apply Rate (%); Fix Rate (%) (new soft metric: fraction of FAIL_TO_PASS tests fixed, 0 if any PASS_TO_PASS test fails); diagnostic relaxed FAIL_TO_PASS and PASS_TO_PASS rates",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (authors state Fix Rate does not measure code quality, maintainability or patch minimality)",
+   "p": "7, 11",
+   "ok": true,
+   "ai": "None (authors state Fix Rate does not measure code quality, maintainability or patch minimality)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure-mode distribution of unresolved SWE-agent trajectories (Syntax Error, Incorrect Implementation, Instruction Following, Tool-Use, Stuck in Loop, Gave Up Prematurely, Other); empirical difficulty groups and PRs per instance; turns by difficulty group; per-repository Resolved and Fix rates",
+   "p": "9-11, 21-23",
+   "ok": true,
+   "ai": "Failure-mode distribution of unresolved SWE-agent trajectories (Syntax Error, Incorrect Implementation, Instruction Following, Tool-Use, Stuck in Loop, Gave Up Prematurely, Other); empirical difficulty groups and PRs per instance; turns by difficulty group; per-repository Resolved and Fix rates",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: patch applied and test suites run in instance-level Docker images (pytest -rA, log parser), following SWE-bench harness; 95% Wilson confidence intervals for representative rates. Failure modes labelled automatically by an LLM judge (gpt-5-mini), one primary label per trajectory; human agreement not validated",
+   "p": "7-10, 22-24",
+   "ok": true,
+   "ai": "Automatic: patch applied and test suites run in instance-level Docker images (pytest -rA, log parser), following SWE-bench harness; 95% Wilson confidence intervals for representative rates. Failure modes labelled automatically by an LLM judge (gpt-5-mini), one primary label per trajectory; human agreement not validated",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark SWE-EVO, 48 instances, release note + PR/issue context, internet blocked. Criterion: Resolved Rate, Fix Rate (and Apply Rate); no success criterion stated by the authors. Resolved % / Fix % (OpenHands; SWE-agent) from Table 6: gpt-5.4 25.00/33.89; 25.00/33.98. gpt-5.2 18.75/23.43; 22.92/30.21. gpt-5-08-07 18.75/27.64; 20.83/31.46. gpt-5-mini 10.42/17.48; 10.42/17.48. gpt-5-nano 4.17/5.99; 4.17/5.26. o3 4.17/6.47; 4.17 (6.25 in Table 2)/13.72. gpt-4.1 2.08/4.65; 10.42/14.79. gpt-4o 6.25/7.77; 6.25/10.15. gpt-oss-120b 2.08/2.08; 6.25/7.88. deepseek-v3p2 20.83/26.89; 23.40/31.41. deepseek-v3p1 16.67/21.83; 10.42/15.51. deepseek-r1-0528 10.42/14.31; 8.33/9.89. glm-5 8.33/9.67; 37.50/44.27. glm-4p7 4.17/5.19; 39.58/45.87. glm-4p5 16.67/23.74; 16.67/26.55. qwen3-coder-480b 14.58/19.56; 14.58/23.74. kimi-k2p5 22.92/27.75; 25.00/32.91. kimi-k2-instruct 16.67/22.42; 18.75/24.03. Apply rates 85.42-100%. For each: quality verdict no criterion stated by the authors (authors describe a 'striking capability gap'); cost not measured. Setting variant 'release-note only' (no PR/issue context), Resolved % (OpenHands; SWE-agent), Table 4: gpt-5-08-07 14.58; 16.67. gpt-5-mini 8.33; 10.42. o3 4.17; 6.25. gpt-4.1 2.08; 8.33. gpt-4o 8.33; 4.17. gpt-oss-120b 0.00; 0.00. deepseek-r1-0528 10.42; 6.25. glm-4p5 6.25; 12.50. qwen3-coder-480b 14.58; 12.50. kimi-k2-instruct 8.33; 12.50. No Fix Rate reported for this setting; no criterion stated; cost not measured",
+   "p": "1, 8-9, 20-22",
+   "ok": true,
+   "ai": "Benchmark SWE-EVO, 48 instances, release note + PR/issue context, internet blocked. Criterion: Resolved Rate, Fix Rate (and Apply Rate); no success criterion stated by the authors. Resolved % / Fix % (OpenHands; SWE-agent) from Table 6: gpt-5.4 25.00/33.89; 25.00/33.98. gpt-5.2 18.75/23.43; 22.92/30.21. gpt-5-08-07 18.75/27.64; 20.83/31.46. gpt-5-mini 10.42/17.48; 10.42/17.48. gpt-5-nano 4.17/5.99; 4.17/5.26. o3 4.17/6.47; 4.17 (6.25 in Table 2)/13.72. gpt-4.1 2.08/4.65; 10.42/14.79. gpt-4o 6.25/7.77; 6.25/10.15. gpt-oss-120b 2.08/2.08; 6.25/7.88. deepseek-v3p2 20.83/26.89; 23.40/31.41. deepseek-v3p1 16.67/21.83; 10.42/15.51. deepseek-r1-0528 10.42/14.31; 8.33/9.89. glm-5 8.33/9.67; 37.50/44.27. glm-4p7 4.17/5.19; 39.58/45.87. glm-4p5 16.67/23.74; 16.67/26.55. qwen3-coder-480b 14.58/19.56; 14.58/23.74. kimi-k2p5 22.92/27.75; 25.00/32.91. kimi-k2-instruct 16.67/22.42; 18.75/24.03. Apply rates 85.42-100%. For each: quality verdict no criterion stated by the authors (authors describe a 'striking capability gap'); cost not measured. Setting variant 'release-note only' (no PR/issue context), Resolved % (OpenHands; SWE-agent), Table 4: gpt-5-08-07 14.58; 16.67. gpt-5-mini 8.33; 10.42. o3 4.17; 6.25. gpt-4.1 2.08; 8.33. gpt-4o 8.33; 4.17. gpt-oss-120b 0.00; 0.00. deepseek-r1-0528 10.42; 6.25. glm-4p5 6.25; 12.50. qwen3-coder-480b 14.58; 12.50. kimi-k2-instruct 8.33; 12.50. No Fix Rate reported for this setting; no criterion stated; cost not measured",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 48 SWE-EVO instances. Configurations: 18 models x 2 scaffolds (OpenHands CodeActAgent max 100 iterations; SWE-agent max 100 LLM calls); two input settings (release note only; release note + PR/issue context, default). Baseline: none; models' SWE-bench Verified scores (from swebench.com) used as reference. Held constant: instances, Docker environments, iteration budget per scaffold, medium reasoning effort, internet blocked. Acceptance tests: FAIL_TO_PASS and PASS_TO_PASS tests from the upstream release. Repetitions: not stated (single run implied). Human intervention: none stated",
+   "p": "8-9, 18-20",
+   "ok": true,
+   "ai": "Tasks: 48 SWE-EVO instances. Configurations: 18 models x 2 scaffolds (OpenHands CodeActAgent max 100 iterations; SWE-agent max 100 LLM calls); two input settings (release note only; release note + PR/issue context, default). Baseline: none; models' SWE-bench Verified scores (from swebench.com) used as reference. Held constant: instances, Docker environments, iteration budget per scaffold, medium reasoning effort, internet blocked. Acceptance tests: FAIL_TO_PASS and PASS_TO_PASS tests from the upstream release. Repetitions: not stated (single run implied). Human intervention: none stated",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Best: gpt-5.4 25% on both scaffolds by Resolved Rate in the abstract, though glm-4p7 (39.58%) and glm-5 (37.50%) score higher with SWE-agent in Table 2. gpt-5.2 drops from 72.80% on SWE-bench Verified to 22.92% on SWE-EVO. Larger models generally beat smaller variants; glm-5/glm-4p7 show strong scaffold sensitivity (OpenHands 8.33/4.17 vs SWE-agent 37.50/39.58). Adding PR/issue context generally improves resolved rates modestly, ranking preserved. Fix Rate separates models tied on Resolved Rate (gpt-4.1 4.65% vs gpt-oss-120b 2.08%). Failure analysis: gpt-5 failures >60% Instruction Following; smaller/older models more tool-use, syntax, looping. No significance tests; Wilson 95% CIs e.g. [14.9, 38.8] for 25.00%",
+   "p": "1, 8-10, 20",
+   "ok": true,
+   "ai": "Best: gpt-5.4 25% on both scaffolds by Resolved Rate in the abstract, though glm-4p7 (39.58%) and glm-5 (37.50%) score higher with SWE-agent in Table 2. gpt-5.2 drops from 72.80% on SWE-bench Verified to 22.92% on SWE-EVO. Larger models generally beat smaller variants; glm-5/glm-4p7 show strong scaffold sensitivity (OpenHands 8.33/4.17 vs SWE-agent 37.50/39.58). Adding PR/issue context generally improves resolved rates modestly, ranking preserved. Fix Rate separates models tied on Resolved Rate (gpt-4.1 4.65% vs gpt-oss-120b 2.08%). Failure analysis: gpt-5 failures >60% Instruction Following; smaller/older models more tool-use, syntax, looping. No significance tests; Wilson 95% CIs e.g. [14.9, 38.8] for 25.00%",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished large gaps between models and showed scaffold sensitivity; authors state that with 48 instances one instance = 2.08 points, close leaderboard gaps should not be over-interpreted (wide Wilson CIs). Fix Rate added to separate ties. Repeatability not assessed. Limitations stated: Python only, release-note-centred specs, 48 instances with imbalance toward dvc (26/48) limiting statistical power, Fix Rate weights tests equally and ignores code quality; LLM-judge failure labels not validated against humans",
+   "p": "9-11, 21",
+   "ok": true,
+   "ai": "Distinguished large gaps between models and showed scaffold sensitivity; authors state that with 48 instances one instance = 2.08 points, close leaderboard gaps should not be over-interpreted (wide Wilson CIs). Fix Rate added to separate ties. Repeatability not assessed. Limitations stated: Python only, release-note-centred specs, 48 instances with imbalance toward dvc (26/48) limiting statistical power, Fix Rate weights tests equally and ignores code quality; LLM-judge failure labels not validated against humans",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Python library projects only (multilingual and application evolution future work); specifications are release-note-centred, not covering security advisories, dependency updates or design-document-driven refactors; 48 instances, imbalanced toward dvc, limited statistical power; Fix Rate weights tests equally and does not measure code quality, maintainability or patch minimality; sequential PR-by-PR variant future work; human validation of failure-mode judge future work. Gap: agents struggle with sustained multi-file reasoning and release-level evolution",
+   "p": "5, 10-11",
+   "ok": true,
+   "ai": "Python library projects only (multilingual and application evolution future work); specifications are release-note-centred, not covering security advisories, dependency updates or design-document-driven refactors; 48 instances, imbalanced toward dvc, limited statistical power; Fix Rate weights tests equally and does not measure code quality, maintainability or patch minimality; sequential PR-by-PR variant future work; human validation of failure-mode judge future work. Gap: agents struggle with sustained multi-file reasoning and release-level evolution",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract/conclusion say best model gpt-5.4 reaches 25%, but Table 2/6 give glm-4p7 39.58% and glm-5 37.50% with SWE-agent (abstract 'best model' holds only for OpenHands or for average); o3 SWE-agent Resolved 6.25 in Tables 2 and 4 vs 4.17 in Table 6; deepseek-v3p2 SWE-agent 23.40% is not a multiple of 1/48 (2.08 points); gpt-5.2 SWE-bench Verified 'around 75%' (p. 2) vs 72.80% (Table 2). Values taken from Table 6 (and Table 2 for Apply). Data: GitHub URL github.com/SWE-EVO/SWE-EVO; appendix K says metadata, scripts, Docker config, harness, generated patches and results 'will' be released. No pre-registration. Programming language: Python",
+   "p": "1-2, 8, 20-22",
+   "ok": true,
+   "ai": "Inconsistencies: abstract/conclusion say best model gpt-5.4 reaches 25%, but Table 2/6 give glm-4p7 39.58% and glm-5 37.50% with SWE-agent (abstract 'best model' holds only for OpenHands or for average); o3 SWE-agent Resolved 6.25 in Tables 2 and 4 vs 4.17 in Table 6; deepseek-v3p2 SWE-agent 23.40% is not a multiple of 1/48 (2.08 points); gpt-5.2 SWE-bench Verified 'around 75%' (p. 2) vs 72.80% (Table 2). Values taken from Table 6 (and Table 2 for Apply). Data: GitHub URL github.com/SWE-EVO/SWE-EVO; appendix K says metadata, scripts, Docker config, harness, generated patches and results 'will' be released. No pre-registration. Programming language: Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central research question and benchmark aim stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): central research question and benchmark aim stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction stages, task formulation, metrics and scaffold budgets described; agent prompts/configuration, number of runs and judge prompt not given",
+   "p": "4-8, 10",
+   "ok": true,
+   "ai": "Partly (0.5): construction stages, task formulation, metrics and scaffold budgets described; agent prompts/configuration, number of runs and judge prompt not given",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model snapshots given for most models (some without dates, e.g. gpt-5.4, deepseek-v3p2, glm-5); OpenHands and SWE-agent versions not given",
+   "p": "8, 18",
+   "ok": true,
+   "ai": "Partly (0.5): model snapshots given for most models (some without dates, e.g. gpt-5.4, deepseek-v3p2, glm-5); OpenHands and SWE-agent versions not given",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks and statistics described in detail with examples; GitHub URL given but release described as future ('we will release')",
+   "p": "1, 5, 22-28",
+   "ok": true,
+   "ai": "Partly (0.5): tasks and statistics described in detail with examples; GitHub URL given but release described as future ('we will release')",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): upstream FAIL_TO_PASS and PASS_TO_PASS test suites",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Yes (1): upstream FAIL_TO_PASS and PASS_TO_PASS test suites",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined (Resolved, Apply, Fix Rate); no cost metrics",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Partly (0.5): quality metrics defined (Resolved, Apply, Fix Rate); no cost metrics",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all models on the same instances, scaffolds, budgets and environment",
+   "p": "8",
+   "ok": true,
+   "ai": "Yes (1): all models on the same instances, scaffolds, budgets and environment",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 95% Wilson confidence intervals reported and uncertainty discussed, but single run per configuration and no statistical tests of differences",
+   "p": "9",
+   "ok": true,
+   "ai": "Partly (0.5): 95% Wilson confidence intervals reported and uncertainty discussed, but single run per configuration and no statistical tests of differences",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions mostly follow and are hedged for sample size, but 'best model reaches only 25%' contradicts the SWE-agent results of glm-4p7/glm-5 (39.58/37.50%)",
+   "p": "1, 8-9, 11",
+   "ok": true,
+   "ai": "Partly (0.5): conclusions mostly follow and are hedged for sample size, but 'best model reaches only 25%' contradicts the SWE-agent results of glm-4p7/glm-5 (39.58/37.50%)",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section (scope, specification type, sample size and imbalance, metric limits)",
+   "p": "11",
+   "ok": true,
+   "ai": "Yes (1): Limitations section (scope, specification type, sample size and imbalance, metric limits)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (FPT Software AI Center, University of Melbourne, VinUniversity) are independent of the evaluated models and scaffolds",
+   "p": "1, 8",
+   "ok": true,
+   "ai": "Yes (1): authors (FPT Software AI Center, University of Melbourne, VinUniversity) are independent of the evaluated models and scaffolds",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation benchmark and metric, not an approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation benchmark and metric, not an approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T12:09:27"
+}
