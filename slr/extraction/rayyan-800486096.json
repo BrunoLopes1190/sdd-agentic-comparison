@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486096",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Khatua, A., Zhu, H., Tran, P., Prabhudesai, A., Sadrieh, F., Lieberwirth, J. K., Yu, X., Fu, Y., Ryan, M. J., Pei, J., Yang, D. (2026). CooperBench: Why Coding Agents Cannot be Your Teammates Yet. arXiv:2601.13295v2 [cs.LG], 26 Jan 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Khatua, A., Zhu, H., Tran, P., Prabhudesai, A., Sadrieh, F., Lieberwirth, J. K., Yu, X., Fu, Y., Ryan, M. J., Pei, J., Yang, D. (2026). CooperBench: Why Coding Agents Cannot be Your Teammates Yet. arXiv:2601.13295v2 [cs.LG], 26 Jan 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2601.13295v2 [cs.LG]",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2601.13295v2 [cs.LG]",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia and industry: Stanford University (Khatua, Zhu, Yu, Fu, Ryan, Pei, Yang); SAP Labs US (Tran, Prabhudesai, Sadrieh, Lieberwirth); supported in part by SAP",
+   "p": "1, 16",
+   "ok": true,
+   "ai": "Academia and industry: Stanford University (Khatua, Zhu, Yu, Fu, Ryan, Pei, Yang); SAP Labs US (Tran, Prabhudesai, Sadrieh, Lieberwirth); supported in part by SAP",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — CooperBench benchmark (652 two-agent collaborative coding tasks from 12 repositories in 4 languages, verified by merged-patch unit tests) and comparison of Solo vs two-agent Coop settings, with and without communication, for 5 models in an OpenHands-based framework",
+   "p": "1-2, 6-7",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — CooperBench benchmark (652 two-agent collaborative coding tasks from 12 repositories in 4 languages, verified by merged-patch unit tests) and comparison of Solo vs two-agent Coop settings, with and without communication, for 5 models in an OpenHands-based framework",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations: Solo (one agent implements both features) vs Coop (two agents, one feature each, real-time messaging tool) vs Coop without communication; agent framework built on OpenHands v0.54 with an SQL-database communication tool (MCP 'openhands_comm_send'). Models: GPT-5, Claude Sonnet 4.5 (via GCP), MiniMax-M2, Qwen3-Coder-30B-A3B-Instruct, Qwen3-30B-A3B-Instruct-2507 (Qwen via vLLM)",
+   "p": "4, 6-7, 26",
+   "ok": true,
+   "ai": "No SDD approach. Configurations: Solo (one agent implements both features) vs Coop (two agents, one feature each, real-time messaging tool) vs Coop without communication; agent framework built on OpenHands v0.54 with an SQL-database communication tool (MCP 'openhands_comm_send'). Models: GPT-5, Claude Sonnet 4.5 (via GCP), MiniMax-M2, Qwen3-Coder-30B-A3B-Instruct, Qwen3-30B-A3B-Instruct-2507 (Qwen via vLLM)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Benchmark inputs (not an approach): per feature a markdown specification (title, description, examples, list of possibly relevant files) and an 'Implementation Plan' inserted into the prompt (origin not described); collaborative execution prompt with coordination requirements (share approach early with exact file paths and line ranges, no insertion markers, final status message). Hidden: expert-written unit tests and gold patches",
+   "p": "4, 26-27",
+   "ok": true,
+   "ai": "Benchmark inputs (not an approach): per feature a markdown specification (title, description, examples, list of possibly relevant files) and an 'Implementation Plan' inserted into the prompt (origin not described); collaborative execution prompt with coordination requirements (share approach early with exact file paths and line ranges, no insertion markers, final status message). Hidden: expert-written unit tests and gold patches",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Each agent in its own container implements its feature per the plan, messaging the partner asynchronously at any time (max 100 actions per agent); patches merged with git merge-file (then union merge, then a fine-tuned Qwen2.5-Coder-0.5B merge resolver for trivial conflicts); both features' unit tests run on the merged code. Benchmark construction: (I) repository and PR selection, (II) anchor feature from a real PR plus human-authored adjacent features (LLM-assisted ideation), tests written without coding assistants, joint gold patch; (III) containerised reproducible environments",
+   "p": "4-6, 22-23",
+   "ok": true,
+   "ai": "Each agent in its own container implements its feature per the plan, messaging the partner asynchronously at any time (max 100 actions per agent); patches merged with git merge-file (then union merge, then a fine-tuned Qwen2.5-Coder-0.5B merge resolver for trivial conflicts); both features' unit tests run on the merged code. Benchmark construction: (I) repository and PR selection, (II) anchor feature from a real PR plus human-authored adjacent features (LLM-assisted ideation), tests written without coding assistants, joint gold patch; (III) containerised reproducible environments",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (agents act autonomously). Humans (8 co-authors with software engineering background) write features, tests and gold patches; human validation of the LLM failure annotator on 50 trajectories",
+   "p": "2, 5-6, 29",
+   "ok": true,
+   "ai": "None during runs (agents act autonomously). Humans (8 co-authors with software engineering background) write features, tests and gold patches; human validation of the LLM failure annotator on 50 trajectories",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent runs from feature specification and plan to merged patch; no SDD workflow",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Full agent runs from feature specification and plan to merged patch; no SDD workflow",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark of multi-agent coordination; features given as markdown specifications with implementation plans, but no SDD approach; authors do not use SDD terms)",
+   "p": "4, 26",
+   "ok": true,
+   "ai": "Not classifiable (benchmark of multi-agent coordination; features given as markdown specifications with implementation plans, but no SDD approach; authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: add features or fix bugs in open-source repositories at a fixed base commit, two features per task",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Existing code base: add features or fix bugs in open-source repositories at a fixed base commit, two features per task",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "652 task pairs from 199 features in 34 feature pools (PRs) across 12 repositories; feature gold patch on average 52.3 changed lines, 4.4 functions, 1.4 files; 77.3% of tasks have conflicting gold solutions; scaling experiment on 46 tasks from 3 task sets",
+   "p": "4, 21-22, 8",
+   "ok": true,
+   "ai": "652 task pairs from 199 features in 34 feature pools (PRs) across 12 repositories; feature gold patch on average 52.3 changed lines, 4.4 functions, 1.4 files; 77.3% of tasks have conflicting gold solutions; scaling experiment on 46 tasks from 3 task sets",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source libraries: Python (DSPy, LlamaIndex, Pillow, Click, Jinja, HuggingFace Datasets, Outlines, Tiktoken, DirtyEquals), TypeScript (React Hook Form), Go (Chi Router), Rust (Typst)",
+   "p": "21",
+   "ok": true,
+   "ai": "Open-source libraries: Python (DSPy, LlamaIndex, Pillow, Click, Jinja, HuggingFace Datasets, Outlines, Tiktoken, DirtyEquals), TypeScript (React Hook Form), Go (Chi Router), Rust (Typst)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (agent teams; no human developers in the runs)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (agent teams; no human developers in the runs)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (action budget capped at 100 per agent; communication overhead reported as share of execution events)",
+   "p": "4, 8-9",
+   "ok": true,
+   "ai": "None (action budget capped at 100 per agent; communication overhead reported as share of execution events)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success rate: merged patch passes both features' unit tests; merge success rate (naive, union, LLM-resolved); difficulty-stratified success curves, AUC and retention = AUC_Coop / AUC_Solo",
+   "p": "4-5, 7, 23-25, 27",
+   "ok": true,
+   "ai": "Task success rate: merged patch passes both features' unit tests; merge success rate (naive, union, LLM-resolved); difficulty-stratified success curves, AUC and retention = AUC_Coop / AUC_Solo",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Merge conflict rate with vs without communication; communication overhead and speech-act types (plan, question, update, answer); conversation turns; communication errors (repetition, unresponsiveness, hallucination); coordination failure symptoms (Table 1) and causes (expectation 42%, commitment 32%, communication 26%); emergent coordination behaviours",
+   "p": "8-13",
+   "ok": true,
+   "ai": "Merge conflict rate with vs without communication; communication overhead and speech-act types (plan, question, update, answer); conversation turns; communication errors (repetition, unresponsiveness, hallucination); coordination failure symptoms (Table 1) and causes (expectation 42%, commitment 32%, communication 26%); emergent coordination behaviours",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: git merge plus learned resolver, unit tests on merged code; 95% Wilson confidence intervals. LLM-as-judge (GPT-5) for failure symptoms, validated against human experts on 50 trajectories (96% agreement, Wilson CI [86%, 99%]); LLM-as-judge for communication errors (precision-first rubric with quoted evidence). Manual: root causes from 50 failed Coop traces",
+   "p": "4-5, 9-10, 23, 27-29",
+   "ok": true,
+   "ai": "Automatic: git merge plus learned resolver, unit tests on merged code; 95% Wilson confidence intervals. LLM-as-judge (GPT-5) for failure symptoms, validated against human experts on 50 trajectories (96% agreement, Wilson CI [86%, 99%]); LLM-as-judge for communication errors (precision-first rubric with quoted evidence). Manual: root causes from 50 failed Coop traces",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Benchmark CooperBench, 652 tasks. Criterion: both features' tests pass on the merged patch; no success criterion stated by the authors (Solo is the reference for the 'coordination gap'). Solo vs Coop successes (k/652; AUC Solo/Coop; retention), OpenHands v0.54: (1) GPT-5: Solo 315 (48%), Coop 183 (28%); AUC 0.506/0.325; retention 0.64. (2) Claude Sonnet 4.5: 307 (47%) vs 168 (26%); 0.469/0.283; 0.60. (3) MiniMax-M2: 236 (36%) vs 91 (14%); 0.374/0.171; 0.46. (4) Qwen3-Coder-30B-A3B: 141 (22%) vs 87 (13%); 0.236/0.148; 0.63. (5) Qwen3-30B-A3B-Instruct-2507: 41 (6%) vs 30 (5%); 0.106/0.072; 0.68. Coop without communication (final merge success %, with-comm in brackets): GPT-5 27.91 (27.90), Claude 27.30 (25.92), MiniMax 14.88 (13.96), Qwen3-Coder 14.72 (13.34), Qwen3-Instruct 3.37 (4.60). For each: quality verdict no criterion stated by the authors (Coop judged worse than Solo by the authors); cost not measured. Scaling (46 tasks, model not stated): 2 agents 68.6%, 3 agents 46.5%, 4 agents 30.0%",
+   "p": "7-8, 25, 27",
+   "ok": true,
+   "ai": "Benchmark CooperBench, 652 tasks. Criterion: both features' tests pass on the merged patch; no success criterion stated by the authors (Solo is the reference for the 'coordination gap'). Solo vs Coop successes (k/652; AUC Solo/Coop; retention), OpenHands v0.54: (1) GPT-5: Solo 315 (48%), Coop 183 (28%); AUC 0.506/0.325; retention 0.64. (2) Claude Sonnet 4.5: 307 (47%) vs 168 (26%); 0.469/0.283; 0.60. (3) MiniMax-M2: 236 (36%) vs 91 (14%); 0.374/0.171; 0.46. (4) Qwen3-Coder-30B-A3B: 141 (22%) vs 87 (13%); 0.236/0.148; 0.63. (5) Qwen3-30B-A3B-Instruct-2507: 41 (6%) vs 30 (5%); 0.106/0.072; 0.68. Coop without communication (final merge success %, with-comm in brackets): GPT-5 27.91 (27.90), Claude 27.30 (25.92), MiniMax 14.88 (13.96), Qwen3-Coder 14.72 (13.34), Qwen3-Instruct 3.37 (4.60). For each: quality verdict no criterion stated by the authors (Coop judged worse than Solo by the authors); cost not measured. Scaling (46 tasks, model not stated): 2 agents 68.6%, 3 agents 46.5%, 4 agents 30.0%",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 652 CooperBench task pairs. Configurations: 5 models x {Solo, Coop with communication, Coop without communication}; scaling 2-4 agents on 46 tasks. Baseline: Solo (one agent, both features) and no-comm Coop. Held constant: OpenHands v0.54 framework, final collaborative prompt for all runs, 100-action limit, isolated cloud VMs/containers, local tools only, same merge and test pipeline. Acceptance tests: expert-written unit tests per feature, hidden from agents. Repetitions: not stated (one run per task implied). Human intervention: none",
+   "p": "4, 6-8, 25-27",
+   "ok": true,
+   "ai": "Tasks: 652 CooperBench task pairs. Configurations: 5 models x {Solo, Coop with communication, Coop without communication}; scaling 2-4 agents on 46 tasks. Baseline: Solo (one agent, both features) and no-comm Coop. Held constant: OpenHands v0.54 framework, final collaborative prompt for all runs, 100-action limit, isolated cloud VMs/containers, local tools only, same merge and test pipeline. Acceptance tests: expert-written unit tests per feature, hidden from agents. Repetitions: not stated (one run per task implied). Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Coop success consistently below Solo for all models ('curse of coordination'): GPT-5 and Claude Sonnet 4.5 about 25-28% Coop vs 47-48% Solo; pooled retention 0.59 (41% of Solo capability lost); gap largest at mid difficulty. Communication does not significantly change success (avg final merge effect -0.5 points) but significantly reduces naive merge conflicts; agents spend up to 20% of steps communicating. First-turn planning nearly halves conflict rate (29.4% vs 51.5%). More agents lower success (68.6% -> 46.5% -> 30.0%). Failure symptoms: work overlap 33.2%, divergent architecture 29.7%",
+   "p": "3, 7-12, 25, 27",
+   "ok": true,
+   "ai": "Coop success consistently below Solo for all models ('curse of coordination'): GPT-5 and Claude Sonnet 4.5 about 25-28% Coop vs 47-48% Solo; pooled retention 0.59 (41% of Solo capability lost); gap largest at mid difficulty. Communication does not significantly change success (avg final merge effect -0.5 points) but significantly reduces naive merge conflicts; agents spend up to 20% of steps communicating. First-turn planning nearly halves conflict rate (29.4% vs 51.5%). More agents lower success (68.6% -> 46.5% -> 30.0%). Failure symptoms: work overlap 33.2%, divergent architecture 29.7%",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished Solo vs Coop for all strong models with 95% Wilson CIs and difficulty-stratified retention; communication effect not significant (test not named). Repeatability not assessed. Prompt optimisation gave only marginal gains (App. D). No limitations of the comparison method stated; authors note they do not compare agent frameworks or communication tools",
+   "p": "7-8, 13, 25",
+   "ok": true,
+   "ai": "Distinguished Solo vs Coop for all strong models with 95% Wilson CIs and difficulty-stratified retention; communication effect not significant (test not named). Repeatability not assessed. Prompt optimisation gave only marginal gains (App. D). No limitations of the comparison method stated; authors note they do not compare agent frameworks or communication tools",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Scope choices stated: local tools only (no GUI/browser), one framework, no comparison of frameworks or coordination methods. Gaps/future work: training objectives rewarding coordination under partial observability; lightweight protocols for verifiable commitments (shared signatures, insertion-point contracts, integration checks); richer communication channels (e.g. screen sharing); multi-agent training to reinforce emergent coordination",
+   "p": "4, 6, 13, 16",
+   "ok": true,
+   "ai": "No limitations section. Scope choices stated: local tools only (no GUI/browser), one framework, no comparison of frameworks or coordination methods. Gaps/future work: training objectives rewarding coordination under partial observability; lightweight protocols for verifiable commitments (shared signatures, insertion-point contracts, integration checks); richer communication channels (e.g. screen sharing); multi-agent training to reinforce emergent coordination",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract says agents achieve 'on average 30% lower success rates' in Coop, p. 3 says 'around 50% lower', App. C gives pooled retention 0.59 (41% lost); App. A.2 says '52 task sets' while Table 3 and p. 4 give 34 feature pools/PRs; merge resolver is 'Qwen 3 Coder 1.5B' on p. 4 but Qwen2.5-Coder-0.5B-Instruct (LoRA) in App. B and the released model name; Table 5 Coop counts do not match Table 6 with-comm percentages for GPT-5 (183/652 = 28.07% vs 27.90%) and Claude (168/652 = 25.77% vs 25.92%); communication-error prompt labels C4a twice (also used for incorrect claim). Values from Table 5 and Table 6. Data: benchmark, framework and merge resolver released (cooperbench.com; huggingface.co/CodeConflict/Qwen2.5-Coder-0.5B-Merge-Resolver). No pre-registration. Programming languages: Python, TypeScript, Go, Rust",
+   "p": "1, 3-4, 6, 21-28",
+   "ok": true,
+   "ai": "Inconsistencies: abstract says agents achieve 'on average 30% lower success rates' in Coop, p. 3 says 'around 50% lower', App. C gives pooled retention 0.59 (41% lost); App. A.2 says '52 task sets' while Table 3 and p. 4 give 34 feature pools/PRs; merge resolver is 'Qwen 3 Coder 1.5B' on p. 4 but Qwen2.5-Coder-0.5B-Instruct (LoRA) in App. B and the released model name; Table 5 Coop counts do not match Table 6 with-comm percentages for GPT-5 (183/652 = 28.07% vs 27.90%) and Claude (168/652 = 25.77% vs 25.92%); communication-error prompt labels C4a twice (also used for incorrect claim). Values from Table 5 and Table 6. Data: benchmark, framework and merge resolver released (cooperbench.com; huggingface.co/CodeConflict/Qwen2.5-Coder-0.5B-Merge-Resolver). No pre-registration. Programming languages: Python, TypeScript, Go, Rust",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): hypothesis and RQ1-RQ3 stated",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): hypothesis and RQ1-RQ3 stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark construction, framework, prompt and evaluation pipeline described, framework released; origin of the per-feature implementation plan and number of runs not described",
+   "p": "4-6, 22-27",
+   "ok": true,
+   "ai": "Partly (0.5): benchmark construction, framework, prompt and evaluation pipeline described, framework released; origin of the per-feature implementation plan and number of runs not described",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): OpenHands v0.54 given; models named, some without snapshot (GPT-5, Claude Sonnet 4.5, MiniMax-M2)",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Partly (0.5): OpenHands v0.54 given; models named, some without snapshot (GPT-5, Claude Sonnet 4.5, MiniMax-M2)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): repositories, features and statistics described; benchmark released",
+   "p": "3-6, 21-22",
+   "ok": true,
+   "ai": "Yes (1): repositories, features and statistics described; benchmark released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): expert-written unit tests per feature, hidden from agents, run on the merged patch",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Yes (1): expert-written unit tests per feature, hidden from agents, run on the merged patch",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): success, merge and retention metrics defined; no cost metrics",
+   "p": "4-5, 23",
+   "ok": true,
+   "ai": "Partly (0.5): success, merge and retention metrics defined; no cost metrics",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): Solo and no-communication baselines with the same models, tasks, framework and budget",
+   "p": "7-8",
+   "ok": true,
+   "ai": "Yes (1): Solo and no-communication baselines with the same models, tasks, framework and budget",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 95% Wilson CIs and a significance statement for communication, but single run per task and no named statistical test",
+   "p": "7-8, 23",
+   "ok": true,
+   "ai": "Partly (0.5): 95% Wilson CIs and a significance statement for communication, but single run per task and no named statistical test",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): conclusions follow the Solo-Coop data, but the headline size of the gap is stated inconsistently (30%, ~50%, 41%) and the trust-paradox explanation is a hypothesis",
+   "p": "1, 3, 13, 24",
+   "ok": true,
+   "ai": "Partly (0.5): conclusions follow the Solo-Coop data, but the headline size of the gap is stated inconsistently (30%, ~50%, 41%) and the trust-paradox explanation is a hypothesis",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no limitations or threats to validity discussed in a proper section, only in few mentions",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): no limitations or threats to validity discussed",
+   "changed": true
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Stanford, SAP Labs US) are independent of the evaluated models; the OpenHands-based framework is a test harness, not an evaluated approach",
+   "p": "1, 6-7",
+   "ok": true,
+   "ai": "Yes (1): authors (Stanford, SAP Labs US) are independent of the evaluated models; the OpenHands-based framework is a test harness, not an evaluated approach",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation benchmark, not an approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation benchmark, not an approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T12:59:31"
+}
