@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486602",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Vrdoljak, J., Singh, A., Steunebrink, B., Yarotsky, A., Lorenzo, J., Nicoletti, A., Pigott, S. (2026). ExpertCrowd-SWE: Measuring Frontier Coding Agents on Expert-Authored Engineering Tasks in Unfamiliar Codebases. Technical report, arXiv:2611.13246v1 [cs.AI], 9 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Vrdoljak, J., Singh, A., Steunebrink, B., Yarotsky, A., Lorenzo, J., Nicoletti, A., Pigott, S. (2026). ExpertCrowd-SWE: Measuring Frontier Coding Agents on Expert-Authored Engineering Tasks in Unfamiliar Codebases. Technical report, arXiv:2611.13246v1 [cs.AI], 9 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — technical report, arXiv:2611.13246v1 [cs.AI]; no published venue",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — technical report, arXiv:2611.13246v1 [cs.AI]; no published venue",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Toptal ExpertCrowd (all seven authors; industry, creator of the benchmark)",
+   "p": "1",
+   "ok": true,
+   "ai": "Toptal ExpertCrowd (all seven authors; industry, creator of the benchmark)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — benchmark ExpertCrowd-SWE (EC-SWE) of 100 expert-authored multi-file change requests with rubric graders (partial credit, blockers, gates); seven frontier models compared in one platform harness, five runs each",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — benchmark ExpertCrowd-SWE (EC-SWE) of 100 expert-authored multi-file change requests with rubric graders (partial credit, blockers, gates); seven frontier models compared in one platform harness, five runs each",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harness: HUD hosted runner and SDK (hud-python v0.6 series, latest v0.6.21), provider-native tool interfaces, no vendor product (no Claude Code/Codex CLI/Gemini CLI). Models: Claude Opus 5.5 and Claude Fable 5.1 (effort max, 128,000 output), GPT-6 Astra (effort max, 64,000), Gemini 3.8 Flash (thinking high, 65,536), Qwen 3.8 Max, DeepSeek V4.1 Flash, Grok 4.6 (effort xhigh)",
+   "p": "8",
+   "ok": true,
+   "ai": "No SDD approach. Harness: HUD hosted runner and SDK (hud-python v0.6 series, latest v0.6.21), provider-native tool interfaces, no vendor product (no Claude Code/Codex CLI/Gemini CLI). Models: Claude Opus 5.5 and Claude Fable 5.1 (effort max, 128,000 output), GPT-6 Astra (effort max, 64,000), Gemini 3.8 Flash (thinking high, 65,536), Qwen 3.8 Max, DeepSeek V4.1 Flash, Grok 4.6 (effort xhigh)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an SDD approach. Each task ships: prompt (environment preamble + author ticket, median 148 words), Docker environment at a pinned commit, sealed reference solution, hidden grader with weighted criteria, blockers and gates. Authoring draft: repository + commit, ticket, grading plan",
+   "p": "4-6, 17",
+   "ok": true,
+   "ai": "None prescribed by an SDD approach. Each task ships: prompt (environment preamble + author ticket, median 148 words), Docker environment at a pinned commit, sealed reference solution, hidden grader with weighted criteria, blockers and gates. Authoring draft: repository + commit, ticket, grading plan",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Agent: explore repository, edit, build/test, iterate until done (up to 1,000 steps), then hidden grader. Benchmark construction: draft -> reviewer approval -> build (environment, reference, grader, calibration) -> senior-engineer QC -> contamination check -> difficulty selection",
+   "p": "1, 4-8",
+   "ok": true,
+   "ai": "Agent: explore repository, edit, build/test, iterate until done (up to 1,000 steps), then hidden grader. Benchmark construction: draft -> reviewer approval -> build (environment, reference, grader, calibration) -> senior-engineer QC -> contamination check -> difficulty selection",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (autonomous agents). In construction: reviewer approves drafts; senior engineer QCs every task",
+   "p": "4-5, 7",
+   "ok": true,
+   "ai": "None during runs (autonomous agents). In construction: reviewer approves drafts; senior engineer QCs every task",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous runs",
+   "p": "8",
+   "ok": true,
+   "ai": "N/A (no SDD approach); full autonomous runs",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (no specification-driven approach; authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases (change requests against pinned commits of real open-source repositories; 98 new changes on public projects, one with an expert substrate patch, one on an author-owned codebase)",
+   "p": "5",
+   "ok": true,
+   "ai": "Existing code bases (change requests against pinned commits of real open-source repositories; 98 new changes on public projects, one with an expert substrate patch, one on an author-owned codebase)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "100 tasks across 87 open-source projects; reference solution median 471 changed lines (IQR 270-808) across 4.5 files (3-7); 10 weighted criteria per task (1-26); repository size Not stated",
+   "p": "6",
+   "ok": true,
+   "ai": "100 tasks across 87 open-source projects; reference solution median 471 changed lines (IQR 270-808) across 4.5 files (3-7); 10 weighted criteria per task (1-26); repository size Not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Systems and infrastructure software: database engines, query builders, storage layers, schedulers, proxies, authentication servers, compilers (author areas: compilers and language tooling; systems/backend/networking; database and storage; SRE/DevOps/infrastructure)",
+   "p": "4, 6",
+   "ok": true,
+   "ai": "Systems and infrastructure software: database engines, query builders, storage layers, schedulers, proxies, authentication servers, compilers (author areas: compilers and language tooling; systems/backend/networking; database and storage; SRE/DevOps/infrastructure)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs). Tasks authored by 17 of 39 Toptal engineers who know the codebases; QC by senior engineers",
+   "p": "4, 7",
+   "ok": true,
+   "ai": "N/A (no human participants in runs). Tasks authored by 17 of 39 Toptal engineers who know the codebases; QC by senior engineers",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Agent steps per run (median 33-166 by model, mean, IQR) and median container wall-clock time (36-100 min); tokens and money not reported",
+   "p": "13-14",
+   "ok": true,
+   "ai": "Agent steps per run (median 33-166 by model, mean, IQR) and median container wall-clock time (36-100 min); tokens and money not reported",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Run score (weighted criteria with blocker caps and gates, mostly executable checks), benchmark score (macro-average of task means), full-credit run share, tasks with >=1 of 5 and 5 of 5 full-credit runs, best-of-five score",
+   "p": "6-7, 9-10",
+   "ok": true,
+   "ai": "Run score (weighted criteria with blocker caps and gates, mostly executable checks), benchmark score (macro-average of task means), full-credit run share, tasks with >=1 of 5 and 5 of 5 full-credit runs, best-of-five score",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None separately (maintainer-style criteria and a few LLM-judged review criteria are part of the rubric)",
+   "p": "7",
+   "ok": true,
+   "ai": "None separately (maintainer-style criteria and a few LLM-judged review criteria are part of the rubric)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Within-task SD of run scores; task-sampling and run-to-run intervals; paired differences with win/tie/loss; runs capped by blockers and zeroed by gates, points lost; correlation of steps with score",
+   "p": "9-13",
+   "ok": true,
+   "ai": "Within-task SD of run scores; task-sampling and run-to-run intervals; paired differences with win/tie/loss; runs capped by blockers and zeroed by gates, points lost; correlation of steps with score",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hermetic graders (no network, no randomness) mostly executable; LLM-judged criteria in 10 tasks (2-25% of task weight, 0.85% of total benchmark weight; judge model not stated); full traces recorded by HUD. Statistics: 95% task-sampling CI, paired bootstrap (2,000 resamples), sign-flip permutation tests (20,000, Holm-adjusted)",
+   "p": "6-7, 9",
+   "ok": true,
+   "ai": "Automatic: hermetic graders (no network, no randomness) mostly executable; LLM-judged criteria in 10 tasks (2-25% of task weight, 0.85% of total benchmark weight; judge model not stated); full traces recorded by HUD. Statistics: 95% task-sampling CI, paired bootstrap (2,000 resamples), sign-flip permutation tests (20,000, Holm-adjusted)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for a configuration (task full credit = score 1.0 only); quality and cost verdicts: no criterion stated by the authors. HUD harness, 5 runs per task, 100 tasks: (1) HUD + Claude Opus 5.5: 67.3 ± 4.7 (run-to-run ±1.9), full-credit runs 26.6%, tasks >=1/5 47, 5/5 9, median steps 160, container 80 min. (2) HUD + GPT-6 Astra: 63.7 ± 5.5 (±1.5), 23.4%, 36/15, 33 steps, 36 min. (3) HUD + Claude Fable 5.1: 46.5 ± 3.7 (±0.4), 8.6%, 25/1, 127 steps, 56 min. (4) HUD + Gemini 3.8 Flash (99 tasks): 40.0 ± 4.3 (±1.5), 3.8%, 9/1, 166 steps, 40 min. (5) HUD + Qwen 3.8 Max: 33.5 ± 3.3 (±1.4), 1.0%, 5/0, 137 steps, 100 min. (6) HUD + DeepSeek V4.1 Flash: 32.5 ± 3.7 (±1.4), 3.0%, 9/0, 160 steps, 51 min. (7) HUD + Grok 4.6: 32.2 ± 3.5 (±1.2), 1.0%, 4/0, 73 steps, 69 min",
+   "p": "10, 14",
+   "ok": true,
+   "ai": "No success criterion stated by the authors for a configuration (task full credit = score 1.0 only); quality and cost verdicts: no criterion stated by the authors. HUD harness, 5 runs per task, 100 tasks: (1) HUD + Claude Opus 5.5: 67.3 ± 4.7 (run-to-run ±1.9), full-credit runs 26.6%, tasks >=1/5 47, 5/5 9, median steps 160, container 80 min. (2) HUD + GPT-6 Astra: 63.7 ± 5.5 (±1.5), 23.4%, 36/15, 33 steps, 36 min. (3) HUD + Claude Fable 5.1: 46.5 ± 3.7 (±0.4), 8.6%, 25/1, 127 steps, 56 min. (4) HUD + Gemini 3.8 Flash (99 tasks): 40.0 ± 4.3 (±1.5), 3.8%, 9/1, 166 steps, 40 min. (5) HUD + Qwen 3.8 Max: 33.5 ± 3.3 (±1.4), 1.0%, 5/0, 137 steps, 100 min. (6) HUD + DeepSeek V4.1 Flash: 32.5 ± 3.7 (±1.4), 3.0%, 9/0, 160 steps, 51 min. (7) HUD + Grok 4.6: 32.2 ± 3.5 (±1.2), 1.0%, 4/0, 73 steps, 69 min",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 100 expert-authored tasks (24 public, 76 held out). Configurations: seven models in one HUD harness with provider-native tools. Baseline: none designated (paired tests against top model). Held constant: task, prompt, container (~2 vCPUs, offline), resources, 1,000-step budget, grader; empty agent parameters, no system prompt; differs in tool interface and agent loop per provider and reasoning setting (platform default high effort). Acceptance tests: calibrated hidden graders (reference = 1.0, untouched and inert change = 0; control patches in nearly half the tasks). Repetitions: 5 runs per model and task (3,495 scored runs); step- or token-limit runs excluded and rerun. Human intervention: none",
+   "p": "5-9",
+   "ok": true,
+   "ai": "Tasks: 100 expert-authored tasks (24 public, 76 held out). Configurations: seven models in one HUD harness with provider-native tools. Baseline: none designated (paired tests against top model). Held constant: task, prompt, container (~2 vCPUs, offline), resources, 1,000-step budget, grader; empty agent parameters, no system prompt; differs in tool interface and agent loop per provider and reasoning setting (platform default high effort). Acceptance tests: calibrated hidden graders (reference = 1.0, untouched and inert change = 0; control patches in nearly half the tasks). Repetitions: 5 runs per model and task (3,495 scored runs); step- or token-limit runs excluded and rerun. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 5.5 (67.3) and GPT-6 Astra (63.7) lead and are not separable (Δ +3.6, paired CI [-1.4, +9.7], p = 0.20); both ahead of Claude Fable 5.1 (Opus +20.8 [16.9, 25.3]); Fable ahead of Gemini 3.8 Flash (+6.5 [1.6, 10.5]); Gemini ahead of Qwen (+6.5 [3.0, 11.0]); Qwen, DeepSeek and Grok indistinguishable. Four tiers; all others p < 0.001 vs Opus. GPT-6 Astra more consistent (within-task SD 7.3 vs 13.6) and uses ~1/5 of Opus' steps; step count weakly related to score (r -0.15 to +0.17). Blockers/gates cost Opus 3.7 points, ranking unchanged",
+   "p": "9-14",
+   "ok": true,
+   "ai": "Claude Opus 5.5 (67.3) and GPT-6 Astra (63.7) lead and are not separable (Δ +3.6, paired CI [-1.4, +9.7], p = 0.20); both ahead of Claude Fable 5.1 (Opus +20.8 [16.9, 25.3]); Fable ahead of Gemini 3.8 Flash (+6.5 [1.6, 10.5]); Gemini ahead of Qwen (+6.5 [3.0, 11.0]); Qwen, DeepSeek and Grok indistinguishable. Four tiers; all others p < 0.001 vs Opus. GPT-6 Astra more consistent (within-task SD 7.3 vs 13.6) and uses ~1/5 of Opus' steps; step count weakly related to score (r -0.15 to +0.17). Blockers/gates cost Opus 3.7 points, ranking unchanged",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Yes: seven models span 35 points in four statistically distinct tiers, versus 0.9 points among four of them on DeepSWE v1.1 (indicative, not controlled). Task-sampling intervals (±3.3-5.5) are 2-10x run-to-run intervals. Authors' stated limits: per-provider native tool interfaces confound tool design with model capability; no reasoning-effort sweep; 100 tasks, differences < ~5 points not to be over-interpreted; repositories public and likely in training data",
+   "p": "9, 14-15",
+   "ok": true,
+   "ai": "Yes: seven models span 35 points in four statistically distinct tiers, versus 0.9 points among four of them on DeepSWE v1.1 (indicative, not controlled). Task-sampling intervals (±3.3-5.5) are 2-10x run-to-run intervals. Authors' stated limits: per-provider native tool interfaces confound tool design with model capability; no reasoning-effort sweep; 100 tasks, differences < ~5 points not to be over-interpreted; repositories public and likely in training data",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: harness differs per provider (part of gaps may reflect tools); reasoning effort not swept; sample size of 100 tasks; contamination of repository code and eventual leakage of public tasks. Future work: audit graders with an independent judge and publish disagreement rates; rerun under a shared single-tool harness; sweep reasoning effort; grow corpus and retire public tasks; extend to other domains (management consulting)",
+   "p": "14-15",
+   "ok": true,
+   "ai": "Limitations: harness differs per provider (part of gaps may reflect tools); reasoning effort not swept; sample size of 100 tasks; contamination of repository code and eventual leakage of public tasks. Future work: audit graders with an independent judge and publish disagreement rates; rerun under a shared single-tool harness; sweep reasoning effort; grow corpus and retire public tasks; extend to other domains (management consulting)",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistency in wording: abstract says 24 tasks released and 76 held out, but Table 1 and Sec. 3.3/4.1 call all 100 the 'released' tasks (Table 1 itself gives 24 public / 76 held-out). Reasoning settings: Sec. 3.8 says 'platform default high-effort setting'; Table 2 lists effort max (Claude Opus 5.5, Claude Fable 5.1, GPT-6 Astra), thinking high (Gemini 3.8 Flash) and effort xhigh (Qwen, DeepSeek, Grok); Sec. 5.2 explains these are the provider-specific high-effort defaults, so not a contradiction. Build-time check used Claude Opus 5 (step limit 100). LLM judge model for rubric criteria and for contamination review not named. Data: 24 tasks with environments, graders and results on huggingface.co/datasets/ExpertCrowd/ec-swe; leaderboard at toptal.com. No pre-registration. Programming languages: 11 (Go 18, TypeScript 15, Python, Java, JavaScript, C, C++, Rust, C#, Elixir, Ruby)",
+   "p": "1, 5-9, 14",
+   "ok": true,
+   "ai": "Inconsistency in wording: abstract says 24 tasks released and 76 held out, but Table 1 and Sec. 3.3/4.1 call all 100 the 'released' tasks (Table 1 itself gives 24 public / 76 held-out). Reasoning settings: Sec. 3.8 says 'platform default high-effort setting'; Table 2 lists effort max (Claude Opus 5.5, Claude Fable 5.1, GPT-6 Astra), thinking high (Gemini 3.8 Flash) and effort xhigh (Qwen, DeepSeek, Grok); Sec. 5.2 explains these are the provider-specific high-effort defaults, so not a contradiction. Build-time check used Claude Opus 5 (step limit 100). LLM judge model for rubric criteria and for contamination review not named. Data: 24 tasks with environments, graders and results on huggingface.co/datasets/ExpertCrowd/ec-swe; leaderboard at toptal.com. No pre-registration. Programming languages: 11 (Go 18, TypeScript 15, Python, Java, JavaScript, C, C++, Rust, C#, Elixir, Ruby)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim and contributions clearly stated, scope defined",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Yes (1): aim and contributions clearly stated, scope defined",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction, grading formula, protocol and statistics described; 76 tasks held out and judge model unstated, so only part can be replicated",
+   "p": "4-9",
+   "ok": true,
+   "ai": "Partly (0.5): construction, grading formula, protocol and statistics described; 76 tasks held out and judge model unstated, so only part can be replicated",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): harness SDK version and model names with reasoning and output settings given; model snapshot identifiers and LLM-judge model not stated",
+   "p": "8",
+   "ok": true,
+   "ai": "Partly (0.5): harness SDK version and model names with reasoning and output settings given; model snapshot identifiers and LLM-judge model not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): tasks described in aggregate; only 24 of 100 released (76 held out by design)",
+   "p": "1, 6",
+   "ok": true,
+   "ai": "Partly (0.5): tasks described in aggregate; only 24 of 100 released (76 held out by design)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): calibrated, mostly executable hidden graders written by task authors with control patches and senior QC; LLM-judged criteria 0.85% of weight",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Yes (1): calibrated, mostly executable hidden graders written by task authors with control patches and senior QC; LLM-judged criteria 0.85% of weight",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality metrics well defined; cost measured as agent steps and median container wall-clock time (time is a cost metric in §6); no tokens or money",
+   "p": "9, 13-14",
+   "ok": true,
+   "ai": "Yes (1): quality metrics well defined; cost measured as agent steps and median container wall-clock time (time is a cost metric in §6); no tokens or money",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): all models run on the same tasks, containers, budget and grader (tool interfaces differ per provider)",
+   "p": "8",
+   "ok": true,
+   "ai": "Yes (1): all models run on the same tasks, containers, budget and grader (tool interfaces differ per provider)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): five runs per model and task, task-sampling and run-to-run intervals, paired bootstrap and Holm-adjusted permutation tests",
+   "p": "9-11",
+   "ok": true,
+   "ai": "Yes (1): five runs per model and task, task-sampling and run-to-run intervals, paired bootstrap and Holm-adjusted permutation tests",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow; tie between top two acknowledged and DeepSWE comparison flagged as indicative",
+   "p": "10, 14",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow; tie between top two acknowledged and DeepSWE comparison flagged as indicative",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section on harness, reasoning settings, sample size and contamination",
+   "p": "14-15",
+   "ok": true,
+   "ai": "Yes (1): limitations section on harness, reasoning settings, sample size and contamination",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): technical report on arXiv, not peer-reviewed",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): technical report on arXiv, not peer-reviewed",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Toptal authors are independent of the model vendors evaluated; the HUD harness is a third-party platform (acknowledged, not authors)",
+   "p": "1, 8, 15",
+   "ok": true,
+   "ai": "Yes (1): Toptal authors are independent of the model vendors evaluated; the HUD harness is a third-party platform (acknowledged, not authors)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:22:00"
+}

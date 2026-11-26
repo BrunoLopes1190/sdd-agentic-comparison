@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486847",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhu, H., Zhang, Q., Wang, J., Yang, Z., Qiu, Y. (2026). Needle in the Repo: Diagnosing Maintainability Failures in AI-Generated Repository Edits. In: Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany, October 12-16, 2026. ACM, pp. 892-903. https://doi.org/10.1145/3832783.3834401",
+   "p": "892",
+   "ok": true,
+   "ai": "Zhu, H., Zhang, Q., Wang, J., Yang, Z., Qiu, Y. (2026). Needle in the Repo: Diagnosing Maintainability Failures in AI-Generated Repository Edits. In: Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE '26), Munich, Germany, October 12-16, 2026. ACM, pp. 892-903. https://doi.org/10.1145/3832783.3834401",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "892",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — ASE '26 (41st IEEE/ACM International Conference on Automated Software Engineering), Munich, ACM, DOI 10.1145/3832783.3834401",
+   "p": "892",
+   "ok": true,
+   "ai": "Conference — ASE '26 (41st IEEE/ACM International Conference on Automated Software Engineering), Munich, ACM, DOI 10.1145/3832783.3834401",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Qualcomm, Santa Clara, USA (Zhu; research conducted before joining Qualcomm); University of California, Riverside, USA (Zhang, Yang, Qiu); Tulane University, New Orleans, USA (Wang)",
+   "p": "892",
+   "ok": true,
+   "ai": "Qualcomm, Santa Clara, USA (Zhu; research conducted before joining Qualcomm); University of California, Riverside, USA (Zhang, Yang, Qiu); Tulane University, New Orleans, USA (Wang)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — Needle in the Repo (NITR), a probe-and-oracle framework of 21 C++ repository probes over 9 maintainability dimensions with hidden functional tests and structural oracles, used to evaluate 23 coding configurations (11 agent-mode, 12 API-only) of GPT, Claude, Gemini and Qwen models and to compare agent vs API modes",
+   "p": "892-893, 897",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — Needle in the Repo (NITR), a probe-and-oracle framework of 21 C++ repository probes over 9 maintainability dimensions with hidden functional tests and structural oracles, used to evaluate 23 coding configurations (11 agent-mode, 12 API-only) of GPT, Claude, Gemini and Qwen models and to compare agent vs API modes",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Configurations: agent mode through 'provider-managed CLI surfaces' (CLI tools and versions not named) and API-only through Google Vertex AI (Qwen, Gemini, Claude) and the OpenAI API. Models: GPT-5.3-Cx, GPT-5.2-Cx, GPT-5, GPT-5.4, GPT-5-Mini, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Claude Sonnet 4.5, Gemini 3.1 Pro, Gemini 3.1 Flash, Gemini 2.5 Pro, Qwen3-Coder, Qwen3-80B",
+   "p": "897-898",
+   "ok": true,
+   "ai": "No SDD approach. Configurations: agent mode through 'provider-managed CLI surfaces' (CLI tools and versions not named) and API-only through Google Vertex AI (Qwen, Gemini, Claude) and the OpenAI API. Models: GPT-5.3-Cx, GPT-5.2-Cx, GPT-5, GPT-5.4, GPT-5-Mini, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Claude Sonnet 4.5, Gemini 3.1 Pro, Gemini 3.1 Flash, Gemini 2.5 Pro, Qwen3-Coder, Qwen3-80B",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Each probe: starter code, agent-visible TASK.md (natural engineering request that does not reveal the dimension or oracle), author-facing SPEC.md (hidden), hidden evaluator (functional tests + structural oracle); multi-step probes give TASK1-TASK3.md in sequence",
+   "p": "895-896",
+   "ok": true,
+   "ai": "N/A (no approach). Each probe: starter code, agent-visible TASK.md (natural engineering request that does not reveal the dimension or oracle), author-facing SPEC.md (hidden), hidden evaluator (functional tests + structural oracle); multi-step probes give TASK1-TASK3.md in sequence",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Probe construction: repository scenario selection → starter-code shaping → agent-facing task design → micro vs multi-step. Evaluation: temporary workspace, model edits applied (JSON map of file contents), CMake build, hidden functional tests, structural oracles; multi-step steps applied to the code of the previous step",
+   "p": "894-897",
+   "ok": true,
+   "ai": "Probe construction: repository scenario selection → starter-code shaping → agent-facing task design → micro vs multi-step. Evaluation: temporary workspace, model edits applied (JSON map of file contents), CMake build, hidden functional tests, structural oracles; multi-step steps applied to the code of the previous step",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs. Oracles validated by the authors during construction against intended, shortcut and near-miss variants; failed runs inspected manually afterwards",
+   "p": "896, 899",
+   "ok": true,
+   "ai": "None during runs. Oracles validated by the authors during construction against intended, shortcut and near-miss variants; failed runs inspected manually afterwards",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); single edits (micro) and sequential edits (multi-step); agent mode restricted to read-only repository access, no command execution or external tools",
+   "p": "897",
+   "ok": true,
+   "ai": "N/A (no SDD approach); single edits (micro) and sequential edits (multi-step); agent mode restricted to read-only repository access, no command execution or external tools",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD; authors do not use SDD terms; the task is a natural-language TASK.md and the SPEC.md is hidden from the agent)",
+   "p": "895",
+   "ok": true,
+   "ai": "Not classifiable (no SDD; authors do not use SDD terms; the task is a natural-language TASK.md and the SPEC.md is hidden from the agent)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (edits to small authored multi-file C++ starter repositories)",
+   "p": "894-895",
+   "ok": true,
+   "ai": "Existing code base (edits to small authored multi-file C++ starter repositories)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "21 probes (10 micro, 11 multi-step) over 9 dimensions (2-3 probes each); 483 (configuration, case) outcomes; repository size in LOC not stated",
+   "p": "894, 897-898",
+   "ok": true,
+   "ai": "21 probes (10 micro, 11 multi-step) over 9 dimensions (2-3 probes each); 483 (configuration, case) outcomes; repository size in LOC not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Small authored C++ repositories (e.g., multi-type add utility, filter pipeline, pricing extension, CV pipeline, cache lifecycle, session expiry, logging); no application domain",
+   "p": "893-895, 897",
+   "ok": true,
+   "ai": "Small authored C++ repositories (e.g., multi-type add utility, filter pipeline, pricing extension, CV pipeline, cache lifecycle, session expiry, logging); no application domain",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Hidden functional tests per probe; pass rate where a probe passes only if functional tests and structural oracle both succeed; outcome categories Pass, F (functional failure), S (tests pass, oracle fails), B (both fail), E (build error)",
+   "p": "896, 898",
+   "ok": true,
+   "ai": "Hidden functional tests per probe; pass rate where a probe passes only if functional tests and structural oracle both succeed; outcome categories Pass, F (functional failure), S (tests pass, oracle fails), B (both fail), E (build error)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Probe-specific structural oracles for 9 maintainability dimensions (D1 change locality, D2 reuse and repo awareness, D3 responsibility decomposition, D4 extension structure, D5 interface and substitutability, D6 dependency control, D7 testability and determinism, D8 state ownership and lifecycle, D9 side-effect isolation); per-dimension pass rates; share of S outcomes",
+   "p": "894, 896-898",
+   "ok": true,
+   "ai": "Probe-specific structural oracles for 9 maintainability dimensions (D1 change locality, D2 reuse and repo awareness, D3 responsibility decomposition, D4 extension structure, D5 interface and substitutability, D6 dependency control, D7 testability and determinism, D8 state ownership and lifecycle, D9 side-effect isolation); per-dimension pass rates; share of S outcomes",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Failure archetypes from manual inspection (shortcut over reuse or abstraction, boundary contamination, incomplete abstraction refactor, later-step regression, missing test seam)",
+   "p": "899-901",
+   "ok": true,
+   "ai": "Failure archetypes from manual inspection (shortcut over reuse or abstraction, boundary contamination, incomplete abstraction refactor, later-step regression, missing test seam)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: local Python harness (workspace, apply edits, CMake build, hidden tests, Python structural oracles). Manual: qualitative inspection of the 308 failed runs (no coding protocol or agreement reported). One sampled run per configuration and case",
+   "p": "896-899, 901",
+   "ok": true,
+   "ai": "Automatic: local Python harness (workspace, apply edits, CMake build, hidden tests, Python structural oracles). Manual: qualitative inspection of the 308 failed runs (no coding protocol or agreement reported). One sampled run per configuration and case",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion for all: a probe passes only if functional tests and structural oracle both pass; no threshold for 'works'. Values = cases passed of 21 (Table 3). Agent mode, CLI not named: (1) GPT-5.3-Cx 12 (57%); (2) GPT-5.2-Cx 11 (52%); (3) GPT-5 11 (52%); (4) GPT-5.4 10 (48%); (5) Claude Opus 4.6 12 (57%); (6) Claude Opus 4.5 10 (48%); (7) Claude Sonnet 4.6 9 (43%); (8) Claude Sonnet 4.5 8 (38%); (9) Gemini 3.1 Pro 10 (48%); (10) Gemini 3.1 Flash 6 (29%); (11) Gemini 2.5 Pro 5 (24%). API only: (12) GPT-5.4 7 (33%); (13) GPT-5-Mini 6 (29%); (14) GPT-5.3-Cx 6 (29%); (15) Claude Opus 4.5 6 (29%); (16) Claude Opus 4.6 6 (29%); (17) Claude Sonnet 4.5 6 (29%); (18) Claude Sonnet 4.6 5 (24%); (19) Gemini 3.1 Pro 8 (38%); (20) Gemini 2.5 Pro 6 (29%); (21) Gemini 3.1 Flash 5 (24%); (22) Qwen3-Coder 5 (24%); (23) Qwen3-80B 5 (24%). Quality verdict for each: no criterion stated by the authors. Cost verdict: not measured",
+   "p": "897-899",
+   "ok": true,
+   "ai": "Success criterion for all: a probe passes only if functional tests and structural oracle both pass; no threshold for 'works'. Values = cases passed of 21 (Table 3). Agent mode, CLI not named: (1) GPT-5.3-Cx 12 (57%); (2) GPT-5.2-Cx 11 (52%); (3) GPT-5 11 (52%); (4) GPT-5.4 10 (48%); (5) Claude Opus 4.6 12 (57%); (6) Claude Opus 4.5 10 (48%); (7) Claude Sonnet 4.6 9 (43%); (8) Claude Sonnet 4.5 8 (38%); (9) Gemini 3.1 Pro 10 (48%); (10) Gemini 3.1 Flash 6 (29%); (11) Gemini 2.5 Pro 5 (24%). API only: (12) GPT-5.4 7 (33%); (13) GPT-5-Mini 6 (29%); (14) GPT-5.3-Cx 6 (29%); (15) Claude Opus 4.5 6 (29%); (16) Claude Opus 4.6 6 (29%); (17) Claude Sonnet 4.5 6 (29%); (18) Claude Sonnet 4.6 5 (24%); (19) Gemini 3.1 Pro 8 (38%); (20) Gemini 2.5 Pro 6 (29%); (21) Gemini 3.1 Flash 5 (24%); (22) Qwen3-Coder 5 (24%); (23) Qwen3-80B 5 (24%). Quality verdict for each: no criterion stated by the authors. Cost verdict: not measured",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 21 probes. Configurations: 23 (11 agent-mode, 12 API-only); matched comparison for the 9 model families run in both modes; no other baseline. Held constant: TASK.md only, no hints or maintainability instructions, JSON output format, hidden tests and oracles. Differences: agent mode sees its prior edits in multi-step cases and has read-only repository access; API receives each step independently with prior context. Acceptance: hidden functional tests + structural oracles. Repetitions: single sampled run per case. Human intervention: none",
+   "p": "896-897, 901",
+   "ok": true,
+   "ai": "Tasks: 21 probes. Configurations: 23 (11 agent-mode, 12 API-only); matched comparison for the 9 model families run in both modes; no other baseline. Held constant: TASK.md only, no hints or maintainability instructions, JSON output format, hidden tests and oracles. Differences: agent mode sees its prior edits in multi-step cases and has read-only repository access; API receives each step independently with prior context. Acceptance: hidden functional tests + structural oracles. Repetitions: single sampled run per case. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Pass rates 24%-57%, average 36.2%; best GPT-5.3-Cx (Agt) and Claude Opus 4.6 (Agt) 12/21, best API Gemini 3.1 Pro 8/21; five probes unsolved by all. Micro 53.5% (123/230) vs multi-step 20.6% (52/253); API 44.2% → 13.6%, agent 63.6% → 28.1%. Dimensions: D6 4.3%, D3 15.2%, D5 26.1%, D2 31.9%, D4 41% (Table 3 bottom row only), D7 44.9%, D1 47.8%, D9 47.8%, D8 58.7%. Outcomes: 36.2% pass, 31.5% F, 13.3% S (64/483), 10.4% B, 8.7% E. Agent mode 45.0% vs API 28.2% (+16.8 pp), better in 8 of 9 matched families (average +3.0 cases); authors call it observational, not causal. No significance tests",
+   "p": "897-899",
+   "ok": true,
+   "ai": "Pass rates 24%-57%, average 36.2%; best GPT-5.3-Cx (Agt) and Claude Opus 4.6 (Agt) 12/21, best API Gemini 3.1 Pro 8/21; five probes unsolved by all. Micro 53.5% (123/230) vs multi-step 20.6% (52/253); API 44.2% → 13.6%, agent 63.6% → 28.1%. Dimensions: D6 4.3%, D3 15.2%, D5 26.1%, D2 31.9%, D4 41% (Table 3 bottom row only), D7 44.9%, D1 47.8%, D9 47.8%, D8 58.7%. Outcomes: 36.2% pass, 31.5% F, 13.3% S (64/483), 10.4% B, 8.7% E. Agent mode 45.0% vs API 28.2% (+16.8 pp), better in 8 of 9 matched families (average +3.0 cases); authors call it observational, not causal. No significance tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations (24%-57%) and dimensions, and exposed 64 behaviourally correct but structurally failing outcomes missed by tests. Not repeated: single run per case, no variance or prompt-sensitivity estimate. Limitations stated: agent and API settings differ in interface, so harness-level comparison only; 2-3 cases per dimension give diagnostic trends, not high-power estimates; oracles are lightweight targeted checks",
+   "p": "896, 898-899, 901",
+   "ok": true,
+   "ai": "Distinguished configurations (24%-57%) and dimensions, and exposed 64 behaviourally correct but structurally failing outcomes missed by tests. Not repeated: single run per case, no variance or prompt-sensitivity estimate. Limitations stated: agent and API settings differ in interface, so harness-level comparison only; 2-3 cases per dimension give diagnostic trends, not high-power estimates; oracles are lightweight targeted checks",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Threats: construct (maintainability as authored probes and case-specific oracles, not maintainability in general), internal (harness-level comparisons; single run; no prompt sensitivity), external (21 small C++ repositories; other languages, scales and workflows not covered), conclusion (few cases per dimension). Gaps / implications: treat AI-generated multi-step changes as structurally untrusted proposals; review beyond test passing; agents need repository-level structural reasoning; make maintainability a first-class evaluation objective",
+   "p": "900-901",
+   "ok": true,
+   "ai": "Threats: construct (maintainability as authored probes and case-specific oracles, not maintainability in general), internal (harness-level comparisons; single run; no prompt sensitivity), external (21 small C++ repositories; other languages, scales and workflows not covered), conclusion (few cases per dimension). Gaps / implications: treat AI-generated multi-step changes as structurally untrusted proposals; review beyond test passing; agents need repository-level structural reasoning; make maintainability a first-class evaluation objective",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: the Table 2 S row (13 for Case 001, 0 for 002, 4 for 006, 4 for 008, 0 for 015, 0 for 017, 11 for 020; 32 in total) (p. 898) does not match the Fig. 6 heatmap, which gives 17, 16, 6, 2, 1, 7 and 15 S outcomes for these cases and 64 in total (p. 900); the text follows Fig. 6 (17/23, 16/23, 15/23 for Cases 001, 002, 020; 6 S-type outcomes for Case 006; 64/483) (pp. 895, 899-900). A count of all 23 Fig. 6 rows gives 175 Pass, 152 F, 64 S, 50 B, 42 E, matching the reported percentages; the Table 2 Pass row matches Fig. 6. Table 3 Agent avg. 9.5 vs text 9.45 (rounding). Agent CLI tools not named ('Cx' not expanded). Artifact: https://github.com/ucrriple/NITR and Zenodo DOI 10.5281/zenodo.21154293. Pre-registration: not claimed. Programming language: C++ (CMake); oracles and harness in Python",
+   "p": "895-900, 902",
+   "ok": true,
+   "ai": "Inconsistencies: the Table 2 S row (13 for Case 001, 0 for 002, 4 for 006, 4 for 008, 0 for 015, 0 for 017, 11 for 020; 32 in total) (p. 898) does not match the Fig. 6 heatmap, which gives 17, 16, 6, 2, 1, 7 and 15 S outcomes for these cases and 64 in total (p. 900); the text follows Fig. 6 (17/23, 16/23, 15/23 for Cases 001, 002, 020; 6 S-type outcomes for Case 006; 64/483) (pp. 895, 899-900). A count of all 23 Fig. 6 rows gives 175 Pass, 152 F, 64 S, 50 B, 42 E, matching the reported percentages; the Table 2 Pass row matches Fig. 6. Table 3 Agent avg. 9.5 vs text 9.45 (rounding). Agent CLI tools not named ('Cx' not expanded). Artifact: https://github.com/ucrriple/NITR and Zenodo DOI 10.5281/zenodo.21154293. Pre-registration: not claimed. Programming language: C++ (CMake); oracles and harness in Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): four RQs stated",
+   "p": "897",
+   "ok": true,
+   "ai": "Yes (1): four RQs stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): probe construction, harness, constraints and protocol described and artifact released, but the agent CLI tools and model parameters are not named, so agent-mode runs cannot be replicated exactly",
+   "p": "894-897, 902",
+   "ok": true,
+   "ai": "Partly (0.5): probe construction, harness, constraints and protocol described and artifact released, but the agent CLI tools and model parameters are not named, so agent-mode runs cannot be replicated exactly",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): model names given, but agent CLI tools, versions and model settings (e.g., temperature) not stated",
+   "p": "897",
+   "ok": true,
+   "ai": "Partly (0.5): model names given, but agent CLI tools, versions and model settings (e.g., temperature) not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): probes described (Tables 1-2, case examples) and released on GitHub and Zenodo",
+   "p": "894-898, 902",
+   "ok": true,
+   "ai": "Yes (1): probes described (Tables 1-2, case examples) and released on GitHub and Zenodo",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden functional tests and structural oracles validated against intended, shortcut and near-miss variants",
+   "p": "896",
+   "ok": true,
+   "ai": "Yes (1): hidden functional tests and structural oracles validated against intended, shortcut and near-miss variants",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): functional and structural quality metrics defined; no cost metric",
+   "p": "896, 898",
+   "ok": true,
+   "ai": "Partly (0.5): functional and structural quality metrics defined; no cost metric",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 23 configurations on the same probes and harness; matched agent vs API families",
+   "p": "897, 899",
+   "ok": true,
+   "ai": "Yes (1): 23 configurations on the same probes and harness; matched agent vs API families",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): single sampled run per case, no statistical tests; acknowledged",
+   "p": "901",
+   "ok": true,
+   "ai": "No (0): single sampled run per case, no statistical tests; acknowledged",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the results and are hedged (observational agent/API comparison, diagnostic trends), negative results reported",
+   "p": "898-899, 901",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from the results and are hedged (observational agent/API comparison, diagnostic trends), negative results reported",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (construct, internal, external, conclusion)",
+   "p": "901",
+   "ok": true,
+   "ai": "Yes (1): threats to validity section (construct, internal, external, conclusion)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): ASE '26 conference",
+   "p": "892",
+   "ok": true,
+   "ai": "Yes (1): ASE '26 conference",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors (one later at Qualcomm, not a vendor of the evaluated tools) independent of OpenAI, Anthropic, Google and Alibaba; the framework is theirs but no approach of theirs is evaluated",
+   "p": "892",
+   "ok": true,
+   "ai": "Yes (1): academic authors (one later at Qualcomm, not a vendor of the evaluated tools) independent of OpenAI, Anthropic, Google and Alibaba; the framework is theirs but no approach of theirs is evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation method, not an approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:25:18"
+}

@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486575",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zeng, X., Liu, Z., Lin, Z. (2026). Multi-step SWE: Can Coding Agents Keep Building on Their Own Code Over Long Horizons? arXiv:2611.07166v1 [cs.SE], 4 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Zeng, X., Liu, Z., Lin, Z. (2026). Multi-step SWE: Can Coding Agents Keep Building on Their Own Code Over Long Horizons? arXiv:2611.07166v1 [cs.SE], 4 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.07166v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2611.07166v1 [cs.SE]; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Klavis AI (industry; all three authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "Klavis AI (industry; all three authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — introduces Multi-step SWE, a long-horizon benchmark of 69 tasks, each a chain of 5-15 dependent multi-hour steps on one codebase built on the agent's own earlier code, and evaluates nine frontier models in agent harnesses, with a failure analysis of final reports",
+   "p": "1-3, 8-10",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — introduces Multi-step SWE, a long-horizon benchmark of 69 tasks, each a chain of 5-15 dependent multi-hour steps on one codebase built on the agent's own earlier code, and evaluates nine frontier models in agent harnesses, with a failure analysis of final reports",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Nine model-harness configurations (Table 9): Claude Opus 5.5 + Claude Code (max effort); Claude Fable 5.1 + Claude Code (max); Gemini 4 Argon + mini-swe-agent (high); GPT-6.1 Sol + Codex CLI (max); GPT-6 Astra + Codex CLI (max); DeepSeek V4.1 Flash + Claude Code (max); Qwen 3.8 Max + Claude Code (max); MiMo 2.6 Pro + Claude Code (max); Grok 4.7 + Grok Build (xhigh). Harnesses used as provided by Harbor, no custom tools or prompts; harness versions not stated",
+   "p": "8, 17-18",
+   "ok": true,
+   "ai": "No SDD approach. Nine model-harness configurations (Table 9): Claude Opus 5.5 + Claude Code (max effort); Claude Fable 5.1 + Claude Code (max); Gemini 4 Argon + mini-swe-agent (high); GPT-6.1 Sol + Codex CLI (max); GPT-6 Astra + Codex CLI (max); DeepSeek V4.1 Flash + Claude Code (max); Qwen 3.8 Max + Claude Code (max); MiMo 2.6 Pro + Claude Code (max); Grok 4.7 + Grok Build (xhigh). Harnesses used as provided by Harbor, no custom tools or prompts; harness versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark artefacts per step (Harbor multi-step format): instruction.md (what the step must achieve, the interface the verifier uses, the specifications in the workspace, rules), workdir/ additions (next release's specification, interface contract, public tests), hidden tests/ verifier, solution/ reference solution; task.toml with step order and budgets. Most tasks ask the agent to keep a handoff note (WORKSPACE_HANDOFF.md). Each step grounded in an existing source of truth: language/protocol specifications, RFCs, PEPs, release notes, migration guides, original codebase behaviour",
+   "p": "4-5, 14",
+   "ok": true,
+   "ai": "N/A (no approach). Benchmark artefacts per step (Harbor multi-step format): instruction.md (what the step must achieve, the interface the verifier uses, the specifications in the workspace, rules), workdir/ additions (next release's specification, interface contract, public tests), hidden tests/ verifier, solution/ reference solution; task.toml with step order and budgets. Most tasks ask the agent to keep a handoff note (WORKSPACE_HANDOFF.md). Each step grounded in an existing source of truth: language/protocol specifications, RFCs, PEPs, release notes, migration guides, original codebase behaviour",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no approach). Benchmark protocol: steps run in order on one cumulative workspace; before step k workdir/ files are copied in; agent works autonomously within a 2-4 h wall-clock budget; workspace graded in a separate verifier container; every step is scored even after a failed step",
+   "p": "3, 14-15",
+   "ok": true,
+   "ai": "N/A (no approach). Benchmark protocol: steps run in order on one cumulative workspace; before step k workdir/ files are copied in; agent works autonomously within a 2-4 h wall-clock budget; workspace graded in a separate verifier container; every step is scored even after a failed step",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (agent works autonomously). Benchmark construction: two rounds of expert review of every task (design review; instruction-verifier review) by engineers with at least five years of experience; adversarial hardening of verifiers",
+   "p": "3, 6-7",
+   "ok": true,
+   "ai": "None during runs (agent works autonomously). Benchmark construction: two rounds of expert review of every task (design review; instruction-verifier review) by engineers with at least five years of experience; adversarial hardening of verifiers",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full agent runs on all 69 multi-step tasks (four rollouts per model per task); no SDD approach exercised",
+   "p": "8",
+   "ok": true,
+   "ai": "Full agent runs on all 69 multi-step tasks (four rollouts per model per task); no SDD approach exercised",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; tasks are grounded in a 'single source of truth' specification, but the authors do not use SDD terms)",
+   "p": "5",
+   "ok": true,
+   "ai": "Not classifiable (no SDD approach; tasks are grounded in a 'single source of truth' specification, but the authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Both: 34 tasks from an empty or skeleton workspace (new project) and 35 tasks on existing open-source codebases; four families: optimization (18), feature implementation (18), version upgrade (20), migration (13)",
+   "p": "3-4, 7",
+   "ok": true,
+   "ai": "Both: 34 tasks from an empty or skeleton workspace (new project) and 35 tasks on existing open-source codebases; four families: optimization (18), feature implementation (18), version upgrade (20), migration (13)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "69 tasks, 574 steps (5-15 per task, median 8, mean 8.3); budget 2 h (471 steps), 3 h (56), 4 h (47) per step, 10-60 h per task (median 16 h); reference solutions of first steps up to about 37,000-42,000 lines (e.g. PHP 5.6 interpreter in C, Redis-compatible server in Java); later steps took agents a median of 45 min",
+   "p": "7",
+   "ok": true,
+   "ai": "69 tasks, 574 steps (5-15 per task, median 8, mean 8.3); budget 2 h (471 steps), 3 h (56), 4 h (47) per step, 10-60 h per task (median 16 h); reference solutions of first steps up to about 37,000-42,000 lines (e.g. PHP 5.6 interpreter in C, Redis-compatible server in Java); later steps took agents a median of 45 min",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Systems software: language implementations, databases and storage, networking protocols, cryptography, blockchains, media and documents, systems tools, scientific computing, healthcare (FHIR), web applications (Rails, React, Java EE)",
+   "p": "7-8, 16-17",
+   "ok": true,
+   "ai": "Systems software: language implementations, databases and storage, networking protocols, cryptography, blockchains, media and documents, systems tools, scientific computing, healthcare (FHIR), web applications (Rails, React, Java EE)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; no human participants in runs). Task reviewers: expert software engineers with at least five years of professional experience",
+   "p": "6",
+   "ok": true,
+   "ai": "N/A (autonomous agents; no human participants in runs). Task reviewers: expert software engineers with at least five years of professional experience",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Wall-clock time: share of step budget used by failed steps (median 24-37% for six models, leaving 77-93 min unused; Qwen 3.8 Max and MiMo 2.6 Pro exhaust the budget in 39% and 24% of failed steps); median duration ratio of passing vs failing sessions 1.05; solving EVM rollouts took 6.4-7.5 h of agent time. No tokens or money reported",
+   "p": "9-10, 15",
+   "ok": true,
+   "ai": "Wall-clock time: share of step budget used by failed steps (median 24-37% for six models, leaving 77-93 min unused; Qwen 3.8 Max and MiMo 2.6 Pro exhaust the budget in 39% and 24% of failed steps); median duration ratio of passing vs failing sessions 1.05; solving EVM rollouts took 6.4-7.5 h of agent time. No tokens or money reported",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Solve rate (fraction of rollouts receiving full credit at every step); Pass@4 (fraction of tasks solved by at least one of four rollouts); fraction of steps passed with full credit; step reward binary (all checks pass); optimization reward = correctness gate x speedup above the reference solution's speedup sref",
+   "p": "6, 8",
+   "ok": true,
+   "ai": "Solve rate (fraction of rollouts receiving full credit at every step); Pass@4 (fraction of tasks solved by at least one of four rollouts); fraction of steps passed with full credit; step reward binary (all checks pass); optimization reward = correctness gate x speedup above the reference solution's speedup sref",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None as metrics; migration verifiers apply static checks (linters) and require deprecated APIs removed; raw optimization speedups (Tables 10-11)",
+   "p": "4, 18-19",
+   "ok": true,
+   "ai": "None as metrics; migration verifiers apply static checks (linters) and require deprecated APIs removed; raw optimization speedups (Tables 10-11)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Fraction of rollouts still on track by step position (Fig. 4); conditional step pass rate after a passed vs failed step (70.2% vs 14.1%); final-report labels (complete with no shortcoming / names failing check / cites time budget / no report); verbatim reuse of upstream kernel code (simdutf); fraction of optimization records passing the correctness gate",
+   "p": "8-10, 18",
+   "ok": true,
+   "ai": "Fraction of rollouts still on track by step position (Fig. 4); conditional step pass rate after a passed vs failed step (70.2% vs 14.1%); final-report labels (complete with no shortcoming / names failing check / cites time budget / no report); verbatim reuse of upstream kernel code (simdutf); fraction of optimization records passing the correctness gate",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: per-step verifiers in separate containers (official conformance suites, differential comparison with reference implementations, recorded behaviour replay, timing on hidden perturbed inputs); 95% bootstrap CIs over tasks. Final reports labelled by Claude Opus 5.5 with a fixed rubric, blind to model and outcome, on a stratified sample of 2,157 steps; 209 relabelled independently (94.5% agreement, Cohen's kappa 0.90)",
+   "p": "5-6, 8, 18",
+   "ok": true,
+   "ai": "Automatic: per-step verifiers in separate containers (official conformance suites, differential comparison with reference implementations, recorded behaviour replay, timing on hidden perturbed inputs); 95% bootstrap CIs over tasks. Final reports labelled by Claude Opus 5.5 with a fixed rubric, blind to model and outcome, on a stratified sample of 2,157 steps; 209 relabelled independently (94.5% agreement, Cohen's kappa 0.90)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Multi-step SWE, 69 tasks x 4 rollouts each. Success criterion for a configuration: none stated by the authors (a rollout counts as solved only when every step gets full credit). Values as solve rate [95% CI] / Pass@4 / steps passed (%), family solve rates opt/feature/upgrade/migration: (1) Claude Opus 5.5 + Claude Code: 18.5 [11.6, 25.7] / 31.9 / 56.8; 34.7/12.5/8.8/19.2. (2) Claude Fable 5.1 + Claude Code: 17.8 [9.8, 26.1] / 24.6 / 49.1; 45.8/8.3/1.3/17.3. (3) Gemini 4 Argon + mini-swe-agent: 10.1 [5.8, 15.2] / 27.5 / 40.1; 16.7/6.9/3.8/15.4. (4) GPT-6.1 Sol + Codex CLI: 10.1 [5.1, 15.9] / 21.7 / 37.7; 12.5/6.9/5.0/19.2. (5) GPT-6 Astra + Codex CLI: 6.9 [2.9, 12.0] / 15.9 / 36.7; 5.6/5.6/2.5/17.3. (6) DeepSeek V4.1 Flash + Claude Code: 6.5 [2.9, 10.9] / 15.9 / 35.8; 11.1/2.8/1.3/13.5. (7) Qwen 3.8 Max + Claude Code: 4.0 [1.1, 7.6] / 8.7 / 24.4; 4.2/1.4/1.3/11.5. (8) MiMo 2.6 Pro + Claude Code: 2.9 [0.4, 6.5] / 5.8 / 22.1; 4.2/1.4/1.3/5.8. (9) Grok 4.7 + Grok Build: 1.4 [0.0, 4.0] / 2.9 / 13.9; 0.0/0.0/1.3/5.8. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors (cost reported only as budget use of failed steps)",
+   "p": "8, 18",
+   "ok": true,
+   "ai": "Multi-step SWE, 69 tasks x 4 rollouts each. Success criterion for a configuration: none stated by the authors (a rollout counts as solved only when every step gets full credit). Values as solve rate [95% CI] / Pass@4 / steps passed (%), family solve rates opt/feature/upgrade/migration: (1) Claude Opus 5.5 + Claude Code: 18.5 [11.6, 25.7] / 31.9 / 56.8; 34.7/12.5/8.8/19.2. (2) Claude Fable 5.1 + Claude Code: 17.8 [9.8, 26.1] / 24.6 / 49.1; 45.8/8.3/1.3/17.3. (3) Gemini 4 Argon + mini-swe-agent: 10.1 [5.8, 15.2] / 27.5 / 40.1; 16.7/6.9/3.8/15.4. (4) GPT-6.1 Sol + Codex CLI: 10.1 [5.1, 15.9] / 21.7 / 37.7; 12.5/6.9/5.0/19.2. (5) GPT-6 Astra + Codex CLI: 6.9 [2.9, 12.0] / 15.9 / 36.7; 5.6/5.6/2.5/17.3. (6) DeepSeek V4.1 Flash + Claude Code: 6.5 [2.9, 10.9] / 15.9 / 35.8; 11.1/2.8/1.3/13.5. (7) Qwen 3.8 Max + Claude Code: 4.0 [1.1, 7.6] / 8.7 / 24.4; 4.2/1.4/1.3/11.5. (8) MiMo 2.6 Pro + Claude Code: 2.9 [0.4, 6.5] / 5.8 / 22.1; 4.2/1.4/1.3/5.8. (9) Grok 4.7 + Grok Build: 1.4 [0.0, 4.0] / 2.9 / 13.9; 0.0/0.0/1.3/5.8. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors (cost reported only as budget use of failed steps)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 69 multi-step tasks (574 steps), each step grounded in a source of truth with hidden verifier. Configurations: nine models, each in a Harbor-provided harness at its highest reasoning effort (harness differs by model; results reflect model + harness). Baseline: none (isolated-step baseline left to future work). Held constant: tasks, instructions, environments, per-step wall-clock budgets, network policy (model API only in 56 tasks), verifiers; no custom tools or prompts. Acceptance tests: hidden per-step verifiers (conformance suites, reference-implementation comparison, behaviour replay, speedup threshold sref). Repetitions: 4 rollouts per model per task. Human intervention: none during runs",
+   "p": "3, 5-8, 11, 17-18",
+   "ok": true,
+   "ai": "Tasks: 69 multi-step tasks (574 steps), each step grounded in a source of truth with hidden verifier. Configurations: nine models, each in a Harbor-provided harness at its highest reasoning effort (harness differs by model; results reflect model + harness). Baseline: none (isolated-step baseline left to future work). Held constant: tasks, instructions, environments, per-step wall-clock budgets, network policy (model API only in 56 tasks), verifiers; no custom tools or prompts. Acceptance tests: hidden per-step verifiers (conformance suites, reference-implementation comparison, behaviour replay, speedup threshold sref). Repetitions: 4 rollouts per model per task. Human intervention: none during runs",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 5.5 best overall (solve rate 18.5%, Pass@4 31.9%, steps passed 56.8%); Claude Fable 5.1 second (17.8%) and best on optimization (45.8%); Gemini 4 Argon and GPT-6.1 Sol tie at 10.1%; Grok 4.7 lowest (1.4%). 38 of 69 tasks unsolved by any model (16 of 20 version-upgrade). Pooled family solve rates: optimization 15.0%, migration 13.9%, feature 5.1%, version upgrade 2.9%. On-track rollouts fall from 34.9% (first fifth of steps) to 9.0% (last fifth); step after a passed step passes 70.2% vs 14.1% after a failed step. Failed steps: 52% report completion naming no shortcoming, 26% name failing checks and stop anyway, 3% cite time, 19% no report. Only 95% bootstrap CIs on overall solve rate; overlapping intervals; no significance tests of differences",
+   "p": "8-10",
+   "ok": true,
+   "ai": "Claude Opus 5.5 best overall (solve rate 18.5%, Pass@4 31.9%, steps passed 56.8%); Claude Fable 5.1 second (17.8%) and best on optimization (45.8%); Gemini 4 Argon and GPT-6.1 Sol tie at 10.1%; Grok 4.7 lowest (1.4%). 38 of 69 tasks unsolved by any model (16 of 20 version-upgrade). Pooled family solve rates: optimization 15.0%, migration 13.9%, feature 5.1%, version upgrade 2.9%. On-track rollouts fall from 34.9% (first fifth of steps) to 9.0% (last fifth); step after a passed step passes 70.2% vs 14.1% after a failed step. Failed steps: 52% report completion naming no shortcoming, 26% name failing checks and stop anyway, 3% cite time, 19% no report. Only 95% bootstrap CIs on overall solve rate; overlapping intervals; no significance tests of differences",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations partly (spread from 1.4% to 18.5% solve rate, but CIs of neighbouring models overlap). Repeated with four rollouts per task; inconsistency across attempts reported (e.g. Gemini 4 Argon solve rate 10.1% vs 27.5% Pass@4). Limitations of the method stated: possible ambiguous requirements or verifier errors remaining; uneven language coverage (C/C++ in 38 of 69 tasks); memorization cannot be ruled out; optimization threshold is the reference solution's speedup, not the best achievable; no isolated-step baseline to separate accumulated errors from step difficulty; results reflect model plus harness",
+   "p": "8, 11",
+   "ok": true,
+   "ai": "Distinguished configurations partly (spread from 1.4% to 18.5% solve rate, but CIs of neighbouring models overlap). Repeated with four rollouts per task; inconsistency across attempts reported (e.g. Gemini 4 Argon solve rate 10.1% vs 27.5% Pass@4). Limitations of the method stated: possible ambiguous requirements or verifier errors remaining; uneven language coverage (C/C++ in 38 of 69 tasks); memorization cannot be ruled out; optimization threshold is the reference solution's speedup, not the best achievable; no isolated-step baseline to separate accumulated errors from step difficulty; results reflect model plus harness",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: residual instruction-verifier mismatches, uneven languages, possible memorization, threshold choice for optimization. Gaps and future work: isolated-step baseline starting from reference solutions; extension to multimodal, UI-centric work (web front-end). Findings point to agents stopping early and reporting success after checking only against their own expectations or tests, rather than against an independent oracle",
+   "p": "9-11",
+   "ok": true,
+   "ai": "Limitations: residual instruction-verifier mismatches, uneven languages, possible memorization, threshold choice for optimization. Gaps and future work: isolated-step baseline starting from reference solutions; extension to multimodal, UI-centric work (web front-end). Findings point to agents stopping early and reporting success after checking only against their own expectations or tests, rather than against an independent oracle",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 5 (p. 8) and Table 9 (p. 18); per-family numbers consistent with pooled text values (p. 8-9). 'Nine languages' counts C and C++ separately, while Table 4 lists eight entries with C/C++ combined (38 tasks) (p. 7). Fig. 5 shows the task.toml reward strategy as 'mean' while the reported solve rate requires full credit at every step (p. 8, 14). Final-report labels assigned by Claude Opus 5.5, one of the evaluated models (p. 18). Memorization check only on simdutf (verbatim-line overlap median 9%, max 21%) (p. 18). Benchmark, instructions, environments and verifiers released publicly (p. 1 names a leaderboard and a GitHub repository as links, but no URL appears in the text; tasks in the open Harbor format) (p. 1, 17). No pre-registration. Programming languages of tasks: C/C++ (38), Rust (11), Java (6), Go (4), JavaScript (4), Python (3), PHP (2), Ruby (1)",
+   "p": "1, 7-8, 14, 17-18",
+   "ok": true,
+   "ai": "Values from Table 5 (p. 8) and Table 9 (p. 18); per-family numbers consistent with pooled text values (p. 8-9). 'Nine languages' counts C and C++ separately, while Table 4 lists eight entries with C/C++ combined (38 tasks) (p. 7). Fig. 5 shows the task.toml reward strategy as 'mean' while the reported solve rate requires full credit at every step (p. 8, 14). Final-report labels assigned by Claude Opus 5.5, one of the evaluated models (p. 18). Memorization check only on simdutf (verbatim-line overlap median 9%, max 21%) (p. 18). Benchmark, instructions, environments and verifiers released publicly (p. 1 names a leaderboard and a GitHub repository as links, but no URL appears in the text; tasks in the open Harbor format) (p. 1, 17). No pre-registration. Programming languages of tasks: C/C++ (38), Rust (11), Java (6), Go (4), JavaScript (4), Python (3), PHP (2), Ruby (1)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim clear: measure whether coding agents can keep building on their own code over long multi-step horizons",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Yes (1): aim clear: measure whether coding agents can keep building on their own code over long multi-step horizons",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task format, execution protocol, verifiers, reward, harnesses and reasoning efforts described; benchmark released",
+   "p": "3-7, 14-18",
+   "ok": true,
+   "ai": "Yes (1): task format, execution protocol, verifiers, reward, harnesses and reasoning efforts described; benchmark released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models, harnesses and reasoning efforts identified (Table 9), but harness versions not stated",
+   "p": "8, 18",
+   "ok": true,
+   "ai": "Partly (0.5): models, harnesses and reasoning efforts identified (Table 9), but harness versions not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): all 69 tasks listed (Table 8) and released publicly with instructions, environments and verifiers",
+   "p": "1, 16-17",
+   "ok": true,
+   "ai": "Yes (1): all 69 tasks listed (Table 8) and released publicly with instructions, environments and verifiers",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden per-step verifiers built from official conformance suites, reference implementations and recorded behaviour; two rounds of expert review",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Yes (1): hidden per-step verifiers built from official conformance suites, reference implementations and recorded behaviour; two rounds of expert review",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality metrics defined (solve rate, Pass@4, steps passed, speedup); cost only as wall-clock budget use of failed steps, no tokens or money",
+   "p": "8-10",
+   "ok": true,
+   "ai": "Partly (0.5): quality metrics defined (solve rate, Pass@4, steps passed, speedup); cost only as wall-clock budget use of failed steps, no tokens or money",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): nine model-harness configurations on the same tasks, budgets and verifiers; no isolated-step baseline (future work)",
+   "p": "8, 11",
+   "ok": true,
+   "ai": "Yes (1): nine model-harness configurations on the same tasks, budgets and verifiers; no isolated-step baseline (future work)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): four rollouts per task and 95% bootstrap CIs on overall solve rate; no statistical tests of differences between configurations",
+   "p": "8",
+   "ok": true,
+   "ai": "Partly (0.5): four rollouts per task and 95% bootstrap CIs on overall solve rate; no statistical tests of differences between configurations",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the low solve rates and failure analysis; mixed per-family results reported",
+   "p": "8-11",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from the low solve rates and failure analysis; mixed per-family results reported",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section covers verifier errors, language coverage, memorization, threshold choice and missing isolated-step baseline",
+   "p": "11",
+   "ok": true,
+   "ai": "Yes (1): limitations section covers verifier errors, language coverage, memorization, threshold choice and missing isolated-step baseline",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors from Klavis AI, not the vendor of any evaluated model or harness (note: Claude Opus 5.5, also evaluated, used as labeller of final reports)",
+   "p": "1, 18",
+   "ok": true,
+   "ai": "Yes (1): authors from Klavis AI, not the vendor of any evaluated model or harness (note: Claude Opus 5.5, also evaluated, used as labeller of final reports)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:21:16"
+}

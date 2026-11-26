@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486458",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Zhang, K., Zhong, M., Chang, C.-Y., Lin, Y., Xiong, Z., Jiang, Z., Yuan, Z., Li, Z., Lin, B., Hu, M., & Wang, H. (2026). AsynCodeBench: Benchmarking Collaboration of Asynchronous Multi-Agent Systems in Software Engineering. arXiv:2609.32662v1 [cs.SE], 26 Sep 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Zhang, K., Zhong, M., Chang, C.-Y., Lin, Y., Xiong, Z., Jiang, Z., Yuan, Z., Li, Z., Lin, B., Hu, M., & Wang, H. (2026). AsynCodeBench: Benchmarking Collaboration of Asynchronous Multi-Agent Systems in Software Engineering. arXiv:2609.32662v1 [cs.SE], 26 Sep 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.32662v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.32662v1 [cs.SE]; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia: University of Houston; Texas A&M University; New York University; UCSD; Worcester Polytechnic Institute; Oregon State University",
+   "p": "1",
+   "ok": true,
+   "ai": "Academia: University of Houston; Texas A&M University; New York University; UCSD; Worcester Polytechnic Institute; Oregon State University",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — AsynCodeBench, a dependency-centric benchmark for asynchronous multi-agent software engineering (19 tasks from 16 repositories, 52 directed dependencies with executable Dependency Checkers) with metrics ADPR and DRS; compares five execution protocols across ten open-weight models",
+   "p": "1, 3-5",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — AsynCodeBench, a dependency-centric benchmark for asynchronous multi-agent software engineering (19 tasks from 16 repositories, 52 directed dependencies with executable Dependency Checkers) with metrics ADPR and DRS; compares five execution protocols across ten open-weight models",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Five execution protocols (multi-agent workflows) on the OpenHands harness (version Not stated): SINGLE (one agent), SERIAL (specialists with producer-to-consumer handoffs), ASYNC-PRIVATE (concurrent specialists in private workspaces), ASYNC-MANAGER-RO (read-only manager coordinates), ASYNC-MANAGER (manager with bounded repair). Ten open-weight models: Qwen3.5-9B, Qwen3.5-27B, Qwen3.6-27B, Qwen3.8-27B, Qwen3-Coder-Next (FP8), DeepSeek-V4-Flash (0731), Gemma-4-26B-A4B-it, Muse-Glimmer-30B, GLM-4.7-Flash, Nemotron-3.5-Lightning-30B-A3B",
+   "p": "5, 17-19",
+   "ok": true,
+   "ai": "No SDD approach. Five execution protocols (multi-agent workflows) on the OpenHands harness (version Not stated): SINGLE (one agent), SERIAL (specialists with producer-to-consumer handoffs), ASYNC-PRIVATE (concurrent specialists in private workspaces), ASYNC-MANAGER-RO (read-only manager coordinates), ASYNC-MANAGER (manager with bounded repair). Ten open-weight models: Qwen3.5-9B, Qwen3.5-27B, Qwen3.6-27B, Qwen3.8-27B, Qwen3-Coder-Next (FP8), DeepSeek-V4-Flash (0731), Gemma-4-26B-A4B-it, Muse-Glimmer-30B, GLM-4.7-Flash, Nemotron-3.5-Lightning-30B-A3B",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Task package: fixed repository revision, answer-free task instruction, scoped writable paths, task-specific pytest evaluator; dependency graph (defined before evaluation) and Dependency Checkers (upstream, downstream, integrated); manager may inspect task specification, dependency graph, artifacts and checker diagnostics",
+   "p": "3-5, 18",
+   "ok": true,
+   "ai": "Not an approach. Task package: fixed repository revision, answer-free task instruction, scoped writable paths, task-specific pytest evaluator; dependency graph (defined before evaluation) and Dependency Checkers (upstream, downstream, integrated); manager may inspect task specification, dependency graph, artifacts and checker diagnostics",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Per protocol: SINGLE solves the whole task; SERIAL: upstream specialist, integration, then downstream specialist; ASYNC-PRIVATE: concurrent specialists, scope validation, deterministic integration in dependency order; manager variants add planning, feedback, scoped follow-up attempts and (ASYNC-MANAGER) scoped repair patches after integration; checkpoints of the integrated workspace recorded",
+   "p": "5, 18",
+   "ok": true,
+   "ai": "Per protocol: SINGLE solves the whole task; SERIAL: upstream specialist, integration, then downstream specialist; ASYNC-PRIVATE: concurrent specialists, scope validation, deterministic integration in dependency order; manager variants add planning, feedback, scoped follow-up attempts and (ASYNC-MANAGER) scoped repair patches after integration; checkpoints of the integrated workspace recorded",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (manager is an LLM agent). Humans only in benchmark construction: three reviewers validate tasks and each dependency edge",
+   "p": "5, 16",
+   "ok": true,
+   "ai": "None during runs (manager is an LLM agent). Humans only in benchmark construction: three reviewers validate tasks and each dependency edge",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full multi-agent workflows run end to end",
+   "p": "5",
+   "ok": true,
+   "ai": "N/A (no SDD approach); full multi-agent workflows run end to end",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'execution protocols', 'dependency graph', 'asynchronous multi-agent software engineering')",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Not classifiable (authors' wording: 'execution protocols', 'dependency graph', 'asynchronous multi-agent software engineering')",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base (best reading): implementation tasks in real repositories at fixed revisions with scoped writable paths; 15 tasks from Commit0 ('library generation from scratch': library implementation removed from the repository) and 4 from merged Apache TVM PRs (feature work in an existing code base)",
+   "p": "5, 16",
+   "ok": true,
+   "ai": "Existing code base (best reading): implementation tasks in real repositories at fixed revisions with scoped writable paths; 15 tasks from Commit0 ('library generation from scratch': library implementation removed from the repository) and 4 from merged Apache TVM PRs (feature work in an existing code base)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "19 tasks from 16 repositories; 52 dependency edges; 156 checker groups, 508 selector references; 148 test files, 4,884 pytest items; 3-49 writable files per task; 95 task-protocol scenarios; 190 model-task outcomes per protocol",
+   "p": "5, 16, 19",
+   "ok": true,
+   "ai": "19 tasks from 16 repositories; 52 dependency edges; 156 checker groups, 508 selector references; 148 test files, 4,884 pytest items; 3-49 writable files per task; 95 task-protocol scenarios; 190 model-task outcomes per protocol",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Framework and library engineering (32%), systems and storage (32%), compiler/IR engineering (21%), network protocols (11%), security (5%); e.g. cachetools, tinydb, requests, flask, marshmallow, python-rsa, Apache TVM",
+   "p": "5, 16",
+   "ok": true,
+   "ai": "Framework and library engineering (32%), systems and storage (32%), compiler/IR engineering (21%), network protocols (11%), security (5%); e.g. cachetools, tinydb, requests, flask, marshmallow, python-rsa, Apache TVM",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (multi-agent systems; no human developers)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (multi-agent systems; no human developers)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Mean reported tokens per task (M); within-model quality-cost Pareto frontiers",
+   "p": "8-9, 24, 29",
+   "ok": true,
+   "ai": "Mean reported tokens per task (M); within-model quality-cost Pareto frontiers",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Test Pass Rate (fraction of test points passed in the repository-level test suite); Final Task Success Rate (number of tasks out of 19 with a complete task pass and full dependency resolution, ADPR = 1; Table 12)",
+   "p": "4, 23, 30",
+   "ok": true,
+   "ai": "Test Pass Rate (fraction of test points passed in the repository-level test suite); Final Task Success Rate (number of tasks out of 19 with a complete task pass and full dependency resolution, ADPR = 1; Table 12)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "ADPR (Asynchronous Dependency Pass Rate: share of dependencies satisfied in the final integrated workspace); DRS (normalized Dependency Resolution Step: first checkpoint at which a dependency passes; 1 = never); cumulative dependency closure over normalized logical steps ('hopping window'); Pearson/Spearman correlation between Test Pass Rate and ADPR",
+   "p": "4-6, 8",
+   "ok": true,
+   "ai": "ADPR (Asynchronous Dependency Pass Rate: share of dependencies satisfied in the final integrated workspace); DRS (normalized Dependency Resolution Step: first checkpoint at which a dependency passes; 1 = never); cumulative dependency closure over normalized logical steps ('hopping window'); Pearson/Spearman correlation between Test Pass Rate and ADPR",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: task-specific pytest evaluators and executable Dependency Checkers run on integrated-workspace checkpoints; token counts as reported by the harness. Dependency graphs and tasks validated manually by three reviewers",
+   "p": "4-5, 16, 18",
+   "ok": true,
+   "ai": "Automatic: task-specific pytest evaluators and executable Dependency Checkers run on integrated-workspace checkpoints; token counts as reported by the harness. Dependency graphs and tasks validated manually by three reviewers",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: Test Pass Rate and ADPR on pytest evaluators and Dependency Checkers; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One run per model-task-protocol (no repetitions stated). Each entry: OpenHands + model; Test Pass / ADPR (%) / tokens (M) for SINGLE, SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER. (a) Qwen3.5-9B: 24.44/14.21/5.18; 15.83/5.96/8.01; 15.13/0.00/8.32; 28.44/1.05/15.53; 36.93/2.81/15.48 (token value a lower bound: one incomplete token record, Table 10 note). (b) Qwen3.5-27B: 42.13/12.28/4.13; 47.91/14.91/6.18; 31.15/7.19/6.67; 49.33/20.18/12.41; 59.15/31.58/14.00. (c) Qwen3.6-27B: 57.45/36.84/4.96; 64.01/49.12/8.35; 55.79/21.93/8.18; 63.32/22.81/13.88; 76.70/63.16/14.49. (d) Qwen3.8-27B: 93.62/77.19/3.45; 79.53/57.89/8.02; 81.76/55.26/7.09; 82.33/57.89/12.78; 86.67/64.91/13.73. (e) Qwen3-Coder-Next: 51.18/30.70/4.69; 39.77/7.02/9.49; 33.55/3.51/8.66; 28.83/5.26/17.89; 45.97/16.49/16.38. (f) DeepSeek-V4: 93.64/78.95/2.54; 87.84/66.67/6.89; 75.75/45.61/6.92; 80.36/64.21/11.61; 89.85/71.93/13.65. (g) Gemma-4-26B: 26.51/1.05/0.93; 32.65/1.05/2.49; 26.37/1.05/3.14; 36.40/5.96/3.64; 49.18/20.18/20.20. (h) Muse-Glimmer-30B: 47.67/20.35/4.83; 49.48/15.79/8.32; 38.81/6.32/7.99; 41.67/4.56/14.06; 55.45/28.07/16.08. (i) GLM-4.7-Flash: 44.77/1.05/3.50; 33.85/8.77/7.06; 28.20/0.00/7.10; 37.58/2.81/12.34; 34.68/6.32/13.79. (j) Nemotron-3.5: 28.99/1.05/5.72; 28.14/0.00/9.82; 32.94/1.05/9.82; 31.50/2.81/14.04; 39.89/7.72/17.79. Normalized DRS per configuration in Tables 10-11",
+   "p": "24, 29",
+   "ok": true,
+   "ai": "Criterion: Test Pass Rate and ADPR on pytest evaluators and Dependency Checkers; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. One run per model-task-protocol (no repetitions stated). Each entry: OpenHands + model; Test Pass / ADPR (%) / tokens (M) for SINGLE, SERIAL, ASYNC-PRIVATE, ASYNC-MANAGER-RO, ASYNC-MANAGER. (a) Qwen3.5-9B: 24.44/14.21/5.18; 15.83/5.96/8.01; 15.13/0.00/8.32; 28.44/1.05/15.53; 36.93/2.81/15.48 (token value a lower bound: one incomplete token record, Table 10 note). (b) Qwen3.5-27B: 42.13/12.28/4.13; 47.91/14.91/6.18; 31.15/7.19/6.67; 49.33/20.18/12.41; 59.15/31.58/14.00. (c) Qwen3.6-27B: 57.45/36.84/4.96; 64.01/49.12/8.35; 55.79/21.93/8.18; 63.32/22.81/13.88; 76.70/63.16/14.49. (d) Qwen3.8-27B: 93.62/77.19/3.45; 79.53/57.89/8.02; 81.76/55.26/7.09; 82.33/57.89/12.78; 86.67/64.91/13.73. (e) Qwen3-Coder-Next: 51.18/30.70/4.69; 39.77/7.02/9.49; 33.55/3.51/8.66; 28.83/5.26/17.89; 45.97/16.49/16.38. (f) DeepSeek-V4: 93.64/78.95/2.54; 87.84/66.67/6.89; 75.75/45.61/6.92; 80.36/64.21/11.61; 89.85/71.93/13.65. (g) Gemma-4-26B: 26.51/1.05/0.93; 32.65/1.05/2.49; 26.37/1.05/3.14; 36.40/5.96/3.64; 49.18/20.18/20.20. (h) Muse-Glimmer-30B: 47.67/20.35/4.83; 49.48/15.79/8.32; 38.81/6.32/7.99; 41.67/4.56/14.06; 55.45/28.07/16.08. (i) GLM-4.7-Flash: 44.77/1.05/3.50; 33.85/8.77/7.06; 28.20/0.00/7.10; 37.58/2.81/12.34; 34.68/6.32/13.79. (j) Nemotron-3.5: 28.99/1.05/5.72; 28.14/0.00/9.82; 32.94/1.05/9.82; 31.50/2.81/14.04; 39.89/7.72/17.79. Normalized DRS per configuration in Tables 10-11",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 19 AsynCodeBench tasks. Configurations: 5 protocols x 10 models (40 multi-agent model-protocol configurations plus SINGLE). Constant: task package, OpenHands harness, task-specific Docker environment, same decomposition for SERIAL vs ASYNC-PRIVATE. Baseline: SINGLE (one agent per model). Acceptance: pytest evaluators and pre-defined Dependency Checkers. Repetitions: not stated (one outcome per model-task-protocol). Human intervention: none",
+   "p": "5, 19",
+   "ok": true,
+   "ai": "Tasks: 19 AsynCodeBench tasks. Configurations: 5 protocols x 10 models (40 multi-agent model-protocol configurations plus SINGLE). Constant: task package, OpenHands harness, task-specific Docker environment, same decomposition for SERIAL vs ASYNC-PRIVATE. Baseline: SINGLE (one agent per model). Acceptance: pytest evaluators and pre-defined Dependency Checkers. Repetitions: not stated (one outcome per model-task-protocol). Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Six of ten models improve over SINGLE under their best multi-agent protocol (+7.8 to +22.7%), four do not (e.g. Qwen3.8-27B 93.6% -> 86.7%, DeepSeek-V4 93.6% -> 89.9%). Test Pass Rate and ADPR imperfectly associated under ASYNC-MANAGER-RO (Pearson r = 0.617, Spearman rho = 0.613); 32 outcomes with >=80% Test Pass but <50% ADPR. No protocol improves ADPR for all models (Qwen3.6-27B: -14.9% ASYNC-PRIVATE to +26.3% ASYNC-MANAGER). Multi-agent protocols cost more tokens; Pareto frontiers differ under the two quality metrics for 5 of 10 models. No significance tests",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Six of ten models improve over SINGLE under their best multi-agent protocol (+7.8 to +22.7%), four do not (e.g. Qwen3.8-27B 93.6% -> 86.7%, DeepSeek-V4 93.6% -> 89.9%). Test Pass Rate and ADPR imperfectly associated under ASYNC-MANAGER-RO (Pearson r = 0.617, Spearman rho = 0.613); 32 outcomes with >=80% Test Pass but <50% ADPR. No protocol improves ADPR for all models (Qwen3.6-27B: -14.9% ASYNC-PRIVATE to +26.3% ASYNC-MANAGER). Multi-agent protocols cost more tokens; Pareto frontiers differ under the two quality metrics for 5 of 10 models. No significance tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: dependency-level metrics distinguished protocols and models and exposed failures hidden by test pass rates, but repeatability not assessed (single run, no variance). Limitations of the comparison method not stated by the authors",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Partly: dependency-level metrics distinguished protocols and models and exposed failures hidden by test pass rates, but repeatability not assessed (single run, no variance). Limitations of the comparison method not stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "No limitations section. Gaps stated: multi-agent systems lack a direct measure of collaboration; task-level outcomes conflate coding ability with coordination; stronger standalone coding does not translate into stronger collaboration; timing of dependency resolution (hopping window) is a dimension of collaboration capability",
+   "p": "1-2, 6-10",
+   "ok": true,
+   "ai": "No limitations section. Gaps stated: multi-agent systems lack a direct measure of collaboration; task-level outcomes conflate coding ability with coordination; stronger standalone coding does not translate into stronger collaboration; timing of dependency resolution (hopping window) is a dimension of collaboration capability",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Text uses 'DeepSeek-V4' but Table 4 checkpoint is deepseek-v4-flash-0731; 'Nemotron-3.5' is Nemotron-3.5-Lightning-30B-A3B. Abstract says 'model families, scales, and generations' but all models are open-weight; harness OpenHands without version. 'Pre-register' refers to fixing Dependency Checkers before evaluation, not study pre-registration. Human review results 'in our anonymized repository'. Code at github.com/KaituoZhang/AsynCodeBench. AI use statement: ChatGPT used for writing, ideas, design feedback and code. No pre-registration. Programming language: Python (16 tasks) and Python+C++ (3 TVM tasks)",
+   "p": "1, 4, 10, 16-17, 19",
+   "ok": true,
+   "ai": "Text uses 'DeepSeek-V4' but Table 4 checkpoint is deepseek-v4-flash-0731; 'Nemotron-3.5' is Nemotron-3.5-Lightning-30B-A3B. Abstract says 'model families, scales, and generations' but all models are open-weight; harness OpenHands without version. 'Pre-register' refers to fixing Dependency Checkers before evaluation, not study pre-registration. Human review results 'in our anonymized repository'. Code at github.com/KaituoZhang/AsynCodeBench. AI use statement: ChatGPT used for writing, ideas, design feedback and code. No pre-registration. Programming language: Python (16 tasks) and Python+C++ (3 TVM tasks)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aims and RQ1-RQ4 stated",
+   "p": "2, 5-6",
+   "ok": true,
+   "ai": "Yes (1): aims and RQ1-RQ4 stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): benchmark, metrics and protocols described in detail, but harness version, inference settings and run budgets not given",
+   "p": "3-5, 15-19",
+   "ok": true,
+   "ai": "Partly (0.5): benchmark, metrics and protocols described in detail, but harness version, inference settings and run budgets not given",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): exact model checkpoints listed, but OpenHands version not stated",
+   "p": "5, 19",
+   "ok": true,
+   "ai": "Partly (0.5): exact model checkpoints listed, but OpenHands version not stated",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks inventoried with sources and released on GitHub",
+   "p": "1, 5, 16",
+   "ok": true,
+   "ai": "Yes (1): tasks inventoried with sources and released on GitHub",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): repository test suites and executable Dependency Checkers, dependency graphs validated by three reviewers",
+   "p": "4-5, 16",
+   "ok": true,
+   "ai": "Yes (1): repository test suites and executable Dependency Checkers, dependency graphs validated by three reviewers",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): Test Pass Rate, ADPR and DRS defined; token cost reported",
+   "p": "4-5, 8",
+   "ok": true,
+   "ai": "Yes (1): Test Pass Rate, ADPR and DRS defined; token cost reported",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): SINGLE baseline and four protocols under the same harness and tasks for every model",
+   "p": "5-6",
+   "ok": true,
+   "ai": "Yes (1): SINGLE baseline and four protocols under the same harness and tasks for every model",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration; only correlations reported, no tests of differences",
+   "p": "6",
+   "ok": true,
+   "ai": "No (0): one run per configuration; only correlations reported, no tests of differences",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results and report that multi-agent execution is not uniformly better",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from results and report that multi-agent execution is not uniformly better",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "No (0): no threats to validity or limitations discussed",
+   "p": "—",
+   "ok": true,
+   "ai": "No (0): no threats to validity or limitations discussed",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): harness and models are not by the authors (academic authors)",
+   "p": "1, 19",
+   "ok": true,
+   "ai": "Yes (1): harness and models are not by the authors (academic authors)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation method, not an approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:13:06"
+}

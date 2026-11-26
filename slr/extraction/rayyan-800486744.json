@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486744",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Neferu, M., Marian, C. V., Mitrea, D. A. (2026). Vibe Coding: A New Paradigm in Software Development Assisted by Artificial Intelligence. In: 2026 18th International Conference on Electronics, Computers and Artificial Intelligence (ECAI), pp. 1-8. IEEE. https://doi.org/10.1109/ECAI69016.2026.11613779",
+   "p": "1",
+   "ok": true,
+   "ai": "Neferu, M., Marian, C. V., Mitrea, D. A. (2026). Vibe Coding: A New Paradigm in Software Development Assisted by Artificial Intelligence. In: 2026 18th International Conference on Electronics, Computers and Artificial Intelligence (ECAI), pp. 1-8. IEEE. https://doi.org/10.1109/ECAI69016.2026.11613779",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — 2026 18th International Conference on Electronics, Computers and Artificial Intelligence (ECAI), IEEE, pp. 1-8, DOI 10.1109/ECAI69016.2026.11613779",
+   "p": "1",
+   "ok": true,
+   "ai": "Conference — 2026 18th International Conference on Electronics, Computers and Artificial Intelligence (ECAI), IEEE, pp. 1-8, DOI 10.1109/ECAI69016.2026.11613779",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "National University of Science and Technology POLITEHNICA Bucharest, Romania (Doctoral School, Faculty of Electronics, Telecommunications and IT; Faculty of Engineering in Foreign Languages) — academic",
+   "p": "1",
+   "ok": true,
+   "ai": "National University of Science and Technology POLITEHNICA Bucharest, Romania (Doctoral School, Faculty of Electronics, Telecommunications and IT; Faculty of Engineering in Foreign Languages) — academic",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Proposes an approach — qualitative single case study: one developer builds a Task Manager web app with Claude only through prompts, times it against estimated classical development, audits security (OWASP ZAP) and code quality (ESLint); proposes a three-layer Minimum Viability Framework for vibe-coded applications and a conceptual distinction between vibe coding and agentic coding",
+   "p": "1-2, 6-7",
+   "ok": true,
+   "ai": "Evaluates; secondary: Proposes an approach — qualitative single case study: one developer builds a Task Manager web app with Claude only through prompts, times it against estimated classical development, audits security (OWASP ZAP) and code quality (ESLint); proposes a three-layer Minimum Viability Framework for vibe-coded applications and a conceptual distinction between vibe coding and agentic coding",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Vibe coding with Claude (Anthropic), accessed via the Claude for VS Code extension and the claude.ai web interface; model and extension versions not stated. Proposed: Minimum Viability Framework for Vibe-Coded Applications (security, code quality, accountability layers). Baseline: classical manual development (estimated, not executed)",
+   "p": "2, 6-7",
+   "ok": true,
+   "ai": "Vibe coding with Claude (Anthropic), accessed via the Claude for VS Code extension and the claude.ai web interface; model and extension versions not stated. Proposed: Minimum Viability Framework for Vibe-Coded Applications (security, code quality, accountability layers). Baseline: classical manual development (estimated, not executed)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Vibe coding: none beyond natural-language prompts (e.g. 'Create a React Task Manager application with ...'). Framework: OWASP ZAP/Snyk scan with all High/Medium findings resolved; reviewed ESLint pass; basic test suite (authentication and CRUD, e.g. Jest); SonarQube; developer sign-off on the full codebase",
+   "p": "2, 6-7",
+   "ok": true,
+   "ai": "Vibe coding: none beyond natural-language prompts (e.g. 'Create a React Task Manager application with ...'). Framework: OWASP ZAP/Snyk scan with all High/Medium findings resolved; reviewed ESLint pass; basic test suite (authentication and CRUD, e.g. Jest); SonarQube; developer sign-off on the full codebase",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Vibe coding loop: prompt -> AI generates code -> user copies into VS Code -> runs app -> visual check in browser -> refinement prompt (Fig. 2). Framework: three sequential pre-deployment layers: (1) security vulnerability baseline, (2) code quality/maintainability, (3) human ownership/accountability",
+   "p": "2, 6-7",
+   "ok": true,
+   "ai": "Vibe coding loop: prompt -> AI generates code -> user copies into VS Code -> runs app -> visual check in browser -> refinement prompt (Fig. 2). Framework: three sequential pre-deployment layers: (1) security vulnerability baseline, (2) code quality/maintainability, (3) human ownership/accountability",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Vibe coding: only visual confirmation in the browser after each iteration (no code review). Framework: mandatory post-generation review before deployment: resolve High/Medium scan findings, developer review of lint output, and a developer who can read, explain and sign off on the codebase",
+   "p": "2, 6-7",
+   "ok": true,
+   "ai": "Vibe coding: only visual confirmation in the browser after each iteration (no code review). Framework: mandatory post-generation review before deployment: resolve High/Medium scan findings, developer review of lint output, and a developer who can read, explain and sign off on the codebase",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Vibe coding workflow run end to end; the proposed framework is not run (document-based)",
+   "p": "2-7",
+   "ok": true,
+   "ai": "Vibe coding workflow run end to end; the proposed framework is not run (document-based)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (vibe coding without specifications; authors contrast vibe coding with agentic coding)",
+   "p": "1, 6",
+   "ok": true,
+   "ai": "Not classifiable (vibe coding without specifications; authors contrast vibe coding with agentic coding)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New project (greenfield Task Manager CRUD web app) plus one feature extension (dashboard module)",
+   "p": "2-4",
+   "ok": true,
+   "ai": "New project (greenfield Task Manager CRUD web app) plus one feature extension (dashboard module)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "One application, about 18 files and 1,200 lines of code (JS/JSX); 7 development stages plus 1 extension with 3 activities",
+   "p": "3-5",
+   "ok": true,
+   "ai": "One application, about 18 files and 1,200 lines of code (JS/JSX); 7 development stages plus 1 extension with 3 activities",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Web application: task management (CRUD, authentication, priority filtering, real-time search, dashboard); stack chosen by the AI: React, Node.js 20+ with Express, JSON/localStorage",
+   "p": "2",
+   "ok": true,
+   "ai": "Web application: task management (CRUD, authentication, priority filtering, real-time search, dashboard); stack chosen by the AI: React, Node.js 20+ with Express, JSON/localStorage",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "One developer (experience Not stated) doing the vibe coding; three developers with 2-5 years full-stack experience gave the classical-development estimates",
+   "p": "2-3",
+   "ok": true,
+   "ai": "One developer (experience Not stated) doing the vibe coding; three developers with 2-5 years full-stack experience gave the classical-development estimates",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Implementation time per stage (minutes), from first prompt to functionality visibly operational in the browser without blocking errors, including model wait, copy and run, excluding user reflection pauses; average of three runs. No tokens or money",
+   "p": "3",
+   "ok": true,
+   "ai": "Implementation time per stage (minutes), from first prompt to functionality visibly operational in the browser without blocking errors, including model wait, copy and run, excluding user reflection pauses; average of three runs. No tokens or money",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Visual confirmation that each functionality is operational in the browser without blocking errors; no tests",
+   "p": "3, 6",
+   "ok": true,
+   "ai": "Visual confirmation that each functionality is operational in the browser without blocking errors; no tests",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "ESLint v8 (Airbnb config) warnings and errors; code duplication; test coverage; architectural separation (MVC), by manual review; remediation effort rated per dimension",
+   "p": "5-6",
+   "ok": true,
+   "ai": "ESLint v8 (Airbnb config) warnings and errors; code duplication; test coverage; architectural separation (MVC), by manual review; remediation effort rated per dimension",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Prompting iterations per feature (average 2-3); estimated classical development time per stage by three developers",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Prompting iterations per feature (average 2-3); estimated classical development time per stage by three developers",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Security vulnerabilities by OWASP category and severity (OWASP ZAP active scan); error categories during generation (logical, integration, syntax/runtime)",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Security vulnerabilities by OWASP category and severity (OWASP ZAP active scan); error categories during generation (logical, integration, syntax/runtime)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Direct timing averaged over three runs; classical times from literature data cross-validated with independent estimates of three developers (ranges); OWASP ZAP active scan on the locally deployed app; ESLint v8 static analysis; manual structural review",
+   "p": "3, 5",
+   "ok": true,
+   "ai": "Direct timing averaged over three runs; classical times from literature data cross-validated with independent estimates of three developers (ranges); OWASP ZAP active scan on the locally deployed app; ESLint v8 static analysis; manual structural review",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Task Manager case study. Vibe coding + Claude (VS Code extension / claude.ai, model version not stated): total 43 min for 7 stages (setup 3, UI 5, CRUD 8, filtering/search 4, auth 6, styling 5, debugging 12; mean of 3 runs); dashboard extension 8 min; 2-3 prompt iterations per feature; interface difference negligible. Security: 5 OWASP categories — A01 missing authentication on API routes (High), A02 plaintext passwords (High), A03 XSS (Medium), A07 no rate limiting (Medium), A05 missing security headers (Low). Code quality: 47 ESLint warnings, 12 errors; duplicated error handling; 0% test coverage; partial MVC separation. Authors' criteria: functionality visibly operational (met) and their Minimum Viability Framework baseline (all High/Medium findings resolved, tests present: not met). Quality verdict: partly (functional per the authors' check, fails their security and quality baseline); cost verdict: no criterion stated by the authors. Classical development (baseline, estimated only): 340-495 min; dashboard 100-140 min — quality and cost verdicts: N/A (not executed)",
+   "p": "3-6",
+   "ok": true,
+   "ai": "Task Manager case study. Vibe coding + Claude (VS Code extension / claude.ai, model version not stated): total 43 min for 7 stages (setup 3, UI 5, CRUD 8, filtering/search 4, auth 6, styling 5, debugging 12; mean of 3 runs); dashboard extension 8 min; 2-3 prompt iterations per feature; interface difference negligible. Security: 5 OWASP categories — A01 missing authentication on API routes (High), A02 plaintext passwords (High), A03 XSS (Medium), A07 no rate limiting (Medium), A05 missing security headers (Low). Code quality: 47 ESLint warnings, 12 errors; duplicated error handling; 0% test coverage; partial MVC separation. Authors' criteria: functionality visibly operational (met) and their Minimum Viability Framework baseline (all High/Medium findings resolved, tests present: not met). Quality verdict: partly (functional per the authors' check, fails their security and quality baseline); cost verdict: no criterion stated by the authors. Classical development (baseline, estimated only): 340-495 min; dashboard 100-140 min — quality and cost verdicts: N/A (not executed)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "One application and one feature extension; vibe coding by one developer with Claude vs classical development estimated from literature and three developers (not executed); same feature list; testing, documentation, security auditing and refactoring excluded from both; vibe-coding times averaged over three runs; stack chosen freely by the AI; no acceptance tests (visual check); human intervention: user writes prompts, copies code and verifies, no manual code",
+   "p": "2-4",
+   "ok": true,
+   "ai": "One application and one feature extension; vibe coding by one developer with Claude vs classical development estimated from literature and three developers (not executed); same feature list; testing, documentation, security auditing and refactoring excluded from both; vibe-coding times averaged over three runs; stack chosen freely by the AI; no acceptance tests (visual check); human intervention: user writes prompts, copies code and verifies, no manual code",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Vibe coding 43 min vs classical 340-495 min (~88% reduction); dashboard 8 vs 100-140 min (~14x faster). No statistical test. Authors stress this is time-to-first-working-demo and does not establish quality equivalence; the vibe-coded app had 2 High and 2 Medium vulnerabilities and no tests",
+   "p": "3-6",
+   "ok": true,
+   "ai": "Vibe coding 43 min vs classical 340-495 min (~88% reduction); dashboard 8 vs 100-140 min (~14x faster). No statistical test. Authors stress this is time-to-first-working-demo and does not establish quality equivalence; the vibe-coded app had 2 High and 2 Medium vulnerabilities and no tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Showed a large time difference, but against an estimated baseline. Limitations stated by the authors: classical times are practitioner estimates, not measurements; reflection pauses excluded (underestimates effort for inexperienced users); estimate ranges do not cover junior to senior; only time-to-demo; no standardised benchmark for vibe coding efficiency; replication not guaranteed since the AI chooses the stack",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Showed a large time difference, but against an estimated baseline. Limitations stated by the authors: classical times are practitioner estimates, not measurements; reflection pauses excluded (underestimates effort for inexperienced users); estimate ranges do not cover junior to senior; only time-to-demo; no standardised benchmark for vibe coding efficiency; replication not guaranteed since the AI chooses the stack",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: single developer, model, stack and application; illustrative, not generalisable; estimated baseline; exclusions from timing; stack variability between sessions/models; debugging did not always converge, especially for integration failures. Gaps/future work: longitudinal maintainability of vibe-coded applications; automated auditing pipelines for AI-generated code; effects on technical skill development in professional and educational contexts",
+   "p": "2-4, 7-8",
+   "ok": true,
+   "ai": "Limitations: single developer, model, stack and application; illustrative, not generalisable; estimated baseline; exclusions from timing; stack variability between sessions/models; debugging did not always converge, especially for integration failures. Gaps/future work: longitudinal maintainability of vibe-coded applications; automated auditing pipelines for AI-generated code; effects on technical skill development in professional and educational contexts",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "No replication package (only example prompts); no pre-registration. Language: JavaScript/JSX (React, Node.js/Express). Model version not stated ('Claude'; chosen over GPT-4 and Gemini). Inconsistencies: dashboard classical effort given as 90-120 min in the text vs 100-140 min in Table II (p. 4); ESLint counts reported 'across the React front-end' although the pass covered front-end and back-end (p. 5); localStorage tokens without expiration reported in the Discussion but not in Table III (pp. 5-6); ~88% reduction is approximate (87-91% from Table I). Code was copied manually from chat, so the agent did not operate on files itself",
+   "p": "2-6",
+   "ok": true,
+   "ai": "No replication package (only example prompts); no pre-registration. Language: JavaScript/JSX (React, Node.js/Express). Model version not stated ('Claude'; chosen over GPT-4 and Gemini). Inconsistencies: dashboard classical effort given as 90-120 min in the text vs 100-140 min in Table II (p. 4); ESLint counts reported 'across the React front-end' although the pass covered front-end and back-end (p. 5); localStorage tokens without expiration reported in the Discussion but not in Table III (pp. 5-6); ~88% reduction is approximate (87-91% from Table I). Code was copied manually from chat, so the agent did not operate on files itself",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three contributions (case study, time comparison, security audit) stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): three contributions (case study, time comparison, security audit) stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): timing protocol and audit tools described; full prompt sequence, model version and generated code not provided",
+   "p": "2-5",
+   "ok": true,
+   "ai": "Partly (0.5): timing protocol and audit tools described; full prompt sequence, model version and generated code not provided",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): only 'Claude' and the VS Code extension named, no model or tool versions (ESLint v8 and Node 20+ given)",
+   "p": "2, 5",
+   "ok": true,
+   "ai": "No (0): only 'Claude' and the VS Code extension named, no model or tool versions (ESLint v8 and Node 20+ given)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): application and features described; generated application not available",
+   "p": "2",
+   "ok": true,
+   "ai": "Partly (0.5): application and features described; generated application not available",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): security and lint by independent tools (OWASP ZAP, ESLint); functionality only by the user's visual check; baseline from practitioner estimates",
+   "p": "3, 5",
+   "ok": true,
+   "ai": "Partly (0.5): security and lint by independent tools (OWASP ZAP, ESLint); functionality only by the user's visual check; baseline from practitioner estimates",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): time protocol and quality dimensions defined; cost only as time (no tokens or money); functional correctness not measured",
+   "p": "3, 5-6",
+   "ok": true,
+   "ai": "Partly (0.5): time protocol and quality dimensions defined; cost only as time (no tokens or money); functional correctness not measured",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): classical baseline estimated, not executed under the same conditions",
+   "p": "3",
+   "ok": true,
+   "ai": "Partly (0.5): classical baseline estimated, not executed under the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): vibe-coding times averaged over three runs and classical estimates as ranges; no statistical analysis",
+   "p": "3",
+   "ok": true,
+   "ai": "Partly (0.5): vibe-coding times averaged over three runs and classical estimates as ranges; no statistical analysis",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions hedged as illustrative; negative security and quality results reported prominently",
+   "p": "3-4, 7-8",
+   "ok": true,
+   "ai": "Yes (1): conclusions hedged as illustrative; negative security and quality results reported prominently",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations discussed explicitly throughout (estimated baseline, exclusions, single scenario, replication); no separate threats section",
+   "p": "2-4, 7",
+   "ok": true,
+   "ai": "Yes (1): limitations discussed explicitly throughout (estimated baseline, exclusions, single scenario, replication); no separate threats section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): peer-reviewed IEEE conference paper (ECAI 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): peer-reviewed IEEE conference paper (ECAI 2026)",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): university authors independent of Anthropic; the proposed framework is not evaluated",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): university authors independent of Anthropic; the proposed framework is not evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): framework names common free tools (OWASP ZAP, Snyk, ESLint, Jest, SonarQube, manual review) within reach of a typical team, but effort and cost of the review layers are not stated and the framework is not applied",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Partly (0.5): framework names common free tools (OWASP ZAP, Snyk, ESLint, Jest, SonarQube, manual review) within reach of a typical team, but effort and cost of the review layers are not stated and the framework is not applied",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:24:28"
+}

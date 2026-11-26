@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486561",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Cuadron, A., Gupta, A. (2026). Built on Broken Assumptions (BOBA): Why Coding Agents Cannot Be Left Alone. arXiv:2611.02207v1 [cs.SE], 1 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Cuadron, A., Gupta, A. (2026). Built on Broken Assumptions (BOBA): Why Coding Agents Cannot Be Left Alone. arXiv:2611.02207v1 [cs.SE], 1 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.02207v1 [cs.SE]; no venue stated (AI use statement follows the ICLR 2027 AI Policy)",
+   "p": "1, 11",
+   "ok": true,
+   "ai": "Preprint — arXiv:2611.02207v1 [cs.SE]; no venue stated (AI use statement follows the ICLR 2027 AI Policy)",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Amazon (industry; both authors); repository under amazon-agi",
+   "p": "1, 10",
+   "ok": true,
+   "ai": "Amazon (industry; both authors); repository under amazon-agi",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — BOBA-Bench, 280 chains of 20 consecutive requests from the commit histories of 140 Python repositories, graded with hidden tests after every request; evaluates ten models (autonomous setting) and controlled settings separating authorship from verification (agent vs human code, silent continuation, verified with external feedback, cross-model review, harness comparison)",
+   "p": "1-2, 4-9",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — BOBA-Bench, 280 chains of 20 consecutive requests from the commit histories of 140 Python repositories, graded with hidden tests after every request; evaluates ten models (autonomous setting) and controlled settings separating authorship from verification (agent vs human code, silent continuation, verified with external feedback, cross-model review, harness comparison)",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Ten models in mini-swe-agent 2.4.6: Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Fable 5 (effort high), GPT-6 Astra, GPT-6.1 Sol, GPT-5.6 Sol (xhigh reasoning), GLM-5.3, Kimi K3 (high), all via Amazon Bedrock, and GLM-5.3-Flash (BF16, SGLang on own GPUs, temperature 1.0). Harness comparison: Codex CLI 0.146.1, OpenHands SDK 1.46.0, pi 0.84.2 (four models, 58 chains). Workflow variant: VERIFIED (external 'verification failed' message plus one repair round after each failed request). Extra model in control settings: GLM-5.2",
+   "p": "6, 32-33, 54-56",
+   "ok": true,
+   "ai": "No SDD approach. Ten models in mini-swe-agent 2.4.6: Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Fable 5 (effort high), GPT-6 Astra, GPT-6.1 Sol, GPT-5.6 Sol (xhigh reasoning), GLM-5.3, Kimi K3 (high), all via Amazon Bedrock, and GLM-5.3-Flash (BF16, SGLang on own GPUs, temperature 1.0). Harness comparison: Codex CLI 0.146.1, OpenHands SDK 1.46.0, pi 0.84.2 (four models, 58 chains). Workflow variant: VERIFIED (external 'verification failed' message plus one repair round after each failed request). Extra model in control settings: GLM-5.2",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no approach). Benchmark artefacts per request: a natural-language specification written by Claude Opus 4.x from the developers' test diff, commit messages and issues (audited by three model families); hidden contract (fail-to-pass and pass-to-pass tests); gold developer patch; sealed offline image per chain with frozen dependencies",
+   "p": "4-5, 11",
+   "ok": true,
+   "ai": "N/A (no approach). Benchmark artefacts per request: a natural-language specification written by Claude Opus 4.x from the developers' test diff, commit messages and issues (audited by three model families); hidden contract (fail-to-pass and pass-to-pass tests); gold developer patch; sealed offline image per chain with frozen dependencies",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no approach). Construction: (1) mine history, (2) produce specification, (3) audit specifications, (4) certify chains. Evaluation: per request a fresh conversation on the repository left by the previous request; agent edits, runs code and tests and submits; separate grader runs hidden tests of requests 1..k; next request follows regardless of the verdict; agent is told nothing",
+   "p": "4-5",
+   "ok": true,
+   "ai": "N/A (no approach). Construction: (1) mine history, (2) produce specification, (3) audit specifications, (4) certify chains. Evaluation: per request a fresh conversation on the repository left by the previous request; agent edits, runs code and tests and submits; separate grader runs hidden tests of requests 1..k; next request follows regardless of the verdict; agent is told nothing",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the AUTONOMOUS setting (no feedback, no human). VERIFIED setting simulates an external supervisor ('verification failed', optionally naming failing tests, or noisy false alarms). Specifications are model-written and model-audited, not human-reviewed",
+   "p": "5-6, 8-10",
+   "ok": true,
+   "ai": "None in the AUTONOMOUS setting (no feedback, no human). VERIFIED setting simulates an external supervisor ('verification failed', optionally naming failing tests, or noisy false alarms). Specifications are model-written and model-audited, not human-reviewed",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full autonomous agent runs on all 280 chains (eight attempts per chain per model) plus control settings on chain states; no SDD approach exercised",
+   "p": "6",
+   "ok": true,
+   "ai": "Full autonomous agent runs on all 280 chains (eight attempts per chain per model) plus control settings on chain states; no SDD approach exercised",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach; requests are given as model-written specifications derived from tests, but the authors do not use SDD terms)",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Not classifiable (no SDD approach; requests are given as model-written specifications derived from tests, but the authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: chains rebuild consecutive developer changes on real open-source repositories, each request on the code left by the previous request",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Existing code base: chains rebuild consecutive developer changes on real open-source repositories, each request on the code left by the previous request",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "280 chains x 20 requests = 5,600 requests (4,404 unique segments) from 140 Python repositories; many repositories are small; per-chain budget: unlimited model calls, 2 h cumulative tool execution, 64,000 output tokens per response, no wall-clock limit",
+   "p": "4, 10, 17, 32",
+   "ok": true,
+   "ai": "280 chains x 20 requests = 5,600 requests (4,404 unique segments) from 140 Python repositories; many repositories are small; per-chain budget: unlimited model calls, 2 h cumulative tool execution, 64,000 output tokens per response, no wall-clock limit",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Open-source Python libraries and projects from public agent-task pools (licenses MIT, Apache-2.0, BSD, GPL, LGPL, AGPL)",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Open-source Python libraries and projects from public agent-task pools (licenses MIT, Apache-2.0, BSD, GPL, LGPL, AGPL)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents; no human subjects)",
+   "p": "11",
+   "ok": true,
+   "ai": "N/A (autonomous agents; no human subjects)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Median model calls per chain (182-739 in Table 2); added calls from repair rounds (47-294 per chain); standardized first-attempt API cost estimates in USD for five models in earlier single-conversation runs (mean 9.03-22.03 USD per chain, Table 23); verifier compute about 0.001 USD per check",
+   "p": "5, 9, 34-35",
+   "ok": true,
+   "ai": "Median model calls per chain (182-739 in Table 2); added calls from repair rounds (47-294 per chain); standardized first-attempt API cost estimates in USD for five models in earlier single-conversation runs (mean 9.03-22.03 USD per chain, Table 23); verifier compute about 0.001 USD per check",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Chain pass@1 (final repository after request 20 passes every hidden test, estimated from eight attempts), single-attempt pass@1, strict pass@1 (every request passes on its own step and no passing test ever breaks), pass@8, request completion rate, next-request success by foundation, tests repaired",
+   "p": "5",
+   "ok": true,
+   "ai": "Chain pass@1 (final repository after request 20 passes every hidden test, estimated from eight attempts), single-attempt pass@1, strict pass@1 (every request passes on its own step and no passing test ever breaks), pass@8, request completion rate, next-request success by foundation, tests repaired",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None as metrics; authorship analysis treats verified agent code as a foundation for later requests (buildability)",
+   "p": "7",
+   "ok": true,
+   "ai": "None as metrics; authorship analysis treats verified agent code as a foundation for later requests (buildability)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Regression rate (a passing test breaks at some request); silent misses; share of failing tests ever repaired (14-33%); review accuracy (wrong code rejected, correct code accepted, Youden J, pairs discriminated); failure causes (17 tags by a judge model); memorization of repository code",
+   "p": "5-8, 11, 39",
+   "ok": true,
+   "ai": "Regression rate (a passing test breaks at some request); silent misses; share of failing tests ever repaired (14-33%); review accuracy (wrong code rejected, correct code accepted, Youden J, pairs discriminated); failure causes (17 tags by a judge model); memorization of repository code",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden developer tests run by a separate grader container after every request; repository-clustered 95% bootstrap intervals, Wilson intervals, McNemar and Fisher pairwise tests (Appendix H). Failure causes labelled by a judge model (GPT-5.6-sol) and a sandbox judge (Claude Fable 5.1), indicative only",
+   "p": "5, 11, 43",
+   "ok": true,
+   "ai": "Automatic: hidden developer tests run by a separate grader container after every request; repository-clustered 95% bootstrap intervals, Wilson intervals, McNemar and Fisher pairwise tests (Appendix H). Failure causes labelled by a judge model (GPT-5.6-sol) and a sandbox judge (Claude Fable 5.1), indicative only",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "BOBA-Bench AUTONOMOUS, 280 chains, 8 attempts, mini-swe-agent 2.4.6. Success criterion for a configuration: none stated by the authors. Values pass@1 [95% CI] / single attempt / strict pass@1 / regression rate / pass@8 / requests completed (%) / median calls per chain: (1) Claude Opus 5.5: 66.7 [61.3, 71.9] / 66.8 / 55.8 / 22.9 / 83.9 / 84.0 / 216. (2) Claude Opus 5: 61.6 [56.2, 66.8] / 60.7 / 50.5 / 28.1 / 82.9 / 80.8 / 401. (3) GPT-6 Astra: 53.2 [46.7, 59.5] / 51.1 / 38.7 / 35.1 / 63.9 / 75.2 / 182. (4) Claude Fable 5: 51.5 [45.8, 57.1] / 51.8 / 38.2 / 40.5 / 72.1 / 73.2 / 292. (5) GLM-5.3: 51.2 [45.4, 57.1] / 46.4 / 39.8 / 30.1 / 76.1 / 73.0 / 560. (6) GLM-5.3-Flash: 51.1 [45.1, 57.0] / 51.1 / 40.9 / 30.1 / 77.5 / 73.9 / 739. (7) GPT-6.1 Sol: 50.3 [43.9, 56.5] / 48.9 / 37.6 / 37.8 / 60.7 / 74.2 / 190. (8) GPT-5.6 Sol: 45.2 [39.0, 51.3] / 45.7 / 33.3 / 42.2 / 60.0 / 71.8 / 299. (9) Kimi K3: 44.2 [38.5, 50.0] / 45.4 / 33.7 / 42.8 / 68.2 / 68.8 / 388. (10) Claude Opus 4.8: 39.2 [33.3, 45.3] / 38.2 / 27.5 / 42.4 / 60.0 / 66.2 / 367. VERIFIED arm (same model + mini-swe-agent + one 'verification failed' repair round, 1 attempt), pass@1 autonomous attempt 1 -> verified [paired difference CI]: Opus 5.5 66.8->73.9 (+7.1 [2.5, 12.0]); Opus 5 60.7->69.6 (+8.9); GPT-6 Astra 51.1->53.9 (+2.9 [-2.4, 8.0]); Fable 5 51.8->63.9 (+12.1); GLM-5.3 46.4->68.6 (+22.1); GLM-5.3-Flash 51.1->67.1 (+16.1); GPT-6.1 Sol 48.9->52.9 (+3.9 [-0.4, 8.1]); GPT-5.6 Sol 45.7->46.8 (+1.1 [-2.9, 4.9]); Kimi K3 45.4->52.5 (+7.1); Opus 4.8 38.2->44.6 (+6.4); regression rate +3.2 to +8.9 pp; median calls per chain up (e.g. Opus 5.5 217->234). Harness arms (58 chains, 52 repositories, 1 attempt; chains passed of 58, paired pass@1 difference vs the same model's mini-swe-agent attempt 1 in pp): Claude Opus 5.5: mini-swe-agent 39; Codex CLI 0.146.1 31 (-13.8 [-26.7, -1.7]); OpenHands SDK 1.46.0 34 (-8.6); pi 0.84.2 35 (-6.9). GPT-5.6 Sol: mini-swe-agent 32; Codex CLI 28 (-6.9); OpenHands SDK 32 (0.0); pi 23 (-15.5 [-27.3, -4.7]). Kimi K3: mini-swe-agent 30; Codex CLI 27 (-5.2); OpenHands SDK 28 (-3.4); pi 22 (-13.8). GLM-5.3-Flash: mini-swe-agent 32; Codex CLI 15 (-29.3 [-42.1, -16.9]); OpenHands SDK 22 (-17.2); pi 24 (-13.8); regression rate 36-62% under the harnesses vs 26% under mini-swe-agent. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "p": "5, 7, 32-33, 54-56",
+   "ok": true,
+   "ai": "BOBA-Bench AUTONOMOUS, 280 chains, 8 attempts, mini-swe-agent 2.4.6. Success criterion for a configuration: none stated by the authors. Values pass@1 [95% CI] / single attempt / strict pass@1 / regression rate / pass@8 / requests completed (%) / median calls per chain: (1) Claude Opus 5.5: 66.7 [61.3, 71.9] / 66.8 / 55.8 / 22.9 / 83.9 / 84.0 / 216. (2) Claude Opus 5: 61.6 [56.2, 66.8] / 60.7 / 50.5 / 28.1 / 82.9 / 80.8 / 401. (3) GPT-6 Astra: 53.2 [46.7, 59.5] / 51.1 / 38.7 / 35.1 / 63.9 / 75.2 / 182. (4) Claude Fable 5: 51.5 [45.8, 57.1] / 51.8 / 38.2 / 40.5 / 72.1 / 73.2 / 292. (5) GLM-5.3: 51.2 [45.4, 57.1] / 46.4 / 39.8 / 30.1 / 76.1 / 73.0 / 560. (6) GLM-5.3-Flash: 51.1 [45.1, 57.0] / 51.1 / 40.9 / 30.1 / 77.5 / 73.9 / 739. (7) GPT-6.1 Sol: 50.3 [43.9, 56.5] / 48.9 / 37.6 / 37.8 / 60.7 / 74.2 / 190. (8) GPT-5.6 Sol: 45.2 [39.0, 51.3] / 45.7 / 33.3 / 42.2 / 60.0 / 71.8 / 299. (9) Kimi K3: 44.2 [38.5, 50.0] / 45.4 / 33.7 / 42.8 / 68.2 / 68.8 / 388. (10) Claude Opus 4.8: 39.2 [33.3, 45.3] / 38.2 / 27.5 / 42.4 / 60.0 / 66.2 / 367. VERIFIED arm (same model + mini-swe-agent + one 'verification failed' repair round, 1 attempt), pass@1 autonomous attempt 1 -> verified [paired difference CI]: Opus 5.5 66.8->73.9 (+7.1 [2.5, 12.0]); Opus 5 60.7->69.6 (+8.9); GPT-6 Astra 51.1->53.9 (+2.9 [-2.4, 8.0]); Fable 5 51.8->63.9 (+12.1); GLM-5.3 46.4->68.6 (+22.1); GLM-5.3-Flash 51.1->67.1 (+16.1); GPT-6.1 Sol 48.9->52.9 (+3.9 [-0.4, 8.1]); GPT-5.6 Sol 45.7->46.8 (+1.1 [-2.9, 4.9]); Kimi K3 45.4->52.5 (+7.1); Opus 4.8 38.2->44.6 (+6.4); regression rate +3.2 to +8.9 pp; median calls per chain up (e.g. Opus 5.5 217->234). Harness arms (58 chains, 52 repositories, 1 attempt; chains passed of 58, paired pass@1 difference vs the same model's mini-swe-agent attempt 1 in pp): Claude Opus 5.5: mini-swe-agent 39; Codex CLI 0.146.1 31 (-13.8 [-26.7, -1.7]); OpenHands SDK 1.46.0 34 (-8.6); pi 0.84.2 35 (-6.9). GPT-5.6 Sol: mini-swe-agent 32; Codex CLI 28 (-6.9); OpenHands SDK 32 (0.0); pi 23 (-15.5 [-27.3, -4.7]). Kimi K3: mini-swe-agent 30; Codex CLI 27 (-5.2); OpenHands SDK 28 (-3.4); pi 22 (-13.8). GLM-5.3-Flash: mini-swe-agent 32; Codex CLI 15 (-29.3 [-42.1, -16.9]); OpenHands SDK 22 (-17.2); pi 24 (-13.8); regression rate 36-62% under the harnesses vs 26% under mini-swe-agent. For every configuration: quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 280 chains of 20 requests (140 Python repositories), hidden developer tests. Configurations: ten models in one harness (mini-swe-agent 2.4.6); controlled settings AGENT CODE vs HUMAN CODE (authorship), SILENT CONTINUATION (verification), VERIFIED (external feedback), REVIEW (cross-model review, 2,180 items per reviewer), harness comparison on 58 chains. Baseline: human-code foundation and autonomous run as paired controls. Held constant: harness, specifications, budgets, grader, offline sealed images; reasoning settings differ per model and do not equalize compute. Acceptance tests: hidden F2P/P2P tests of requests 1..k after every request. Repetitions: eight independent attempts per chain in AUTONOMOUS; one attempt per arm in VERIFIED and harness comparisons. Human intervention: none",
+   "p": "5-6, 8, 32-33",
+   "ok": true,
+   "ai": "Tasks: 280 chains of 20 requests (140 Python repositories), hidden developer tests. Configurations: ten models in one harness (mini-swe-agent 2.4.6); controlled settings AGENT CODE vs HUMAN CODE (authorship), SILENT CONTINUATION (verification), VERIFIED (external feedback), REVIEW (cross-model review, 2,180 items per reviewer), harness comparison on 58 chains. Baseline: human-code foundation and autonomous run as paired controls. Held constant: harness, specifications, budgets, grader, offline sealed images; reasoning settings differ per model and do not equalize compute. Acceptance tests: hidden F2P/P2P tests of requests 1..k after every request. Repetitions: eight independent attempts per chain in AUTONOMOUS; one attempt per arm in VERIFIED and harness comparisons. Human intervention: none",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 5.5 best (pass@1 66.7%), separated from every other model (p <= 0.036); four tiers: Opus 5.5, Opus 5, seven models 45-52%, Opus 4.8. Average chain completion 51% vs 66-84% request completion; strict pass@1 averages 39%. Verified agent code is nearly as good a foundation as human code (gap -3.6 to +0.8 pp); one unverified mistake raises next-request failure by about 18 pp on average. No reviewer discriminates wrong from correct code (Youden J <= 0.15). One 'verification failed' message lifts average pass@1 from 51% to 59% (+1 to +22 pp, 7 of 10 intervals above zero) but raises regressions 3-9 pp; naming failing tests repairs more misses than repeating the bare message",
+   "p": "2, 6-9, 43, 54",
+   "ok": true,
+   "ai": "Claude Opus 5.5 best (pass@1 66.7%), separated from every other model (p <= 0.036); four tiers: Opus 5.5, Opus 5, seven models 45-52%, Opus 4.8. Average chain completion 51% vs 66-84% request completion; strict pass@1 averages 39%. Verified agent code is nearly as good a foundation as human code (gap -3.6 to +0.8 pp); one unverified mistake raises next-request failure by about 18 pp on average. No reviewer discriminates wrong from correct code (Youden J <= 0.15). One 'verification failed' message lifts average pass@1 from 51% to 59% (+1 to +22 pp, 7 of 10 intervals above zero) but raises regressions 3-9 pp; naming failing tests repairs more misses than repeating the bare message",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished configurations partly (leader and bottom model separated; seven mid models mostly not separable). Repeatable: eight attempts per chain with bootstrap intervals and paired tests; pass@8 vs pass@1 shows same chains fail all models. Limitations stated: fixed-test correctness only, not user intent or readability; Python-only, small repositories; twenty requests need not form a twenty-link dependency chain; pass@1 judges only the final state; specifications model-written and model-audited, not human-reviewed; possible memorization (three Claude models reproduce 14-19% of sampled change blocks) not excluded",
+   "p": "6, 10, 43",
+   "ok": true,
+   "ai": "Distinguished configurations partly (leader and bottom model separated; seven mid models mostly not separable). Repeatable: eight attempts per chain with bootstrap intervals and paired tests; pass@8 vs pass@1 shows same chains fail all models. Limitations stated: fixed-test correctness only, not user intent or readability; Python-only, small repositories; twenty requests need not form a twenty-link dependency chain; pass@1 judges only the final state; specifications model-written and model-audited, not human-reviewed; possible memorization (three Claude models reproduce 14-19% of sampled change blocks) not excluded",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations as above (Section 6). Gaps / recommendations: model builders should make certifying a request as much a goal as implementing it (agents cannot tell wrong from correct work, repair only part of misses); system builders should keep a verification channel to the agent and widen what the verifier sees; benchmark builders should grade agents in chains, report completion with and without a supervisor and publish hidden contracts; users should check each request before building on it",
+   "p": "9-10",
+   "ok": true,
+   "ai": "Limitations as above (Section 6). Gaps / recommendations: model builders should make certifying a request as much a goal as implementing it (agents cannot tell wrong from correct work, repair only part of misses); system builders should keep a verification channel to the agent and widen what the verifier sees; benchmark builders should grade agents in chains, report completion with and without a supervisor and publish hidden contracts; users should check each request before building on it",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Values from Table 2 (p. 5), Table 41 (p. 54), Table 44 (p. 56), Table 23 (p. 35). Inconsistencies: abstract says agents complete 95% of requests one at a time, while Table 2 and p. 2 give 66-84% request completion (95% matches next-request success on verified foundations, Fig. 4) (p. 1-2, 5, 7); p. 2 says the bare message repairs 'a tenth to a third' of misses, p. 9 (Sections 5.1 and 5.2, citing Table 37) says 'a third to a half', Fig. 4 gives 8-30% to 28-60% (p. 2, 7, 9); p. 9 says the repair round adds 47 to 294 calls per chain, while the medians of Table 41 rise by 17-163 calls (p. 9, 54); Section 3.4 says the control settings use five models, but Fig. 4 shows ten and Section 4.2 / App. B.1 eleven models (p. 6-7, 17); Fig. 3 says Claude Opus 4.8 writes the specifications, the AI use statement says calls rotated over Opus 4.6-4.8 with GLM-5.2 as fallback, model per specification not recorded (p. 4, 11). Post hoc 14-chain exclusion documented in App. D.10 (p. 11, 30). Amazon Bedrock served most evaluated models (p. 33). Full release (benchmark, pipeline, contracts, gold patches, images, trajectories, grader, analysis scripts) at https://github.com/amazon-agi/BOBA-bench (p. 10). Pre-registration: the main study is not pre-registered; a pre-registered human review of 80 request slots (specification adequacy) is said to be prepared, with strata, seed and analysis fixed in advance, not yet run and no link given (p. 26). Programming language: Python",
+   "p": "1-2, 4-7, 9-11, 17, 26, 30, 33, 35, 54, 56",
+   "ok": true,
+   "ai": "Values from Table 2 (p. 5), Table 41 (p. 54), Table 44 (p. 56), Table 23 (p. 35). Inconsistencies: abstract says agents complete 95% of requests one at a time, while Table 2 and p. 2 give 66-84% request completion (95% matches next-request success on verified foundations, Fig. 4) (p. 1-2, 5, 7); p. 2 says the bare message repairs 'a tenth to a third' of misses, p. 9 (Sections 5.1 and 5.2, citing Table 37) says 'a third to a half', Fig. 4 gives 8-30% to 28-60% (p. 2, 7, 9); p. 9 says the repair round adds 47 to 294 calls per chain, while the medians of Table 41 rise by 17-163 calls (p. 9, 54); Section 3.4 says the control settings use five models, but Fig. 4 shows ten and Section 4.2 / App. B.1 eleven models (p. 6-7, 17); Fig. 3 says Claude Opus 4.8 writes the specifications, the AI use statement says calls rotated over Opus 4.6-4.8 with GLM-5.2 as fallback, model per specification not recorded (p. 4, 11). Post hoc 14-chain exclusion documented in App. D.10 (p. 11, 30). Amazon Bedrock served most evaluated models (p. 33). Full release (benchmark, pipeline, contracts, gold patches, images, trajectories, grader, analysis scripts) at https://github.com/amazon-agi/BOBA-bench (p. 10). Pre-registration: the main study is not pre-registered; a pre-registered human review of 80 request slots (specification adequacy) is said to be prepared, with strata, seed and analysis fixed in advance, not yet run and no link given (p. 26). Programming language: Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim clear: whether coding agents can be left alone on chains of dependent requests, and whether authorship or verification drives degradation",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): aim clear: whether coding agents can be left alone on chains of dependent requests, and whether authorship or verification drives degradation",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): construction, protocol, settings, budgets and grader rules described end to end (Section 3, Appendices D, F); full replication package",
+   "p": "4-6, 10-11",
+   "ok": true,
+   "ai": "Yes (1): construction, protocol, settings, budgets and grader rules described end to end (Section 3, Appendices D, F); full replication package",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness versions (mini-swe-agent 2.4.6; Codex CLI 0.146.1, OpenHands SDK 1.46.0, pi 0.84.2), models, reasoning efforts and serving identified",
+   "p": "6, 32, 56",
+   "ok": true,
+   "ai": "Yes (1): harness versions (mini-swe-agent 2.4.6; Codex CLI 0.146.1, OpenHands SDK 1.46.0, pi 0.84.2), models, reasoning efforts and serving identified",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 280 chains described (Table 1, Appendix A) and released with images pinned by digest",
+   "p": "3-4, 10, 17",
+   "ok": true,
+   "ai": "Yes (1): 280 chains described (Table 1, Appendix A) and released with images pinned by digest",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): every request graded by the developers' own hidden tests in a separate grader; images certified by passing all human patches",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Yes (1): every request graded by the developers' own hidden tests in a separate grader; images certified by passing all human patches",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): quality metrics (pass@1, strict pass@1, regression rate, pass@8, request completion) and cost (calls per chain, USD estimates) defined",
+   "p": "5, 34",
+   "ok": true,
+   "ai": "Yes (1): quality metrics (pass@1, strict pass@1, regression rate, pass@8, request completion) and cost (calls per chain, USD estimates) defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): ten models under identical conditions plus paired controls (human vs agent foundations, silent vs verified, other harnesses)",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Yes (1): ten models under identical conditions plus paired controls (human vs agent foundations, silent vs verified, other harnesses)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): eight attempts per chain, repository-clustered bootstrap intervals, McNemar/Fisher pairwise tests",
+   "p": "5, 43",
+   "ok": true,
+   "ai": "Yes (1): eight attempts per chain, repository-clustered bootstrap intervals, McNemar/Fisher pairwise tests",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from results, including costs of the verified arm (more regressions) and non-separable models",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from results, including costs of the verified arm (more regressions) and non-separable models",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations section (scope of correctness, Python-only, model-written specifications, memorization)",
+   "p": "10",
+   "ok": true,
+   "ai": "Yes (1): limitations section (scope of correctness, Python-only, model-written specifications, memorization)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Amazon authors are not vendors of the evaluated models or harnesses (note: most models served via Amazon Bedrock)",
+   "p": "1, 32",
+   "ok": true,
+   "ai": "Yes (1): Amazon authors are not vendors of the evaluated models or harnesses (note: most models served via Amazon Bedrock)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:20:49"
+}

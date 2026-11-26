@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486358",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Weinberger, S., Hozez, A. (2026). Token Reduction Is Not Cost Reduction: An Empirical Study of End-to-End Efficiency in API-Based Coding Agents. arXiv:2607.12161v5 [cs.CL], 12 Aug 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Weinberger, S., Hozez, A. (2026). Token Reduction Is Not Cost Reduction: An Empirical Study of End-to-End Efficiency in API-Based Coding Agents. arXiv:2607.12161v5 [cs.CL], 12 Aug 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2607.12161v5 [cs.CL]; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2607.12161v5 [cs.CL]; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Industry: PointFive (both authors)",
+   "p": "1, 30",
+   "ok": true,
+   "ai": "Industry: PointFive (both authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — paired, provider-billed comparison of context/tool-output reduction layers (RTK, RTK-ML, Headroom) against unmodified Claude Code, with cost decomposition and trajectory analysis; proposes a layered evidence taxonomy (L1-L8) and benchmark-design recommendations for token-efficiency claims",
+   "p": "1-3, 25-26, 29",
+   "ok": true,
+   "ai": "Compares; secondary: Proposes an evaluation method — paired, provider-billed comparison of context/tool-output reduction layers (RTK, RTK-ML, Headroom) against unmodified Claude Code, with cost decomposition and trajectory analysis; proposes a layered evidence taxonomy (L1-L8) and benchmark-design recommendations for token-efficiency claims",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Context-reduction layers on Claude Code 2.1.201 (2.1.220 in the post-hoc replication): (1) baseline Claude Code, no layers; (2) RTK v0.44.1 (open-source PreToolUse hook + CLI proxy compressing shell output); (3) RTK-ML (authors' branch build of RTK, 'guarded release build', nine flag-gated gates all on: query propagation, retrieval routing, query-aware ranking, lexical and BGE embedding legs, task-family router, preserve gate, ast-grep structural retrieval, focus cache; safety router, stdout-consumer guard); (4) Headroom v0.27.0 (API-boundary proxy, token mode, caching on, code-aware off). Audited at component level only: vendor CLI compressor, ml_lexical engine, Caveman. Codex replication: Headroom-only on Codex CLI",
+   "p": "4-5, 7-8, 19, 30",
+   "ok": true,
+   "ai": "Context-reduction layers on Claude Code 2.1.201 (2.1.220 in the post-hoc replication): (1) baseline Claude Code, no layers; (2) RTK v0.44.1 (open-source PreToolUse hook + CLI proxy compressing shell output); (3) RTK-ML (authors' branch build of RTK, 'guarded release build', nine flag-gated gates all on: query propagation, retrieval routing, query-aware ranking, lexical and BGE embedding legs, task-family router, preserve gate, ast-grep structural retrieval, focus cache; safety router, stdout-consumer guard); (4) Headroom v0.27.0 (API-boundary proxy, token mode, caching on, code-aware off). Audited at component level only: vendor CLI compressor, ml_lexical engine, Caveman. Codex replication: Headroom-only on Codex CLI",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A (no specification artefacts; the layers transform tool output or API payloads)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no specification artefacts; the layers transform tool output or API payloads)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A (no development flow prescribed; layers act inside the agent loop: hook rewrites shell commands -> proxy compresses/ranks output -> delivered to the model; Headroom rewrites payloads at the API endpoint)",
+   "p": "5",
+   "ok": true,
+   "ai": "N/A (no development flow prescribed; layers act inside the agent loop: hook rewrites shell commands -> proxy compresses/ranks output -> delivered to the model; Headroom rewrites payloads at the API endpoint)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None (fully automated benchmark runs)",
+   "p": "9",
+   "ok": true,
+   "ai": "None (fully automated benchmark runs)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Single component: context/tool-output reduction layer inserted into the Claude Code harness (and Codex CLI for Headroom); some systems only at component level",
+   "p": "7-9",
+   "ok": true,
+   "ai": "Single component: context/tool-output reduction layer inserted into the Claude Code harness (and Codex CLI for Headroom); some systems only at component level",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (context-reduction layers, no specification); authors do not use SDD terms",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (context-reduction layers, no specification); authors do not use SDD terms",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: read-only and code-change tasks on six pinned open-source repositories plus a seeded synthetic monorepo (24 task families, e.g. lexical search, symbol location, dependency tracing, multi-file debug, feature implementation); also SWE-bench-derived Go tasks (single-shot) and synthetic large repositories (long sessions)",
+   "p": "7-9, 14, 17-18",
+   "ok": true,
+   "ai": "Existing code bases: read-only and code-change tasks on six pinned open-source repositories plus a seeded synthetic monorepo (24 task families, e.g. lexical search, symbol location, dependency tracing, multi-file debug, feature implementation); also SWE-bench-derived Go tasks (single-shot) and synthetic large repositories (long sessions)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Authoritative campaign: 103 analyzed tasks, 7 repositories (click, cobra, express, flask, gin, requests + synthetic monorepo), 2,908 runs (2,848 analyzed, 712 per arm); program total 5,493 billed executions plus 8,263 component evaluations; long-session campaign 529 sessions on 3 tasks; grounded study 29-40 rows; Codex replication 40 task pairs",
+   "p": "2, 8-10, 17, 19",
+   "ok": true,
+   "ai": "Authoritative campaign: 103 analyzed tasks, 7 repositories (click, cobra, express, flask, gin, requests + synthetic monorepo), 2,908 runs (2,848 analyzed, 712 per arm); program total 5,493 billed executions plus 8,263 component evaluations; long-session campaign 529 sessions on 3 tasks; grounded study 29-40 rows; Codex replication 40 task pairs",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source libraries/frameworks (Python, Go, JavaScript repositories) and synthetic repositories; not domain-specific",
+   "p": "9",
+   "ok": true,
+   "ai": "General open-source libraries/frameworks (Python, Go, JavaScript repositories) and synthetic repositories; not domain-specific",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Provider-billed cost per run (total_cost_usd); uncached input, cache-creation, cache-read and output tokens; reconstructed four-component cost and unattributed residual; paired billed-cost change vs baseline (%); cost per successful execution (CPS) and CPS ratio/index; cost attribution by agent component; wall time (Codex replication); reconstructed cost from tokens (Codex)",
+   "p": "3-4, 11-15, 20",
+   "ok": true,
+   "ai": "Provider-billed cost per run (total_cost_usd); uncached input, cache-creation, cache-read and output tokens; reconstructed four-component cost and unattributed residual; paired billed-cost change vs baseline (%); cost per successful execution (CPS) and CPS ratio/index; cost attribution by agent component; wall time (Codex replication); reconstructed cost from tokens (Codex)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Task success by frozen deterministic judges (answer/regex/test checks, file constraints); paired success change (pp); patch apply rate and FAIL_TO_PASS resolve rate (single-shot Go study)",
+   "p": "8-10, 13-16",
+   "ok": true,
+   "ai": "Task success by frozen deterministic judges (answer/regex/test checks, file constraints); paired success change (pp); patch apply rate and FAIL_TO_PASS resolve rate (single-shot Go study)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (maintainability and patch quality beyond tests explicitly not measured)",
+   "p": "25",
+   "ok": true,
+   "ai": "None (maintainability and patch quality beyond tests explicitly not measured)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Raw vs delivered tool-output tokens (local BPE estimate); trajectory length (assistant turns), phase shares of generated tokens and phase-resolved cost deltas (8 phases), first-edit milestone, retrieval re-entries, repeated-search tokens; gate activation traces; component metrics (compression ratio, gold-context survival, marker recall, retrieval precision); correlation of token reduction with cost change",
+   "p": "7-8, 13-14, 21-26",
+   "ok": true,
+   "ai": "Raw vs delivered tool-output tokens (local BPE estimate); trajectory length (assistant turns), phase shares of generated tokens and phase-resolved cost deltas (8 phases), first-edit milestone, retrieval re-entries, repeated-search tokens; gate activation traces; component metrics (compression ratio, gold-context survival, marker recall, retrieval precision); correlation of token reduction with cost change",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: billed cost from Claude Code JSON output cross-checked against provider usage fields and the Anthropic price schedule; hook-side ledger for tool tokens (RTK arms only); deterministic judges; append-only cost ledgers; per-run gate traces; deterministic rule-based phase classifier over 13,620 turns (implementation audit 40/40, no blind semantic validation); Codex costs reconstructed from token counts",
+   "p": "10, 19, 21",
+   "ok": true,
+   "ai": "Automatic: billed cost from Claude Code JSON output cross-checked against provider usage fields and the Anthropic price schedule; hook-side ledger for tool tokens (RTK arms only); deterministic judges; append-only cost ledgers; per-run gate traces; deterministic rule-based phase classifier over 13,620 turns (implementation audit 40/40, no blind semantic validation); Codex costs reconstructed from token counts",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors: per-task success by frozen deterministic judges (answer/regex/test checks); no success-rate threshold or non-inferiority margin for a configuration ('no pre-specified non-inferiority margin exists', p. 27). Cost criterion stated by the authors: primary decision metric is the paired change in cost per successful execution, a saving only if negative (p. 4). Authoritative campaign (Claude Code 2.1.201; Haiku 4.5, Sonnet 5, Opus 4.8): (1) Baseline Claude Code: success 96.2% (685/712), 4.46 turns, CPS 1.000. Quality verdict: no criterion stated by the authors; cost: reference. (2) RTK v0.44.1 + Claude Code: success 96.4% (686/712, -0.2 pp [-2.9, +1.9]), cost -2.7% [-5.6, -0.1] (holdout -2.3% [-7.4, +2.1]), CPS ratio 0.968 [0.937, 1.004]; CPS index Haiku 0.989, Sonnet 5 0.967, Opus 4.8 0.931. Quality verdict: no criterion stated by the authors; cost partly (CI crosses 1, not holdout-confirmed; authors: suggestive, near cost-neutral). (3) RTK-ML + Claude Code: success 97.5% (694/712), cost +6.8% [+2.8, +11.3], CPS 1.051 [1.006, 1.100] despite -38.4% tool-output tokens; Haiku 0.981, Sonnet 5 1.096, Opus 4.8 1.202. Quality verdict: no criterion stated by the authors; cost does not work. (4) Headroom v0.27.0 + Claude Code: success 97.8% (696/712), cost +48.4% [+42.3, +55.0], CPS 1.464 [1.397, 1.531]; Haiku 1.474, Sonnet 5 1.420, Opus 4.8 1.673. Quality verdict: no criterion stated by the authors; cost does not work. (5) Post-hoc replication, RTK v0.44.1 + Claude Code 2.1.220, medium effort: Opus 4.8 cost -2.9% [-18.8, +9.3], CPS 0.933, 51/52; Opus 5 +2.5% [-6.1, +12.0], CPS 1.025, 51/52. Quality verdict: no criterion stated by the authors; cost partly (near-null, CIs cross 1). (6) Long-session campaign (Opus 4.8, separate lineage): RTK -1.3% n.s., observer build +6.5% [1.5, 11.7], Headroom +60.9%, 131/132 success. Quality verdict: no criterion stated by the authors; cost: RTK partly, observer build and Headroom do not work. (7) Codex CLI + gpt-5.6-luna (low): baseline 39/40 vs Headroom-only 39/40, reconstructed cost -12.49% (per successful task -12.49%), wall time +238.5%. Quality verdict: no criterion stated by the authors; cost: baseline reference, Headroom works (reconstructed from tokens, not billed). (8) Single-shot SEARCH/REPLACE agent + claude-sonnet-4-6 on Go rows (not Claude Code): raw 2/40 vs compressed 1/40 resolved, apply 27/40 vs 15/40; grounded raw 5/29, grounded compressed 2/29 at 2.08x cost per resolved row. Verdicts: no criterion stated by the authors (descriptive mechanism study, p=0.25; 'not as a system ranking')",
+   "p": "13-17, 19-21",
+   "ok": true,
+   "ai": "Success criterion stated by the authors: per-task success by frozen deterministic judges (answer/regex/test checks); no success-rate threshold or non-inferiority margin for a configuration ('no pre-specified non-inferiority margin exists', p. 27). Cost criterion stated by the authors: primary decision metric is the paired change in cost per successful execution, a saving only if negative (p. 4). Authoritative campaign (Claude Code 2.1.201; Haiku 4.5, Sonnet 5, Opus 4.8): (1) Baseline Claude Code: success 96.2% (685/712), 4.46 turns, CPS 1.000. Quality verdict: no criterion stated by the authors; cost: reference. (2) RTK v0.44.1 + Claude Code: success 96.4% (686/712, -0.2 pp [-2.9, +1.9]), cost -2.7% [-5.6, -0.1] (holdout -2.3% [-7.4, +2.1]), CPS ratio 0.968 [0.937, 1.004]; CPS index Haiku 0.989, Sonnet 5 0.967, Opus 4.8 0.931. Quality verdict: no criterion stated by the authors; cost partly (CI crosses 1, not holdout-confirmed; authors: suggestive, near cost-neutral). (3) RTK-ML + Claude Code: success 97.5% (694/712), cost +6.8% [+2.8, +11.3], CPS 1.051 [1.006, 1.100] despite -38.4% tool-output tokens; Haiku 0.981, Sonnet 5 1.096, Opus 4.8 1.202. Quality verdict: no criterion stated by the authors; cost does not work. (4) Headroom v0.27.0 + Claude Code: success 97.8% (696/712), cost +48.4% [+42.3, +55.0], CPS 1.464 [1.397, 1.531]; Haiku 1.474, Sonnet 5 1.420, Opus 4.8 1.673. Quality verdict: no criterion stated by the authors; cost does not work. (5) Post-hoc replication, RTK v0.44.1 + Claude Code 2.1.220, medium effort: Opus 4.8 cost -2.9% [-18.8, +9.3], CPS 0.933, 51/52; Opus 5 +2.5% [-6.1, +12.0], CPS 1.025, 51/52. Quality verdict: no criterion stated by the authors; cost partly (near-null, CIs cross 1). (6) Long-session campaign (Opus 4.8, separate lineage): RTK -1.3% n.s., observer build +6.5% [1.5, 11.7], Headroom +60.9%, 131/132 success. Quality verdict: no criterion stated by the authors; cost: RTK partly, observer build and Headroom do not work. (7) Codex CLI + gpt-5.6-luna (low): baseline 39/40 vs Headroom-only 39/40, reconstructed cost -12.49% (per successful task -12.49%), wall time +238.5%. Quality verdict: no criterion stated by the authors; cost: baseline reference, Headroom works (reconstructed from tokens, not billed). (8) Single-shot SEARCH/REPLACE agent + claude-sonnet-4-6 on Go rows (not Claude Code): raw 2/40 vs compressed 1/40 resolved, apply 27/40 vs 15/40; grounded raw 5/29, grounded compressed 2/29 at 2.08x cost per resolved row. Verdicts: no criterion stated by the authors (descriptive mechanism study, p=0.25; 'not as a system ranking')",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 103 frozen tasks with per-task deterministic judges, hash-frozen manifests, frozen holdout added before expansion spend. Configurations: 4 arms (baseline, RTK, RTK-ML, Headroom) x 3 models x up to 5 effort levels (9 model-effort cells). Baseline: unmodified Claude Code. Held constant: Claude Code version, model and effort per block, identical fresh working copies, isolated $HOME and scrubbed environment, project-only settings, budget caps. Pairing: block = task x model x effort x repetition, all four arms in randomized order. Repetitions: multiple per task (ICC 0.37-0.55, effective n 38-45 tasks per arm). Statistics: task-clustered bootstrap (10,000), repository-clustered and leave-one-repository-out sensitivity, order-sensitivity check. Human intervention: none. Pre-specified (not pre-registered)",
+   "p": "8-11",
+   "ok": true,
+   "ai": "Tasks: 103 frozen tasks with per-task deterministic judges, hash-frozen manifests, frozen holdout added before expansion spend. Configurations: 4 arms (baseline, RTK, RTK-ML, Headroom) x 3 models x up to 5 effort levels (9 model-effort cells). Baseline: unmodified Claude Code. Held constant: Claude Code version, model and effort per block, identical fresh working copies, isolated $HOME and scrubbed environment, project-only settings, budget caps. Pairing: block = task x model x effort x repetition, all four arms in randomized order. Repetitions: multiple per task (ICC 0.37-0.55, effective n 38-45 tasks per arm). Statistics: task-clustered bootstrap (10,000), repository-clustered and leave-one-repository-out sensitivity, order-sensitivity check. Human intervention: none. Pre-specified (not pre-registered)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No success difference detected (all CIs cross zero). Cost: RTK -2.7% (suggestive, not holdout-confirmed), RTK-ML +6.8%, Headroom +48.4% (confirmed on holdout); CPS ratios 0.968, 1.051, 1.464. Token reduction weakly correlated with cost change (Pearson r=0.154 [-0.051, +0.356], Spearman 0.013, 100 Haiku tasks). Cache creation + reads ~87% of reconstructed cost (~80% of bill); user-accessible surfaces ~6% of cost, upper bound for compression ~5%. RTK-ML downstream phase cost increases ~4x its retrieval-phase saving. No arm x model or arm x effort interaction significant. Headroom sign reverses on Codex (-12.49% reconstructed cost, equal success). No system dominates",
+   "p": "4, 11-14, 18-23, 27",
+   "ok": true,
+   "ai": "No success difference detected (all CIs cross zero). Cost: RTK -2.7% (suggestive, not holdout-confirmed), RTK-ML +6.8%, Headroom +48.4% (confirmed on holdout); CPS ratios 0.968, 1.051, 1.464. Token reduction weakly correlated with cost change (Pearson r=0.154 [-0.051, +0.356], Spearman 0.013, 100 Haiku tasks). Cache creation + reads ~87% of reconstructed cost (~80% of bill); user-accessible surfaces ~6% of cost, upper bound for compression ~5%. RTK-ML downstream phase cost increases ~4x its retrieval-phase saving. No arm x model or arm x effort interaction significant. Headroom sign reverses on Codex (-12.49% reconstructed cost, equal success). No system dominates",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished arms clearly on cost (non-overlapping CIs for Headroom and RTK-ML) but not on success (ceiling 96-98%); repeatable within the campaign (holdout confirmation, repository-clustered sensitivity, post-hoc replication reproduced the near-null RTK result). Limitations stated: within-block runs inside the 5-minute cache TTL so cache carryover cannot be excluded; not a non-inferiority design; 8.7% unattributed cost residual; thinking tokens not observable; raw tool output unobservable for baseline/Headroom; family results exploratory without FDR control; component benchmarks do not predict end-to-end outcomes",
+   "p": "10-11, 13, 18, 25-28",
+   "ok": true,
+   "ai": "Distinguished arms clearly on cost (non-overlapping CIs for Headroom and RTK-ML) but not on success (ceiling 96-98%); repeatable within the campaign (holdout confirmation, repository-clustered sensitivity, post-hoc replication reproduced the near-null RTK result). Limitations stated: within-block runs inside the 5-minute cache TTL so cache carryover cannot be excluded; not a non-inferiority design; 8.7% unattributed cost residual; thinking tokens not observable; raw tool output unobservable for baseline/Headroom; family results exploratory without FDR control; component benchmarks do not predict end-to-end outcomes",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "One harness (Claude Code) and one provider's billing at one point in time; Sonnet 5 and Opus 4.8 not measured at several effort levels, thin Opus cells; high baseline success limits sensitivity; cache carryover; Headroom one version/configuration, black box; vendor compressor and ml_lexical lack end-to-end evidence; Caveman synthetic only; grounded study small, single model and edit format; phase taxonomy not semantically validated; task mix weighted to retrieval/navigation/debugging; single-prompt runs, interactive sessions unmeasured (upper bound ~9% savings estimated). Future work: interactive-session measurement with per-session ROI, isolated tool-call argument measurement, end-to-end evaluation of retrieval and history compression, Codex distributional analysis, per-token addressability",
+   "p": "4, 27-29",
+   "ok": true,
+   "ai": "One harness (Claude Code) and one provider's billing at one point in time; Sonnet 5 and Opus 4.8 not measured at several effort levels, thin Opus cells; high baseline success limits sensitivity; cache carryover; Headroom one version/configuration, black box; vendor compressor and ml_lexical lack end-to-end evidence; Caveman synthetic only; grounded study small, single model and edit format; phase taxonomy not semantically validated; task mix weighted to retrieval/navigation/debugging; single-prompt runs, interactive sessions unmeasured (upper bound ~9% savings estimated). Future work: interactive-session measurement with per-session ROI, isolated tool-call argument measurement, end-to-end evaluation of retrieval and history compression, Codex distributional analysis, per-token addressability",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Replication package: https://github.com/PointFiveLabs/ai-efficiency-benchmark (tag v1.0.0, CC BY 4.0; partial release, raw transcripts withheld, derived ledgers released). Pre-specified in hash-pinned manifests, explicitly not pre-registered. Disclosure: authors built and configured all arms; not Headroom developers. Programming languages of task repositories: Python (click, flask, requests), Go (cobra, gin), JavaScript (express). Version differences: queue abstract (earlier version) describes 'three token-reduction approaches' and a 'SWE-bench Go subset'; v5 text read. Models differ across sub-studies (Sonnet 5 in the main campaign, Sonnet 4.6 in the single-shot study, Opus 5 only in the post-hoc replication). Codex results transcribed from a frozen report and reconstructed from tokens, not billed. The broader program's spend is not reported. 2,908 executed vs 2,848 analyzed runs (exclusions stated)",
+   "p": "2, 8-10, 14, 19, 30",
+   "ok": true,
+   "ai": "Replication package: https://github.com/PointFiveLabs/ai-efficiency-benchmark (tag v1.0.0, CC BY 4.0; partial release, raw transcripts withheld, derived ledgers released). Pre-specified in hash-pinned manifests, explicitly not pre-registered. Disclosure: authors built and configured all arms; not Headroom developers. Programming languages of task repositories: Python (click, flask, requests), Go (cobra, gin), JavaScript (express). Version differences: queue abstract (earlier version) describes 'three token-reduction approaches' and a 'SWE-bench Go subset'; v5 text read. Models differ across sub-studies (Sonnet 5 in the main campaign, Sonnet 4.6 in the single-shot study, Opus 5 only in the post-hoc replication). Codex results transcribed from a frozen report and reconstructed from tokens, not billed. The broader program's spend is not reported. 2,908 executed vs 2,848 analyzed runs (exclusions stated)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): five RQs and seven contributions stated",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): five RQs and seven contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): arms, provenance, pairing, randomization, exclusions and statistics detailed; harness, manifests and analysis scripts released",
+   "p": "8-11, 30",
+   "ok": true,
+   "ai": "Yes (1): arms, provenance, pairing, randomization, exclusions and statistics detailed; harness, manifests and analysis scripts released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.201/2.1.220, RTK v0.44.1, Headroom 0.27.0, BGE model and model names (Haiku 4.5, Sonnet 5, Opus 4.8/5, claude-sonnet-4-6, gpt-5.6-luna) stated, binary hashes in appendix",
+   "p": "8-10, 19, 30",
+   "ok": true,
+   "ai": "Yes (1): Claude Code 2.1.201/2.1.220, RTK v0.44.1, Headroom 0.27.0, BGE model and model names (Haiku 4.5, Sonnet 5, Opus 4.8/5, claude-sonnet-4-6, gpt-5.6-luna) stated, binary hashes in appendix",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): tasks, families and pinned repositories described; frozen manifests and fixture builders released",
+   "p": "7-9, 30",
+   "ok": true,
+   "ai": "Yes (1): tasks, families and pinned repositories described; frozen manifests and fixture builders released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): frozen deterministic judges (answer/regex/test checks) and FAIL_TO_PASS tests; provider-billed cost",
+   "p": "9-10, 15",
+   "ok": true,
+   "ai": "Yes (1): frozen deterministic judges (answer/regex/test checks) and FAIL_TO_PASS tests; provider-billed cost",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): cost (billed cost, cache components, CPS) and quality (task success) formally defined",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Yes (1): cost (billed cost, cache components, CPS) and quality (task success) formally defined",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): unmodified Claude Code baseline in every randomized block",
+   "p": "9",
+   "ok": true,
+   "ai": "Yes (1): unmodified Claude Code baseline in every randomized block",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): repeated runs per task, task-clustered bootstrap CIs, ICC and effective sample size, holdout and repository sensitivity",
+   "p": "11, 13",
+   "ok": true,
+   "ai": "Yes (1): repeated runs per task, task-clustered bootstrap CIs, ICC and effective sample size, holdout and repository sensitivity",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): null and mixed results reported (no success difference, RTK saving not holdout-confirmed, Headroom sign reversal on Codex); associations not claimed as causal",
+   "p": "13-14, 21, 27",
+   "ok": true,
+   "ai": "Yes (1): null and mixed results reported (no success difference, RTK saving not holdout-confirmed, Headroom sign reversal on Codex); associations not claimed as causal",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): Limitations section and threats (cache carryover) discussed",
+   "p": "10-11, 27-29",
+   "ok": true,
+   "ai": "Yes (1): Limitations section and threats (cache carryover) discussed",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): independent of Anthropic, Headroom and OpenAI, but RTK-ML is the authors' own branch build",
+   "p": "30",
+   "ok": true,
+   "ai": "Partly (0.5): independent of Anthropic, Headroom and OpenAI, but RTK-ML is the authors' own branch build",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A: main nature Compares (plus evaluation method); RTK-ML is evaluated as an arm, not proposed as an approach",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A: main nature Compares (plus evaluation method); RTK-ML is evaluated as an arm, not proposed as an approach",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:06:56"
+}

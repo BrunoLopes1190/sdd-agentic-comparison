@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486425",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Shayanfar, R., Gallaba, K., Hassan, A. E. (2026). Choosing Coding-Agent Benchmarks for Practice: Lessons from Task Demands and Agent Behaviour. arXiv:2609.01271v2 [cs.SE], 27 Oct 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Shayanfar, R., Gallaba, K., Hassan, A. E. (2026). Choosing Coding-Agent Benchmarks for Practice: Lessons from Task Demands and Agent Behaviour. arXiv:2609.01271v2 [cs.SE], 27 Oct 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.01271v2 [cs.SE] (IEEE conference format); no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.01271v2 [cs.SE] (IEEE conference format); no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Queen's University, Kingston, Canada (academia; two authors); Centre for Software Excellence, Huawei Canada (industry; one author)",
+   "p": "1",
+   "ok": true,
+   "ai": "Queen's University, Kingston, Canada (academia; two authors); Centre for Software Excellence, Huawei Canada (industry; one author)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Evaluates — Spread-Novelty-Centrality (SNC) profile for characterising benchmark tasks by their gold patches, applied to 2,487 tasks from five public benchmarks and 14,922 runs of six agent configurations (patch scope, exploration, association with resolution); lessons and a local workflow for practitioners",
+   "p": "1-2, 9-10",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Evaluates — Spread-Novelty-Centrality (SNC) profile for characterising benchmark tasks by their gold patches, applied to 2,487 tasks from five public benchmarks and 14,922 runs of six agent configurations (patch scope, exploration, association with resolution); lessons and a local workflow for practitioners",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent configurations evaluated: Claude Code 2.1.108 with Claude Haiku 4.5, Sonnet 4.6, Opus 4.6; Qwen Code 0.14.4 with Qwen 3.5 9B, 27B, 397B-A17B. Evaluation method: SNC profile (seven indicators) and footprint ratios; proposed four-step local evaluation workflow",
+   "p": "1, 3-6, 9",
+   "ok": true,
+   "ai": "No SDD approach. Agent configurations evaluated: Claude Code 2.1.108 with Claude Haiku 4.5, Sonnet 4.6, Opus 4.6; Qwen Code 0.14.4 with Qwen 3.5 9B, 27B, 397B-A17B. Evaluation method: SNC profile (seven indicators) and footprint ratios; proposed four-step local evaluation workflow",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "N/A for the agents (benchmark problem statements only, with or without hints such as signatures and docstrings). Proposed workflow retains per historical change: request, base commit, accepted patch, available tests, information developers had; per attempt: model, scaffold, instructions, tools, limits, final patch, outcome, trajectory",
+   "p": "2-3, 9",
+   "ok": true,
+   "ai": "N/A for the agents (benchmark problem statements only, with or without hints such as signatures and docstrings). Proposed workflow retains per historical change: request, base commit, accepted patch, available tests, information developers had; per attempt: model, scaffold, instructions, tools, limits, final patch, outcome, trajectory",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Study: compute SNC indicators on gold patches (RQ1) -> run six configurations via Harbor -> compare agent patch and exploration with gold patch for Opus-resolved tasks (RQ2) -> contrast resolved vs unresolved runs (RQ3). Proposed local workflow: define the work to represent -> compare local task profile with candidate benchmarks -> evaluate the complete configuration and retain evidence -> inspect deviations before changing the workflow",
+   "p": "2-9",
+   "ok": true,
+   "ai": "Study: compute SNC indicators on gold patches (RQ1) -> run six configurations via Harbor -> compare agent patch and exploration with gold patch for Opus-resolved tasks (RQ2) -> contrast resolved vs unresolved runs (RQ3). Proposed local workflow: define the work to represent -> compare local task profile with candidate benchmarks -> evaluate the complete configuration and retain evidence -> inspect deviations before changing the workflow",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the agent runs. Proposed workflow: reviewers inspect unusually small or large patches (resolved and unresolved) and check scope deviations before setting scope policies",
+   "p": "9-10",
+   "ok": true,
+   "ai": "None in the agent runs. Proposed workflow: reviewers inspect unusually small or large patches (resolved and unresolved) and check scope deviations before setting scope policies",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs on benchmark tasks with problem statements as the only specification",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no SDD approach); full agent runs on benchmark tasks with problem statements as the only specification",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (benchmark-selection study; authors' wording: 'task demands', 'agent configuration', 'agent scaffold')",
+   "p": "2",
+   "ok": true,
+   "ai": "Not classifiable (benchmark-selection study; authors' wording: 'task demands', 'agent configuration', 'agent scaffold')",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: issue resolution (SWE-bench Verified, SWE-Gym Lite) and feature implementation (FEA-Bench, FeatBench, FeatureBench) in open-source Python repositories",
+   "p": "2-3, 10",
+   "ok": true,
+   "ai": "Existing code bases: issue resolution (SWE-bench Verified, SWE-Gym Lite) and feature implementation (FEA-Bench, FeatBench, FeatureBench) in open-source Python repositories",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "2,487 tasks: SWE-bench Verified 500, SWE-Gym Lite 230, FEA-Bench 1,401, FeatBench 156, FeatureBench 200; 14,922 runs (6 configurations x 2,487 tasks); RQ2 on the 1,083 tasks Claude Opus 4.6 resolves",
+   "p": "3, 5",
+   "ok": true,
+   "ai": "2,487 tasks: SWE-bench Verified 500, SWE-Gym Lite 230, FEA-Bench 1,401, FeatBench 156, FeatureBench 200; 14,922 runs (6 configurations x 2,487 tasks); RQ2 on the 1,083 tasks Claude Opus 4.6 resolves",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "General open-source Python software (public benchmark repositories)",
+   "p": "3, 10",
+   "ok": true,
+   "ai": "General open-source Python software (public benchmark repositories)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None (exploration breadth explicitly not a measure of time or tokens)",
+   "p": "6",
+   "ok": true,
+   "ai": "None (exploration breadth explicitly not a measure of time or tokens)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Resolution: run accepted by the benchmark's prescribed tests (resolved / unresolved); per-configuration resolution rates not reported as numbers",
+   "p": "2, 7",
+   "ok": true,
+   "ai": "Resolution: run accepted by the benchmark's prescribed tests (resolved / unresolved); per-configuration resolution rates not reported as numbers",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None (the authors state that accepted patches are not shown equivalent in maintainability and that smaller patches are not a quality goal; patch scope ratios and gold-patch SNC indicators are recorded under Other outcome metrics)",
+   "p": "5-6, 9",
+   "ok": true,
+   "ai": "None (the authors state that accepted patches are not shown equivalent in maintainability and that smaller patches are not a quality goal; patch scope ratios and gold-patch SNC indicators are recorded under Other outcome metrics)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None (patch size noted as not a measure of review effort)",
+   "p": "9",
+   "ok": true,
+   "ai": "None (patch size noted as not a measure of review effort)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Patch scope ratios agent vs gold patch: modified files, added+deleted lines, modified callables (log10 ratios; parity band 0.8-1.25x); gold-patch SNC indicators: entropy, radius, novelty, fan-in, fan-out, churn (180-day window), callable mass (size and cyclomatic complexity, Radon); exploration breadth (files read or edited / files in final agent patch); Conventional Commits labels of problem statements (LLM-classified); Scott-Knott ESD groups; chi-square associations with Cramer's V between outcome and binned indicators",
+   "p": "3-8",
+   "ok": true,
+   "ai": "Patch scope ratios agent vs gold patch: modified files, added+deleted lines, modified callables (log10 ratios; parity band 0.8-1.25x); gold-patch SNC indicators: entropy, radius, novelty, fan-in, fan-out, churn (180-day window), callable mass (size and cyclomatic complexity, Radon); exploration breadth (files read or edited / files in final agent patch); Conventional Commits labels of problem statements (LLM-classified); Scott-Knott ESD groups; chi-square associations with Cramer's V between outcome and binned indicators",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Harbor harness test outcomes, agent patches and trajectories; static analysis of gold and agent patches, import graphs and commit history (Radon); LLM classification of problem statements",
+   "p": "3-6",
+   "ok": true,
+   "ai": "Automatic: Harbor harness test outcomes, agent patches and trajectories; static analysis of gold and agent patches, import graphs and commit history (Radon); LLM classification of problem statements",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Harbor harness, Docker, default timeouts and decoding; one run per task. Success criterion per run: benchmark tests accept the patch. No quality or cost success criterion for a configuration stated by the authors. Cramer's V per configuration from Table II (rebuilt row-wise): SNC indicators range; behaviour ratios files / lines / callables / explore. (1) Claude Code 2.1.108 + Claude Haiku 4.5: resolution count not reported; SNC V 0.21-0.35; behaviour V .38 / .33 / .40 / .13; resolved runs frequently exceed 2x gold files and lines; file-parity share of resolved runs 0.17, exploration parity 0.09. (2) Claude Code + Claude Sonnet 4.6: count not reported; SNC V 0.15-0.23; behaviour V .23 / .10 / .16 / .12; file-parity share 0.41. (3) Claude Code + Claude Opus 4.6: resolves 1,083 of 2,487 tasks; SNC V 0.17-0.28; behaviour V .23 / .15 / .18 / .15; file-parity share 0.54, exploration parity 0.34; patches larger than gold on FeatBench, smaller on FeatureBench, near parity elsewhere. (4) Qwen Code 0.14.4 + Qwen 3.5 9B: SNC V 0.15-0.26; behaviour V .24 / .13 / .23 / .02 (n.s.). (5) + Qwen 3.5 27B: SNC V 0.14-0.23; behaviour V .24 / .18 / .21 / .03 (n.s.). (6) + Qwen 3.5 397B-A17B: SNC V 0.19-0.30; behaviour V .31 / .21 / .26 / .07. Qwen (4)-(6): counts not reported; about 0.6-0.7 of resolved runs above 2x gold file count, about 0.2 near parity; about 0.8 above 2x in exploration. Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "p": "3, 5-8",
+   "ok": true,
+   "ai": "Harbor harness, Docker, default timeouts and decoding; one run per task. Success criterion per run: benchmark tests accept the patch. No quality or cost success criterion for a configuration stated by the authors. Cramer's V per configuration from Table II (rebuilt row-wise): SNC indicators range; behaviour ratios files / lines / callables / explore. (1) Claude Code 2.1.108 + Claude Haiku 4.5: resolution count not reported; SNC V 0.21-0.35; behaviour V .38 / .33 / .40 / .13; resolved runs frequently exceed 2x gold files and lines; file-parity share of resolved runs 0.17, exploration parity 0.09. (2) Claude Code + Claude Sonnet 4.6: count not reported; SNC V 0.15-0.23; behaviour V .23 / .10 / .16 / .12; file-parity share 0.41. (3) Claude Code + Claude Opus 4.6: resolves 1,083 of 2,487 tasks; SNC V 0.17-0.28; behaviour V .23 / .15 / .18 / .15; file-parity share 0.54, exploration parity 0.34; patches larger than gold on FeatBench, smaller on FeatureBench, near parity elsewhere. (4) Qwen Code 0.14.4 + Qwen 3.5 9B: SNC V 0.15-0.26; behaviour V .24 / .13 / .23 / .02 (n.s.). (5) + Qwen 3.5 27B: SNC V 0.14-0.23; behaviour V .24 / .18 / .21 / .03 (n.s.). (6) + Qwen 3.5 397B-A17B: SNC V 0.19-0.30; behaviour V .31 / .21 / .26 / .07. Qwen (4)-(6): counts not reported; about 0.6-0.7 of resolved runs above 2x gold file count, about 0.2 near parity; about 0.8 above 2x in exploration. Quality verdict and cost verdict for every configuration: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Observational. Tasks: 2,487 from five public benchmarks. Configurations: two families (Claude Code + Claude, Qwen Code + Qwen) x three model sizes; no baseline. Held constant: Harbor harness, Docker environments, default task timeouts, default decoding; scaffolds differ across families. Acceptance tests: benchmarks' prescribed tests. Repetitions: one run per task and configuration. Human intervention: none. Statistics: Scott-Knott ESD (alpha 0.05, |d| >= 0.2), chi-square with Benjamini-Hochberg correction, Cramer's V. Runs 14 April - 2 June 2026",
+   "p": "3-7",
+   "ok": true,
+   "ai": "Observational. Tasks: 2,487 from five public benchmarks. Configurations: two families (Claude Code + Claude, Qwen Code + Qwen) x three model sizes; no baseline. Held constant: Harbor harness, Docker environments, default task timeouts, default decoding; scaffolds differ across families. Acceptance tests: benchmarks' prescribed tests. Repetitions: one run per task and configuration. Human intervention: none. Statistics: Scott-Knott ESD (alpha 0.05, |d| >= 0.2), chi-square with Benjamini-Hochberg correction, Cramer's V. Runs 14 April - 2 June 2026",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Benchmarks: every pair differs on at least two SNC axes, including same-label pairs. Configurations: resolved runs concentrate on lower Spread and Centrality in both families (all 42 indicator-configuration associations significant, V 0.14-0.35); larger Claude configurations more often match gold scope (file parity 0.17 / 0.41 / 0.54), Qwen resolved runs mostly exceed it; behaviour associations significant in 22 of 24 comparisons. Claude Opus 4.6 is the highest-performing configuration (rates not given)",
+   "p": "5-8",
+   "ok": true,
+   "ai": "Benchmarks: every pair differs on at least two SNC axes, including same-label pairs. Configurations: resolved runs concentrate on lower Spread and Centrality in both families (all 42 indicator-configuration associations significant, V 0.14-0.35); larger Claude configurations more often match gold scope (file parity 0.17 / 0.41 / 0.54), Qwen resolved runs mostly exceed it; behaviour associations significant in 22 of 24 comparisons. Claude Opus 4.6 is the highest-performing configuration (rates not given)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "SNC profile separated all benchmark pairs; exploration breadth did not separate benchmarks. Not repeatable as designed: one run per task, authors state repeated runs would be needed to quantify stochastic variation. Limitations stated: different scaffolds confound cross-family contrasts; different resolved subsets within family; observational comparisons (hints, repositories, construction rules co-vary); tasks from the same repository related and FEA-Bench dominates pooled tests; Python only",
+   "p": "6, 10",
+   "ok": true,
+   "ai": "SNC profile separated all benchmark pairs; exploration breadth did not separate benchmarks. Not repeatable as designed: one run per task, authors state repeated runs would be needed to quantify stochastic variation. Limitations stated: different scaffolds confound cross-family contrasts; different resolved subsets within family; observational comparisons (hints, repositories, construction rules co-vary); tasks from the same repository related and FEA-Bench dominates pooled tests; Python only",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "SNC profile measures properties of a reference change, not the full engineering work (omits requirement ambiguity, domain knowledge, runtime interactions); gold patch is one accepted implementation; tests may miss requirements; Python-only public tasks; findings may not persist across model or scaffold updates; local replication and practitioner assessment needed before using it for task assignment, review effort or deployment; industrial evaluation of the workflow planned; integration effort, productivity and review costs not measured",
+   "p": "9-10",
+   "ok": true,
+   "ai": "SNC profile measures properties of a reference change, not the full engineering work (omits requirement ambiguity, domain knowledge, runtime interactions); gold patch is one accepted implementation; tests may miss requirements; Python-only public tasks; findings may not persist across model or scaffold updates; local replication and practitioner assessment needed before using it for task assignment, review effort or deployment; industrial evaluation of the workflow planned; integration effort, productivity and review costs not measured",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Per-configuration resolution rates are not reported (only Opus's 1,083 resolved tasks), although Lesson workflow recommends reporting attempted and resolved counts. Table II values rebuilt from pdftotext column order. FEA-Bench converted to Harbor format by the authors. Code for SNC profile and analyses at github.com/radinshayanfar/task_snc. Generative AI used for implementation and editing. No pre-registration. Programming language of tasks: Python",
+   "p": "3, 5, 8-10",
+   "ok": true,
+   "ai": "Per-configuration resolution rates are not reported (only Opus's 1,083 resolved tasks), although Lesson workflow recommends reporting attempted and resolved counts. Table II values rebuilt from pdftotext column order. FEA-Bench converted to Harbor format by the authors. Code for SNC profile and analyses at github.com/radinshayanfar/task_snc. Generative AI used for implementation and editing. No pre-registration. Programming language of tasks: Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): three RQs with motivation stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): three RQs with motivation stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): indicators defined with formulas, harness, scaffold versions and statistics given; code released",
+   "p": "3-7, 10",
+   "ok": true,
+   "ai": "Yes (1): indicators defined with formulas, harness, scaffold versions and statistics given; code released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Claude Code 2.1.108, Qwen Code 0.14.4, Harbor, model names and sizes given",
+   "p": "3",
+   "ok": true,
+   "ai": "Yes (1): Claude Code 2.1.108, Qwen Code 0.14.4, Harbor, model names and sizes given",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): five public benchmarks with task counts and construction rules",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): five public benchmarks with task counts and construction rules",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): resolution by benchmarks' prescribed tests; gold patches as reference",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Yes (1): resolution by benchmarks' prescribed tests; gold patches as reference",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): scope, exploration and SNC metrics defined; no cost metric",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Partly (0.5): scope, exploration and SNC metrics defined; no cost metric",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six configurations evaluated on the same 2,487 tasks with the same Harbor harness, Docker environments, timeouts and default decoding; scaffold differs between families but is part of each configuration compared",
+   "p": "3, 10",
+   "ok": true,
+   "ai": "Yes (1): six configurations evaluated on the same 2,487 tasks with the same Harbor harness, Docker environments, timeouts and default decoding; scaffold differs between families but is part of each configuration compared",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): statistical tests with multiple-testing correction and effect sizes, but one run per task (no repetitions)",
+   "p": "5, 7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): statistical tests with multiple-testing correction and effect sizes, but one run per task (no repetitions)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions hedged, non-causal, include null results (exploration)",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Yes (1): conclusions hedged, non-causal, include null results (exploration)",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (construct, internal/statistical, external)",
+   "p": "10",
+   "ok": true,
+   "ai": "Yes (1): threats to validity section (construct, internal/statistical, external)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors are not vendors of Claude Code, Qwen Code or the models; one Huawei co-author, Huawei tools not evaluated",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "Yes (1): authors are not vendors of Claude Code, Qwen Code or the models; one Huawei co-author, Huawei tools not evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not a development approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation method, not a development approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:10:51"
+}

@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486462",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ariño de la Rubia, E., & Pafka, S. (2026). Identical Runs, Different Results: Benchmarking AI Coding Agents on Open-Weight Models. arXiv:2609.33812v1 [cs.SE], 27 Sep 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Ariño de la Rubia, E., & Pafka, S. (2026). Identical Runs, Different Results: Benchmarking AI Coding Agents on Open-Weight Models. arXiv:2609.33812v1 [cs.SE], 27 Sep 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.33812v1 [cs.SE]; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.33812v1 [cs.SE]; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Academia and industry: Central European University; Epoch",
+   "p": "1",
+   "ok": true,
+   "ai": "Academia and industry: Central European University; Epoch",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates; secondary: Compares — intensive replication (584 runs) of coding agents on one ML-engineering task (improve an XGBoost airline-delay classifier, scored on a hidden holdout by AUC) to measure run-to-run variation, compliance with data rules, repeat-and-select policies, a planned model upgrade, agent-by-model interaction, cost and transfer to a later year",
+   "p": "1-2, 4-5",
+   "ok": true,
+   "ai": "Evaluates; secondary: Compares — intensive replication (584 runs) of coding agents on one ML-engineering task (improve an XGBoost airline-delay classifier, scored on a hidden holdout by AUC) to measure run-to-run variation, compliance with data rules, repeat-and-select policies, a planned model upgrade, agent-by-model interaction, cost and transfer to a later year",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Six agents at fixed versions: Claude Code 2.1.268, Codex CLI 0.153.4, pi 0.85.1, OpenCode 1.18.30, OpenClaw 2026.9.4, Hermes (commit d20a8e4); open-weight models via two hosted endpoints: GLM-5.3, GLM-5.3 Flash, DeepSeek 4.1 Flash (LunaRoute); DeepSeek V4.1 Flash, DeepSeek V4 Flash, Nemotron Super (Ollama Cloud); DeepSeek V4 Pro (partial, cost only)",
+   "p": "4, 20",
+   "ok": true,
+   "ai": "No SDD approach. Six agents at fixed versions: Claude Code 2.1.268, Codex CLI 0.153.4, pi 0.85.1, OpenCode 1.18.30, OpenClaw 2026.9.4, Hermes (commit d20a8e4); open-weight models via two hosted endpoints: GLM-5.3, GLM-5.3 Flash, DeepSeek 4.1 Flash (LunaRoute); DeepSeek V4.1 Flash, DeepSeek V4 Flash, Nemotron Super (Ollama Cloud); DeepSeek V4 Pro (partial, cost only)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not an approach. Task inputs: working training script (train.py), run script that trains and scores on the evaluation set, written task rules (train on training file, evaluate on evaluation file, fit encoders/statistics on training data only, never on the prediction frame, leave best version as final)",
+   "p": "4",
+   "ok": true,
+   "ai": "Not an approach. Task inputs: working training script (train.py), run script that trains and scores on the evaluation set, written task rules (train on training file, evaluate on evaluation file, fit encoders/statistics on training data only, never on the prediction frame, leave best version as final)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "N/A. One autonomous session per run in its own container: agent edits train.py, may run up to 40 counted experiments (120 s each) under an 18,000 CPU-second budget; delivered train.py re-run against the hidden holdout outside the agent's reach; compliance audit afterwards",
+   "p": "4-5",
+   "ok": true,
+   "ai": "N/A. One autonomous session per run in its own container: agent edits train.py, may run up to 40 counted experiments (120 s each) under an 18,000 CPU-second budget; delivered train.py re-run against the hidden holdout outside the agent's reach; compliance audit afterwards",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs. After runs, authors read every compliance-trace hit and publish verdicts",
+   "p": "5",
+   "ok": true,
+   "ai": "None during runs. After runs, authors read every compliance-trace hit and publish verdicts",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full agent runs on one task with fixed prompt and rules",
+   "p": "4",
+   "ok": true,
+   "ai": "N/A (no SDD approach); full agent runs on one task with fixed prompt and rules",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'agent-model pairing', 'task rules')",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Not classifiable (authors' wording: 'agent-model pairing', 'task rules')",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: improve a small working XGBoost training script",
+   "p": "4",
+   "ok": true,
+   "ai": "Existing code base: improve a small working XGBoost training script",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "One task (single train.py); data: 100,000 training flights (2005), 100,000 evaluation flights (2006), 1,000,000 holdout flights (2006), 1,000,000 later-year flights (2007). 584 runs: Study 1 116 (3 per pairing), Study 2 312 (52 per pairing, 6 pairings), Study 3 156 (52 per pairing, 3 pairings)",
+   "p": "1, 4-5",
+   "ok": true,
+   "ai": "One task (single train.py); data: 100,000 training flights (2005), 100,000 evaluation flights (2006), 1,000,000 holdout flights (2006), 1,000,000 later-year flights (2007). 584 runs: Study 1 116 (3 per pairing), Study 2 312 (52 per pairing, 6 pairings), Study 3 156 (52 per pairing, 3 pairings)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Machine-learning engineering (tabular binary classification of US airline flight delays)",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Machine-learning engineering (tabular binary classification of US airline flight delays)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agents); results framed for 'a team running an agent on its own task'",
+   "p": "1",
+   "ok": true,
+   "ai": "N/A (autonomous agents); results framed for 'a team running an agent on its own task'",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Input/output/reasoning tokens per run; cached share of input; rate-card/list-price cost per run (Ollama Cloud rate card for Study 1, OpenRouter list prices for Studies 2-3); metered Python CPU seconds (budget use)",
+   "p": "5-6, 13-15",
+   "ok": true,
+   "ai": "Input/output/reasoning tokens per run; cached share of input; rate-card/list-price cost per run (Ollama Cloud rate card for Study 1, OpenRouter list prices for Studies 2-3); metered Python CPU seconds (budget use)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Holdout AUC of the delivered model (also average precision); gain over starting code (0.7148 AUC); yield (share of runs delivering a compliant, scorable artifact); AUC on 2007 flights",
+   "p": "4, 7, 10, 13",
+   "ok": true,
+   "ai": "Holdout AUC of the delivered model (also average precision); gain over starting code (0.7148 AUC); yield (share of runs delivering a compliant, scorable artifact); AUC on 2007 flights",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Compliance with data rules (training on labelled evaluation file; features computed from the scored batch); run-to-run SD and spread of pairing means; probability that few-run comparisons rank wrongly; best-of-k compliant artifact; runs per arm needed (power approximation); agent-by-model interaction contrasts; rank correlation of budget use and score",
+   "p": "2, 5-9, 11, 13",
+   "ok": true,
+   "ai": "Compliance with data rules (training on labelled evaluation file; features computed from the scored batch); run-to-run SD and spread of pairing means; probability that few-run comparisons rank wrongly; best-of-k compliant artifact; runs per arm needed (power approximation); agent-by-model interaction contrasts; rank correlation of budget use and score",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: delivered code re-run against the holdout outside the agent's reach; tokens from agents' reports, request logs and records; CPU meter via interpreter hook. Compliance by two automated traces over every delivered file, with every hit read manually",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Automatic: delivered code re-run against the holdout outside the agent's reach; tokens from agents' reports, request logs and records; CPU meter via interpreter hook. Compliance by two automated traces over every delivered file, with every hit read manually",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Criterion: holdout AUC of the delivered artifact and compliance with the task rules; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. Study 2 (52 runs each, compliant mean holdout AUC, SD, list-price cost per run, yield): (a) pi + GLM-5.3 Flash: 0.7361, SD 0.0104, $0.45, 100%. (b) Hermes + GLM-5.3 Flash: 0.7379, 0.0112, $0.83, 90.4%. (c) OpenCode + GLM-5.3 Flash: 0.7400, 0.0097, $0.58, 98.1%. (d) OpenCode + DeepSeek 4.1 Flash: 0.7403, 0.0096, $0.78, 100%. (e) Hermes + DeepSeek 4.1 Flash: 0.7441, 0.0109, $1.34, 94.2%. (f) pi + DeepSeek 4.1 Flash: 0.7456, 0.0125, $0.63, 98.1%. Study 3 (52 runs each): (g) pi + GLM-5.3: 0.7513, $8.61, 90.4%. (h) Hermes + GLM-5.3: 0.7446, $10.67, 90.4%. (i) OpenCode + GLM-5.3: 0.7455, $9.13, 96.2%. Study 1 (3 runs per pairing, 6 agents x 6 endpoints): agent gaps 0.011-0.036 AUC per model row; on DeepSeek V4 Flash (Ollama) mean cost per run pi $0.08, OpenClaw $0.09, Codex $0.15, OpenCode $0.31, Hermes $0.60, Claude Code $1.86; three Codex runs never started (gateway rejected request format). Starting code baseline: 0.7148 AUC",
+   "p": "7-8, 10, 14-15, 20",
+   "ok": true,
+   "ai": "Criterion: holdout AUC of the delivered artifact and compliance with the task rules; no success threshold stated by the authors, so verdicts for all entries: no criterion stated by the authors. Study 2 (52 runs each, compliant mean holdout AUC, SD, list-price cost per run, yield): (a) pi + GLM-5.3 Flash: 0.7361, SD 0.0104, $0.45, 100%. (b) Hermes + GLM-5.3 Flash: 0.7379, 0.0112, $0.83, 90.4%. (c) OpenCode + GLM-5.3 Flash: 0.7400, 0.0097, $0.58, 98.1%. (d) OpenCode + DeepSeek 4.1 Flash: 0.7403, 0.0096, $0.78, 100%. (e) Hermes + DeepSeek 4.1 Flash: 0.7441, 0.0109, $1.34, 94.2%. (f) pi + DeepSeek 4.1 Flash: 0.7456, 0.0125, $0.63, 98.1%. Study 3 (52 runs each): (g) pi + GLM-5.3: 0.7513, $8.61, 90.4%. (h) Hermes + GLM-5.3: 0.7446, $10.67, 90.4%. (i) OpenCode + GLM-5.3: 0.7455, $9.13, 96.2%. Study 1 (3 runs per pairing, 6 agents x 6 endpoints): agent gaps 0.011-0.036 AUC per model row; on DeepSeek V4 Flash (Ollama) mean cost per run pi $0.08, OpenClaw $0.09, Codex $0.15, OpenCode $0.31, Hermes $0.60, Claude Code $1.86; three Codex runs never started (gateway rejected request format). Starting code baseline: 0.7148 AUC",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Task: one fixed ML task with fixed data split, prompt, rules, 40-experiment and 18,000 CPU-second budget, container resources, no web access. Configurations: Study 1 six agents x six endpoints (3 runs); Study 2 pi, OpenCode, Hermes x GLM-5.3 Flash, DeepSeek 4.1 Flash (52 runs); Study 3 same agents on GLM-5.3 (52 runs). Constant: agent versions, model identifiers, prompt, budget, machine type, parallelism; endpoint builds not controlled. Baseline: starting code (0.7148 AUC). Acceptance: hidden holdout AUC plus compliance audit. Repetitions: 3 or 52 per pairing. Human intervention: none. Statistics: SDs, bootstrap intervals, power approximation, Holm-adjusted contrasts, Wald and Fisher tests; Table 2 labels which results were planned vs exploratory",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Task: one fixed ML task with fixed data split, prompt, rules, 40-experiment and 18,000 CPU-second budget, container resources, no web access. Configurations: Study 1 six agents x six endpoints (3 runs); Study 2 pi, OpenCode, Hermes x GLM-5.3 Flash, DeepSeek 4.1 Flash (52 runs); Study 3 same agents on GLM-5.3 (52 runs). Constant: agent versions, model identifiers, prompt, budget, machine type, parallelism; endpoint builds not controlled. Baseline: starting code (0.7148 AUC). Acceptance: hidden holdout AUC plus compliance audit. Repetitions: 3 or 52 per pairing. Human intervention: none. Statistics: SDs, bootstrap intervals, power approximation, Holm-adjusted contrasts, Wald and Fisher tests; Table 2 labels which results were planned vs exploratory",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Run-to-run SD (median 0.0107) exceeds the spread of pairing means (0.0095); three-run comparisons rank the weaker pairing ahead 28-44% of the time; 39-113 runs per arm needed to resolve observed agent differences. 10 of 312 Study 2 runs broke data rules and hold the 7 highest scores. Best compliant of 3 attempts +0.0081 AUC over one (95% CI 0.0063-0.0098). GLM-5.3 vs GLM-5.3 Flash +0.0091 (7.1 SE), but one run each favours the smaller model 28% of the time; gain larger for pi (+0.0152) than Hermes (+0.0067) and OpenCode (+0.0055) (Holm p 0.015, 0.003). On 2007 flights a third of the gain survives (+0.0092 vs +0.0280). Cost differs ~23-fold between pi and Claude Code on the same model, mostly via prompt cache share; GLM-5.3 ~15x the cost of GLM-5.3 Flash",
+   "p": "2, 7-15",
+   "ok": true,
+   "ai": "Run-to-run SD (median 0.0107) exceeds the spread of pairing means (0.0095); three-run comparisons rank the weaker pairing ahead 28-44% of the time; 39-113 runs per arm needed to resolve observed agent differences. 10 of 312 Study 2 runs broke data rules and hold the 7 highest scores. Best compliant of 3 attempts +0.0081 AUC over one (95% CI 0.0063-0.0098). GLM-5.3 vs GLM-5.3 Flash +0.0091 (7.1 SE), but one run each favours the smaller model 28% of the time; gain larger for pi (+0.0152) than Hermes (+0.0067) and OpenCode (+0.0055) (Holm p 0.015, 0.003). On 2007 flights a third of the gain survives (+0.0092 vs +0.0280). Cost differs ~23-fold between pi and Claude Code on the same model, mostly via prompt cache share; GLM-5.3 ~15x the cost of GLM-5.3 Flash",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: with 52 runs per pairing the design detected a planned model change and an agent-by-model interaction, but three-run comparisons (Study 1) could not rank agents; authors state that the interaction was exploratory, endpoint builds were not pinned, the repeat-and-select analysis is retrospective, and results come from one task",
+   "p": "7-8, 10-11, 16-17",
+   "ok": true,
+   "ai": "Partly: with 52 runs per pairing the design detected a planned model change and an agent-by-model interaction, but three-run comparisons (Study 1) could not rank agents; authors state that the interaction was exploratory, endpoint builds were not pinned, the repeat-and-select analysis is retrospective, and results come from one task",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: one task and dataset; exploratory agent-by-model interaction and shared Flash runs between studies; hosted endpoints not pinned (Study 3 arms a day apart); headline sizes tied to the tuning year; retrospective policy analysis; departure-time feature not a pre-departure forecast; Study 2 agents selected from Study 1; compute meter excludes model inference; costs are rate-card projections; compliance traces only find anticipated violations. Gaps: pre-specified replication on another model family; test of the cache-failure mechanism; interaction of context management with caching. Recommendations: evaluate pairings, repeat attempts, reject non-compliant runs before ranking, confirm on later data, instrument cache share and compute",
+   "p": "16-17",
+   "ok": true,
+   "ai": "Limitations: one task and dataset; exploratory agent-by-model interaction and shared Flash runs between studies; hosted endpoints not pinned (Study 3 arms a day apart); headline sizes tied to the tuning year; retrospective policy analysis; departure-time feature not a pre-departure forecast; Study 2 agents selected from Study 1; compute meter excludes model inference; costs are rate-card projections; compliance traces only find anticipated violations. Gaps: pre-specified replication on another model family; test of the cache-failure mechanism; interaction of context management with caching. Recommendations: evaluate pairings, repeat attempts, reject non-compliant runs before ranking, confirm on later data, instrument cache share and compute",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Abstract says '584 runs': 116 + 312 + 156 = 584. Study 1 table 'Five complete rows' plus partial rows; Study 1 quality excludes 5 of 108 runs. Interaction joint test reported as 'rejects no interaction (chi2 = 12.3, p = 0.002)'. Cost figures exclude cache discounts and reasoning tokens (Studies 2-3). Data, code and every delivered program released (github.com/earino/identical-runs-different-results). No pre-registration (Table 2 distinguishes planned from exploratory analyses). Programming language: Python",
+   "p": "1, 5-6, 11, 15, 20",
+   "ok": true,
+   "ai": "Abstract says '584 runs': 116 + 312 + 156 = 584. Study 1 table 'Five complete rows' plus partial rows; Study 1 quality excludes 5 of 108 runs. Interaction joint test reported as 'rejects no interaction (chi2 = 12.3, p = 0.002)'. Cost figures exclude cache discounts and reasoning tokens (Studies 2-3). Data, code and every delivered program released (github.com/earino/identical-runs-different-results). No pre-registration (Table 2 distinguishes planned from exploratory analyses). Programming language: Python",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question (what run-to-run variation means for a team running an agent on its own task) and six results clearly stated",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): question (what run-to-run variation means for a team running an agent on its own task) and six results clearly stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): task, data split, agents, budget, compliance audit, statistics and cost accounting described",
+   "p": "4-6",
+   "ok": true,
+   "ai": "Yes (1): task, data split, agents, budget, compliance audit, statistics and cost accounting described",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): exact agent versions and model identifiers given; endpoint builds not recorded (acknowledged)",
+   "p": "4",
+   "ok": true,
+   "ai": "Yes (1): exact agent versions and model identifiers given; endpoint builds not recorded (acknowledged)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): task and data described; data, code and delivered programs released",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Yes (1): task and data described; data, code and delivered programs released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden holdout AUC computed outside the agent's reach, plus later-year data",
+   "p": "4, 13",
+   "ok": true,
+   "ai": "Yes (1): hidden holdout AUC computed outside the agent's reach, plus later-year data",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): AUC, yield and compliance defined; tokens, cache share and cost per run reported",
+   "p": "4-6, 13-15",
+   "ok": true,
+   "ai": "Yes (1): AUC, yield and compliance defined; tokens, cache share and cost per run reported",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): agents and models compared under the same task, rules and budget; starting code as reference",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Yes (1): agents and models compared under the same task, rules and budget; starting code as reference",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Yes (1): 52 runs per pairing, bootstrap intervals, Holm-adjusted tests, power analysis",
+   "p": "5-6, 11",
+   "ok": true,
+   "ai": "Yes (1): 52 runs per pairing, bootstrap intervals, Holm-adjusted tests, power analysis",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions bounded to one task; negative findings (no reliable ranking, shrinking gains) reported",
+   "p": "13, 16-17",
+   "ok": true,
+   "ai": "Yes (1): conclusions bounded to one task; negative findings (no reliable ranking, shrinking gains) reported",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): detailed Limitations section",
+   "p": "16-17",
+   "ok": true,
+   "ai": "Yes (1): detailed Limitations section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): evaluated agents and models are not by the authors",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "Yes (1): evaluated agents and models are not by the authors",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no approach proposed)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:13:13"
+}

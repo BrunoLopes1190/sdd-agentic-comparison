@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486578",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wang, D., Fu, Z., Deng, J., Yin, C., Prabhu, G., Rajagopal, K. G., Yi, D., Huo, H., Xu, G., Wang, X., Rabinovich, A., Chen, Z. (2026). Take It From Here: Evaluating Coding Agents on Project Takeover. arXiv:2611.07307v1 [cs.SE], 5 Nov 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Wang, D., Fu, Z., Deng, J., Yin, C., Prabhu, G., Rajagopal, K. G., Yi, D., Huo, H., Xu, G., Wang, X., Rabinovich, A., Chen, Z. (2026). Take It From Here: Evaluating Coding Agents on Project Takeover. arXiv:2611.07307v1 [cs.SE], 5 Nov 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2611.07307v1 [cs.SE], marked 'Preprint'; no published venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2611.07307v1 [cs.SE], marked 'Preprint'; no published venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Upwork Inc (Wang, Yin, Prabhu, Rajagopal, Rabinovich, Chen; industry); University of Technology Sydney (Fu, Deng, Huo, Xu, Wang); Scale AI (Yi; industry); The Education University of Hong Kong (Xu)",
+   "p": "1",
+   "ok": true,
+   "ai": "Upwork Inc (Wang, Yin, Prabhu, Rajagopal, Rabinovich, Chen; industry); University of Technology Sydney (Fu, Deng, Huo, Xu, Wang); Scale AI (Yi; industry); The Education University of Hong Kong (Xu)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — project-takeover evaluation framework and benchmark ReqMemBench (349 requirement-diagnostic targets from 44 projects, 37 executable delivery targets from 7 projects) combining direct delivery, requirement-state diagnostics (RQ1-RQ3) and Oracle state conditions; six model-harness configurations (Codex CLI, Claude Code) compared under Full vs Relevant History and Oracle Pre-/Post-State",
+   "p": "1-3, 5-6, 9",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — project-takeover evaluation framework and benchmark ReqMemBench (349 requirement-diagnostic targets from 44 projects, 37 executable delivery targets from 7 projects) combining direct delivery, requirement-state diagnostics (RQ1-RQ3) and Oracle state conditions; six model-harness configurations (Codex CLI, Claude Code) compared under Full vs Relevant History and Oracle Pre-/Post-State",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harnesses: Claude Code 2.1.283 (Claude Opus 5.5 claude-opus-5-5, Claude Sonnet 5 claude-sonnet-5) and Codex CLI 0.155.1 (GPT-6 Astra, GPT-6 Sol, GPT-5.6 Sol, GPT-5.6 Terra), all high reasoning effort. Conditions: Full History (C1), Relevant History (C2, filtered by requirement annotations), Oracle Pre-State (gold pre-request requirement state supplied), Oracle Post-State (gold target requirement state supplied)",
+   "p": "5-6, 22-23",
+   "ok": true,
+   "ai": "No SDD approach. Harnesses: Claude Code 2.1.283 (Claude Opus 5.5 claude-opus-5-5, Claude Sonnet 5 claude-sonnet-5) and Codex CLI 0.155.1 (GPT-6 Astra, GPT-6 Sol, GPT-5.6 Sol, GPT-5.6 Terra), all high reasoning effort. Conditions: Full History (C1), Relevant History (C2, filtered by requirement annotations), Oracle Pre-State (gold pre-request requirement state supplied), Oracle Post-State (gold target requirement state supplied)",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "None prescribed by an SDD approach. Inputs: interaction history, current request, pre-request project environment. Requirement state per 'requirement atom' with five dimensions (attributes, lifecycle status, scope, ambiguity, implementation evidence); in Oracle conditions a restricted projection of the (predicted or gold) post-request requirement state (requirement ref, summary, state fields) is passed to coding. Responses follow schema rq-agent-response-v1",
+   "p": "4, 13, 23, 26",
+   "ok": true,
+   "ai": "None prescribed by an SDD approach. Inputs: interaction history, current request, pre-request project environment. Requirement state per 'requirement atom' with five dimensions (attributes, lifecycle status, scope, ambiguity, implementation evidence); in Oracle conditions a restricted projection of the (predicted or gold) post-request requirement state (requirement ref, summary, state fields) is passed to coding. Responses follow schema rq-agent-response-v1",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Direct delivery: read history + request, modify project, submit. Two-phase ReqMemBench protocol: Phase A requirement diagnostics (identify relevant requirements/evidence, reconstruct pre-request state, decide ACT/CLARIFY and output post-request state), response frozen; Phase B for ACT on execution-eligible targets: modify initial project using frozen response, then delivery checks. Oracle Pre-State: requirement update then coding; Oracle Post-State: coding from gold target",
+   "p": "3-6, 9, 23",
+   "ok": true,
+   "ai": "Direct delivery: read history + request, modify project, submit. Two-phase ReqMemBench protocol: Phase A requirement diagnostics (identify relevant requirements/evidence, reconstruct pre-request state, decide ACT/CLARIFY and output post-request state), response frozen; Phase B for ACT on execution-eligible targets: modify initial project using frozen response, then delivery checks. Oracle Pre-State: requirement update then coding; Oracle Post-State: coding from gold target",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during runs (agents run autonomously, permission mode dontAsk / sandbox settings). Humans only in benchmark construction: four reviewers in two pairs review Gold for all 44 projects and adjudicate flagged judge-label disagreements",
+   "p": "5, 17, 21-22",
+   "ok": true,
+   "ai": "None during runs (agents run autonomously, permission mode dontAsk / sandbox settings). Humans only in benchmark construction: four reviewers in two pairs review Gold for all 44 projects and adjudicate flagged judge-label disagreements",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); full autonomous takeover runs; requirement-state artefacts exercised as inputs in Oracle conditions",
+   "p": "5-6",
+   "ok": true,
+   "ai": "N/A (no SDD approach); full autonomous takeover runs; requirement-state artefacts exercised as inputs in Oracle conditions",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification-driven approach; requirement states are an evaluation construct; authors do not use SDD terms)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (no specification-driven approach; requirement states are an evaluation construct; authors do not use SDD terms)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases / ongoing projects taken over mid-way (change requests on pre-request project environments)",
+   "p": "1-3, 9",
+   "ok": true,
+   "ai": "Existing code bases / ongoing projects taken over mid-way (change requests on pre-request project environments)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "44 projects, 7,983 messages, histories 18-1,075 turns (mean 181.4, median 110); 349 diagnostic targets (312 Gold-ACT, 37 Gold-CLARIFY); 37 delivery targets from 7 projects (C1 mean 186.9 turns, C2 8.7 turns). Repository size Not stated",
+   "p": "5-6, 15-17",
+   "ok": true,
+   "ai": "44 projects, 7,983 messages, histories 18-1,075 turns (mean 181.4, median 110); 349 diagnostic targets (312 Gold-ACT, 37 Gold-CLARIFY); 37 delivery targets from 7 projects (C1 mean 186.9 turns, C2 8.7 turns). Repository size Not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Real collaborative client projects (Upwork-style): software and websites (22 delivery targets from four projects), ESP32 PCB design in KiCad (9), Word templates/reports OOXML (4), security reports (2)",
+   "p": "5, 9, 17",
+   "ok": true,
+   "ai": "Real collaborative client projects (Upwork-style): software and websites (22 delivery targets from four projects), ESP32 PCB design in KiCad (9), Word templates/reports OOXML (4), security reports (2)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants in runs; histories from client-freelancer interactions, processed for privacy). Gold reviewed by four human reviewers (profile Not stated)",
+   "p": "10, 17",
+   "ok": true,
+   "ai": "N/A (no human participants in runs; histories from client-freelancer interactions, processed for privacy). Gold reviewed by four human reviewers (profile Not stated)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None reported (only fixed time budgets: 900 s diagnostics, 1,800 s coding; tokens and money not reported)",
+   "p": "5, 21-22",
+   "ok": true,
+   "ai": "None reported (only fixed time budgets: 900 s diagnostics, 1,800 s coding; tokens and money not reported)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Delivery: build pass rate, target-test pass rate, regression pass rate, complete-delivery rate (all three pass; hidden deterministic validators, 37 targets)",
+   "p": "3-4, 8, 20-21",
+   "ok": true,
+   "ai": "Delivery: build pass rate, target-test pass rate, regression pass rate, complete-delivery rate (all three pass; hidden deterministic validators, 37 targets)",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Requirement diagnostics: RQ1 requirement and evidence Precision/Recall/F1; RQ2 Attribute Reconstruction Score and Requirement Coverage; RQ3 Decision Accuracy, ACT/CLARIFY recall, Balanced Accuracy, Exact Post-State Accuracy, Post-State Score, Blocking-Issue F1, Question Validity",
+   "p": "4-5, 18-19",
+   "ok": true,
+   "ai": "Requirement diagnostics: RQ1 requirement and evidence Precision/Recall/F1; RQ2 Attribute Reconstruction Score and Requirement Coverage; RQ3 Decision Accuracy, ACT/CLARIFY recall, Balanced Accuracy, Exact Post-State Accuracy, Post-State Score, Blocking-Issue F1, Question Validity",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: hidden validators (DETERMINISTIC THREE GATE, exit codes; no LLM decision) for delivery. Semi-automatic: semantic LLM judge (gpt-5.6-sol, high) labels relations, programs do matching and scoring; cross-diagnostic label conflicts flagged and resolved by human reviewers, metrics recomputed. Gold built with LLM-assisted annotation and deterministic replay, then human review (four reviewers, two per project)",
+   "p": "4-5, 10, 16-22",
+   "ok": true,
+   "ai": "Automatic: hidden validators (DETERMINISTIC THREE GATE, exit codes; no LLM decision) for delivery. Semi-automatic: semantic LLM judge (gpt-5.6-sol, high) labels relations, programs do matching and scoring; cross-diagnostic label conflicts flagged and resolved by human reviewers, metrics recomputed. Gold built with LLM-assisted annotation and deterministic replay, then human review (four reviewers, two per project)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors; quality and cost verdicts: no criterion stated by the authors. Complete-delivery rate on 37 targets, C1 / C2 / Oracle Pre / Oracle Post, 1 run each: (1) Codex CLI + GPT-6 Astra: 10.81 / 5.41 / 5.41 / 10.81%. (2) Codex CLI + GPT-6 Sol: 5.41 / 2.70 / 2.70 / 13.51%. (3) Codex CLI + GPT-5.6 Sol: 2.70 / 5.41 / 10.81 / 13.51%. (4) Codex CLI + GPT-5.6 Terra: 5.41 / 0.00 / 2.70 / 5.41%. (5) Claude Code + Opus 5.5: 5.41 / 2.70 / 5.41 / 5.41%. (6) Claude Code + Sonnet 5: 0.00 / 0.00 / 0.00 / 0.00%. Mean: 4.95 / 2.70 / 4.50 / 8.11%. Overall mean build 58.56 / 47.30 / 60.36 / 96.40%; target test 6.31 / 3.15 / 4.95 / 9.01%; regression 51.35 / 40.54 / 54.05 / 90.99%. Diagnostics (C1): Exact Post-State Accuracy 0/312 for all six; Post-State Score (all Gold-ACT) Astra 0.0741, GPT-6 Sol 0.0535, GPT-5.6 Sol 0.0538, Terra 0.0653, Opus 5.5 0.1670, Sonnet 5 0.1041; evidence precision/recall e.g. Astra 0.2254/0.9211",
+   "p": "7-8, 28",
+   "ok": true,
+   "ai": "No success criterion stated by the authors; quality and cost verdicts: no criterion stated by the authors. Complete-delivery rate on 37 targets, C1 / C2 / Oracle Pre / Oracle Post, 1 run each: (1) Codex CLI + GPT-6 Astra: 10.81 / 5.41 / 5.41 / 10.81%. (2) Codex CLI + GPT-6 Sol: 5.41 / 2.70 / 2.70 / 13.51%. (3) Codex CLI + GPT-5.6 Sol: 2.70 / 5.41 / 10.81 / 13.51%. (4) Codex CLI + GPT-5.6 Terra: 5.41 / 0.00 / 2.70 / 5.41%. (5) Claude Code + Opus 5.5: 5.41 / 2.70 / 5.41 / 5.41%. (6) Claude Code + Sonnet 5: 0.00 / 0.00 / 0.00 / 0.00%. Mean: 4.95 / 2.70 / 4.50 / 8.11%. Overall mean build 58.56 / 47.30 / 60.36 / 96.40%; target test 6.31 / 3.15 / 4.95 / 9.01%; regression 51.35 / 40.54 / 54.05 / 90.99%. Diagnostics (C1): Exact Post-State Accuracy 0/312 for all six; Post-State Score (all Gold-ACT) Astra 0.0741, GPT-6 Sol 0.0535, GPT-5.6 Sol 0.0538, Terra 0.0653, Opus 5.5 0.1670, Sonnet 5 0.1041; evidence precision/recall e.g. Astra 0.2254/0.9211",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 37 executable delivery targets (7 projects) and 349 diagnostic targets (44 projects). Configurations: six model-harness pairs x conditions C1, C2, Oracle Pre-State, Oracle Post-State. Baseline: Full History (C1) as main condition. Held constant within a configuration: targets, requests, initial environments, tool permissions, budgets (900 s / 1,800 s), validators; high reasoning effort; shared semantic judge; harness defaults otherwise (temperature, seeds not overridden). Acceptance tests: hidden build/target/regression validators (initial env must pass build and regression and fail target). Repetitions: one run per configuration, target and condition (technical retries not counted). Human intervention: none; tool restrictions (no network, no other runs)",
+   "p": "5-6, 17, 20-23",
+   "ok": true,
+   "ai": "Tasks: 37 executable delivery targets (7 projects) and 349 diagnostic targets (44 projects). Configurations: six model-harness pairs x conditions C1, C2, Oracle Pre-State, Oracle Post-State. Baseline: Full History (C1) as main condition. Held constant within a configuration: targets, requests, initial environments, tool permissions, budgets (900 s / 1,800 s), validators; high reasoning effort; shared semantic judge; harness defaults otherwise (temperature, seeds not overridden). Acceptance tests: hidden build/target/regression validators (initial env must pass build and regression and fail target). Repetitions: one run per configuration, target and condition (technical retries not counted). Human intervention: none; tool restrictions (no network, no other runs)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Complete delivery is low everywhere: mean 4.95% under C1 vs 2.70% under C2 (filtered history did not help); best C1 configuration Codex + GPT-6 Astra 10.81%, Claude Code + Sonnet 5 0%. Oracle Post-State raises mean complete delivery to 8.11% and build 58.56 -> 96.40%, regression 51.35 -> 90.99%, but target-test only 6.31 -> 9.01%; Oracle Pre-State 4.50%. No configuration produces any fully correct post-request state (0/312). Codex mean complete delivery (C1) 6.08% vs Claude Code 2.70%. No significance testing",
+   "p": "6-9, 27-28",
+   "ok": true,
+   "ai": "Complete delivery is low everywhere: mean 4.95% under C1 vs 2.70% under C2 (filtered history did not help); best C1 configuration Codex + GPT-6 Astra 10.81%, Claude Code + Sonnet 5 0%. Oracle Post-State raises mean complete delivery to 8.11% and build 58.56 -> 96.40%, regression 51.35 -> 90.99%, but target-test only 6.31 -> 9.01%; Oracle Pre-State 4.50%. No configuration produces any fully correct post-request state (0/312). Codex mean complete delivery (C1) 6.08% vs Claude Code 2.70%. No significance testing",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Partly: it separates requirement understanding from implementation (Oracle conditions) and shows both fail; differences between configurations are small (0-4 successes of 37) and rest on one run without statistical tests. Authors' stated limits: only 37 executable tasks from 7 projects, six configurations with two harnesses, dependence on semantic judgement and annotation uncertainty",
+   "p": "8-9, 21",
+   "ok": true,
+   "ai": "Partly: it separates requirement understanding from implementation (Oracle conditions) and shows both fail; differences between configurations are small (0-4 successes of 37) and rest on one run without statistical tests. Authors' stated limits: only 37 executable tasks from 7 projects, six configurations with two harnesses, dependence on semantic judgement and annotation uncertainty",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: executable validation covers only 37 tasks from 7 projects; six model-harness configurations (Codex CLI, Claude Code) limit representativeness; requirement boundaries, state values and free-text matching depend on semantic judgement, so annotation and scoring uncertainty remain. Future work: more projects and takeover points with recoverable environments, more models and harnesses. Gap: agents struggle both to form complete target requirement states and to implement supplied targets in existing projects",
+   "p": "9",
+   "ok": true,
+   "ai": "Limitations: executable validation covers only 37 tasks from 7 projects; six model-harness configurations (Codex CLI, Claude Code) limit representativeness; requirement boundaries, state values and free-text matching depend on semantic judgement, so annotation and scoring uncertainty remain. Future work: more projects and takeover points with recoverable environments, more models and harnesses. Gap: agents struggle both to form complete target requirement states and to implement supplied targets in existing projects",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Gold RQ2/RQ3 structural/semantic review done by a single agent (SINGLE_AGENT_ROLE_SEPARATED_PANEL), then four human reviewers; candidate selection used GPT-5.6 Sol, which is also the semantic judge and one evaluated model. Codex coding configuration specified workspace-write but inspected processes used danger-full-access. Pre/Post-State scores combine harness-level scores with independent rescoring, including GPT-5.6 Sol results not copied back to the original summary. Table 17 columns for C2 and Oracle Pre-State are interleaved in the extracted text; values taken from Table 4. No data or code link given; ethics statement says project assets are not released without authorization. No pre-registration. Programming language: Not stated (software/website projects, KiCad PCB, OOXML Word templates)",
+   "p": "10, 16-17, 22, 27-28",
+   "ok": true,
+   "ai": "Gold RQ2/RQ3 structural/semantic review done by a single agent (SINGLE_AGENT_ROLE_SEPARATED_PANEL), then four human reviewers; candidate selection used GPT-5.6 Sol, which is also the semantic judge and one evaluated model. Codex coding configuration specified workspace-write but inspected processes used danger-full-access. Pre/Post-State scores combine harness-level scores with independent rescoring, including GPT-5.6 Sol results not copied back to the original summary. Table 17 columns for C2 and Oracle Pre-State are interleaved in the extracted text; values taken from Table 4. No data or code link given; ethics statement says project assets are not released without authorization. No pre-registration. Programming language: Not stated (software/website projects, KiCad PCB, OOXML Word templates)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): goal and contributions stated, with diagnostic questions RQ1-RQ3 and three experiments",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Yes (1): goal and contributions stated, with diagnostic questions RQ1-RQ3 and three experiments",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): procedure, scoring rules, harness switches and prompt excerpts detailed in appendices, but data, validators and full prompts are not released",
+   "p": "13-27",
+   "ok": true,
+   "ai": "Partly (0.5): procedure, scoring rules, harness switches and prompt excerpts detailed in appendices, but data, validators and full prompts are not released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): harness versions (Claude Code 2.1.283, Codex CLI 0.155.1), model identifiers, reasoning effort and judge (gpt-5.6-sol) given",
+   "p": "21-22",
+   "ok": true,
+   "ai": "Yes (1): harness versions (Claude Code 2.1.283, Codex CLI 0.155.1), model identifiers, reasoning effort and judge (gpt-5.6-sol) given",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): projects, targets and construction described in detail, but the benchmark is not made available (privacy; no link)",
+   "p": "5, 9-10, 15-17",
+   "ok": true,
+   "ai": "Partly (0.5): projects, targets and construction described in detail, but the benchmark is not made available (privacy; no link)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): delivery judged by hidden deterministic validators (build, target test, regression); diagnostic Gold reviewed by human pairs",
+   "p": "4-5, 17, 20",
+   "ok": true,
+   "ai": "Yes (1): delivery judged by hidden deterministic validators (build, target test, regression); diagnostic Gold reviewed by human pairs",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and diagnostic metrics defined; no cost metric (tokens, time or money) reported",
+   "p": "3-5, 18-21",
+   "ok": true,
+   "ai": "Partly (0.5): quality and diagnostic metrics defined; no cost metric (tokens, time or money) reported",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): six configurations and four conditions on the same targets, environments, budgets and validators; C1 used as reference condition",
+   "p": "5-6, 23",
+   "ok": true,
+   "ai": "Yes (1): six configurations and four conditions on the same targets, environments, budgets and validators; C1 used as reference condition",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one run per configuration, target and condition; no repetitions or significance tests",
+   "p": "5, 21",
+   "ok": true,
+   "ai": "No (0): one run per configuration, target and condition; no repetitions or significance tests",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from the low rates; claims hedged (observed means, hypothesis for implementation failures, case does not establish causality)",
+   "p": "8-9, 34",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from the low rates; claims hedged (observed means, hypothesis for implementation failures, case does not establish causality)",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations section covers task count, configurations and judging uncertainty, but not single runs or non-determinism",
+   "p": "9",
+   "ok": true,
+   "ai": "Partly (0.5): limitations section covers task count, configurations and judging uncertainty, but not single runs or non-determinism",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors from Upwork, UTS, Scale AI and EdUHK, independent of Anthropic and OpenAI, vendors of the harnesses and models evaluated",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): authors from Upwork, UTS, Scale AI and EdUHK, independent of Anthropic and OpenAI, vendors of the harnesses and models evaluated",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:21:24"
+}

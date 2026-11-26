@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486836",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Mockus, A., Banga, A. S., Bhuptani, P., Jazayeri, S., Ge, J., Grewal, G., Lai, E., Li, J., Liang, H., Mangla, R., Parshin, S., Parekh, V., Rigby, P. C., Singh, G., Steiner, M., Nagappan, N. (2026). Autonomous Refactoring for Perfective Maintenance at Scale: The Agentic RACER System and its Empirical Evaluations. In: 34th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (FSE Companion '26), Montreal, Canada, ACM, pp. 373-383. https://doi.org/10.1145/3803437.3805211",
+   "p": "1",
+   "ok": true,
+   "ai": "Mockus, A., Banga, A. S., Bhuptani, P., Jazayeri, S., Ge, J., Grewal, G., Lai, E., Li, J., Liang, H., Mangla, R., Parshin, S., Parekh, V., Rigby, P. C., Singh, G., Steiner, M., Nagappan, N. (2026). Autonomous Refactoring for Perfective Maintenance at Scale: The Agentic RACER System and its Empirical Evaluations. In: 34th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (FSE Companion '26), Montreal, Canada, ACM, pp. 373-383. https://doi.org/10.1145/3803437.3805211",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Conference — FSE Companion '26 (34th ACM ESEC/FSE, July 5-9, 2026, Montreal), ACM, DOI 10.1145/3803437.3805211",
+   "p": "1",
+   "ok": true,
+   "ai": "Conference — FSE Companion '26 (34th ACM ESEC/FSE, July 5-9, 2026, Montreal), ACM, DOI 10.1145/3803437.3805211",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Meta Platforms, Inc., Menlo Park, CA, USA (all 16 authors); Mockus also University of Tennessee, Knoxville; Rigby also Concordia University, Montreal",
+   "p": "1",
+   "ok": true,
+   "ai": "Meta Platforms, Inc., Menlo Park, CA, USA (all 16 authors); Mockus also University of Tennessee, Knoxville; Rigby also Concordia University, Montreal",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an approach; secondary: Evaluates — RACER (Risk Aware Code Enhancement via Refactoring), an industrial agentic system for autonomous perfective maintenance at Meta (discovers, prioritises, implements and submits code-improvement diffs for human review); evaluated observationally on 9-10 months of telemetry (repository/telemetry mining): net effort savings (RQ2, with a proposed effort-accounting method) and downstream maintenance effort vs human refactoring (RQ3, Difference-in-Differences)",
+   "p": "1-2, 5-7",
+   "ok": true,
+   "ai": "Proposes an approach; secondary: Evaluates — RACER (Risk Aware Code Enhancement via Refactoring), an industrial agentic system for autonomous perfective maintenance at Meta (discovers, prioritises, implements and submits code-improvement diffs for human review); evaluated observationally on 9-10 months of telemetry (repository/telemetry mining): net effort savings (RQ2, with a proposed effort-accounting method) and downstream maintenance effort vs human refactoring (RQ3, Difference-in-Differences)",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "RACER, no version; built on Meta's Confucius agent framework (Pydantic, Analects; LangChain, MetaGen API for model access, FAISS, Instructor); task creation agent, CodingAgent, Grader System, Reviewer Agent; 'multi-model approach', LLMs not named. Baseline: manual (human) diffs and human refactoring",
+   "p": "3-5",
+   "ok": true,
+   "ai": "RACER, no version; built on Meta's Confucius agent framework (Pydantic, Analects; LangChain, MetaGen API for model access, FAISS, Instructor); task creation agent, CodingAgent, Grader System, Reviewer Agent; 'multi-model approach', LLMs not named. Baseline: manual (human) diffs and human refactoring",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Tasks created from discovery data sources (BigGrep, DeadCode, QualityInsight, Cyclomatic Complexity) as structured TaskMetadata objects in the task management system; runbooks (structured prompts; over 500, core runbooks engineered and benchmarked); generated diffs; Grader heuristics and Reviewer Agent assessments; RACER diff tags",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Tasks created from discovery data sources (BigGrep, DeadCode, QualityInsight, Cyclomatic Complexity) as structured TaskMetadata objects in the task management system; runbooks (structured prompts; over 500, core runbooks engineered and benchmarked); generated diffs; Grader heuristics and Reviewer Agent assessments; RACER diff tags",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "(1) Opportunity discovery (candidate files/functions by high CCN or other risk; task per candidate); (2) Task selection by an engineer or automatically by RACER; (3) Code generation: runbook prompt to CodingAgent, iterating (compile, refactor, improve CCN) until success or failure; (3b) quality control by Grader and Reviewer Agent, retry; (4) reviewer assignment by recommendation system; (5) human review; (6) accept and land, modify (feedback to CodingAgent) or reject. Runbooks move from benchmarking to beta to GA with A/B tests",
+   "p": "4-5",
+   "ok": true,
+   "ai": "(1) Opportunity discovery (candidate files/functions by high CCN or other risk; task per candidate); (2) Task selection by an engineer or automatically by RACER; (3) Code generation: runbook prompt to CodingAgent, iterating (compile, refactor, improve CCN) until success or failure; (3b) quality control by Grader and Reviewer Agent, retry; (4) reviewer assignment by recommendation system; (5) human review; (6) accept and land, modify (feedback to CodingAgent) or reject. Runbooks move from benchmarking to beta to GA with A/B tests",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Human code review of every diff before landing (accept, reject, modify, feed back to CodingAgent, or commandeer); optional engineer task selection; reviewer recommendation, incentives and queue management to handle the 'wall of diffs'",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Human code review of every diff before landing (accept, reject, modify, feed back to CodingAgent, or commandeer); optional engineer task selection; reviewer recommendation, incentives and queue management to handle the 'wall of diffs'",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow, deployed in production at Meta (observed, not a controlled run)",
+   "p": "2, 6",
+   "ok": true,
+   "ai": "Full workflow, deployed in production at Meta (observed, not a controlled run)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no specification artefacts; runbooks are structured prompts); authors do not use SDD terms",
+   "p": "—",
+   "ok": true,
+   "ai": "Not classifiable (no specification artefacts; runbooks are structured prompts); authors do not use SDD terms",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code base: perfective maintenance in Meta's monorepo (refactoring to reduce cyclomatic complexity, dead-code removal, static-analysis warnings, deprecated API usage)",
+   "p": "2-3, 5",
+   "ok": true,
+   "ai": "Existing code base: perfective maintenance in Meta's monorepo (refactoring to reduce cyclomatic complexity, dead-code removal, static-analysis warnings, deprecated API usage)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Enterprise-wide monorepo; all diffs landed over the study period (nine months stated; tables cover months 1-10); RACER GA at start of month 6; DiD on files refactored in months 6-8. Absolute counts not reported (all values rescaled)",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Enterprise-wide monorepo; all diffs landed over the study period (nine months stated; tables cover months 1-10); RACER GA at start of month 6; DiD on files refactored in months 6-8. Absolute counts not reported (all values rescaled)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Industrial software at Meta (server and client code, including specialised hardware devices); languages C++, Hack, Python, JavaScript",
+   "p": "2, 9",
+   "ok": true,
+   "ai": "Industrial software at Meta (server and client code, including specialised hardware devices); languages C++, Hack, Python, JavaScript",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "Meta engineers company-wide (professional); 40% of engineers did BE work, 7% were involved with RACER diffs, 4% had RACER diffs land without change. Experience controlled in DiD by tenure and job level",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Meta engineers company-wide (professional); 40% of engineers did BE work, 7% were involved with RACER diffs, 4% had RACER diffs land without change. Experience controlled in DiD by tenure and job level",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Human effort only (see human effort metrics); computational cost and energy of running RACER not included (stated by the authors)",
+   "p": "10",
+   "ok": true,
+   "ai": "Human effort only (see human effort metrics); computational cost and energy of running RACER not included (stated by the authors)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Diffs landed after human review; landed without change (RACER-noChange) vs with change (RACER-withChange); share of BE diffs completed by RACER. Grader/Reviewer Agent checks and CCN improvement not reported as values",
+   "p": "6-7",
+   "ok": true,
+   "ai": "Diffs landed after human review; landed without change (RACER-noChange) vs with change (RACER-withChange); share of BE diffs completed by RACER. Grader/Reviewer Agent checks and CCN improvement not reported as values",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Downstream maintenance effort: post-intervention Diff Authoring Time on refactored files (DiD interaction post:racer_refactored), a proxy for maintainability",
+   "p": "7-9",
+   "ok": true,
+   "ai": "Downstream maintenance effort: post-intervention Diff Authoring Time on refactored files (DiD interaction post:racer_refactored), a proxy for maintainability",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "Diff Authoring Time (DAT, seconds spent authoring and landing a diff, from IDE, search, AI interaction and terminal telemetry, excluding waiting for review) per diff for author and reviewers plus task time; number of authors; equivalent engineers; RACER-engineering effort (DAT of diffs to RACER source). EffortSavings = noAgentEffort (hypothetical) − AgentAssistedEffort − AgentEngineeringEffort",
+   "p": "5-7, 9",
+   "ok": true,
+   "ai": "Diff Authoring Time (DAT, seconds spent authoring and landing a diff, from IDE, search, AI interaction and terminal telemetry, excluding waiting for review) per diff for author and reviewers plus task time; number of authors; equivalent engineers; RACER-engineering effort (DAT of diffs to RACER source). EffortSavings = noAgentEffort (hypothetical) − AgentAssistedEffort − AgentEngineeringEffort",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Participation rates of engineers in BE and RACER diffs; regression covariates (Katz file and author centrality, tenure, job level, past diffs, files, churn, language)",
+   "p": "6, 8-9",
+   "ok": true,
+   "ai": "Participation rates of engineers in BE and RACER diffs; regression covariates (Katz file and author centrality, tenure, job level, past diffs, files, churn, language)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Phabricator archives and Meta's data warehouse (diff creation and landing times, files, authors, reviewers, comments); DAT telemetry algorithms; RACER diff tags and extra infrastructure detecting human modification at landing; BE diffs by title/tag keywords; RACER-engineering diffs by source path. Bots and outlier authors (>99th percentile) removed. Statistical: ln(x+1) transforms, variables with correlation > 0.7 dropped, multiple regression DiD",
+   "p": "5-8",
+   "ok": true,
+   "ai": "Automatic: Phabricator archives and Meta's data warehouse (diff creation and landing times, files, authors, reviewers, comments); DAT telemetry algorithms; RACER diff tags and extra infrastructure detecting human modification at landing; BE diffs by title/tag keywords; RACER-engineering diffs by source path. Bots and outlier authors (>99th percentile) removed. Statistical: ln(x+1) transforms, variables with correlation > 0.7 dropped, multiple regression DiD",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) RACER (Confucius-based agents, models not stated), production, months 6-10: DAT per diff relative to regular manual diffs: RACER-withChange 0.337, RACER-noChange 0.042; 15% of BE diffs completed by RACER and landed; 35% of landed RACER-initiated diffs unmodified; net savings after subtracting RACER-engineering effort: total saved [39, 57.4] rescaled DAT units, [2.51, 3.71] rescaled engineers; DiD interaction post:racer_refactored −0.05 (t = −3.24, p < 0.01), adj. R² = 0.12. Cost verdict: works (authors' criterion: effort saved exceeds effort to build and maintain the agent; compute cost excluded). Quality verdict: works (authors' criterion: downstream maintenance-effort reduction at least as strong as for human refactoring). (2) Manual baseline (human BE diffs / human-refactored files, no agent): DAT per diff 0.760 of regular diffs; 5.3% of diffs and 3.7% of DAT; DAT decreased post-intervention (post −0.20). Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "p": "6-9 (Tables 1-3, 5)",
+   "ok": true,
+   "ai": "(1) RACER (Confucius-based agents, models not stated), production, months 6-10: DAT per diff relative to regular manual diffs: RACER-withChange 0.337, RACER-noChange 0.042; 15% of BE diffs completed by RACER and landed; 35% of landed RACER-initiated diffs unmodified; net savings after subtracting RACER-engineering effort: total saved [39, 57.4] rescaled DAT units, [2.51, 3.71] rescaled engineers; DiD interaction post:racer_refactored −0.05 (t = −3.24, p < 0.01), adj. R² = 0.12. Cost verdict: works (authors' criterion: effort saved exceeds effort to build and maintain the agent; compute cost excluded). Quality verdict: works (authors' criterion: downstream maintenance-effort reduction at least as strong as for human refactoring). (2) Manual baseline (human BE diffs / human-refactored files, no agent): DAT per diff 0.760 of regular diffs; 5.3% of diffs and 3.7% of DAT; DAT decreased post-intervention (post −0.20). Quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Observational, single organisation. RQ2: DAT per diff for regular manual diffs, manual BE diffs, RACER-initiated diffs (with/without change), RACER-use, RACER-engineering; equivalent non-agent effort estimated as total RACER DAT × (average BE DAT / average RACER DAT), converted to engineers via diff-to-engineer ratio. RQ3: DiD, control = files refactored by humans, treatment = files refactored by RACER in months 6-8; DAT on diffs to these files pre (months 1-5) vs post (months 9-10); covariates for centrality, coordination, expertise, churn, language. Agent/model not held or reported; no acceptance tests beyond CI and human review; no repetitions; human intervention: mandatory review, engineers may modify or commandeer diffs. Task selection not random",
+   "p": "5-8",
+   "ok": true,
+   "ai": "Observational, single organisation. RQ2: DAT per diff for regular manual diffs, manual BE diffs, RACER-initiated diffs (with/without change), RACER-use, RACER-engineering; equivalent non-agent effort estimated as total RACER DAT × (average BE DAT / average RACER DAT), converted to engineers via diff-to-engineer ratio. RQ3: DiD, control = files refactored by humans, treatment = files refactored by RACER in months 6-8; DAT on diffs to these files pre (months 1-5) vs post (months 9-10); covariates for centrality, coordination, expertise, churn, language. Agent/model not held or reported; no acceptance tests beyond CI and human review; no repetitions; human intervention: mandatory review, engineers may modify or commandeer diffs. Task selection not random",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "RACER-initiated diffs need far less effort than manual BE diffs (0.337 with change, 0.042 without change vs 0.760; regular diffs = 1.000). Net savings positive after agent engineering effort, stated as 'an equivalent of several hundred engineers' over four months (absolute values hidden by rescaling). RACER-refactored files had a larger reduction in subsequent DAT than human-refactored files (interaction −0.05, statistically significant); racer_refactored main effect not significant (0.02, p = 0.09), supporting comparable pre-period DAT. Interpreted cautiously as non-causal",
+   "p": "6-9",
+   "ok": true,
+   "ai": "RACER-initiated diffs need far less effort than manual BE diffs (0.337 with change, 0.042 without change vs 0.760; regular diffs = 1.000). Net savings positive after agent engineering effort, stated as 'an equivalent of several hundred engineers' over four months (absolute values hidden by rescaling). RACER-refactored files had a larger reduction in subsequent DAT than human-refactored files (interaction −0.05, statistically significant); racer_refactored main effect not significant (0.02, p = 0.09), supporting comparable pre-period DAT. Interpreted cautiously as non-causal",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "The effort accounting distinguished RACER categories from manual work, and the DiD separated RACER from human refactoring; the method is proposed as reusable for other autonomous tools. Not repeated. Limitations stated: DAT is a proxy missing offline effort; misclassification of diffs by tags/titles/paths; noChange detection may miss edits; DiD relies on parallel trends and non-random selection; agent and runbooks evolved during the period (maturation); reviewer learning effects; compute and energy costs not included; savings range depends on modelling assumptions",
+   "p": "7, 9-10",
+   "ok": true,
+   "ai": "The effort accounting distinguished RACER categories from manual work, and the DiD separated RACER from human refactoring; the method is proposed as reusable for other autonomous tools. Not repeated. Limitations stated: DAT is a proxy missing offline effort; misclassification of diffs by tags/titles/paths; noChange detection may miss edits; DiD relies on parallel trends and non-random selection; agent and runbooks evolved during the period (maturation); reviewer learning effects; compute and energy costs not included; savings range depends on modelling assumptions",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: single large organisation with monorepo and strong governance; bounded class of perfective tasks (may not extend to corrective maintenance or tasks needing domain knowledge or architectural change); depends on mature metrics and reviewer capacity; DAT proxy; misclassification; parallel-trends assumption; maturation and reviewer learning; compute/energy not counted. Practical constraints: model and tool stability, latency, overly broad changes, reviewer overload ('wall of diffs'). Future work: wider task coverage, outcome-based prioritisation, stronger quality assurance and governance, autonomous A/B experiments",
+   "p": "2, 9-10",
+   "ok": true,
+   "ai": "Limitations: single large organisation with monorepo and strong governance; bounded class of perfective tasks (may not extend to corrective maintenance or tasks needing domain knowledge or architectural change); depends on mature metrics and reviewer capacity; DAT proxy; misclassification; parallel-trends assumption; maturation and reviewer learning; compute/energy not counted. Practical constraints: model and tool stability, latency, overly broad changes, reviewer overload ('wall of diffs'). Future work: wider task coverage, outcome-based prioritisation, stronger quality assurance and governance, autonomous A/B experiments",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "All quantitative results are rescaled (Tables 1-3), so absolute effort, diff counts and engineer numbers are not reported; the text's 'several hundred engineers' cannot be checked against Table 3 ([2.51, 3.71] rescaled). Possible inconsistencies: '35% of landed RACER-initiated diffs unmodified' vs Table 2 (0.0030 / (0.0030 + 0.0048) ≈ 38%); '15% of all BE diffs' matches RACER-initiated / BE-non-RACER in Table 2 (0.0078 / 0.0533 ≈ 15%) but is about 13% when RACER diffs are counted within all BE diffs (0.0078 / 0.0611); data said to cover 'nine months' while tables use months 1-10; 'four-month period' vs Mnth 6-10; text says agent engineering effort was spent 'over months 1-5' while Tables 2-3 count RACER-engineering over Mnth 1-10; DAT expanded as 'Dependent Authoring Time' in §6.1; abstract says 'as strong as or stronger', results say 'larger'; RACER called 'fully autonomous' (§3.10) although every diff is human-reviewed; 'MetaGen API [10] for AI model access' cites an unrelated metaheuristics framework. Table 3 (jumbled in the extraction, rebuilt by column order): the listed components do not add up to the stated totals: DAT [111, 126] − [0.8, 4.1] − 16.3 − 16.8 − 36.4 gives about 37.4-55.7, not [39, 57.4]; engineers [7.14, 8.15] − [0.05, 0.27] − 1.06 − 1.09 − 2.36 gives about 2.36-3.59, not [2.51, 3.71] (p. 7). Values used: Tables 1-3 and 5. LLMs used are not named. No data or replication package (internal data); no pre-registration. Programming languages: C++, Hack, Python, JavaScript",
+   "p": "1, 5-9",
+   "ok": true,
+   "ai": "All quantitative results are rescaled (Tables 1-3), so absolute effort, diff counts and engineer numbers are not reported; the text's 'several hundred engineers' cannot be checked against Table 3 ([2.51, 3.71] rescaled). Possible inconsistencies: '35% of landed RACER-initiated diffs unmodified' vs Table 2 (0.0030 / (0.0030 + 0.0048) ≈ 38%); '15% of all BE diffs' matches RACER-initiated / BE-non-RACER in Table 2 (0.0078 / 0.0533 ≈ 15%) but is about 13% when RACER diffs are counted within all BE diffs (0.0078 / 0.0611); data said to cover 'nine months' while tables use months 1-10; 'four-month period' vs Mnth 6-10; text says agent engineering effort was spent 'over months 1-5' while Tables 2-3 count RACER-engineering over Mnth 1-10; DAT expanded as 'Dependent Authoring Time' in §6.1; abstract says 'as strong as or stronger', results say 'larger'; RACER called 'fully autonomous' (§3.10) although every diff is human-reviewed; 'MetaGen API [10] for AI model access' cites an unrelated metaheuristics framework. Table 3 (jumbled in the extraction, rebuilt by column order): the listed components do not add up to the stated totals: DAT [111, 126] − [0.8, 4.1] − 16.3 − 16.8 − 36.4 gives about 37.4-55.7, not [39, 57.4]; engineers [7.14, 8.15] − [0.05, 0.27] − 1.06 − 1.09 − 2.36 gives about 2.36-3.59, not [2.51, 3.71] (p. 7). Values used: Tables 1-3 and 5. LLMs used are not named. No data or replication package (internal data); no pre-registration. Programming languages: C++, Hack, Python, JavaScript",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): RQ1-RQ3 stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): RQ1-RQ3 stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): effort accounting, diff classification and DiD model described, but DAT algorithms, runbooks, models and internal data are not disclosed and values are rescaled",
+   "p": "5-9",
+   "ok": true,
+   "ai": "Partly (0.5): effort accounting, diff classification and DiD model described, but DAT algorithms, runbooks, models and internal data are not disclosed and values are rescaled",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): the LLMs and versions of RACER/Confucius are not identified ('multi-model approach' via MetaGen API)",
+   "p": "3, 5",
+   "ok": true,
+   "ai": "No (0): the LLMs and versions of RACER/Confucius are not identified ('multi-model approach' via MetaGen API)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): task classes and data sources described; the codebase and data are internal and not available",
+   "p": "3, 6",
+   "ok": true,
+   "ai": "Partly (0.5): task classes and data sources described; the codebase and data are internal and not available",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): diffs are accepted by independent human reviewers and effort comes from telemetry, but no acceptance tests or defect outcomes are reported; downstream quality only via a DAT proxy",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Partly (0.5): diffs are accepted by independent human reviewers and effort comes from telemetry, but no acceptance tests or defect outcomes are reported; downstream quality only via a DAT proxy",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): DAT and the savings formula are defined; cost covers human effort only (compute excluded) and quality only via landing and a maintenance-effort proxy",
+   "p": "5-6, 9-10",
+   "ok": true,
+   "ai": "Partly (0.5): DAT and the savings formula are defined; cost covers human effort only (compute excluded) and quality only via landing and a maintenance-effort proxy",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): manual baselines (regular and BE diffs, human-refactored files as DiD control), but observational with non-random task selection, not the same conditions",
+   "p": "6-7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): manual baselines (regular and BE diffs, human-refactored files as DiD control), but observational with non-random task selection, not the same conditions",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): regression DiD with covariates, t and p values; no repetitions and no uncertainty intervals for the savings (range from modelling assumptions only)",
+   "p": "7-9",
+   "ok": true,
+   "ai": "Partly (0.5): regression DiD with covariates, t and p values; no repetitions and no uncertainty intervals for the savings (range from modelling assumptions only)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): RQ3 interpreted cautiously, but 'several hundred engineers' savings cannot be traced to the rescaled tables, RACER is called 'fully autonomous' despite mandatory review, and 'without degrading downstream maintainability' rests on a DAT proxy",
+   "p": "5, 7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): RQ3 interpreted cautiously, but 'several hundred engineers' savings cannot be traced to the rescaled tables, RACER is called 'fully autonomous' despite mandatory review, and 'without degrading downstream maintainability' rests on a DAT proxy",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats to validity section (generalisability, construct, internal)",
+   "p": "9-10",
+   "ok": true,
+   "ai": "Yes (1): threats to validity section (generalisability, construct, internal)",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "Yes (1): FSE Companion '26 (ACM), peer-reviewed",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): FSE Companion '26 (ACM), peer-reviewed",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Partly (0.5): all authors are from Meta, which built RACER and Confucius (vendor of the evaluated agent); the comparison is with a manual (human) baseline that no author is vendor of",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "Partly (0.5): all authors are from Meta, which built RACER and Confucius (vendor of the evaluated agent); the comparison is with a manual (human) baseline that no author is vendor of",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "No (0): RACER depends on Meta-internal infrastructure (monorepo, DAT telemetry, BigGrep, QualityInsight, reviewer recommendation, MetaGen) and compute costs are not reported; not within reach of a typical team",
+   "p": "2-5, 10",
+   "ok": true,
+   "ai": "No (0): RACER depends on Meta-internal infrastructure (monorepo, DAT telemetry, BigGrep, QualityInsight, reviewer recommendation, MetaGen) and compute costs are not reported; not within reach of a typical team",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:32:09"
+}

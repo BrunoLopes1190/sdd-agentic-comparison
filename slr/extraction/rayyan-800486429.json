@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486429",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Madduru, P. R. (2026). When Agents Implement Systems: A Case Study in Defects, Detection, and Evaluation Rigor. arXiv:2609.01985v1 [cs.AI], 2 Sep 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Madduru, P. R. (2026). When Agents Implement Systems: A Case Study in Defects, Detection, and Evaluation Rigor. arXiv:2609.01985v1 [cs.AI], 2 Sep 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.01985v1 [cs.AI], marked 'Preprint', 5 pages; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.01985v1 [cs.AI], marked 'Preprint', 5 pages; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Amazon.com (industry; single author)",
+   "p": "1",
+   "ok": true,
+   "ai": "Amazon.com (industry; single author)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Evaluates — observational single-session case study of one LLM coding agent implementing a multi-component data system against a detailed pre-existing specification: catalog of five agent-introduced defects (constraint violated, detection method), plus an external benchmark (HotpotQA) evaluation of the specified retrieval-filtering trade-off",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Evaluates — observational single-session case study of one LLM coding agent implementing a multi-component data system against a detailed pre-existing specification: catalog of five agent-introduced defects (constraint violated, detection method), plus an external benchmark (HotpotQA) evaluation of the specified retrieval-filtering trade-off",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No named SDD approach: spec-directed implementation by 'Claude, operated via a CLI coding tool' against a pre-existing design document. Agent, model and tool versions: Not stated",
+   "p": "1-2",
+   "ok": true,
+   "ai": "No named SDD approach: spec-directed implementation by 'Claude, operated via a CLI coding tool' against a pre-existing design document. Agent, model and tool versions: Not stated",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Pre-existing design document fixing storage technologies, schema, entity-resolution algorithm and retrieval-filtering strategy (interaction-design details left open); session artefacts used as data: code diffs, test output, screenshots, timing",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Pre-existing design document fixing storage technologies, schema, entity-resolution algorithm and retrieval-filtering strategy (interaction-design details left open); session artefacts used as data: code diffs, test output, screenshots, timing",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Specification given in advance -> agent implements end to end in one extended session (graph store, filtered vector index, async ingestion pipeline, visualization client) -> defects diagnosed and fixed by the agent proactively or after user-reported symptoms -> post-hoc categorisation of defects; separate retrieval ablation on HotpotQA",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Specification given in advance -> agent implements end to end in one extended session (graph store, filtered vector index, async ingestion pipeline, visualization client) -> defects diagnosed and fixed by the agent proactively or after user-reported symptoms -> post-hoc categorisation of defects; separate retrieval ablation on HotpotQA",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "User reports symptoms during development and use (e.g. latency, client crash); human caught an uncatalogued re-render inefficiency through interactive testing; no planned review gates described",
+   "p": "2-4",
+   "ok": true,
+   "ai": "User reports symptoms during development and use (e.g. latency, client crash); human caught an uncatalogued re-render inefficiency through interactive testing; no planned review gates described",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full implementation from a specification document (specification-to-code in one session); not a named workflow",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Full implementation from a specification document (specification-to-code in one session); not a named workflow",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'detailed pre-existing specification', 'spec-directed implementation', 'design document'; the spec is fixed before implementation, closest to spec-first, but no lifecycle of the spec is described)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Not classifiable (authors' wording: 'detailed pre-existing specification', 'spec-directed implementation', 'design document'; the spec is fixed before implementation, closest to spec-first, but no lifecycle of the spec is described)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New system (greenfield implementation of a multi-component data system from a design document)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "New system (greenfield implementation of a multi-component data system from a design document)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "Not stated (four components: graph store, vector index, async multi-stage ingestion pipeline, force-directed visualization client; single extended session). Retrieval evaluation: 100 HotpotQA questions, 2,994-paragraph pooled corpus",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Not stated (four components: graph store, vector index, async multi-stage ingestion pipeline, force-directed visualization client; single extended session). Retrieval evaluation: 100 HotpotQA questions, 2,994-paragraph pooled corpus",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Data systems / retrieval (graph-guided retrieval-augmented generation); application domain not stated",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Data systems / retrieval (graph-guided retrieval-augmented generation); application domain not stated",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "Not stated: a 'user' reports symptoms and a human tests interactively; not said whether this is the single author, nor their experience",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Not stated: a 'user' reports symptoms and a human tests interactively; not said whether this is the single author, nor their experience",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured (one latency observation: 242 s on an 18-chunk document motivated the concurrency fix)",
+   "p": "4",
+   "ok": true,
+   "ai": "None measured (one latency observation: 242 s on an 18-chunk document motivated the concurrency fix)",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Defect catalog: five defects categorised by systems constraint (reliability, correctness x2, consistency, efficiency) and detection method (runtime exception, repeated-execution test, client crash, user-observed latency, screenshot comparison); retrieval: mean recall@k and exact match (both gold paragraphs) for k = 1, 3, 5, 10",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Defect catalog: five defects categorised by systems constraint (reliability, correctness x2, consistency, efficiency) and detection method (runtime exception, repeated-execution test, client crash, user-observed latency, screenshot comparison); retrieval: mean recall@k and exact match (both gold paragraphs) for k = 1, 3, 5, 10",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Qualitative: where agent autonomy succeeded (structural fixes in two of five defects) vs needed human correction; unverified performance claim by the agent (fix not re-measured on the regression input)",
+   "p": "4",
+   "ok": true,
+   "ai": "Qualitative: where agent autonomy succeeded (structural fixes in two of five defects) vs needed human correction; unverified performance claim by the agent (fix not re-measured on the regression input)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual: post-hoc logging of defects from session artefacts (diffs, test output, screenshots, timing), no protocol decided in advance. Retrieval: automatic script (cosine similarity, recall against gold supporting-fact labels, exact sign test)",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Manual: post-hoc logging of defects from session artefacts (diffs, test output, screenshots, timing), no protocol decided in advance. Retrieval: automatic script (cosine similarity, recall against gold supporting-fact labels, exact sign test)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "(1) Claude via a CLI coding tool (version and model not stated) + pre-existing specification: no success criterion stated by the authors; five defects introduced and fixed in one session (two diagnosed from a single symptom with a structural fix; one consistency defect reintroduced at a second call site; one performance fix claimed without re-measuring). Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors (no cost measured). Retrieval ablation (not an agent configuration): filtered vs unfiltered retrieval, recall@1 0.500 vs 0.420; recall@10 1.000 vs 0.845; exact match at k = 10 1.000 vs 0.690; sign test p < 10^-4 at every k",
+   "p": "3-4",
+   "ok": true,
+   "ai": "(1) Claude via a CLI coding tool (version and model not stated) + pre-existing specification: no success criterion stated by the authors; five defects introduced and fixed in one session (two diagnosed from a single symptom with a structural fix; one consistency defect reintroduced at a second call site; one performance fix claimed without re-measuring). Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors (no cost measured). Retrieval ablation (not an agent configuration): filtered vs unfiltered retrieval, recall@1 0.500 vs 0.420; recall@10 1.000 vs 0.845; exact match at k = 10 1.000 vs 0.690; sign test p < 10^-4 at every k",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "No comparison of agents or approaches. Only the retrieval ablation: filtered (candidates restricted to gold-titled paragraphs, a stand-in for entity identification) vs unfiltered similarity search, same corpus and embedder, 100 HotpotQA distractor-setting questions, k in {1, 3, 5, 10}, paired two-sided exact sign test",
+   "p": "3-4",
+   "ok": true,
+   "ai": "No comparison of agents or approaches. Only the retrieval ablation: filtered (candidates restricted to gold-titled paragraphs, a stand-in for entity identification) vs unfiltered similarity search, same corpus and embedder, 100 HotpotQA distractor-setting questions, k in {1, 3, 5, 10}, paired two-sided exact sign test",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Agent: N/A. Retrieval: filtered recall reaches 1.0 from k = 3 (near-tautological by design); unfiltered recovers both gold paragraphs only 69% of the time at k = 10; differences significant at every k (p from 3x10^-5 to 3x10^-18)",
+   "p": "4",
+   "ok": true,
+   "ai": "Agent: N/A. Retrieval: filtered recall reaches 1.0 from k = 3 (near-tautological by design); unfiltered recovers both gold paragraphs only 69% of the time at k = 10; differences significant at every k (p from 3x10^-5 to 3x10^-18)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A for agents. Retrieval ablation separated conditions but the author states the filtered ceiling follows from the design; gold-label substitution for entity identification limits generalisation to an automated pipeline",
+   "p": "4",
+   "ok": true,
+   "ai": "N/A for agents. Retrieval ablation separated conditions but the author states the filtered ceiling follows from the design; gold-label substitution for entity identification limits generalisation to an automated pipeline",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Single-session, single-agent case study; defect frequencies not claimed to generalise (including to smaller models); retrieval ablation substitutes gold entity labels and uses recall rather than HotpotQA's own metrics. Several defects had no static or type-level signature, arguing for execution-based evaluation of agentic systems work; the development loop had no mechanism forcing re-measurement against the regression a fix targeted or an external benchmark",
+   "p": "3-5",
+   "ok": true,
+   "ai": "Single-session, single-agent case study; defect frequencies not claimed to generalise (including to smaller models); retrieval ablation substitutes gold entity labels and uses recall rather than HotpotQA's own metrics. Several defects had no static or type-level signature, arguing for execution-based evaluation of agentic systems work; the development loop had no mechanism forcing re-measurement against the regression a fix targeted or an external benchmark",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Agent identified only as 'Claude, operated via a CLI coding tool'; model, tool and versions not stated. Defect log drawn from existing session artefacts, not a protocol decided in advance. Ablation script and results said to be retained alongside the paper's source; no repository link given; the system code is not released. Embedder not named. No pre-registration. Programming language not stated",
+   "p": "2, 4-5",
+   "ok": true,
+   "ai": "Agent identified only as 'Claude, operated via a CLI coding tool'; model, tool and versions not stated. Defect log drawn from existing session artefacts, not a protocol decided in advance. Ablation script and results said to be retained alongside the paper's source; no repository link given; the system code is not released. Embedder not named. No pre-registration. Programming language not stated",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): contributions and scope clearly stated, including what the paper is not",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): contributions and scope clearly stated, including what the paper is not",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): retrieval ablation described in enough detail to re-run; the case study (spec, prompts, agent setup, session) is not described in replicable detail",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Partly (0.5): retrieval ablation described in enough detail to re-run; the case study (spec, prompts, agent setup, session) is not described in replicable detail",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "No (0): only 'Claude' and 'a CLI coding tool'; no versions",
+   "p": "2",
+   "ok": true,
+   "ai": "No (0): only 'Claude' and 'a CLI coding tool'; no versions",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): system described at component level, specification and code not available; HotpotQA public",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Partly (0.5): system described at component level, specification and code not available; HotpotQA public",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): retrieval measured against HotpotQA gold labels; defects identified by the author from session artefacts, no independent criterion for the implementation",
+   "p": "2-4",
+   "ok": true,
+   "ai": "Partly (0.5): retrieval measured against HotpotQA gold labels; defects identified by the author from session artefacts, no independent criterion for the implementation",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): recall@k and exact match defined; defect categories qualitative; no cost metric",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Partly (0.5): recall@k and exact match defined; defect categories qualitative; no cost metric",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Partly (0.5): unfiltered baseline for the retrieval trade-off only; no baseline for the agent's implementation",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Partly (0.5): unfiltered baseline for the retrieval trade-off only; no baseline for the agent's implementation",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): paired sign test for the retrieval ablation; single session for the agent study, no repetitions",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): paired sign test for the retrieval ablation; single session for the agent study, no repetitions",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions are hedged and acknowledge the near-tautological filtered result and non-generalisation",
+   "p": "4-5",
+   "ok": true,
+   "ai": "Yes (1): conclusions are hedged and acknowledge the near-tautological filtered result and non-generalisation",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): limitations stated briefly within the discussion; no threats-to-validity section",
+   "p": "4",
+   "ok": true,
+   "ai": "Partly (0.5): limitations stated briefly within the discussion; no threats-to-validity section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach",
+   "p": "1",
+   "ok": true,
+   "ai": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no approach proposed)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:10:56"
+}

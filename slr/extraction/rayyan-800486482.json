@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486482",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Vangala, B. P., Malik, T. (2026). Code That Works, Environments That Don't: Measuring Environment Reproducibility in AI-Generated Software. arXiv:2610.00425v1 [cs.SE], 30 Sep 2026 (formatted in the AI Magazine template)",
+   "p": "1",
+   "ok": true,
+   "ai": "Vangala, B. P., Malik, T. (2026). Code That Works, Environments That Don't: Measuring Environment Reproducibility in AI-Generated Software. arXiv:2610.00425v1 [cs.SE], 30 Sep 2026 (formatted in the AI Magazine template)",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2610.00425v1 [cs.SE]; laid out in the AI Magazine article template, but the Received/Revised/Accepted fields are empty and the DOI is a placeholder (https://doi.org/0000), so no published venue is established",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2610.00425v1 [cs.SE]; laid out in the AI Magazine article template, but the Received/Revised/Accepted fields are empty and the DOI is a placeholder (https://doi.org/0000), so no published venue is established",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Department of Electrical Engineering and Computer Science, University of Missouri–Columbia, USA (academic)",
+   "p": "1",
+   "ok": true,
+   "ai": "Department of Electrical Engineering and Computer Science, University of Missouri–Columbia, USA (academic)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — agent evaluation protocol (Gen and Repair skills) and three-layer dependency framework (declared, installed, runtime-traced) for environment specification; applied to three coding agents over 50 tasks in four language ecosystems (1,000 runs)",
+   "p": "1-3, 5-6",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — agent evaluation protocol (Gen and Repair skills) and three-layer dependency framework (declared, installed, runtime-traced) for environment specification; applied to three coding agents over 50 tasks in four language ecosystems (1,000 runs)",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Agents (accessed through their CLIs at default settings): A1 Claude Code (Anthropic, Claude Opus with extended thinking); A2 Codex (OpenAI, the latest Codex model via GitHub Copilot); A3 Gemini Code Assist (Google, Gemini with the highest reasoning configuration). No agent or model versions stated",
+   "p": "6",
+   "ok": true,
+   "ai": "No SDD approach evaluated. Agents (accessed through their CLIs at default settings): A1 Claude Code (Anthropic, Claude Opus with extended thinking); A2 Codex (OpenAI, the latest Codex model via GitHub Copilot); A3 Gemini Code Assist (Google, Gemini with the highest reasoning configuration). No agent or model versions stated",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Prompt template per task: task title, description and functional requirements, plus framing: a complete project for a clean Ubuntu 22.04 machine with only the language runtime, including source code, a dependency file (requirements.txt, pom.xml, package.json or CMakeLists.txt) with all direct and transitive dependencies pinned to exact versions, and README.md with setup, build and run instructions (explicit variant, used for all runs)",
+   "p": "3-4, 6",
+   "ok": true,
+   "ai": "Prompt template per task: task title, description and functional requirements, plus framing: a complete project for a clean Ubuntu 22.04 machine with only the language runtime, including source code, a dependency file (requirements.txt, pom.xml, package.json or CMakeLists.txt) with all direct and transitive dependencies pinned to exact versions, and README.md with setup, build and run instructions (explicit variant, used for all runs)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Gen: agent produces code and manifest; Execute in an isolated Docker container; on failure, Repair with the runtime error, up to K = 10 cycles (max 11 interactions, full history kept); then extraction: ParseManifest (declared set D1 from the initial manifest), Resolve (installed set D2 via the package manager), Trace (runtime set D3 via Sciunit ptrace tracing)",
+   "p": "2-6",
+   "ok": true,
+   "ai": "Gen: agent produces code and manifest; Execute in an isolated Docker container; on failure, Repair with the runtime error, up to K = 10 cycles (max 11 interactions, full history kept); then extraction: ParseManifest (declared set D1 from the initial manifest), Resolve (installed set D2 via the package manager), Trace (runtime set D3 via Sciunit ptrace tracing)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None as review gates. All 1,000 instances executed manually: a human submits prompts, transfers artefacts to containers, transcribes runtime errors verbatim to the agent and records outcomes. Authors annotate standard-library-sufficient tasks and C++ failure types",
+   "p": "7, 11-12",
+   "ok": true,
+   "ai": "None as review gates. All 1,000 instances executed manually: a human submits prompts, transfers artefacts to containers, transcribes runtime errors verbatim to the agent and records outcomes. Authors annotate standard-library-sufficient tasks and C++ failure types",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents generate small complete projects with dependency manifests from a prompt",
+   "p": "3-4",
+   "ok": true,
+   "ai": "N/A (no SDD approach); agents generate small complete projects with dependency manifests from a prompt",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach evaluated). Authors' wording: 'environment specification ... the accurate identification of the dependencies required to execute generated code'",
+   "p": "1",
+   "ok": true,
+   "ai": "Not classifiable (no SDD approach evaluated). Authors' wording: 'environment specification ... the accurate identification of the dependencies required to execute generated code'",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New project (complete project from a natural-language task prompt)",
+   "p": "1, 3-4",
+   "ok": true,
+   "ai": "New project (complete project from a natural-language task prompt)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "50 programming tasks (medium or high complexity) × 4 languages × 3 agents = 600 primary instances, plus 400 extra Claude Code trials (2 × 200): 1,000 runs; up to 11 agent interactions per instance",
+   "p": "6, 17",
+   "ok": true,
+   "ai": "50 programming tasks (medium or high complexity) × 4 languages × 3 agents = 600 primary instances, plus 400 extra Claude Code trials (2 × 200): 1,000 runs; up to 11 agent interactions per instance",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Eight application domains: data processing (10), cryptography (7), image processing (6), networking (6), text processing (6), compression (5), math/scientific (5), system utilities (5); self-contained, platform-independent tasks",
+   "p": "6, 17",
+   "ok": true,
+   "ai": "Eight application domains: data processing (10), cryptography (7), image processing (6), networking (6), text processing (6), compression (5), math/scientific (5), system utilities (5); self-contained, platform-independent tasks",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; agents run manually by the authors)",
+   "p": "7",
+   "ok": true,
+   "ai": "N/A (no human participants; agents run manually by the authors)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Repair cycles to convergence (repair depth k*) as a cost proxy; no tokens, time or money reported",
+   "p": "7, 9",
+   "ok": true,
+   "ai": "Repair cycles to convergence (repair depth k*) as a cost proxy; no tokens, time or money reported",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "First-attempt success rate SR(0) and final success rate after up to K repair cycles (project runs without error in the clean container); self-correction gain",
+   "p": "8-9",
+   "ok": true,
+   "ai": "First-attempt success rate SR(0) and final success rate after up to K repair cycles (project runs without error in the clean container); self-correction gain",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None for code; dependency over-specification measured as bloat rate and unnecessary dependency rate (see other outcome metrics)",
+   "p": "10, 12",
+   "ok": true,
+   "ai": "None for code; dependency over-specification measured as bloat rate and unnecessary dependency rate (see other outcome metrics)",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Phantom rate (declared but not loaded), hidden rate (loaded but not declared), bloat rate (installed but unused), inflation ratio rho = |D2|/|D1|, manifest precision/recall/F1 against runtime trace, cross-agent Jaccard agreement and complete disjointness rate, intra-agent Jaccard and unanimous consensus rate (UCR), unnecessary dependency rate (UDR) on standard-library-sufficient tasks, system library assumption rate (SLAR) and environment gap recovery rate (EGAR); Spearman correlation of manifest size with first-attempt success",
+   "p": "7, 10-12, 16",
+   "ok": true,
+   "ai": "Phantom rate (declared but not loaded), hidden rate (loaded but not declared), bloat rate (installed but unused), inflation ratio rho = |D2|/|D1|, manifest precision/recall/F1 against runtime trace, cross-agent Jaccard agreement and complete disjointness rate, intra-agent Jaccard and unanimous consensus rate (UCR), unnecessary dependency rate (UDR) on standard-library-sufficient tasks, system library assumption rate (SLAR) and environment gap recovery rate (EGAR); Spearman correlation of manifest size with first-attempt success",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Manual execution of agent CLIs with outcomes recorded in CSV files; automatic extraction: manifest parsing rules per ecosystem, package-manager listings (pip list diff, mvn dependency:list, npm list, CMake log), runtime tracing with Sciunit (ptrace on open, openat, read, execve) in per-language Docker images on AWS EC2; manual annotation of standard-library-sufficient tasks and C++ failure types",
+   "p": "4-8, 12",
+   "ok": true,
+   "ai": "Manual execution of agent CLIs with outcomes recorded in CSV files; automatic extraction: manifest parsing rules per ecosystem, package-manager listings (pip list diff, mvn dependency:list, npm list, CMake log), runtime tracing with Sciunit (ptrace on open, openat, read, execve) in per-language Docker images on AWS EC2; manual annotation of standard-library-sufficient tasks and C++ failure types",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "No success criterion stated by the authors for judging a configuration (success per instance = runs without error within budget), so quality and cost verdicts: no criterion stated by the authors. Values Python / Java / JavaScript / C++: (1) Claude Code + Claude Opus: SR(0) 86 / 18 / 96 / 36%; final 100% in all; initial-manifest P 0.990 / 0.935 / 0.929 / 0.037, R 0.642 / 0.739 / 0.406 / 0.781, F1 0.733 / 0.758 / 0.493 / 0.031; C++ first-attempt failures 32, SLAR 87.5%, EGAR 100%; UDR 91.8% macro; across 3 trials intra-agent Jaccard 0.113 / 0.138 / 0.068 / 0.093, UCR 0% in every language. (2) Codex + latest Codex model: SR(0) 88 / 68 / 88 / 44%; final 100 / 100 / 100 / 94%; P 0.938 / 0.939 / 0.214 / 0.062, R 0.827 / 0.684 / 0.143 / 0.658, F1 0.837 / 0.735 / 0.143 / 0.004; C++ failures 28, SLAR 17.9%, EGAR 100%. (3) Gemini Code Assist + Gemini: SR(0) 32 / 50 / 84 / 80%; final 100 / 96 / 100 / 98%; P 0.899 / 0.947 / 0.040 / 0.059, R 0.721 / 0.523 / 0.182 / 0.708, F1 0.756 / 0.624 / 0.005 / 0.004; C++ failures 10, SLAR 0%",
+   "p": "8-11",
+   "ok": true,
+   "ai": "No success criterion stated by the authors for judging a configuration (success per instance = runs without error within budget), so quality and cost verdicts: no criterion stated by the authors. Values Python / Java / JavaScript / C++: (1) Claude Code + Claude Opus: SR(0) 86 / 18 / 96 / 36%; final 100% in all; initial-manifest P 0.990 / 0.935 / 0.929 / 0.037, R 0.642 / 0.739 / 0.406 / 0.781, F1 0.733 / 0.758 / 0.493 / 0.031; C++ first-attempt failures 32, SLAR 87.5%, EGAR 100%; UDR 91.8% macro; across 3 trials intra-agent Jaccard 0.113 / 0.138 / 0.068 / 0.093, UCR 0% in every language. (2) Codex + latest Codex model: SR(0) 88 / 68 / 88 / 44%; final 100 / 100 / 100 / 94%; P 0.938 / 0.939 / 0.214 / 0.062, R 0.827 / 0.684 / 0.143 / 0.658, F1 0.837 / 0.735 / 0.143 / 0.004; C++ failures 28, SLAR 17.9%, EGAR 100%. (3) Gemini Code Assist + Gemini: SR(0) 32 / 50 / 84 / 80%; final 100 / 96 / 100 / 98%; P 0.899 / 0.947 / 0.040 / 0.059, R 0.721 / 0.523 / 0.182 / 0.708, F1 0.756 / 0.624 / 0.005 / 0.004; C++ failures 10, SLAR 0%",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 50 tasks in Python, Java, JavaScript, C++. Configurations: three agents via CLI at default settings. Baseline: none (static tools such as pipreqs mentioned but not run). Held constant: identical prompt template (explicit variant) across agents and languages, repair budget K = 10, clean per-language Docker images, full history in repair. Acceptance: successful execution in the clean container; runtime trace as dependency ground truth. Repetitions: one run per agent-task-language, Claude Code two extra independent trials. Human intervention: manual execution with verbatim transcription of errors",
+   "p": "3, 6-7, 13",
+   "ok": true,
+   "ai": "Tasks: 50 tasks in Python, Java, JavaScript, C++. Configurations: three agents via CLI at default settings. Baseline: none (static tools such as pipreqs mentioned but not run). Held constant: identical prompt template (explicit variant) across agents and languages, repair budget K = 10, clean per-language Docker images, full history in repair. Acceptance: successful execution in the clean container; runtime trace as dependency ground truth. Repetitions: one run per agent-task-language, Claude Code two extra independent trials. Human intervention: manual execution with verbatim transcription of errors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "No agent strong in all languages on first attempt (Claude and Codex strong in Python and JavaScript, weak in Java and C++; Gemini weakest in Python 32%, strongest in C++ 80%); after repair nearly all converge, but repair cost differs up to five-fold. Pooled F1: Python 0.765, Java 0.708, JavaScript 0.219, C++ 0.018. Cross-agent Jaccard below 0.5 in all languages, as low as 0.073 (Codex–Gemini, JavaScript); complete disjointness 36.0% (Python) to 63.3% (JavaScript), macro 53.3%. Claude never reproduces the same declared set across three trials (UCR 0%). Claude's C++ failures mostly system-library assumptions (87.5%). Spearman: larger manifests associated with lower first-attempt success in Python, Java, C++ (p ≤ 0.0013), not JavaScript (p = 0.256). No significance tests between agents",
+   "p": "8-12, 16",
+   "ok": true,
+   "ai": "No agent strong in all languages on first attempt (Claude and Codex strong in Python and JavaScript, weak in Java and C++; Gemini weakest in Python 32%, strongest in C++ 80%); after repair nearly all converge, but repair cost differs up to five-fold. Pooled F1: Python 0.765, Java 0.708, JavaScript 0.219, C++ 0.018. Cross-agent Jaccard below 0.5 in all languages, as low as 0.073 (Codex–Gemini, JavaScript); complete disjointness 36.0% (Python) to 63.3% (JavaScript), macro 53.3%. Claude never reproduces the same declared set across three trials (UCR 0%). Claude's C++ failures mostly system-library assumptions (87.5%). Spearman: larger manifests associated with lower first-attempt success in Python, Java, C++ (p ≤ 0.0013), not JavaScript (p = 0.256). No significance tests between agents",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "It distinguished agents and ecosystems on first-attempt success and dependency accuracy, where final success alone would rate all agents near-perfect. Repeatability: repeated Claude Code trials show dependency choices are not stable (intra-agent agreement near zero). Limitations of the method stated: tracing undercounts header-only and compile-time C++ dependencies and conditionally imported packages; C++ D1-vs-D2 comparison structurally uninformative; manual protocol and fixed annotations introduce judgment; results conditioned on one prompt template; snapshot of evolving agents",
+   "p": "5, 9, 11-12",
+   "ok": true,
+   "ai": "It distinguished agents and ecosystems on first-attempt success and dependency accuracy, where final success alone would rate all agents near-perfect. Repeatability: repeated Claude Code trials show dependency choices are not stable (intra-agent agreement near zero). Limitations of the method stated: tracing undercounts header-only and compile-time C++ dependencies and conditionally imported packages; C++ D1-vs-D2 comparison structurally uninformative; manual protocol and fixed annotations introduce judgment; results conditioned on one prompt template; snapshot of evolving agents",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: C++ runtime tracing undercounts header-only and compile-time dependencies; 50 controlled tasks rather than real-world projects; results conditioned on the prompt template (implicit variant not run, so rates are lower bounds); manual evaluation and annotations introduce judgment; agents evolve, so results are a snapshot. Gaps: benchmarks measure functional correctness but not environment specification; agent manifests are not trustworthy SBOM or audit artefacts; need for training objectives, evaluation frameworks and validation pipelines targeting accurate and minimal dependency specification",
+   "p": "6, 10, 12, 14",
+   "ok": true,
+   "ai": "Limitations: C++ runtime tracing undercounts header-only and compile-time dependencies; 50 controlled tasks rather than real-world projects; results conditioned on the prompt template (implicit variant not run, so rates are lower bounds); manual evaluation and annotations introduce judgment; agents evolve, so results are a snapshot. Gaps: benchmarks measure functional correctness but not environment specification; agent manifests are not trustworthy SBOM or audit artefacts; need for training objectives, evaluation frameworks and validation pipelines targeting accurate and minimal dependency specification",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies: abstract claims 'newer agents show no meaningful improvement', but no comparison of agent generations is reported in the results. Paper calls 1,000 runs '1,000 curated/verified project instances' (600 primary + 400 trials). Table 5 UCR denominators are 48 (Java) and 35 (C++) although Claude reaches 100% final success in every language; not explained. Section 3.1 says a prompt is valid if code passes an accompanying test suite, but functional test results are not reported (success = runs without error). The C++ baseline subtraction is said to be defined in Section 3 but is not. Repair budget said to be set in agents' configuration files although runs were manual. Claim that 50 tasks give statistical power is not supported by a power analysis. Duplicated sentence in Section 5. Values from Tables 4-6 and text. Data: setup and extracted dependencies 'will be made available as an open reproducible artifact'; no link. No pre-registration. Languages studied: Python, Java, JavaScript, C++. Extends the authors' earlier study [11]; Sciunit is a tool co-authored by T. Malik",
+   "p": "1-2, 5-7, 11",
+   "ok": true,
+   "ai": "Inconsistencies: abstract claims 'newer agents show no meaningful improvement', but no comparison of agent generations is reported in the results. Paper calls 1,000 runs '1,000 curated/verified project instances' (600 primary + 400 trials). Table 5 UCR denominators are 48 (Java) and 35 (C++) although Claude reaches 100% final success in every language; not explained. Section 3.1 says a prompt is valid if code passes an accompanying test suite, but functional test results are not reported (success = runs without error). The C++ baseline subtraction is said to be defined in Section 3 but is not. Repair budget said to be set in agents' configuration files although runs were manual. Claim that 50 tasks give statistical power is not supported by a power analysis. Duplicated sentence in Section 5. Values from Tables 4-6 and text. Data: setup and extracted dependencies 'will be made available as an open reproducible artifact'; no link. No pre-registration. Languages studied: Python, Java, JavaScript, C++. Extends the authors' earlier study [11]; Sciunit is a tool co-authored by T. Malik",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): central research question (how agents misspecify environment dependencies across agents, languages, tasks) and contributions stated",
+   "p": "1-2, 14",
+   "ok": true,
+   "ai": "Yes (1): central research question (how agents misspecify environment dependencies across agents, languages, tasks) and contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): protocol, prompt template, primitives and containers described in detail; agent and model versions, full task descriptions and test suites missing; artefact not yet released",
+   "p": "3-7",
+   "ok": true,
+   "ai": "Partly (0.5): protocol, prompt template, primitives and containers described in detail; agent and model versions, full task descriptions and test suites missing; artefact not yet released",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): agent products and model families named and container toolchain versions given; no agent CLI or model versions ('the latest Codex model')",
+   "p": "6",
+   "ok": true,
+   "ai": "Partly (0.5): agent products and model families named and container toolchain versions given; no agent CLI or model versions ('the latest Codex model')",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Partly (0.5): all 50 tasks listed with domain and complexity, but full requirements and tests not given and the dataset is only announced",
+   "p": "5-6, 17",
+   "ok": true,
+   "ai": "Partly (0.5): all 50 tasks listed with domain and complexity, but full requirements and tests not given and the dataset is only announced",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): runtime dependency ground truth from agent-independent Sciunit tracing in clean containers; execution success checked in a clean environment",
+   "p": "5, 7",
+   "ok": true,
+   "ai": "Yes (1): runtime dependency ground truth from agent-independent Sciunit tracing in clean containers; execution success checked in a clean environment",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and dependency metrics formally defined; cost only as repair cycles, no tokens, time or money",
+   "p": "7-10, 16",
+   "ok": true,
+   "ai": "Partly (0.5): quality and dependency metrics formally defined; cost only as repair cycles, no tokens, time or money",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): three agents on the same tasks, prompts, budget and containers",
+   "p": "6",
+   "ok": true,
+   "ai": "Yes (1): three agents on the same tasks, prompts, budget and containers",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): three independent trials for Claude Code only to measure stochastic variability; single runs for the other agents; no significance tests between agents (Spearman only in appendix)",
+   "p": "6, 11, 16",
+   "ok": true,
+   "ai": "Partly (0.5): three independent trials for Claude Code only to measure stochastic variability; single runs for the other agents; no significance tests between agents (Spearman only in appendix)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Partly (0.5): descriptive findings follow from the tables, but causal claims about training distributions, the 'proving' of systemic training gaps and 'newer agents show no meaningful improvement' go beyond the data",
+   "p": "1-2, 11",
+   "ok": true,
+   "ai": "Partly (0.5): descriptive findings follow from the tables, but causal claims about training distributions, the 'proving' of systemic training gaps and 'newer agents show no meaningful improvement' go beyond the data",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): dedicated limitations section on measurement, scale, prompt dependence, manual judgment and agent evolution",
+   "p": "12",
+   "ok": true,
+   "ai": "Yes (1): dedicated limitations section on measurement, scale, prompt dependence, manual judgment and agent evolution",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint; journal template fields empty, no peer-reviewed venue established",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint; journal template fields empty, no peer-reviewed venue established",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): academic authors evaluating commercial agents of Anthropic, OpenAI and Google; their framework is an evaluation method, not an evaluated approach",
+   "p": "1, 6",
+   "ok": true,
+   "ai": "Yes (1): academic authors evaluating commercial agents of Anthropic, OpenAI and Google; their framework is an evaluation method, not an evaluated approach",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:13:42"
+}

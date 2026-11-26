@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486321",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Wu, Y., Zhao, Z., Li, S., Lee, H. H., Zhu, J., Wu, S., Yu, T., Li, S., Zhang, L., Fan, X., Li, S. (2026). SWE-Together: Evaluating Coding Agents in Interactive User Sessions. arXiv:2606.29957v1 [cs.AI], 29 Jun 2026 (document dated 30 Sep 2026)",
+   "p": "1",
+   "ok": true,
+   "ai": "Wu, Y., Zhao, Z., Li, S., Lee, H. H., Zhu, J., Wu, S., Yu, T., Li, S., Zhang, L., Fan, X., Li, S. (2026). SWE-Together: Evaluating Coding Agents in Interactive User Sessions. arXiv:2606.29957v1 [cs.AI], 29 Jun 2026 (document dated 30 Sep 2026)",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.29957v1 [cs.AI]; no published venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2606.29957v1 [cs.AI]; no published venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Meta (all authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "Meta (all authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — SWE-Together, a 109-task multi-turn benchmark reconstructed from real user-agent coding sessions with an anchored, state-conditional LLM user simulator and rubric-based correctness scoring; seven frontier models compared on a common harness (opencode) against a reference-patch baseline",
+   "p": "1-3, 8-9",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — SWE-Together, a 109-task multi-turn benchmark reconstructed from real user-agent coding sessions with an anchored, state-conditional LLM user simulator and rubric-based correctness scoring; seven frontier models compared on a common harness (opencode) against a reference-patch baseline",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Harness: opencode (version not stated). Models: Claude Opus 4.8, GPT-5.5, Claude Opus 4.6, GLM-5.2, GLM-5.1, DeepSeek-V4-Pro, MiniMax-2.7. Baseline: original reference patch ('Reference'). Models used for the user simulator, viability screener, task-generation agent, rubric judge and message tagger not stated",
+   "p": "8-9",
+   "ok": true,
+   "ai": "No SDD approach. Harness: opencode (version not stated). Models: Claude Opus 4.8, GPT-5.5, Claude Opus 4.6, GLM-5.2, GLM-5.1, DeepSeek-V4-Pro, MiniMax-2.7. Baseline: original reference patch ('Reference'). Models used for the user simulator, viability screener, task-generation agent, rubric judge and message tagger not stated",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Per task package: original session record, initial user instruction (first turn), pinned execution environment and repository commit, deterministic verifier artefacts (tests), task-specific user-simulation prompt with decomposed user intents and trigger conditions per feedback turn; frozen weighted task rubric (behavioural goals) for scoring. No artefact prescribed to the evaluated agent beyond the user's messages",
+   "p": "2, 5-7",
+   "ok": true,
+   "ai": "Per task package: original session record, initial user instruction (first turn), pinned execution environment and repository commit, deterministic verifier artefacts (tests), task-specific user-simulation prompt with decomposed user intents and trigger conditions per feedback turn; frozen weighted task rubric (behavioural goals) for scoring. No artefact prescribed to the evaluated agent beyond the user's messages",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Replay: agent receives the original initial request; after each completed agent turn the trajectory is summarised and the simulator chooses one action (no-op, question, redirect, new-requirement, check-external); message actions are injected as user turns; final repository state scored. Construction: deterministic filtering -> LLM viability screening -> sandboxed task construction by a task-generation agent",
+   "p": "3-6",
+   "ok": true,
+   "ai": "Replay: agent receives the original initial request; after each completed agent turn the trajectory is summarised and the simulator chooses one action (no-op, question, redirect, new-requirement, check-external); message actions are injected as user turns; final repository state scored. Construction: deterministic filtering -> LLM viability screening -> sandboxed task construction by a task-generation agent",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None in the evaluated loop (user simulated by an LLM). Four human annotators judged simulated vs real trajectories for simulator validation",
+   "p": "5, 11",
+   "ok": true,
+   "ai": "None in the evaluated loop (user simulated by an LLM). Four human annotators judged simulated vs real trajectories for simulator validation",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of each model on the opencode harness through multi-turn simulated sessions",
+   "p": "8",
+   "ok": true,
+   "ai": "Full workflow of each model on the opencode harness through multi-turn simulated sessions",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: tasks 'cast as fixed, single-turn instructions' vs users who 'reveal intent incrementally'; an agent may 'require a detailed specification'",
+   "p": "2",
+   "ok": true,
+   "ai": "Not classifiable; authors' wording: tasks 'cast as fixed, single-turn instructions' vs users who 'reveal intent incrementally'; an agent may 'require a detailed specification'",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Existing code bases: repository-level tasks on public GitHub repositories restored at a pinned commit",
+   "p": "2, 4-5",
+   "ok": true,
+   "ai": "Existing code bases: repository-level tasks on public GitHub repositories restored at a pinned commit",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "109 tasks from 11,260 raw sessions (0.97%): DataClaw 2,228 -> 29, Pi-staging 2,397 -> 23, Hyperswitch 784 -> 9, SWE-chat 5,851 -> 48; reference patch available for 93 tasks; 2 replicates per task per model; 29.9k-74.0k output+reasoning tokens per task. Repository sizes Not stated",
+   "p": "3-4, 9-10",
+   "ok": true,
+   "ai": "109 tasks from 11,260 raw sessions (0.97%): DataClaw 2,228 -> 29, Pi-staging 2,397 -> 23, Hyperswitch 784 -> 9, SWE-chat 5,851 -> 48; reference patch available for 93 tasks; 2 replicates per task per model; 29.9k-74.0k output+reasoning tokens per task. Repository sizes Not stated",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Mixed open-source repositories from real coding-agent sessions (including a production payments codebase, Hyperswitch); domains and languages not detailed",
+   "p": "3-4",
+   "ok": true,
+   "ai": "Mixed open-source repositories from real coding-agent sessions (including a production payments codebase, Hyperswitch); domains and languages not detailed",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (simulated users replaying real users' intents). Four human annotators for the simulator Turing test, profile Not stated",
+   "p": "5, 11",
+   "ok": true,
+   "ai": "N/A (simulated users replaying real users' intents). Four human annotators for the simulator Turing test, profile Not stated",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Output-plus-reasoning tokens per task; wall-clock minutes per task. Money not reported",
+   "p": "8-10",
+   "ok": true,
+   "ai": "Output-plus-reasoning tokens per task; wall-clock minutes per task. Money not reported",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Judge score in [0,1] = weighted share of frozen rubric goals met; with threshold tau = 0.85: pass@1 (marginal per-run success), stable solve rate SSR (mean of 2 replicates >= tau), pass^2 (both replicates >= tau); MeanJudge (continuous). Deterministic verifiers provide executable evidence",
+   "p": "6-8",
+   "ok": true,
+   "ai": "Judge score in [0,1] = weighted share of frozen rubric goals met; with threshold tau = 0.85: pass@1 (marginal per-run success), stable solve rate SSR (mean of 2 replicates >= tau), pass^2 (both replicates >= tau); MeanJudge (continuous). Deterministic verifiers provide executable evidence",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "User Correction (simulated): N_correction + 0.2 N_nudge per trial from a multi-label tagger over simulator messages, averaged over replicates then tasks; used as proxy of the corrective steering an agent elicits",
+   "p": "7-8",
+   "ok": true,
+   "ai": "User Correction (simulated): N_correction + 0.2 N_nudge per trial from a multi-label tagger over simulator messages, averaged over replicates then tasks; used as proxy of the corrective steering an agent elicits",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Intent Coverage (simulator fidelity) = 0.70 intent recall + 0.30 scope precision; Turing pass rate of the simulator (share of judgments choosing the simulated trajectory as real)",
+   "p": "7, 10-11",
+   "ok": true,
+   "ai": "Intent Coverage (simulator fidelity) = 0.70 intent recall + 0.30 scope precision; Turing pass rate of the simulator (share of judgments choosing the simulated trajectory as real)",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: agentic rubric judge (Phase 1 derives a weighted rubric per task offline, may consult the reference patch; Phase 2 returns binary met decisions with evidence per goal; host-side validator checks coverage, weights and score consistency); deterministic verifiers; LLM tagger for User Correction; intent decomposition and matching for Intent Coverage; tokens and time per task. Manual: four annotators, forced two-alternative choice on 156 trajectory pairs (312 judgments). Judge not validated against humans",
+   "p": "6-8, 11",
+   "ok": true,
+   "ai": "Automatic: agentic rubric judge (Phase 1 derives a weighted rubric per task offline, may consult the reference patch; Phase 2 returns binary met decisions with evidence per goal; host-side validator checks coverage, weights and score consistency); deterministic verifiers; LLM tagger for User Correction; intent decomposition and matching for Intent Coverage; tokens and time per task. Manual: four annotators, forced two-alternative choice on 156 trajectory pairs (312 judgments). Judge not validated against humans",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "opencode harness, 109 tasks, k = 2 replicates. Authors' success threshold is task-level (judge >= 0.85); no configuration-level criterion. For all entries: quality verdict and cost verdict: no criterion stated by the authors. Values: pass@1 / SSR / pass^2 / MeanJudge / User Correction / tokens per task / minutes per task. (1) opencode + Claude Opus 4.8: 63% / 59% / 52% / 0.801 / 1.38 / 74.0k / 23.3. (2) opencode + GPT-5.5: 58% / 55% / 48% / 0.763 / 1.59 / 29.9k / 10.7; Intent Coverage 0.68 (recall 0.71, precision 0.65). (3) opencode + Claude Opus 4.6: 58% / 58% / 46% / 0.755 / 1.59 / 42.0k / 23.2. (4) opencode + GLM-5.2: 55% / 48% / 42% / 0.735 / 1.53 / 41.7k / 24.5. (5) opencode + GLM-5.1: 52% / 49% / 35% / 0.729 / 1.54 / 41.6k / 38.8. (6) opencode + DeepSeek-V4-Pro: 48% / 38% / 29% / 0.679 / 1.76 / 49.8k / 21.0. (7) opencode + MiniMax-2.7: 40% / 34% / 26% / 0.630 / 2.17 / 43.4k / 36.2. Intent Coverage for the six cohorts other than GPT-5.5: 0.70-0.72 (per-model values not given). Baseline: reference patch, on 93 of 109 tasks: pass about 78% (73/93), MeanJudge 0.90, 57 tasks score 1.0",
+   "p": "8-10",
+   "ok": true,
+   "ai": "opencode harness, 109 tasks, k = 2 replicates. Authors' success threshold is task-level (judge >= 0.85); no configuration-level criterion. For all entries: quality verdict and cost verdict: no criterion stated by the authors. Values: pass@1 / SSR / pass^2 / MeanJudge / User Correction / tokens per task / minutes per task. (1) opencode + Claude Opus 4.8: 63% / 59% / 52% / 0.801 / 1.38 / 74.0k / 23.3. (2) opencode + GPT-5.5: 58% / 55% / 48% / 0.763 / 1.59 / 29.9k / 10.7; Intent Coverage 0.68 (recall 0.71, precision 0.65). (3) opencode + Claude Opus 4.6: 58% / 58% / 46% / 0.755 / 1.59 / 42.0k / 23.2. (4) opencode + GLM-5.2: 55% / 48% / 42% / 0.735 / 1.53 / 41.7k / 24.5. (5) opencode + GLM-5.1: 52% / 49% / 35% / 0.729 / 1.54 / 41.6k / 38.8. (6) opencode + DeepSeek-V4-Pro: 48% / 38% / 29% / 0.679 / 1.76 / 49.8k / 21.0. (7) opencode + MiniMax-2.7: 40% / 34% / 26% / 0.630 / 2.17 / 43.4k / 36.2. Intent Coverage for the six cohorts other than GPT-5.5: 0.70-0.72 (per-model values not given). Baseline: reference patch, on 93 of 109 tasks: pass about 78% (73/93), MeanJudge 0.90, 57 tasks score 1.0",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 109 SWE-Together tasks. Configurations: 7 models. Baseline: original reference patch scored by the same frozen rubric (93 tasks). Held constant: harness (opencode), task package and pinned environment, frozen rubric per task, simulator anchored to the original session (intent order and trigger conditions). Acceptance: agentic rubric judge with deterministic verifier evidence, threshold 0.85. Repetitions: 2 per task per model. Human intervention: none (simulated user); serving infrastructure of endpoints not controlled",
+   "p": "6-10",
+   "ok": true,
+   "ai": "Tasks: 109 SWE-Together tasks. Configurations: 7 models. Baseline: original reference patch scored by the same frozen rubric (93 tasks). Held constant: harness (opencode), task package and pinned environment, frozen rubric per task, simulator anchored to the original session (intent order and trigger conditions). Acceptance: agentic rubric judge with deterministic verifier evidence, threshold 0.85. Repetitions: 2 per task per model. Human intervention: none (simulated user); serving infrastructure of endpoints not controlled",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "Claude Opus 4.8 best on all four correctness metrics (pass@1 63%, MeanJudge 0.801) and lowest User Correction (1.38), about 15 pp below the reference pass rate; GPT-5.5 second (0.763) and most efficient (29.9k tokens, 10.7 min); MiniMax-2.7 last on all correctness metrics and most correction (2.17). User Correction strongly inversely correlated with pass@1 (Pearson -0.92), SSR (-0.84), MeanJudge (-0.93) across the seven models; cost only weakly coupled to capability. No significance tests or confidence intervals for the model comparison",
+   "p": "9-10",
+   "ok": true,
+   "ai": "Claude Opus 4.8 best on all four correctness metrics (pass@1 63%, MeanJudge 0.801) and lowest User Correction (1.38), about 15 pp below the reference pass rate; GPT-5.5 second (0.763) and most efficient (29.9k tokens, 10.7 min); MiniMax-2.7 last on all correctness metrics and most correction (2.17). User Correction strongly inversely correlated with pass@1 (Pearson -0.92), SSR (-0.84), MeanJudge (-0.93) across the seven models; cost only weakly coupled to capability. No significance tests or confidence intervals for the model comparison",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished the models (MeanJudge 0.630-0.801) with a consistent ordering across metrics; pass^2 vs pass@1 exposes run-to-run variance (2 replicates). Simulator consistency: Intent Coverage 0.68-0.72 across cohorts; Turing pass rate 46% (95% CI 40.5-51.6%), not distinguishable from real users. Reference scores below 100% because rubrics include process requirements (about 35% of unsatisfied goals), incomplete reference patches and imperfect human solutions. Latency may depend on serving infrastructure. Limitations stated: simulator cannot interrupt, edit files or see the UI; best for clearly defined goals and measurable outcomes",
+   "p": "9-12",
+   "ok": true,
+   "ai": "Distinguished the models (MeanJudge 0.630-0.801) with a consistent ordering across metrics; pass^2 vs pass@1 exposes run-to-run variance (2 replicates). Simulator consistency: Intent Coverage 0.68-0.72 across cohorts; Turing pass rate 46% (95% CI 40.5-51.6%), not distinguishable from real users. Reference scores below 100% because rubrics include process requirements (about 35% of unsatisfied goals), incomplete reference patches and imperfect human solutions. Latency may depend on serving infrastructure. Limitations stated: simulator cannot interrupt, edit files or see the UI; best for clearly defined goals and measurable outcomes",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: user simulator cannot interrupt agent turns, edit files or use visual information; works best with clear goals and measurable outcomes; limited coverage of ambiguous, open-ended tasks and qualitative user behaviours. Gaps: static single-turn benchmarks miss interaction quality and user effort; evaluation should also measure how much corrective steering an agent elicits",
+   "p": "2, 12",
+   "ok": true,
+   "ai": "Limitations: user simulator cannot interrupt agent turns, edit files or use visual information; works best with clear goals and measurable outcomes; limited coverage of ambiguous, open-ended tasks and qualitative user behaviours. Gaps: static single-turn benchmarks miss interaction quality and user effort; evaluation should also measure how much corrective steering an agent elicits",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Table 2 caption calls the baseline 'Oracle' while the row is 'Reference'; reference rates (~78%) are on 93 of 109 tasks, not the full suite. Per-model Intent Coverage reported only as a range except GPT-5.5. Models behind the judge, simulator, screener, tagger and task-generation agent, and the opencode version, are not stated; judge not validated against human judgement. Document dated 30 Sep 2026 while arXiv v1 is 29 Jun 2026. Code at github.com/Togetherbench/SWE-Together and website togetherbench.com; source session datasets public on Hugging Face; no pre-registration. Programming language: Not stated (multiple repositories)",
+   "p": "1, 3, 9-10",
+   "ok": true,
+   "ai": "Table 2 caption calls the baseline 'Oracle' while the row is 'Reference'; reference rates (~78%) are on 93 of 109 tasks, not the full suite. Per-model Intent Coverage reported only as a range except GPT-5.5. Models behind the judge, simulator, screener, tagger and task-generation agent, and the opencode version, are not stated; judge not validated against human judgement. Document dated 30 Sep 2026 while arXiv v1 is 29 Jun 2026. Code at github.com/Togetherbench/SWE-Together and website togetherbench.com; source session datasets public on Hugging Face; no pre-registration. Programming language: Not stated (multiple repositories)",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): aim (evaluate agents in interactive sessions, correctness plus user effort) and contributions stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): aim (evaluate agents in interactive sessions, correctness plus user effort) and contributions stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): construction pipeline, simulator policy and metric formulas described and code released; models used for the judge, simulator, screener and tagger, harness version and prompts not given in the paper",
+   "p": "3-8",
+   "ok": true,
+   "ai": "Partly (0.5): construction pipeline, simulator policy and metric formulas described and code released; models used for the judge, simulator, screener and tagger, harness version and prompts not given in the paper",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): evaluated models named with versions; opencode version and the evaluator/simulator models not identified",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Partly (0.5): evaluated models named with versions; opencode version and the evaluator/simulator models not identified",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): task sources and construction described; benchmark code and website released",
+   "p": "1, 3-5",
+   "ok": true,
+   "ai": "Yes (1): task sources and construction described; benchmark code and website released",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Partly (0.5): frozen rubric fixed before any candidate and deterministic verifier evidence, but the decision is made by an LLM judge not validated against humans; reference patch scored as a check",
+   "p": "6-7, 10",
+   "ok": true,
+   "ai": "Partly (0.5): frozen rubric fixed before any candidate and deterministic verifier evidence, but the decision is made by an LLM judge not validated against humans; reference patch scored as a check",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): correctness, User Correction and Intent Coverage defined formally; cost as tokens and wall-clock time per task",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Yes (1): correctness, User Correction and Intent Coverage defined formally; cost as tokens and wall-clock time per task",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): seven models on the same harness and tasks, plus a reference-patch baseline",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Yes (1): seven models on the same harness and tasks, plus a reference-patch baseline",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 2 replicates per task and consistency metrics (pass^2, SSR), correlations; no CIs or significance tests for model differences (CI only for the Turing test)",
+   "p": "8-11",
+   "ok": true,
+   "ai": "Partly (0.5): 2 replicates per task and consistency metrics (pass^2, SSR), correlations; no CIs or significance tests for model differences (CI only for the Turing test)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from Table 2 and the correlations; reference shortfall explained",
+   "p": "9-12",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from Table 2 and the correlations; reference shortfall explained",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Partly (0.5): short limitations paragraph on the simulator; no discussion of judge validity, contamination or task selection bias",
+   "p": "12",
+   "ok": true,
+   "ai": "Partly (0.5): short limitations paragraph on the simulator; no discussion of judge validity, contamination or task selection bias",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors at Meta; the evaluated harness (opencode) and models are not Meta products",
+   "p": "1, 9",
+   "ok": true,
+   "ai": "Yes (1): authors at Meta; the evaluated harness (opencode) and models are not Meta products",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (proposes an evaluation method, not an approach)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes an evaluation method, not an approach)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:00:37"
+}

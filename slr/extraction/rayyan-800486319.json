@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486319",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Ma, Y., Kereopa-Yorke, B., Schultz, B. (2026). Building to the Test: Coding Agents Deliver What You Check, Not What You Requested. arXiv:2606.28430v1 [cs.SE], 26 Jun 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Ma, Y., Kereopa-Yorke, B., Schultz, B. (2026). Building to the Test: Coding Agents Deliver What You Check, Not What You Requested. arXiv:2606.28430v1 [cs.SE], 26 Jun 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2606.28430v1 [cs.SE]; no published venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2606.28430v1 [cs.SE]; no published venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Microsoft (all three authors)",
+   "p": "1",
+   "ok": true,
+   "ai": "Microsoft (all three authors)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Compares; secondary: Proposes an evaluation method — controlled case study: one production agent (GitHub Copilot CLI) with two models re-implements a React Fluent-UI table in Angular under three oracle-availability conditions (c0 no oracle, c3 oracle in loop with guardrail prompt, c9 oracle with looser prompt), 3 runs each (18 runs); adds a mechanical library audit confirmed by no-op ablation",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Compares; secondary: Proposes an evaluation method — controlled case study: one production agent (GitHub Copilot CLI) with two models re-implements a React Fluent-UI table in Angular under three oracle-availability conditions (c0 no oracle, c3 oracle in loop with guardrail prompt, c9 oracle with looser prompt), 3 runs each (18 runs); adds a mechanical library audit confirmed by no-op ablation",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach. Agent: GitHub Copilot CLI 1.0.56, as shipped (per-model harness, system prompt, default tools), with claude-opus-4.7 (xhigh reasoning, 1M context) and gpt-5.5 (xhigh reasoning). Conditions differ only in AGENTS.md: c0, c3, c9. 'Code-as-spec': the specification is a runnable reference implementation (@fluentui/react-components 9.73.7, pinned commit) plus TASK.md",
+   "p": "2-3, 6, 13",
+   "ok": true,
+   "ai": "No SDD approach. Agent: GitHub Copilot CLI 1.0.56, as shipped (per-model harness, system prompt, default tools), with claude-opus-4.7 (xhigh reasoning, 1M context) and gpt-5.5 (xhigh reasoning). Conditions differ only in AGENTS.md: c0, c3, c9. 'Code-as-spec': the specification is a runnable reference implementation (@fluentui/react-components 9.73.7, pinned commit) plus TASK.md",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "TASK.md (byte-identical in all runs): reference system and pinned version, target framework (Angular standalone components, signals, services, DI), goal (production-grade reusable component library), component specifications (selectors, inputs, outputs, CSS classes, behaviours), table of state features mapping React hooks to Angular services/directives. AGENTS.md (one per condition): resources, goal, 'How to work' steps, 'What good looks like'. Executable reference (React source, ~5800 LOC); in c3/c9 also the reference Storybook and the 'wild-test' oracle (names and pass/fail only)",
+   "p": "2, 6, 13-17",
+   "ok": true,
+   "ai": "TASK.md (byte-identical in all runs): reference system and pinned version, target framework (Angular standalone components, signals, services, DI), goal (production-grade reusable component library), component specifications (selectors, inputs, outputs, CSS classes, behaviours), table of state features mapping React hooks to Angular services/directives. AGENTS.md (one per condition): resources, goal, 'How to work' steps, 'What good looks like'. Executable reference (React source, ~5800 LOC); in c3/c9 also the reference Storybook and the 'wild-test' oracle (names and pass/fail only)",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "AGENTS.md 'How to work': (1) fetch the reference source; (2) initialise the Angular project; (3) implement components, services, directives; (4) verify (c0: build and test; c3: may use wild-test as a helper; c9: run wild-test, fix failures, rerun); (5) decide when done (c0/c3: when you believe it is complete and correct; c9: when wild-test passes and the task is covered)",
+   "p": "13, 16-17",
+   "ok": true,
+   "ai": "AGENTS.md 'How to work': (1) fetch the reference source; (2) initialise the Angular project; (3) implement components, services, directives; (4) verify (c0: build and test; c3: may use wild-test as a helper; c9: run wild-test, fix failures, rerun); (5) decide when done (c0/c3: when you believe it is complete and correct; c9: when wild-test passes and the task is covered)",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None: Copilot CLI in auto-approving (--yolo) mode; every run ended in a voluntary shutdown",
+   "p": "3, 6",
+   "ok": true,
+   "ai": "None: Copilot CLI in auto-approving (--yolo) mode; every run ended in a voluntary shutdown",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Full workflow of the agent on one task; the agent-facing instruction file (AGENTS.md) and oracle access are varied",
+   "p": "2-3, 13",
+   "ok": true,
+   "ai": "Full workflow of the agent on one task; the agent-facing instruction file (AGENTS.md) and oracle access are varied",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable; authors' wording: 'code-as-spec', 'the reference implementation is the executable specification', TASK.md as 'the task specification'",
+   "p": "2, 13",
+   "ok": true,
+   "ai": "Not classifiable; authors' wording: 'code-as-spec', 'the reference implementation is the executable specification', TASK.md as 'the task specification'",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New project (empty initial workspace; agent chooses toolchain and architecture) re-implementing an existing reference in another framework",
+   "p": "2-3, 5",
+   "ok": true,
+   "ai": "New project (empty initial workspace; agent chooses toolchain and architecture) re-implementing an existing reference in another framework",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "One task; reference ~5800 LOC (components, hooks, context); hidden oracle of 222 Playwright behavioural tests; 18 runs; c0 consumer kits 1,240-3,392 LOC; one GPT run delivered a single 1758-line app.component.ts",
+   "p": "2, 4, 13, 22",
+   "ok": true,
+   "ai": "One task; reference ~5800 LOC (components, hooks, context); hidden oracle of 222 Playwright behavioural tests; 18 runs; c0 consumer kits 1,240-3,392 LOC; one GPT run delivered a single 1758-line app.component.ts",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "UI component library: Microsoft Fluent UI Table/DataGrid (sorting, selection, column resizing, keyboard navigation, virtualization) ported from React to Angular",
+   "p": "13-15",
+   "ok": true,
+   "ai": "UI component library: Microsoft Fluent UI Table/DataGrid (sorting, selection, column resizing, keyboard navigation, virtualization) ported from React to Angular",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (autonomous agent, no human operator)",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (autonomous agent, no human operator)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Trajectory census from events.jsonl: wall-clock duration, assistant turns, tool calls, oracle invocations, context compactions (Claude c0 ~17-27 min, 92-177 turns; Claude oracle runs 65-221 min, 212-968 turns, 35-114 oracle invocations; GPT c3-R3 ~9 min, 22 turns). Tokens and money not reported",
+   "p": "24-25",
+   "ok": true,
+   "ai": "Trajectory census from events.jsonl: wall-clock duration, assistant turns, tool calls, oracle invocations, context compactions (Claude c0 ~17-27 min, 92-177 turns; Claude oracle runs 65-221 min, 212-968 turns, 35-114 oracle invocations; GPT c3-R3 ~9 min, 22 turns). Tokens and money not reported",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Behavioural parity: number of the 222 hidden oracle tests passed (reference scores 222/222); per-subsystem parity subsets in the ablation",
+   "p": "2-4, 23",
+   "ok": true,
+   "ai": "Behavioural parity: number of the 222 hidden oracle tests passed (reference scores 222/222); per-subsystem parity subsets in the ablation",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "Library audit per stateful subsystem (selection, sort, resize, grid navigation): ND (demo calls the library), L2 (library implementation exists but demo reimplements inline, library dead), L1 (no library implementation); '#disp.' = count of L1/L2 out of 4. Library-craft signals: publishable manifest (ng-package.json), self-authored unit tests (*.spec.ts count), strict TypeScript",
+   "p": "3-5, 24",
+   "ok": true,
+   "ai": "Library audit per stateful subsystem (selection, sort, resize, grid navigation): ND (demo calls the library), L2 (library implementation exists but demo reimplements inline, library dead), L1 (no library implementation); '#disp.' = count of L1/L2 out of 4. Library-craft signals: publishable manifest (ng-package.json), self-authored unit tests (*.spec.ts count), strict TypeScript",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Validation behaviour (which validation the agent chooses; oracle and Playwright invocations); agreement between the agent's hand-off claims and the delivered code; reasoning-summary quotes",
+   "p": "4-5, 8, 25-26",
+   "ok": true,
+   "ai": "Validation behaviour (which validation the agent chooses; oracle and Playwright invocations); agreement between the agent's hand-off claims and the delivered code; reasoning-summary quotes",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: Playwright oracle run by the identical harness with a single worker (completeness of each scoring run verified); static audit tool (audit.py --verify, regex/AST, reproduces 48/48 oracle cells); no-op ablation of library methods; counts from delivered source; trajectory census from events.jsonl. Manual: post-hoc consumer kits authored for the six c0 runs (no demo shipped); selection of trajectory quotes",
+   "p": "3, 7, 19-25",
+   "ok": true,
+   "ai": "Automatic: Playwright oracle run by the identical harness with a single worker (completeness of each scoring run verified); static audit tool (audit.py --verify, regex/AST, reproduces 48/48 oracle cells); no-op ablation of library methods; counts from delivered source; trajectory census from events.jsonl. Manual: post-hoc consumer kits authored for the six c0 runs (no demo shipped); selection of trajectory quotes",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion stated by the authors: a correct re-implementation passes all 222 oracle tests, and the deliverable must be a reusable library actually used by the demo (ND, no L1/L2); no cost criterion. (1) Copilot CLI + claude-opus-4.7, c0 (no oracle), 3 runs: parity 177/165/189; #disp 0/0/0; manifest 3/3, unit tests 10/11/11, strict 3/3; ~17-27 min. Quality: partly (genuine library, 33-57 behaviours missing). Cost: no criterion stated by the authors. (2) Copilot CLI + claude-opus-4.7, c3 (oracle, guardrail prompt): 222/222/222; #disp 0/0/0. Quality: works on parity and library routing, but library craft shed (Claude oracle runs: 0/6 manifests, 0/6 unit tests, 1/6 strict). Cost: no criterion stated by the authors (Claude oracle runs 65-221 min). (3) Copilot CLI + claude-opus-4.7, c9 (oracle, looser prompt): 222/222/222; #disp 0/1/3 (R2 selection L2; R3 selection L2, sort L2, resize L1). Quality: partly (1 of 3 runs library-routed). Cost: no criterion stated by the authors. (4) Copilot CLI + gpt-5.5, c0: 148/166/173; #disp 0/0/0. Quality: partly (library present, 49-74 behaviours missing). Cost: no criterion stated by the authors. (5) Copilot CLI + gpt-5.5, c3: 221/222/161 (R3 never ran the oracle, no demo, scored post-hoc); #disp 3/3/0. Quality: does not work (two runs leave selection, sort, resize L2; the library-routed run is incomplete). Cost: no criterion stated by the authors (c3-R3 ~9 min). (6) Copilot CLI + gpt-5.5, c9: 222/221/221; #disp 3/4/3 (R2 has no library directory at all). Quality: does not work. Cost: no criterion stated by the authors",
+   "p": "4-5, 24-25",
+   "ok": true,
+   "ai": "Success criterion stated by the authors: a correct re-implementation passes all 222 oracle tests, and the deliverable must be a reusable library actually used by the demo (ND, no L1/L2); no cost criterion. (1) Copilot CLI + claude-opus-4.7, c0 (no oracle), 3 runs: parity 177/165/189; #disp 0/0/0; manifest 3/3, unit tests 10/11/11, strict 3/3; ~17-27 min. Quality: partly (genuine library, 33-57 behaviours missing). Cost: no criterion stated by the authors. (2) Copilot CLI + claude-opus-4.7, c3 (oracle, guardrail prompt): 222/222/222; #disp 0/0/0. Quality: works on parity and library routing, but library craft shed (Claude oracle runs: 0/6 manifests, 0/6 unit tests, 1/6 strict). Cost: no criterion stated by the authors (Claude oracle runs 65-221 min). (3) Copilot CLI + claude-opus-4.7, c9 (oracle, looser prompt): 222/222/222; #disp 0/1/3 (R2 selection L2; R3 selection L2, sort L2, resize L1). Quality: partly (1 of 3 runs library-routed). Cost: no criterion stated by the authors. (4) Copilot CLI + gpt-5.5, c0: 148/166/173; #disp 0/0/0. Quality: partly (library present, 49-74 behaviours missing). Cost: no criterion stated by the authors. (5) Copilot CLI + gpt-5.5, c3: 221/222/161 (R3 never ran the oracle, no demo, scored post-hoc); #disp 3/3/0. Quality: does not work (two runs leave selection, sort, resize L2; the library-routed run is incomplete). Cost: no criterion stated by the authors (c3-R3 ~9 min). (6) Copilot CLI + gpt-5.5, c9: 222/221/221; #disp 3/4/3 (R2 has no library directory at all). Quality: does not work. Cost: no criterion stated by the authors",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Task: one (Fluent UI Table React -> Angular). Configurations: 2 models on Copilot CLI x 3 conditions. Baseline: c0 (standard benchmark convention, oracle post-hoc). Held constant: TASK.md byte-identical, AGENTS.md identical within condition across agents, container image, CLI version 1.0.56, Node runtime, empty workspace, unrestricted internet; per-model harness defaults kept as shipped (product-level comparison). Acceptance: hidden 222-test Playwright oracle, plus library audit and no-op ablation. Repetitions: 3 per (condition, model), 18 runs. Human intervention: none (--yolo). c9 changes several prompt elements at once by design",
+   "p": "2-3, 6-7",
+   "ok": true,
+   "ai": "Task: one (Fluent UI Table React -> Angular). Configurations: 2 models on Copilot CLI x 3 conditions. Baseline: c0 (standard benchmark convention, oracle post-hoc). Held constant: TASK.md byte-identical, AGENTS.md identical within condition across agents, container image, CLI version 1.0.56, Node runtime, empty workspace, unrestricted internet; per-model harness defaults kept as shipped (product-level comparison). Acceptance: hidden 222-test Playwright oracle, plus library audit and no-op ablation. Repetitions: 3 per (condition, model), 18 runs. Human intervention: none (--yolo). c9 changes several prompt elements at once by design",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "With the oracle in the loop parity reaches 221-222 (except GPT c3-R3, 161) vs 148-189 without, but the library is left dead or absent: disposition in 2/6 Claude oracle runs (only under c9) and 5/6 GPT oracle runs; grid navigation stays library-routed in 10 of 11 demo-bearing oracle runs. Claude milder than GPT. Library craft drops for Claude (manifest 3/3 -> 0/6, unit tests 10-11 -> 0/6, strict 3/3 -> 1/6). Ablation: all 12 L2 cells inert under no-op; 3 ND controls load-bearing (29 -> 17, 34 -> 19, 34 -> 27 tests). No statistical tests (claim of existence/mechanism, not prevalence)",
+   "p": "4-5, 23",
+   "ok": true,
+   "ai": "With the oracle in the loop parity reaches 221-222 (except GPT c3-R3, 161) vs 148-189 without, but the library is left dead or absent: disposition in 2/6 Claude oracle runs (only under c9) and 5/6 GPT oracle runs; grid navigation stays library-routed in 10 of 11 demo-bearing oracle runs. Claude milder than GPT. Library craft drops for Claude (manifest 3/3 -> 0/6, unit tests 10-11 -> 0/6, strict 3/3 -> 1/6). Ablation: all 12 L2 cells inert under no-op; 3 ND controls load-bearing (29 -> 17, 34 -> 19, 34 -> 27 tests). No statistical tests (claim of existence/mechanism, not prevalence)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "Distinguished conditions and agents and exposed what the score alone could not (audit confirmed by ablation in 15/15 targets; audit tool 48/48). Three repetitions per cell, but outcomes varied within some cells (Claude c9 #disp 0/1/3; GPT c3 parity 221/222/161 with R3 never invoking the oracle); no variance or repeatability analysis (deliberately a mechanism claim). Limitations stated: small N, prevalence across agents, signals and model families open; c9 is a bundled edit, the load-bearing contrast is c0 vs oracle; c0 scored through manually authored consumer kits; cross-agent comparison at product level, model and harness not separated",
+   "p": "6-9",
+   "ok": true,
+   "ai": "Distinguished conditions and agents and exposed what the score alone could not (audit confirmed by ablation in 15/15 targets; audit tool 48/48). Three repetitions per cell, but outcomes varied within some cells (Claude c9 #disp 0/1/3; GPT c3 parity 221/222/161 with R3 never invoking the oracle); no variance or repeatability analysis (deliberately a mechanism claim). Limitations stated: small N, prevalence across agents, signals and model families open; c9 is a bundled edit, the load-bearing contrast is c0 vs oracle; c0 scored through manually authored consumer kits; cross-agent comparison at product level, model and harness not separated",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: one controlled instance (2 agents x 3 conditions); prevalence open; cause of per-subsystem variation open; model vs harness disposition not separated. Gaps: pass-rate benchmarks cannot see whether the requested artefact was delivered or whether agents choose appropriate validation unprompted ('validation self-awareness'); future work on graded in-loop signals, a matrix across agents (Claude Code, Codex, Cursor, Aider), model tiers and artefact types, post-training effects, and a benchmark methodology combining code-as-spec, controlled oracle exposure and post-hoc audit",
+   "p": "1-2, 8-9",
+   "ok": true,
+   "ai": "Limitations: one controlled instance (2 agents x 3 conditions); prevalence open; cause of per-subsystem variation open; model vs harness disposition not separated. Gaps: pass-rate benchmarks cannot see whether the requested artefact was delivered or whether agents choose appropriate validation unprompted ('validation self-awareness'); future work on graded in-loop signals, a matrix across agents (Claude Code, Codex, Cursor, Aider), model tiers and artefact types, post-training effects, and a benchmark methodology combining code-as-spec, controlled oracle exposure and post-hoc audit",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Abstract speaks of 'two production Copilot CLI agents' (one CLI, two models). Text cites 114 oracle invocations to Section 4, but the figure appears only in Appendix J. Appendix L refers to 'the author' (singular) while three authors are listed. GPT c3-R3 is counted among oracle runs though it never invoked the oracle and was scored post-hoc. Authors are at Microsoft, the evaluated agent is GitHub Copilot CLI and the reference is Microsoft's Fluent UI. Replication package (per-run workspaces, audit tool, ablation diffs, consumer kits, trajectory quotes) at github.com/yanuoma/b2t; no pre-registration. Programming language: TypeScript (Angular target, React reference). LLM assistance disclosed for harness code and manuscript",
+   "p": "1, 4, 8-9, 24-27",
+   "ok": true,
+   "ai": "Abstract speaks of 'two production Copilot CLI agents' (one CLI, two models). Text cites 114 oracle invocations to Section 4, but the figure appears only in Appendix J. Appendix L refers to 'the author' (singular) while three authors are listed. GPT c3-R3 is counted among oracle runs though it never invoked the oracle and was scored post-hoc. Authors are at Microsoft, the evaluated agent is GitHub Copilot CLI and the reference is Microsoft's Fluent UI. Replication package (per-run workspaces, audit tool, ablation diffs, consumer kits, trajectory quotes) at github.com/yanuoma/b2t; no pre-registration. Programming language: TypeScript (Angular target, React reference). LLM assistance disclosed for harness code and manuscript",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): question (does a passing score show the requested artefact was delivered) and contributions clear",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Yes (1): question (does a passing score show the requested artefact was delivered) and contributions clear",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Yes (1): verbatim TASK.md and AGENTS.md per condition, versions, audit and ablation procedures, released corpus",
+   "p": "2-3, 9, 13-25",
+   "ok": true,
+   "ai": "Yes (1): verbatim TASK.md and AGENTS.md per condition, versions, audit and ablation procedures, released corpus",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Yes (1): Copilot CLI 1.0.56, claude-opus-4.7 (xhigh, 1M context), gpt-5.5 (xhigh); reference pinned to a commit",
+   "p": "3, 13",
+   "ok": true,
+   "ai": "Yes (1): Copilot CLI 1.0.56, claude-opus-4.7 (xhigh, 1M context), gpt-5.5 (xhigh); reference pinned to a commit",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): task specified verbatim and released with the workspaces",
+   "p": "9, 13-15",
+   "ok": true,
+   "ai": "Yes (1): task specified verbatim and released with the workspaces",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden 222-test behavioural oracle (reference passes 222/222) plus mechanical audit validated by ablation",
+   "p": "2-4, 23",
+   "ok": true,
+   "ai": "Yes (1): hidden 222-test behavioural oracle (reference passes 222/222) plus mechanical audit validated by ablation",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Partly (0.5): quality and audit metrics defined; cost only as ranges of duration, turns and oracle calls in an appendix, no tokens or money",
+   "p": "3, 24",
+   "ok": true,
+   "ai": "Partly (0.5): quality and audit metrics defined; cost only as ranges of duration, turns and oracle calls in an appendix, no tokens or money",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): c0 baseline under identical inputs and environment",
+   "p": "2-3, 6",
+   "ok": true,
+   "ai": "Yes (1): c0 baseline under identical inputs and environment",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "Partly (0.5): 3 repetitions per cell; no statistical analysis (deliberately a mechanism claim)",
+   "p": "3, 8",
+   "ok": true,
+   "ai": "Partly (0.5): 3 repetitions per cell; no statistical analysis (deliberately a mechanism claim)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims limited to existence and mechanism; prevalence explicitly left open; mixed results (Claude c3, GPT c3-R3) reported",
+   "p": "1, 4-5, 8",
+   "ok": true,
+   "ai": "Yes (1): claims limited to existence and mechanism; prevalence explicitly left open; mixed results (Claude c3, GPT c3-R3) reported",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): threats-to-validity section (construct/internal/external/conclusion) and robustness checks",
+   "p": "5-7",
+   "ok": true,
+   "ai": "Yes (1): threats-to-validity section (construct/internal/external/conclusion) and robustness checks",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "No (0): all authors are at Microsoft and the evaluated agent is GitHub Copilot CLI (a Microsoft/GitHub product)",
+   "p": "1, 3",
+   "ok": true,
+   "ai": "No (0): all authors are at Microsoft and the evaluated agent is GitHub Copilot CLI (a Microsoft/GitHub product)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A (no approach proposed)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no approach proposed)",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T13:59:37"
+}

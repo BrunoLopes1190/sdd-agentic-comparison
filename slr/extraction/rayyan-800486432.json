@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486432",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Bhati, H. (2026). Beyond Code Generation: Reliability, Verification, and Cost Economics in the Agentic Software Development Lifecycle. A Systems Synthesis of Industrial Evidence and a Research Agenda for Agentic Engineering. arXiv:2609.04681v1 [cs.SE], 4 Sep 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Bhati, H. (2026). Beyond Code Generation: Reliability, Verification, and Cost Economics in the Agentic Software Development Lifecycle. A Systems Synthesis of Industrial Evidence and a Research Agenda for Agentic Engineering. arXiv:2609.04681v1 [cs.SE], 4 Sep 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.04681v1 [cs.SE], 18 pages; no venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.04681v1 [cs.SE], 18 pages; no venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Single author; affiliation not stated (contact e-mail at northeastern.edu)",
+   "p": "1",
+   "ok": true,
+   "ai": "Single author; affiliation not stated (contact e-mail at northeastern.edu)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Conceptual; secondary: Proposes an approach — narrative 'structured systems synthesis' of research, benchmark audits, industrial reports, telemetry and cost reports (2024 to Sep 2026; explicitly not a PRISMA-style systematic review, no search described), proposing four constructs (Agentic SDLC Throughput Paradox, Production-Qualified Change, Verification Tax, Agentic SDLC Control Plane), an Autonomy Budget, a metric set and a research agenda",
+   "p": "1-3, 16",
+   "ok": true,
+   "ai": "Conceptual; secondary: Proposes an approach — narrative 'structured systems synthesis' of research, benchmark audits, industrial reports, telemetry and cost reports (2024 to Sep 2026; explicitly not a PRISMA-style systematic review, no search described), proposing four constructs (Agentic SDLC Throughput Paradox, Production-Qualified Change, Verification Tax, Agentic SDLC Control Plane), an Autonomy Budget, a metric set and a research agenda",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "Agentic SDLC Control Plane (policy and telemetry layer that allocates autonomy under cost, reliability and human-attention budgets), with Production-Qualified Change (PQC), Verification Tax, Total Cost to Deliver and Agentic Autonomy Budget. Version: Not stated (proposed, not implemented or evaluated). No SDD approach",
+   "p": "2, 7-10",
+   "ok": true,
+   "ai": "Agentic SDLC Control Plane (policy and telemetry layer that allocates autonomy under cost, reliability and human-attention budgets), with Production-Qualified Change (PQC), Verification Tax, Total Cost to Deliver and Agentic Autonomy Budget. Version: Not stated (proposed, not implemented or evaluated). No SDD approach",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Not SDD artefacts. Control plane records: risk class per task, execution plan (model, context strategy, harness, tool permissions, parallelism, hard budget), evidence bound to each risk class (tests, static analysis, reviewers, security scans, deployment gates), cost attribution records, machine-readable evidence bundles; versioned harnesses, prompts/policy and replayable trajectories",
+   "p": "10-11, 15",
+   "ok": true,
+   "ai": "Not SDD artefacts. Control plane records: risk class per task, execution plan (model, context strategy, harness, tool permissions, parallelism, hard budget), evidence bound to each risk class (tests, static analysis, reviewers, security scans, deployment gates), cost attribution records, machine-readable evidence bundles; versioned harnesses, prompts/policy and replayable trajectories",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Work intake -> policy/risk classifier -> execution planner -> implementation agent with optional test/verifier, review and security agents -> CI/build/tests -> security/policy gates and human escalation/approval -> deploy/canary/rollback (production qualification) -> observability -> outcome learning (PQC, escaped defects, cost, SLOs). Reliability gate ladder: requirement fit, build/type checks, unit/property tests, integration/contract tests, security/dependency policy, review/ownership, deploy/canary, production SLO/rollback, maintenance/regression",
+   "p": "6, 10",
+   "ok": true,
+   "ai": "Work intake -> policy/risk classifier -> execution planner -> implementation agent with optional test/verifier, review and security agents -> CI/build/tests -> security/policy gates and human escalation/approval -> deploy/canary/rollback (production qualification) -> observability -> outcome learning (PQC, escaped defects, cost, SLOs). Reliability gate ladder: requirement fit, build/type checks, unit/property tests, integration/contract tests, security/dependency policy, review/ownership, deploy/canary, production SLO/rollback, maintenance/regression",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "Risk-adaptive review: human escalation/approval gate in the control plane, human approval for high-risk changes, expert attention reserved for architecture, security, ambiguous requirements and high-blast-radius changes; human merge authority in current practice (H0)",
+   "p": "5, 10, 13, 15",
+   "ok": true,
+   "ai": "Risk-adaptive review: human escalation/approval gate in the control plane, human approval for high-risk changes, expert attention reserved for architecture, security, ambiguous requirements and high-blast-radius changes; human merge authority in current practice (H0)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "Not run (document-based synthesis and proposal)",
+   "p": "1, 17",
+   "ok": true,
+   "ai": "Not run (document-based synthesis and proposal)",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (authors' wording: 'Agentic SDLC', 'control plane', 'production-qualified change'; no specification artefact prescribed)",
+   "p": "1-2",
+   "ok": true,
+   "ai": "Not classifiable (authors' wording: 'Agentic SDLC', 'control plane', 'production-qualified change'; no specification artefact prescribed)",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "Not stated (organisation-level delivery of agent-generated changes in general)",
+   "p": "—",
+   "ok": true,
+   "ai": "Not stated (organisation-level delivery of agent-generated changes in general)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "N/A (no study of its own); synthesis cites 30 references",
+   "p": "17-18",
+   "ok": true,
+   "ai": "N/A (no study of its own); synthesis cites 30 references",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "General industrial software delivery (examples: Google, Meta, Microsoft, GitHub); notes that autonomy policy should vary by domain (internal scripts vs authentication, payments, medical, critical infrastructure)",
+   "p": "5, 16",
+   "ok": true,
+   "ai": "General industrial software delivery (examples: Google, Meta, Microsoft, GitHub); notes that autonomy policy should vary by domain (internal scripts vs authentication, payments, medical, critical infrastructure)",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (engineering organisations in general)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (engineering organisations in general)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "None measured. Proposed: Total Cost to Deliver (model, context, tools, sandbox, CI, review, security, rework, incident); Verification Tax = (CI + review + security + rework) / generation cost; PQC per dollar; cost variance (P95/median per task class); retry/cycle rate",
+   "p": "7-8, 12",
+   "ok": true,
+   "ai": "None measured. Proposed: Total Cost to Deliver (model, context, tools, sandbox, CI, review, security, rework, incident); Verification Tax = (CI + review + security + rework) / generation cost; PQC per dollar; cost variance (P95/median per task class); retry/cycle rate",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "None measured. Proposed: PQC rate (production-qualified / candidate changes), first-pass qualification, escaped-failure rate",
+   "p": "7, 12",
+   "ok": true,
+   "ai": "None measured. Proposed: PQC rate (production-qualified / candidate changes), first-pass qualification, escaped-failure rate",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None measured",
+   "p": "—",
+   "ok": true,
+   "ai": "None measured",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None measured. Proposed: PQC per reviewer-hour, human escalation rate",
+   "p": "12",
+   "ok": true,
+   "ai": "None measured. Proposed: PQC per reviewer-hour, human escalation rate",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "None measured. Proposed: evidence coverage (share of risk-required gates with machine-readable evidence); PQC throughput",
+   "p": "7, 12",
+   "ok": true,
+   "ai": "None measured. Proposed: evidence coverage (share of risk-required gates with machine-readable evidence); PQC throughput",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "N/A (no data collected; numerical findings attributed to cited studies)",
+   "p": "1, 3, 17",
+   "ok": true,
+   "ai": "N/A (no data collected; numerical findings attributed to cited studies)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "N/A (document-based; no configuration run)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (document-based; no configuration run)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "N/A (no comparison; evidence tiers A-F used to grade cited sources)",
+   "p": "3",
+   "ok": true,
+   "ai": "N/A (no comparison; evidence tiers A-F used to grade cited sources)",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Not an exhaustive systematic review; some 2026 sources are preprints or organisation reports; company-reported outcomes may be biased; forecasts are planning signals; cited results come from different populations and cannot be compared directly; constructs (PQC, Verification Tax, Autonomy Budget, Control Plane) are unvalidated hypotheses. Research agenda RQ1-RQ10: predictors of PQC, adaptive verification budgets, correlated verifier errors, stop rules for long-horizon agents, cost attribution to value, real defect detection by AI tests, organisation design, agent coordination, reliability evidence across model/harness changes, senior engineer skills",
+   "p": "14-16",
+   "ok": true,
+   "ai": "Not an exhaustive systematic review; some 2026 sources are preprints or organisation reports; company-reported outcomes may be biased; forecasts are planning signals; cited results come from different populations and cannot be compared directly; constructs (PQC, Verification Tax, Autonomy Budget, Control Plane) are unvalidated hypotheses. Research agenda RQ1-RQ10: predictors of PQC, adaptive verification budgets, correlated verifier errors, stop rules for long-horizon agents, cost attribution to value, real defect detection by AI tests, organisation design, agent coordination, reliability evidence across model/harness changes, senior engineer skills",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "No new measurements; all figures attributed to cited sources. Builds on the author's earlier A-SDLC paper (self-citations [1], [2]). Search sources not described (only relevance to six questions), so assessed as conceptual with Q1-Q13 per protocol rule of 2026-11-23. Table numbering skips (Tables 1, 3, 5). No data or replication package; no pre-registration. Programming language: N/A",
+   "p": "2-3, 11-12, 17",
+   "ok": true,
+   "ai": "No new measurements; all figures attributed to cited sources. Builds on the author's earlier A-SDLC paper (self-citations [1], [2]). Search sources not described (only relevance to six questions), so assessed as conceptual with Q1-Q13 per protocol rule of 2026-11-23. Table numbering skips (Tables 1, 3, 5). No data or replication package; no pre-registration. Programming language: N/A",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): purpose, four concepts and the control problem clearly stated",
+   "p": "2",
+   "ok": true,
+   "ai": "Yes (1): purpose, four concepts and the control problem clearly stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): source period, six questions and evidence tiers stated, but no search sources or selection procedure",
+   "p": "2-3",
+   "ok": true,
+   "ai": "Partly (0.5): source period, six questions and evidence tiers stated, but no search sources or selection procedure",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "N/A (not empirical)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (not empirical)",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): claims bounded, numbers attributed, constructs presented as hypotheses; mixed evidence (e.g. METR slowdown) acknowledged",
+   "p": "3-4, 16",
+   "ok": true,
+   "ai": "Yes (1): claims bounded, numbers attributed, constructs presented as hypotheses; mixed evidence (e.g. METR slowdown) acknowledged",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): 'Limitations and Responsible Claims' section",
+   "p": "16",
+   "ok": true,
+   "ai": "Yes (1): 'Limitations and Responsible Claims' section",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "N/A (proposes constructs and an approach but evaluates none)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (proposes constructs and an approach but evaluates none)",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "Partly (0.5): builds on existing CI, Git hosting, scanners and IDE agents and can start as a policy and telemetry layer, but tools, compute, cost and effort to implement are not stated",
+   "p": "10-11",
+   "ok": true,
+   "ai": "Partly (0.5): builds on existing CI, Git hosting, scanners and IDE agents and can start as a policy and telemetry layer, but tools, compute, cost and effort to implement are not stated",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:11:11"
+}

@@ -1,0 +1,358 @@
+{
+ "key": "rayyan-800486473",
+ "fields": [
+  {
+   "f": "Reference",
+   "v": "Yang, P., Shi, T., Yao, Y., Chen, W., Yang, T., Pei, D., Wang, H., Feng, P., Yu, G., Huang, J., Zhang, Z., Sun, S., Li, H., Gu, A., Li, X., Xiao, J., Wang, X., Chen, H., Li, D., Jia, Q., Lin, H., Gu, Z., Tian, Z., Du, W., Ai, L., Yang, E. (2026). Zero2Repo: Can Coding Agents Build Repositories from Scratch? arXiv:2609.38269v3 [cs.SE], 18 Oct 2026",
+   "p": "1",
+   "ok": true,
+   "ai": "Yang, P., Shi, T., Yao, Y., Chen, W., Yang, T., Pei, D., Wang, H., Feng, P., Yu, G., Huang, J., Zhang, Z., Sun, S., Li, H., Gu, A., Li, X., Xiao, J., Wang, X., Chen, H., Li, D., Jia, Q., Lin, H., Gu, Z., Tian, Z., Du, W., Ai, L., Yang, E. (2026). Zero2Repo: Can Coding Agents Build Repositories from Scratch? arXiv:2609.38269v3 [cs.SE], 18 Oct 2026",
+   "changed": false
+  },
+  {
+   "f": "Year",
+   "v": "2026",
+   "p": "1",
+   "ok": true,
+   "ai": "2026",
+   "changed": false
+  },
+  {
+   "f": "Publication type",
+   "v": "Preprint — arXiv:2609.38269v3 [cs.SE]; no published venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "Preprint — arXiv:2609.38269v3 [cs.SE]; no published venue stated",
+   "changed": false
+  },
+  {
+   "f": "Author affiliation",
+   "v": "Gradient Data (industry); McGill University; Carnegie Mellon University; University of Southern California; Queen's University; MIT; University College London; University of California, San Diego; several independent researchers (mixed industry/academic)",
+   "p": "1",
+   "ok": true,
+   "ai": "Gradient Data (industry); McGill University; Carnegie Mellon University; University of Southern California; Queen's University; MIT; University College London; University of California, San Diego; several independent researchers (mixed industry/academic)",
+   "changed": false
+  },
+  {
+   "f": "Nature of the study",
+   "v": "Proposes an evaluation method; secondary: Compares — Zero2Repo benchmark of 17 from-scratch repository-construction tasks in six languages, built by a language-agnostic, LLM-assisted authoring pipeline with execution and adversarial validation; 18 model–harness configurations compared on the public leaderboard",
+   "p": "1-3, 8",
+   "ok": true,
+   "ai": "Proposes an evaluation method; secondary: Compares — Zero2Repo benchmark of 17 from-scratch repository-construction tasks in six languages, built by a language-agnostic, LLM-assisted authoring pipeline with execution and adversarial validation; 18 model–harness configurations compared on the public leaderboard",
+   "changed": false
+  },
+  {
+   "f": "Approach(es): name and version",
+   "v": "No SDD approach evaluated. Harnesses: Codex, Claude Code, OpenCode, Cursor (CLI versions not published). Configurations (model / harness): GPT-6 Astra / Codex and OpenCode; Claude Opus 5.5 / OpenCode and Claude Code; Claude Sonnet 5.5 / Claude Code and OpenCode; GPT-6 Sol / Codex and OpenCode; Gemini 4 Argon, DeepSeek V4.1 Flash (1017), Qwen3.8 Max, Kimi K3, GLM-5.3, Hy4 Preview, DeepSeek V4 Pro, Step 5 Preview, Seed 2.1 Turbo / OpenCode; Grok 4.7 / Cursor. All with high reasoning effort. Runner: cbrun",
+   "p": "7-9, 18-19",
+   "ok": true,
+   "ai": "No SDD approach evaluated. Harnesses: Codex, Claude Code, OpenCode, Cursor (CLI versions not published). Configurations (model / harness): GPT-6 Astra / Codex and OpenCode; Claude Opus 5.5 / OpenCode and Claude Code; Claude Sonnet 5.5 / Claude Code and OpenCode; GPT-6 Sol / Codex and OpenCode; Gemini 4 Argon, DeepSeek V4.1 Flash (1017), Qwen3.8 Max, Kimi K3, GLM-5.3, Hy4 Preview, DeepSeek V4 Pro, Step 5 Preview, Seed 2.1 Turbo / OpenCode; Grok 4.7 / Cursor. All with high reasoning effort. Runner: cbrun",
+   "changed": false
+  },
+  {
+   "f": "Artefacts prescribed",
+   "v": "Agent receives a product requirements document (Full_PRD.md, behavioural requirements grouped into feature points with normal, boundary and failure cases), an Interface Contract (package names, API and CLI entry points, argument conventions, return and error types), optional Hardware_Requirements.md, a build contract and an empty workspace with the toolchain installed. Deliverable: a complete repository in the native ecosystem with its packaging and build artefacts, plus a submit marker file",
+   "p": "2, 4-5, 15-17",
+   "ok": true,
+   "ai": "Agent receives a product requirements document (Full_PRD.md, behavioural requirements grouped into feature points with normal, boundary and failure cases), an Interface Contract (package names, API and CLI entry points, argument conventions, return and error types), optional Hardware_Requirements.md, a build contract and an empty workspace with the toolchain installed. Deliverable: a complete repository in the native ecosystem with its packaging and build artefacts, plus a submit marker file",
+   "changed": false
+  },
+  {
+   "f": "Phases of the flow",
+   "v": "Solve: agent reads the PRD and Interface Contract, writes code, self-tests and revises in the empty directory within a 7200 s wall-clock budget, then submits by writing a marker file; denylist check (one correction attempt). Judge: workspace copied to a fresh offline container, hidden acceptance tests injected and run, binary reward. Task authoring: select and pin repository, build environment, reverse-engineer PRD and Interface Contract, write tests, neutralize names, verify, review and release",
+   "p": "4-7, 15-16",
+   "ok": true,
+   "ai": "Solve: agent reads the PRD and Interface Contract, writes code, self-tests and revises in the empty directory within a 7200 s wall-clock budget, then submits by writing a marker file; denylist check (one correction attempt). Judge: workspace copied to a fresh offline container, hidden acceptance tests injected and run, binary reward. Task authoring: select and pin repository, build environment, reverse-engineer PRD and Interface Contract, write tests, neutralize names, verify, review and release",
+   "changed": false
+  },
+  {
+   "f": "Human review points",
+   "v": "None during agent runs. In task construction, author inspection of each task after automated validation rounds (about one to two hours per task)",
+   "p": "6, 12, 18",
+   "ok": true,
+   "ai": "None during agent runs. In task construction, author inspection of each task after automated validation rounds (about one to two hours per task)",
+   "changed": false
+  },
+  {
+   "f": "Parts exercised",
+   "v": "N/A (no SDD approach); agents build a full repository from a PRD and Interface Contract",
+   "p": "4",
+   "ok": true,
+   "ai": "N/A (no SDD approach); agents build a full repository from a PRD and Interface Contract",
+   "changed": false
+  },
+  {
+   "f": "SDD level",
+   "v": "Not classifiable (no SDD approach evaluated). Authors' wording: 'a spec-to-repository benchmark in native ecosystems'; 'take a product specification and an empty directory and deliver a repository'",
+   "p": "3, 12",
+   "ok": true,
+   "ai": "Not classifiable (no SDD approach evaluated). Authors' wording: 'a spec-to-repository benchmark in native ecosystems'; 'take a product specification and an empty directory and deliver a repository'",
+   "changed": false
+  },
+  {
+   "f": "Task type",
+   "v": "New project (deliver a complete repository from an empty workspace)",
+   "p": "1, 4",
+   "ok": true,
+   "ai": "New project (deliver a complete repository from an empty workspace)",
+   "changed": false
+  },
+  {
+   "f": "Size",
+   "v": "17 tasks; 138 feature points and 144 acceptance modules (4 to 18 per task); hidden suites of 80 to 585 tests per task; 306 adopted runs (18 configurations × 17 tasks)",
+   "p": "6, 9, 19",
+   "ok": true,
+   "ai": "17 tasks; 138 feature points and 144 acceptance modules (4 to 18 per task); hidden suites of 80 to 585 tests per task; 306 adopted runs (18 configurations × 17 tasks)",
+   "changed": false
+  },
+  {
+   "f": "Domain",
+   "v": "Libraries and tools derived from open-source projects: parsers (TOML, YAML, URL, JSON path), security utilities (HMAC signing, OTP), HTTP/1.1 protocol state machine, CLI framework, version-control large-file client, NLP toolkit, lint ruleset, agent memory, 3D navigation filters, Ogg recompressor, prose-pattern detector, roaring bitmaps",
+   "p": "3, 6, 15",
+   "ok": true,
+   "ai": "Libraries and tools derived from open-source projects: parsers (TOML, YAML, URL, JSON path), security utilities (HMAC signing, OTP), HTTP/1.1 protocol state machine, CLI framework, version-control large-file client, NLP toolkit, lint ruleset, agent memory, 3D navigation filters, Ogg recompressor, prose-pattern detector, roaring bitmaps",
+   "changed": false
+  },
+  {
+   "f": "Team profile",
+   "v": "N/A (no human participants; autonomous agents)",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A (no human participants; autonomous agents)",
+   "changed": false
+  },
+  {
+   "f": "Cost metrics",
+   "v": "Total agent time, token total and API spend (USD) per configuration, as published on the leaderboard",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Total agent time, token total and API spend (USD) per configuration, as published on the leaderboard",
+   "changed": false
+  },
+  {
+   "f": "Functional quality metrics",
+   "v": "Pass rate: fraction of the 17 tasks with reward 1 (every hidden acceptance test passes); percentage of hidden tests passed per adopted run; number of configurations solving each task",
+   "p": "5, 8, 10, 19",
+   "ok": true,
+   "ai": "Pass rate: fraction of the 17 tasks with reward 1 (every hidden acceptance test passes); percentage of hidden tests passed per adopted run; number of configurations solving each task",
+   "changed": false
+  },
+  {
+   "f": "Internal quality metrics",
+   "v": "None",
+   "p": "—",
+   "ok": true,
+   "ai": "None",
+   "changed": false
+  },
+  {
+   "f": "Human effort metrics",
+   "v": "None for agent runs; author inspection time per task in construction (about one to two hours)",
+   "p": "12, 18",
+   "ok": true,
+   "ai": "None for agent runs; author inspection time per task in construction (about one to two hours)",
+   "changed": false
+  },
+  {
+   "f": "Other outcome metrics",
+   "v": "Outcome split of unsuccessful runs: judged failures, two-hour solve timeouts, exits without submission, token-limit stops, interrupted hidden tests; validation rounds per task before release",
+   "p": "9, 11, 18",
+   "ok": true,
+   "ai": "Outcome split of unsuccessful runs: judged failures, two-hour solve timeouts, exits without submission, token-limit stops, interrupted hidden tests; validation rounds per task before release",
+   "changed": false
+  },
+  {
+   "f": "How metrics are collected",
+   "v": "Automatic: cbrun runner records reward, judge logs, agent logs, wall time, token usage when reported by the harness, and reproducibility metadata; hidden tests run in an isolated offline judge container; tokens and cost taken from the published leaderboard (some costs from OpenRouter list prices)",
+   "p": "7-8, 12, 18",
+   "ok": true,
+   "ai": "Automatic: cbrun runner records reward, judge logs, agent logs, wall time, token usage when reported by the harness, and reproducibility metadata; hidden tests run in an isolated offline judge container; tokens and cost taken from the published leaderboard (some costs from OpenRouter list prices)",
+   "changed": false
+  },
+  {
+   "f": "Evaluation (each configuration)",
+   "v": "Success criterion per task: every hidden acceptance test passes (reward 1); no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Values (solved/17; pass rate; time; tokens; cost USD): (1) GPT-6 Astra + Codex: 15; 88.2%; 4h13m; 25.1M; 80.57. (2) Claude Opus 5.5 + OpenCode: 14; 82.4%; 9h35m; 146.5M; 195.69. (3) GPT-6 Astra + OpenCode: 12; 70.6%; 5h18m; 25.8M; 80.90. (4) Claude Opus 5.5 + Claude Code: 11; 64.7%; 10h14m; 180.6M; 178.33. (5) Claude Sonnet 5.5 + Claude Code: 10; 58.8%; 6h20m; 67.1M; 58.54. (6) Claude Sonnet 5.5 + OpenCode: 9; 52.9%; 5h7m; 91.8M; 71.07. (7) GPT-6 Sol + Codex: 9; 52.9%; 3h45m; 39.7M; 16.48. (8) Gemini 4 Argon + OpenCode: 9; 52.9%; 13h25m; 84.5M; 85.41. (9) Grok 4.7 + Cursor: 8; 47.1%; 15h20m; 146.1M; 78.99. (10) DeepSeek V4.1 Flash (1017) + OpenCode: 7; 41.2%; 4h13m; 231.9M; 3.36. (11) GPT-6 Sol + OpenCode: 6; 35.3%; 5h5m; 38.5M; 15.06. (12) Qwen3.8 Max + OpenCode: 6; 35.3%; 29h21m; 218.2M; 25.74. (13) Kimi K3 + OpenCode: 5; 29.4%; 13h35m; 101.4M; 84.59. (14) GLM-5.3 + OpenCode: 5; 29.4%; 21h29m; 469.4M; 13.43. (15) Hy4 Preview + OpenCode: 4; 23.5%; 22h10m; 290.4M; 24.29. (16) DeepSeek V4 Pro + OpenCode: 2; 11.8%; 16h40m; 333.5M; 75.38. (17) Step 5 Preview + OpenCode: 1; 5.9%; 15h55m; 214.1M; 18.53. (18) Seed 2.1 Turbo + OpenCode: 1; 5.9%; 11h0m; 183.0M; 6.87",
+   "p": "5, 8-9",
+   "ok": true,
+   "ai": "Success criterion per task: every hidden acceptance test passes (reward 1); no criterion stated by the authors for judging a configuration, so quality and cost verdicts: no criterion stated by the authors. Values (solved/17; pass rate; time; tokens; cost USD): (1) GPT-6 Astra + Codex: 15; 88.2%; 4h13m; 25.1M; 80.57. (2) Claude Opus 5.5 + OpenCode: 14; 82.4%; 9h35m; 146.5M; 195.69. (3) GPT-6 Astra + OpenCode: 12; 70.6%; 5h18m; 25.8M; 80.90. (4) Claude Opus 5.5 + Claude Code: 11; 64.7%; 10h14m; 180.6M; 178.33. (5) Claude Sonnet 5.5 + Claude Code: 10; 58.8%; 6h20m; 67.1M; 58.54. (6) Claude Sonnet 5.5 + OpenCode: 9; 52.9%; 5h7m; 91.8M; 71.07. (7) GPT-6 Sol + Codex: 9; 52.9%; 3h45m; 39.7M; 16.48. (8) Gemini 4 Argon + OpenCode: 9; 52.9%; 13h25m; 84.5M; 85.41. (9) Grok 4.7 + Cursor: 8; 47.1%; 15h20m; 146.1M; 78.99. (10) DeepSeek V4.1 Flash (1017) + OpenCode: 7; 41.2%; 4h13m; 231.9M; 3.36. (11) GPT-6 Sol + OpenCode: 6; 35.3%; 5h5m; 38.5M; 15.06. (12) Qwen3.8 Max + OpenCode: 6; 35.3%; 29h21m; 218.2M; 25.74. (13) Kimi K3 + OpenCode: 5; 29.4%; 13h35m; 101.4M; 84.59. (14) GLM-5.3 + OpenCode: 5; 29.4%; 21h29m; 469.4M; 13.43. (15) Hy4 Preview + OpenCode: 4; 23.5%; 22h10m; 290.4M; 24.29. (16) DeepSeek V4 Pro + OpenCode: 2; 11.8%; 16h40m; 333.5M; 75.38. (17) Step 5 Preview + OpenCode: 1; 5.9%; 15h55m; 214.1M; 18.53. (18) Seed 2.1 Turbo + OpenCode: 1; 5.9%; 11h0m; 183.0M; 6.87",
+   "changed": false
+  },
+  {
+   "f": "Comparison: design",
+   "v": "Tasks: 17-task release. Configurations: 18 model–harness pairs from the public leaderboard; four models run in two harnesses as separate sittings, not a controlled harness comparison. Baseline: none designated. Held constant: tasks, instruction text, high reasoning effort, 7200 s solve and judge limits, sealed hidden tests, blocked code-hosting and upstream packages, judging protocol. Acceptance tests: hidden suites validated by a reference implementation and adversarial validation; all-or-nothing reward, no LLM judge. Repetitions: one adopted run per task. Human intervention: none during runs",
+   "p": "5-9, 12",
+   "ok": true,
+   "ai": "Tasks: 17-task release. Configurations: 18 model–harness pairs from the public leaderboard; four models run in two harnesses as separate sittings, not a controlled harness comparison. Baseline: none designated. Held constant: tasks, instruction text, high reasoning effort, 7200 s solve and judge limits, sealed hidden tests, blocked code-hosting and upstream packages, judging protocol. Acceptance tests: hidden suites validated by a reference implementation and adversarial validation; all-or-nothing reward, no LLM judge. Repetitions: one adopted run per task. Human intervention: none during runs",
+   "changed": false
+  },
+  {
+   "f": "Comparison: result",
+   "v": "GPT-6 Astra + Codex best (15/17), Claude Opus 5.5 + OpenCode 14/17; bottom configurations 1/17; no configuration solves every task and task 014 is solved by none. Harness changes the result: same model in another harness differs by up to three tasks (GPT-6 Astra 15 vs 12, Opus 5.5 14 vs 11, GPT-6 Sol 9 vs 6, Sonnet 5.5 10 vs 9). Longer and costlier runs do not solve more (Opus 5.5 + OpenCode $195.69 for 14 vs GPT-6 Astra + Codex $80.57 for 15; DeepSeek V4.1 Flash 7 for $3.36). Of 306 runs 134 pass; of 121 judged failures 95 pass at least 90% of hidden tests; 51 unsuccessful runs never get a complete judge result. No significance tests",
+   "p": "8-11",
+   "ok": true,
+   "ai": "GPT-6 Astra + Codex best (15/17), Claude Opus 5.5 + OpenCode 14/17; bottom configurations 1/17; no configuration solves every task and task 014 is solved by none. Harness changes the result: same model in another harness differs by up to three tasks (GPT-6 Astra 15 vs 12, Opus 5.5 14 vs 11, GPT-6 Sol 9 vs 6, Sonnet 5.5 10 vs 9). Longer and costlier runs do not solve more (Opus 5.5 + OpenCode $195.69 for 14 vs GPT-6 Astra + Codex $80.57 for 15; DeepSeek V4.1 Flash 7 for $3.36). Of 306 runs 134 pass; of 121 judged failures 95 pass at least 90% of hidden tests; 51 unsuccessful runs never get a complete judge result. No significance tests",
+   "changed": false
+  },
+  {
+   "f": "Comparison: did the method work",
+   "v": "It separated the 18 configurations (15/17 down to 1/17) and distinguishes near misses from timeouts and missing submissions. Repeatability not measured: one adopted run per task, so run-to-run variance unknown and harness gaps mix harness behaviour with run variation. Limitations stated: small scale (17 tasks, non-Python results rest on one or two tasks, no language ranking), first 11 tasks from well-known projects likely in training data, Claude Fable 5.1 excluded, no per-test failure attribution",
+   "p": "9-12",
+   "ok": true,
+   "ai": "It separated the 18 configurations (15/17 down to 1/17) and distinguishes near misses from timeouts and missing submissions. Repeatability not measured: one adopted run per task, so run-to-run variance unknown and harness gaps mix harness behaviour with run variation. Limitations stated: small scale (17 tasks, non-Python results rest on one or two tasks, no language ranking), first 11 tasks from well-known projects likely in training data, Claude Fable 5.1 excluded, no per-test failure attribution",
+   "changed": false
+  },
+  {
+   "f": "Conclusions: limitations and gaps",
+   "v": "Limitations: 17 tasks, nine Python; first 11 seed projects well known, so pass rates probably inflated; one run per configuration and task, variance not measured; harness comparison not controlled; Claude Fable 5.1 excluded because it declined on safety grounds during construction; authoring pipeline not released; per-test labels not released. Gaps: agents fail by missing a few specified rules or by never submitting; RL with all-pass reward does not separate these defects; planned extension to 30–50 tasks, repeated runs, recent and private repositories",
+   "p": "11-12",
+   "ok": true,
+   "ai": "Limitations: 17 tasks, nine Python; first 11 seed projects well known, so pass rates probably inflated; one run per configuration and task, variance not measured; harness comparison not controlled; Claude Fable 5.1 excluded because it declined on safety grounds during construction; authoring pipeline not released; per-test labels not released. Gaps: agents fail by missing a few specified rules or by never submitting; RL with all-pass reward does not separate these defects; planned extension to 30–50 tasks, repeated runs, recent and private repositories",
+   "changed": false
+  },
+  {
+   "f": "Notes",
+   "v": "Inconsistencies stated by the authors: for Qwen3.8 Max, GLM-5.3, Step 5 Preview and Seed 2.1 Turbo the published configuration cost total does not equal the sum of per-task figures (and for the last two also tokens); Table 2 uses published totals; Hy4 Preview per-task costs shown as $0; some costs are OpenRouter list prices. Values from Table 2 and Figure 4; per-task sums of Table 5 (134 solved) match the text. CLI builds not published. Data: code, released tasks, hidden suites and scripts at https://github.com/Gradient-Data/Zero2Repo; leaderboard at https://zero2repo.ai/; authoring pipeline not released; denylists distributed privately. No pre-registration. Programming languages of tasks: Python, TypeScript, Go, C, C++, Zig (one with Node.js hooks). LLMs used to author specs and tests",
+   "p": "2, 8, 12, 19",
+   "ok": true,
+   "ai": "Inconsistencies stated by the authors: for Qwen3.8 Max, GLM-5.3, Step 5 Preview and Seed 2.1 Turbo the published configuration cost total does not equal the sum of per-task figures (and for the last two also tokens); Table 2 uses published totals; Hy4 Preview per-task costs shown as $0; some costs are OpenRouter list prices. Values from Table 2 and Figure 4; per-task sums of Table 5 (134 solved) match the text. CLI builds not published. Data: code, released tasks, hidden suites and scripts at https://github.com/Gradient-Data/Zero2Repo; leaderboard at https://zero2repo.ai/; authoring pipeline not released; denylists distributed privately. No pre-registration. Programming languages of tasks: Python, TypeScript, Go, C, C++, Zig (one with Node.js hooks). LLMs used to author specs and tests",
+   "changed": false
+  },
+  {
+   "f": "Q1",
+   "v": "Yes (1): research question in the title and the requirement it answers, plus contributions, are stated",
+   "p": "1-3",
+   "ok": true,
+   "ai": "Yes (1): research question in the title and the requirement it answers, plus contributions, are stated",
+   "changed": false
+  },
+  {
+   "f": "Q2",
+   "v": "Partly (0.5): evaluation harness, tasks, instruction text and budgets released and described; task-authoring pipeline not released and CLI versions not listed",
+   "p": "7, 12, 15-18",
+   "ok": true,
+   "ai": "Partly (0.5): evaluation harness, tasks, instruction text and budgets released and described; task-authoring pipeline not released and CLI versions not listed",
+   "changed": false
+  },
+  {
+   "f": "Q3",
+   "v": "Partly (0.5): models and harnesses named, reasoning effort stated; harness CLI versions not published",
+   "p": "8, 18-19",
+   "ok": true,
+   "ai": "Partly (0.5): models and harnesses named, reasoning effort stated; harness CLI versions not published",
+   "changed": false
+  },
+  {
+   "f": "Q4",
+   "v": "Yes (1): 17 tasks described in Table 3 and released with hidden suites and environment recipes on GitHub",
+   "p": "6, 12, 15",
+   "ok": true,
+   "ai": "Yes (1): 17 tasks described in Table 3 and released with hidden suites and environment recipes on GitHub",
+   "changed": false
+  },
+  {
+   "f": "Q5",
+   "v": "Yes (1): hidden acceptance tests validated against a reference implementation and adversarial variants; no LLM judge",
+   "p": "5-6, 18",
+   "ok": true,
+   "ai": "Yes (1): hidden acceptance tests validated against a reference implementation and adversarial variants; no LLM judge",
+   "changed": false
+  },
+  {
+   "f": "Q6",
+   "v": "Yes (1): pass rate defined; time, tokens and API cost reported per configuration",
+   "p": "8-9",
+   "ok": true,
+   "ai": "Yes (1): pass rate defined; time, tokens and API cost reported per configuration",
+   "changed": false
+  },
+  {
+   "f": "Q7",
+   "v": "Yes (1): 18 configurations under the same tasks, budgets and judging protocol",
+   "p": "8",
+   "ok": true,
+   "ai": "Yes (1): 18 configurations under the same tasks, budgets and judging protocol",
+   "changed": false
+  },
+  {
+   "f": "Q8",
+   "v": "No (0): one adopted run per task, no repetitions or statistical analysis; authors acknowledge it",
+   "p": "12",
+   "ok": true,
+   "ai": "No (0): one adopted run per task, no repetitions or statistical analysis; authors acknowledge it",
+   "changed": false
+  },
+  {
+   "f": "Q9",
+   "v": "Yes (1): conclusions follow from Table 2 and Figure 4 and are hedged (no language ranking, harness gap not controlled, near misses vs no submission)",
+   "p": "9-12",
+   "ok": true,
+   "ai": "Yes (1): conclusions follow from Table 2 and Figure 4 and are hedged (no language ranking, harness gap not controlled, near misses vs no submission)",
+   "changed": false
+  },
+  {
+   "f": "Q10",
+   "v": "Yes (1): limitations paragraph covers scale, contamination of seed projects, single runs, uncontrolled harness comparison and model exclusion",
+   "p": "12",
+   "ok": true,
+   "ai": "Yes (1): limitations paragraph covers scale, contamination of seed projects, single runs, uncontrolled harness comparison and model exclusion",
+   "changed": false
+  },
+  {
+   "f": "Q11",
+   "v": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "p": "1",
+   "ok": true,
+   "ai": "No (0): arXiv preprint, no peer-reviewed venue stated",
+   "changed": false
+  },
+  {
+   "f": "Q12",
+   "v": "Yes (1): authors (Gradient Data and universities) are not vendors of the evaluated models or harnesses; the benchmark is an evaluation method, not an evaluated approach",
+   "p": "1, 8",
+   "ok": true,
+   "ai": "Yes (1): authors (Gradient Data and universities) are not vendors of the evaluated models or harnesses; the benchmark is an evaluation method, not an evaluated approach",
+   "changed": false
+  },
+  {
+   "f": "Q13",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE1",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE2",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE3",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  },
+  {
+   "f": "DARE4",
+   "v": "N/A",
+   "p": "—",
+   "ok": true,
+   "ai": "N/A",
+   "changed": false
+  }
+ ],
+ "time": "2026-11-26T14:13:31"
+}
