@@ -1,0 +1,12 @@
+{"key": "rayyan-800486795", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Comparison: result",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "GPT-5.3-Codex best (61.8%), then Claude Opus 4.6 (57.6%), GPT-5.2 and Opus 4.6 Thinking (53.5%), Sonnet 4.6 (51.5%); open-weight models (Table 4) 5.1-23.4%: GLM-5 23.4%, Kimi-K2.5 Thinking 17.5%, Qwen3.5 Plus Thinking 15.7%, MiniMax M2.5 14.9%, DeepSeek V3.2 Thinking 5.1%; lowest Grok 4.1 Fast Reasoning (1.2%). Gap MiniMax M2.5 vs Opus 4.6: 2.8% on SWE-Bench vs 42.7% on VCB. Higher cost and latency associated with higher accuracy with diminishing returns; Opus 4.6 near-top accuracy at lower cost and latency than GPT-5.3-Codex. Browser calls per app correlate with accuracy (r=0.72). All-model average falls from 34.18% (no integration) to 13.49% (email + Stripe), and from 44.29% (easy) to 21.36% (medium) to 6.03% (hard). Top-5 models: 12.8% of apps score zero vs 73.2% for bottom-5; 14.0% of bottom-5 apps fail to start. Only SE reported, no significance tests; authors say near-tie differences require caution",
+   "p": "5",
+   "quote": "Open-weight models such as GLM 5, Qwen 3.5, and Kimi K2.5 hover around 15% to 24%, performing worse than leading closed-weight counterparts.",
+   "where": "§4.1 Overall Benchmark Performance and Table 4, p. 5",
+   "why": "The '15-24%' range is the authors' 'such as' remark for three models; Table 4 also marks MiniMax M2.5 (14.85%) and DeepSeek V3.2 Thinking (5.11%) as open-weight, so the open-weight range is 5.1-23.4%.",
+   "doubt": "O texto diz 15-24% só para GLM-5, Qwen e Kimi ('such as'), mas a Tabela 4 (pág. 5) marca também MiniMax M2.5 (14,85%) e DeepSeek V3.2 (5,11%) como open-weight. Decide se o resultado deve dar o intervalo 5,1-23,4% para todos os modelos open-weight."}
+ ]}

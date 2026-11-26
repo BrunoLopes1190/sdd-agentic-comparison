@@ -1,0 +1,21 @@
+{"key": "rayyan-800498007", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Notes",
+   "verdict": "uncertain",
+   "sev": "low",
+   "v": "Reporting inconsistencies: abstract (arXiv v1) says simple 'Defensive Programming' prompts 'outperform complex ones by 7.4%', but the 7.4 is percentage points of Test Pass over the Baseline prompt (19.3 -> 26.7), with equal Task Success (p. 6, Table 4); the published KDD abstract (ACM export) rewords this as 'raise the test pass rate by 7.4 points over the baseline'; 'commercial agents consistently outperform' OpenCode (abstract, p. 1, 5, 7), yet OpenCode + GPT-5.1 (6%) beats Cursor + GPT-5.1 (2%) and Codex + GPT-5.1 (0%) (Tables 5-6); Claude Code + Opus 4.5 is 8.0% in Table 5 (p. 12) but 6, 8, 6% over three runs in Fig. 8 (p. 6); discussion cites a '25% failure rate due to requirement misunderstanding' (p. 7) not given in the error analysis (p. 6-7); failure-mode percentages overlap (sum >100%); the text refers to the category breakdown as 'Table 3' (p. 3) but Table 3 is the cost table (p. 6). Codebase size given as approx. 5 GB (Table 1) and approx. 500K LoC (Table 7). Prompt used for the main 22-configuration runs not stated; Claude Code + GLM-4.6 in Table 5 (10.0 / 26.7) equals the Defensive Programming row of the ablation, not the Baseline row (10.0 / 19.3), so the main runs may have used the Defensive Programming prompt. Data: tasks and codebase proprietary, not released; hosted evaluation and leaderboard at https://swebenchmobile.com, submission guidelines at https://github.com/realtmxi/mobile-bench. No pre-registration. Programming language: Swift/Objective-C (tests in Python/pytest). Figure 4/5 values garbled in the text extraction; values taken from Table 5 and the text. Full text read is arXiv v1; the published version is KDD '26",
+   "p": "6, 12",
+   "quote": "Key Findings. The \"Defensive Programming\" prompt strategy performs best, improving the Test Pass Rate by 7.4% over the baseline (19.3% → 26.7%) while maintaining the same Task Success Rate (10.0%).",
+   "where": "§3.8 Prompt Engineering (RQ5) and Table 4, p. 6; Table 5, p. 12",
+   "why": "The main-run result for Claude Code + GLM-4.6 (Table 5: 10.0 / 26.7) is identical to the Defensive Programming ablation row, not the Baseline row (19.3), which hints at which prompt the main runs used and bears on the 'over the baseline' comparison.",
+   "doubt": "Na Tabela 5 (pág. 12), Claude Code + GLM-4.6 tem 10.0 / 26.7, exatamente igual à linha Defensive Programming da Tabela 4 (pág. 6), e não à Baseline (19.3). Pode indicar que as corridas principais usaram esse prompt. Decide se vale acrescentar esta observação às Notas."},
+  {"f": "Publication type",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Conference — KDD '26 (32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining, V.2), ACM, DOI 10.1145/3770855.3818488; full text read from arXiv:2602.09540v1",
+   "p": "ACM export; arXiv p. 1 (arXiv ID only)",
+   "quote": "arXiv:2602.09540v1 [cs.SE] 10 Feb 2026",
+   "where": "Title page, p. 1",
+   "why": "The arXiv full text names no venue, DOI or KDD details anywhere (absence); the KDD data come from the ACM export, so page '1' does not support the value (same for Reference and Q11).",
+   "doubt": "O texto do arXiv não menciona o KDD nem o DOI em nenhuma página; a pág. 1 só tem o identificador arXiv. A fonte do KDD é a exportação ACM. Corrige a página (aqui, na Referência e no Q11) para 'ACM export', como fizeste noutros registos."}
+ ]}

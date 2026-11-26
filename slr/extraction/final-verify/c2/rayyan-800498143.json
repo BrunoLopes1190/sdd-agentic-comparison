@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800498143",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "No replication package or code link found. No pre-registration. Languages: Java (test generation), Go (filtering); GSE in Python. Tables 1-3 jumbled by pdftotext: values rebuilt by row order and checked against text deltas (p. 10, 11-12; consistent except as noted). Abstract '61.4% F1' for industrial deployment is vs human skills; vs base 65.1%. Abstract and conclusion attribute the gains 'compared with existing evolution techniques' (P +6.1-34.1%, R +31.8-180.0% for test generation), but the lower precision end (6.1%, 0.35 vs 0.33) and the upper recall end (180.0%, 0.28 vs 0.10) come from the human-skills baseline, not from Live-SWE-agent or Trace2Skill (the other ends, 34.1% and 31.8%, are vs Trace2Skill on mini-SWE-agent: 0.55 vs 0.41, 0.29 vs 0.22); likewise the filtering recall upper end 19.8% is vs human skills on mini-SWE-agent (0.97 vs 0.81). RQ1 summary 'F1 +31.0-93.8%' is likewise vs strongest baseline and human skills. Industrial partner named ByteDance on p. 2 but anonymized later. Relevance to SDD: automatically evolved agent skill files. Also: on mini-SWE-agent test generation the text's precision gain of 27.9% 'over the strongest baselines' (0.55 vs 0.43, Live-SWE-agent) ignores the base agent's higher precision of 0.48 (gain vs base +14.6%); all skill baselines lower precision below the base agent there (0.41-0.43 vs 0.48, Table 1)",
+   "p": "10",
+   "quote": "On mini-SWE-agent, GSE achieves a precision of 0.55, recall of 0.29, and F1-score of 0.38, improving over the strongest baselines by 27.9%, 31.8%, and 31.0%, respectively.",
+   "where": "§5.1.2 Results and Table 1, p. 10",
+   "why": "Notes says the text deltas are all consistent with the tables, but the 27.9% precision gain on mini-SWE-agent is computed against 0.43 while the base agent's precision in Table 1 is 0.48, a reporting inconsistency not recorded.",
+   "doubt": "Na Tabela 1 (pág. 10) o mini-SWE-agent base tem precisão 0,48, acima de todos os baselines com skills (0,41-0,43). O texto diz +27,9% sobre o 'strongest baseline' (0,55 vs 0,43), ignorando o base (+14,6%). As Notas dizem 'all consistent'. Confirma a tabela e decide se acrescentas esta inconsistência."
+  }
+ ]
+}

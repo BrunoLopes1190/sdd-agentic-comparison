@@ -1,0 +1,10 @@
+{"key": "rayyan-800486568", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q4",
+  "verdict": "uncertain",
+  "sev": "high",
+  "v": "Partly (0.5): the nine benchmarks are described with versions and references and quotes are on Zenodo, but not all analysed benchmarks are available: FrontierCode's dataset is not public and FrontierSWE is only a blog post with insufficient information",
+  "p": "2, 4",
+  "quote": "In addition to FrontierSWE, we excluded FrontierCode from RQ2 because its dataset is not publicly available, leaving seven benchmarks.",
+  "where": "§IV.B RQ2: Additional Aspects, p. 4",
+  "why": "Q4 asks for the tasks to be described and available, but two of the nine analysed benchmarks are not available or not sufficiently described by their own sources, which may justify Partly rather than Yes.",
+  "doubt": "Q4 pede tarefas descritas e disponíveis. Dois dos nove benchmarks não estão disponíveis ou têm pouca informação: o FrontierCode não tem dados públicos e o FrontierSWE só tem um blog (págs. 3-4). Decide se fica Sim ou passa a Parcial (0,5)."}]}

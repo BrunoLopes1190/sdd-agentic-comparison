@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800498029",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests. Table 2 calls ReasoningBank 'lowest average gain'. Fig. 6 and the text (p. 9) report memory pools from up to 9 source domains ('using 9 domains yields the best overall performance'), although only 6 benchmarks are described (5 in each pool when the test benchmark is held out); the extra source domains are not described. Table 4 (p. 7) does not state its metric; its values (e.g. LCB 0.887 and 0.893) are not multiples of 1/100, so they are likely Pass@1 averages over three runs, not Pass@3. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)",
+   "p": "7, 9",
+   "quote": "In particular, using 9 domains yields the best overall performance.",
+   "where": "§4.4.3 Impact of the Memory Pool Size, p. 9 (also Fig. 6 and Table 4, p. 7)",
+   "why": "Two reporting inconsistencies are missing from Notes: 9 source domains in the scaling ablation versus 6 described benchmarks, and Table 4 values that cannot be Pass@3 on 100 tasks.",
+   "doubt": "O artigo diz que 9 domínios dão o melhor resultado (pág. 9, Fig. 6), mas só descreve 6 benchmarks. A Tabela 4 (pág. 7) não diz a métrica e os valores (0.887) não são Pass@3 em 100 tarefas. Confirma e acrescenta às inconsistências nas Notas."
+  }
+ ]
+}

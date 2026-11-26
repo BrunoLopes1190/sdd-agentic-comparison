@@ -1,0 +1,12 @@
+{"key": "rayyan-800498267", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "DARE2",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): only two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses",
+   "p": "3-4",
+   "quote": "On September 22, 2026, we searched DBLP titles and arXiv abstracts for terms related to software, harnesses, and agentic tools.",
+   "where": "§III Reporting of Agentic Coding Tool Studies, p. 3",
+   "why": "Under the usual DARE scoring (Kitchenham), a search of up to two digital libraries with no extra search strategy scores No, not Partly; the protocol gives no other rubric.",
+   "doubt": "A pesquisa usa só duas fontes (DBLP, só títulos, e arXiv) e não faz pesquisa nas referências nem nas citações (pág. 4). Na escala DARE de Kitchenham isto costuma dar Não. Decide se manténs Parcial (a DBLP cobre quase toda a informática) ou passas a Não."}
+ ]}

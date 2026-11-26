@@ -1,0 +1,21 @@
+{"key": "rayyan-800498044", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Preprint — arXiv:2605.07122v3 (20 May 2026); the page footer names NeurIPS 2026, Track on Evaluations and Datasets, but this version predates the NeurIPS 2026 decisions, so the footer may only mark a submission; acceptance not confirmed in the text",
+   "p": "1",
+   "quote": "arXiv:2605.07122v3 [cs.SE] 20 May 2026",
+   "where": "Title page header, p. 1",
+   "why": "The NeurIPS footer is printed by the conference style file and this arXiv version is dated around the NeurIPS submission deadline, months before acceptance decisions, so it does not show the paper was accepted.",
+   "doubt": "O rodapé diz NeurIPS 2026, mas a versão arXiv é de 20 maio 2026, altura da submissão e antes das decisões (setembro). O rodapé pode ser só do template. Verifica se o artigo foi aceite (OpenReview/NeurIPS); se não, passa a Preprint."},
+  {"f": "Q11",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): arXiv preprint; NeurIPS 2026 footer on a version dated before the NeurIPS 2026 decisions, acceptance not confirmed (Yes (1) if acceptance is confirmed)",
+   "p": "1",
+   "quote": "40th Conference on Neural Information Processing Systems (NeurIPS 2026). Track on Evaluations and Datasets.",
+   "where": "Footer, p. 1",
+   "why": "Q11 follows the publication type, and peer review is not shown by a template footer on a version posted before the venue's decisions.",
+   "doubt": "O Q11 depende do tipo de publicação. Se confirmares que foi aceite na NeurIPS 2026, mantém Sim; se não, passa a Não (0)."}
+ ]}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800486642", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "SDD level",
+             "verdict": "uncertain",
+             "sev": "low",
+             "v": "Spec-anchored (judgement; the authors do not classify their own framework). The paper cites spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl; it describes its specifications as 'verifiable contracts' and SDD specifications as 'versioned, auditable, and executable sources of truth', and targets maintenance and evolution with traceability metadata, which suggests spec-anchored. Spec-first is also plausible, since spec.md, design.md, plan.md and tasks.md are generated per task (e.g. adding a status field)",
+             "p": "1, 4",
+             "quote": "Spec-Driven AI treats specifications as verifiable contracts and uses agents to coordinate discovery, specification, design, planning, implementation support, testing, review, and traceability.",
+             "where": "Abstract, p. 1; §V Demonstration Scenario, p. 4",
+             "why": "The level is misspelt ('Spec-achored'), which breaks the category value, and the paper does not settle spec-anchored versus spec-first.",
+             "doubt": "O valor está escrito 'Spec-achored' (deve ser 'Spec-anchored'). Além disso, o artigo não classifica o próprio framework: gera spec.md por tarefa (pág. 4), o que também se lê como spec-first. Decide o nível e corrige a grafia."}]}

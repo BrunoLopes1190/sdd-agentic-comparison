@@ -1,0 +1,12 @@
+{"key": "rayyan-800498036", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Q9",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): claims explicitly scoped to smoke-scale proxy evidence (p. 22), but the title and conclusions frame the result for LLM coding agents without any agent run, and an 'agent dry-run' experiment named among the limitations is not reported",
+   "p": "1, 22",
+   "quote": "Fourth, the context-budget and agent dry-run experiments are proxy tasks, not direct measurements of production LLM repair quality.",
+   "where": "§4.8 Where this evidence stops, p. 22",
+   "why": "The author's own justification (scoped claims 'but' framed for coding agents without any agent evaluation, plus an unreported dry-run experiment) reads as Partly rather than Yes.",
+   "doubt": "A tua justificação do Q9 já aponta uma reserva ('mas enquadrado para agentes sem avaliação com agentes') e termina em ';'. Além disso, a pág. 22 cita uma experiência 'agent dry-run' que não aparece nos resultados. Decide se fica Sim ou passa a Parcial."}
+ ]}

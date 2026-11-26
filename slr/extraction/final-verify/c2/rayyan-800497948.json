@@ -1,0 +1,10 @@
+{"key": "rayyan-800497948", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q10",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Partly (0.5): a short Scope section states the limits of the study (40 synthetic Python projects, file as outdated source, 16 conventions, single unattended run, two agent-model pairs); no threats-to-validity discussion (e.g., author-built projects, LLM judge)",
+             "p": "11",
+             "quote": "The study covers 40 Python projects in which the instruction file is the outdated source, with 16 kinds of convention, feature tasks completed in a single unattended run, and two agents: Claude Code with Claude Sonnet 5.5 and Codex CLI with GPT-6 Sol.",
+             "where": "§8 Scope, p. 11",
+             "why": "The Scope section does state limitations (and the record itself lists them under limitations), so No may be too strict; Partly is a defensible reading.",
+             "doubt": "O artigo não tem secção de ameaças à validade, mas a secção 8 'Scope' (pág. 11) enumera os limites do estudo, e tu próprio os usas nas limitações. Decide se isso conta como Parcial (0,5) em Q10 ou se manténs Não (0)."}]}

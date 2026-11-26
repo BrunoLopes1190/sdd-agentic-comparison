@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800498231",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Success criterion: none stated by the authors for a configuration; quality and cost verdicts for every entry: no criterion stated by the authors. Main comparison (Codex harness, one build per task; Creation / Editing mean Result, Optimization mean S): Codex + GPT-5.6 Sol 13.7 / 23.9 / 4.7; Codex + GPT-5.5 5.8 / 31.6 / 1.2; Codex + DeepSeek-V4-Pro 19.1 / 31.6 / −4.0; Codex + DeepSeek-V4-Flash 15.1 / 14.0 (delivers on 4 of 10 Editing tasks) / −7.1; Codex + Qwen3.6-35B-A3B 2.3 / 0.0 (no candidate submitted on any Editing task) / 0.9. Harness study (one run each; Creation GUI / PDF Result; Optimization τ3 / PinchBench S): DSH + DS-V4-Pro 19.7 / 20.3; −28.6 / −39.7; DSH + DS-V4-Flash 18.7 / 30.5; 4.8 / −1.7; Claude Code + DS-V4-Pro 16.2 / 15.3; Claude Code + DS-V4-Flash 12.7 / 5.8; Claude Code + GLM-5.3 0.0 / 19.2; −19.0 / 13.0; OpenCode + GPT-5.6 Sol 0.0 / 26.7; OpenCode + GPT-5.5 0.0 / 42.8; Pi + GPT-5.6 Sol 0.0 / 18.3; −4.8 / 33.8; Pi + GPT-5.5 0.0 / 0.0. AgentSWE-Lite (8 tasks, 3 builds each, DeepSeek-V4.1-Flash as runtime and judge; Creation / Editing / Optimization means): Codex + GPT-5.6 Sol 23.1 / 29.3 / 14.8; Codex + DeepSeek-V4.1-Flash 33.5 / 29.3 / 18.7; Codex + Qwen3.6 0.0 / 2.0 / 3.4. Ablations (Codex + DeepSeek-V4.1-Flash, mean Result): development cases 0/1/2/4 (3 runs per condition): PDF 0.0 / 21.7 / 34.3 / 33.2, PPTX 4.2 / 15.0 / 33.5 / 15.2; prompt priors none / Strategy A / Strategy B (3 runs per condition): PDF 39.2 / 40.4 / 48.9, PPTX 29.6 / 7.4 / 31.2; extended budget (one build per task, DeepSeek-V4.1-Flash also runtime model and judge, 1,500 s per case, all 10 Creation tasks): last development score 70.3 vs held-out 31.5 on average",
+   "p": "30, 35",
+   "quote": "The development-case, prompt-prior, and eight-task studies use three independent builder runs per condition and report their differences descriptively.",
+   "where": "Appendix J Limitations, p. 35 (and Table 10 / §G.2, p. 30: 60 extended-budget traces = 10 tasks x 6 held-out cases)",
+   "why": "The extended-budget study is not one of the three-run studies: the limitations list only the development-case, prompt-prior and eight-task studies as repeated, and Table 10 has 60 traces (one build per task).",
+   "doubt": "O valor põe o orçamento alargado (1.500 s) sob '3 runs per condition', mas só os estudos de casos de desenvolvimento, priors e Lite têm três execuções (Limitações, pág. 35); o orçamento alargado tem 60 traços = 10 tarefas x 6 casos, ou seja, uma execução por tarefa (pág. 30). Confirma e ajusta."
+  },
+  {
+   "f": "Comparison: design",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Tasks: the 25 AgentSWE tasks (main), subsets for harness study (2 Creation + 2 Optimization tasks), AgentSWE-Lite (8 tasks), ablations (2 Creation tasks; extended budget all 10). Configurations: builder = harness × model. Baseline: no baseline configuration; in Optimization the starter agent a0 is scored on the same held-out instances. Held constant: task package, budgets, frozen delivery, runtime model per family through a benchmark gateway, judge per family; harness fixed (Codex) in the main comparison, model fixed when varying harness. Acceptance: held-out cases hidden from the builder, validity gates plus rubric scored by an LLM judge (Creation, Editing) or native benchmark evaluator (Optimization). Repetitions: main, harness and extended-budget studies one build per pairing or task; Lite, development-case and prompt-prior studies three independent builds per condition. Human intervention: none during builds",
+   "p": "30, 35",
+   "quote": "The development-case, prompt-prior, and eight-task studies use three independent builder runs per condition and report their differences descriptively.",
+   "where": "Appendix J Limitations, p. 35 (and Table 10 / §G.2, p. 30: 60 extended-budget traces = 10 tasks x 6 held-out cases)",
+   "why": "'Ablations three independent builds per condition' includes the extended-budget study, which was built once per task.",
+   "doubt": "Repetições: o estudo de orçamento alargado (10 tarefas de Creation, 1.500 s) foi construído uma vez por tarefa, não três. Só os estudos de casos de desenvolvimento, priors e AgentSWE-Lite têm três execuções (pág. 35). Corrige o número de repetições."
+  }
+ ]
+}

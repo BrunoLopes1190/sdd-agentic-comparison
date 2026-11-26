@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800498029",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Notes",
+   "verdict": "corrected",
+   "sev": "low",
+   "v": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests; Fig. 6 and the text report memory pools from up to 9 source domains ('using 9 domains yields the best overall performance', p. 9), although only 6 benchmarks are described and each pool excludes the test benchmark (at most 5); the extra domains are not explained. Table 2 calls ReasoningBank 'lowest average gain'. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)",
+   "p": "1, 4, 5, 9",
+   "quote": "In particular, using 9 domains yields the best overall performance.",
+   "where": "§4.4.3 Impact of the Memory Pool Size and Figure 6, p. 9",
+   "why": "The memory-scaling analysis uses up to 9 source domains, but the method describes only 6 benchmarks with the test benchmark excluded from each pool, a reporting inconsistency missing from Notes.",
+   "doubt": "Na pág. 9 os autores dizem que usar 9 domínios dá o melhor resultado, mas o estudo só descreve 6 benchmarks (e o pool exclui sempre o de teste, logo no máximo 5). Vê a Figura 6 e o §3.1.2 (pág. 4) e decide se juntas esta incoerência às Notas."
+  }
+ ]
+}

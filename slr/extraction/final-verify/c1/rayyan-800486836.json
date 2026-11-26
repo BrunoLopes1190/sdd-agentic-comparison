@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486836",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): all authors are from Meta and built RACER (on Meta's Confucius), the only tool evaluated; the comparison is against manual human work, not against an external approach or tool",
+   "p": "1-2",
+   "quote": "In this work, we build an agentic system that attempts to provide enterprise-wide, end-to-end autonomy for a limited set of code improvement tasks.",
+   "where": "§1 Introduction, p. 2",
+   "why": "The only tool evaluated is the authors' own; the manual baseline is not an external approach with a vendor, so the 'Partly' rule (own approach compared with external ones) may not apply, and a comparable case with a non-agent baseline (rayyan-800486834) was scored No.",
+   "doubt": "Os autores (Meta) criaram o RACER, a única ferramenta avaliada. A base de comparação é trabalho manual humano, não outra ferramenta externa. A regra do Parcial é para comparar a abordagem própria com abordagens externas. Decide se o trabalho manual conta como 'abordagem' (Parcial) ou não (Não); sê coerente com o 800486834, onde puseste Não."
+  }
+ ]
+}

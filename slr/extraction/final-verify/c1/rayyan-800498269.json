@@ -1,0 +1,10 @@
+{"key": "rayyan-800498269", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q6",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Partly (0.5): resolved rate, safe rate, Surface F1, localization and efficiency (tokens, time) defined, but Algn. is never defined, TS only as 'probability of successful task completion' with no procedure, and cost is reported for one comparison only (Skill Dreaming vs SkillLens, Table 12)",
+             "p": "6-7, 9",
+             "quote": "Existing is the historical existing-test pass rate; Surf. F1 is the mean Maintenance Surface F1 defined in Eq. (9); Algn. measures historical alignment.",
+             "where": "Table 4 caption, p. 7; §5.2 Metrics and Statistical Interpretation, p. 6",
+             "why": "The record's own Notes say Algn. is undefined and how TS is obtained is not stated, and cost covers only one comparison, which sits uneasily with a full Yes on 'metrics defined'.",
+             "doubt": "As tuas Notas dizem que a métrica 'Algn.' não está definida e que não se sabe como o TS é medido; o custo só aparece na Tabela 12 (uma comparação). Vê a pág. 6 (§5.2) e a legenda da Tabela 4 (pág. 7) e decide se Q6 fica Sim ou Parcial."}]}

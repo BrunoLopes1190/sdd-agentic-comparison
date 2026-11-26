@@ -1,0 +1,12 @@
+{"key": "rayyan-800498221", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): the single author built Nerveplane, the planner (C1-PLAN) and the reactive detector (C1-DETECT), i.e. every coordination approach evaluated; C0 is the absence of coordination, not a third-party approach (the models are third-party but are not what is evaluated)",
+   "p": "1, 3, 5",
+   "quote": "We build this planner into Nerveplane, a local-first system for coding agents, and evaluate it with NP-Bench, an environment-grounded, three-arm benchmark (no coordination; reactive detection; proactive planning)",
+   "where": "Abstract, p. 1; §5 NP-Bench, p. 5",
+   "why": "Partly applies when the authors' approach is compared with external approaches, but here both coordination arms are the author's own and the C0 baseline is no approach at all, so No may follow the Q12 rule better.",
+   "doubt": "As duas abordagens avaliadas (C1-PLAN e C1-DETECT) são do próprio autor; o C0 é só 'sem coordenação', não uma ferramenta de terceiros. Os modelos (Opus, Haiku, GPT-5-Codex) não são o objeto avaliado. Decide se o Q12 fica Parcial (0,5) ou Não (0), em coerência com outros estudos com baseline 'sem abordagem'."}
+ ]}

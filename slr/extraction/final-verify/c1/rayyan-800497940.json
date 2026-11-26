@@ -1,0 +1,30 @@
+{
+ "key": "rayyan-800497940",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Publication type",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv",
+   "p": "1, 4",
+   "quote": "arXiv:2605.05584v1 [cs.SE] 7 May 2026",
+   "where": "Title page header, p. 1",
+   "why": "The full text read (arXiv v1) names no venue, DOI or page range, so the AIware 2026 venue, ACM publisher and pp. 106-109 rest on an outside source; the paper's own references cite AIware 2026 papers as IEEE proceedings ([7], [25], p. 4).",
+   "doubt": "O texto lido (arXiv v1) não indica conferência, DOI nem páginas; o AIware 2026, ACM e pp. 106-109 vêm de fora do texto. As referências [7] e [25] (pág. 4) dão o AIware 2026 como IEEE. Confirma o DOI 10.1145/3805760.3814899; se não houver publicação, passa a Preprint e Q11 a Não (0)."
+  },
+  {
+   "f": "Q13",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): requirements are not stated explicitly, but the practice (writing an AGENTS.md file with natural-language directives) needs no special tools or compute and is already used in over 60,000 open-source projects; whether agents comply is open",
+   "p": "2-3",
+   "quote": "the format is used in over 60,000 open-source projects.",
+   "where": "§2.2 Agents and Agents4SE, p. 2",
+   "why": "Scoring No treats feasibility as missing information, yet the practice described is a plain text file already in wide use, so the requirements are evidently within reach of a typical team even if not listed.",
+   "doubt": "Q13 mede se a prática é viável para uma equipa normal. Escrever um AGENTS.md não exige ferramentas nem custos especiais, e o artigo diz que o formato já é usado em mais de 60 000 projetos (pág. 2). Decide entre Não (requisitos não declarados) e Parcial (claramente ao alcance, mas sem prova de que os agentes cumprem)."
+  }
+ ]
+}

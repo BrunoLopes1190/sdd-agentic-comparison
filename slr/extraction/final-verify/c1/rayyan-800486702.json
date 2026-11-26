@@ -1,0 +1,12 @@
+{"key": "rayyan-800486702", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Exploratory study, 6 participants (Table V, VII). No criterion for the quality of the produced code is stated (correctness not measured; Tc ends at 'successful execution', undefined). The authors classify tools by AI-Dev Index zones (Zone 1 Insufficient Integration < 40 ... Zone 4 Autonomous Agent >= 85), a classification of integration and developer experience, not of output quality; Rrev target < 1. Claude Web + Claude Sonnet 4.6 (baseline): A1 0.01, A2 23.8, A3 25.0, A4 60.0, Itotal 24.32 (Zone 1); Tc 42.8 min, If 80.1, Rrev 0.87 — quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. GitHub Copilot (VS Code) + Claude Sonnet 4.6: A1 70.87, A2 71.4, A3 75.0, A4 72.0, Itotal 72.62 (Zone 3); Tc 22.3 min, If 7.2, Rrev 0.42 — quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. Google Antigravity + Claude Sonnet 4.6: A1 100.0, A2 95.2, A3 100.0, A4 96.0, Itotal 98.48 (Zone 4); Tc 10.6 min, If 4.5, Rrev 0.15; perceived usefulness 9.8/10 — quality verdict: no criterion stated by the authors; cost verdict: no criterion stated by the authors. Secondary phase (Table VIII): Antigravity + Gemini 3 Flash: A1 87.84, Itotal 94.83 (Zone 4), Tc 8.5 min, more prompts and higher Rrev; Antigravity + Claude Sonnet 4.6: A1 98.47, Itotal 98.02 (Zone 4), Tc 10.6 min — quality and cost verdicts: no criterion stated by the authors",
+   "p": "3, 6-8",
+   "quote": "Zone 1: Insufficient Integration (Itotal < 40): High manual intervention, fragmented context (e.g., standard Chatbots).",
+   "where": "§III.C Quality Zones and Classification, p. 3",
+   "why": "The quality verdicts (does not work / partly / works) rest on AI-Dev Index zones, which classify integration, efficiency and DX with min-max scores relative to the tools compared, while no quality of the produced code is measured; whether the zones count as the authors' success criterion for quality is a judgement call.",
+   "doubt": "Os veredictos de qualidade vêm das zonas do AI-Dev Index, que medem integração e experiência do programador (normalizadas entre as ferramentas comparadas), não a qualidade do código, que nunca é medida. Lê §III.C na pág. 3 e decide se as zonas contam como critério de sucesso de qualidade dos autores ou se fica 'no criterion stated by the authors'."}
+ ]}

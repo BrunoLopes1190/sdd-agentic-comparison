@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486717",
+ "model": "claude-opus-5-5",
+ "check": 2,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "Evaluation (each configuration)",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "(1) Framework+Agent (ModelHarbor v3.25.10 + qwen3-235b-a22b-instruct-2507): success criterion stated: microtask acceptance checklist fully satisfied; all retained runs completed within the 90-min cap and completion 'near-ceiling' (per-condition proportions not reported); QA accuracy 0.93, acceptance 0.89 (partial 0.08, fail 0.03); first-turn resolution 0.85 in Table I but 0.25 (strict) in the H1 text, all within 2 turns (mean 1.70); SUS 70.6 vs benchmark 68; developer survey ≥3.9 on all dimensions. Absolute time and cost not reported (ratios only). Quality verdict: works (H1 supported against the checklist; SUS above the authors' 68 benchmark). Cost verdict: no criterion stated by the authors. (2) Agent-only baseline (same agent and model, prompt stubs, no framework): same checklist criterion; completion 'near-ceiling' overall, per-condition values not reported; relative to F took 2.29-2.48× the time, 1.76-1.88× the cost, 1.91× interventions per 100 calls, comparable errors; survey ≥3.9. Quality verdict: uncertain, probably works (same checklist criterion; the authors report completion as near-ceiling across the experiment and 'comparable reliability metrics and quality outcomes' for Agent-only, but give no per-condition proportions); the Framework+Agent 'works' verdict rests on the same near-ceiling statement plus H1/SUS data not measured for the baseline. Cost verdict: no criterion stated by the authors",
+   "p": "5, 7",
+   "quote": "Binary task success was adjudicated manually (pass or fail) by the experimenter. Because completion was near–ceiling, we primarily report proportions;",
+   "where": "§IV-L Statistical Analysis, p. 5 (also §VII Conclusion, p. 7)",
+   "why": "The baseline's quality verdict is 'not determinable' while the Framework+Agent gets 'works', although the only experiment-level success statement (near-ceiling completion against the checklist) covers both conditions and the conclusion calls quality outcomes comparable.",
+   "doubt": "O texto diz que o sucesso face à checklist foi quase total na experiência (as duas condições) e a conclusão fala em qualidade comparável. Dar 'funciona' ao Framework+Agent e 'não determinável' ao Agent-only parece assimétrico. Lê a pág. 5 (IV-L) e a conclusão (pág. 7) e decide se o veredicto do baseline deve ser igual."
+  }
+ ]
+}

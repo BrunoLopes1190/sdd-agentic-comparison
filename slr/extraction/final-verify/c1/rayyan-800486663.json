@@ -1,0 +1,10 @@
+{"key": "rayyan-800486663", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "SDD level",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Not stated in Böckeler's terms; specification precedes implementation and substantive defects are fixed by revising the specification and regenerating the whole code in a fresh context, never by patching ('regeneration over incremental patching'), a spec-as-source trait; only minor UI issues are adjusted by targeted prompts and spec maintenance after release is not described. Closest to spec-as-source within the authoring cycle, otherwise spec-first (classification by the drafter)",
+             "p": "2",
+             "quote": "Substantive defects trigger full regeneration from a revised specification on a clean context buffer rather than iterative patching.",
+             "where": "Fig. 1 caption and §II.A phase 8 Acceptance gate, p. 2",
+             "why": "The workflow fixes substantive errors only by editing the specification and regenerating the code, which matches Böckeler's spec-as-source more than spec-first, so the level is a judgement call.",
+             "doubt": "O artigo corrige erros sérios só revendo a especificação e gerando o código de novo, sem remendar o código (Fig. 1, pág. 2). Isso parece spec-as-source; só ajustes pequenos de interface são feitos por prompts. Decide entre spec-first e spec-as-source."}]}

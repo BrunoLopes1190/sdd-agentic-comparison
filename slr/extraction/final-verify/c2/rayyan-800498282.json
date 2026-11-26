@@ -1,0 +1,12 @@
+{"key": "rayyan-800498282", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [
+  {"f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "No (0): the author built the contract framework (C3/C4) and also set up every other condition (no rules, rules in prompt, unrelated rules, retrieved guidance) with the same rule content; no external tool or approach is compared, mini-SWE-agent is only the shared harness",
+   "p": "2-3",
+   "quote": "All conditions use the same agent, tools and sandbox; only the delivery of the same rule content differs.",
+   "where": "§III.B Conditions, p. 3",
+   "why": "Partly applies when the authors' approach is compared with external ones, but here the other conditions are the author's own deliveries of the same rules, not external approaches, so No may fit better.",
+   "doubt": "Todas as condições (sem regras, regras no prompt, regras não relacionadas, orientação recuperada, verificação depois, imposição durante) foram montadas pelo próprio autor com o mesmo conteúdo; nenhuma é uma ferramenta externa. Lê §III.B na pág. 3 e decide se Q12 fica Parcial ou passa a Não."}
+ ]}

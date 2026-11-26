@@ -1,0 +1,19 @@
+{
+ "key": "rayyan-800486642",
+ "model": "claude-opus-5-5",
+ "check": 1,
+ "checked": 44,
+ "fields": [
+  {
+   "f": "SDD level",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Not classifiable (authors cite spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl but do not classify their own framework; they describe specifications as 'verifiable contracts' and SDD specifications as 'versioned, auditable, and executable sources of truth'; in the demonstration, spec.md, design.md, plan.md and tasks.md are generated per task and exported as a bundle, and nothing states that specifications are kept and evolved with the code; spec-anchored is plausible given the maintenance-and-evolution focus and traceability metadata)",
+   "p": "1, 4",
+   "quote": "This structured context is then consumed by specialized agents, which generate traceable lifecycle artifacts such as spec.md, design.md, plan.md, tasks.md, QA reports, review reports, and traceability metadata.",
+   "where": "§V Demonstration Scenario, p. 4",
+   "why": "The value starts with a misspelled level ('Spec-achored') and the text does not settle spec-anchored: specifications are generated per task and the authors never classify their own framework.",
+   "doubt": "O valor começa por 'Spec-achored' (erro de escrita) e os autores não classificam o próprio framework; na demonstração os spec.md são gerados por tarefa, sem dizer que são mantidos com o código. Lê a pág. 4 (§V) e decide entre 'Spec-anchored' (corrige a grafia) e 'Not classifiable'."
+  }
+ ]
+}

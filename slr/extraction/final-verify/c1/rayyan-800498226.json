@@ -1,0 +1,21 @@
+{"key": "rayyan-800498226", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Q12",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): university authors, not vendors of Claude Code, Codex or the skills studied; but the pre-tool hook guard, evaluated in its own experiment (670 runs, RQ3), is the authors' own",
+   "p": "4, 12, 15-16",
+   "quote": "We are the first to locate the point at which a conflict is decided and to show that a pre-tool hook at that point keeps the core functions of the installed skill.",
+   "where": "§1 Introduction (contributions), p. 4; §3.9 Measures and Analysis, p. 12; §4.4 RQ3, p. 15-16",
+   "why": "The Q12 rule counts an author who created an evaluated approach as its vendor (Partly when only some approaches), and the guard is a stated contribution evaluated with its own experiment and significance tests.",
+   "doubt": "O guard (hook antes da primeira leitura) é dos próprios autores e é avaliado numa experiência própria (670 execuções, RQ3) e listado como contribuição. Pela regra do Q12, isso pode dar Parcial (0,5) em vez de Sim. Decide se o guard conta como abordagem avaliada ou só como mitigação secundária."},
+  {"f": "Q10",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Yes (1): Threats to Validity section discusses internal validity (nondeterministic single runs, first read observed rather than assigned) and external validity (one platform with a Codex check, constructed cross-project pairs); LLM-judge validity handled in §3.10; conservative prevalence stated in §4.1",
+   "p": "12, 17-18",
+   "quote": "Internal validity. Runs are nondeterministic, and each combination of model, configuration, and pair runs once.",
+   "where": "Threats to Validity, p. 17-18",
+   "why": "A dedicated threats section covering internal and external validity is present, which other records with similar sections scored Yes, so Partly may be inconsistent.",
+   "doubt": "Há uma secção própria de ameaças à validade (interna e externa, pág. 17-18), e a validade do juiz LLM é tratada na secção 3.10. Noutros estudos com secções igualmente curtas deste lote deste Sim. Decide se o Q10 fica Parcial ou Sim, por coerência."}
+ ]}

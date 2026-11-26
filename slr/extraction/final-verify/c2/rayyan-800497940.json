@@ -1,0 +1,10 @@
+{"key": "rayyan-800497940", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Publication type",
+             "verdict": "uncertain",
+             "sev": "low",
+             "v": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv (venue, pages and DOI taken from an external source, not from the arXiv text)",
+             "p": "1",
+             "quote": "arXiv:2605.05584v1 [cs.SE] 7 May 2026",
+             "where": "arXiv header, p. 1",
+             "why": "The full text (arXiv v1) names no venue, proceedings pages or DOI anywhere, so the cited page 1 does not support the AIware 2026 venue that also sets Q11.",
+             "doubt": "O texto lido (arXiv v1) não indica em lado nenhum a conferência AIware 2026, as páginas 106-109 nem o DOI. Confirma a publicação na página da ACM ou no DBLP e regista a fonte; se não houver versão publicada, o tipo passa a Preprint e Q11 a Não."}]}

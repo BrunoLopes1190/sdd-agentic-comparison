@@ -1,0 +1,10 @@
+{"key": "rayyan-800498076", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q9",
+             "verdict": "uncertain",
+             "sev": "low",
+             "v": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive; the abstract's 'poor self-verification' is supported as a cross-cutting signal (524 of 526 failures, 99.6%) though it is the primary mode for only 4.0%, but the abstract omits the two largest primary modes (Implementation 41.6%, Timeout 31.4%) and 'self-reported infeasibility' is not quantified",
+             "p": "1, 9-10",
+             "quote": "Validation weakness is a cross-cutting amplifier rather than a primary mode: 524 of 526 agent-attributable failures (99.6%) carry a validation-failure signal",
+             "where": "§5.3 Failure modes, p. 9",
+             "why": "The justification says the abstract's self-verification claim is contradicted by Table 4, but the paper reports a validation-failure signal in 99.6% of failures, which partly supports that claim.",
+             "doubt": "A justificação de Q9 diz que o resumo contradiz a Tabela 4 sobre auto-verificação, mas a pág. 9 mostra sinal de falha de validação em 99,6% das falhas. Relê a pág. 9 e decide se Q9 fica Parcial (com justificação ajustada) ou passa a Sim."}]}

@@ -1,0 +1,10 @@
+{"key": "rayyan-800486836", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "No (0): all authors are from Meta, which built RACER and Confucius; RACER is the only tool evaluated, and the manual (human) baseline is not a vendor tool or external approach",
+             "p": "1-2",
+             "quote": "In this work, we build an agentic system that attempts to provide enterprise-wide, end-to-end autonomy for a limited set of code improvement tasks.",
+             "where": "§1 Introduction, p. 2",
+             "why": "Partly applies when the authors' own approach is compared with external approaches, but here the only comparator is manual human work, so the authors are the vendor of every tool evaluated.",
+             "doubt": "O único sistema avaliado é o RACER, criado pelos próprios autores (todos da Meta). A comparação é com trabalho manual, que não é uma ferramenta externa. Pela regra, 'Parcialmente' é para quando a abordagem dos autores é comparada com abordagens externas. Decide se a linha de base humana conta como abordagem externa; se não, Q12 = Não (0)."}]}

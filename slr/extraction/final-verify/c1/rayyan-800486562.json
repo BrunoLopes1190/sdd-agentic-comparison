@@ -1,0 +1,10 @@
+{"key": "rayyan-800486562", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [{"f": "Q5",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Yes (1): every rollout is judged by hidden acceptance tests (validated against the gold patch, the base repository and requirement-breaking mutants, then refined with a blind solver) plus an independent LLM quality judge, not by the authors' judgement; test accuracy itself checked only against LLM (gpt-6-astra) labels",
+             "p": "6-8, 12",
+             "quote": "A candidate rollout is counted as pass if and only if it passes every scenario in the hidden test suite (MechanicalResolved, Section 3.4) and satisfies the engineering-quality gate (QualityResolved, Eq. 1):",
+             "where": "§4.1 Evaluation Setup, p. 8",
+             "why": "Agent outcomes are measured against hidden acceptance tests, which the protocol lists as an independent criterion, so Yes is defensible; Partly rests on the tests being LLM-generated.",
+             "doubt": "Os agentes são avaliados por testes de aceitação escondidos (gerados por LLM, mas validados contra o patch de referência, mutantes e um solver cego) e por um juiz LLM. Pelo §5, testes de aceitação contam como critério independente. Vê a pág. 8 e decide Q5: Sim, ou Parcial por os testes serem gerados por LLM."}]}

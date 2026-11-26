@@ -1,0 +1,10 @@
+{"key": "rayyan-800498226", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q12",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Partly (0.5): university authors, not vendors of Claude Code, Codex or the skills studied; but the guard (pre-tool hook) evaluated in the randomized guard experiment is their own creation, so they are its vendor",
+             "p": "4, 12, 16",
+             "quote": "We are the first to locate the point at which a conflict is decided and to show that a pre-tool hook at that point keeps the core functions of the installed skill.",
+             "where": "§1 Introduction (contributions), p. 4; guard defined in §3.9, p. 12, results in §4.4, p. 16",
+             "why": "The protocol counts an author who created an evaluated approach as its vendor (Partly when only some approaches), and the authors' own guard hook is evaluated with and without it in 670 runs.",
+             "doubt": "Os autores criaram o guard (hook pre-tool) e avaliam-no numa experiência própria (670 execuções, com e sem hook). Pela regra do Q12, isso pode dar Parcial em vez de Sim. Vê §3.9 (pág. 12) e §4.4 (pág. 16) e decide se o guard conta como abordagem avaliada; se sim, revê também Q13."}]}

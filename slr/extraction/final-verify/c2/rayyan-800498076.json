@@ -1,0 +1,10 @@
+{"key": "rayyan-800498076", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "Q9",
+             "verdict": "uncertain",
+             "sev": "low",
+             "v": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive; 'poor self-verification' is supported as a cross-cutting signal (524 of 526 failures carry a validation-failure flag, though Poor Self-Verification is the primary bucket for only 4.0%), but the abstract's 'often' for premature termination rests on 7.6% of failures and 'self-reported infeasibility' is not quantified",
+             "p": "1, 9-10, 22",
+             "quote": "Signal flags show that validation weakness is nearly universal: 524 of 526 trials (99.6%) expose some local-validation gap, far more than the 21 trials where Poor Self-Verification is primary.",
+             "where": "Appendix D.2 Per-task Failure Patterns, p. 22 (also §5.3, p. 9)",
+             "why": "The justification says poor self-verification is unsupported (4.0% primary), but the paper reports a validation-failure signal in 99.6% of analysed failures, so that part of the critique does not hold; the score may still be Partly for the other two claims.",
+             "doubt": "A justificação diz que a 'má autoverificação' só aparece em 4,0% das falhas, mas o artigo mostra que 524 de 526 falhas (99,6%) têm sinal de validação fraca (pág. 22, D.2; pág. 9). Essa parte da crítica não se sustenta. Decide se Q9 fica Parcial (terminação prematura 7,6%, inviabilidade não medida) ou passa a Sim, e corrige o texto."}]}

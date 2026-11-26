@@ -1,0 +1,12 @@
+{"key": "rayyan-800498036", "model": "claude-opus-5-5", "check": 1, "checked": 44,
+ "fields": [
+  {"f": "Q9",
+   "verdict": "uncertain",
+   "sev": "high",
+   "v": "Partly (0.5): claims are explicitly scoped to smoke-scale proxy evidence and the over-conservative abstention is reported, but the paper is framed as memory control for LLM-based coding agents without running any agent, an 'agent dry-run' experiment named in the limitations is not reported, and the abstention results (0.0% answered / 'refuses all cases') do not match Table 7 (correct abstention 5.0%)",
+   "p": "15, 16, 19, 22",
+   "quote": "Fourth, the context-budget and agent dry-run experiments are proxy tasks, not direct measurements of production LLM repair quality.",
+   "where": "§4.8 Where this evidence stops, p. 22",
+   "why": "The author's own justification ('but framed as relevant to coding agents without any agent evaluation;') states a reservation that fits Partly rather than Yes, and ends mid-sentence.",
+   "doubt": "A justificação do Q9 diz 'Sim' mas acrescenta uma reserva ('but ... without any agent evaluation;') e acaba a meio. Há ainda a experiência 'agent dry-run' citada na pág. 22 e não reportada, e a contradição da abstenção (pág. 15/19 vs Tabela 7). Decide entre Sim e Parcial e completa o texto."}
+ ]}

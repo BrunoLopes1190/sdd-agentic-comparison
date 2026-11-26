@@ -1,0 +1,10 @@
+{"key": "rayyan-800498252", "model": "claude-opus-5-5", "check": 2, "checked": 44,
+ "fields": [{"f": "SDD level",
+             "verdict": "uncertain",
+             "sev": "high",
+             "v": "Spec-first (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; a standardized PRD with goals, scope, functional requirements, business rules, technical constraints and acceptance criteria is written before implementation and given to the agent as the task input, not maintained afterwards)",
+             "p": "1-2, 19",
+             "quote": "Agents receive the same PRD and base, without reference patches, source conversations, or Code Points.",
+             "where": "§2 Benchmark Construction, Task definition, p. 2",
+             "why": "A structured requirements document written before the code and handed to the agent for one task matches Böckeler's spec-first level, so 'not classifiable' may understate it.",
+             "doubt": "O agente recebe um PRD estruturado (objetivos, âmbito, requisitos, regras, critérios de aceitação) antes de escrever código e o PRD não é mantido depois. Isto parece 'spec-first' de Böckeler e não 'não classificável'. Vê a pág. 2 e o prompt na pág. 19 e decide o nível."}]}

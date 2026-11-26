@@ -1,0 +1,11 @@
+{"key": "rayyan-800498016", "model": "claude-opus-5-5", "check": 1, "checked": 44, "fields": [
+ {"f": "Q4",
+  "verdict": "uncertain",
+  "sev": "high",
+  "v": "Yes (1): tasks, sources and statistics described with examples; the v2 title page lists Benchmark, Repo, Scaffold and WebPage links (to be confirmed in the PDF), although Appendix C.1 still says public links will be provided after review",
+  "p": "1, 19",
+  "quote": "Public release links are omitted during anonymous review and will be provided after the review process.",
+  "where": "Title block, p. 1; Appendix C.1 Data and Code Availability, p. 19",
+  "why": "The v2 title page (26 May 2026) shows 'Benchmark', 'Repo', 'Scaffold' and 'WebPage' link labels, which suggests the data and code are public, while the leftover C.1 text says they are not yet released.",
+  "doubt": "Na pág. 1 (versão v2) aparecem as etiquetas 'Benchmark', 'Repo', 'Scaffold' e 'WebPage', que no PDF devem ser links públicos; o apêndice C.1 diz que os links só sairão depois da revisão. Abre o PDF, vê se os links funcionam e decide Q4 (Sim se os dados estão públicos) e ajusta as Notas."}
+]}
