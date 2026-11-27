@@ -5,6 +5,9 @@ Queue:       slr/passN-queue.csv           (records to screen; pass 3 from build
              ft: the pass-3 includes, AI group (a), (b), (c) order, with a view extracted from slr/fulltext/<key>.txt
 Suggestions: slr/passN-ai-suggestions.csv  (AI suggestion, shown only AFTER the author decides; ft: ft-ai-suggestions.csv)
 Decisions:   slr/passN-decisions.csv       (append-only; the last row per key wins; ft: ft-decisions.csv)
+Snowballing: python slr/screen.py sb (protocol §4.2 step 8): queue slr/snowball/queue.csv, suggestion = pre-filter
+             majority and the three votes (slr/snowball/prefilter.csv), decisions slr/snowball/decisions.csv (column id).
+             SB_DIR=<folder> uses another folder with the same three files (for tests).
 Extraction:  ft only. After an Include, the AI draft slr/extraction/ai-drafts/<key>.json (protocol §5-6) is shown for
              the author to check; the checked record is saved to slr/extraction/<key>.json
 """
@@ -14,13 +17,18 @@ from urllib.parse import urlparse, parse_qs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PASS = sys.argv[1] if len(sys.argv) > 1 else "2"
-assert PASS in ("2", "3", "ft"), "usage: python slr/screen.py [2|3|ft]"
+assert PASS in ("2", "3", "ft", "sb"), "usage: python slr/screen.py [2|3|ft|sb]"
 NAME = "ft" if PASS == "ft" else f"pass{PASS}"
 QUEUE = os.path.join(HERE, f"{NAME}-queue.csv")
 AI = os.path.join(HERE, f"{NAME}-ai-suggestions.csv")
 DEC = os.path.join(HERE, f"{NAME}-decisions.csv")
+KEY = "key"
+if PASS == "sb":
+    SB = os.environ.get("SB_DIR") or os.path.join(HERE, "snowball")
+    QUEUE, AI, DEC, KEY = (os.path.join(SB, "queue.csv"), os.path.join(SB, "prefilter.csv"),
+                           os.path.join(SB, "decisions.csv"), "id")
 FT = os.path.join(HERE, "fulltext")
-FIELDS = ["time", "key", "first", "final", "ai", "agree", "note"]
+FIELDS = ["time", KEY, "first", "final", "ai", "agree", "note"]
 XDIR = os.path.join(HERE, "extraction")
 # Extraction form (protocol §6) and quality checklist (§5; DARE-4 for reviews, Kitchenham & Charters 2007)
 XFIELDS = ["Reference", "Year", "Publication type", "Author affiliation", "Nature of the study",
@@ -31,7 +39,8 @@ XFIELDS = ["Reference", "Year", "Publication type", "Author affiliation", "Natur
            "Comparison: design", "Comparison: result", "Comparison: did the method work",
            "Conclusions: limitations and gaps", "Notes"] + [f"Q{n}" for n in range(1, 14)] + [f"DARE{n}" for n in range(1, 5)]
 ALLOWED = ({"Include", "IC1", "IC4", "EC1", "EC2", "EC3", "EC4", "EC5", "EC6", "Other"} if PASS == "ft" else
-           {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"} | ({"EC6"} if PASS == "3" else set()))
+           {"Include", "Maybe", "IC1", "EC1", "EC5", "Other"} | ({"EC6"} if PASS == "3" else set())
+           | ({"EC6", "IC2", "IC3", "EC2", "EC3"} if PASS == "sb" else set()))
 
 
 def read(path):
@@ -93,7 +102,7 @@ def view(key):
 
 
 def decisions():
-    return {d["key"]: d for d in read(DEC)}  # last row per key wins
+    return {d[KEY]: dict(d, key=d[KEY]) for d in read(DEC)}  # last row per key wins
 
 
 def save(d):
@@ -102,7 +111,7 @@ def save(d):
         w = csv.DictWriter(f, fieldnames=FIELDS)
         if new:
             w.writeheader()
-        w.writerow({k: d.get(k, "") for k in FIELDS})
+        w.writerow({k: d.get(k, "") for k in FIELDS} | {KEY: d["key"]})
         f.flush()
         os.fsync(f.fileno())
 
@@ -124,7 +133,8 @@ class H(BaseHTTPRequestHandler):
         if u.path == "/":
             self.send(PAGE.replace("__PASS__", PASS).replace("__CARD__", CARD[PASS]), "text/html")
         elif u.path == "/data":
-            self.send(json.dumps({"queue": ft_queue() if PASS == "ft" else read(QUEUE), "done": decisions()}))
+            q = ft_queue() if PASS == "ft" else [dict(r, key=r[KEY]) for r in read(QUEUE)]
+            self.send(json.dumps({"queue": q, "done": decisions()}))
         elif u.path == "/view":
             self.send(json.dumps(view(os.path.basename(parse_qs(u.query).get("key", [""])[0]))))
         elif u.path == "/pdf":
@@ -144,7 +154,10 @@ class H(BaseHTTPRequestHandler):
                                   "saved": load(os.path.join(XDIR, key + ".json"))}))
         elif u.path == "/ai":
             key = parse_qs(u.query).get("key", [""])[0]
-            s = next((a for a in read(AI) if a["key"] == key), None)  # read fresh: suggestions may still be arriving
+            s = next((a for a in read(AI) if a[KEY] == key), None)  # read fresh: suggestions may still be arriving
+            if s and PASS == "sb":  # pre-filter: majority, with the three votes and their reasons
+                s = {"s": s["majority"], "agree": s["unanimity"], "votes": " / ".join(s[f"v{n}"] for n in "123"),
+                     "rs": [f"Leitura {n}: {s[f'r{n}']}" for n in "123"]}
             self.send(json.dumps(s))
         else:
             self.send("{}", code=404)
@@ -212,10 +225,12 @@ q{font-style:italic}
 <script>
 const PASS="__PASS__";
 const OPTS=PASS==="ft"?[["I","Include"],["1","IC1"],["2","EC1"],["3","EC5"],["6","EC6"],["4","EC4"],["7","EC3"],["8","EC2"],["X","IC4"],["O","Other"]]
+  :PASS==="sb"?[["I","Include"],["1","IC1"],["2","EC1"],["3","EC5"],["6","EC6"],["8","EC2"],["7","EC3"],["Y","IC2"],["L","IC3"],["M","Maybe"],["O","Other"]]
   :PASS==="3"?[["I","Include"],["6","EC6"],["1","IC1"],["2","EC1"],["3","EC5"],["M","Maybe"],["O","Other"]]
   :[["I","Include"],["M","Maybe"],["1","IC1"],["2","EC1"],["3","EC5"],["O","Other"]];
 const LABEL={Include:"Include",Maybe:"Maybe",IC1:"Excluir IC1 (sem agente a programar)",EC1:"Excluir EC1 (só funções)",EC5:"Excluir EC5 (só o agente deles)",EC6:"Excluir EC6 (passo 3)",Other:"Outro (nota)",
-  EC2:"Excluir EC2 (especificação formal/RE, sem agente)",EC3:"Excluir EC3 (editorial, poster, só resumo)",EC4:"Excluir EC4 (versão anterior/duplicado)",IC4:"Excluir IC4 (sem acesso ao texto)"};
+  EC2:"Excluir EC2 (especificação formal/RE, sem agente)",EC3:"Excluir EC3 (editorial, poster, só resumo)",EC4:"Excluir EC4 (versão anterior/duplicado)",IC4:"Excluir IC4 (sem acesso ao texto)",
+  IC2:"Excluir IC2 (antes de 2023)",IC3:"Excluir IC3 (não está em inglês)"};
 let Q=[],done={},i=0,first=null,final=null,note="",ai=null;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -316,7 +331,7 @@ function render(){$("keys").innerHTML=OPTS.map(([k,v])=>`<button data-v="${v}" c
 async function reveal(){const x=Q[i];const k=x.key;const r=await (await fetch("/ai?key="+encodeURIComponent(k))).json();if(Q[i].key!==k)return;ai=r;
   const el=$("ai");if(!r){el.className="none";el.innerHTML="Sem sugestão da IA para este registo (ainda). Decide só por ti.";return;}
   const same=r.s===first;el.className=same?"agree":"disagree";
-  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${esc(r.r)}<br><q>${esc(r.q)}</q>${r.sec?" ("+esc(r.sec)+")":""}${r.q_ok==="False"?' <b style="color:#c00">citação não verificada</b>':""}`
+  el.innerHTML=(same?"✔ <b>Concordamos.</b> ":"⚠ <b>A IA sugere outra coisa — relê e decide tu.</b> ")+`IA: <b>${LABEL[r.s]||r.s}</b>${r.g?" (grupo "+esc(r.g)+")":""} · ${r.rs?"<br>"+r.rs.map(esc).join("<br>"):esc(r.r)}${r.q?`<br><q>${esc(r.q)}</q>`:""}${r.sec?" ("+esc(r.sec)+")":""}${r.q_ok==="False"?' <b style="color:#c00">citação não verificada</b>':""}`
    +(r.agree?(r.agree==="3/3"?`<br>3 leituras independentes concordam (3/3).`
      :`<br><b style="color:#c60">⚠ IA insegura: ${r.agree==="2/3"?"só 2 das 3 leituras concordam":"sem maioria nas 3 leituras (fica a sugestão anterior)"} (${esc(r.votes)}). Atenção redobrada.</b>`):"");}
 function pick(v){if(first===null){first=v;final=v;if(v==="Other"&&!note)askNote();render();reveal();}else{final=v;if(v==="Other"&&!note)askNote();render();}}
@@ -336,7 +351,15 @@ document.onkeydown=e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest("text
   else if(e.key==="ArrowLeft"&&i>0){i--;show();}else if(e.key==="ArrowRight"&&i<Q.length-1){i++;show();}};
 load();
 </script></body></html>"""
-CARD = {"ft": r"""<b>Texto integral. Lê o resumo e as partes extraídas; abre o PDF (P) quando não chegar. Por ordem:</b><ol>
+CARD = {"sb": r"""<b>Snowballing (título e resumo). Pergunta por ordem; a primeira que decide manda.</b><ol>
+<li>Publicado antes de 2023 → <b>[Y] IC2</b>. Não está em inglês → <b>[L] IC3</b>. Editorial, poster, só resumo, tutorial, livro, tese, página web → <b>[7] EC3</b></li>
+<li><b>Há um agente de IA a desenvolver software</b> (escreve, altera, testa código)? Não → <b>[1] IC1</b>. "Especificação" formal/RE sem agente → <b>[8] EC2</b></li>
+<li><b>Só gera funções soltas</b> (HumanEval, concursos)? → <b>[2] EC1</b></li>
+<li><b>Grupos (a) SDD e (b) AGENTS.md, regras, contexto ou memória do agente</b> → <b>[I] Include</b></li>
+<li><b>Grupo (c), avaliação de agentes:</b> agente novo num benchmark existente sem contributo de método → <b>[3] EC5</b>; fluxo EC6 (não é código, issue repair, nem funcionalidade/projeto nem método de avaliação) → <b>[6] EC6</b>; senão <b>[I]</b></li>
+</ol>Na fronteira fica <b>Include</b> (o texto integral decide). <b>[M] Maybe</b> só se o resumo não chegar (sem resumo: <b>abrir</b>). <b>[O]</b> + nota para o resto.<br>
+Depois: a sugestão é a maioria das 3 leituras da IA, com as razões de cada uma. <span style="color:#080">verde</span> → Enter. <span style="color:#c70">laranja</span> → relê, decide tu, Enter.""",
+        "ft": r"""<b>Texto integral. Lê o resumo e as partes extraídas; abre o PDF (P) quando não chegar. Por ordem:</b><ol>
 <li>Sem texto e sem acesso (ISEP, editora, arXiv, Google Scholar) → <b>[X] IC4</b></li>
 <li>Versão anterior ou duplicado de outro registo incluído → <b>[4] EC4</b> (nota: qual fica). Editorial, poster, só resumo, tutorial → <b>[7] EC3</b></li>
 <li>Não há agente de IA a desenvolver software → <b>[1] IC1</b>. Só funções soltas → <b>[2] EC1</b>. "Especificação" formal/RE sem agente → <b>[8] EC2</b></li>
