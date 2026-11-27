@@ -14,5 +14,6 @@ This run:
   then lines 21,40 and so on. Columns: id, openalex, doi, title, year, date, type, source, seeds, abstract.
 - Write the output by appending, in groups of at most 10 candidates, e.g. `cat >> slr/snowball/runs/rR-bNNN.jsonl <<'EOF'` ... `EOF`. Every id exactly once; no other ids; valid JSON on each line (escape double quotes inside strings).
 - Do not open any other file in `slr/snowball/runs/`, the `pilot-r*.jsonl` files or `prefilter.csv`. Do not edit any other file.
+- Do not write temporary files (other agents run at the same time and share the scratchpad): read the candidates straight from the grep output. (Added 2026-11-27 after r3-b007 read another agent's temporary file; its check caught the wrong ids.)
 
 Reply only with one line: `done N of M`.
