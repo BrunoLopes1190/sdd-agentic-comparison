@@ -146,6 +146,8 @@ Review "SLR SDD agentic coding – main screening" (owner: the author). Imported
 
 PRISMA identification: 2131 records from databases (arXiv 1605, IEEE Xplore 167, Web of Science 133, ACM DL 226); duplicates removed 273 (script 269, Rayyan 4); records screened 1858.
 
+PRISMA counts, databases branch (2026-11-27, from `slr/ft-decisions.csv`, last decision per record): records screened 1858; excluded at title/abstract (passes 1–3) 1530; sought for retrieval 328; not retrieved 1 (IC4, Wiley); assessed for eligibility 327; excluded 81 (EC6 48, IC1 11, EC3 10, EC5 9, EC4 2, EC1 1); **included 246**. The "other methods" branch (snowballing) is added when it is done.
+
 ### Second-reviewer sets (§4.1, 2026-11-18)
 
 Drawn by `slr/draw_sample.py 2026-11-18 20261118` (seed 20261118) from `rayyan-after-dedup-2026-11-18.csv`. Prepared in advance; used only if a second reviewer is confirmed by 2026-11-20. **Not used:** no second reviewer was found; §4.1 removed on 2026-11-20.
