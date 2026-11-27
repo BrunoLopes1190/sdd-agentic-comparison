@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5), unclear: no affiliation given; the author proposes no tool of their own and evaluates none, but independence from the vendors discussed cannot be checked",
+   "v": "No (0): no affiliation given (name and city only), so independence from the vendors of the tools discussed (Spec Kit, Kiro, Tessl) cannot be checked; missing information scores No. The author proposes no tool of their own and evaluates none",
    "p": "1",
    "ok": true,
    "ai": "Partly (0.5), unclear: no affiliation given; the author proposes no tool of their own and evaluates none, but independence from the vendors discussed cannot be checked",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5), unclear: no affiliation given; the author proposes no tool of their own and evaluates none, but independence from the vendors discussed cannot be checked"
+   }
   },
   {
    "f": "Q13",

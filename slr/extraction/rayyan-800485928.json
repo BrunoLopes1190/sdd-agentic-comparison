@@ -171,11 +171,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: student perceptions (no objective criterion). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: partly (perceived positive, verification weak, self-report only). Cost verdict: partly (perceived faster, overhead for small tasks; not measured)",
-   "p": "5-8",
+   "v": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: none stated by the authors (descriptive, exploratory survey of student perceptions). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: no criterion stated by the authors. Cost verdict: no criterion stated by the authors",
+   "p": "4-7",
    "ok": true,
    "ai": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: student perceptions (no objective criterion). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: partly (perceived positive, verification weak, self-report only). Cost verdict: partly (perceived faster, overhead for small tasks; not measured)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "(1) AI-SDLC v1.0.0-beta + coding agent not stated + model not stated (student projects, survey n=13). Criterion: student perceptions (no objective criterion). Values: Specify sharpened requirements 13/13 agree (11 strongly); structured collaboration 12/13; phases gave orientation 12/13; improved quality 10/13; faster progress 13/13; would reuse 12/13; overhead in some phases 4/13; adopted code without understanding 6/13 (closed item), 11/13 (free text); following the code lowest-rated positive item; PR review ~half; NPS median 8. Quality verdict: partly (perceived positive, verification weak, self-report only). Cost verdict: partly (perceived faster, overhead for small tasks; not measured)"
+   }
   },
   {
    "f": "Comparison: design",

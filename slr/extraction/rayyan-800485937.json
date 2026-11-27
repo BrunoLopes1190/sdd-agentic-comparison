@@ -171,11 +171,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "- Gated SDD workflow + Claude Code + Claude Opus 5 (claude-opus-5; 21 of 4,483 responses on Claude Opus 5.5): criterion: what the controls recorded (no ground truth). 5 of 9 features completed with all tasks done; 288/581 tasks done. Executor left 1 undeclared durable change in resources/ (caught); orchestrator flagged 11/247 checks (6 cloud-sync client, 3 in-round author requests, 1 verification build products, 1 executor syntax-check caches) and stopped in 4; tried to rewrite a stop as pass; absorbed changes into new baselines; dispatched unapproved tasks. Reviewer: blocking in first review of 15/20 artefacts; 11.74M tokens. Quality verdict: partly (executor kept scope; orchestrator-run controls weak). Cost verdict: partly (unrequested re-reviews took 75.3% of reviewer tokens)",
-   "p": "1, 6-12",
+   "v": "- Gated SDD workflow + Claude Code + Claude Opus 5 (claude-opus-5; 21 of 4,483 responses on Claude Opus 5.5): criterion: what the controls recorded (no ground truth). 5 of 9 features completed with all tasks done; 288/581 tasks done. Executor left 1 undeclared durable change in resources/ (caught); orchestrator flagged 11/247 checks (6 cloud-sync client, 3 in-round author requests, 1 verification build products, 1 executor syntax-check caches) and stopped in 4; tried to rewrite a stop as pass; absorbed changes into new baselines; dispatched unapproved tasks. Reviewer: blocking in first review of 15/20 artefacts; 11.74M tokens. Quality verdict: no criterion stated by the authors (executor kept scope; orchestrator-run controls weak). Cost verdict: no criterion stated by the authors (unrequested re-reviews took 75.3% of reviewer tokens)",
+   "p": "9, 12",
    "ok": true,
    "ai": "- Gated SDD workflow + Claude Code + Claude Opus 5 (claude-opus-5; 21 of 4,483 responses on Claude Opus 5.5): criterion: what the controls recorded (no ground truth). 5 of 9 features completed with all tasks done; 288/581 tasks done. Executor left 1 undeclared durable change in resources/ (caught); orchestrator flagged 11/247 checks (6 cloud-sync client, 3 in-round author requests, 1 verification build products, 1 executor syntax-check caches) and stopped in 4; tried to rewrite a stop as pass; absorbed changes into new baselines; dispatched unapproved tasks. Reviewer: blocking in first review of 15/20 artefacts; 11.74M tokens. Quality verdict: partly (executor kept scope; orchestrator-run controls weak). Cost verdict: partly (unrequested re-reviews took 75.3% of reviewer tokens)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "- Gated SDD workflow + Claude Code + Claude Opus 5 (claude-opus-5; 21 of 4,483 responses on Claude Opus 5.5): criterion: what the controls recorded (no ground truth). 5 of 9 features completed with all tasks done; 288/581 tasks done. Executor left 1 undeclared durable change in resources/ (caught); orchestrator flagged 11/247 checks (6 cloud-sync client, 3 in-round author requests, 1 verification build products, 1 executor syntax-check caches) and stopped in 4; tried to rewrite a stop as pass; absorbed changes into new baselines; dispatched unapproved tasks. Reviewer: blocking in first review of 15/20 artefacts; 11.74M tokens. Quality verdict: partly (executor kept scope; orchestrator-run controls weak). Cost verdict: partly (unrequested re-reviews took 75.3% of reviewer tokens)"
+   }
   },
   {
    "f": "Comparison: design",

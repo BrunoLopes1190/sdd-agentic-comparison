@@ -211,11 +211,15 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: model named 'Gemini 3 Flash' in Tables 3 and 7 but 'Gemini 2.5 Flash' in the Global/PRD rows of Table 9 and in the Aider tables 10-12; Section 4.1 assigns Gemini 3 Flash and GPT-5.1 Codex Mini to the Lite split only, but Table 3 (Mini) reports them too; claim of a 15-25% decrease 'across all LLMs' vs Mini Table 3 drops of 10 pp (Gemini 3 Pro) and 7.5 pp (GPT-5.2 Chat); Table 8 Codex Mini Individual and Global averages identical (87.16 / 56.15); Table 12 'Local' per-repository values repeat the Table 11 PRD row, yet its averages differ (P2P 28.18/57.61, F2P 20.82/37.76 vs 98.91/58.20, 5.35/29.12), and Table 12 caption repeats Table 11's; 'Gemini 3.0 Pro' vs 'Gemini 3 Pro'; Table 1 says 48.7% of tasks have interdependent PRs while the text calls dependency signals 'quite rare'. Values from Tables 3, 7, 8, 9, 10, 12 (pp. 7, 15, 18); Table 12 averages rebuilt from the jumbled text by position (each row ends with its average P2P, then a line with the two F2P averages, as in Tables 9 and 11); per-model task counts summed from Table 3 columns. Data: SWE-STEPS-mini shared as a zip with the submission; dataset and code to be released (on acceptance). Pre-registration: not stated. Programming language: Python",
-   "p": "2, 5-7, 10, 12, 15-18",
+   "v": "Inconsistencies: model named 'Gemini 3 Flash' in Tables 3 and 7 but 'Gemini 2.5 Flash' in the Global/PRD rows of Table 9 and in the Aider tables 10-12; Section 4.1 assigns Gemini 3 Flash and GPT-5.1 Codex Mini to the Lite split only, but Table 3 (Mini) reports them too; RQ1 claim that the Individual setting outperforms Global and PRD 'across all evaluated repositories' (Mini) vs Table 3 exceptions (e.g. Sonnet 4.5 Conan 8 Individual vs 10 Global; Gemini 3 Pro Haystack 5 vs 7 and DVC 2 vs 3 Global); the '15% to 25%' decrease 'across all LLMs' refers to Lite Table 7, where it holds (17.8-24.3 pp); Table 8 Codex Mini Individual and Global averages identical (87.16 / 56.15); Table 12 'Local' per-repository values repeat the Table 11 PRD row, yet its averages differ (P2P 28.18/57.61, F2P 20.82/37.76 vs 98.91/58.20, 5.35/29.12), and Table 12 caption repeats Table 11's; 'Gemini 3.0 Pro' vs 'Gemini 3 Pro'; Table 1 says 48.7% of tasks have interdependent PRs while the text calls dependency signals 'quite rare'. Values from Tables 3, 7, 8, 9, 10, 12 (pp. 7, 15, 18); Table 12 averages rebuilt from the jumbled text by position (each row ends with its average P2P, then a line with the two F2P averages, as in Tables 9 and 11); per-model task counts summed from Table 3 columns. Data: SWE-STEPS-mini shared as a zip with the submission; dataset and code to be released (on acceptance). Pre-registration: not stated. Programming language: Python",
+   "p": "7-8, 15",
    "ok": true,
    "ai": "Inconsistencies: model named 'Gemini 3 Flash' in Tables 3 and 7 but 'Gemini 2.5 Flash' in the Global/PRD rows of Table 9 and in the Aider tables 10-12; Section 4.1 assigns Gemini 3 Flash and GPT-5.1 Codex Mini to the Lite split only, but Table 3 (Mini) reports them too; claim of a 15-25% decrease 'across all LLMs' vs Mini Table 3 drops of 10 pp (Gemini 3 Pro) and 7.5 pp (GPT-5.2 Chat); Table 8 Codex Mini Individual and Global averages identical (87.16 / 56.15); Table 12 'Local' per-repository values repeat the Table 11 PRD row, yet its averages differ (P2P 28.18/57.61, F2P 20.82/37.76 vs 98.91/58.20, 5.35/29.12), and Table 12 caption repeats Table 11's; 'Gemini 3.0 Pro' vs 'Gemini 3 Pro'; Table 1 says 48.7% of tasks have interdependent PRs while the text calls dependency signals 'quite rare'. Values from Tables 3, 7, 8, 9, 10, 12 (pp. 7, 15, 18); Table 12 averages rebuilt from the jumbled text by position (each row ends with its average P2P, then a line with the two F2P averages, as in Tables 9 and 11); per-model task counts summed from Table 3 columns. Data: SWE-STEPS-mini shared as a zip with the submission; dataset and code to be released (on acceptance). Pre-registration: not stated. Programming language: Python",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Inconsistencies: model named 'Gemini 3 Flash' in Tables 3 and 7 but 'Gemini 2.5 Flash' in the Global/PRD rows of Table 9 and in the Aider tables 10-12; Section 4.1 assigns Gemini 3 Flash and GPT-5.1 Codex Mini to the Lite split only, but Table 3 (Mini) reports them too; claim of a 15-25% decrease 'across all LLMs' vs Mini Table 3 drops of 10 pp (Gemini 3 Pro) and 7.5 pp (GPT-5.2 Chat); Table 8 Codex Mini Individual and Global averages identical (87.16 / 56.15); Table 12 'Local' per-repository values repeat the Table 11 PRD row, yet its averages differ (P2P 28.18/57.61, F2P 20.82/37.76 vs 98.91/58.20, 5.35/29.12), and Table 12 caption repeats Table 11's; 'Gemini 3.0 Pro' vs 'Gemini 3 Pro'; Table 1 says 48.7% of tasks have interdependent PRs while the text calls dependency signals 'quite rare'. Values from Tables 3, 7, 8, 9, 10, 12 (pp. 7, 15, 18); Table 12 averages rebuilt from the jumbled text by position (each row ends with its average P2P, then a line with the two F2P averages, as in Tables 9 and 11); per-model task counts summed from Table 3 columns. Data: SWE-STEPS-mini shared as a zip with the submission; dataset and code to be released (on acceptance). Pre-registration: not stated. Programming language: Python"
+   }
   },
   {
    "f": "Q1",
@@ -283,11 +287,15 @@
   },
   {
    "f": "Q9",
-   "v": "Partly (0.5): main conclusions follow from the tables, but '15-25% across all LLMs' overstates the Mini results for Gemini 3 Pro and GPT-5.2 Chat, and 'significantly inflated' is claimed without a test",
+   "v": "Partly (0.5): main conclusions follow from the tables, but RQ1 claims the Individual setting outperforms Global and PRD 'across all evaluated repositories' although Table 3 shows exceptions (e.g. Sonnet 4.5 Conan 8 vs 10 Global; Gemini 3 Pro Haystack 5 vs 7 Global), and 'significantly inflated' is claimed without a test",
    "p": "7-8",
    "ok": true,
    "ai": "Partly (0.5): main conclusions follow from the tables, but '15-25% across all LLMs' overstates the Mini results for Gemini 3 Pro and GPT-5.2 Chat, and 'significantly inflated' is claimed without a test",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): main conclusions follow from the tables, but '15-25% across all LLMs' overstates the Mini results for Gemini 3 Pro and GPT-5.2 Chat, and 'significantly inflated' is claimed without a test"
+   }
   },
   {
    "f": "Q10",

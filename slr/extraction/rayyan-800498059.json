@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): null pass-rate result reported; small trajectory effects not over-interpreted; ablation conclusions hedged",
-   "p": "7-10",
+   "v": "Partly (0.5): null pass-rate result reported and per-task spread discussed, but the abstract's 'substantially alters' footprint claim and the conclusion rest on a 7-8% pooled difference with no statistical test, while per-task deltas split 16/11 and a 10% delta is said to be possibly noise",
+   "p": "1, 9",
    "ok": true,
    "ai": "Yes (1): null pass-rate result reported; small trajectory effects not over-interpreted; ablation conclusions hedged",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): null pass-rate result reported; small trajectory effects not over-interpreted; ablation conclusions hedged"
+   }
   },
   {
    "f": "Q10",
@@ -307,11 +311,15 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): the evaluated agent (Claude Code, Anthropic) is not the authors'; note authors are SonarSource employees and SonarQube defines cleanliness",
-   "p": "1-2, 5",
+   "v": "Partly (0.5): the evaluated agent (Claude Code, Anthropic) is not the authors', but both authors are SonarSource employees, the factor under study (cleanliness) is defined by SonarQube rule violations, and the finding supports the value of SonarQube-clean code",
+   "p": "1-2",
    "ok": true,
    "ai": "Yes (1): the evaluated agent (Claude Code, Anthropic) is not the authors'; note authors are SonarSource employees and SonarQube defines cleanliness",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): the evaluated agent (Claude Code, Anthropic) is not the authors'; note authors are SonarSource employees and SonarQube defines cleanliness"
+   }
   },
   {
    "f": "Q13",

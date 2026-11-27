@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "No (0): mixed results acknowledged for offline libraries, but small online gains reported as consistent improvement without significance testing; Hard-split regressions not discussed",
-   "p": "7-10",
+   "v": "Partly (0.5): mixed results acknowledged (curated library regresses on GPT-5.5 and on SWE-Bench Pro except GPT-5.4 mini; baselines regress on GPT-5.5; gains from skills are heavy-tailed and moderate on average), but small online gains (0.9-2.7 pp, no variance or significance tests) are presented as consistent improvement, and SkillsVote's own Hard-split regressions on Terminal-Bench 2.0 (e.g. -6.7 pp for GPT-5.2) are not discussed",
+   "p": "7-9",
    "ok": true,
    "ai": "Partly (0.5): mixed results acknowledged for offline libraries, but small online gains reported as consistent improvement without significance testing; Hard-split regressions not discussed",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "No (0): mixed results acknowledged for offline libraries, but small online gains reported as consistent improvement without significance testing; Hard-split regressions not discussed"
+   }
   },
   {
    "f": "Q10",

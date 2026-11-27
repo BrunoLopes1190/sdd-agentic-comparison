@@ -211,11 +211,15 @@
   },
   {
    "f": "Notes",
-   "v": "Code and dataset: github.com/awsm-research/AgentJailbreak (per-run logs, prompts, regexes, unit tests). No pre-registration. Language: shell commands; web app language chosen by agent (e.g. Python/Flask). Values from Table 3 and Table 4 (p. 16, layout rebuilt from pdftotext), Table 5 (p. 22), Table 6 (p. 24) and text pp. 18-22. Inconsistency: 2 x 2,826 = 5,652 planned runs minus 5,629 completed = 23 missing (10 Gemini, 13 Qwen per Table 3 totals), but the text reports 24 empty runs excluded plus two commands with no run recorded (p. 12). Relevance to SDD: skill files as agent instruction artefacts and their security risk",
-   "p": "1, 12, 16, 18-24",
+   "v": "Code and dataset: github.com/awsm-research/AgentJailbreak (per-run logs, prompts, regexes, unit tests). No pre-registration. Language: shell commands; web app language chosen by agent (e.g. Python/Flask). Values from Table 3 and Table 4 (p. 16, layout rebuilt from pdftotext), Table 5 (p. 22), Table 6 (p. 24) and text pp. 18-22. Inconsistencies: (1) 2 x 2,826 = 5,652 planned runs minus 5,629 completed = 23 missing (10 Gemini, 13 Qwen per Table 3 totals), but the text reports 24 empty runs excluded plus two commands with no run recorded (p. 12); (2) Fig. 3 Step 2 says 471 attacks passed to 5 LLMs to generate 2,355 descriptions, whereas the text uses six generator LLMs and 2,826 skills (pp. 8-9); (3) p. 11 says each agent is evaluated over 2,816 completed runs, but Qwen has 2,813 (Table 3); (4) Gemini CLI described as built on the Gemini Pro series but run with gemini-3-flash (p. 11). Relevance to SDD: skill files as agent instruction artefacts and their security risk",
+   "p": "8, 11, 12, 16",
    "ok": true,
    "ai": "Code and dataset: github.com/awsm-research/AgentJailbreak (per-run logs, prompts, regexes, unit tests). No pre-registration. Language: shell commands; web app language chosen by agent (e.g. Python/Flask). Values from Table 3 and Table 4 (p. 16, layout rebuilt from pdftotext), Table 5 (p. 22), Table 6 (p. 24) and text pp. 18-22. Inconsistency: 2 x 2,826 = 5,652 planned runs minus 5,629 completed = 23 missing (10 Gemini, 13 Qwen per Table 3 totals), but the text reports 24 empty runs excluded plus two commands with no run recorded (p. 12). Relevance to SDD: skill files as agent instruction artefacts and their security risk",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Code and dataset: github.com/awsm-research/AgentJailbreak (per-run logs, prompts, regexes, unit tests). No pre-registration. Language: shell commands; web app language chosen by agent (e.g. Python/Flask). Values from Table 3 and Table 4 (p. 16, layout rebuilt from pdftotext), Table 5 (p. 22), Table 6 (p. 24) and text pp. 18-22. Inconsistency: 2 x 2,826 = 5,652 planned runs minus 5,629 completed = 23 missing (10 Gemini, 13 Qwen per Table 3 totals), but the text reports 24 empty runs excluded plus two commands with no run recorded (p. 12). Relevance to SDD: skill files as agent instruction artefacts and their security risk"
+   }
   },
   {
    "f": "Q1",

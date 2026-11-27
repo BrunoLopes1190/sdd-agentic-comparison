@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): university authors, not vendors of the agents or models evaluated",
+   "v": "Partly (0.5): eight authors at universities, not vendors of the agents or models evaluated; affiliation of two authors (Li R., Mao) printed as 'Somewhere on the Earth', so their independence cannot be established (missing information)",
    "p": "1",
    "ok": true,
    "ai": "Yes (1): university authors, not vendors of the agents or models evaluated",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): university authors, not vendors of the agents or models evaluated"
+   }
   },
   {
    "f": "Q13",

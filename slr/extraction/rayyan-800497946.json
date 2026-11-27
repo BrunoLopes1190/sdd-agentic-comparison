@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Compares — package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files; attack success compared with 5 prompt-injection baselines and measured across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors evaluated",
-   "p": "1-3",
+   "v": "Proposes an approach; secondary: Compares — package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files; attack success compared with 5 prompt-injection baselines and measured across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors evaluated",
+   "p": "2-3",
    "ok": true,
    "ai": "Proposes an approach; secondary: Compares — package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files; attack success compared with 5 prompt-injection baselines and measured across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors evaluated",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Evaluates; secondary: Compares — package hallucination attack and PackHallu, an evolutionary optimizer of malicious prompts injected into rule files; attack success compared with 5 prompt-injection baselines and measured across 3 benchmarks, 8 agent frameworks, 13 LLMs; 5 detectors evaluated"
+   }
   },
   {
    "f": "Approach(es): name and version",
@@ -155,11 +159,15 @@
   },
   {
    "f": "Other outcome metrics",
-   "v": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR; SASR (share of tasks where malicious package imported) and DASR (malicious package imported and code executes, malicious behaviour triggered), computed only on tasks the agent solves correctly under benign conditions.",
-   "p": "12-17, 19",
+   "v": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR; SASR (share of tasks where malicious package imported) and DASR (malicious package imported and code executes, malicious behaviour triggered); SASR computed on the tasks where the agent imports the victim package under benign conditions, DASR on those where it also imports it and the code executes under benign conditions.",
+   "p": "11-12",
    "ok": true,
    "ai": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Attention proportion on malicious prompt; correlation of success with package popularity (PyPI downloads) and agent capability; trajectory categories in Claude Code case study; detector FNR and FPR; SASR (share of tasks where malicious package imported) and DASR (malicious package imported and code executes, malicious behaviour triggered), computed only on tasks the agent solves correctly under benign conditions."
+   }
   },
   {
    "f": "How metrics are collected",
@@ -307,19 +315,27 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): authors created PackHallu, the approach evaluated; independent of agent vendors",
-   "p": "1-3",
+   "v": "Partly (0.5): the authors created PackHallu and the Repeat Attack baseline, and co-authors also wrote the Combined Attack [11] (Gong) and ObliInjection [13] (R. Wang, Gong) baselines; GCG, TAP and all evaluated agent frameworks and LLMs are external",
+   "p": "8-9, 20",
    "ok": true,
    "ai": "No (0): authors created PackHallu, the approach evaluated; independent of agent vendors",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "No (0): authors created PackHallu, the approach evaluated; independent of agent vendors"
+   }
   },
   {
    "f": "Q13",
-   "v": "N/A",
-   "p": "5-6, 23",
+   "v": "Partly (0.5): requirements stated (locally hosted surrogate agent and attack LLM via Ollama on up to two NVIDIA Quadro RTX 6000 GPUs, 24 GB each; about 24-30 h per optimization run; one prompt reused across package pairs); within reach of a well-equipped team, but it is an attack, not a development practice",
+   "p": "12, 23",
    "ok": true,
    "ai": "Partly (0.5): attack needs black-box access and a locally deployed surrogate (open models via Ollama); compute stated: up to two NVIDIA Quadro RTX 6000 GPUs (24 GB), about 24-30 h per optimization run; money cost not stated",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE1",

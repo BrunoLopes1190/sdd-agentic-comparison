@@ -243,11 +243,15 @@
   },
   {
    "f": "Q4",
-   "v": "Yes (1): the nine benchmarks are described with versions and references; supplementary material on Zenodo",
-   "p": "2, 5",
+   "v": "Partly (0.5): the nine benchmarks are described with versions and references and quotes are on Zenodo, but not all analysed benchmarks are available: FrontierCode's dataset is not public and FrontierSWE is only a blog post with insufficient information",
+   "p": "2, 4",
    "ok": true,
    "ai": "Yes (1): the nine benchmarks are described with versions and references; supplementary material on Zenodo",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): the nine benchmarks are described with versions and references; supplementary material on Zenodo"
+   }
   },
   {
    "f": "Q5",

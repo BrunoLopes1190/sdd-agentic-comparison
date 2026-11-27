@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive, but the abstract and conclusion say failures 'often arise from poor self-verification, self-reported infeasibility, and premature termination' while Table 4 gives these as primary modes for only 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); 'self-reported infeasibility' is not quantified",
-   "p": "1, 8-10",
+   "v": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive; the abstract's 'poor self-verification' is supported as a cross-cutting signal (524 of 526 failures, 99.6%) though it is the primary mode for only 4.0%, but the abstract omits the two largest primary modes (Implementation 41.6%, Timeout 31.4%) and 'self-reported infeasibility' is not quantified",
+   "p": "1, 9-10",
    "ok": true,
    "ai": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive, but the abstract and conclusion say failures 'often arise from poor self-verification, self-reported infeasibility, and premature termination' while Table 4 gives these as primary modes for only 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); 'self-reported infeasibility' is not quantified",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): low pass rates and reward-hacking findings carry lower-bound caveats and small-n slices are treated as descriptive, but the abstract and conclusion say failures 'often arise from poor self-verification, self-reported infeasibility, and premature termination' while Table 4 gives these as primary modes for only 4.0% and 7.6% of failures (Implementation 41.6%, Timeout 31.4%); 'self-reported infeasibility' is not quantified"
+   }
   },
   {
    "f": "Q10",

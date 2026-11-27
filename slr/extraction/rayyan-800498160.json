@@ -195,11 +195,15 @@
   },
   {
    "f": "Comparison: did the method work",
-   "v": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over ~21 attack runs against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
-   "p": "5-6",
+   "v": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over 20 attack runs (15 screening + 5 refinement, each run once) against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
+   "p": "4-6",
    "ok": true,
    "ai": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over ~21 attack runs against a 3-run mean baseline, not discussed. Limitations of the comparison not stated",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Distinguished configurations and pipeline variants; but 'best' amplification is a maximum over ~21 attack runs against a 3-run mean baseline, not discussed. Limitations of the comparison not stated"
+   }
   },
   {
    "f": "Conclusions: limitations and gaps",

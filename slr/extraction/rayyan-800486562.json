@@ -255,7 +255,11 @@
    "p": "6-7, 12",
    "ok": true,
    "ai": "Partly (0.5): verdicts from hidden LLM-synthesized tests refined against mutants and a blind solver, plus an LLM quality judge; test accuracy validated only against LLM (gpt-6-astra) labels; developer audit covers statements and rubrics on CropEnterprise only",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "keep",
+    "prev": "Partly (0.5): verdicts from hidden LLM-synthesized tests refined against mutants and a blind solver, plus an LLM quality judge; test accuracy validated only against LLM (gpt-6-astra) labels; developer audit covers statements and rubrics on CropEnterprise only"
+   }
   },
   {
    "f": "Q6",

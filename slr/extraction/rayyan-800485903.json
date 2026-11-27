@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "Yes: most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
-   "p": "8-9, 23, 31",
+   "v": "Partly (0.5): most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
+   "p": "8, 22, 32",
    "ok": true,
    "ai": "Partly (0.5): most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes: most conclusions are descriptive and causal claims on the case studies are hedged ('two cases cannot establish causality', p. 23), but the conclusion states 'the readability of these files is poor' (p. 32) although the authors show FRE correlates only weakly with human judgement (rho 0.19, p. 8) and is a weak proxy (p. 31); 'instructions directly govern ... agent-generated code' (p. 22) rests on illustrative examples"
+   }
   },
   {
    "f": "Q10",

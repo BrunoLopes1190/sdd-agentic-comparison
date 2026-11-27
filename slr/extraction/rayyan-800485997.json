@@ -195,11 +195,15 @@
   },
   {
    "f": "Comparison: did the method work",
-   "v": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025",
-   "p": "9-10, 15",
+   "v": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Order effect: similar correctness effect whichever tool came first, but user effort differed by order, possibly because the agent-first phase showed users how to approach the problem in the later copilot phase (carry-over, Appendix D). Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025",
+   "p": "9-10, 15, 29-30",
    "ok": true,
    "ai": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Distinguished the two tools on correctness and user effort with significant differences; single session per participant, not repeated. Limitations stated: one instance of each tool type; LLM not controlled in the copilot condition; mostly student participants, novice agent users; limited number of tasks; time measurement may not be representative (no multitasking, short sessions); tasks pre-defined, no planning; findings tied to April-May 2025"
+   }
   },
   {
    "f": "Conclusions: limitations and gaps",

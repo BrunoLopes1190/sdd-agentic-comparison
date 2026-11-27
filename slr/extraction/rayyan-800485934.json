@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Proposes an evaluation method — evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol, derived from a repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance); AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
-   "p": "1, 4, 17, 21",
+   "v": "Evaluates; secondary: Proposes an approach — repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance), from which an evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol is derived; also introduces the AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
+   "p": "1, 17, 21",
    "ok": true,
    "ai": "Proposes an approach; secondary: Proposes an evaluation method — evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol, derived from a repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance); AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Evaluates; secondary: Proposes an evaluation method — evidence-based 16-category template for agent instruction files (10 Required, 4 Gap, 2 Recommended) with a maintenance protocol, derived from a repository-mining study of 3,387 instruction files in 1,000 AIDev GitHub repositories (adoption, cross-format consistency, maintenance); AGIT-Instruct benchmark for instruction-file generation; exploratory generation experiment (with vs without template; four template-guided configurations)"
+   }
   },
   {
    "f": "Approach(es): name and version",

@@ -179,11 +179,15 @@
   },
   {
    "f": "Comparison: design",
-   "v": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
+   "v": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed; Claude Code kept the Task tool enabled, so Sonnet-4.5 also invoked Haiku-4.5 sub-agents. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
    "p": "3-5, 13, 17-18",
    "ok": true,
    "ai": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Tasks: SWE-bench Lite (300) + CTXBENCH (138; LLM-generated task descriptions and tests, manually reviewed). Configurations: 4 agent+model pairs x {None, LLM, DEV}; DEV only on CTXBENCH (20 cells) + ablations. Baseline: None. Held constant: default agent settings, temperature (0 for Sonnet/GPT, 0.7 for Qwen), task, Docker image, git history removed, web access allowed. Acceptance tests: hidden tests (75% coverage; 25/138 edited). Repetitions: 1 (sampled once). Human intervention: none during runs; manual cheating check after"
+   }
   },
   {
    "f": "Comparison: result",

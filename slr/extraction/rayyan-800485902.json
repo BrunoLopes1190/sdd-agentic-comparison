@@ -19,11 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint — PROFES 2025 (26th Int. Conf. on Product-Focused Software Process Improvement, Springer LNCS), DOI 10.1007/978-3-032-12089-2_40; full text read from arXiv:2509.14744v1",
+   "v": "Conference — PROFES 2025 (26th Int. Conf. on Product-Focused Software Process Improvement, Springer LNCS), DOI 10.1007/978-3-032-12089-2_40; full text read from arXiv:2509.14744v1",
    "p": "1",
    "ok": true,
    "ai": "Conference — PROFES 2025 (26th Int. Conf. on Product-Focused Software Process Improvement, Springer LNCS), DOI 10.1007/978-3-032-12089-2_40; full text read from arXiv:2509.14744v1",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Preprint — PROFES 2025 (26th Int. Conf. on Product-Focused Software Process Improvement, Springer LNCS), DOI 10.1007/978-3-032-12089-2_40; full text read from arXiv:2509.14744v1"
+   }
   },
   {
    "f": "Author affiliation",
@@ -259,11 +263,15 @@
   },
   {
    "f": "Q6",
-   "v": "Partly (0.5): structural and content metrics defined; no cost or quality outcomes (out of scope)",
+   "v": "No (0): structural and content metrics defined, but they cover neither cost nor quality",
    "p": "3-6",
    "ok": true,
    "ai": "Partly (0.5): structural and content metrics defined; no cost or quality outcomes (out of scope)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): structural and content metrics defined; no cost or quality outcomes (out of scope)"
+   }
   },
   {
    "f": "Q7",

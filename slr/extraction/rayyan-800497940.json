@@ -19,11 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv",
+   "v": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv (venue, pages and DOI taken from an external source, not from the arXiv text)",
    "p": "1",
    "ok": true,
    "ai": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Conference — AIware 2026 (3rd ACM International Conference on AI-Powered Software); short vision paper, 4 pages incl. references; full text read from arXiv"
+   }
   },
   {
    "f": "Author affiliation",
@@ -319,7 +323,11 @@
    "p": "3",
    "ok": true,
    "ai": "Partly (0.5): encoding values in a plain-text context file needs no special tools or compute, but requirements are not stated explicitly and whether agents comply is open",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "keep",
+    "prev": "No (0): requirements are not stated explicitly and whether agents comply is open"
+   }
   },
   {
    "f": "DARE1",

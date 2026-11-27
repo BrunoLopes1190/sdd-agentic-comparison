@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): conclusions follow from qualitative and quantitative findings, low satisfaction and exploratory nature acknowledged",
-   "p": "5, 10",
+   "v": "Partly (0.5): main conclusions (low satisfaction, challenges, barriers) follow from the qualitative findings and the exploratory nature is acknowledged, but several reported numbers do not match their own tables (abstract percentages, correlations, counts) and the ANOVA F(1, 11) = 3.46 with p = 0.0004 is implausible",
+   "p": "1, 4-7",
    "ok": true,
    "ai": "Yes (1): conclusions follow from qualitative and quantitative findings, low satisfaction and exploratory nature acknowledged",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): conclusions follow from qualitative and quantitative findings, low satisfaction and exploratory nature acknowledged"
+   }
   },
   {
    "f": "Q10",

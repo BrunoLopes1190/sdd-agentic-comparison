@@ -291,11 +291,15 @@
   },
   {
    "f": "Q10",
-   "v": "Partly (0.5): Threats to Validity section covers internal and external validity only, briefly",
-   "p": "17-18",
+   "v": "Yes (1): Threats to Validity section discusses internal validity (nondeterministic single runs, first read observed rather than assigned) and external validity (one platform with a Codex check, constructed cross-project pairs); LLM-judge validity handled in §3.10; conservative prevalence stated in §4.1",
+   "p": "12, 17-18",
    "ok": true,
    "ai": "Partly (0.5): Threats to Validity section covers internal and external validity only, briefly",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): Threats to Validity section covers internal and external validity only, briefly"
+   }
   },
   {
    "f": "Q11",
@@ -307,11 +311,15 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)",
-   "p": "1",
+   "v": "Partly (0.5): university authors, not vendors of Claude Code, Codex or the skills studied; but the pre-tool hook guard, evaluated in its own experiment (670 runs, RQ3), is the authors' own",
+   "p": "4, 12, 15-16",
    "ok": true,
    "ai": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): university authors, not vendors of Claude Code, Codex or the skills studied (guard hook is their own small mitigation)"
+   }
   },
   {
    "f": "Q13",

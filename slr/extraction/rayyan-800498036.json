@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "Yes (1): claims explicitly scoped to proxy evidence, but framed as relevant to coding agents without any agent evaluation;",
-   "p": "12, 19, 22",
+   "v": "Partly (0.5): claims explicitly scoped to smoke-scale proxy evidence (p. 22), but the title and conclusions frame the result for LLM coding agents without any agent run, and an 'agent dry-run' experiment named among the limitations is not reported",
+   "p": "1, 22",
    "ok": true,
    "ai": "Partly (0.5): claims explicitly scoped to proxy evidence, but framed as relevant to coding agents without any agent evaluation; abstention inconsistency",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): claims explicitly scoped to proxy evidence, but framed as relevant to coding agents without any agent evaluation;"
+   }
   },
   {
    "f": "Q10",

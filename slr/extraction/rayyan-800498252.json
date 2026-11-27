@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Not classifiable (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; the PRD is a one-off task input)",
-   "p": "1-2",
+   "v": "Spec-first (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; a standardized PRD with goals, scope, functional requirements, business rules, technical constraints and acceptance criteria is written before implementation and given to the agent as the task input, not maintained afterwards)",
+   "p": "1-2, 19",
    "ok": true,
    "ai": "Not classifiable (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; the PRD is a one-off task input)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Not classifiable (authors' wording: 'PRD-driven development', 'PRD-driven incremental development in enterprise brownfield repositories'; the PRD is a one-off task input)"
+   }
   },
   {
    "f": "Task type",

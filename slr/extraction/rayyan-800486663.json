@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Not stated in Böckeler's terms; specification precedes implementation and code is regenerated from the revised specification rather than patched ('regeneration over incremental patching'), closest to spec-first with regeneration (classification by the drafter)",
+   "v": "Spec-as-source (classification by the drafter; not stated in Böckeler's terms): specification precedes implementation and substantive defects are fixed by revising the specification and regenerating the whole code in a fresh context, never by patching ('regeneration over incremental patching'); only minor UI issues are adjusted by targeted prompts, and spec maintenance after release is not described",
    "p": "2",
    "ok": true,
    "ai": "Not stated in Böckeler's terms; specification precedes implementation and code is regenerated from the revised specification rather than patched ('regeneration over incremental patching'), closest to spec-first with regeneration (classification by the drafter)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "edit",
+    "prev": "Not stated in Böckeler's terms; specification precedes implementation and code is regenerated from the revised specification rather than patched ('regeneration over incremental patching'), closest to spec-first with regeneration (classification by the drafter)"
+   }
   },
   {
    "f": "Task type",

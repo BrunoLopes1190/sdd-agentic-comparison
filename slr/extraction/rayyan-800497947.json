@@ -211,11 +211,15 @@
   },
   {
    "f": "Notes",
-   "v": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". RQ1b answer says the two lowest-token combinations both included Function Description and Implementation Detail, but in Table IV the second lowest (Gemma 4) is ImpDetl alone (69,344, areyoustillthere), after FuncDec-ImpDetl (68,070); the third, FuncDec-ImpDetl-ReConStp (70,283), fits the claim. Conclusion (p. 10) says Testing was most frequent for File Count, while the results (p. 7) and the abstract say Testing and Reconstruction Steps tied (11 of 16). Overall GPT-5.4 rates 12.99% passed and 51.32% partial are not whole counts out of 155 variants (extractor's check: 20/155 = 12.90%); denominator not stated. Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python",
+   "v": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". RQ1b answer says the two lowest-token combinations both included Function Description and Implementation Detail, but in Table IV the second lowest (Gemma 4) is ImpDetl alone (69,344, areyoustillthere), after FuncDec-ImpDetl (68,070); the third, FuncDec-ImpDetl-ReConStp (70,283), fits the claim. Conclusion (p. 10) says Testing was most frequent for File Count, while the results (p. 7) and the abstract say Testing and Reconstruction Steps tied (11 of 16). Text (p. 7) says Gemma 4 FC differed by at most 8.7% for the libraries other than areyoustillthere, but Table VII gives -29.50% for compactor (Gemma 4, FC). Overall GPT-5.4 rates 12.99% passed and 51.32% partial are not whole counts out of 155 variants (extractor's check: 20/155 = 12.90%); denominator not stated. Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python",
    "p": "3, 5-8, 10",
    "ok": true,
    "ai": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". RQ1b answer says the two lowest-token combinations both included Function Description and Implementation Detail, but in Table IV the second lowest (Gemma 4) is ImpDetl alone (69,344, areyoustillthere), after FuncDec-ImpDetl (68,070); the third, FuncDec-ImpDetl-ReConStp (70,283), fits the claim. Conclusion (p. 10) says Testing was most frequent for File Count, while the results (p. 7) and the abstract say Testing and Reconstruction Steps tied (11 of 16). Overall GPT-5.4 rates 12.99% passed and 51.32% partial are not whole counts out of 155 variants (extractor's check: 20/155 = 12.90%); denominator not stated. Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Inconsistencies: filter text requires <= 35 LoF or max CC <= 10, but Table II LoF values are 1,156-26,395 (only CC filter holds); RQ2a answer says Testing had the highest compilation rate, but in Table V GPT-5.4 ties at 98.75% for four categories (Testing highest only for Gemma, 88.75%); Table V has \"86,25\". RQ1b answer says the two lowest-token combinations both included Function Description and Implementation Detail, but in Table IV the second lowest (Gemma 4) is ImpDetl alone (69,344, areyoustillthere), after FuncDec-ImpDetl (68,070); the third, FuncDec-ImpDetl-ReConStp (70,283), fits the claim. Conclusion (p. 10) says Testing was most frequent for File Count, while the results (p. 7) and the abstract say Testing and Reconstruction Steps tied (11 of 16). Overall GPT-5.4 rates 12.99% passed and 51.32% partial are not whole counts out of 155 variants (extractor's check: 20/155 = 12.90%); denominator not stated. Tables III, IV, VII flattened by pdftotext; Table VI values read by column order. Replication package: Zenodo 10.5281/zenodo.23359831 (agent files, metrics, scripts). Pre-registration: not claimed. Language: Python"
+   }
   },
   {
    "f": "Q1",
@@ -267,11 +271,15 @@
   },
   {
    "f": "Q7",
-   "v": "Partly (0.5): combinations and two models compared under same conditions; no no-agent-file or original-spec baseline",
-   "p": "3-4",
+   "v": "Yes (1): 31 instruction-category combinations and two models evaluated under the same prompts, harness and settings (alternatives under the same conditions); no no-agent-file baseline",
+   "p": "3-4, 9",
    "ok": true,
    "ai": "Partly (0.5): combinations and two models compared under same conditions; no no-agent-file or original-spec baseline",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): combinations and two models compared under same conditions; no no-agent-file or original-spec baseline"
+   }
   },
   {
    "f": "Q8",

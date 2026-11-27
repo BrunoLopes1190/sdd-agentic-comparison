@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual — self-described survey with no described search (no sources, query or inclusion/exclusion criteria; only a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23)",
-   "p": "1, 5, 10-11",
+   "v": "Conceptual — self-described survey with no described search (no sources or query; selection only by a four-criterion 'operational boundary' (update target, update source, update reuse, capability improvement) over a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23: sources not described)",
+   "p": "1, 5, 8, 10-11",
    "ok": true,
    "ai": "Conceptual — self-described survey with no described search (no sources, query or inclusion/exclusion criteria; only a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Conceptual — self-described survey with no described search (no sources, query or inclusion/exclusion criteria; only a 'curated collection' and companion catalogue): taxonomy of self-evolving coding agents by update target (assets / architecture / model) over 108 methods, plus analysis of coding signals, adoption timing, benchmarks and products. Assessed with Q1-Q13 as conceptual, not DARE (rule of 2026-11-23)"
+   }
   },
   {
    "f": "Approach(es): name and version",

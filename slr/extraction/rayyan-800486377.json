@@ -19,11 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint — arXiv;",
+   "v": "Preprint — arXiv:2607.26777v1 [cs.SE], 29 Jul 2026; formatted with the AAAI template (copyright 2027 AAAI line), acceptance at a venue not stated",
    "p": "1",
    "ok": true,
    "ai": "Preprint — arXiv; AAAI template with 'Copyright © 2027 AAAI' notice, acceptance not stated",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Preprint — arXiv;"
+   }
   },
   {
    "f": "Author affiliation",
@@ -211,11 +215,15 @@
   },
   {
    "f": "Notes",
-   "v": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast. Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python",
-   "p": "1, 5-7",
+   "v": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast. The ablation 'w/o All Specification' (Table 3: 62.6±6.0, 7, $0.09) is identical to Mini-SWE-Agent on Lite (Table 1), suggesting CodeSpec runs on Mini-SWE-Agent, which the paper does not state. Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python",
+   "p": "5-6",
    "ok": true,
    "ai": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast (check PDF). Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Table 1 columns jumbled in pdftotext; mapping reconstructed and checked against text deltas (5.4/5.3/3.8 points, +$0.01-0.03). Possible inconsistency: text says CodeSpec achieves 'the highest number of resolved tasks' on Fast and Full, but mapped Table 1 gives Mini-SWE-Agent 24 vs CodeSpec 17 on Fast. Claude Code and other baselines run with DeepSeek-V4-Pro, not their native models. Abstract's '70.7%, 55.0%, 49.9% pass rates' are %Passed (share of tests), not resolve rate. Figure 3 values jumbled; text values used. Interaction budget K and prompts not given. Code and data: github.com/zhu-zhu-ding/CodeSpec. Pre-registration: not claimed. Language: Python"
+   }
   },
   {
    "f": "Q1",

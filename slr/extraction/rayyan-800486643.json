@@ -291,11 +291,15 @@
   },
   {
    "f": "Q10",
-   "v": "Partly (0.5): short 'Threats, scalability, generalizability' paragraph",
+   "v": "Yes (1): 'Threats, scalability, generalizability' paragraph names N=1, single developer overlapping with the authors, single platform and domain, individual-skill, post-hoc, survivorship and Hawthorne risks, single-rater regex and descriptive proxies, plus a disconfirmation criterion; short but covers the main threats",
    "p": "4",
    "ok": true,
    "ai": "Partly (0.5): short 'Threats, scalability, generalizability' paragraph",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): short 'Threats, scalability, generalizability' paragraph"
+   }
   },
   {
    "f": "Q11",

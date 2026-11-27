@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Spec-achored. The paper cites spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl but does not clearly classify its own framework as spec-anchored; it describes is own specifications as 'verifiable contracts' and SDD specs as 'versioned, auditable, and executable sources of truth', and targets maintenance and evolution with traceability metadata what induces in a Spec-achored way.",
-   "p": "1",
+   "v": "Spec-anchored (judgement; the authors do not classify their own framework). The paper cites spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl; it describes its specifications as 'verifiable contracts' and SDD specifications as 'versioned, auditable, and executable sources of truth', and targets maintenance and evolution with traceability metadata, which suggests spec-anchored. Spec-first is also plausible, since spec.md, design.md, plan.md and tasks.md are generated per task (e.g. adding a status field)",
+   "p": "1, 4",
    "ok": true,
    "ai": "Not classifiable (closest: spec-anchored). The paper cites spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl but does not classify its own framework; it describes specifications as 'verifiable contracts' and SDD specs as 'versioned, auditable, and executable sources of truth', and targets maintenance and evolution with traceability metadata",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Spec-achored. The paper cites spec-first / spec-anchored / spec-as-source for Spec Kit, Kiro and Tessl but does not clearly classify its own framework as spec-anchored; it describes is own specifications as 'verifiable contracts' and SDD specs as 'versioned, auditable, and executable sources of truth', and targets maintenance and evolution with traceability metadata what induces in a Spec-achored way."
+   }
   },
   {
    "f": "Task type",

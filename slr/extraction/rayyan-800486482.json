@@ -235,11 +235,15 @@
   },
   {
    "f": "Q3",
-   "v": "Partly (0.5): agent products and model families named and container toolchain versions given; no agent CLI or model versions ('the latest Codex model')",
+   "v": "No (0): agent products and model families named and container toolchain versions given, but no agent CLI versions and no model versions; Codex model not even named ('the latest Codex model') and Gemini only as 'Gemini with the highest reasoning configuration'",
    "p": "6",
    "ok": true,
    "ai": "Partly (0.5): agent products and model families named and container toolchain versions given; no agent CLI or model versions ('the latest Codex model')",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): agent products and model families named and container toolchain versions given; no agent CLI or model versions ('the latest Codex model')"
+   }
   },
   {
    "f": "Q4",

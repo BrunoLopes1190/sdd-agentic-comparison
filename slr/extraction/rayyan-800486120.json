@@ -283,11 +283,15 @@
   },
   {
    "f": "Q9",
-   "v": "No (0): mixed results reported (free retrieval hurts, summaries do not reduce cost on Lite), but 'significantly' claims and 'confirm' language lack statistics",
+   "v": "Partly (0.5): negative and mixed results reported (free retrieval brings limited gains or hurts; summary reuse does not reduce cost on Lite), but abstract claims 'significantly' improve accuracy and reduce token cost without statistical tests",
    "p": "1, 8-10",
    "ok": true,
    "ai": "Partly (0.5): mixed results reported (free retrieval hurts, summaries do not reduce cost on Lite), but 'significantly' claims and 'confirm' language lack statistics",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "No (0): mixed results reported (free retrieval hurts, summaries do not reduce cost on Lite), but 'significantly' claims and 'confirm' language lack statistics"
+   }
   },
   {
    "f": "Q10",

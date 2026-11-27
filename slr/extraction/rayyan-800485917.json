@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): authors created probe-and-refine and the static_kb condition; only the bare no_context baseline is not theirs",
-   "p": "2, 4",
+   "v": "No (0): both guided conditions evaluated (probe_refined and the static_kb it starts from) were created by the authors; the only other condition is the bare no_context prompt, which is not an external approach",
+   "p": "4",
    "ok": true,
    "ai": "No (0): authors created probe-and-refine and the static_kb condition; only the bare no_context baseline is not theirs",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): authors created probe-and-refine and the static_kb condition; only the bare no_context baseline is not theirs"
+   }
   },
   {
    "f": "Q13",

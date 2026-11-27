@@ -211,11 +211,15 @@
   },
   {
    "f": "Notes",
-   "v": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests. Table 2 calls ReasoningBank 'lowest average gain'. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)",
-   "p": "1, 5, 9",
+   "v": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests; Fig. 6 and the text report memory pools from up to 9 source domains ('using 9 domains yields the best overall performance', p. 9), although only 6 benchmarks are described and each pool excludes the test benchmark (at most 5); the extra domains are not explained. Table 2 calls ReasoningBank 'lowest average gain'. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)",
+   "p": "1, 4, 5, 9",
    "ok": true,
    "ai": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests. Table 2 calls ReasoningBank 'lowest average gain'. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Table 1 (p. 5) and Table 6 (p. 9) jumbled by pdftotext; Table 1 values rebuilt by benchmark column order. 'Improves average performance by 3.7%' (abstract) is an absolute difference in Pass@3 (percentage points), not a relative gain. Text claims 'significantly improves' without statistical tests. Table 2 calls ReasoningBank 'lowest average gain'. Project page https://memorytransfer.github.io/; code/data release not explicitly stated. Prompts in Appendix E. No pre-registration. Programming language: multiple (Python and others in Aider Polyglot, R/C++ in examples)"
+   }
   },
   {
    "f": "Q1",

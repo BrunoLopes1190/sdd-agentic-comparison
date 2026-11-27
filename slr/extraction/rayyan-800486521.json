@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual; secondary: Proposes an evaluation method — Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop) formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations reported descriptively",
-   "p": "1-2, 11-12, 15",
+   "v": "Proposes an approach; secondary: Proposes an evaluation method — the authors' own Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop) formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations reported descriptively",
+   "p": "1-2, 12, 15, 18",
    "ok": true,
    "ai": "Proposes an approach; secondary: Proposes an evaluation method — Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop) formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations reported descriptively",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Conceptual; secondary: Proposes an evaluation method — Cortex supervisory layer (pre-execution governance, requirement tracking, validation-repair loop) formalised as a fixed-point model with conditional theorems; Gauntlet evaluation protocol (five task families, VERTEX and build-gated scores, ASR estimators), with historical raw-vs-governed pilot observations reported descriptively"
+   }
   },
   {
    "f": "Approach(es): name and version",

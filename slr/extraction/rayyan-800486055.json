@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Proposes an evaluation method; secondary: Compares — E2EDevBench (50 recent PyPI projects, requirements-only input) with a hybrid evaluation (test migration plus LLM requirement verification), and a controlled comparison of three agent workflows (single, developer-tester, designer-developer-tester) built on one SWE-agent foundation with two Gemini models",
+   "v": "Proposes an evaluation method; secondary: Proposes an approach — E2EDevBench (50 recent PyPI projects, requirements-only input) with a hybrid evaluation (test migration plus LLM requirement verification); SDAgent, an open-source end-to-end development agent system on one SWE-agent foundation, in three workflows (single, developer-tester, designer-developer-tester) with two Gemini models, compared under controlled conditions",
    "p": "1-2, 4-5",
    "ok": true,
    "ai": "Proposes an evaluation method; secondary: Compares — E2EDevBench (50 recent PyPI projects, requirements-only input) with a hybrid evaluation (test migration plus LLM requirement verification), and a controlled comparison of three agent workflows (single, developer-tester, designer-developer-tester) built on one SWE-agent foundation with two Gemini models",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "edit",
+    "prev": "Proposes an evaluation method; secondary: Compares — E2EDevBench (50 recent PyPI projects, requirements-only input) with a hybrid evaluation (test migration plus LLM requirement verification), and a controlled comparison of three agent workflows (single, developer-tester, designer-developer-tester) built on one SWE-agent foundation with two Gemini models"
+   }
   },
   {
    "f": "Approach(es): name and version",
@@ -315,11 +319,15 @@
   },
   {
    "f": "Q13",
-   "v": "N/A (the SDAgent configurations are experimental set-ups for the comparison and a baseline for future studies, not proposed as a development approach)",
-   "p": "2, 4",
+   "v": "Yes (1): the authors list their open-source SDAgent implementation as a contribution ('Approach'); it is built on open-source SWE-agent with Gemini-2.5 Pro/Flash APIs; token use and cost are stated (SDAgent-DT + Pro: 5.24 M tokens sent, 7.05 $ per project), within reach of a typical team",
+   "p": "2, 4, 7",
    "ok": true,
    "ai": "N/A (the SDAgent configurations are experimental set-ups for the comparison and a baseline for future studies, not proposed as a development approach)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "edit",
+    "prev": "N/A (the SDAgent configurations are experimental set-ups for the comparison and a baseline for future studies, not proposed as a development approach)"
+   }
   },
   {
    "f": "DARE1",

@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Not Classifiable: Not stated in Böckeler's terms; authors cite spec-driven development: research phase 'enables a spec-driven development workflow where specifications become executable, directly generating working implementations' (spec-first, plan-centred)",
+   "v": "Spec-first: research findings and a phased implementation plan with measurable success criteria are written before implementation and drive it, then validation checks the implementation against the plan; authors' wording: 'enables a spec-driven development workflow where specifications become executable, directly generating working implementations'. Not described as kept and maintained after implementation",
    "p": "5",
    "ok": true,
    "ai": "Not stated in Böckeler's terms; authors cite spec-driven development: research phase 'enables a spec-driven development workflow where specifications become executable, directly generating working implementations' (spec-first, plan-centred)",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Not Classifiable: Not stated in Böckeler's terms; authors cite spec-driven development: research phase 'enables a spec-driven development workflow where specifications become executable, directly generating working implementations' (spec-first, plan-centred)"
+   }
   },
   {
    "f": "Task type",

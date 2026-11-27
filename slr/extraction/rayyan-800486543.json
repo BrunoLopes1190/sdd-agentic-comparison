@@ -315,11 +315,15 @@
   },
   {
    "f": "Q13",
-   "v": "N/A",
-   "p": "—",
+   "v": "Yes (1): the frontier-to-local delegation workflow and artifact contract are the author's own and are evaluated; its requirements are stated (Claude Code + Opus 5.5 subscription, 4-bit 30B-class worker on a 32 GB Apple M1 Pro laptop via MLX or llama.cpp) and within reach of a typical team, although the study finds higher frontier cost per verified success",
+   "p": "3-4, 13, 15, 20-21",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE1",

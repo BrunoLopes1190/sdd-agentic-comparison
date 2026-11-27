@@ -235,11 +235,15 @@
   },
   {
    "f": "Q3",
-   "v": "Partly (0.5): tools detected listed, embedding model named; coding agents and models used per repository not identified (model capability unobserved)",
+   "v": "No (0): coding agents per repository and their models are not identified nor versioned (model capability unobserved); the 12 tools listed are only patterns for detecting configuration files, and only the embedding model of the classifier is named",
    "p": "3-4, 11",
    "ok": true,
    "ai": "Partly (0.5): tools detected listed, embedding model named; coding agents and models used per repository not identified (model capability unobserved)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): tools detected listed, embedding model named; coding agents and models used per repository not identified (model capability unobserved)"
+   }
   },
   {
    "f": "Q4",

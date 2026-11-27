@@ -275,11 +275,15 @@
   },
   {
    "f": "Q8",
-   "v": "Yes (1): planned non-parametric tests, effect sizes and multiple-comparison corrections (not yet executed)",
+   "v": "Partly (0.5): non-parametric tests, effect sizes and multiple-comparison corrections planned and described, but not executed (protocol, no results)",
    "p": "5-6",
    "ok": true,
    "ai": "Yes (1): planned non-parametric tests, effect sizes and multiple-comparison corrections (not yet executed)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): planned non-parametric tests, effect sizes and multiple-comparison corrections (not yet executed)"
+   }
   },
   {
    "f": "Q9",

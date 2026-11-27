@@ -259,11 +259,15 @@
   },
   {
    "f": "Q6",
-   "v": "Yes (1): resolved rate, TS, safe rate, Surface F1, tokens and time defined (cost only for one comparison)",
-   "p": "6, 9",
+   "v": "Partly (0.5): resolved rate, safe rate, Surface F1, localization and efficiency (tokens, time) defined, but Algn. is never defined, TS only as 'probability of successful task completion' with no procedure, and cost is reported for one comparison only (Skill Dreaming vs SkillLens, Table 12)",
+   "p": "6-7, 9",
    "ok": true,
    "ai": "Yes (1): resolved rate, TS, safe rate, Surface F1, tokens and time defined (cost only for one comparison)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): resolved rate, TS, safe rate, Surface F1, tokens and time defined (cost only for one comparison)"
+   }
   },
   {
    "f": "Q7",

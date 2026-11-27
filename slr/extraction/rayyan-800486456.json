@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests; benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)",
+   "v": "Proposes an evaluation method; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests (contribution 1); benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)",
    "p": "1",
    "ok": true,
    "ai": "Proposes an evaluation method; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests; benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Evaluates; secondary: Proposes an approach — roundtrip benchmark scoring descriptions by whether code regenerated from them passes the original tests; benchmark-driven optimizer of the describe prompt; also evaluates whether such documentation helps issue resolution (negative result)"
+   }
   },
   {
    "f": "Approach(es): name and version",
@@ -83,11 +87,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Spec-as-source; they treat 'a description as durable software source' from which code is regenerated (closest to spec-as-source, reviewer's reading); downstream use is documentation added to context",
+   "v": "Not classifiable; descriptions are generated from existing code (code -> description) and, downstream, added as context while code stays the source of truth; the authors say the benchmark 'treats a description as durable software source' (closest to spec-as-source only for the roundtrip benchmark, reviewer's reading)",
    "p": "9",
    "ok": true,
    "ai": "Not classified by the authors; they treat 'a description as durable software source' from which code is regenerated (closest to spec-as-source, reviewer's reading); downstream use is documentation added to context",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Spec-as-source; they treat 'a description as durable software source' from which code is regenerated (closest to spec-as-source, reviewer's reading); downstream use is documentation added to context"
+   }
   },
   {
    "f": "Task type",
@@ -211,11 +219,15 @@
   },
   {
    "f": "Notes",
-   "v": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute",
-   "p": "1, 6, 9, 11-12",
+   "v": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Reporting inconsistency: Table 5 gives 'our description' fidelity 0.85 on unitsystem and 1.00 on contains, while Table 3 (base prompt, same Flash pipeline) gives unitsystem 0.63 +/- 0.19; saferepr (Table 5) is not among the eleven Table 3 fixtures although the text says the comparison ran on 'the benchmark's original SWE-bench fixture set'; which describe prompt produced the Table 5 descriptions is not stated (values used from Table 5). Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute",
+   "p": "1, 4-6, 9, 11-12",
    "ok": true,
    "ai": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Code and data: https://github.com/haw-ai-i/roundtrip (code, task list, generated descriptions, per-task results released). Prompts verbatim in App. D-E (discovered prompt text partly interleaved by pdftotext). Optimizer results only in Fig. 3. Positive control is a single-task difference (15 vs 14), which the paper itself says a paired test cannot distinguish for the compact case. Model names as printed (gemini3.5-flash, gemini-2.5-pro, Gemini 3.1 Pro, Gemini 3.8 Flash, Qwen 3.6, Flash-lite). No pre-registration stated. Language: Python. Funding: NSF NRT-AI, ACCESS, NPC Labs compute"
+   }
   },
   {
    "f": "Q1",

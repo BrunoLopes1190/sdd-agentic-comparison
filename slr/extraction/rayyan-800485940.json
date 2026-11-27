@@ -147,11 +147,15 @@
   },
   {
    "f": "Human effort metrics",
-   "v": "Self-reported: hours dedicated (median 8), share of generated code read before committing (median 30%); share of ideas (median 50%) and code (median 20%) attributed to self; prompts per session (741 prompts, median 15 words)",
+   "v": "Self-reported: hours dedicated (median 8), share of generated code read before committing (median 30%); share of ideas (median 50%) and code (median 20%) attributed to self; recorded prompts (741 prompts, median 15 words per prompt; 13% at most three words)",
    "p": "5, 7",
    "ok": true,
    "ai": "Self-reported: hours dedicated (median 8), share of generated code read before committing (median 30%); share of ideas (median 50%) and code (median 20%) attributed to self; prompts per session (741 prompts, median 15 words)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Self-reported: hours dedicated (median 8), share of generated code read before committing (median 30%); share of ideas (median 50%) and code (median 20%) attributed to self; prompts per session (741 prompts, median 15 words)"
+   }
   },
   {
    "f": "Other outcome metrics",
@@ -171,11 +175,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: assignment rules and SDD conventions; no per-agent breakdown. Results: specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: does not work (SDD conventions followed unevenly; specs did not keep students in control). Cost verdict: not measured",
-   "p": "5-8",
+   "v": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: the assignment's requirements (public URL, >= 100,000 lines, dated spec written before the code, every prompt recorded) and conventions; no success criterion for SDD itself stated by the authors; no per-agent breakdown. Results: URL 17/18; spec first 53-90% (15 projects); 3 projects recorded no session, sessions cover 48% of agent commits; trailers median 69%; specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: partly against the assignment requirements (met unevenly); no criterion stated by the authors for whether SDD kept students in control. Cost verdict: not measured",
+   "p": "4-6, 8",
    "ok": true,
    "ai": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: assignment rules and SDD conventions; no per-agent breakdown. Results: specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: does not work (SDD conventions followed unevenly; specs did not keep students in control). Cost verdict: not measured",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "- Course SDD conventions + agents chosen freely (Claude Code 10 projects, Codex 5, Antigravity/Gemini 5, GitHub Copilot 3, also OpenCode, DeepSeek, ChatGPT; 7 teams used more than one) + models Not stated per project (trailer example claude-code/claude-sonnet-5-5): criterion: assignment rules and SDD conventions; no per-agent breakdown. Results: specs mostly agent-written (69%), only 39% of lines traced to a spec, 14% of specs added with code; 3 teams reached 100k lines only with unused generated code, 1 team backdated specs by rewriting history. Quality verdict: does not work (SDD conventions followed unevenly; specs did not keep students in control). Cost verdict: not measured"
+   }
   },
   {
    "f": "Comparison: design",

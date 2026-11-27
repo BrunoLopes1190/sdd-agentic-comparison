@@ -315,11 +315,15 @@
   },
   {
    "f": "Q13",
-   "v": "N/A",
-   "p": "—",
+   "v": "Partly (0.5): the authors' SKILL-generation pipeline (reverse-PR mining at a frozen base + paired objective driving GEPA/SkillOpt) states its requirements: Claude Code + Sonnet 4.6, per-repo Docker image, about $0.84 per rollout, $182-485 and 4.7-25.2 h per optimization run, at least 100 graded tasks; two of five repositories (tracy, http4k) could not supply them",
+   "p": "2-3, 6, 9",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE1",

@@ -275,11 +275,15 @@
   },
   {
    "f": "Q8",
-   "v": "Partly (0.5): one capture per release (deterministic first request); sampling with margins of error for validation; no statistical tests of differences",
+   "v": "No (0): one capture per release, no repetitions and no statistical analysis of differences between agents; margins of error apply only to the annotation-validation samples",
    "p": "4, 6",
    "ok": true,
    "ai": "Partly (0.5): one capture per release (deterministic first request); sampling with margins of error for validation; no statistical tests of differences",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): one capture per release (deterministic first request); sampling with margins of error for validation; no statistical tests of differences"
+   }
   },
   {
    "f": "Q9",

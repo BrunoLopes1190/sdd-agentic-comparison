@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Evaluates; secondary: Compares — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs); secondary: repository mining: corpus analysis and taxonomy of 679 rule files (25,532 rules) scraped from GitHub",
+   "v": "Evaluates; secondary: Compares — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs), plus repository mining: corpus analysis and taxonomy of 679 rule files (25,532 rules) scraped from GitHub",
    "p": "1-2, 4",
    "ok": true,
    "ai": "Compares; secondary: Evaluates — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs); secondary: repository mining: corpus analysis and taxonomy of 679 rule files (25,532 rules) scraped from GitHub",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Evaluates; secondary: Compares — controlled experiments comparing 8 rule-file conditions vs a no-rule baseline, rule counts, rule types, per-rule ablation and superposition (>5,000 runs); secondary: repository mining: corpus analysis and taxonomy of 679 rule files (25,532 rules) scraped from GitHub"
+   }
   },
   {
    "f": "Approach(es): name and version",
@@ -275,11 +279,15 @@
   },
   {
    "f": "Q8",
-   "v": "Yes (1): paired tests, Cochran's Q, sign test, threshold sensitivity, seeds in Exp. 2; mostly single trajectories acknowledged",
-   "p": "4-6, 8",
+   "v": "Partly (0.5): one trajectory per task-condition in Exp. 1, 3 and 4 (only Exp. 2 averages 3 seeds), but paired McNemar, Cochran's Q, sign, Fisher and Mann-Whitney tests and a threshold-sensitivity analysis",
+   "p": "4-6, 9",
    "ok": true,
    "ai": "Yes (1): paired tests, Cochran's Q, sign test, threshold sensitivity, seeds in Exp. 2; mostly single trajectories acknowledged",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): paired tests, Cochran's Q, sign test, threshold sensitivity, seeds in Exp. 2; mostly single trajectories acknowledged"
+   }
   },
   {
    "f": "Q9",

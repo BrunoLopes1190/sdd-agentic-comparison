@@ -179,11 +179,15 @@
   },
   {
    "f": "Comparison: design",
-   "v": "Tasks: 100 LoLBench tasks. Configurations: 28 model–scaffold agents; paired comparison of EP vs reference-derived specification for three agents. Baseline: none designated (specification variant compared against the EP results in Table 2). Held constant: tasks, offline Harbor sandbox, six-hour limit, second-highest reasoning effort, OpenRouter access, verifier. Acceptance tests: system-level F2P tests (original plus augmented) and P2P regression tests. Repetitions: one attempt per task and agent, retries only after provider or infrastructure failures. Human intervention: none",
-   "p": "6, 9, 31",
+   "v": "Tasks: 100 LoLBench tasks. Configurations: 28 model–scaffold agents; paired comparison of EP vs reference-derived specification for three agents. Baseline: none for the 28-agent comparison; for the specification variant the authors use the EP-only results of the same three agents in Table 2 as the baseline. Held constant: tasks, offline Harbor sandbox, six-hour limit, second-highest reasoning effort, OpenRouter access, verifier. Acceptance tests: system-level F2P tests (original plus augmented) and P2P regression tests. Repetitions: one attempt per task and agent, retries only after provider or infrastructure failures. Human intervention: none",
+   "p": "9",
    "ok": true,
    "ai": "Tasks: 100 LoLBench tasks. Configurations: 28 model–scaffold agents; paired comparison of EP vs reference-derived specification for three agents. Baseline: none designated (specification variant compared against the EP results in Table 2). Held constant: tasks, offline Harbor sandbox, six-hour limit, second-highest reasoning effort, OpenRouter access, verifier. Acceptance tests: system-level F2P tests (original plus augmented) and P2P regression tests. Repetitions: one attempt per task and agent, retries only after provider or infrastructure failures. Human intervention: none",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Tasks: 100 LoLBench tasks. Configurations: 28 model–scaffold agents; paired comparison of EP vs reference-derived specification for three agents. Baseline: none designated (specification variant compared against the EP results in Table 2). Held constant: tasks, offline Harbor sandbox, six-hour limit, second-highest reasoning effort, OpenRouter access, verifier. Acceptance tests: system-level F2P tests (original plus augmented) and P2P regression tests. Repetitions: one attempt per task and agent, retries only after provider or infrastructure failures. Human intervention: none"
+   }
   },
   {
    "f": "Comparison: result",

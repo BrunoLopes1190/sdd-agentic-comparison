@@ -171,11 +171,15 @@
   },
   {
    "f": "Evaluation (each configuration)",
-   "v": "Criteria stated by the authors: weighted decision compliance (regex + human check) and merge-readiness (binary human judgement: would merge as-is vs requires rework); no cost criterion stated. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 coding (Opus 4.6 planning per p. 4/12, see Notes): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; per-task cost $0.13-0.67 where reported; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: partly (authors' merge-readiness criterion met on 2/8 tasks; authors: its runs 'predominantly produce output that requires human rework'); cost: no criterion stated by the authors. Baseline. -- Claude Code + Brief (brief build --confirm, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works (merge-ready on 8/8 tasks); cost: no criterion stated by the authors. Config C (external orchestrator) not reported",
+   "v": "Criteria stated by the authors: weighted decision compliance (regex + human check) and merge-readiness (binary human judgement: would merge as-is vs requires rework); no cost criterion stated. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 coding (Opus 4.6 planning per p. 4/12, see Notes): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; per-task cost $0.13-0.67 where reported; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: no configuration-level criterion stated by the authors (their merge-readiness criterion is per task: met on 2/8 tasks; authors: its runs 'predominantly produce output that requires human rework'); cost: no criterion stated by the authors. Baseline. -- Claude Code + Brief (brief build --confirm, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works (merge-ready on 8/8 tasks); cost: no criterion stated by the authors. Config C (external orchestrator) not reported",
    "p": "5-11",
    "ok": true,
    "ai": "Criteria stated by the authors: weighted decision compliance (regex + human check) and merge-readiness (binary human judgement: would merge as-is vs requires rework); no cost criterion stated. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 coding (Opus 4.6 planning per p. 4/12, see Notes): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; per-task cost $0.13-0.67 where reported; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: partly (authors' merge-readiness criterion met on 2/8 tasks; authors: its runs 'predominantly produce output that requires human rework'); cost: no criterion stated by the authors. Baseline. -- Claude Code + Brief (brief build --confirm, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works (merge-ready on 8/8 tasks); cost: no criterion stated by the authors. Config C (external orchestrator) not reported",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Criteria stated by the authors: weighted decision compliance (regex + human check) and merge-readiness (binary human judgement: would merge as-is vs requires rework); no cost criterion stated. Averages over 3 runs. -- Claude Code baseline (claude -p, 5-min timeout) + Claude Sonnet 4.6 coding (Opus 4.6 planning per p. 4/12, see Notes): compliance 19/41 (46%); 2/8 tasks at 100%, 2/8 at 0%; 5 blocking violations; merge-ready 2/8; tests written 0; build pass lint/typecheck 100%, tests 0%; total cost $4.13, 3,902K tokens, 165 turns, ~5.1 min/task; per-task cost $0.13-0.67 where reported; cost per merge-ready task $2.07; cost per correct decision $0.22. Quality: partly (authors' merge-readiness criterion met on 2/8 tasks; authors: its runs 'predominantly produce output that requires human rework'); cost: no criterion stated by the authors. Baseline. -- Claude Code + Brief (brief build --confirm, 30-min timeout) + Opus 4.6 planning / Sonnet 4.6 coding: compliance 39/41 (95%); 6/8 tasks at 100%, 0 at 0%; 0 blocking violations; merge-ready 8/8; 838 tests; build pass 100% all; total cost $5.28, 3,867K tokens, 187 turns, ~15 min/task; per-task cost $0.55-0.82 where reported; cost per merge-ready task $0.66; cost per correct decision $0.14. Quality: works (merge-ready on 8/8 tasks); cost: no criterion stated by the authors. Config C (external orchestrator) not reported"
+   }
   },
   {
    "f": "Comparison: design",
@@ -315,11 +319,15 @@
   },
   {
    "f": "Q13",
-   "v": "N/A",
-   "p": "4, 6-11",
+   "v": "Partly (0.5): the authors present their own product Brief (context retrieval + spec generation + mid-build consultation) as the approach; requirements partly stated: Claude Code with Claude Opus 4.6 and Sonnet 4.6, API cost about $0.55-0.82 and about 15 min per task; Brief licence cost and infrastructure Not stated",
+   "p": "3-4, 6-11",
    "ok": true,
    "ai": "N/A (nature is Compares with secondary Proposes an evaluation method; Brief is evaluated, not proposed, in this paper). If filed as 'Proposes an approach': Partly (0.5): commercial Brief service plus Claude Code; cost per task stated ($0.55-0.82 per task); requires seeding decisions, personas and signals in Brief; pricing of Brief itself not stated",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE1",

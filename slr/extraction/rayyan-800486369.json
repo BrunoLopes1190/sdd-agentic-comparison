@@ -275,11 +275,15 @@
   },
   {
    "f": "Q8",
-   "v": "Yes (1): mixed-effects models with 95% CIs and p-values per contrast; equal-weight per-problem robustness analyses; single run per problem-language-model",
-   "p": "4-5, 13-15, 17",
+   "v": "Partly (0.5): mixed-effects models with 95% CIs and p-values per contrast and equal-weight per-problem robustness analyses, but a single run per problem-language-model (temperature 1.0), so run-to-run variability is not measured",
+   "p": "3, 5, 13-15, 17",
    "ok": true,
    "ai": "Yes (1): mixed-effects models with 95% CIs and p-values per contrast; equal-weight per-problem robustness analyses; single run per problem-language-model",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): mixed-effects models with 95% CIs and p-values per contrast; equal-weight per-problem robustness analyses; single run per problem-language-model"
+   }
   },
   {
    "f": "Q9",

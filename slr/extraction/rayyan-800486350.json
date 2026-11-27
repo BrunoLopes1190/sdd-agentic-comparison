@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Spec-first. Authors' wording: 'visible task contract' as 'single source of truth', 'contract realization' from spec.md and an OpenAPI contract using spec-first approach in Böckeler terms.",
+   "v": "Spec-first (extractor's classification in Böckeler's terms; the authors do not use SDD terms). Authors' wording: the visible task contract (spec.md and openapi.yaml) is 'the single source of truth for construction and evaluation'; the task is the 'contract-realization problem'",
    "p": "1, 4",
    "ok": true,
    "ai": "Not classifiable (no SDD approach evaluated). Authors' wording: 'visible task contract' as 'single source of truth', 'contract realization' from spec.md and an OpenAPI contract",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Spec-first. Authors' wording: 'visible task contract' as 'single source of truth', 'contract realization' from spec.md and an OpenAPI contract using spec-first approach in Böckeler terms."
+   }
   },
   {
    "f": "Task type",

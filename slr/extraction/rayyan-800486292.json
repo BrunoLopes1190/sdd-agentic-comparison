@@ -315,11 +315,15 @@
   },
   {
    "f": "Q13",
-   "v": "Partly (0.5): needs only an embedding model, an LLM and Docker sandbox, but upfront authoring of capsules (42 here) and registry maintenance cost are not quantified; the authors flag registry maintenance burden",
+   "v": "Partly (0.5): needs only an embedding model and an LLM, but upfront authoring of capsules (42 here) and registry maintenance cost are not quantified; the authors flag registry maintenance burden",
    "p": "3, 6-7",
    "ok": true,
    "ai": "Partly (0.5): needs only an embedding model, an LLM and Docker sandbox, but upfront authoring of capsules (42 here) and registry maintenance cost are not quantified; the authors flag registry maintenance burden",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): needs only an embedding model, an LLM and Docker sandbox, but upfront authoring of capsules (42 here) and registry maintenance cost are not quantified; the authors flag registry maintenance burden"
+   }
   },
   {
    "f": "DARE1",

@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): authors from The Memory Company, which builds Spark (vendor of the approach), but Spark is compared with NO-SPARK baselines of external models (Qwen3-Coder, Claude Haiku 4.5, GPT-5-Codex) whose vendors the authors are independent of",
-   "p": "1",
+   "v": "No (0): authors from The Memory Company, which builds Spark, the only approach evaluated; the NO-SPARK conditions are the same models without any memory, not an external approach",
+   "p": "1-2",
    "ok": true,
    "ai": "Partly (0.5): authors from The Memory Company, which builds Spark (vendor of the approach), but Spark is compared with NO-SPARK baselines of external models (Qwen3-Coder, Claude Haiku 4.5, GPT-5-Codex) whose vendors the authors are independent of",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): authors from The Memory Company, which builds Spark (vendor of the approach), but Spark is compared with NO-SPARK baselines of external models (Qwen3-Coder, Claude Haiku 4.5, GPT-5-Codex) whose vendors the authors are independent of"
+   }
   },
   {
    "f": "Q13",

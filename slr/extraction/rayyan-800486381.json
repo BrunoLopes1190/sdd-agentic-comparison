@@ -187,11 +187,15 @@
   },
   {
    "f": "Comparison: result",
-   "v": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)",
+   "v": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Coding Style (up to 1.4 pp), Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements (Table 4 S-M positive for all configurations with outputs in both subsets); Documentation increases for several; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)",
    "p": "7-10",
    "ok": true,
    "ai": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Highest FPC rate 70.0% (Claude Code); mini-SWE-agent configurations pass checks on only 4.8-11.5% of valid outputs. All configurations below the Human Reference on Logic Patterns (0.0-1.3 vs 1.5); several exceed it on Documentation (Aider + GPT-4.1 8.1 vs 8.0), Error Handling, Library Constraints or Coding Style. Multi-file tasks reduce Error Handling (up to 1.7 pp) and Logic Patterns (up to 1.1 pp) improvements; two mini-SWE configurations have no eligible multi-file outputs. Aggregate NFI stable across runs (sd 0.1-0.4 for Codex, Claude Code, Aider). Claude Code uses ~100x the tokens of Codex for +5.2 pp FPC; cost per successful task 120.02 s / 424,970 tokens vs Codex 21.08 s / 4,339. Differences are descriptive (no significance testing)"
+   }
   },
   {
    "f": "Comparison: did the method work",

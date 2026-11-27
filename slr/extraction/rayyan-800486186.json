@@ -203,11 +203,15 @@
   },
   {
    "f": "Conclusions: limitations and gaps",
-   "v": "Generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested; Wild sample lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
+   "v": "Gate 2 is both the optimization signal and the evaluation criterion, so the 86.0% pass rate reflects optimization-to-criterion (SkillsBench only partly mitigates it); LLM-based classification introduces randomness; generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested, cross-model study only five models from four families on 30 skills; Wild sample (198 skills) lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
    "p": "9-11, 13",
    "ok": true,
    "ai": "Generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested; Wild sample lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Generalization to other platforms (Cursor, Windsurf) and model families (Llama) untested; Wild sample lacks task evaluation; example-as-specification failure mode (implicit rules in examples); skill obsolescence (10.7%) motivates adaptive skill lifecycle management"
+   }
   },
   {
    "f": "Notes",

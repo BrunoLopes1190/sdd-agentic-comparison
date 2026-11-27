@@ -295,7 +295,11 @@
    "p": "11",
    "ok": true,
    "ai": "Partly (0.5): only a short Scope section; no threats to validity discussion (e.g., synthetic projects, author-built tasks, LLM judge)",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "keep",
+    "prev": "No (0): only a short Scope section; no threats to validity discussion (e.g., synthetic projects, author-built tasks, LLM judge)"
+   }
   },
   {
    "f": "Q11",

@@ -35,11 +35,15 @@
   },
   {
    "f": "Nature of the study",
-   "v": "Conceptual; secondary: Review — socio-technical model of SDD, harness characterisation with worked examples, typology of five interaction patterns; built on a multivocal literature review (four databases and grey literature, IC/EC stated)",
-   "p": "1, 4, 8-10",
+   "v": "Proposes an approach; secondary: Review — proposes SDD as a team-level discipline with a 'methodological harness' of eight mechanisms (H1-H8) and five human-agent interaction patterns, illustrated with fictitious worked examples, nothing evaluated; built on a multivocal literature review (four databases with one search string, purposive grey literature, IC/EC stated)",
+   "p": "4, 8-10, 15",
    "ok": true,
    "ai": "Conceptual; secondary: Review — socio-technical model of SDD, harness characterisation with worked examples, typology of five interaction patterns; built on a multivocal literature review (four databases and grey literature, IC/EC stated)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Conceptual; secondary: Review — socio-technical model of SDD, harness characterisation with worked examples, typology of five interaction patterns; built on a multivocal literature review (four databases and grey literature, IC/EC stated)"
+   }
   },
   {
    "f": "Approach(es): name and version",
@@ -307,11 +311,15 @@
   },
   {
    "f": "Q12",
-   "v": "Yes (1): academic authors with no tool evaluated; note the authors created the framework (methodological harness) the paper advocates, but nothing is evaluated",
-   "p": "1",
+   "v": "N/A: the study proposes an approach (methodological harness for SDD) and evaluates none; no tool is evaluated",
+   "p": "8, 14",
    "ok": true,
    "ai": "Yes (1): academic authors with no tool evaluated; note the authors created the framework (methodological harness) the paper advocates, but nothing is evaluated",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): academic authors with no tool evaluated; note the authors created the framework (methodological harness) the paper advocates, but nothing is evaluated"
+   }
   },
   {
    "f": "Q13",
@@ -323,35 +331,51 @@
   },
   {
    "f": "DARE1",
-   "v": "N/A",
-   "p": "—",
+   "v": "Yes (1): inclusion and exclusion criteria stated (Table 3: IC1-IC3, EC1-EC3)",
+   "p": "9-10",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE2",
-   "v": "N/A",
-   "p": "—",
+   "v": "Partly (0.5): four databases (IEEE Xplore, ACM DL, Scopus, arXiv) plus grey literature, but a single broad search string and grey-literature selection not quantified",
+   "p": "9",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE3",
-   "v": "N/A",
-   "p": "—",
+   "v": "Partly (0.5): quality judged by venue impact (JCR) for academic sources and some Garousi et al. criteria for grey literature; no per-study assessment reported",
+   "p": "10",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   },
   {
    "f": "DARE4",
-   "v": "N/A",
-   "p": "—",
+   "v": "Partly (0.5): included studies not listed in the paper (only in the Zenodo package); Table 4 gives representative traceability only",
+   "p": "10, 26",
    "ok": true,
    "ai": "N/A",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "N/A"
+   }
   }
  ],
  "time": "2026-11-23T16:29:32"

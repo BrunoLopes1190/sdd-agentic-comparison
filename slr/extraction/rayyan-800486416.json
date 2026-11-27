@@ -83,11 +83,15 @@
   },
   {
    "f": "SDD level",
-   "v": "Not classifiable, the paper does not position itself on an SDD level or runs an SDD workflow;  Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template' used not followed.",
-   "p": "3",
+   "v": "Spec-first (a specification on the GitHub Spec Kit template is written before the code and given to the agent as its task; it is used for that task only and not kept or maintained afterwards). Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template'",
+   "p": "3-4",
    "ok": true,
    "ai": "Spec-first (a specification is written before the agent runs and serves one task; not maintained afterwards). Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template'",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Not classifiable, the paper does not position itself on an SDD level or runs an SDD workflow;  Authors' wording: 'task specification', 'structure derived from the GitHub Spec Kit template' used not followed."
+   }
   },
   {
    "f": "Task type",

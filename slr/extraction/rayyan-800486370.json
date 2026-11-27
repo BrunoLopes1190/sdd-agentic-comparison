@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): author created ATWZ",
-   "p": "1",
+   "v": "N/A (proposes an approach and evaluates none; no tool is evaluated)",
+   "p": "1, 3, 23",
    "ok": true,
    "ai": "No (0): author created ATWZ",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "No (0): author created ATWZ"
+   }
   },
   {
    "f": "Q13",

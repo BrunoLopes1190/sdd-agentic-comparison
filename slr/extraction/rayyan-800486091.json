@@ -267,11 +267,15 @@
   },
   {
    "f": "Q7",
-   "v": "Partly (0.5): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition",
-   "p": "6",
+   "v": "Yes (1): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition",
+   "p": "6, 12",
    "ok": true,
    "ai": "Yes (1): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): eight models (and three scaffolds) evaluated as alternatives on the same 217 instances, checklists, scaffold defaults and judges; no 'no-instruction' baseline condition"
+   }
   },
   {
    "f": "Q8",

@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "No (0): author proposes his own architecture and rests it on his own systems (salt, SaltBench, x86lean, MetaPRL)",
-   "p": "1, 15",
+   "v": "N/A: the study proposes an approach and evaluates none (case studies and scorecard declared illustrative; no configuration run). Note: the author proposes his own architecture and cites his own systems (salt, SaltBench, x86lean, MetaPRL) as evidence",
+   "p": "12-13, 15",
    "ok": true,
    "ai": "No (0): author proposes his own architecture and rests it on his own systems (salt, SaltBench, x86lean, MetaPRL)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "No (0): author proposes his own architecture and rests it on his own systems (salt, SaltBench, x86lean, MetaPRL)"
+   }
   },
   {
    "f": "Q13",

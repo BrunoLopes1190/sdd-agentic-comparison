@@ -307,11 +307,15 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): independent of the agent and model vendors (Codex CLI, GPT, Claude judge); every skill condition (personalized, other-developer, generic, ablations) comes from the authors' own skill-generation framework and is compared with the no-skill baseline, which is not theirs",
-   "p": "1-2",
+   "v": "No (0): all skill conditions evaluated (personalized, other-developer, generic, ablations) come from the authors' own skill-generation framework; the only comparator is the no-skill baseline, which is not an external approach. Authors independent of Codex CLI, GPT and Claude (executor and judge only)",
+   "p": "1, 5",
    "ok": true,
    "ai": "Partly (0.5): independent of the agent and model vendors (Codex CLI, GPT, Claude judge); every skill condition (personalized, other-developer, generic, ablations) comes from the authors' own skill-generation framework and is compared with the no-skill baseline, which is not theirs",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): independent of the agent and model vendors (Codex CLI, GPT, Claude judge); every skill condition (personalized, other-developer, generic, ablations) comes from the authors' own skill-generation framework and is compared with the no-skill baseline, which is not theirs"
+   }
   },
   {
    "f": "Q13",

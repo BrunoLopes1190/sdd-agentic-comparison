@@ -131,11 +131,15 @@
   },
   {
    "f": "Functional quality metrics",
-   "v": "None of code quality; Case B reports evidence-based question coverage of the scraper (20/20 -> 14/12 -> 18/18)",
+   "v": "None of code quality; Case B reports evidence-based question coverage of the scraper (Exp 7: 20/20 -> 14/20 audited -> 18/20 after fix; Exp 8: 20/20 -> 12/20 -> 18/20)",
    "p": "10",
    "ok": true,
    "ai": "None of code quality; Case B reports evidence-based question coverage of the scraper (20/20 -> 14/12 -> 18/18)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "None of code quality; Case B reports evidence-based question coverage of the scraper (20/20 -> 14/12 -> 18/18)"
+   }
   },
   {
    "f": "Internal quality metrics",

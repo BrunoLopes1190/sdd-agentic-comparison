@@ -291,11 +291,15 @@
   },
   {
    "f": "Q10",
-   "v": "Partly (0.5): limitations discussed in methods and discussion (associations, setting, commits as proxy), no dedicated threats section",
-   "p": "3-4, 9-10",
+   "v": "Yes (1): limitations discussed though not in a dedicated section: associations not causal effects (engineers choose spend), measurement error in commits (IV), setting limits transfer (one company building AI tools, established codebases, voluntary use), commits miss quality, review and design, five weeks too short, self-reported hours may be overstated",
+   "p": "3-4, 6, 9-10",
    "ok": true,
    "ai": "Partly (0.5): limitations discussed in methods and discussion (associations, setting, commits as proxy), no dedicated threats section",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Partly (0.5): limitations discussed in methods and discussion (associations, setting, commits as proxy), no dedicated threats section"
+   }
   },
   {
    "f": "Q11",
@@ -307,11 +311,15 @@
   },
   {
    "f": "Q12",
-   "v": "Partly (0.5): four authors work at JetBrains, which builds AI coding tools and whose own agents may be among those metered (authors note possible testing of own agents); agents are anonymised",
-   "p": "1, 5, 9",
+   "v": "No (0): four of seven authors work at JetBrains, which builds AI coding tools; the two metered agents are anonymised, so independence from their vendor cannot be established (authors note some metered use may be testing of JetBrains' own agents); missing information scores No",
+   "p": "1, 3, 9",
    "ok": true,
    "ai": "Partly (0.5): four authors work at JetBrains, which builds AI coding tools and whose own agents may be among those metered (authors note possible testing of own agents); agents are anonymised",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): four authors work at JetBrains, which builds AI coding tools and whose own agents may be among those metered (authors note possible testing of own agents); agents are anonymised"
+   }
   },
   {
    "f": "Q13",

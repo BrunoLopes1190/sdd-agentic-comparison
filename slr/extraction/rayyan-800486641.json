@@ -227,11 +227,15 @@
   },
   {
    "f": "Q2",
-   "v": "No (0): case study described in a few sentences; no prompts, specification, baseline procedure or measurement procedure",
-   "p": "3",
+   "v": "Partly (0.5): harness formally defined (5-tuple H = (N, C, S, V, R)), DSL task types and an example pipeline (Listing 1) given, and the tiered decomposition of the case study stated; but the case study itself is described in a few sentences, with no prompts, specification, baseline procedure or measurement procedure",
+   "p": "2-3",
    "ok": true,
    "ai": "No (0): case study described in a few sentences; no prompts, specification, baseline procedure or measurement procedure",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "No (0): case study described in a few sentences; no prompts, specification, baseline procedure or measurement procedure"
+   }
   },
   {
    "f": "Q3",

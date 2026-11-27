@@ -308,10 +308,14 @@
   {
    "f": "Q12",
    "v": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach",
-   "p": "1",
+   "p": "1-2",
    "ok": true,
    "ai": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "keep",
+    "prev": "Yes (1): Amazon author, not the vendor of Claude or the CLI tool; the system implemented is the author's but is not an evaluated approach"
+   }
   },
   {
    "f": "Q13",

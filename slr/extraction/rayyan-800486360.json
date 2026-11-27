@@ -275,11 +275,15 @@
   },
   {
    "f": "Q8",
-   "v": "Partly (0.5): repeated trials mentioned but number not stated; no variance or statistical tests",
+   "v": "No (0): 'repeated trials' is mentioned only conditionally in the aggregation rule; the number of trials per configuration is not stated, and no variance or statistical tests are reported",
    "p": "9, 11",
    "ok": true,
    "ai": "No (0): repeated trials mentioned but number not stated; no variance or statistical tests",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): repeated trials mentioned but number not stated; no variance or statistical tests"
+   }
   },
   {
    "f": "Q9",

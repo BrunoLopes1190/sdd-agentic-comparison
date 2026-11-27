@@ -331,11 +331,15 @@
   },
   {
    "f": "DARE2",
-   "v": "Partly (0.5): two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses",
+   "v": "No (0): only two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses",
    "p": "3-4",
    "ok": true,
    "ai": "Partly (0.5): two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Partly (0.5): two sources (DBLP titles, arXiv abstracts) with search date; queries in the supplement; no reference-list or citation search, preprints excluded; authors acknowledge possible misses"
+   }
   },
   {
    "f": "DARE3",

@@ -3,11 +3,15 @@
  "fields": [
   {
    "f": "Reference",
-   "v": "Liu, K., Pan, Y., Xiang, Y., He, D., Li, J., Du, Y., Gao, T. (2025). ProjectEval: A Benchmark for Programming Agents Automated Evaluation on Project-Level Code Generation. arXiv:2503.07010v2 [cs.SE], 31 May 2025",
+   "v": "Liu, K., Pan, Y., Xiang, Y., He, D., Li, J., Du, Y., Gao, T. (2025). ProjectEval: A Benchmark for Programming Agents Automated Evaluation on Project-Level Code Generation. In Findings of the Association for Computational Linguistics: ACL 2025, pp. 20205-20221. DOI 10.18653/v1/2025.findings-acl.1036. Read from arXiv:2503.07010v2 [cs.SE], 31 May 2025",
    "p": "1",
    "ok": true,
    "ai": "Liu, K., Pan, Y., Xiang, Y., He, D., Li, J., Du, Y., Gao, T. (2025). ProjectEval: A Benchmark for Programming Agents Automated Evaluation on Project-Level Code Generation. arXiv:2503.07010v2 [cs.SE], 31 May 2025",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Liu, K., Pan, Y., Xiang, Y., He, D., Li, J., Du, Y., Gao, T. (2025). ProjectEval: A Benchmark for Programming Agents Automated Evaluation on Project-Level Code Generation. arXiv:2503.07010v2 [cs.SE], 31 May 2025"
+   }
   },
   {
    "f": "Year",
@@ -19,11 +23,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Preprint — arXiv:2503.07010v2 (cs.SE); no venue stated in the text (ACL-style format with a Limitation section; check whether published)",
+   "v": "Conference — Findings of the Association for Computational Linguistics: ACL 2025, pp. 20205-20221, DOI 10.18653/v1/2025.findings-acl.1036 (read from arXiv:2503.07010v2, 31 May 2025, ACL format with Limitation section)",
    "p": "1, 9",
    "ok": true,
    "ai": "Preprint — arXiv:2503.07010v2 (cs.SE); no venue stated in the text (ACL-style format with a Limitation section; check whether published)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Preprint — arXiv:2503.07010v2 (cs.SE); no venue stated in the text (ACL-style format with a Limitation section; check whether published)"
+   }
   },
   {
    "f": "Author affiliation",
@@ -299,11 +307,15 @@
   },
   {
    "f": "Q11",
-   "v": "No (0): arXiv preprint (no venue stated)",
+   "v": "Yes (1): published in Findings of ACL 2025 (peer-reviewed), read from the arXiv v2",
    "p": "1",
    "ok": true,
    "ai": "No (0): arXiv preprint (no venue stated)",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "No (0): arXiv preprint (no venue stated)"
+   }
   },
   {
    "f": "Q12",

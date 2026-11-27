@@ -299,11 +299,15 @@
   },
   {
    "f": "Q11",
-   "v": "Yes (1): ASE '26 (accepted) [Check: the record has a published DOI (https://doi.org/10.1145/3832783.3834550); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
+   "v": "Yes (1): ASE '26 (accepted 2026-07-02; ACM DOI 10.1145/3832783.3834550)",
    "p": "1, 5",
    "ok": true,
    "ai": "Yes (1): ASE '26 (accepted) [Check: the record has a published DOI (https://doi.org/10.1145/3832783.3834550); the full text was read from its arXiv version, so peer review is likely Yes (1).]",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): ASE '26 (accepted) [Check: the record has a published DOI (https://doi.org/10.1145/3832783.3834550); the full text was read from its arXiv version, so peer review is likely Yes (1).]"
+   }
   },
   {
    "f": "Q12",

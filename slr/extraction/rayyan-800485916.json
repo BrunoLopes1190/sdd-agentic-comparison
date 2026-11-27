@@ -19,11 +19,15 @@
   },
   {
    "f": "Publication type",
-   "v": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 215-226, DOI 10.1109/SCAM71261.2026.00028; full text read from arXiv:2606.15828v5",
+   "v": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 215-226, DOI 10.1109/SCAM71261.2026.00028; full text read from arXiv:2606.15828v5 (venue not stated in the full text; confirmed from an external record)",
    "p": "1",
    "ok": true,
    "ai": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 215-226, DOI 10.1109/SCAM71261.2026.00028; full text read from arXiv:2606.15828v5",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Conference — 2026 IEEE International Conference on Source Code Analysis & Manipulation (SCAM), pp. 215-226, DOI 10.1109/SCAM71261.2026.00028; full text read from arXiv:2606.15828v5"
+   }
   },
   {
    "f": "Author affiliation",
@@ -303,23 +307,35 @@
    "p": "1",
    "ok": true,
    "ai": "Yes (1): peer-reviewed conference paper, IEEE SCAM 2026 (DOI 10.1109/SCAM71261.2026.00028); full text read from arXiv",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "keep",
+    "prev": "Yes (1): peer-reviewed conference paper, IEEE SCAM 2026 (DOI 10.1109/SCAM71261.2026.00028); full text read from arXiv"
+   }
   },
   {
    "f": "Q12",
-   "v": "Yes (1): academic authors; no vendor tool evaluated",
-   "p": "1",
+   "v": "No (0): the authors propose the smell catalog and the detection heuristics and are the only ones evaluating them (precision per smell, Table II); academic authors, no commercial vendor",
+   "p": "5-6",
    "ok": true,
    "ai": "Yes (1): academic authors; no vendor tool evaluated",
-   "changed": false
+   "changed": false,
+   "fv": {
+    "action": "accept1",
+    "prev": "Yes (1): academic authors; no vendor tool evaluated"
+   }
   },
   {
    "f": "Q13",
-   "v": "Yes (1): lines and commits contabilization and cheap LLM used (gemini-3.1.flash-lite",
-   "p": "—",
+   "v": "Yes (1): detection needs only line counts (>=200 lines), commit counts and one prompt per smell to a low-cost LLM (gemini-3.1-flash-lite, temperature 0); prompt template and replication package available",
+   "p": "5, 10",
    "ok": true,
    "ai": "N/A",
-   "changed": true
+   "changed": true,
+   "fv": {
+    "action": "accept2",
+    "prev": "Yes (1): lines and commits contabilization and cheap LLM used (gemini-3.1.flash-lite"
+   }
   },
   {
    "f": "DARE1",
