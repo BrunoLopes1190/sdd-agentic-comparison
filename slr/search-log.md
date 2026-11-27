@@ -176,3 +176,36 @@ Index terms. 5 of the 6 S2 exclusions (P09, P11, P18, P25, P28) are among the 44
 Decisions (author, 2026-11-05):
 - The 44 index-term records: keep strings v2 and remove them at screening (recall over precision; same string across databases; about 40 extra titles). No string v3.
 - Candidate group (c) criterion (`protocol.md` §4): not adopted for now; the author re-evaluates it before the freeze. The pilot data above are kept for that decision.
+
+## Snowballing (2026-11-27)
+
+Protocol §4.2 step 8 (change log, 27 Nov). One iteration, backward and forward, from the 246 included studies; same cut-off (2026-11-18).
+
+**Collection** (`slr/snowball_collect.py`, OpenAlex API; log `slr/snowball/collect-run.log`). 246 of 246 included studies found in OpenAlex; 9571 seed–candidate links, 4975 distinct works. Removed: 582 already screened or included, 48 duplicate candidates (DOI, then normalised title), 1 after the cut-off. **Candidates: 4344** (backward only 3257, forward only 985, both 102; 306 without abstract). Published before 2023-01-01, excluded under IC2 by script (date only): 1025, so 3319 for the pre-filter.
+
+**Included studies with no references in OpenAlex** (2, `slr/snowball/no-refs.csv`): their reference lists were extracted from the full text (`slr/fulltext/<key>.txt`) by Claude into `slr/snowball/no-refs-references.csv` (84 references: 8 + 76; arXiv id only when printed in the reference) and resolved by `slr/snowball_norefs.py` (DOI, then arXiv DOI, then exact normalised title; same deduplication and cut-off): 21 not found in OpenAlex (system cards, product pages, books, a few papers), 15 already screened or included, 28 already candidates (seed added), **20 new candidates** (sb-04345 to sb-04364), 13 of them from 2023. Total candidates 4364; **3332 from 2023 go to the pre-filter** (3319 + 13).
+
+**AI pre-filter** (`slr/ai-prompts/snowball-prefilter.md`; task text `slr/ai-prompts/snowball-prefilter-task.md`; `slr/snowball_merge.py`). Pilot: 30 candidates (`pilot-ids.txt`, seed 20261127) × 3 runs. The other 3302 in fixed order (2 or more links to included studies, then forward, then the rest; by id within each group) in 33 batches (`slr/snowball/batches/`; batches of 100, the last 2 ids added to b033 before it ran, so b033 has 102). Each batch run 3 times by independent Claude Opus 5.5 subagents (one agent = one batch × one run, at most 10 in parallel; 99 agents), outputs `slr/snowball/runs/rR-bNNN.jsonl`. Each output checked by script as soon as the agent finished (valid JSON, every batch id exactly once, allowed codes only, no id outside the batch): **99 of 99 passed at the first check; no re-runs**. One agent (r3-b007) read a temporary file another agent had written in the shared scratchpad and coded 20 ids of another batch; its own id check caught it, it removed those lines and coded its own 20 (its output passed the script check). From then on the task text forbids temporary files. Data notes from the agents: sb-02496 has the abstract of sb-02497 in OpenAlex; sb-02758, sb-02761 and sb-02764 have an author list instead of an abstract (decided on the title).
+
+Merge (`slr/snowball/prefilter.csv`: three votes, majority, unanimity, reasons). Excluded when 2 or 3 of 3 runs vote an exclusion; code = most voted exclusion code, ties to the earliest run.
+
+| Pre-filter result (3332) | n |
+|---|---|
+| Excluded by the majority | 2776 |
+| of which IC1 | 1843 |
+| EC1 | 367 |
+| EC6 | 304 |
+| EC5 | 152 |
+| EC3 | 53 |
+| IC3 | 37 |
+| EC2 | 20 |
+| **Pass (to the author)** | **556 (16.7%)** |
+| Unanimous in/out (3 of 3) | 3158 (94.8%): 2677 excluded, 481 pass |
+| 2 of 3 | 174: 99 excluded, 75 pass |
+| Same code in all three runs | 2936 (88.1%) |
+
+Pass by priority group: 2 or more links 238 of 856, forward 169 of 787, rest 149 of 1689.
+
+**Cost (measured).** Tokens reported by each agent at the end: 99 agents, 11.15 million tokens (about 113 000 per agent of 100 candidates, against about 85 000 per agent of 30 in the pilot: most of the cost is fixed). With the conversion given by the author (1% of the 5-hour session ≈ 260 000 tokens; 1% of the week ≈ 2 million), about 43% of a session and 5.6% of the week, plus the orchestrating session (not measured). No usage limit was reached.
+
+**Sample and queue** (`python slr/snowball_merge.py queue 20261128`). Random sample of 50 of the 2776 majority-excluded candidates (`random.Random(20261128).sample(sorted ids, 50)`): `slr/snowball/sample-50.csv`. Screening queue `slr/snowball/queue.csv`: **606** = the 556 that pass, in the fixed order, with the 50 sample candidates at random positions (same random generator) within the first 300; the queue shows no votes, majority or group. Screened blind by the author with `python slr/screen.py sb` (decisions in `slr/snowball/decisions.csv`).
