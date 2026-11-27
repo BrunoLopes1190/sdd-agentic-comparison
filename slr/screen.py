@@ -1,6 +1,6 @@
 """Screening tool: title/abstract passes 2 and 3 (protocol §4.2 steps 4 and 4b) and full text (step 7).
 
-Run:  python slr/screen.py [2|3|ft]   -> opens http://127.0.0.1:8765  (default: pass 2)
+Run:  python slr/screen.py [2|3|ft|sb]   -> opens http://127.0.0.1:8765  (default: pass 2)
 Queue:       slr/passN-queue.csv           (records to screen; pass 3 from build_pass3_queue.py)
              ft: the pass-3 includes, AI group (a), (b), (c) order, with a view extracted from slr/fulltext/<key>.txt
 Suggestions: slr/passN-ai-suggestions.csv  (AI suggestion, shown only AFTER the author decides; ft: ft-ai-suggestions.csv)
