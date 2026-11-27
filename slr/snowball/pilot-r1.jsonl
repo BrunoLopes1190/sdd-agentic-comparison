@@ -1,0 +1,30 @@
+{"id": "sb-00152", "s": "IC1", "g": "", "r": "IC1: survey of developers on what AI lets them do; not SDD, context files or an evaluation of coding agents on development tasks."}
+{"id": "sb-00221", "s": "EC3", "g": "a", "r": "EC3: dataset record holding the appendix of an SDD paper, not a paper itself."}
+{"id": "sb-00284", "s": "EC3", "g": "", "r": "EC3: tutorial on responsible generative AI, also not about coding agents."}
+{"id": "sb-00301", "s": "IC1", "g": "", "r": "IC1: fairness-aware ML practices, no coding agents."}
+{"id": "sb-00367", "s": "Include", "g": "a", "r": "Include: argues for intent formalization (checkable specifications) as the key to reliable code from AI coding agents; specification with agents, kept for the author."}
+{"id": "sb-00524", "s": "EC6", "g": "c", "r": "EC6: empirical part evaluates LLM-generated patches for real-world issues (issue repair), with a literature review on code quality not specific to coding agents."}
+{"id": "sb-00863", "s": "Include", "g": "b", "r": "Include: analyses the system prompts that govern coding agents (Claude Code, Codex CLI, Gemini CLI), an instruction mechanism for coding agents."}
+{"id": "sb-00878", "s": "EC6", "g": "c", "r": "EC6: context-routing policies for coding agents evaluated on SWE-bench Verified tasks (issue repair)."}
+{"id": "sb-00951", "s": "IC1", "g": "", "r": "IC1: provenance tool for LLM-assisted creative writing, not software development."}
+{"id": "sb-00959", "s": "EC6", "g": "c", "r": "EC6: Copilot extension for accessible web UI code evaluated with novices; one specialised domain (accessibility) and the contribution is a tool, not an evaluation method."}
+{"id": "sb-00983", "s": "IC1", "g": "", "r": "IC1: bugs in Jupyter notebook projects, no coding agents."}
+{"id": "sb-01238", "s": "IC1", "g": "", "r": "IC1: general memory system for LLM agents, not coding agents or software development."}
+{"id": "sb-01402", "s": "IC1", "g": "", "r": "IC1: federated skill evolution for general LLM agents, not coding agents."}
+{"id": "sb-01504", "s": "IC1", "g": "", "r": "IC1: compositional reasoning with tools on ScienceQA and TabMWP, not coding agents."}
+{"id": "sb-01540", "s": "IC1", "g": "", "r": "IC1: no abstract; title is a reference architecture for governed AI, not coding agents."}
+{"id": "sb-01613", "s": "IC1", "g": "", "r": "IC1: quality of MCP tool descriptions for general foundation-model agents, not coding agents on software development tasks."}
+{"id": "sb-01704", "s": "IC1", "g": "", "r": "IC1: prompt templates in LLM applications, not coding agents."}
+{"id": "sb-02170", "s": "EC1", "g": "", "r": "EC1: multilingual HumanEval/MBPP code generation benchmark, no agentic behaviour."}
+{"id": "sb-02528", "s": "IC1", "g": "", "r": "IC1: UI aesthetic judgement and generation by multimodal models, not coding agents."}
+{"id": "sb-02642", "s": "EC3", "g": "", "r": "EC3: demo of a voice-based hardware authoring platform for novices."}
+{"id": "sb-02892", "s": "IC1", "g": "", "r": "IC1: no abstract; title (AI behavioural science) is not about coding agents."}
+{"id": "sb-03091", "s": "IC1", "g": "", "r": "IC1: LLM agents in negotiation, not software development."}
+{"id": "sb-03136", "s": "EC6", "g": "c", "r": "EC6: observational field report of coding agents in one specialised domain (scientific computing), with no evaluation-method contribution."}
+{"id": "sb-03442", "s": "IC1", "g": "", "r": "IC1: statistics of the AURC metric for selective classifiers, not coding agents."}
+{"id": "sb-03828", "s": "EC6", "g": "c", "r": "EC6: mining agent-authored pull requests for message-code inconsistency, an observational study."}
+{"id": "sb-03843", "s": "Include", "g": "c", "r": "Include: controlled experimental framework comparing human-led, AI-led and hybrid vibe-coding workflows."}
+{"id": "sb-03945", "s": "Include", "g": "a", "r": "Include: industrial LLM-agent loop with version-controlled plan documents, task decomposition and review, with a measurement methodology and results."}
+{"id": "sb-03962", "s": "IC1", "g": "", "r": "IC1: text embedding benchmark, not coding agents."}
+{"id": "sb-04251", "s": "EC6", "g": "c", "r": "EC6: benchmark of bug fixing, test generation, code review fixing and style fixing, not feature or project-level code development."}
+{"id": "sb-04267", "s": "Include", "g": "c", "r": "Include: native-runtime benchmark running CLI coding-agent harnesses (Claude Code, Codex) across 19 models with a harness comparison; task scope unclear, kept for the author."}

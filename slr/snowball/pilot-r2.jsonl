@@ -1,0 +1,30 @@
+{"id": "sb-00152", "s": "IC1", "g": "", "r": "IC1: survey of developers on what AI lets them do; no SDD, context-file study or evaluation of coding agents on tasks."}
+{"id": "sb-00221", "s": "EC3", "g": "a", "r": "EC3: dataset appendix to an SDD paper, not a paper in itself."}
+{"id": "sb-00284", "s": "EC3", "g": "", "r": "EC3: tutorial on responsible generative AI, also not about coding agents."}
+{"id": "sb-00301", "s": "IC1", "g": "", "r": "IC1: fairness-aware ML practices, not coding agents."}
+{"id": "sb-00367", "s": "Include", "g": "a", "r": "Include: argues for intent formalization (checkable specifications) as the key to reliable coding with AI agents; spec-centred, coding agents present."}
+{"id": "sb-00524", "s": "EC6", "g": "c", "r": "EC6: empirical part is LLM patching of real-world issues (issue repair) for non-functional quality, not feature-level development or a new evaluation method for agents."}
+{"id": "sb-00863", "s": "Include", "g": "b", "r": "Include: analyses system prompts and memory of coding agents (Claude Code, Codex CLI, Gemini CLI) as instruction artifacts."}
+{"id": "sb-00878", "s": "EC6", "g": "c", "r": "EC6: context routing evaluated on SWE-bench Verified issue repair."}
+{"id": "sb-00951", "s": "IC1", "g": "", "r": "IC1: LLM use in creative writing, not software development."}
+{"id": "sb-00959", "s": "EC1", "g": "c", "r": "EC1: Copilot extension suggesting accessible UI code, assistant suggestions with no agentic multi-step behaviour."}
+{"id": "sb-00983", "s": "IC1", "g": "", "r": "IC1: bugs in Jupyter notebook projects, no coding agents."}
+{"id": "sb-01238", "s": "IC1", "g": "", "r": "IC1: memory system for general LLM agents, not coding agents or software tasks."}
+{"id": "sb-01402", "s": "IC1", "g": "", "r": "IC1: federated skill evolution for general LLM agents, not coding agents."}
+{"id": "sb-01504", "s": "IC1", "g": "", "r": "IC1: compositional reasoning with tools on ScienceQA/TabMWP, not coding agents."}
+{"id": "sb-01540", "s": "IC1", "g": "", "r": "IC1: no abstract; title is a reference architecture for governed AI, not coding agents."}
+{"id": "sb-01613", "s": "Include", "g": "b", "r": "Include: quality of MCP tool descriptions (agent context) and their effect on agent task success and steps; borderline on coding-agent scope, kept in doubt."}
+{"id": "sb-01704", "s": "IC1", "g": "", "r": "IC1: prompt templates in LLM applications, not coding agents."}
+{"id": "sb-02170", "s": "EC1", "g": "c", "r": "EC1: HumanEval/MBPP-style function-level code generation benchmark, no agentic behaviour."}
+{"id": "sb-02528", "s": "IC1", "g": "", "r": "IC1: UI aesthetic judgment and generation by multimodal models, not coding agents on development tasks."}
+{"id": "sb-02642", "s": "EC3", "g": "", "r": "EC3: demo of a voice-driven hardware authoring platform."}
+{"id": "sb-02892", "s": "IC1", "g": "", "r": "IC1: no abstract; title (AI behavioral science) is not about coding agents."}
+{"id": "sb-03091", "s": "IC1", "g": "", "r": "IC1: LLM agents in negotiation, not software development."}
+{"id": "sb-03136", "s": "EC6", "g": "c", "r": "EC6: field report of coding-agent case studies in one specialised domain (scientific computing), not an evaluation method."}
+{"id": "sb-03442", "s": "IC1", "g": "", "r": "IC1: statistical estimators for selective classification, not coding agents."}
+{"id": "sb-03828", "s": "EC6", "g": "c", "r": "EC6: observational mining of agent-authored pull requests."}
+{"id": "sb-03843", "s": "Include", "g": "c", "r": "Include: controlled experimental framework comparing human-led, AI-led and hybrid vibe-coding workflows."}
+{"id": "sb-03945", "s": "Include", "g": "a", "r": "Include: industrial LLM-agent SDLC loop with version-controlled plan documents and a reported measurement methodology."}
+{"id": "sb-03962", "s": "IC1", "g": "", "r": "IC1: text embedding benchmark, not coding agents."}
+{"id": "sb-04251", "s": "EC6", "g": "c", "r": "EC6: benchmark tasks are bug fixing, test generation, code review and style fixing, not feature or project development."}
+{"id": "sb-04267", "s": "Include", "g": "c", "r": "Include: benchmark running real CLI coding-agent harnesses (Claude Code, Codex) and comparing harnesses and models; task scope unclear, kept in doubt."}

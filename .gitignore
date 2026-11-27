@@ -25,3 +25,5 @@ slr/fulltext/
 
 # Zipped copy of the full texts, for moving them between computers
 slr/fulltext.zip
+# Raw OpenAlex responses cached by slr/snowball_collect.py
+slr/snowball/raw/
