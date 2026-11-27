@@ -1,0 +1,100 @@
+{"id": "sb-01992", "s": "EC1", "g": "", "r": "EC1: library-oriented code generation from a query, no agentic multi-step behaviour."}
+{"id": "sb-01993", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code completion technique, no coding agent."}
+{"id": "sb-01994", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented repository-level code completion at a given location, no agentic behaviour."}
+{"id": "sb-01995", "s": "EC1", "g": "", "r": "EC1: token-level retrieval-augmented code generation model, no agents."}
+{"id": "sb-01996", "s": "EC1", "g": "", "r": "EC1: retrieval-based code completion method, no agentic behaviour."}
+{"id": "sb-01997", "s": "IC1", "g": "", "r": "IC1: code search method for related files, not coding agents."}
+{"id": "sb-02002", "s": "IC1", "g": "", "r": "IC1: training of a code language model, not coding agents."}
+{"id": "sb-02003", "s": "IC1", "g": "", "r": "IC1: lessons on training code LLMs, not coding agents."}
+{"id": "sb-02005", "s": "EC1", "g": "", "r": "EC1: repository-level code completion with fused context, no agentic behaviour."}
+{"id": "sb-02007", "s": "EC1", "g": "", "r": "EC1: graph retrieval-augmented code generation prompting, no agentic behaviour."}
+{"id": "sb-02008", "s": "Include", "g": "c", "r": "Include: new benchmark RepoClassBench for class-level generation in real repositories with iterative tool-enhanced reasoning."}
+{"id": "sb-02009", "s": "IC1", "g": "", "r": "IC1: multi-agent system for scientific discovery in materials, not software development."}
+{"id": "sb-02010", "s": "IC1", "g": "", "r": "IC1: multi-robot task planning with LLMs, another domain."}
+{"id": "sb-02011", "s": "EC6", "g": "c", "r": "EC6: agent fixing Verilog syntax errors, specialised hardware domain and not feature-level development."}
+{"id": "sb-02013", "s": "EC5", "g": "c", "r": "EC5: new tool-integrated generation technique for repository-level functions, nothing for the evaluation method."}
+{"id": "sb-02014", "s": "EC5", "g": "c", "r": "EC5: new repository-aware code generation framework, no contribution to the evaluation method."}
+{"id": "sb-02015", "s": "EC6", "g": "c", "r": "EC6: issue localization agent evaluated on SWE-bench Lite (issue repair)."}
+{"id": "sb-02016", "s": "EC1", "g": "", "r": "EC1: repository-level code completion via semantic graph retrieval, no agentic behaviour."}
+{"id": "sb-02017", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code generation pipeline, no coding agent."}
+{"id": "sb-02018", "s": "EC1", "g": "", "r": "EC1: prompt-based retrieval-augmented code completion, no agentic behaviour."}
+{"id": "sb-02019", "s": "Include", "g": "", "r": "Include: no abstract and the title (private-library code generation with LLMs) does not clearly fail IC1 or IC2; author decides."}
+{"id": "sb-02020", "s": "IC1", "g": "", "r": "IC1: LLM-augmented code search method, not coding agents."}
+{"id": "sb-02021", "s": "EC1", "g": "", "r": "EC1: comparison of RAG and fine-tuning for code completion, no agentic behaviour."}
+{"id": "sb-02023", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code generation framework, no agentic behaviour."}
+{"id": "sb-02024", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code generation model, not an agent."}
+{"id": "sb-02025", "s": "EC6", "g": "c", "r": "EC6: program repair of data science code snippets on DS-1000, specialised domain and not feature-level development."}
+{"id": "sb-02026", "s": "Include", "g": "", "r": "Include: no abstract; title on repository-level code understanding by LLMs does not clearly fail IC1 or IC2; author decides."}
+{"id": "sb-02027", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented Android code completion, no agentic behaviour."}
+{"id": "sb-02028", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code completion with small models, no agents."}
+{"id": "sb-02030", "s": "EC6", "g": "c", "r": "EC6: program repair approach evaluated on SWE-bench (issue repair)."}
+{"id": "sb-02031", "s": "EC1", "g": "", "r": "EC1: fill-in-the-middle code completion model training, no agentic behaviour."}
+{"id": "sb-02032", "s": "IC1", "g": "", "r": "IC1: zero-shot cross-domain code search, not coding agents."}
+{"id": "sb-02033", "s": "EC1", "g": "", "r": "EC1: repository-level code completion with compressed context, no agentic behaviour."}
+{"id": "sb-02034", "s": "IC1", "g": "", "r": "IC1: predicting builder actions in Minecraft, not software development."}
+{"id": "sb-02035", "s": "IC1", "g": "", "r": "IC1: chatbot answering repository questions with knowledge graphs, not a coding agent developing software."}
+{"id": "sb-02036", "s": "Include", "g": "", "r": "Include: no abstract; project-level code generation title does not clearly fail IC1 or IC2; author decides."}
+{"id": "sb-02037", "s": "EC1", "g": "", "r": "EC1: cross-lingual retrieval-augmented code generation model, no agentic behaviour."}
+{"id": "sb-02038", "s": "EC1", "g": "", "r": "EC1: hybrid retrieval-augmented code completion, no agents."}
+{"id": "sb-02039", "s": "IC1", "g": "", "r": "IC1: distillation of text embedding models, not coding agents."}
+{"id": "sb-02040", "s": "EC6", "g": "c", "r": "EC6: unit test generation via retrieval, tests only and not code development."}
+{"id": "sb-02041", "s": "EC1", "g": "", "r": "EC1: repository-level code completion with RAG and reflection loop, a completion technique rather than an agent developing software."}
+{"id": "sb-02043", "s": "EC1", "g": "", "r": "EC1: code completion framework using repository context, no agentic behaviour."}
+{"id": "sb-02044", "s": "EC1", "g": "", "r": "EC1: example retrieval for few-shot code generation on competitive programming problems, no agents."}
+{"id": "sb-02045", "s": "IC1", "g": "", "r": "IC1: deep research web agent, not software development."}
+{"id": "sb-02046", "s": "EC1", "g": "", "r": "EC1: code completion with cross-file context, no agentic behaviour."}
+{"id": "sb-02049", "s": "IC1", "g": "", "r": "IC1: survey on privacy risks of LLMs, not coding agents."}
+{"id": "sb-02052", "s": "EC6", "g": "c", "r": "EC6: graph-integrated LLM for repository tasks evaluated on issue resolution (SWE-bench style)."}
+{"id": "sb-02055", "s": "EC6", "g": "c", "r": "EC6: retrieval model for code editing evaluated on bug localisation, code search not code development."}
+{"id": "sb-02056", "s": "IC1", "g": "", "r": "IC1: bias in code retrieval models, not coding agents."}
+{"id": "sb-02057", "s": "EC1", "g": "", "r": "EC1: context-aware code completion for data transfer tasks, no agentic behaviour."}
+{"id": "sb-02058", "s": "EC1", "g": "", "r": "EC1: retrieval-augmented code generation paradigm, no agentic behaviour."}
+{"id": "sb-02060", "s": "EC1", "g": "", "r": "EC1: training LLMs for repository-level code completion, no agents."}
+{"id": "sb-02061", "s": "EC1", "g": "", "r": "EC1: agentic RAG code synthesis evaluated only on function-level HumanEval and Geeks4Geeks tasks."}
+{"id": "sb-02062", "s": "EC1", "g": "", "r": "EC1: repository-level Verilog code completion with fine-tuning and RAG, no agentic behaviour."}
+{"id": "sb-02063", "s": "EC1", "g": "", "r": "EC1: pretraining a model for project-level code completion, no agents."}
+{"id": "sb-02064", "s": "EC1", "g": "", "r": "EC1: context filtering for cross-file code completion, no agentic behaviour."}
+{"id": "sb-02108", "s": "EC6", "g": "c", "r": "EC6: use of ChatGPT in code review mined from pull requests, code review is not code development."}
+{"id": "sb-02109", "s": "IC1", "g": "", "r": "IC1: review of bots and conversational agents in software engineering, not coding agents developing software."}
+{"id": "sb-02125", "s": "Include", "g": "c", "r": "Include: experience-based learning for multi-agent software-developing agents on software development tasks; borderline EC5, kept for the author."}
+{"id": "sb-02126", "s": "IC1", "g": "", "r": "IC1: experience replay for web navigation agents, not software development."}
+{"id": "sb-02127", "s": "IC1", "g": "", "r": "IC1: multimodal retrieval-augmented generation, not coding agents."}
+{"id": "sb-02129", "s": "IC1", "g": "", "r": "IC1: in-context learning for video understanding, another domain."}
+{"id": "sb-02130", "s": "EC1", "g": "", "r": "EC1: iterative flow for competitive programming problems (CodeContests), not repository-level development."}
+{"id": "sb-02132", "s": "EC1", "g": "", "r": "EC1: evolved program synthesis benchmarks at function level (HumanEval style)."}
+{"id": "sb-02133", "s": "IC1", "g": "", "r": "IC1: multimodal memory agent for video reasoning, another domain."}
+{"id": "sb-02134", "s": "IC1", "g": "", "r": "IC1: question answering over egocentric videos from embodied agents, another domain."}
+{"id": "sb-02142", "s": "EC1", "g": "", "r": "EC1: code quality of Copilot, CodeWhisperer and ChatGPT on HumanEval single functions, no agentic behaviour."}
+{"id": "sb-02146", "s": "IC1", "g": "", "r": "IC1: parametric retrieval-augmented generation for LLMs, not coding agents."}
+{"id": "sb-02147", "s": "IC1", "g": "", "r": "IC1: reinforcement learning rewards for agentic RAG search, not software development."}
+{"id": "sb-02148", "s": "IC1", "g": "", "r": "IC1: refusal mechanism for LLM question answering, not coding agents."}
+{"id": "sb-02149", "s": "IC1", "g": "", "r": "IC1: process supervision for information-seeking search agents, not software development."}
+{"id": "sb-02150", "s": "IC1", "g": "", "r": "IC1: survey of LLM-assisted program analysis, not coding agents developing software."}
+{"id": "sb-02151", "s": "IC1", "g": "", "r": "IC1: selective generation for controllable language models, not coding agents."}
+{"id": "sb-02152", "s": "EC6", "g": "c", "r": "EC6: LLM-based automated program repair framework, bug fixing rather than code development to requirements."}
+{"id": "sb-02153", "s": "IC1", "g": "", "r": "IC1: query allocation in extractive question answering, not coding agents."}
+{"id": "sb-02154", "s": "Include", "g": "", "r": "Include: no abstract; title on retrieval-augmented LLM program repair does not clearly fail IC1 or IC2; author decides."}
+{"id": "sb-02155", "s": "IC1", "g": "", "r": "IC1: calibration-oriented RAG for decision making, not coding agents."}
+{"id": "sb-02156", "s": "IC1", "g": "", "r": "IC1: adaptive retrieval in LLM question answering, not coding agents."}
+{"id": "sb-02157", "s": "IC1", "g": "", "r": "IC1: reinforcement learning for agentic RAG question answering, not software development."}
+{"id": "sb-02158", "s": "IC1", "g": "", "r": "IC1: feedback learning for copilot information retrieval, not coding agents developing software."}
+{"id": "sb-02159", "s": "IC1", "g": "", "r": "IC1: selective prediction for LLM answers, not coding agents."}
+{"id": "sb-02160", "s": "IC1", "g": "", "r": "IC1: multi-agent RAG framework for question answering, not software development."}
+{"id": "sb-02161", "s": "IC1", "g": "", "r": "IC1: general multi-agent memory system for LLM agents, not coding agents."}
+{"id": "sb-02162", "s": "IC1", "g": "", "r": "IC1: LLMs with knowledge base retrieval and storage, not coding agents."}
+{"id": "sb-02163", "s": "IC1", "g": "", "r": "IC1: working memory architecture for general LLM agents, not coding agents."}
+{"id": "sb-02164", "s": "IC1", "g": "", "r": "IC1: conformal abstention for LLMs and VLMs, not coding agents."}
+{"id": "sb-02165", "s": "IC1", "g": "", "r": "IC1: context management for search and web browsing agents, not software development."}
+{"id": "sb-02166", "s": "IC1", "g": "", "r": "IC1: confidence-aware abstention for factual QA, not coding agents."}
+{"id": "sb-02174", "s": "Include", "g": "c", "r": "Include: new benchmark evaluating LLM agents on deploying research code repositories with accuracy, efficiency and quality metrics; borderline EC6, kept for the author."}
+{"id": "sb-02175", "s": "IC1", "g": "", "r": "IC1: deep learning generation of Dockerfiles, not LLM coding agents."}
+{"id": "sb-02177", "s": "IC1", "g": "", "r": "IC1: LLM-guided execution of code snippets for dynamic analysis, not coding agents developing software."}
+{"id": "sb-02178", "s": "IC1", "g": "", "r": "IC1: empirical study of Java project buildability, no coding agents."}
+{"id": "sb-02181", "s": "EC6", "g": "c", "r": "EC6: model tuned for environment setup scripts, not code development."}
+{"id": "sb-02182", "s": "EC6", "g": "c", "r": "EC6: benchmark of dependency inference for repositories, a narrow task rather than writing application code to requirements."}
+{"id": "sb-02183", "s": "EC6", "g": "c", "r": "EC6: automated environment setup agent, not code development."}
+{"id": "sb-02186", "s": "IC1", "g": "", "r": "IC1: skill bank for agentic RL on ALFWorld, WebShop and QA, not coding agents."}
+{"id": "sb-02187", "s": "IC1", "g": "", "r": "IC1: self-evolving general LLM agents from experience, not software development."}
+{"id": "sb-02189", "s": "IC1", "g": "", "r": "IC1: skill evolution for mathematical reasoning, not coding agents."}
+{"id": "sb-02207", "s": "IC1", "g": "", "r": "IC1: safety guardrail for general LLM agents, not software development."}
+{"id": "sb-02208", "s": "IC1", "g": "", "r": "IC1: tool invocation safety for general LLM agents, not software development."}

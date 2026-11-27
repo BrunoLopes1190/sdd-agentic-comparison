@@ -1,0 +1,100 @@
+{"id": "sb-00543", "s": "IC1", "g": "", "r": "IC1: Systematic review of LLMs for software architecture tasks, not coding agents."}
+{"id": "sb-00544", "s": "IC1", "g": "", "r": "IC1: Study of non-programmers using code LLMs, no coding agents."}
+{"id": "sb-00546", "s": "IC1", "g": "", "r": "IC1: Static rule engine for OpenAPI design quality, no LLM or coding agents."}
+{"id": "sb-00547", "s": "IC1", "g": "", "r": "IC1: Book chapter on distributed n-tier architecture, unrelated to coding agents."}
+{"id": "sb-00549", "s": "EC5", "g": "c", "r": "EC5: New multi-agent system evaluated on existing SWE-bench, nothing for the evaluation method."}
+{"id": "sb-00554", "s": "EC2", "g": "", "r": "EC2: LLM generation of formal program specifications, no coding agents."}
+{"id": "sb-00556", "s": "Include", "g": "", "r": "Include: No abstract and the title (verifiable code generation) does not clearly fail IC1; author decides."}
+{"id": "sb-00558", "s": "EC6", "g": "c", "r": "EC6: Agents generate correctness proofs for Rust code, not application code development."}
+{"id": "sb-00562", "s": "EC5", "g": "c", "r": "EC5: New agent tree-search framework tested on existing code generation benchmarks and SWE-bench."}
+{"id": "sb-00563", "s": "EC1", "g": "", "r": "EC1: Formally verified function-level code generation on HumanEval and MBPP."}
+{"id": "sb-00564", "s": "EC1", "g": "", "r": "EC1: LLM program refinement from formal specifications at function level, no agentic behaviour."}
+{"id": "sb-00565", "s": "EC2", "g": "", "r": "EC2: Benchmark of LLMs generating formal specifications for OS verification, no coding agents."}
+{"id": "sb-00569", "s": "IC1", "g": "", "r": "IC1: LLM code refinement from review comments, no coding agents."}
+{"id": "sb-00570", "s": "IC1", "g": "", "r": "IC1: Program synthesis for testing compiler type checkers, no coding agents."}
+{"id": "sb-00571", "s": "IC1", "g": "", "r": "IC1: Detection of retry bugs with LLM-informed tooling, not coding agents."}
+{"id": "sb-00572", "s": "IC1", "g": "", "r": "IC1: Syntax-guided synthesis solver for bit-vectors, not coding agents."}
+{"id": "sb-00573", "s": "IC1", "g": "", "r": "IC1: DSL for math library implementation, not coding agents."}
+{"id": "sb-00576", "s": "IC1", "g": "", "r": "IC1: General LLM model paper (DeepSeek-V2), not coding agents."}
+{"id": "sb-00580", "s": "IC1", "g": "", "r": "IC1: Position paper on specifications for building LLM-based systems as components, not coding agents developing software."}
+{"id": "sb-00581", "s": "IC1", "g": "", "r": "IC1: SyGuS language standard document, not coding agents."}
+{"id": "sb-00582", "s": "IC1", "g": "", "r": "IC1: LLM-assisted neural-symbolic transcompiler for tensor programs, not coding agents."}
+{"id": "sb-00595", "s": "IC1", "g": "", "r": "IC1: Review of security of AI-generated code, not coding agents."}
+{"id": "sb-00598", "s": "IC1", "g": "", "r": "IC1: Dataset for training LLMs on unit test synthesis, no coding agents."}
+{"id": "sb-00599", "s": "EC5", "g": "c", "r": "EC5: New test-driven agentic workflow for repository repair evaluated on existing SWE-bench."}
+{"id": "sb-00600", "s": "IC1", "g": "", "r": "IC1: Human experiment on technical debt and broken windows theory, no coding agents."}
+{"id": "sb-00601", "s": "IC1", "g": "", "r": "IC1: LLM security patching of generated code with static analysis, not coding agents on development tasks."}
+{"id": "sb-00602", "s": "IC1", "g": "", "r": "IC1: Hallucination detection in LLM-generated code, not coding agents."}
+{"id": "sb-00605", "s": "EC1", "g": "", "r": "EC1: Prompting-based LLM code generation in an industrial codebase, no agentic behaviour."}
+{"id": "sb-00606", "s": "IC1", "g": "", "r": "IC1: Mining study of code quality and broken windows theory, no coding agents."}
+{"id": "sb-00608", "s": "EC3", "g": "", "r": "EC3: Dataset record without a paper."}
+{"id": "sb-00615", "s": "Include", "g": "a", "r": "Include: Stepwise LLM workflow from requirements to design, tests and code for a web project; close to spec-driven development, author decides."}
+{"id": "sb-00616", "s": "EC1", "g": "", "r": "EC1: Efficiency benchmark of HumanEval-style function generation."}
+{"id": "sb-00618", "s": "EC1", "g": "", "r": "EC1: Requirements-aware code snippet generation evaluated on HumanEval-style benchmarks."}
+{"id": "sb-00619", "s": "IC1", "g": "", "r": "IC1: Survey of conversational user simulation, not coding agents."}
+{"id": "sb-00626", "s": "IC1", "g": "", "r": "IC1: LLM functional size measurement from use cases, not coding agents."}
+{"id": "sb-00630", "s": "Include", "g": "a", "r": "Include: Multi-agent requirement-to-code development with traceability across requirements, design and code; spec-driven elements, author decides."}
+{"id": "sb-00631", "s": "IC1", "g": "", "r": "IC1: Evaluation of customer-facing agents via user simulation, not software development."}
+{"id": "sb-00634", "s": "IC1", "g": "", "r": "IC1: Safety sandbox for AI agents in social interactions, not coding agents."}
+{"id": "sb-00637", "s": "Include", "g": "a", "r": "Include: Framework to elicit product requirement documents to steer vibe coding of web development; specification for coding agents, author decides."}
+{"id": "sb-00639", "s": "IC1", "g": "", "r": "IC1: User-agent collaboration benchmark in shopping and travel, not software development."}
+{"id": "sb-00641", "s": "IC1", "g": "", "r": "IC1: Instruction tuning of general language models, not coding agents."}
+{"id": "sb-00644", "s": "IC1", "g": "", "r": "IC1: Self-rewarding LLM training, not coding agents."}
+{"id": "sb-00645", "s": "IC1", "g": "", "r": "IC1: LLM reward-function design for robot reinforcement learning, not software development."}
+{"id": "sb-00654", "s": "IC1", "g": "", "r": "IC1: Prompt optimisation for multi-stage LM programs on NLP tasks, not coding agents."}
+{"id": "sb-00655", "s": "IC1", "g": "", "r": "IC1: Test-time reinforcement learning for LLM reasoning, not coding agents."}
+{"id": "sb-00660", "s": "IC1", "g": "", "r": "IC1: Self-adapting LLM fine-tuning, not coding agents."}
+{"id": "sb-00661", "s": "EC1", "g": "", "r": "EC1: LM self-training on programming puzzles, single-function code generation with no agentic behaviour."}
+{"id": "sb-00662", "s": "IC1", "g": "", "r": "IC1: LLM agent generating Blender scripts for 3D scenes, content generation rather than software development."}
+{"id": "sb-00663", "s": "IC1", "g": "", "r": "IC1: General LLM-based generative optimisation framework for workflows, not coding agent evaluation."}
+{"id": "sb-00664", "s": "IC1", "g": "", "r": "IC1: LLM cyber threat intelligence knowledge graph construction, another domain."}
+{"id": "sb-00665", "s": "IC1", "g": "", "r": "IC1: Agent generating theorem explanation videos, content generation rather than software development."}
+{"id": "sb-00666", "s": "IC1", "g": "", "r": "IC1: Code-centric agents generating educational videos, content generation rather than software development."}
+{"id": "sb-00667", "s": "IC1", "g": "", "r": "IC1: Noise robustness of in-context learning for text generation, not coding agents."}
+{"id": "sb-00668", "s": "EC6", "g": "c", "r": "EC6: Multi-agent system for code documentation generation, not code development."}
+{"id": "sb-00669", "s": "IC1", "g": "", "r": "IC1: Log parser for hybrid logs, no coding agents."}
+{"id": "sb-00670", "s": "IC1", "g": "", "r": "IC1: Benchmark of retrieval-augmented LLMs for cyber threat intelligence, another domain."}
+{"id": "sb-00674", "s": "EC6", "g": "c", "r": "EC6: LLM and multi-agent test case generation, tests only, not code development."}
+{"id": "sb-00675", "s": "IC1", "g": "", "r": "IC1: General prompt optimisation framework, not coding agents."}
+{"id": "sb-00676", "s": "IC1", "g": "", "r": "IC1: Natural language reinforcement learning, not coding agents."}
+{"id": "sb-00677", "s": "IC1", "g": "", "r": "IC1: Theory of retrieval-augmented generation on QA, not coding agents."}
+{"id": "sb-00679", "s": "IC1", "g": "", "r": "IC1: Translation of natural language into first-order logic, not coding agents."}
+{"id": "sb-00681", "s": "IC1", "g": "", "r": "IC1: Agent-native corpus scaffold for cyber threat intelligence, another domain."}
+{"id": "sb-00696", "s": "IC1", "g": "", "r": "IC1: LLM jailbreak and safety training failures, not coding agents."}
+{"id": "sb-00697", "s": "IC1", "g": "", "r": "IC1: General test-time compute scaling for LLMs, not coding agents."}
+{"id": "sb-00707", "s": "IC1", "g": "", "r": "IC1: Title on neurosymbolic AI in general, clearly not coding agents (no abstract)."}
+{"id": "sb-00709", "s": "IC1", "g": "", "r": "IC1: Open evaluator LM for judging other LMs, not coding agents."}
+{"id": "sb-00719", "s": "IC1", "g": "", "r": "IC1: General inference-compute scaling by repeated sampling across tasks, not an evaluation of coding agents on development tasks."}
+{"id": "sb-00721", "s": "EC1", "g": "", "r": "EC1: Secure coding benchmark for LLMs as coding assistants, no agentic behaviour."}
+{"id": "sb-00722", "s": "IC1", "g": "", "r": "IC1: Self-improvement of LLM web navigation agents, not software development."}
+{"id": "sb-00723", "s": "Include", "g": "c", "r": "Include: New cost and feedback metric for agent harnesses with pass rate and raw cost; possibly a contribution to evaluating coding agents, author decides."}
+{"id": "sb-00759", "s": "IC1", "g": "", "r": "IC1: Survey of augmented language models with reasoning and tools in general, not coding agents."}
+{"id": "sb-00768", "s": "EC2", "g": "", "r": "EC2: LLM translation of natural language intent into formal postconditions, no coding agents."}
+{"id": "sb-00772", "s": "IC1", "g": "", "r": "IC1: Neural program repair for multi-location patches, no LLM coding agents."}
+{"id": "sb-00774", "s": "IC1", "g": "", "r": "IC1: Mining developer-ChatGPT refactoring conversations, not coding agents."}
+{"id": "sb-00775", "s": "IC1", "g": "", "r": "IC1: Metric for code summarization techniques, not coding agents."}
+{"id": "sb-00776", "s": "IC1", "g": "", "r": "IC1: Analysis of developer conversations with ChatGPT for code generation, not coding agents."}
+{"id": "sb-00777", "s": "EC1", "g": "", "r": "EC1: Prompt chaining for exception handling in API-level code generation, no agentic behaviour."}
+{"id": "sb-00778", "s": "IC1", "g": "", "r": "IC1: LLM type inference for Python, not coding agents."}
+{"id": "sb-00779", "s": "EC2", "g": "", "r": "EC2: Codex generation of OCL constraints from specifications, modelling specification with no coding agents."}
+{"id": "sb-00780", "s": "IC1", "g": "", "r": "IC1: Snippet comment generation with seq2seq models, not coding agents."}
+{"id": "sb-00781", "s": "IC1", "g": "", "r": "IC1: Analysis of multi-prompt ChatGPT conversations for programming issues, not coding agents."}
+{"id": "sb-00786", "s": "IC1", "g": "", "r": "IC1: Metrics and clustering of chatbot designs, not coding agents."}
+{"id": "sb-00796", "s": "IC1", "g": "", "r": "IC1: General capability study of GPT-4, not coding agents."}
+{"id": "sb-00801", "s": "EC1", "g": "", "r": "EC1: Search-based LLM code optimisation of snippets, no agentic repository-level behaviour."}
+{"id": "sb-00802", "s": "EC1", "g": "", "r": "EC1: Two-agent pair programming framework evaluated on function-level code generation benchmarks."}
+{"id": "sb-00804", "s": "IC1", "g": "", "r": "IC1: Prompt length effects on domain-specific NLP tasks, not coding agents."}
+{"id": "sb-00805", "s": "EC1", "g": "", "r": "EC1: LLM prompting for code snippet adaptation, no agentic repository-level behaviour."}
+{"id": "sb-00807", "s": "IC1", "g": "", "r": "IC1: Analysis of developer-ChatGPT conversations in GitHub issues, not coding agents."}
+{"id": "sb-00808", "s": "IC1", "g": "", "r": "IC1: Controlled experiment on developers prompting for code documentation, not coding agents."}
+{"id": "sb-00809", "s": "Include", "g": "c", "r": "Include: Evaluation of human-in-the-loop software development agents in industry, with challenges for evaluation frameworks."}
+{"id": "sb-00810", "s": "IC1", "g": "", "r": "IC1: Dataset of coupled code and docstring changes for training models, not coding agents."}
+{"id": "sb-00837", "s": "IC1", "g": "", "r": "IC1: Title on sustainable software engineering reflections, clearly not coding agents (no abstract)."}
+{"id": "sb-00838", "s": "Include", "g": "c", "r": "Include: Review and roadmap of LLM-as-a-judge for evaluating LLM-generated software artifacts; possibly relevant to evaluation method, author decides."}
+{"id": "sb-00851", "s": "EC1", "g": "", "r": "EC1: Multi-language execution-based evaluation of function-level code models, no agentic behaviour."}
+{"id": "sb-00852", "s": "EC1", "g": "", "r": "EC1: Benchmark of LLMs on whole-function generation with repository context, no agentic behaviour."}
+{"id": "sb-00895", "s": "IC1", "g": "", "r": "IC1: In-context jailbreak attacks and defences, not coding agents."}
+{"id": "sb-00910", "s": "IC1", "g": "", "r": "IC1: Survey of code search techniques, not coding agents."}
+{"id": "sb-00911", "s": "EC1", "g": "", "r": "EC1: LLM-as-a-judge for function-level code generation and summarization, no agentic behaviour."}
+{"id": "sb-00914", "s": "IC1", "g": "", "r": "IC1: Instruction hierarchy failures in general LLMs, not coding agents."}
+{"id": "sb-00916", "s": "IC1", "g": "", "r": "IC1: Benchmark of instructional distraction in general LLMs, not coding agents."}

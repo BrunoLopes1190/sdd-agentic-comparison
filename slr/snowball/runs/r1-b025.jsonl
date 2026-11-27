@@ -1,0 +1,100 @@
+{"id": "sb-02209", "s": "IC1", "g": "", "r": "IC1: general LLM agent failure taxonomy and debugging on ALFWorld, GAIA, WebShop, not software development."}
+{"id": "sb-02210", "s": "IC1", "g": "", "r": "IC1: security guardrail framework for AI agents, not SDD, context files or evaluation of coding agents on development tasks."}
+{"id": "sb-02211", "s": "IC1", "g": "", "r": "IC1: reproducibility of LLM-for-SE research papers, not an evaluation of coding agents on development tasks."}
+{"id": "sb-02213", "s": "IC1", "g": "", "r": "IC1: memory vs long-context for conversational agents, not coding agents."}
+{"id": "sb-02214", "s": "IC1", "g": "", "r": "IC1: general agent memory layer evaluated on conversational memory benchmarks, not coding agents."}
+{"id": "sb-02215", "s": "Include", "g": "a", "r": "Include: architecture with agent contracts and structured roadmap for LLM coding agents building projects, close to spec-driven development."}
+{"id": "sb-02216", "s": "IC1", "g": "", "r": "IC1: memory system for conversational agents, not coding agents."}
+{"id": "sb-02222", "s": "IC1", "g": "", "r": "IC1: learning user preferences for writing assistant agents (summarization, email), not software development."}
+{"id": "sb-02223", "s": "IC1", "g": "", "r": "IC1: preference memory update for conversational LLM agents, not coding agents."}
+{"id": "sb-02224", "s": "IC1", "g": "", "r": "IC1: memory evolution for conversational agents, not coding agents."}
+{"id": "sb-02225", "s": "IC1", "g": "", "r": "IC1: personalized prompt optimization and synthetic interaction data, not coding agents."}
+{"id": "sb-02226", "s": "IC1", "g": "", "r": "IC1: turning governance policies into runtime guardrails for AI agents, not coding agents developing software."}
+{"id": "sb-02227", "s": "IC1", "g": "", "r": "IC1: benchmark of assistant agents in evolving information environments, not software development tasks."}
+{"id": "sb-02237", "s": "Include", "g": "a", "r": "Include: protocol with explicit behavioral contracts and lifecycle-guided execution for multi-agent LLM software development, evaluated on code development tasks."}
+{"id": "sb-02239", "s": "IC1", "g": "", "r": "IC1: security benchmark of attacks and defenses on LLM agents in general scenarios, not software development."}
+{"id": "sb-02241", "s": "IC1", "g": "", "r": "IC1: safety benchmark for computer use agents, not coding agents on development tasks."}
+{"id": "sb-02243", "s": "IC1", "g": "", "r": "IC1: survey of optimization of LLM-based agents in general, not coding agents."}
+{"id": "sb-02244", "s": "IC1", "g": "", "r": "IC1: survey of agentic reasoning in general, not coding agents."}
+{"id": "sb-02246", "s": "EC3", "g": "", "r": "EC3: book chapter on AI agent tools and frameworks, no abstract."}
+{"id": "sb-02247", "s": "IC1", "g": "", "r": "IC1: assistive AI agent in a household simulation (VirtualHome), robotics domain."}
+{"id": "sb-02250", "s": "IC1", "g": "", "r": "IC1: LLM-based fuzzing technique, not coding agents developing software."}
+{"id": "sb-02251", "s": "IC1", "g": "", "r": "IC1: RL for tool use in math reasoning, not coding agents on software development tasks."}
+{"id": "sb-02253", "s": "IC1", "g": "", "r": "IC1: LLM false-positive reduction for static analysis alarms, not coding agents developing software."}
+{"id": "sb-02254", "s": "IC1", "g": "", "r": "IC1: attention-based defect detection and unit test generation, no coding agents."}
+{"id": "sb-02255", "s": "IC1", "g": "", "r": "IC1: LLM unit test generation for type error detection, not coding agents developing an application's code."}
+{"id": "sb-02256", "s": "IC1", "g": "", "r": "IC1: semantics-driven LLM unit test generation for bug detection, not coding agents writing application code."}
+{"id": "sb-02257", "s": "IC1", "g": "", "r": "IC1: empirical study of false-positive bug reports in Linux with LLM classification, not coding agents."}
+{"id": "sb-02259", "s": "IC1", "g": "", "r": "IC1: denial-of-service attacks on LLMs, not coding agents."}
+{"id": "sb-02260", "s": "IC1", "g": "", "r": "IC1: inference cost attacks on LLMs, not coding agents."}
+{"id": "sb-02261", "s": "IC1", "g": "", "r": "IC1: tool-augmented LLM training for API calls, not coding agents on software development."}
+{"id": "sb-02262", "s": "IC1", "g": "", "r": "IC1: denial-of-service attack via MCP tool calling chains on ToolBench/BFCL, not coding agents on development tasks."}
+{"id": "sb-02263", "s": "IC1", "g": "", "r": "IC1: denial-of-service attacks on LLM services, not coding agents."}
+{"id": "sb-02264", "s": "Include", "g": "b", "r": "Include: prompt injection through SKILL.md skill files of skill-enabled agents, a context mechanism; borderline whether the agents are coding agents, so kept for the author."}
+{"id": "sb-02265", "s": "Include", "g": "b", "r": "Include: attacks through skill documentation in LLM coding agent skill ecosystems, a context mechanism used by coding agents."}
+{"id": "sb-02266", "s": "IC1", "g": "", "r": "IC1: memory management for conversational AI agents, not coding agents."}
+{"id": "sb-02267", "s": "IC1", "g": "", "r": "IC1: memory-augmented generation evaluated on conversational QA benchmarks, not coding agents."}
+{"id": "sb-02269", "s": "IC1", "g": "", "r": "IC1: self-updatable LLM with latent memory pool, not coding agents."}
+{"id": "sb-02270", "s": "IC1", "g": "", "r": "IC1: benchmark of memory of LLM agents in general, not coding agents."}
+{"id": "sb-02271", "s": "IC1", "g": "", "r": "IC1: benchmark for web assistance agents, not software development."}
+{"id": "sb-02272", "s": "IC1", "g": "", "r": "IC1: role-playing dialogue benchmark, not coding agents."}
+{"id": "sb-02273", "s": "EC1", "g": "", "r": "EC1: data science code generation benchmark scored by pass@1, no agentic multi-step behaviour."}
+{"id": "sb-02274", "s": "IC1", "g": "", "r": "IC1: benchmark of mobile GUI agents, not software development."}
+{"id": "sb-02275", "s": "IC1", "g": "", "r": "IC1: memory framework for healthcare consultation agents, another domain."}
+{"id": "sb-02285", "s": "EC6", "g": "c", "r": "EC6: test-time compute scaling for SWE-bench issue repair, issue repair is always excluded."}
+{"id": "sb-02286", "s": "Include", "g": "b", "r": "Include: memory of past repair trajectories turned into plans supplied in the coding agent's prompt, a memory context mechanism for coding agents."}
+{"id": "sb-02290", "s": "IC1", "g": "", "r": "IC1: hierarchical memory for general multi-agent systems, not coding agents."}
+{"id": "sb-02291", "s": "IC1", "g": "", "r": "IC1: reading agent for long-document comprehension, not coding agents."}
+{"id": "sb-02292", "s": "IC1", "g": "", "r": "IC1: agentic memory architecture evaluated on conversational memory benchmarks, not coding agents."}
+{"id": "sb-02293", "s": "IC1", "g": "", "r": "IC1: execution-state memory for general long-horizon agents on MemoryArena, not coding agents."}
+{"id": "sb-02295", "s": "IC1", "g": "", "r": "IC1: interactive reading of long texts for question answering, not coding agents."}
+{"id": "sb-02296", "s": "EC6", "g": "c", "r": "EC6: comparison of context management strategies for SWE-agent on SWE-bench Verified, issue repair is always excluded."}
+{"id": "sb-02297", "s": "IC1", "g": "", "r": "IC1: context pruning for general long-horizon LLM agents, not context files or evaluation of coding agents on development tasks."}
+{"id": "sb-02298", "s": "EC6", "g": "c", "r": "EC6: runtime execution-state layer for coding agents evaluated on SWE-bench Verified issue repair."}
+{"id": "sb-02299", "s": "IC1", "g": "", "r": "IC1: programmatic context manager for general agents evaluated on memory benchmarks, not coding agents."}
+{"id": "sb-02305", "s": "IC1", "g": "", "r": "IC1: benchmark of LLM tool selection, not coding agents on software development."}
+{"id": "sb-02311", "s": "IC1", "g": "", "r": "IC1: tool merging and retrieval for LLM agent tool use, not coding agents on software development."}
+{"id": "sb-02315", "s": "IC1", "g": "", "r": "IC1: module conflicts in the Python ecosystem, no coding agents."}
+{"id": "sb-02317", "s": "IC1", "g": "", "r": "IC1: checklist-based LLM evaluation of instruction following, not coding agents."}
+{"id": "sb-02318", "s": "Include", "g": "b", "r": "Include: compositional security risk of agent skill sets (skills as a context mechanism); borderline whether the agents are coding agents, so kept for the author."}
+{"id": "sb-02319", "s": "Include", "g": "b", "r": "Include: SKILL.md supply-chain attacks on agent skill registries, a context mechanism; borderline whether the agents are coding agents, so kept for the author."}
+{"id": "sb-02320", "s": "Include", "g": "b", "r": "Include: evaluation framework for agent skills (structured instruction artifacts) across 19 agent-model configurations, a context mechanism."}
+{"id": "sb-02322", "s": "Include", "g": "b", "r": "Include: evaluating agents' use of skill files with process rubrics; borderline whether the agents are coding agents, so kept for the author."}
+{"id": "sb-02323", "s": "IC1", "g": "", "r": "IC1: empirical study of developers' dotfiles repositories, no coding agents."}
+{"id": "sb-02324", "s": "Include", "g": "b", "r": "Include: benchmark of how Codex and Claude Code follow logical relations in skill files, a context mechanism with coding agents."}
+{"id": "sb-02325", "s": "Include", "g": "b", "r": "Include: partial-credit evaluation of agent skill trajectories on SkillsBench, evaluation of skills as a context mechanism."}
+{"id": "sb-02328", "s": "IC1", "g": "", "r": "IC1: structured memory system for conversational AI agents, not coding agents."}
+{"id": "sb-02329", "s": "IC1", "g": "", "r": "IC1: memory-skill co-evolution for general long-horizon agents, not coding agents."}
+{"id": "sb-02331", "s": "IC1", "g": "", "r": "IC1: memory abstraction for agents in ALFWorld, ScienceWorld, BabyAI, not coding agents."}
+{"id": "sb-02332", "s": "IC1", "g": "", "r": "IC1: skill memory for tool-use agents on AppWorld and similar, not coding agents on software development."}
+{"id": "sb-02333", "s": "IC1", "g": "", "r": "IC1: learnable memory skills for general agents on QA and ALFWorld, not coding agents."}
+{"id": "sb-02334", "s": "EC6", "g": "c", "r": "EC6: building verifiable SWE environments from GitHub PRs for training coding agents, evaluated as SWE-bench style issue repair."}
+{"id": "sb-02335", "s": "IC1", "g": "", "r": "IC1: hyperparameter tuning of knowledge graph and LLM systems for multi-hop QA, not coding agents."}
+{"id": "sb-02336", "s": "IC1", "g": "", "r": "IC1: memory evolution for general long-horizon agents on tau-bench and similar, not coding agents."}
+{"id": "sb-02337", "s": "IC1", "g": "", "r": "IC1: persistent topic-document memory for general LLM agents, not coding agents."}
+{"id": "sb-02338", "s": "IC1", "g": "", "r": "IC1: co-evolving retrieval policy and memory for general LLM agents, not coding agents."}
+{"id": "sb-02339", "s": "IC1", "g": "", "r": "IC1: memory reconstruction for agents on ALFWorld and WebShop, not coding agents."}
+{"id": "sb-02340", "s": "IC1", "g": "", "r": "IC1: search over chat logs for conversational memory, not coding agents."}
+{"id": "sb-02341", "s": "IC1", "g": "", "r": "IC1: memory framework for personal AI assistants, not coding agents."}
+{"id": "sb-02342", "s": "IC1", "g": "", "r": "IC1: memory engine for multimodal affective intelligence, another domain."}
+{"id": "sb-02344", "s": "Include", "g": "b", "r": "Include: multi-session memory benchmark for software agents with controlled comparison of memory conditions, a memory context mechanism with coding agents."}
+{"id": "sb-02345", "s": "IC1", "g": "", "r": "IC1: automatic prompt optimization on NLP tasks, not coding agents."}
+{"id": "sb-02347", "s": "Include", "g": "a", "r": "Include: feature-oriented editing where an evolution agent turns edits of a feature structure into repository code patches, with a controlled user study; close to spec-driven development."}
+{"id": "sb-02348", "s": "Include", "g": "b", "r": "Include: survey of agent skills as reusable procedural artifacts in systems such as Claude Code, a context mechanism."}
+{"id": "sb-02349", "s": "IC1", "g": "", "r": "IC1: skill evolution with a persistent wiki for general agents, no indication of coding agents on software development."}
+{"id": "sb-02350", "s": "IC1", "g": "", "r": "IC1: hierarchical skill reuse for cost-efficient general agents on localization and ALFWorld benchmarks, not context files with coding agents developing software."}
+{"id": "sb-02351", "s": "EC6", "g": "c", "r": "EC6: mining AI agent pull requests on GitHub for merge conflicts, observational study without an evaluation-method contribution."}
+{"id": "sb-02352", "s": "IC1", "g": "", "r": "IC1: synthesizing skills from source code to augment general agents, not context files of coding agents developing software."}
+{"id": "sb-02357", "s": "IC1", "g": "", "r": "IC1: survey of knowledge conflicts in LLMs, not coding agents."}
+{"id": "sb-02358", "s": "IC1", "g": "", "r": "IC1: LLM behaviour under knowledge conflicts, not coding agents."}
+{"id": "sb-02361", "s": "IC1", "g": "", "r": "IC1: label bias in in-context learning for text classification, not coding agents."}
+{"id": "sb-02362", "s": "EC1", "g": "", "r": "EC1: coding style of LLM code generation versus humans, no agentic multi-step behaviour."}
+{"id": "sb-02364", "s": "IC1", "g": "", "r": "IC1: qualitative study of developers' implementation design decisions, no coding agents."}
+{"id": "sb-02365", "s": "IC1", "g": "", "r": "IC1: mining design rationale from Jira issue logs with LLM prompt tuning, not coding agents."}
+{"id": "sb-02367", "s": "EC1", "g": "", "r": "EC1: training LLMs for repository-level code completion, completion without agentic behaviour."}
+{"id": "sb-02372", "s": "IC1", "g": "", "r": "IC1: verifiable safe tool use for enterprise LLM agents via MCP, not coding agents on software development."}
+{"id": "sb-02375", "s": "EC3", "g": "", "r": "EC3: editorial on registered reports in software engineering."}
+{"id": "sb-02376", "s": "EC6", "g": "c", "r": "EC6: security evaluation of insecure actions by coding agents, security tasks are excluded under EC6."}
+{"id": "sb-02377", "s": "IC1", "g": "", "r": "IC1: compiling policies into tool-call gates for agents on airline/retail/banking benchmarks, not coding agents."}
+{"id": "sb-02379", "s": "IC1", "g": "", "r": "IC1: RL training for LLM self-correction, not coding agents on software development."}
+{"id": "sb-02380", "s": "EC1", "g": "", "r": "EC1: domain-specific code generation by LLMs with API knowledge prompting, no agentic behaviour."}
