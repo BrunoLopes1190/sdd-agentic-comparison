@@ -209,3 +209,17 @@ Pass by priority group: 2 or more links 238 of 856, forward 169 of 787, rest 149
 **Cost (measured).** Tokens reported by each agent at the end: 99 agents, 11.15 million tokens (about 113 000 per agent of 100 candidates, against about 85 000 per agent of 30 in the pilot: most of the cost is fixed). With the conversion given by the author (1% of the 5-hour session ≈ 260 000 tokens; 1% of the week ≈ 2 million), about 43% of a session and 5.6% of the week, plus the orchestrating session (not measured). No usage limit was reached.
 
 **Sample and queue** (`python slr/snowball_merge.py queue 20261128`). Random sample of 50 of the 2776 majority-excluded candidates (`random.Random(20261128).sample(sorted ids, 50)`): `slr/snowball/sample-50.csv`. Screening queue `slr/snowball/queue.csv`: **606** = the 556 that pass, in the fixed order, with the 50 sample candidates at random positions (same random generator) within the first 300; the queue shows no votes, majority or group. Screened blind by the author with `python slr/screen.py sb` (decisions in `slr/snowball/decisions.csv`).
+
+**Author's blind title/abstract screening** (28 Nov, `python slr/screen.py sb`; `slr/snowball/decisions.csv`): 606 of 606 decided (556 that passed the pre-filter + the blind sample of 50).
+
+| Result | n |
+|---|---|
+| Sample of 50 AI-excluded: included by the author | **0** (IC1 30, EC1 7, EC6 5, EC5 4, IC3 2, EC2 1, EC3 1): pre-filter accepted (step 8 (5)) |
+| 556 that passed: Include | 473 |
+| Maybe | 48 |
+| Excluded | 35 (IC1 19, EC5 6, EC6 5, EC1 2, EC2 1, EC3 1, Other 1) |
+| Changed after seeing the AI suggestion | 2 |
+
+521 kept (Include or Maybe) against the plan estimate of 50–100 and the trigger of 120: full-text AI filter added (protocol step 8 (7), change log 28 Nov).
+
+**Full-text AI filter** (`slr/ai-prompts/snowball-ft-vote.md`, `slr/snowball_ft.py`). Full texts: `python slr/fetch_fulltext.py sb` (arXiv, also the arXiv version of DOI records; others to fetch by hand; access log `slr/fulltext-access.csv`). Batches of 8 in queue order (`slr/snowball/ft-batches/bNN.txt`; the pilot and the first 17 ids in batches of 3); runs 1 and 2 on every batch, run 3 on the ids where they disagree (`tNN.txt`); outputs `slr/snowball/ft-runs/`, majority `slr/snowball/ft-votes.csv`, tokens per agent `slr/snowball/ft-usage.csv`. Sonnet subagents. Pilot (28 Nov): 6 candidates × 3 runs, every output clean (quotes verbatim). Measured on the author's new plan: session 23% → 30%, week 15% → 16% for 360 000 subagent tokens (about 20 000 per candidate-run with batches of 3; most of it fixed per agent). Runs scheduled from 28 Nov 19:42, one round per 5-hour session (about 3.5 M tokens each), stop at 80% of the week.
