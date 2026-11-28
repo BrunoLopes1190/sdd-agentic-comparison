@@ -1,6 +1,7 @@
 """Full-text step 1: download the PDFs of the pass-3 includes from arXiv (also the arXiv version of DOI records) and extract their text.
 
-Run: python slr/fetch_fulltext.py   (from the repository root; re-runnable, skips files already there)
+Run: python slr/fetch_fulltext.py [sb]   (from the repository root; re-runnable, skips files already there;
+     sb: the snowballing candidates decided Include or Maybe in slr/snowball/decisions.csv)
 PDFs and text go to slr/fulltext/ (git-ignored: copyrighted). The access log, slr/fulltext-access.csv,
 records where each full text came from (protocol §4.2 step 7, IC4) and is committed. Records with no arXiv version are
 logged "to fetch by hand": save the PDF as slr/fulltext/<key>.pdf and re-run; the row is set to ok with the publisher as source.
@@ -10,6 +11,7 @@ import json
 import re
 import os
 import subprocess
+import sys
 import time
 import urllib.parse
 import urllib.request
@@ -19,7 +21,15 @@ LOG = "slr/fulltext-access.csv"
 
 
 def includes():
-    """Keys whose last pass-3 decision is Include, with their queue row."""
+    """Keys whose last pass-3 decision is Include, with their queue row (sb: snowballing Include or Maybe)."""
+    if sys.argv[1:] == ["sb"]:
+        last = {r["id"]: r for r in csv.DictReader(open("slr/snowball/decisions.csv", encoding="utf-8"))}
+        rows = [dict(r, key=r["id"]) for r in csv.DictReader(open("slr/snowball/queue.csv", encoding="utf-8"))
+                if last[r["id"]]["final"] in ("Include", "Maybe")]
+        for r in rows:  # arXiv DOI -> abs URL; OpenAlex-only URL -> empty, so the arXiv title search runs
+            r["url"] = re.sub(r"(?i)^https://doi\.org/10\.48550/arxiv\.", "https://arxiv.org/abs/", r["url"])
+            r["url"] = "" if "openalex.org" in r["url"] else r["url"]
+        return rows
     last = {r["key"]: r for r in csv.DictReader(open("slr/pass3-decisions.csv", encoding="utf-8"))}
     queue = {r["key"]: r for r in csv.DictReader(open("slr/pass3-queue.csv", encoding="utf-8"))}
     return [queue[k] for k, r in last.items() if r["final"] == "Include"]
