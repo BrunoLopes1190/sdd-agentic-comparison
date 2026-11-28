@@ -111,5 +111,6 @@ if __name__ == "__main__":
         w = csv.DictWriter(fh, ["key", "source", "url", "status", "date"])
         w.writeheader()
         w.writerows(sorted(log.values(), key=lambda x: x["key"]))
-    ok = sum(1 for x in log.values() if x["status"] == "ok")
+    keys = {r["key"] for r in rows}
+    ok = sum(1 for k, x in log.items() if k in keys and x["status"] == "ok")
     print(f"{ok} of {len(includes())} includes have a full text; log in {LOG}")
